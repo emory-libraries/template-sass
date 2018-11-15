@@ -1,0 +1,26 @@
+{
+  "name": "template-sass",
+  "version": "1.0.0",
+  "description": "A baseline Sass framework for Emory Libraries",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emory-libraries/template-sass.git"
+  },
+  "keywords": [
+    "sass",
+    "scss",
+    "sass-mixins",
+    "sass-functions",
+    "sass-library"
+  ],
+  "author": "Lauren Hamel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/emory-libraries/template-sass/issues"
+  },
+  "homepage": "https://github.com/emory-libraries/template-sass#readme"
+}
