@@ -1,2 +1,4 @@
-# template-sass
-Baseline Sass framework for web templating.
+# Template Sass
+
+> A baseline Sass framework for building Emory Libraries templates
+
