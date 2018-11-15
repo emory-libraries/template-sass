@@ -5,7 +5,7 @@
 
 ## Prerequisites
 
-This Sass framework requires [Dart Sass](https://sass-lang.com/dart-sass) 1.5.1 or greater and uses [Node](https://nodejs.org) for core processing and [npm](https://www.npmjs.com/) form package and dependency management.
+This Sass framework requires [Dart Sass](https://sass-lang.com/dart-sass) 1.5.1 or greater and uses [Node](https://nodejs.org) for core processing and [npm](https://www.npmjs.com/) for package and dependency management.
 
 
 ## Installation
@@ -26,4 +26,4 @@ npm install
 
 ## Documentation
 
-Documentation for the Emory Libraries' Sass framework is generated with [Sassdoc](http://sassdoc.com/). To learn more about Sassdoc and how to use it, refer to their [getting started](http://sassdoc.com/getting-started/) guide. For developers contributing to this project, be sure to read up on the Sassdoc's [annotations](http://sassdoc.com/annotations/).
+Documentation for this framework is generated with [Sassdoc](http://sassdoc.com/). To learn more about Sassdoc and how to use it, refer to their [getting started](http://sassdoc.com/getting-started/) guide, and for developers contributing to this project, be sure to read up on Sassdoc's [annotations](http://sassdoc.com/annotations/).
