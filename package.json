@@ -1,10 +1,13 @@
 {
+  "title": "Emory Libraries Sass",
   "name": "template-sass",
   "version": "1.0.0",
   "description": "A baseline Sass framework for Emory Libraries",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "sass": "sass scss/_emory-libraries.scss:css/emory-libraries.css --no-source-map",
+    "test": "sass test:test",
+    "docs": "sassdoc scss/_emory-libraries.scss"
   },
   "repository": {
     "type": "git",
@@ -22,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/emory-libraries/template-sass/issues"
   },
-  "homepage": "https://github.com/emory-libraries/template-sass#readme"
+  "homepage": "https://github.com/emory-libraries/template-sass#readme",
+  "devDependencies": {
+    "sassdoc": "^2.5.1"
+  }
 }
