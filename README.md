@@ -1,4 +1,4 @@
-# Template Sass
+# Emory Libraries Sass
 
 > A baseline Sass framework for building Emory Libraries templates
 
