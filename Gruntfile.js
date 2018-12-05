@@ -1,4 +1,4 @@
-module.exports = function(grunt) {
+module.exports = function(grunt) { 
   
   // Configure tasks.
   grunt.initConfig({
@@ -23,7 +23,13 @@ module.exports = function(grunt) {
       }
     },
     sassdoc: {
-      src: 'scss/_emory-libraries.scss'
+      docs: {
+        src: grunt.file.expand([
+          'scss/*.scss',
+          'scss/**/*.scss',
+          '!scss/vends/**'
+        ])
+      }
     },
     watch: {
       scss: {

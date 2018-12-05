@@ -1,8 +1,5 @@
 {
   "dest": "docs/",
-  "exclude": [
-    "scss/vends/**/*.scss"
-  ],
   "autofill": [
     "throws",
     "content",
