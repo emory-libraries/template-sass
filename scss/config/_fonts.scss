@@ -1,3 +1,85 @@
 ////
 /// @group emory-libraries-config
 ////
+
+
+/// Loads font families from Google Fonts.
+///
+/// @since 1.0.0 - Fonts loaded include `Cardo` and `Open Sans`
+///
+/// @requires {mixin} Brandy::google-font <https://laurenhamel.github.io/brandy/docs/#brandy-fonts-mixin-google-font>
+@include google-font(
+  'Cardo' 400 400i 700,
+  'Open Sans' 400 400i 700 700i
+);
+
+
+/// Indentifies the brand's font set. 
+/// This map uses a naming scheme compatible
+/// with Brandy's `font()` function.
+///
+/// @since 1.0.0
+///
+/// @prop {map} heading - A collection of fonts used for headings
+/// @prop {font} heading.h1 ['Cardo', serif] - The default font for H1 headings
+/// @prop {font} heading.h2 ['Cardo', serif] - The default font for H2 headings
+/// @prop {font} heading.h3 ['Open Sans', sans-serif] - The default font for H3 headings
+/// @prop {font} heading.h4 ['Cardo', serif] - The default font for H4 headings
+/// @prop {font} heading.h5 ['Cardo', serif] - The default font for H5 headings
+/// @prop {font} heading.h6 ['Open Sans', sans-serif] - The default font for H6 headings
+/// @prop {font} heading.topic ['Open Sans', sans-serif] - The default font for headings that represent topic shifts within body content
+///
+/// @prop {font} body ['Open Sans', sans-serif] - The default font for body text
+///
+/// @prop {font} blockquote ['Cardo', serif] - The default font for blockquotes
+///
+/// @prop {font} button ['Open Sans', sans-serif] - The default font for button text
+///
+/// @prop {font} headline ['Cardo', serif] - The default font for headlines
+///
+/// @prop {font} listing ['Cardo', serif] - The default font for listing items
+///
+/// @prop {font} accent ['Cardo', serif] - The default font used for accent text
+///
+/// @link https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font Brandy::font
+///
+/// @type map
+$fonts: (
+
+  'heading': (
+    'h1': ('Cardo', serif),
+    'h2': ('Cardo', serif),
+    'h3': ('Open Sans', sans-serif),
+    'h4': ('Cardo', serif),
+    'h5': ('Cardo', serif),
+    'h6': ('Open Sans', sans-serif),
+    'topic': ('Open Sans', sans-serif)
+  ),
+  
+  'body': ('Open Sans', sans-serif),
+  
+  'blockquote': ('Cardo', serif),
+  
+  'button': ('Open Sans', sans-serif),
+  
+  'headline': ('Cardo', serif),
+  
+  'listing': ('Cardo', serif),
+  
+  'accent': ('Cardo', serif)
+
+);
+
+
+/// Sets the default font map used by Brandy
+/// to the chosen font set, making it available
+/// through the `font()` function.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} Brandy::brandy-fonts-map <https://laurenhamel.github.io/brandy/docs/#brandy-config-variable-brandy-fonts-map>
+///
+/// @link https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font Brandy::font
+///
+/// @type map
+$brandy-fonts-map: $fonts;

@@ -3,7 +3,7 @@
 ////
 
 
-/// Indentifies the brand color palette. 
+/// Indentifies the brand's color palette. 
 /// This map uses a naming scheme compatible
 /// with Brandy's `color()` function.
 ///
@@ -33,6 +33,8 @@
 ///
 /// @prop {map} white - The white color palette of Emory Libraries
 /// @prop {color} white.base [#FFFFFF] - Our base white color
+///
+/// @link https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-color Brandy::color
 ///
 /// @type map
 $colors-brand: (
@@ -93,6 +95,8 @@ $colors-brand: (
 /// @prop {map} info - Semantic colors for information
 /// @prop {color} info.base [#082B73] - The base info color
 /// @prop {color} info.light [#D0DEFD] - A light variation of the base info color
+///
+/// @link https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-color Brandy::color
 ///
 /// @type map
 $colors-ui: (
