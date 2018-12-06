@@ -1,0 +1,173 @@
+////
+/// @group emory-libraries-config
+////
+
+
+/// Indentifies the brand color palette. 
+/// This map uses a naming scheme compatible
+/// with Brandy's `color()` function.
+///
+/// @since 1.0.0
+///
+/// @prop {map} blue - The blue color palette of Emory Libraries
+/// @prop {color} blue.dark [#091C44] - A dark variation of our blue
+/// @prop {color} blue.base [#082B73] - Our base blue color
+/// @prop {color} blue.mid [#004990] - A mid variation of our blue
+/// @prop {map} blue.bright - A set of bright variations of our blue
+/// @prop {color} blue.bright.base [#5387F7] - The base version of the bright variation of our blue
+/// @prop {color} blue.bright.accessible [#336BE6] - An accessible version of the bright variation of our blue
+/// @prop {color} blue.light [#D0DEFD] - A light variation of our blue
+///
+/// @prop {map} gold - The gold color palette of Emory Libraries
+/// @prop {color} gold.base [#E9BF55] - Our base gold color
+///
+/// @prop {map} charcoal - The charcoal color palette of Emory Libraries
+/// @prop {color} charcoal.base [#605858] - Our base charcoal color
+///
+/// @prop {map} slate - The slate color palette of Emory Libraries
+/// @prop {color} slate.base [#B6BDCC] - Our base slate color
+/// @prop {color} slate.light [#E7EAF1] - A light variation of our slate
+///
+/// @prop {map} black - The black color palette of Emory Libraries
+/// @prop {color} black.base [#000000] - Our base black color
+///
+/// @prop {map} white - The white color palette of Emory Libraries
+/// @prop {color} white.base [#FFFFFF] - Our base white color
+///
+/// @type map
+$colors-brand: (
+  
+  'blue': (
+    'dark': #091C44,
+    'base': #082B73,
+    'mid': #004990,
+    'bright': (
+      'base': #5387F7,
+      'accessible': #336BE6
+    ),
+    'light': #D0DEFD
+  ),
+  
+  'gold': (
+    'base': #E9BF55
+  ),
+  
+  'charcoal': (
+    'base': #605858
+  ),
+  
+  'slate': (
+    'base': #B6BDCC,
+    'light': #E7EAF1
+  ),
+  
+  'black': (
+    'base': #000000
+  ),
+  
+  'white': (
+    'base': #FFFFFF
+  )
+  
+);
+
+
+/// Identifies the user interface color palette.
+/// This map uses a naming scheme compatible
+/// with the Brandy's `color()` function.
+///
+/// @since 1.0.0
+///
+/// @prop {map} error - Semantic colors for errors
+/// @prop {color} error.base [#B82216] - The base error color
+/// @prop {color} error.light [#EABDB9] - A light variation of the base error color
+///
+/// @prop {map} success - Semantic colors for success
+/// @prop {color} success.base [#257611] - The base success color
+/// @prop {color} success.light [#E0F6DA] - A light variation of the base success color
+///
+/// @prop {map} caution - Semantic colors for cautions
+/// @prop {color} caution.base [#AB750C] - The base caution color
+/// @prop {color} caution.light [#F6E4C1] - A light variation of the base caution color
+///
+/// @prop {map} info - Semantic colors for information
+/// @prop {color} info.base [#082B73] - The base info color
+/// @prop {color} info.light [#D0DEFD] - A light variation of the base info color
+///
+/// @type map
+$colors-ui: (
+  
+  'error': (
+    'base': #B82216,
+    'light': #EABDB9
+  ),
+  
+  'success': (
+    'base': #257611,
+    'light': #E0F6DA
+  ),
+  
+  'caution': (
+    'base': #AB750C,
+    'light': #F6E4C1
+  ),
+  
+  'info': (
+    'base': map-deep-get($colors-brand, 'blue.base'),
+    'light': map-deep-get($colors-brand, 'blue.light')
+  )
+  
+);
+
+
+/// Compiles the complete color set composed of
+/// both brand and UI colors.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @type map
+$colors: map-extend($colors-brand, ('ui': $colors-ui));
+
+
+/// Sets the default color map used by Brandy
+/// to the chosen color set, making it available
+/// through the `color()` function.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} Brandy::brandy-colors-map <https://laurenhamel.github.io/brandy/docs/#brandy-config-variable-brandy-colors-map>
+///
+/// @link https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-color Brandy::color
+///
+/// @type map
+$brandy-colors-map: $colors;
+
+
+/// Defines the default **dark** text color.
+/// This also sets the default dark text color used
+/// by Brandy's `color-contrast()` function.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} Brandy::brandy-dark-text <https://laurenhamel.github.io/brandy/docs/#brandy-config-variable-brandy-dark-text>
+///
+/// @link https://laurenhamel.github.io/brandy/docs/#brandy-colors-function-color-contrast Brandy::color-contrast
+///
+/// @type color
+$brandy-dark-text: color('charcoal');
+
+
+/// Defines the default **light** text color.
+/// This also sets the default light text color used
+/// by Brandy's `color-contrast()` function.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} Brandy::brandy-light-text <https://laurenhamel.github.io/brandy/docs/#brandy-config-variable-brandy-light-text>
+///
+/// @link https://laurenhamel.github.io/brandy/docs/#brandy-colors-function-color-contrast Brandy::color-contrast
+///
+/// @type color
+$brandy-light-text: color('white');

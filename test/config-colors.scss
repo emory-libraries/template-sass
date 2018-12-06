@@ -1,0 +1,7 @@
+@import '../scss/emory-libraries';
+
+@include test('color', (
+  ('blue'): map-deep-get($colors, 'blue.base'),
+  ('ui', 'error'): map-deep-get($colors, 'ui.error.base'),
+  ('ui', 'info', 'light'): map-deep-get($colors, 'ui.info.light')
+));
