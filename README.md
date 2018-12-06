@@ -5,7 +5,7 @@
 
 ## Prerequisites
 
-This Sass framework requires [Dart Sass](https://sass-lang.com/dart-sass) 1.5.1 or greater and uses [Node](https://nodejs.org) for core processing and [npm](https://www.npmjs.com/) for package and dependency management.
+This Sass framework requires [Dart Sass](https://sass-lang.com/dart-sass) 1.5.1 or greater and uses [Node](https://nodejs.org) for core processing and [npm](https://www.npmjs.com/) for package and dependency management. It also uses the [Brandy](https://laurenhamel.github.io/brandy) and [Breakpoint](http://breakpoint-sass.com/) Sass libraries.
 
 
 ## Installation
