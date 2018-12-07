@@ -47,6 +47,12 @@ module.exports = function(grunt) {
         ],
         tasks: ['build']
       }
+    },
+    'gh-pages': {
+      options: {
+        base: 'docs'
+      },
+      src: ['**']
     }
   });
   
@@ -64,6 +70,10 @@ module.exports = function(grunt) {
   grunt.registerTask('dev', [
     'build',
     'watch'
+  ]);
+  grunt.registerTask('dist', [
+    'build',
+    'gh-pages'
   ]);
   
 };
