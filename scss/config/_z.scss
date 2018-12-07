@@ -1,3 +1,62 @@
 ////
 /// @group emory-libraries-config
 ////
+
+/// Indentifies z-index layers. 
+/// This map uses a schema compatible
+/// with Brandy's `z()` function.
+///
+/// @since 1.0.0
+///
+/// @prop {number} lost [-99999]
+/// @prop {number} below [-1]
+/// @prop {number} default [auto]
+/// @prop {number} above [1]
+/// @prop {number} docked [5]
+/// @prop {number} dropdown [10]
+/// @prop {number} modal [100]
+/// @prop {number} popup [500]
+/// @prop {number} spinner [1000]
+/// @prop {number} alert [2000]
+///
+/// @link https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-z Brandy::z
+///
+/// @type map
+$z: (
+  
+  'lost': -99999,
+  
+  'below': -1,
+  
+  'default': auto,
+  
+  'above': 1,
+  
+  'docked': 5,
+  
+  'dropdown': 10,
+  
+  'modal': 100,
+  
+  'popup': 500,
+  
+  'spinner': 1000,
+  
+  'alert': 2000
+  
+) !default;
+
+
+/// Sets the default z-index layer map used
+/// by Brandy to the chosen z-index map, 
+/// making it available through the `z()`
+/// function.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} Brandy::brandy-z-map <https://laurenhamel.github.io/brandy/docs/#brandy-config-variable-brandy-z-map>
+///
+/// @link https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-z Brandy::z
+///
+/// @type map
+$brandy-z-map: $screens;
