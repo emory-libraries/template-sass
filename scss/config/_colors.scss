@@ -71,7 +71,7 @@ $colors-brand: (
     'base': #FFFFFF
   )
   
-);
+) !default;
 
 
 /// Identifies the user interface color palette.
@@ -121,7 +121,7 @@ $colors-ui: (
     'light': map-deep-get($colors-brand, 'blue.light')
   )
   
-);
+) !default;
 
 
 /// Compiles the complete color set composed of
@@ -132,7 +132,7 @@ $colors-ui: (
 /// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
 ///
 /// @type map
-$colors: map-extend($colors-brand, ('ui': $colors-ui));
+$colors: map-extend($colors-brand, ('ui': $colors-ui)) !default;
 
 
 /// Sets the default color map used by Brandy

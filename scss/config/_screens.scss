@@ -13,7 +13,7 @@
 /// @since 1.0.0
 ///
 /// @type number
-$screen-s: 600px;
+$screen-s: 600px !default;
 
 
 /// Sets the breakpoint for medium screens.
@@ -27,7 +27,7 @@ $screen-s: 600px;
 /// @since 1.0.0
 ///
 /// @type number
-$screen-m: 900px;
+$screen-m: 900px !default;
 
 
 /// Sets the breakpoint for large screens.
@@ -40,7 +40,7 @@ $screen-m: 900px;
 /// @since 1.0.0
 ///
 /// @type number
-$screen-l: 1200px;
+$screen-l: 1200px !default;
 
 
 /// Compiles our commonly used breakpoints
@@ -69,7 +69,7 @@ $screens: (
   'm': $screen-s ($screen-l - 1),
   'l': min-width $screen-l
   
-);
+) !default;
 
 
 /// Sets the default screens map used by Brandy

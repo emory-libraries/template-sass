@@ -1,3 +1,33 @@
 ////
 /// @group emory-libraries-config
 ////
+
+
+/// Sets the default vertical rhythm.
+///
+/// @since 1.0.0
+///
+/// @type number
+///
+/// TODO: Determine vertical rhythm.
+$rhythm-y: 2em !default;
+
+
+/// Sets the default horizontal rhythm.
+///
+/// @since 1.0.0
+///
+/// @type number
+///
+/// TODO: Determine horizontal rhythm.
+$rhythm-x: 1em !default;
+
+
+/// Sets the default line height.
+///
+/// @since 1.0.0
+///
+/// @type number
+///
+/// TODO: Determine line height.
+$line-height: 1.5 !default;
