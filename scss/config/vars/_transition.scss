@@ -1,0 +1,28 @@
+/// Sets the default transition duration.
+///
+/// @since 1.0.0
+///
+/// @type number
+///
+/// TODO: Determine transition duration.
+$transition-duration: .25s !default;
+
+
+/// Sets the default transition timing.
+///
+/// @since 1.0.0
+///
+/// @type number
+///
+/// TODO: Determine transition timing.
+$transition-timing: ease !default;
+
+
+/// Sets the default transition all.
+///
+/// @since 1.0.0
+///
+/// @type number
+///
+/// TODO: Determine transition all.
+$transition-all: all $transition-duration $transition-timing !default;
