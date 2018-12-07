@@ -1,3 +1,86 @@
 ////
 /// @group emory-libraries-config
 ////
+
+/// Sets the breakpoint for small screens. 
+/// This number should represent a breakpoint 
+/// that includes the most common screen sizes 
+/// for mobile devices when in potrait mode. This
+/// breakpoint should also represent the smallest
+/// typical screen size for tablets in portrait
+/// mode.
+///
+/// @since 1.0.0
+///
+/// @type number
+$screen-s: 600px;
+
+
+/// Sets the breakpoint for medium screens.
+/// This number should represent a breakpoint 
+/// that includes the most common screen sizes
+/// for tablet devices when in portrait mode. This 
+/// breakpoint should also represent the smallest
+/// typical screen size for tablets in landscape
+/// mode.
+///
+/// @since 1.0.0
+///
+/// @type number
+$screen-m: 900px;
+
+
+/// Sets the breakpoint for large screens.
+/// This number should represent a breakpoint 
+/// that includes the most common screen sizes
+/// for tablet devices when in landscape mode. This 
+/// breakpoint should also represent the smallest
+/// typical screen size for laptops and desktops.
+///
+/// @since 1.0.0
+///
+/// @type number
+$screen-l: 1200px;
+
+
+/// Compiles our commonly used breakpoints
+/// into a range that can used with Breakpoint
+/// to easily build `@media` queries. This
+/// map uses a schema compatible with 
+/// Brandy's `screen()` function.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $screen-s
+/// @requires {variable} $screen-m
+/// @requires {variable} $screen-l
+///
+/// @prop {mixed} s [max-width ($screen-s - 1)] - The main breakpoint for small screens
+/// @prop {mixed} m [$screen-s ($screen-l - 1)] - The main breakpoint for medium screens
+/// @prop {mixed} l [min-width $screen-l] - The main breakpoint for large screens
+///
+/// @link https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-screen Brandy::screen
+/// @link http://breakpoint-sass.com/ Breakpoint
+///
+/// @type map
+$screens: (
+  
+  's': max-width ($screen-s - 1),
+  'm': $screen-s ($screen-l - 1),
+  'l': min-width $screen-l
+  
+);
+
+
+/// Sets the default screens map used by Brandy
+/// to the chosen set of breakpoints, making it available
+/// through the `screen()` function.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} Brandy::brandy-screens-map <https://laurenhamel.github.io/brandy/docs/#brandy-config-variable-brandy-screens-map>
+///
+/// @link https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-screen Brandy::screen
+///
+/// @type map
+$brandy-screens-map: $screens;
