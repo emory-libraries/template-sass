@@ -1,0 +1,38 @@
+/// Sets the default border width for small borders.
+///
+/// @since 1.0.0
+///
+/// @type number
+///
+/// TODO: Determine the small border width.
+$border-width-s: 1px !default;
+
+
+/// Sets the default border width for medium borders.
+///
+/// @since 1.0.0
+///
+/// @type number
+///
+/// TODO: Determine the medium border width.
+$border-width-m: 2px !default;
+
+
+/// Sets the default border width for large borders.
+///
+/// @since 1.0.0
+///
+/// @type number
+///
+/// TODO: Determine the large border width.
+$border-width-l: 4px !default;
+
+
+/// Sets the default border width for extra-large borders.
+///
+/// @since 1.0.0
+///
+/// @type number
+///
+/// TODO: Determine the extra-large border width.
+$border-width-xl: 6px !default;
