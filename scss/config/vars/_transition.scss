@@ -9,7 +9,7 @@
 ///
 /// @type number
 ///
-/// TODO: Determine transition duration.
+/// @todo Determine transition duration.
 $transition-duration: .25s !default;
 
 
@@ -19,7 +19,7 @@ $transition-duration: .25s !default;
 ///
 /// @type number
 ///
-/// TODO: Determine transition timing.
+/// @todo Determine transition timing.
 $transition-timing: ease !default;
 
 
@@ -29,5 +29,5 @@ $transition-timing: ease !default;
 ///
 /// @type number
 ///
-/// TODO: Determine transition all.
+/// @todo Determine transition all.
 $transition-all: all $transition-duration $transition-timing !default;
