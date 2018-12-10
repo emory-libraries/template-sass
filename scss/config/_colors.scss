@@ -149,8 +149,49 @@ $colors: map-extend($colors-brand, ('ui': $colors-ui)) !default;
 $brandy-colors-map: $colors;
 
 
-/// Defines the default **dark** text color.
-/// This also sets the default dark text color used
+/// Sets the default color for dark text. This 
+/// is the font color that will used as our base 
+/// foreground color over light backgrounds.
+///
+/// @since 1.0.0
+///
+/// @type color
+$color-text-dark: color('charcoal');
+
+
+/// Sets the default color for light text. This 
+/// is the font color that will used as our base 
+/// foreground color over dark backgrounds.
+///
+/// @since 1.0.0
+///
+/// @type color
+$color-text-light: color('white');
+
+
+/// Sets the default color for major headings.
+/// This is the font color that will used as our 
+/// base foreground color for headings over light
+/// backgrounds.
+///
+/// @since 1.0.0
+///
+/// @type color
+$color-heading: color('blue', 'dark');
+
+
+/// Sets the default color for actionable text.
+/// This is the font color that will used as our 
+/// base foreground color for things like links
+/// and buttons when over light backgrounds.
+///
+/// @since 1.0.0
+///
+/// @type color
+$color-actionable: color('blue', 'light');
+
+
+/// Defines the default dark text color used
 /// by Brandy's `color-contrast()` function.
 ///
 /// @since 1.0.0
@@ -160,11 +201,10 @@ $brandy-colors-map: $colors;
 /// @link https://laurenhamel.github.io/brandy/docs/#brandy-colors-function-color-contrast Brandy::color-contrast
 ///
 /// @type color
-$brandy-dark-text: color('charcoal');
+$brandy-dark-text: $color-text-dark;
 
 
-/// Defines the default **light** text color.
-/// This also sets the default light text color used
+/// Defines the default light text color used
 /// by Brandy's `color-contrast()` function.
 ///
 /// @since 1.0.0
@@ -174,4 +214,4 @@ $brandy-dark-text: color('charcoal');
 /// @link https://laurenhamel.github.io/brandy/docs/#brandy-colors-function-color-contrast Brandy::color-contrast
 ///
 /// @type color
-$brandy-light-text: color('white');
+$brandy-light-text: $color-text-light;

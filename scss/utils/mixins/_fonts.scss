@@ -1,0 +1,343 @@
+////
+/// @group emory-libraries-utils
+////
+
+
+/// Helps build H1 font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-heading
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-heading] - The color of the heading text
+///
+/// @output Font styles for H1 headings
+@mixin font-h1( $color: $color-heading ) {
+  
+  // Styles the H1.
+  font-family: font('heading.h1');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'heading.h1'));
+  font-weight: bold;
+  font-style: normal;
+  line-height: normal;
+  color: $color;
+  
+}
+
+
+/// Helps build alternative H1 font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-heading
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-heading] - The color of the heading text
+///
+/// @output Font styles for H1 headings
+@mixin font-h1-alt( $color: $color-heading ) {
+  
+  // Styles the alternative H1.
+  font-family: font('heading.h1-alt');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'heading.h1-alt'));
+  font-weight: bold;
+  font-style: normal;
+  line-height: normal;
+  color: $color;
+  
+}
+
+
+/// Helps build H2 font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-heading
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-text-dark] - The color of the heading text
+///
+/// @output Font styles for H2 headings
+@mixin font-h2( $color: $color-heading ) {
+  
+  // Styles the H2.
+  font-family: font('heading.h2');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'heading.h2'));
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.0833; // 78px
+  color: $color;
+  
+}
+
+
+/// Helps build H3 font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-text-dark
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-text-dark] - The color of the heading text
+///
+/// @output Font styles for H3 headings
+@mixin font-h3( $color: $color-text-dark ) {
+  
+  // Styles the H3.
+  font-family: font('heading.h3');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'heading.h3'));
+  font-weight: bold;
+  font-style: normal;
+  line-height: 1.7083; // 41px
+  color: $color;
+  
+}
+
+
+/// Helps build H4 font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-text-dark
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-text-dark] - The color of the heading text
+///
+/// @output Font styles for H4 headings
+@mixin font-h4( $color: $color-text-dark ) {
+  
+  // Styles the H4.
+  font-family: font('heading.h4');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'heading.h4'));
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.5; // 42px
+  color: $color;
+  
+}
+
+
+/// Helps build H5 font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-text-dark
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-text-dark] - The color of the heading text
+///
+/// @output Font styles for H5 headings
+@mixin font-h5( $color: $color-text-dark ) {
+  
+  // Styles the H5.
+  font-family: font('heading.h5');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'heading.h5'));
+  font-weight: normal;
+  font-style: normal;
+  line-height: normal;
+  color: $color;
+  
+}
+
+
+/// Helps build alternative H5 font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-text-dark
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-text-dark] - The color of the heading text
+///
+/// @output Font styles for alternative H5 headings
+@mixin font-h5-alt( $color: $color-text-dark ) {
+  
+  // Styles the alternative H5.
+  font-family: font('heading.h5-alt');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'heading.h5-alt'));
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.6364; // 36px
+  color: $color;
+  
+}
+
+
+/// Helps build H6 font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-text-dark
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-text-dark] - The color of the heading text
+///
+/// @output Font styles for H6 headings
+@mixin font-h6( $color: $color-text-dark ) {
+  
+  // Styles the H6.
+  font-family: font('heading.h6');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'heading.h6'));
+  font-weight: bold;
+  font-style: normal;
+  line-height: 1.6667; // 20px
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: $color;
+  
+}
+
+/// Helps build body font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-text-dark
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-text-dark] - The color of the body text
+///
+/// @output Font styles for body text
+@mixin font-body( $color: $color-text-dark ) {
+  
+  // Styles the body.
+  font-family: font('body');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'body'));
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.9375; // 31px
+  color: $color;
+  
+}
+
+/// Helps build alternative body font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-text-dark
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-text-dark] - The color of the body text
+///
+/// @output Font styles for body text
+@mixin font-body-alt( $color: $color-text-dark ) {
+  
+  // Styles the alternative body.
+  font-family: font('body-alt');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'body-alt'));
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.6429; // 23px
+  color: $color;
+  
+}
+
+
+/// Helps build listing font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-text-dark
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-text-dark] - The color of the listing text
+///
+/// @output Font styles for listings
+@mixin font-listing( $color: $color-text-dark ) {
+  
+  // Styles the listing.
+  font-family: font('listing');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'listing'));
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.6364; // 36px
+  color: $color;
+  
+}
+
+
+/// Helps build accent font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-text-dark
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-text-dark] - The color of the accent text
+///
+/// @output Font styles for accent text
+@mixin font-accent( $color: $color-text-dark ) {
+  
+  // Styles the accent.
+  font-family: font('accent');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'accent'));
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.6111; // 29px
+  color: $color;
+  
+}
+
+
+/// Helps build alternative body font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-text-dark
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-text-dark] - The color of the body text
+///
+/// @output Font styles for body text
+@mixin font-button( $color: $color-text-dark ) {
+  
+  // Styles the alternative body.
+  font-family: font('button');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'button'));
+  font-weight: bold;
+  font-style: normal;
+  line-height: 1.6364; // 18px
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: $color;
+  
+}

@@ -48,21 +48,22 @@ $fonts: (
 
   'heading': (
     'h1': ('Cardo', serif),
+    'h1-alt': ('Cardo', serif),
     'h2': ('Cardo', serif),
     'h3': ('Open Sans', sans-serif),
     'h4': ('Cardo', serif),
     'h5': ('Cardo', serif),
-    'h6': ('Open Sans', sans-serif),
-    'topic': ('Open Sans', sans-serif)
+    'h5-alt': ('Open Sans', sans-serif),
+    'h6': ('Open Sans', sans-serif)
   ),
   
   'body': ('Open Sans', sans-serif),
   
+  'body-alt': ('Open Sans', sans-serif),
+  
   'blockquote': ('Cardo', serif),
   
   'button': ('Open Sans', sans-serif),
-  
-  'headline': ('Cardo', serif),
   
   'listing': ('Cardo', serif),
   
@@ -83,3 +84,50 @@ $fonts: (
 ///
 /// @type map
 $brandy-fonts-map: $fonts;
+
+
+/// Sets the default font size for all text
+/// within the project. This is the font size
+/// that will used as our base for 1(r)em.
+///
+/// @since 1.0.0
+///
+/// @type number
+$font-size: 16px !default;
+
+
+/// Determines the scale for various fonts
+/// based on the default font size. This map
+/// should be identical to the `fonts` map but
+/// use ratios to represent the font's size as
+/// a percentage of our default font size.
+///
+/// @since 1.0.0
+///
+/// @type map
+$fonts-scale: (
+  
+  'heading': (
+    'h1': 4.5,        // 72px
+    'h1-alt': 3,      // 48px
+    'h2': 3,          // 48px
+    'h3': 1.5,        // 24px
+    'h4': 1.75,       // 28px
+    'h5': 1.625,      // 26px
+    'h5-alt': 1.375,  // 22px
+    'h6': .75,        // 12px
+  ),
+  
+  'body': 1,          // 16px
+  
+  'body-alt': .875,   // 14px
+  
+  'blockquote': 3,    // 48px
+  
+  'button': .6875,    // 11px
+  
+  'listing': 1.375,   // 22px
+  
+  'accent': 1.125     // 18px
+  
+);
