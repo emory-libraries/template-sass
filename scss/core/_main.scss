@@ -1,0 +1,21 @@
+////
+/// @group emory-libraries-core
+////
+
+
+/// Normalizes all project styles.
+///
+/// @since 1.0.0
+///
+/// @requires {mixin} Brandy::normalize
+@include normalize();
+
+
+/// Initializes core body styles.
+///
+/// @sinze 1.0.0
+body {
+  margin: 0 auto;
+  font-size: $font-size;
+  color: $color-text-dark;
+}
