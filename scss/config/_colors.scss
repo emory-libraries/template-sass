@@ -156,7 +156,7 @@ $brandy-colors-map: $colors;
 /// @since 1.0.0
 ///
 /// @type color
-$color-text-dark: color('charcoal');
+$color-text-dark: color('charcoal') !default;
 
 
 /// Sets the default color for light text. This 
@@ -166,7 +166,7 @@ $color-text-dark: color('charcoal');
 /// @since 1.0.0
 ///
 /// @type color
-$color-text-light: color('white');
+$color-text-light: color('white') !default;
 
 
 /// Sets the default color for major headings.
@@ -177,7 +177,7 @@ $color-text-light: color('white');
 /// @since 1.0.0
 ///
 /// @type color
-$color-heading: color('blue', 'dark');
+$color-heading: color('blue', 'dark') !default;
 
 
 /// Sets the default color for actionable text.
@@ -188,7 +188,7 @@ $color-heading: color('blue', 'dark');
 /// @since 1.0.0
 ///
 /// @type color
-$color-actionable: color('blue', 'light');
+$color-actionable: color('blue', 'light') !default;
 
 
 /// Defines the default dark text color used
