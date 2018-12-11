@@ -1,0 +1,32 @@
+/// Load the badge component's structure and skin.
+@import 'badge/structure';
+@import 'badge/skin';
+
+
+/// Builds a constructor for the badge component.
+///
+/// @since 1.0.0
+///
+/// @requires {mixin} atoms-badge--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our badge component
+@mixin atoms-badge ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-badge, $custom);
+  
+  // Initialize the button component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-badge;
+    
+    // Load skins.
+    @include atoms-badge--theme( $skin );
+    
+  }
+  
+}

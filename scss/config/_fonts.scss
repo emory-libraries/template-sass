@@ -65,6 +65,8 @@ $fonts: (
   
   'button': ('Open Sans', sans-serif),
   
+  'badge': ('Open Sans', sans-serif),
+  
   'listing': ('Cardo', serif),
   
   'accent': ('Cardo', serif)
@@ -96,6 +98,18 @@ $brandy-fonts-map: $fonts;
 $font-size: 16px !default;
 
 
+/// Sets the default font size used by Brandy
+/// to the chosen font size for use with 
+/// resizing functions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} Brandy::brandy-font-size <https://laurenhamel.github.io/brandy/docs/#brandy-config-variable-brandy-font-size>
+///
+/// @type map
+$brandy-font-size: $font-size;
+
+
 /// Determines the scale for various fonts
 /// based on the default font size. This map
 /// should be identical to the `fonts` map but
@@ -125,6 +139,8 @@ $fonts-scale: (
   'blockquote': 3,    // 48px
   
   'button': .6875,    // 11px
+  
+  'badge': .75,       // 12px
   
   'listing': 1.375,   // 22px
   

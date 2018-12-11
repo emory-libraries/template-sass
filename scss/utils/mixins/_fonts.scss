@@ -315,7 +315,7 @@
 }
 
 
-/// Helps build alternative body font definitions.
+/// Helps build button font definitions.
 ///
 /// @since 1.0.0
 ///
@@ -325,17 +325,44 @@
 /// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
 /// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
 ///
-/// @param {color} color [$color-text-dark] - The color of the body text
+/// @param {color} color [$color-text-dark] - The color of the button text
 ///
-/// @output Font styles for body text
+/// @output Font styles for button text
 @mixin font-button( $color: $color-text-dark ) {
   
-  // Styles the alternative body.
+  // Styles the button.
   font-family: font('button');
   font-size: ($font-size * map-deep-get($fonts-scale, 'button'));
   font-weight: bold;
   font-style: normal;
   line-height: 1.6364; // 18px
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: $color;
+  
+}
+
+/// Helps build badge font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-text-dark
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-text-dark] - The color of the badge text
+///
+/// @output Font styles for badge text
+@mixin font-badge( $color: $color-text-dark ) {
+  
+  // Styles the badge.
+  font-family: font('badge');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'badge'));
+  font-weight: bold;
+  font-style: normal;
+  line-height: 1.6667; // 20px
   letter-spacing: .05em;
   text-transform: uppercase;
   color: $color;
