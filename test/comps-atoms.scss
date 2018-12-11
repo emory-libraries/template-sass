@@ -1,0 +1,16 @@
+@import '../scss/emory-libraries';
+
+.button {
+  @include atoms-button;
+  
+  &.-success {
+    @include atoms-button((
+      'color': (
+        'normal': color('ui', 'success'),
+        'hover': shade(color('ui', 'success'), 25%),
+        'hollow': color('ui', 'success', 'light')
+      )
+    ));
+  }
+  
+}

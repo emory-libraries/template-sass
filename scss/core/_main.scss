@@ -12,10 +12,15 @@
 
 
 /// Initializes core body styles.
-///
-/// @sinze 1.0.0
 body {
   margin: 0 auto;
   font-size: $font-size;
   color: $color-text-dark;
+}
+
+
+/// Resets the positioning and box model for all elements.
+* {
+  position: relative;
+  box-sizing: border-box;
 }

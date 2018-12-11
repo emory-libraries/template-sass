@@ -1,0 +1,106 @@
+/// Defines the base skin of the button component.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-actionable
+/// @requires {variable} $border-width-s
+/// @requires {variable} $transition-duration
+/// @requires {variable} $transition-timing
+///
+/// @prop {map} color - Assigns the component's color properties
+/// @prop {color} color.normal [$color-actionable] - The component's normal color
+/// @prop {color} color.normal [$color-actionable] - The component's color on hover/focus
+/// @prop {number} border [$border-width-s] - The component's border width
+/// @prop {map} transition - Assigns the component's transition properties
+/// @prop {number} transition.duration [$transition-duration] - The component's transition duration
+/// @prop {number} transition.timing [$transition-timing] - The component's transition timing
+///
+/// @type map
+$atoms-button: (
+
+  'color': (
+    'normal': $color-actionable,
+    'hover': color('blue', 'mid'),
+    'hollow': color('blue', 'light')
+  ),
+  'border': $border-width-s,
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  )
+  
+);
+
+
+/// Defines the button component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::color-contrast <https://laurenhamel.github.io/brandy/docs/#brandy-colors-function-color-contrast>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The button component's themeable properties
+@mixin atoms-button--theme ( $skin ) {
+  
+  // Capture any variables that will be used.
+  $normal: map-deep-get($skin, 'color.normal');
+  $hover: map-deep-get($skin, 'color.hover');
+  $hollow: map-deep-get($skin, 'color.hollow');
+  $border: map-deep-get($skin, 'border');
+  $duration: map-deep-get($skin, 'transition.duration');
+  $timing: map-deep-get($skin, 'transition.timing');
+  
+  // Assign base styles.
+  border: $border solid $normal;
+  background-color: $normal;
+  color: color-contrast($normal);
+  transition: border $duration $timing,
+              background-color $duration $timing,
+              color $duration $timing;
+  
+  &.-hollow {
+    background-color: transparent;
+    color: $normal;
+  }
+  
+  // Assign hovered/focused styles.
+  &:hover,
+  &:focus,
+  &.is-hover,
+  &.is-focus {
+    border-color: $hover;
+    background-color: $hover;
+    color: color-contrast($hover);
+    
+    &.-hollow { 
+      border-color: $normal;
+      background-color: $hollow; 
+      color: $normal;
+    }
+    
+  }
+  
+  // Assigns pressed styles.
+  &:active,
+  &.is-active {
+    border-color: $hover;
+    background-color: $hover;
+    color: rgba(color-contrast($hover), .5);
+    
+    &.-hollow {
+      border-color: $normal;
+      background-color: $hollow;
+      color: rgba($normal, .5);
+    }
+    
+  }
+  
+  // Assigns disabled styles.
+  &[disabled],
+  &.is-disabled { 
+    opacity: .5; 
+  }
+  
+}

@@ -188,7 +188,7 @@ $color-heading: color('blue', 'dark') !default;
 /// @since 1.0.0
 ///
 /// @type color
-$color-actionable: color('blue', 'light') !default;
+$color-actionable: color('blue', 'bright', 'accessible') !default;
 
 
 /// Defines the default dark text color used

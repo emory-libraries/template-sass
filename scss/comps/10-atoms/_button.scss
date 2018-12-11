@@ -1,0 +1,32 @@
+/// Load the button component's structure and skin.
+@import 'button/structure';
+@import 'button/skin';
+
+
+/// Builds a constructor for the button component.
+///
+/// @since 1.0.0
+///
+/// @requires {mixin} atoms-button--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our button component
+@mixin atoms-button ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-button, $custom);
+  
+  // Initialize the button component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-button;
+    
+    // Load skins.
+    @include atoms-button--theme( $skin );
+    
+  }
+  
+}
