@@ -329,6 +329,7 @@
   $foreground: map-deep-get($skin, &#39;foreground&#39;);
   $size: map-deep-get($skin, &#39;edge.size&#39;);
   $angle: map-deep-get($skin, &#39;edge.angle&#39;);
+  $radius: map-deep-get($skin, &#39;radius&#39;);
   
   // Defines the badge component&#39;s base styles.
   background-color: $background;
@@ -349,6 +350,11 @@
       transform: skewx(-$angle) rotate(-$angle);
     }
     
+  }
+  
+  // Adds a radius to rounded badges.
+  &amp;.-round {
+    border-radius: $radius;
   }
   
  }" data-collapsed="@mixin atoms-badge--theme($skin) { ... }"><code>@mixin atoms-badge--theme($skin) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Defines the badge component theme.</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$skin</code></th><td data-label="desc"><p>The component&#39;s skin</p></td><td data-label="type"><code>Map</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Output</h3><div class="item__description"><p>The badge component&#39;s themeable properties</p></div><h3 class="item__sub-heading">Requires</h3><ul class="list-unstyled"><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#emory-libraries-utils-mixin-font-badge"><code>font-badge</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[mixin]</span> <a href="#emory-libraries-utils-mixin-font-badge"><code>font-badge</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[external]</span> <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[external]</span> <a href="https://laurenhamel.github.io/brandy/docs/#brandy-colors-function-color-contrast"><code>Brandy::color-contrast</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[external]</span> <a href="https://laurenhamel.github.io/brandy/docs/#brandy-numbers-function-strip-unit"><code>Brandy::strip-unit</code></a></li><li class="item__description item__description--inline"><span class="item__cross-type">[external]</span> <a href="https://laurenhamel.github.io/brandy/docs/#brandy-numbers-function-px"><code>Brandy::px</code></a></li></ul><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-atoms-badge"><code>atoms-badge</code></a></li></ul></section><section class="main__item container item" id="undefined-mixin-atoms-button--theme"><h3 class="item__heading"><a class="item__name" href="#mixin-atoms-button--theme">atoms-button--theme</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin atoms-button--theme($skin) { 
@@ -420,7 +426,8 @@
   &#39;edge&#39;: (
     &#39;size&#39;: 5px,
     &#39;angle&#39;: 3deg
-  )
+  ),
+  &#39;radius&#39;: 5px
   
 );</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Defines the base skin of the button component.</p></div><h3 class="item__sub-heading">Type</h3><p><code>Map</code></p><h3 class="item__sub-heading">Used by</h3><ul class="list-unstyled"><li><span class="item__cross-type">[mixin]</span> <a href="#undefined-mixin-atoms-badge"><code>atoms-badge</code></a></li></ul></section><section class="main__item container item" id="undefined-variable-atoms-button"><h3 class="item__heading"><a class="item__name" href="#variable-atoms-button">atoms-button</a></h3><span class="item__since">Since 1.0.0</span><div class="item__code-wrapper"><pre class="item__code language-scss"><code>$atoms-button: (
 
@@ -442,7 +449,7 @@
   padding: 10px 25px;
   
   // Adds an angled edge to badges by default.
-  &amp;:not(.-square) {
+  &amp;:not(.-square):not(.-round) {
     
     &amp;::after {
       content: &#39;&#39;;

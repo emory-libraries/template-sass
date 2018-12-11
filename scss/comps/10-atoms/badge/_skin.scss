@@ -10,7 +10,8 @@ $atoms-badge: (
   'edge': (
     'size': 5px,
     'angle': 3deg
-  )
+  ),
+  'radius': 5px
   
 );
 
@@ -34,6 +35,7 @@ $atoms-badge: (
   $foreground: map-deep-get($skin, 'foreground');
   $size: map-deep-get($skin, 'edge.size');
   $angle: map-deep-get($skin, 'edge.angle');
+  $radius: map-deep-get($skin, 'radius');
   
   // Defines the badge component's base styles.
   background-color: $background;
@@ -54,6 +56,11 @@ $atoms-badge: (
       transform: skewx(-$angle) rotate(-$angle);
     }
     
+  }
+  
+  // Adds a radius to rounded badges.
+  &.-round {
+    border-radius: $radius;
   }
   
 }

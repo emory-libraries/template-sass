@@ -8,7 +8,7 @@
   padding: 10px 25px;
   
   // Adds an angled edge to badges by default.
-  &:not(.-square) {
+  &:not(.-square):not(.-round) {
     
     &::after {
       content: '';
