@@ -1,4 +1,5 @@
 {
+  "src": "https://material.io/tools/icons/static/icons/:icon.svg",
   "version": "3.0.1",
   "icons": [
     "outline-notifications_off-24px",

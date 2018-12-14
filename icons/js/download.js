@@ -7,10 +7,7 @@ module.exports = function() {
   const _ = require('lodash');
 
   // Get icon data.
-  const icons = require('../icons.json').icons;
-
-  // Set the download link.
-  let src = 'https://material.io/tools/icons/static/icons/:icon.svg';
+  const icons = require('../icons.json');
 
   // Set destination folder for icons.
   const dest = 'icons/svg/';
@@ -28,13 +25,13 @@ module.exports = function() {
   let errors = [];
   
   // Download all icons.
-  _.forEach(icons, (icon) => {
+  _.forEach(icons.icons, (icon) => {
     
     // Save the promise.
     promises.push(
       
       // Download the icon.
-      download(_.replace(src, ':icon', icon))
+      download(_.replace(icons.src, ':icon', icon))
     
       // Handle successful downloads.
       .then((data) => {
