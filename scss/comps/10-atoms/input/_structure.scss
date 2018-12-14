@@ -1,0 +1,55 @@
+/// Defines the base structure of the input component.
+///
+/// @since 1.0.0
+%atoms-input {
+  $padding-x: 20px;
+  padding: 10px $padding-x;
+  appearance: none;
+  -webkit-appearance: none;
+  
+  // Defines variables.
+  $icon-size: 20px;
+  $icon-spacing: 20px;
+  $icon-color: color('blue', 'bright');
+  
+  &,
+  &.-text {
+    
+  }
+  
+  &.-date,
+  &.-time,
+  &.-select {
+    padding-right: ($padding-x + $icon-size + $icon-spacing);
+    background-position: calc(100% - #{$icon-spacing}) center;
+    background-repeat: no-repeat;
+    background-size: auto $icon-size;
+  }
+  
+  &.-date {
+    background-image: url( icon('calendar_today', $icon-color) );
+  }
+  
+  &.-time {
+    background-image: url( icon('access_time', $icon-color) );
+  }
+  
+  &.-select {
+    background-image: url( icon('keyboard_arrow_down', $icon-color) );
+  }
+  
+  &.-checkbox,
+  &.-radio {
+    @include size( 15px );
+    padding: 0;
+  }
+  
+  &.-checkbox {
+    
+  }
+  
+  &.-radio {
+    
+  }
+  
+}

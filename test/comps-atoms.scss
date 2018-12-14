@@ -20,3 +20,8 @@
 .badge {
   @include atoms-badge;
 }
+
+// atoms-input
+.input {
+  @include atoms-input;
+}

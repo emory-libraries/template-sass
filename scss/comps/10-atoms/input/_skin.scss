@@ -1,0 +1,105 @@
+/// Defines the base skin of the input component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$atoms-input: (
+  
+  'border': $border-width-s solid color('slate'),
+  'radius': 5px,
+  'shadow': inset 1px 2px 4px rgba(color('slate'), .5),
+  'foreground': $color-text-dark,
+  'background': color('white'),
+  'select': (
+    'selected': color('slate', 'light')
+  )
+);
+
+
+/// Defines the input component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::color-contrast <https://laurenhamel.github.io/brandy/docs/#brandy-colors-function-color-contrast>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The input component's themeable properties
+@mixin atoms-input--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $border: map-deep-get($skin, 'border');
+  $radius: map-deep-get($skin, 'radius');
+  $shadow: map-deep-get($skin, 'shadow');
+  $foreground: map-deep-get($skin, 'foreground');
+  $background: map-deep-get($skin, 'background');
+  $selected: map-deep-get($skin, 'select.selected');
+  
+  // Build input component styles.
+  background-color: $background;
+  border: $border;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  
+  // Apply styles specific to text inputs.
+  &,
+  &.-text {
+    @include font-body( $foreground );
+  
+    // Change the placeholder styles.
+    @include placeholder {
+      @include font-accent( $foreground );
+      opacity: .5;
+    };
+    
+  }
+  
+  // Apply styles to both date and time inputs.
+  &.-date,
+  &.-time {
+    
+    // Change the placeholder styles.
+    &::-webkit-datetime-edit {
+      @include font-accent( $foreground );
+      opacity: .5;
+    }
+    
+  }
+  
+  // Apply styles specific to date inputs.
+  &.-date {
+    
+  }
+  
+  // Apply styles specific to time inputs.
+  &.-time {
+    
+  }
+  
+  // Apply styles specific to select inputs.
+  &.-select {
+  
+    &:focus,
+    &.is-open {
+      background-color: $selected;
+    }
+    
+    &:not(:focus),
+    &.is-closed {
+      background-color: $background;
+    }
+    
+  }
+  
+  // Apply styles specific to checkbox inputs.
+  &.-checkbox {
+    border-radius: 0;
+  }
+  
+  // Apply styles specific to radio inputs.
+  &.-radio {
+    border-radius: 100%;
+  }
+  
+}

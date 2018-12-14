@@ -18,7 +18,7 @@
   // Extend the default skin.
   $skin: map-extend($atoms-badge, $custom);
   
-  // Initialize the button component.
+  // Initialize the badge component.
   & {
     
     // Load structure.
