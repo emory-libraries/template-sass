@@ -8,10 +8,19 @@
 ///
 /// @since 1.0.0
 ///
+/// @prop {map} path - A set of paths
+/// @prop {string} path.icons [../icons] - The path to the icons directory
+///
 /// @link https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-config Brandy::config
 ///
 /// @type map
-$config: ();
+$config: (
+
+  'path': (
+    'icons': '../icons'
+  )
+
+);
 
 
 /// Sets the default configuration map

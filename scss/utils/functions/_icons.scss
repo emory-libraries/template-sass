@@ -1,0 +1,57 @@
+////
+/// @group emory-libraries-utils
+////
+
+/// Dynamically retrieves an icon from the
+/// icon folder by icon ID. Optionally allows the 
+/// icon to be recolored or resized.
+///
+/// @since 1.0.0
+@function icon( $id, $color: null, $size: null ) {
+  
+  // Sets the path to icon fetcher.
+  $path: config('path.icons') + "/php/icon.php?id=#{$id}";
+  
+  // Initializes any mods.
+  $mods: ();
+  
+  // Recolors the icon.
+  @if( is-color($color) ) {
+    
+    // Gets the color as a hex value.
+    $color: to-hex($color);
+    
+    // Saves the color mod.
+    $mods: append($mods, "color=#{$color}");
+    
+  }
+  
+  // Resizes the icon.
+  @if( is-null($size) == false ) {
+    
+    // Set the width and height.
+    $width: $size;
+    $height: $size;
+  
+    // Determine if the size has a height.
+    @if( is-list($size) ) { 
+      
+      // Reset the width and height.
+      $width: nth($size, 1);
+      $height: nth($size, 2);
+      
+    }
+    
+    // Save the size mod.
+    $mods: append($mods, "size[width]=#{$width}");
+    $mods: append($mods, "size[height]=#{$height}");
+    
+  }
+  
+  // Merge any mods with the path.
+  @each $mod in $mods {$path: $path + "&#{$mod}"; }
+  
+  // Returns the icon path.
+  @return $path; 
+  
+}
