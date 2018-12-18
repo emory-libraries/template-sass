@@ -7,6 +7,8 @@
 ///
 /// @since 1.0.0
 ///
+/// @requires {placeholder} atoms-input
+/// @requires {variable} atoms-input
 /// @requires {mixin} atoms-input--theme
 /// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
 ///
@@ -23,6 +25,17 @@
     
     // Load structure.
     @extend %atoms-input;
+    
+    // Load component accessories.
+    &-label { 
+      @extend %atoms-input-label; 
+    }
+    &-field {
+      @extend %atoms-input-field;
+    }
+    &-group {
+      @extend %atoms-input-group;
+    }
     
     // Load skins.
     @include atoms-input--theme( $skin );

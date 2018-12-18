@@ -102,6 +102,8 @@
   font-weight: bold;
   font-style: normal;
   line-height: 1.7083; // 41px
+  letter-spacing: normal;
+  text-transform: none;
   color: $color;
   
 }
@@ -128,6 +130,8 @@
   font-weight: normal;
   font-style: normal;
   line-height: 1.5; // 42px
+  letter-spacing: normal;
+  text-transform: none;
   color: $color;
   
 }
@@ -154,6 +158,8 @@
   font-weight: normal;
   font-style: normal;
   line-height: normal;
+  letter-spacing: normal;
+  text-transform: none;
   color: $color;
   
 }
@@ -180,6 +186,8 @@
   font-weight: normal;
   font-style: normal;
   line-height: 1.6364; // 36px
+  letter-spacing: normal;
+  text-transform: none;
   color: $color;
   
 }
@@ -233,6 +241,8 @@
   font-weight: normal;
   font-style: normal;
   line-height: 1.9375; // 31px
+  letter-spacing: normal;
+  text-transform: none;
   color: $color;
   
 }
@@ -258,6 +268,8 @@
   font-weight: normal;
   font-style: normal;
   line-height: 1.6429; // 23px
+  letter-spacing: normal;
+  text-transform: none;
   color: $color;
   
 }
@@ -284,6 +296,8 @@
   font-weight: normal;
   font-style: normal;
   line-height: 1.6364; // 36px
+  letter-spacing: normal;
+  text-transform: none;
   color: $color;
   
 }
@@ -310,6 +324,8 @@
   font-weight: normal;
   font-style: normal;
   line-height: 1.6111; // 29px
+  letter-spacing: normal;
+  text-transform: none;
   color: $color;
   
 }
@@ -365,6 +381,60 @@
   line-height: 1.6667; // 20px
   letter-spacing: .05em;
   text-transform: uppercase;
+  color: $color;
+  
+}
+
+/// Helps build label font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-text-dark
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-text-dark] - The color of the label text
+///
+/// @output Font styles for label text
+@mixin font-label( $color: color('blue', 'dark') ) {
+  
+  // Styles the label.
+  font-family: font('label');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'label'));
+  font-weight: bold;
+  font-style: normal;
+  line-height: 1.2; // 12px
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  color: $color;
+  
+}
+
+/// Helps build data font definitions.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $color-text-dark
+/// @requires {variable} $font-size
+/// @requires {variable} $fonts-scale
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+///
+/// @param {color} color [$color-text-dark] - The color of the body text
+///
+/// @output Font styles for data text
+@mixin font-data( $color: $color-text-dark ) {
+  
+  // Styles the data.
+  font-family: font('data');
+  font-size: ($font-size * map-deep-get($fonts-scale, 'data'));
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.6667; // 20px
+  letter-spacing: normal;
+  text-transform: none;
   color: $color;
   
 }

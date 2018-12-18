@@ -25,3 +25,8 @@
 .input {
   @include atoms-input;
 }
+
+// atoms-table
+.table {
+  @include atoms-table;
+}

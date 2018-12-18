@@ -69,7 +69,11 @@ $fonts: (
   
   'listing': ('Cardo', serif),
   
-  'accent': ('Cardo', serif)
+  'accent': ('Cardo', serif),
+  
+  'label': ('Open Sans', sans-serif),
+  
+  'data': ('Open Sans', sans-serif) 
 
 ) !default;
 
@@ -144,6 +148,10 @@ $fonts-scale: (
   
   'listing': 1.375,   // 22px
   
-  'accent': 1.125     // 18px
+  'accent': 1.125,    // 18px
+  
+  'label': .625,      // 10px
+  
+  'data': .75,        // 12px
   
 ) !default;

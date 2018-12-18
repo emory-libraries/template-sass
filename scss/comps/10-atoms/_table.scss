@@ -1,0 +1,57 @@
+/// Load the table component's structure and skin.
+@import 'table/structure';
+@import 'table/skin';
+
+
+/// Builds a constructor for the table component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} atoms-table
+/// @requires {variable} atoms-table
+/// @requires {mixin} atoms-table--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our table component
+@mixin atoms-table ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-table, $custom);
+  
+  // Initialize the table component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-table;
+    
+    // Load parts.
+    &-heading {
+      @extend %atoms-table-heading;
+    }
+    &-caption {
+      @extend %atoms-table-caption;
+    }
+    &-header {
+      @extend %atoms-table-header;
+    }
+    &-body {
+      @extend %atoms-table-body;
+    }
+    &-footer {
+      @extend %atoms-table-footer;
+    }
+    &-row {
+      @extend %atoms-table-row;
+    }
+    &-cell {
+      @extend %atoms-table-cell;
+    }
+    
+    // Load skins.
+    @include atoms-table--theme( $skin );
+    
+  }
+  
+}
