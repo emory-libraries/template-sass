@@ -1,6 +1,9 @@
 /// Defines the base structure of the table component.
 ///
 /// @since 1.0.0
+///
+/// @requires {variable} $rhythm-y
+/// @requires {variable} $rhythm-x
 %atoms-table {
   
   // Capture class name.
