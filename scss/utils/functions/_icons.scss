@@ -7,6 +7,19 @@
 /// icon to be recolored or resized.
 ///
 /// @since 1.0.0
+///
+/// @requires {function} Brandy::strip-unit <https://laurenhamel.github.io/brandy/docs/#brandy-numbers-function-strip-unit>
+/// @requires {function} Brandy::config <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-config>
+/// @requires {function} Brandy::is-color <https://laurenhamel.github.io/brandy/docs/#brandy-type-function-is-color>
+/// @requires {function} Brandy::is-null <https://laurenhamel.github.io/brandy/docs/#brandy-type-function-is-null>
+/// @requires {function} Brandy::is-list <https://laurenhamel.github.io/brandy/docs/#brandy-type-function-is-list>
+/// @requires {function} Brandy::to-hex <https://laurenhamel.github.io/brandy/docs/#brandy-colors-function-to-hex>
+///
+/// @param {string} $id - The ID of the icon
+/// @param {color} $color [null] - The desired color of the icon
+/// @param {number | list} $size [null] - The desired size of the icon, either a single number or list of numbers representing width and height
+///
+/// @returns {string} - The icon's path
 @function icon( $id, $color: null, $size: null ) {
   
   // Sets the path to icon fetcher.
@@ -43,13 +56,18 @@
     }
     
     // Save the size mod.
-    $mods: append($mods, "size[width]=#{$width}");
-    $mods: append($mods, "size[height]=#{$height}");
+    $mods: append($mods, "size[width]=#{strip-unit($width)}");
+    $mods: append($mods, "size[height]=#{strip-unit($height)}");
     
   }
   
   // Merge any mods with the path.
-  @each $mod in $mods {$path: $path + "&#{$mod}"; }
+  @each $mod in $mods { 
+    
+    // Add to path.
+    $path: $path + "&#{$mod}"; 
+    
+  }
   
   // Returns the icon path.
   @return $path; 
