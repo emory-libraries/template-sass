@@ -50,7 +50,11 @@ $atoms-tab: (
 ///
 /// @since 1.0.0
 ///
+/// @requires {mixin} font-h6
+/// @requires {function} icon
 /// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::linear-gradient <https://laurenhamel.github.io/brandy/docs/#brandy-colors-mixin-linear-gradient>
+/// @requires {mixin} Brandy::size <https://laurenhamel.github.io/brandy/docs/#brandy-layout-mixin-size>
 ///
 /// @param {map} skin - The component's skin
 ///

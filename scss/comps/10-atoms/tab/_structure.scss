@@ -1,6 +1,13 @@
 /// Defines the base structure of the tab component.
 ///
 /// @since 1.0.0
+///
+/// @requires {variable} rhythm-y
+/// @requires {variable} rhythm-x
+/// @requires {mixin} Brandy::absolute-center-contents <https://laurenhamel.github.io/brandy/docs/#brandy-layout-mixin-absolute-center-contents>
+/// @requires {mixin} Brandy::absolute <https://laurenhamel.github.io/brandy/docs/#brandy-layout-mixin-absolute>
+/// @requires {mixin} Brandy::margin-y <https://laurenhamel.github.io/brandy/docs/#brandy-layout-mixin-margin-y>
+/// @requires {function} Brandy::z <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-z>
 %atoms-tab {
   
   // Capture class name.
