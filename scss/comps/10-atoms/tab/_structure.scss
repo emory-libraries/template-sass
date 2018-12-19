@@ -1,0 +1,62 @@
+/// Defines the base structure of the tab component.
+///
+/// @since 1.0.0
+%atoms-tab {
+  
+  // Capture class name.
+  $class: &;
+  
+  // Defines the structure of the tab component.
+  appearance: none;
+  -webkit-appearance: none;
+  border: 0;
+  background: transparent;
+  padding: ($rhythm-y / 4) ($rhythm-x * 2);
+  @include absolute-center-contents( true );
+  cursor: pointer;
+  
+  // Initiailzes a divider for each tab.
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+  }
+  
+  // Initializes an indicator for each tab.
+  &::after {
+    content: "";
+    display: block;
+    @include absolute( 100% null null 50% );
+    transform: translatey(-50%) translatex(-50%);
+    z-index: z('above');
+  }
+  
+  // Defines the structure of tab menus.
+  &-menu {
+    display: flex;
+    @include margin-y( $rhythm-y );
+    padding-top: ($rhythm-y / 4);
+    padding-bottom: ($rhythm-y / 2);
+    
+    // Defines structure of menu horizontal rule.
+    &::after {
+      content: "";
+      width: 100%;
+      position: absolute;
+      bottom: ($rhythm-y / 2);
+      left: 0;
+      right: 0;
+    }
+    
+    // Defines structure of tabs within a menu.
+    #{$class} {
+      
+      // Defines structure of tabs when active.
+      &.is-active { }
+      
+    }
+    
+  }
+  
+}
