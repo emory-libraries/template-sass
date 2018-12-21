@@ -1,0 +1,214 @@
+////
+/// @group emory-libraries.patterns.atoms.tab
+////
+
+/// Defines the base skin of the tab component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$atoms-tab: (
+  
+  'thickness': $border-width-s,
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  ),
+  'divider': (
+    'size': 1em
+  ),
+  'indicator': (
+    'size': 30px,
+    'start': 45%,
+    'stop': 55%
+  ),
+  'color': (
+    'default': $color-text-dark,
+    'active': color('blue')
+  ),
+  'border': rgba(color('charcoal'), .25),
+
+  'theme': (
+    'light': (
+      'background': color('white'),
+      'foreground': (
+        'default': color('blue', 'mid'),
+        'active': color('blue', 'bright')
+      ),
+      'border': rgba(color('slate'), .5)
+    ),
+    'dark': (
+      'background': color('blue', 'dark'),
+      'foreground': (
+        'default': color('white'),
+        'active': color('gold')
+      ),
+      'border': rgba(color('slate', 'light'), .25)
+    )
+  )
+  
+);
+
+
+/// Defines the tab component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {mixin} font-h6
+/// @requires {function} icon
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::linear-gradient <https://laurenhamel.github.io/brandy/docs/#brandy-colors-mixin-linear-gradient>
+/// @requires {mixin} Brandy::size <https://laurenhamel.github.io/brandy/docs/#brandy-layout-mixin-size>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The tab component's themeable properties
+@mixin atoms-tab--theme ( $skin ) {
+  
+  // Capture the class name.
+  $class: &;
+  
+  // Captures themeable variables.
+  $thickness: map-deep-get($skin, 'thickness');
+  $duration: map-deep-get($skin, 'transition.duration');
+  $timing: map-deep-get($skin, 'transition.timing');
+  $default: map-deep-get($skin, 'color.default');
+  $active: map-deep-get($skin, 'color.active');
+  $border: map-deep-get($skin, 'border');
+  
+  // Build tab component styles.
+  @include font-h6( $default );
+  transition: all $duration $timing;
+  
+  // Capture tab-specific variables.
+  $divider-size: map-deep-get($skin, 'divider.size');
+  $indicator-size: map-deep-get($skin, 'indicator.size');
+  $indicator-start: map-deep-get($skin, 'indicator.start');
+  $indicator-stop: map-deep-get($skin, 'indicator.stop');
+  
+  // Builds styles between subsequent tabs.
+  &::before {
+    width: $thickness;
+    height: $divider-size;
+  }
+  
+  // Add left border to subsequent tabs.
+  & + &::before {
+    background-color: $border;
+  }
+  
+  // Builds styles for active tabs.
+  &.is-active {
+    color: $active;
+
+    // Displays indicator when active.
+    &::after {
+      content: url( icon('arrow_drop_down', $active, $indicator-size) );
+      @include size( $indicator-size );
+    }
+
+  }
+  
+  // Build tab menu styles.
+  &-menu {
+    
+    // Build horizontal rule styles.
+    &::after {
+      height: $thickness;
+    }
+    
+    // Build light theme menu styles.
+    &,
+    &.-light {
+      $background: map-deep-get($skin, 'theme.light.background');
+      $border: map-deep-get($skin, 'theme.light.border');
+      $default: map-deep-get($skin, 'theme.light.foreground.default');
+      $active: map-deep-get($skin, 'theme.light.foreground.active');
+      
+      background-color: $background;
+      
+      // Styles the horizontal rule under the menu.
+      &::after {
+        background-color: $border;
+      }
+      
+      // Styles tabs when inside a light-themed menu.
+      #{$class} {
+        color: $default;
+    
+        // Styles the tab's active state.
+        &.is-active {
+          color: $active;
+          
+          // Displays indicator when active.
+          &::after {
+            content: url( icon('arrow_drop_down', $active, $indicator-size) );
+            @include linear-gradient(
+              to bottom, 
+              transparent $indicator-start, 
+              $background $indicator-start,
+              $background $indicator-stop,
+              transparent $indicator-stop
+            );
+          }
+          
+        }
+        
+        // Add left border to subsequent tabs.
+        + #{$class}::before {
+          background-color: $border;
+        }
+        
+      }
+      
+    }
+  
+    // Build dark theme menu styles.
+    &.-dark {
+      $background: map-deep-get($skin, 'theme.dark.background');
+      $border: map-deep-get($skin, 'theme.dark.border');
+      $default: map-deep-get($skin, 'theme.dark.foreground.default');
+      $active: map-deep-get($skin, 'theme.dark.foreground.active');
+      
+      background-color: $background;
+      
+      // Styles the horizontal rule under the menu.
+      &::after {
+        background-color: $border;
+      }
+      
+      // Styles tabs when inside a dark-themed menu.
+      #{$class} {
+        color: $default;
+    
+        // Styles the tab's active state.
+        &.is-active {
+          color: $active;
+          
+          // Displays indicator when active.
+          &::after {
+            content: url( icon('arrow_drop_down', $active, $indicator-size) );
+            @include linear-gradient(
+              to bottom, 
+              transparent $indicator-start, 
+              $background $indicator-start,
+              $background $indicator-stop,
+              transparent $indicator-stop
+            );
+          }
+          
+        }
+        
+        // Add left border to subsequent tabs.
+        + #{$class}::before {
+          background-color: $border;
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  
+}

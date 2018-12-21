@@ -1,0 +1,24 @@
+////
+/// @group emory-libraries.patterns.atoms.button
+////
+
+/// Defines the base structure of the button component.
+///
+/// @since 1.0.0
+///
+/// @requires {mixin} Brandy::absolute-center-contents <https://laurenhamel.github.io/brandy/docs/#brandy-layout-mixin-absolute-center-contents>
+/// @requires {mixin} Brandy::padding-x <https://laurenhamel.github.io/brandy/docs/#brandy-layout-mixin-padding-x>
+%atoms-button {
+  
+  // Defines base structure.
+  @include absolute-center-contents(true);
+  @include padding-x( 25px );
+  height: 50px;
+  cursor: pointer;
+  
+  &[disabled],
+  &.is-disabled { 
+    cursor: not-allowed; 
+  }
+  
+}

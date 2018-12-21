@@ -1,0 +1,30 @@
+////
+/// @group emory-libraries.patterns.atoms.badge
+////
+
+/// Defines the base structure of the badge component.
+///
+/// @since 1.0.0
+%atoms-badge {
+  
+  // Builds the badge structure.
+  @include absolute-center-contents(true);
+  padding: 10px 25px;
+  margin: ($rhythm-y / 2) auto;
+  
+  // Adds an angled edge to badges by default.
+  &:not(.-square):not(.-round) {
+    
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      right: 0;
+      z-index: z('below');
+    }
+    
+  }
+  
+}

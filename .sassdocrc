@@ -1,16 +1,25 @@
 {
+  "theme": "../sassdoc-theme-emory-libraries",
   "dest": "docs/",
   "autofill": [
     "throws",
     "content",
     "requires"
   ],
+  "namespace": "emory-libraries",
   "groups": {
-    "emory-libraries-config": "Configurations",
-    "emory-libraries-core": "Core",
-    "emory-libraries-comps": "Components",
-    "emory-libraries-state": "State",
-    "emory-libraries-utils": "Utilities",
-    "emory-libraries-vends": "Vendors"
+    
+    "config": "Configurations",
+    "core": "Core",
+    "patterns": "Patterns",
+    "state": "State",
+    "utils": "Utilities",
+    "vends": "Vendors",
+    
+    "atoms": "Atoms",
+    "molecules": "Molecules",
+    "compounds": "Compounds",
+    "organisms": "Organisms"
+    
   }
 }

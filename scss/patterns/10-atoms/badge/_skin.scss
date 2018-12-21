@@ -1,0 +1,70 @@
+////
+/// @group emory-libraries.patterns.atoms.badge
+////
+
+/// Defines the base skin of the badge component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$atoms-badge: (
+  
+  'background': color('gold'),
+  'foreground': color('blue'),
+  'edge': (
+    'size': 5px,
+    'angle': 3deg
+  ),
+  'radius': 4px
+  
+);
+
+
+/// Defines the badge component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+/// @requires {function} Brandy::color-contrast <https://laurenhamel.github.io/brandy/docs/#brandy-colors-function-color-contrast>
+/// @requires {function} Brandy::strip-unit <https://laurenhamel.github.io/brandy/docs/#brandy-numbers-function-strip-unit>
+/// @requires {function} Brandy::px <https://laurenhamel.github.io/brandy/docs/#brandy-numbers-function-px>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The badge component's themeable properties
+@mixin atoms-badge--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $background: map-deep-get($skin, 'background');
+  $foreground: map-deep-get($skin, 'foreground');
+  $size: map-deep-get($skin, 'edge.size');
+  $angle: map-deep-get($skin, 'edge.angle');
+  $radius: map-deep-get($skin, 'radius');
+  
+  // Defines the badge component's base styles.
+  background-color: $background;
+  @if ( is-color($foreground) ) {
+    @include font-badge( $foreground );
+  }
+  @else {
+    @include font-badge( color-contrast($background) );
+  }
+  
+  // Adds an angeled edge to badges by default.
+  &:not(.-square) {
+    
+    &::after {
+      bottom: -(px(strip-unit($angle)));
+      height: ($size * 2);
+      background-color: $background;
+      transform: skewx(-$angle) rotate(-$angle);
+    }
+    
+  }
+  
+  // Adds a radius to rounded badges.
+  &.-round {
+    border-radius: $radius;
+  }
+  
+}

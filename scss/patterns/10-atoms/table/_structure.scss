@@ -1,0 +1,60 @@
+////
+/// @group emory-libraries.patterns.atoms.table
+////
+
+/// Defines the base structure of the table component.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} $rhythm-y
+/// @requires {variable} $rhythm-x
+%atoms-table {
+  
+  // Capture class name.
+  $class: &;
+  
+  // Defines the structure of the table component.
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  
+  // Defines the structure of table headings.
+  &-heading {
+    display: block;
+    margin-bottom: 0;
+  }
+  
+  // Defines the structure of table captions.
+  &-caption {
+    display: table-caption;
+    margin-bottom: $rhythm-y;
+  }
+  
+  // Defines the structure of table headers.
+  &-header {
+    display: table-header-group;
+  }
+  
+  // Defines the structure of table bodies.
+  &-body {
+    display: table-row-group;
+  }
+  
+  // Defines the structure of table footers.
+  &-footer {
+    display: table-footer-group;
+  }
+  
+  // Defines the structure of table rows.
+  &-row {
+    display: table-row;
+  }
+  
+  // Defines the structure of table cells.
+  &-cell {
+    display: table-cell;
+    padding: ($rhythm-y / 2) $rhythm-x;
+    
+  }
+  
+}

@@ -1,0 +1,43 @@
+////
+/// @group emory-libraries.patterns.atoms.tab
+////
+
+/// Load the tab component's structure and skin.
+@import 'tab/structure';
+@import 'tab/skin';
+
+
+/// Builds a constructor for the tab component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} atoms-tab
+/// @requires {variable} atoms-tab
+/// @requires {mixin} atoms-tab--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our tab component
+@mixin atoms-tab ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-tab, $custom);
+  
+  // Initialize the tab component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-tab;
+    
+    // Loads accessories.
+    &-menu {
+      @extend %atoms-tab-menu;
+    }
+    
+    // Load skins.
+    @include atoms-tab--theme( $skin );
+    
+  }
+  
+}
