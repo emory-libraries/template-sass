@@ -44,7 +44,7 @@ module.exports = (grunt) => {
           '.sassdocrc',
           'package.json',
           'Gruntfile.js',
-          'plopfile.js'
+          'Plopfile.js'
         ],
         tasks: ['build']
       }
