@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.{{group}}s.{{pattern}}
+////
+
+/// Load the {{pattern}} component's structure and skin.
+@import '{{pattern}}/structure';
+@import '{{pattern}}/skin';
+
+/// Builds a constructor for the {{pattern}} component.
+///
+/// @since {{pkg version}}
+///
+/// @requires {placeholder} atoms-{{pattern}}
+/// @requires {variable} atoms-{{pattern}}
+/// @requires {mixin} atoms-{{pattern}}--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our {{pattern}} component
+///
+/// @status complete
+@mixin atoms-{{pattern}} ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-{{pattern}}, $custom);
+  
+  // Initialize the {{pattern}} component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-{{pattern}};
+    
+    // Load skins.
+    @include atoms-{{pattern}}--theme( $skin );
+    
+  }
+  
+}

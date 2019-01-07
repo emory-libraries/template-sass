@@ -1,4 +1,4 @@
-module.exports = function(grunt) { 
+module.exports = (grunt) => { 
   
   // Configure tasks.
   grunt.initConfig({
@@ -43,7 +43,8 @@ module.exports = function(grunt) {
         files: [
           '.sassdocrc',
           'package.json',
-          'Gruntfile.js'
+          'Gruntfile.js',
+          'plopfile.js'
         ],
         tasks: ['build']
       }

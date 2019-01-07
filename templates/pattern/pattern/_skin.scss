@@ -1,0 +1,33 @@
+////
+/// @group emory-libraries.patterns.{{group}}s.{{pattern}}
+////
+
+/// Defines the base skin of the {{pattern}} component.
+///
+/// @since {{pkg version}}
+///
+/// @type map
+$atoms-{{pattern}}: (
+  
+  
+  
+);
+
+/// Defines the {{pattern}} component theme.
+///
+/// @since {{pkg version}}
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The {{pattern}} component's themeable properties
+@mixin atoms-{{pattern}}--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  // ...
+  
+  // Defines the {{pattern}} component's base styles.
+  // ...
+  
+}
