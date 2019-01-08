@@ -16,6 +16,7 @@
     "utils": "Utilities",
     "vends": "Vendors",
     
+    "tokens": "Tokens",
     "atoms": "Atoms",
     "molecules": "Molecules",
     "compounds": "Compounds",
