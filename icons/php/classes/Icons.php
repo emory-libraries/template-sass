@@ -9,9 +9,6 @@ class Icons {
   // Set directory location.
   private $dir = '../svg';
   
-  // Set icon style.
-  private $style = 'outline';
-  
   // Constructor
   function __construct() {
     
@@ -32,7 +29,7 @@ class Icons {
     $icon = array_values(array_filter($this->icons, function($svg) use ($id) {
       
       // Find the icon file with the given ID.
-      return preg_match("/^{$this->style}-{$id}/", $svg);
+      return preg_match("/^{$id}/", $svg);
       
     }));
                          
