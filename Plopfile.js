@@ -9,10 +9,11 @@ module.exports = (plop) => {
     // Define configurations for the pattern generator.
     pattern: {
       groups: {
-        atom: 10,
-        molecule: 20,
-        compound: 30,
-        organism: 40
+        tokens: 10,
+        atom: 20,
+        molecule: 30,
+        compound: 40,
+        organism: 50
       },
       regex: ( group ) => new RegExp(`^(\\/\\*\\*\\* insert new ${group}s here \\*\\*\\*\\/)$`, 'mi')
     }
