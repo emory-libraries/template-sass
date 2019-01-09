@@ -1,0 +1,33 @@
+////
+/// @group emory-libraries.patterns.tokens.heading
+////
+
+/// Defines the base skin of the heading component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$tokens-heading: (
+  
+  
+  
+);
+
+/// Defines the heading component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The heading component's themeable properties
+@mixin tokens-heading--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  // ...
+  
+  // Defines the heading component's base styles.
+  // ...
+  
+}

@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.tokens.heading
+////
+
+/// Load the heading component's structure and skin.
+@import 'heading/structure';
+@import 'heading/skin';
+
+/// Builds a constructor for the heading component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} tokens-heading
+/// @requires {variable} tokens-heading
+/// @requires {mixin} tokens-heading--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our heading component
+///
+/// @status construction
+@mixin tokens-heading ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($tokens-heading, $custom);
+  
+  // Initialize the heading component.
+  & {
+    
+    // Load structure.
+    @extend %tokens-heading;
+    
+    // Load skins.
+    @include tokens-heading--theme( $skin );
+    
+  }
+  
+}
