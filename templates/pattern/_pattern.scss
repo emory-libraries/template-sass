@@ -20,19 +20,19 @@
 /// @output The native structure and skin of our {{pattern}} component
 ///
 /// @status complete
-@mixin atoms-{{pattern}} ( $custom: () ) {
+@mixin {{group}}s-{{pattern}} ( $custom: () ) {
   
   // Extend the default skin.
-  $skin: map-extend($atoms-{{pattern}}, $custom);
+  $skin: map-extend(${{group}}s-{{pattern}}, $custom);
   
   // Initialize the {{pattern}} component.
   & {
     
     // Load structure.
-    @extend %atoms-{{pattern}};
+    @extend %{{group}}s-{{pattern}};
     
     // Load skins.
-    @include atoms-{{pattern}}--theme( $skin );
+    @include {{group}}s-{{pattern}}--theme( $skin );
     
   }
   

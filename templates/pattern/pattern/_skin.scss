@@ -7,7 +7,7 @@
 /// @since {{pkg version}}
 ///
 /// @type map
-$atoms-{{pattern}}: (
+${{group}}s-{{pattern}}: (
   
   
   
@@ -22,7 +22,7 @@ $atoms-{{pattern}}: (
 /// @param {map} skin - The component's skin
 ///
 /// @output The {{pattern}} component's themeable properties
-@mixin atoms-{{pattern}}--theme ( $skin ) {
+@mixin {{group}}s-{{pattern}}--theme ( $skin ) {
   
   // Capture themeable variables from skin.
   // ...
