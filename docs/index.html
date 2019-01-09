@@ -11235,7 +11235,7 @@
                                 
                                 // Defines the heading token&#x27;s font styles.
                                 font-family: font(&#x27;heading.&#x27; + $level);
-                                font-size: ($font-size + map-deep-get($fonts-scale, &#x27;heading.&#x27; + $level));
+                                font-size: ($font-size * map-deep-get($fonts-scale, &#x27;heading.&#x27; + $level));
                                 font-weight: map-deep-get($skin, $level + &#x27;.font-weight&#x27;);
                                 font-style: map-deep-get($skin, $level + &#x27;.font-style&#x27;);
                                 line-height: map-deep-get($skin, $level + &#x27;.line-height&#x27;);
@@ -13335,7 +13335,7 @@
                         
                         
                               <h3 class="item__sub-heading">Description</h3>
-                              <div class="item__description"><p>Default to a certain value if no other given values are valid.</p>
+                              <div class="item__description"><p>Default to a certain value if no other given values are set.</p>
                             </div>
                         
                         

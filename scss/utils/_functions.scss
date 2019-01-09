@@ -2,7 +2,7 @@
 /// @group emory-libraries.utils.functions
 ////
 
-/// Default to a certain value if no other given values are valid.
+/// Default to a certain value if no other given values are set.
 @function default( $values... ) {
   
   // Get the default value.
