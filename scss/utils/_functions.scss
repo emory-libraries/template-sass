@@ -2,4 +2,31 @@
 /// @group emory-libraries.utils.functions
 ////
 
+/// Default to a certain value if no other given values are valid.
+@function default( $values... ) {
+  
+  // Get the default value.
+  $default: last($values);
+  
+  // Get the desired values in order of preference.
+  $values: head($values);
+  
+  // Try to use any of the given values.
+  @each $value in $values {
+    
+    // See if the value is valid.
+    @if( $value != false and is-null($value) == false ) {
+      
+      // Use the value if valid.
+      @return $value;
+      
+    }
+    
+  }
+  
+  // Otherwise, return the default.
+  @return $default;
+  
+}
+
 @import 'functions/icons';

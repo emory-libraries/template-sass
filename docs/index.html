@@ -1120,11 +1120,24 @@
                                   </li>
                                 
                                 
-                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.heading" data-name="tokens-heading--theme" data-type="mixin">
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.heading" data-name="tokens-heading--font" data-type="mixin">
                                     
-                                    <a href="#patterns.tokens.heading-mixin-tokens-heading--theme">
+                                    <a href="#patterns.tokens.heading-mixin-tokens-heading--font">
                                       
-                                      tokens-heading--theme
+                                      tokens-heading--font
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.heading" data-name="tokens-heading--color" data-type="mixin">
+                                    
+                                    <a href="#patterns.tokens.heading-mixin-tokens-heading--color">
+                                      
+                                      tokens-heading--color
                                       
                                       
                                       
@@ -1442,6 +1455,19 @@
                         
                         <ul class="list-unstyled">
                         
+                          
+                            <li class="sidebar__item sassdoc__item" data-group="utils.functions" data-name="default" data-type="function">
+                              
+                              <a href="#utils.functions-function-default">
+                                
+                                default
+                                
+                                
+                                
+                              </a>
+                              
+                            </li>
+                          
                           
                             <li class="sidebar__item sassdoc__item" data-group="utils.functions" data-name="icon" data-type="function">
                               
@@ -3091,6 +3117,8 @@
                       
                       
                       
+                      
+                      
                   
                   
                   
@@ -3256,6 +3284,8 @@
                   
                   
                   
+                      
+                      
                       
                       
                       
@@ -4379,6 +4409,8 @@
                       
                       
                       
+                      
+                      
                   
                   
                   
@@ -4596,6 +4628,8 @@
                   
                   
                   
+                      
+                      
                       
                       
                       
@@ -10921,6 +10955,12 @@
                               
                                   
                                     
+                                  
+                                    
+                                    
+                                  
+                                    
+                                    
                               
                                 
                               
@@ -10928,7 +10968,7 @@
                                   
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
-                                       data-expanded="@mixin tokens-heading($custom) { 
+                                       data-expanded="@mixin tokens-heading($level, $color: null, $custom: ()) { 
                                 
                                 // Extend the default skin.
                                 $skin: map-extend($tokens-heading, $custom);
@@ -10940,12 +10980,13 @@
                                   @extend %tokens-heading;
                                   
                                   // Load skins.
-                                  @include tokens-heading--theme( $skin );
+                                  @include tokens-heading--font( $level, $skin );
+                                  @include tokens-heading--color( $level, $skin, $color );
                                   
                                 }
                                 
                                }"
-                                       data-collapsed="@mixin tokens-heading($custom) { ... }"><code class="js-autoindent">@mixin tokens-heading($custom) { ... }</code></pre>
+                                       data-collapsed="@mixin tokens-heading($level, $color: null, $custom: ()) { ... }"><code class="js-autoindent">@mixin tokens-heading($level, $color: null, $custom: ()) { ... }</code></pre>
                               
                                   
                                 </div>
@@ -10991,6 +11032,40 @@
                                       <tbody>
                                           <tr class="item__parameter">
                                             <th scope="row" data-label="name">
+                                              <code>$level</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The intended heading level</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  string
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$color</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The desired heading color</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  color
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                  <code></code>
+                                            </td>
+                                          </tr>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
                                               <code>$custom</code>
                                             </th>
                                             <td data-label="desc">
@@ -11003,7 +11078,7 @@
                                               </code>
                                             </td>
                                             <td data-label="default">
-                                                &mdash;<span class="visually-hidden"> none</span>
+                                                  <code></code>
                                             </td>
                                           </tr>
                                       </tbody>
@@ -11058,7 +11133,19 @@
                                   
                                             <span class="item__cross-type">mixin</span>
                                   
-                                            <a href="#patterns.tokens.heading-mixin-tokens-heading--theme"><code>tokens-heading--theme</code></a>
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading--font"><code>tokens-heading--font</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading--color"><code>tokens-heading--color</code></a>
                                   
                                   
                                           </li>
@@ -11109,13 +11196,13 @@
                             </section>  
                           
                             <section class="main__item container item"
-                                     id="patterns.tokens.heading-mixin-tokens-heading--theme">
+                                     id="patterns.tokens.heading-mixin-tokens-heading--font">
                             
                               <h3 class="item__heading">
                                 
                               
-                                <a class="item__name" href="#patterns.tokens.heading-mixin-tokens-heading--theme">
-                                  tokens-heading--theme
+                                <a class="item__name" href="#patterns.tokens.heading-mixin-tokens-heading--font">
+                                  tokens-heading--font
                                 </a>
                               
                               
@@ -11135,6 +11222,8 @@
                               
                                   
                                     
+                                  
+                                    
                               
                                 
                               
@@ -11142,16 +11231,19 @@
                                   
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
-                                       data-expanded="@mixin tokens-heading--theme($skin) { 
+                                       data-expanded="@mixin tokens-heading--font($level, $skin) { 
                                 
-                                // Capture themeable variables from skin.
-                                // ...
-                                
-                                // Defines the heading component&#x27;s base styles.
-                                // ...
+                                // Defines the heading token&#x27;s font styles.
+                                font-family: font(&#x27;heading.&#x27; + $level);
+                                font-size: ($font-size + map-deep-get($fonts-scale, &#x27;heading.&#x27; + $level));
+                                font-weight: map-deep-get($skin, $level + &#x27;.font-weight&#x27;);
+                                font-style: map-deep-get($skin, $level + &#x27;.font-style&#x27;);
+                                line-height: map-deep-get($skin, $level + &#x27;.line-height&#x27;);
+                                letter-spacing: map-deep-get($skin, $level + &#x27;.letter-spacing&#x27;);
+                                text-transform: map-deep-get($skin, $level + &#x27;.text-transform&#x27;);
                                 
                                }"
-                                       data-collapsed="@mixin tokens-heading--theme($skin) { ... }"><code class="js-autoindent">@mixin tokens-heading--theme($skin) { ... }</code></pre>
+                                       data-collapsed="@mixin tokens-heading--font($level, $skin) { ... }"><code class="js-autoindent">@mixin tokens-heading--font($level, $skin) { ... }</code></pre>
                               
                                   
                                 </div>
@@ -11164,7 +11256,7 @@
                               
                               
                                     <h3 class="item__sub-heading">Description</h3>
-                                    <div class="item__description"><p>Defines the heading component theme.</p>
+                                    <div class="item__description"><p>Defines the heading token&#39;s font properties.</p>
                                   </div>
                               
                               
@@ -11197,10 +11289,27 @@
                                       <tbody>
                                           <tr class="item__parameter">
                                             <th scope="row" data-label="name">
+                                              <code>$level</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The intended heading level</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  string
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
                                               <code>$skin</code>
                                             </th>
                                             <td data-label="desc">
-                                              <p>The component&#39;s skin</p>
+                                              <p>The token&#39;s skin</p>
                                   
                                             </td>
                                             <td data-label="type">
@@ -11223,7 +11332,7 @@
                               
                               
                                     <h3 class="item__sub-heading">Output</h3>
-                                    <div class="item__description"><p>The heading component&#39;s themeable properties</p>
+                                    <div class="item__description"><p>The heading component&#39;s font property</p>
                                   </div>
                               
                               
@@ -11233,6 +11342,262 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-font-size"><code>font-size</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-fonts-scale"><code>fonts-scale</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font"><code>Brandy::font</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.tokens.heading-mixin-tokens-heading--color">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.tokens.heading-mixin-tokens-heading--color">
+                                  tokens-heading--color
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                                  
+                                    
+                                  
+                                    
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin tokens-heading--color($level, $skin, $color: null) { 
+                                
+                                // Defines the heading token&#x27;s color styles.
+                                color: default($color, map-deep-get($skin, $level + &#x27;.color&#x27;));
+                                
+                               }"
+                                       data-collapsed="@mixin tokens-heading--color($level, $skin, $color: null) { ... }"><code class="js-autoindent">@mixin tokens-heading--color($level, $skin, $color: null) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                                
+                                
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the heading token&#39;s color properties.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$level</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The intended heading level</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  string
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The token&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$color</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The desired heading color</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  color
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                  <code></code>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The heading component&#39;s font property</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-default"><code>default</code></a>
+                                  
+                                  
+                                          </li>
+                                  
                                   
                                   
                                   
@@ -11320,7 +11685,70 @@
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$tokens-heading: (
                                 
-                                
+                                &#x27;h1&#x27;:     (
+                                  &#x27;font-weight&#x27;: bold,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: normal,
+                                  &#x27;letter-spacing&#x27;: normal,
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: $color-heading
+                                ),
+                                &#x27;h1-alt&#x27;: (
+                                  &#x27;font-weight&#x27;: bold,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: normal,
+                                  &#x27;letter-spacing&#x27;: normal,
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: $color-heading
+                                ),
+                                &#x27;h2&#x27;:     (
+                                  &#x27;font-weight&#x27;: normal,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: 1.0833, // 78px
+                                  &#x27;letter-spacing&#x27;: normal,
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: $color-heading
+                                ),
+                                &#x27;h3&#x27;:     (
+                                  &#x27;font-weight&#x27;: bold,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: 1.7083, // 41px,
+                                  &#x27;letter-spacing&#x27;: normal,
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: $color-text-dark
+                                ),
+                                &#x27;h4&#x27;:     (
+                                  &#x27;font-weight&#x27;: normal,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: normal,
+                                  &#x27;letter-spacing&#x27;: 1.5, // 42px
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: $color-text-dark
+                                ),
+                                &#x27;h5&#x27;:     (
+                                  &#x27;font-weight&#x27;: normal,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: normal,
+                                  &#x27;letter-spacing&#x27;: normal,
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: $color-text-dark
+                                ),
+                                &#x27;h5-alt&#x27;: (
+                                  &#x27;font-weight&#x27;: normal,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: normal,
+                                  &#x27;letter-spacing&#x27;: 1.6364, // 36px
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: $color-text-dark
+                                ),
+                                &#x27;h6&#x27;:     (
+                                  &#x27;font-weight&#x27;: bold,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: normal,
+                                  &#x27;letter-spacing&#x27;: 1.6667, // 20px
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: $color-text-dark
+                                )
                                 
                               );</code></pre>
                               
@@ -11349,6 +11777,38 @@
                               
                               
                               
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.tokens.heading-variable-color-heading"><code>color-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.tokens.heading-variable-color-text-dark"><code>color-text-dark</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
                               
                               
                               
@@ -12809,6 +13269,119 @@
                       
                     </h3>
                     
+                    
+                      <section class="main__item container item"
+                               id="utils.functions-function-default">
+                      
+                        <h3 class="item__heading">
+                          
+                        
+                          <a class="item__name" href="#utils.functions-function-default">
+                            default
+                          </a>
+                        
+                        
+                          
+                          
+                        </h3>
+                        
+                        
+                      
+                        
+                          
+                        
+                        
+                          
+                        
+                          <div class="item__code-wrapper">
+                            
+                            <pre class="item__code  item__code--togglable language-scss"
+                                 data-current-state="collapsed"
+                                 data-expanded="@function default() { 
+                          
+                          // Get the default value.
+                          $default: last($values);
+                          
+                          // Get the desired values in order of preference.
+                          $values: head($values);
+                          
+                          // Try to use any of the given values.
+                          @each $value in $values {
+                            
+                            // See if the value is valid.
+                            @if( $value !&#x3D; false and is-null($value) &#x3D;&#x3D; false ) {
+                              
+                              // Use the value if valid.
+                              @return $value;
+                              
+                            }
+                            
+                          }
+                          
+                          // Otherwise, return the default.
+                          @return $default;
+                          
+                         }"
+                                 data-collapsed="@function default() { ... }"><code class="js-autoindent">@function default() { ... }</code></pre>
+                        
+                            
+                          </div>
+                        
+                          
+                        
+                        
+                          
+                          
+                        
+                        
+                              <h3 class="item__sub-heading">Description</h3>
+                              <div class="item__description"><p>Default to a certain value if no other given values are valid.</p>
+                            </div>
+                        
+                        
+                            <h3 class="item__sub-heading">Parameters</h3>
+                            
+                            
+                              <p>None.</p>
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                      
+                      </section>  
                     
                       <section class="main__item container item"
                                id="utils.functions-function-icon">

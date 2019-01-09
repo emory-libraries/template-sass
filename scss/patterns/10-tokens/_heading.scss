@@ -12,15 +12,18 @@
 ///
 /// @requires {placeholder} tokens-heading
 /// @requires {variable} tokens-heading
-/// @requires {mixin} tokens-heading--theme
+/// @requires {mixin} tokens-heading--font
+/// @requires {mixin} tokens-heading--color
 /// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
 ///
-/// @param {map} $custom - A custom skin for the component
+/// @param {string} level - The intended heading level
+/// @param {color} color [null] - The desired heading color
+/// @param {map} custom [()] - A custom skin for the component
 ///
 /// @output The native structure and skin of our heading component
 ///
 /// @status construction
-@mixin tokens-heading ( $custom: () ) {
+@mixin tokens-heading ( $level, $color: null, $custom: () ) {
   
   // Extend the default skin.
   $skin: map-extend($tokens-heading, $custom);
@@ -32,7 +35,8 @@
     @extend %tokens-heading;
     
     // Load skins.
-    @include tokens-heading--theme( $skin );
+    @include tokens-heading--font( $level, $skin );
+    @include tokens-heading--color( $level, $skin, $color );
     
   }
   

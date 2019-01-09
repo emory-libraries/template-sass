@@ -6,28 +6,119 @@
 ///
 /// @since 1.0.0
 ///
+/// @requires {variable} color-heading
+/// @requires {variable} color-text-dark
+///
 /// @type map
 $tokens-heading: (
   
-  
+  'h1':     (
+    'font-weight': bold,
+    'font-style': normal,
+    'line-height': normal,
+    'letter-spacing': normal,
+    'text-transform': none,
+    'color': $color-heading
+  ),
+  'h1-alt': (
+    'font-weight': bold,
+    'font-style': normal,
+    'line-height': normal,
+    'letter-spacing': normal,
+    'text-transform': none,
+    'color': $color-heading
+  ),
+  'h2':     (
+    'font-weight': normal,
+    'font-style': normal,
+    'line-height': 1.0833, // 78px
+    'letter-spacing': normal,
+    'text-transform': none,
+    'color': $color-heading
+  ),
+  'h3':     (
+    'font-weight': bold,
+    'font-style': normal,
+    'line-height': 1.7083, // 41px,
+    'letter-spacing': normal,
+    'text-transform': none,
+    'color': $color-text-dark
+  ),
+  'h4':     (
+    'font-weight': normal,
+    'font-style': normal,
+    'line-height': normal,
+    'letter-spacing': 1.5, // 42px
+    'text-transform': none,
+    'color': $color-text-dark
+  ),
+  'h5':     (
+    'font-weight': normal,
+    'font-style': normal,
+    'line-height': normal,
+    'letter-spacing': normal,
+    'text-transform': none,
+    'color': $color-text-dark
+  ),
+  'h5-alt': (
+    'font-weight': normal,
+    'font-style': normal,
+    'line-height': normal,
+    'letter-spacing': 1.6364, // 36px
+    'text-transform': none,
+    'color': $color-text-dark
+  ),
+  'h6':     (
+    'font-weight': bold,
+    'font-style': normal,
+    'line-height': normal,
+    'letter-spacing': 1.6667, // 20px
+    'text-transform': none,
+    'color': $color-text-dark
+  )
   
 );
 
-/// Defines the heading component theme.
+/// Defines the heading token's font properties.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} font-size
+/// @requires {variable} fonts-scale
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {string} level - The intended heading level
+/// @param {map} skin - The token's skin
+///
+/// @output The heading component's font property
+@mixin tokens-heading--font ( $level, $skin ) {
+  
+  // Defines the heading token's font styles.
+  font-family: font('heading.' + $level);
+  font-size: ($font-size + map-deep-get($fonts-scale, 'heading.' + $level));
+  font-weight: map-deep-get($skin, $level + '.font-weight');
+  font-style: map-deep-get($skin, $level + '.font-style');
+  line-height: map-deep-get($skin, $level + '.line-height');
+  letter-spacing: map-deep-get($skin, $level + '.letter-spacing');
+  text-transform: map-deep-get($skin, $level + '.text-transform');
+  
+}
+
+/// Defines the heading token's color properties.
 ///
 /// @since 1.0.0
 ///
 /// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
 ///
-/// @param {map} skin - The component's skin
+/// @param {string} level - The intended heading level
+/// @param {map} skin - The token's skin
+/// @param {color} color [null] - The desired heading color
 ///
-/// @output The heading component's themeable properties
-@mixin tokens-heading--theme ( $skin ) {
+/// @output The heading component's font property
+@mixin tokens-heading--color ( $level, $skin, $color: null ) {
   
-  // Capture themeable variables from skin.
-  // ...
-  
-  // Defines the heading component's base styles.
-  // ...
+  // Defines the heading token's color styles.
+  color: default($color, map-deep-get($skin, $level + '.color'));
   
 }
