@@ -1052,5 +1052,10 @@
       "outline-toggle_off-24px",
       "outline-toggle_on-24px"
     ]
+  },
+  {
+    "name": "socicon",
+    "src": "https://s3.amazonaws.com/icomoon.io/114779/Socicon/Socicon.svg",
+    "version": "3.6.2"
   }
 ]
