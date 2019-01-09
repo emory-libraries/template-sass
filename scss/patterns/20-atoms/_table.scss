@@ -19,6 +19,8 @@
 /// @param {map} $custom - A custom skin for the component
 ///
 /// @output The native structure and skin of our table component
+///
+/// @status construction
 @mixin atoms-table ( $custom: () ) {
   
   // Extend the default skin.
