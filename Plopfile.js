@@ -9,7 +9,7 @@ module.exports = (plop) => {
     // Define configurations for the pattern generator.
     pattern: {
       groups: {
-        tokens: 10,
+        token: 10,
         atom: 20,
         molecule: 30,
         compound: 40,
