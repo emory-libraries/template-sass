@@ -77,4 +77,46 @@ module.exports = (plop) => {
     }
   });
   
+  // Build generator for tests.
+  plop.setGenerator('test', {
+    description: 'Creates a new test',
+    prompts: [
+      {
+        type: 'input',
+        name: 'test',
+        message: 'Name of the test',
+        filter: ( input ) => slugify(input)
+      },
+      {
+        type: 'confirm',
+        name: 'example',
+        message: 'Will this test have examples?',
+        default: false
+      }
+    ],
+    actions(data) { 
+      
+      // Initialize actions.
+      const actions = [];
+      
+      // 1. Create a new SCSS file for the test.
+      actions.push({
+        type: 'add',
+        path: 'test/{{test}}.scss',
+        templateFile: 'templates/test/test.scss'
+      });
+        
+      // 2. Create a new HTML file for the test.
+      if( data.example ) actions.push({
+        type: 'add',
+        path: 'test/{{test}}.html',
+        templateFile: 'templates/test/test.html'
+      });
+      
+      // Generate.
+      return actions;
+      
+    }
+  });
+  
 };
