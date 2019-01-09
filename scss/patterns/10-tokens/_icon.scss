@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.tokens.icon
+////
+
+/// Load the icon component's structure and skin.
+@import 'icon/structure';
+@import 'icon/skin';
+
+/// Builds a constructor for the icon component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} tokens-icon
+/// @requires {variable} tokens-icon
+/// @requires {mixin} tokens-icon--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our icon component
+///
+/// @status construction
+@mixin tokens-icon ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($tokens-icon, $custom);
+  
+  // Initialize the icon component.
+  & {
+    
+    // Load structure.
+    @extend %tokens-icon;
+    
+    // Load skins.
+    @include tokens-icon--theme( $skin );
+    
+  }
+  
+}
