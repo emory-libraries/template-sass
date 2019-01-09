@@ -8,18 +8,18 @@
 
 /// Builds a constructor for the {{pattern}} component.
 ///
-/// @since {{pkg version}}
+/// @since {{pkg 'version'}}
 ///
-/// @requires {placeholder} atoms-{{pattern}}
-/// @requires {variable} atoms-{{pattern}}
-/// @requires {mixin} atoms-{{pattern}}--theme
+/// @requires {placeholder} {{group}}s-{{pattern}}
+/// @requires {variable} {{group}}s-{{pattern}}
+/// @requires {mixin} {{group}}s-{{pattern}}--theme
 /// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
 ///
 /// @param {map} $custom - A custom skin for the component
 ///
 /// @output The native structure and skin of our {{pattern}} component
 ///
-/// @status complete
+/// @status construction
 @mixin {{group}}s-{{pattern}} ( $custom: () ) {
   
   // Extend the default skin.

@@ -4,7 +4,7 @@
 
 /// Defines the base skin of the {{pattern}} component.
 ///
-/// @since {{pkg version}}
+/// @since {{pkg 'version'}}
 ///
 /// @type map
 ${{group}}s-{{pattern}}: (
@@ -15,7 +15,7 @@ ${{group}}s-{{pattern}}: (
 
 /// Defines the {{pattern}} component theme.
 ///
-/// @since {{pkg version}}
+/// @since {{pkg 'version'}}
 ///
 /// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
 ///
