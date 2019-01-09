@@ -30,10 +30,8 @@ $atoms-table: (
 ///
 /// @since 1.0.0
 ///
-/// @requires {mixin} font-data
-/// @requires {mixin} font-h5-alt
-/// @requires {mixin} font-h6
-/// @requires {mixin} font-body
+/// @requires {mixin} tokens-heading
+/// @requires {mixin} tokens-text
 /// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
 /// @requires {function} Brandy::color-contrast <https://laurenhamel.github.io/brandy/docs/#brandy-colors-function-color-contrast>
 /// @requires {mixin} Brandy::last-child <https://laurenhamel.github.io/brandy/docs/#brandy-selects-mixin-last-child>

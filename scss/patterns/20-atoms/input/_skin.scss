@@ -46,9 +46,7 @@ $atoms-input: (
 ///
 /// @since 1.0.0
 ///
-/// @requires {mixin} font-accent
-/// @requires {mixin} font-body
-/// @requires {mixin} font-label
+/// @requires {mixin} tokens-text
 /// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
 /// @requires {mixin} Brandy::placeholder <https://laurenhamel.github.io/brandy/docs/#brandy-selects-mixin-placeholder>
 ///
