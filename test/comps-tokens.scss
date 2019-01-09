@@ -1,0 +1,15 @@
+@import '../scss/emory-libraries';
+
+// tokens-heading
+.h1 { 
+  @include tokens-heading('h1'); 
+  &.-alt { @include tokens-heading('h1-alt'); }
+}
+.h2 { @include tokens-heading('h2'); }
+.h3 { @include tokens-heading('h3'); }
+.h4 { @include tokens-heading('h4'); }
+.h5 { 
+  @include tokens-heading('h5'); 
+  &.-alt { @include tokens-heading('h5-alt'); }
+}
+.h6 { @include tokens-heading('h6'); }
