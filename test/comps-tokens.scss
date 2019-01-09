@@ -13,3 +13,14 @@
   &.-alt { @include tokens-heading('h5-alt'); }
 }
 .h6 { @include tokens-heading('h6'); }
+
+.text {
+  &.-body { @include tokens-text('body'); }
+  &.-body-alt { @include tokens-text('body-alt'); }
+  &.-listing { @include tokens-text('listing'); }
+  &.-accent { @include tokens-text('accent'); }
+  &.-button { @include tokens-text('button'); }
+  &.-badge { @include tokens-text('badge'); }
+  &.-label { @include tokens-text('label'); }
+  &.-data { @include tokens-text('data'); }
+}

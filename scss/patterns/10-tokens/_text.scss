@@ -12,15 +12,18 @@
 ///
 /// @requires {placeholder} tokens-text
 /// @requires {variable} tokens-text
-/// @requires {mixin} tokens-text--theme
+/// @requires {mixin} tokens-text--font
+/// @requires {mixin} tokens-text--color
 /// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
 ///
-/// @param {map} $custom - A custom skin for the component
+/// @param {string} type - The intended text type
+/// @param {color} color [null] - The desired text color
+/// @param {map} custom [()] - A custom skin for the component
 ///
 /// @output The native structure and skin of our text component
 ///
 /// @status construction
-@mixin tokens-text ( $custom: () ) {
+@mixin tokens-text ( $type, $color: null, $custom: () ) {
   
   // Extend the default skin.
   $skin: map-extend($tokens-text, $custom);
@@ -32,7 +35,8 @@
     @extend %tokens-text;
     
     // Load skins.
-    @include tokens-text--theme( $skin );
+    @include tokens-text--font( $type, $skin );
+    @include tokens-text--color( $type, $skin, $color );
     
   }
   

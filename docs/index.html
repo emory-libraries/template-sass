@@ -1364,11 +1364,24 @@
                               <ul class="list-unstyled">
                               
                                 
-                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.text" data-name="tokens-text--theme" data-type="mixin">
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.text" data-name="tokens-text--font" data-type="mixin">
                                     
-                                    <a href="#patterns.tokens.text-mixin-tokens-text--theme">
+                                    <a href="#patterns.tokens.text-mixin-tokens-text--font">
                                       
-                                      tokens-text--theme
+                                      tokens-text--font
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.text" data-name="tokens-text--color" data-type="mixin">
+                                    
+                                    <a href="#patterns.tokens.text-mixin-tokens-text--color">
+                                      
+                                      tokens-text--color
                                       
                                       
                                       
@@ -2890,6 +2903,8 @@
                       
                       
                       
+                      
+                      
                   
                   
                   
@@ -3085,6 +3100,8 @@
                   
                   
                   
+                      
+                      
                       
                       
                       
@@ -4411,6 +4428,8 @@
                       
                       
                       
+                      
+                      
                   
                   
                   
@@ -4628,6 +4647,8 @@
                   
                   
                   
+                      
+                      
                       
                       
                       
@@ -12646,7 +12667,77 @@
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$tokens-text: (
                                 
+                                &#x27;body&#x27;:     (
+                                  &#x27;font-weight&#x27;: normal,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: 1.9375, // 31px
+                                  &#x27;letter-spacing&#x27;: normal,
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: $color-text-dark
+                                ),
                                 
+                                &#x27;body-alt&#x27;:     (
+                                  &#x27;font-weight&#x27;: normal,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: 1.6429, // 23px
+                                  &#x27;letter-spacing&#x27;: normal,
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: $color-text-dark
+                                ),
+                                
+                                &#x27;listing&#x27;:     (
+                                  &#x27;font-weight&#x27;: normal,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: 1.6364, // 36px
+                                  &#x27;letter-spacing&#x27;: normal,
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: $color-text-dark
+                                ),
+                                
+                                &#x27;accent&#x27;:     (
+                                  &#x27;font-weight&#x27;: normal,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: 1.6111, // 29px
+                                  &#x27;letter-spacing&#x27;: normal,
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: $color-text-dark
+                                ),
+                                
+                                &#x27;button&#x27;:     (
+                                  &#x27;font-weight&#x27;: bold,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: 1.6364, // 18px
+                                  &#x27;letter-spacing&#x27;: .05em,
+                                  &#x27;text-transform&#x27;: uppercase,
+                                  &#x27;color&#x27;: $color-text-dark
+                                ),
+                                
+                                &#x27;badge&#x27;:     (
+                                  &#x27;font-weight&#x27;: bold,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: 1.6667, // 20px
+                                  &#x27;letter-spacing&#x27;: .05em,
+                                  &#x27;text-transform&#x27;: uppercase,
+                                  &#x27;color&#x27;: $color-text-dark
+                                ),
+                                
+                                &#x27;label&#x27;:     (
+                                  &#x27;font-weight&#x27;: bold,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: 1.2, // 12px
+                                  &#x27;letter-spacing&#x27;: .11em,
+                                  &#x27;text-transform&#x27;: uppercase,
+                                  &#x27;color&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;)
+                                ),
+                                
+                                &#x27;data&#x27;:     (
+                                  &#x27;font-weight&#x27;: normal,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: 1.6667, // 20px
+                                  &#x27;letter-spacing&#x27;: normal,
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: $color-text-dark
+                                )
                                 
                               );</code></pre>
                               
@@ -12675,6 +12766,50 @@
                               
                               
                               
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.tokens.text-variable-colors"><code>colors</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.tokens.text-variable-color-text-dark"><code>color-text-dark</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-color"><code>Brandy::color</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
                               
                               
                               
@@ -12722,13 +12857,13 @@
                           
                           
                             <section class="main__item container item"
-                                     id="patterns.tokens.text-mixin-tokens-text--theme">
+                                     id="patterns.tokens.text-mixin-tokens-text--font">
                             
                               <h3 class="item__heading">
                                 
                               
-                                <a class="item__name" href="#patterns.tokens.text-mixin-tokens-text--theme">
-                                  tokens-text--theme
+                                <a class="item__name" href="#patterns.tokens.text-mixin-tokens-text--font">
+                                  tokens-text--font
                                 </a>
                               
                               
@@ -12748,6 +12883,8 @@
                               
                                   
                                     
+                                  
+                                    
                               
                                 
                               
@@ -12755,16 +12892,19 @@
                                   
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
-                                       data-expanded="@mixin tokens-text--theme($skin) { 
+                                       data-expanded="@mixin tokens-text--font($type, $skin) { 
                                 
-                                // Capture themeable variables from skin.
-                                // ...
-                                
-                                // Defines the text component&#x27;s base styles.
-                                // ...
+                                // Defines the heading token&#x27;s font styles.
+                                font-family: font( $type );
+                                font-size: ($font-size * map-deep-get($fonts-scale, $type));
+                                font-weight: map-deep-get($skin, $type + &#x27;.font-weight&#x27;);
+                                font-style: map-deep-get($skin, $type + &#x27;.font-style&#x27;);
+                                line-height: map-deep-get($skin, $type + &#x27;.line-height&#x27;);
+                                letter-spacing: map-deep-get($skin, $type + &#x27;.letter-spacing&#x27;);
+                                text-transform: map-deep-get($skin, $type + &#x27;.text-transform&#x27;);
                                 
                                }"
-                                       data-collapsed="@mixin tokens-text--theme($skin) { ... }"><code class="js-autoindent">@mixin tokens-text--theme($skin) { ... }</code></pre>
+                                       data-collapsed="@mixin tokens-text--font($type, $skin) { ... }"><code class="js-autoindent">@mixin tokens-text--font($type, $skin) { ... }</code></pre>
                               
                                   
                                 </div>
@@ -12777,7 +12917,7 @@
                               
                               
                                     <h3 class="item__sub-heading">Description</h3>
-                                    <div class="item__description"><p>Defines the text component theme.</p>
+                                    <div class="item__description"><p>Defines the text token&#39;s font properties.</p>
                                   </div>
                               
                               
@@ -12810,10 +12950,27 @@
                                       <tbody>
                                           <tr class="item__parameter">
                                             <th scope="row" data-label="name">
+                                              <code>$type</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The intended text type</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  string
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
                                               <code>$skin</code>
                                             </th>
                                             <td data-label="desc">
-                                              <p>The component&#39;s skin</p>
+                                              <p>The token&#39;s skin</p>
                                   
                                             </td>
                                             <td data-label="type">
@@ -12836,7 +12993,7 @@
                               
                               
                                     <h3 class="item__sub-heading">Output</h3>
-                                    <div class="item__description"><p>The text component&#39;s themeable properties</p>
+                                    <div class="item__description"><p>The heading component&#39;s font property</p>
                                   </div>
                               
                               
@@ -12846,6 +13003,262 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.tokens.text-mixin-font-size"><code>font-size</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.tokens.text-mixin-fonts-scale"><code>fonts-scale</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font"><code>Brandy::font</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.tokens.text-mixin-tokens-text--color">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.tokens.text-mixin-tokens-text--color">
+                                  tokens-text--color
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                                  
+                                    
+                                  
+                                    
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin tokens-text--color($type, $skin, $color: null) { 
+                                
+                                // Defines the text token&#x27;s color styles.
+                                color: default($color, map-deep-get($skin, $type + &#x27;.color&#x27;));
+                                
+                               }"
+                                       data-collapsed="@mixin tokens-text--color($type, $skin, $color: null) { ... }"><code class="js-autoindent">@mixin tokens-text--color($type, $skin, $color: null) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                                
+                                
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the text token&#39;s color properties.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$type</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The intended text type</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  string
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The token&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$color</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The desired text color</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  color
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                  <code></code>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The text component&#39;s font property</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#patterns.tokens.text-mixin-default"><code>default</code></a>
+                                  
+                                  
+                                          </li>
+                                  
                                   
                                   
                                   
@@ -12921,6 +13334,12 @@
                               
                                   
                                     
+                                  
+                                    
+                                    
+                                  
+                                    
+                                    
                               
                                 
                               
@@ -12928,7 +13347,7 @@
                                   
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
-                                       data-expanded="@mixin tokens-text($custom) { 
+                                       data-expanded="@mixin tokens-text($type, $color: null, $custom: ()) { 
                                 
                                 // Extend the default skin.
                                 $skin: map-extend($tokens-text, $custom);
@@ -12940,12 +13359,13 @@
                                   @extend %tokens-text;
                                   
                                   // Load skins.
-                                  @include tokens-text--theme( $skin );
+                                  @include tokens-text--font( $type, $skin );
+                                  @include tokens-text--color( $type, $skin, $color );
                                   
                                 }
                                 
                                }"
-                                       data-collapsed="@mixin tokens-text($custom) { ... }"><code class="js-autoindent">@mixin tokens-text($custom) { ... }</code></pre>
+                                       data-collapsed="@mixin tokens-text($type, $color: null, $custom: ()) { ... }"><code class="js-autoindent">@mixin tokens-text($type, $color: null, $custom: ()) { ... }</code></pre>
                               
                                   
                                 </div>
@@ -12991,6 +13411,40 @@
                                       <tbody>
                                           <tr class="item__parameter">
                                             <th scope="row" data-label="name">
+                                              <code>$type</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The intended text type</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  string
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$color</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The desired text color</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  color
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                  <code></code>
+                                            </td>
+                                          </tr>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
                                               <code>$custom</code>
                                             </th>
                                             <td data-label="desc">
@@ -13003,7 +13457,7 @@
                                               </code>
                                             </td>
                                             <td data-label="default">
-                                                &mdash;<span class="visually-hidden"> none</span>
+                                                  <code></code>
                                             </td>
                                           </tr>
                                       </tbody>
@@ -13058,7 +13512,19 @@
                                   
                                             <span class="item__cross-type">mixin</span>
                                   
-                                            <a href="#patterns.tokens.text-mixin-tokens-text--theme"><code>tokens-text--theme</code></a>
+                                            <a href="#patterns.tokens.text-mixin-tokens-text--font"><code>tokens-text--font</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.text-mixin-tokens-text--color"><code>tokens-text--color</code></a>
                                   
                                   
                                           </li>
@@ -13354,6 +13820,8 @@
                         
                         
                         
+                            
+                            
                             
                             
                             

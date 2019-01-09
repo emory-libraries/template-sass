@@ -6,28 +6,127 @@
 ///
 /// @since 1.0.0
 ///
+/// @requires {variable} colors
+/// @requires {variable} color-text-dark
+/// @requires {function} Brandy::color <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-color>
+///
 /// @type map
 $tokens-text: (
   
+  'body':     (
+    'font-weight': normal,
+    'font-style': normal,
+    'line-height': 1.9375, // 31px
+    'letter-spacing': normal,
+    'text-transform': none,
+    'color': $color-text-dark
+  ),
   
+  'body-alt':     (
+    'font-weight': normal,
+    'font-style': normal,
+    'line-height': 1.6429, // 23px
+    'letter-spacing': normal,
+    'text-transform': none,
+    'color': $color-text-dark
+  ),
+  
+  'listing':     (
+    'font-weight': normal,
+    'font-style': normal,
+    'line-height': 1.6364, // 36px
+    'letter-spacing': normal,
+    'text-transform': none,
+    'color': $color-text-dark
+  ),
+  
+  'accent':     (
+    'font-weight': normal,
+    'font-style': normal,
+    'line-height': 1.6111, // 29px
+    'letter-spacing': normal,
+    'text-transform': none,
+    'color': $color-text-dark
+  ),
+  
+  'button':     (
+    'font-weight': bold,
+    'font-style': normal,
+    'line-height': 1.6364, // 18px
+    'letter-spacing': .05em,
+    'text-transform': uppercase,
+    'color': $color-text-dark
+  ),
+  
+  'badge':     (
+    'font-weight': bold,
+    'font-style': normal,
+    'line-height': 1.6667, // 20px
+    'letter-spacing': .05em,
+    'text-transform': uppercase,
+    'color': $color-text-dark
+  ),
+  
+  'label':     (
+    'font-weight': bold,
+    'font-style': normal,
+    'line-height': 1.2, // 12px
+    'letter-spacing': .11em,
+    'text-transform': uppercase,
+    'color': color('blue', 'dark')
+  ),
+  
+  'data':     (
+    'font-weight': normal,
+    'font-style': normal,
+    'line-height': 1.6667, // 20px
+    'letter-spacing': normal,
+    'text-transform': none,
+    'color': $color-text-dark
+  )
   
 );
 
-/// Defines the text component theme.
+/// Defines the text token's font properties.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} font-size
+/// @requires {variable} fonts-scale
+/// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {string} type - The intended text type
+/// @param {map} skin - The token's skin
+///
+/// @output The heading component's font property
+@mixin tokens-text--font ( $type, $skin ) {
+  
+  // Defines the heading token's font styles.
+  font-family: font( $type );
+  font-size: ($font-size * map-deep-get($fonts-scale, $type));
+  font-weight: map-deep-get($skin, $type + '.font-weight');
+  font-style: map-deep-get($skin, $type + '.font-style');
+  line-height: map-deep-get($skin, $type + '.line-height');
+  letter-spacing: map-deep-get($skin, $type + '.letter-spacing');
+  text-transform: map-deep-get($skin, $type + '.text-transform');
+  
+}
+
+/// Defines the text token's color properties.
 ///
 /// @since 1.0.0
 ///
 /// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
 ///
-/// @param {map} skin - The component's skin
+/// @param {string} type - The intended text type
+/// @param {map} skin - The token's skin
+/// @param {color} color [null] - The desired text color
 ///
-/// @output The text component's themeable properties
-@mixin tokens-text--theme ( $skin ) {
+/// @output The text component's font property
+@mixin tokens-text--color ( $type, $skin, $color: null ) {
   
-  // Capture themeable variables from skin.
-  // ...
-  
-  // Defines the text component's base styles.
-  // ...
+  // Defines the text token's color styles.
+  color: default($color, map-deep-get($skin, $type + '.color'));
   
 }
