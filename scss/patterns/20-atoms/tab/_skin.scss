@@ -77,7 +77,7 @@ $atoms-tab: (
   $border: map-deep-get($skin, 'border');
   
   // Build tab component styles.
-  @include font-h6( $default );
+  @include tokens-heading('h6', $default);
   transition: all $duration $timing;
   
   // Capture tab-specific variables.
@@ -103,7 +103,7 @@ $atoms-tab: (
 
     // Displays indicator when active.
     &::after {
-      content: url( icon('arrow_drop_down', $active, $indicator-size) );
+      content: url( icon('material-arrow_drop_down', $active, $indicator-size) );
       @include size( $indicator-size );
     }
 
@@ -142,7 +142,7 @@ $atoms-tab: (
           
           // Displays indicator when active.
           &::after {
-            content: url( icon('arrow_drop_down', $active, $indicator-size) );
+            content: url( icon('material-arrow_drop_down', $active, $indicator-size) );
             @include linear-gradient(
               to bottom, 
               transparent $indicator-start, 
@@ -187,7 +187,7 @@ $atoms-tab: (
           
           // Displays indicator when active.
           &::after {
-            content: url( icon('arrow_drop_down', $active, $indicator-size) );
+            content: url( icon('material-arrow_drop_down', $active, $indicator-size) );
             @include linear-gradient(
               to bottom, 
               transparent $indicator-start, 

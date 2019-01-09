@@ -1,0 +1,90 @@
+////
+/// @group emory-libraries.utils.functions
+////
+
+/// Default to a certain value if no other given values are set.
+///
+/// @returns {mixed} The first value that is set or the default value
+@function default( $values.../*, $default*/ ) {
+  
+  // Get the default value.
+  $default: last($values);
+  
+  // Get the desired values in order of preference.
+  $values: head($values);
+  
+  // Try to use any of the given values.
+  @each $value in $values {
+    
+    // See if the value is valid.
+    @if( $value != false and is-null($value) == false ) {
+      
+      // Use the value if valid.
+      @return $value;
+      
+    }
+    
+  }
+  
+  // Otherwise, return the default.
+  @return $default;
+  
+}
+
+/// Default to a certain value if no other given value passes the condition test.
+///
+/// @returns {mixed} The first value that meets the condition or the default value
+@function default-if( $condition, $values.../*, $default*/ ) {
+  
+  // Get the default value.
+  $default: last($values);
+  
+  // Get the desired values in order of preference.
+  $values: head($values);
+  
+  // Try to use any of the given values.
+  @each $value in $values {
+    
+    // See if the value is valid.
+    @if( call(get-function($condition), $value) == true ) {
+      
+      // Use the value if valid.
+      @return $value;
+      
+    }
+    
+  }
+  
+  // Otherwise, return the default.
+  @return $default;
+  
+}
+
+/// Default to a certain value if no other given value fails the condition test.
+///
+/// @returns {mixed} The first value that does not meet the condition or the default value
+@function default-if-not( $condition, $values.../*, $default*/ ) {
+  
+  // Get the default value.
+  $default: last($values);
+  
+  // Get the desired values in order of preference.
+  $values: head($values);
+  
+  // Try to use any of the given values.
+  @each $value in $values {
+    
+    // See if the value is valid.
+    @if( call(get-function($condition), $value) == false ) {
+      
+      // Use the value if valid.
+      @return $value;
+      
+    }
+    
+  }
+  
+  // Otherwise, return the default.
+  @return $default;
+  
+}

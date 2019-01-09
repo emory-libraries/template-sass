@@ -60,7 +60,7 @@ $atoms-button: (
   // Assign base styles.
   border: $border solid $normal;
   background-color: $normal;
-  @include font-button( color-contrast($normal) );
+  @include tokens-text('button', color-contrast($normal));
   transition: border $duration $timing,
               background-color $duration $timing,
               color $duration $timing;
@@ -68,7 +68,7 @@ $atoms-button: (
   
   &.-hollow {
     background-color: transparent;
-    @include font-button( $normal );
+    @include tokens-text('button', $normal);
   }
   
   // Assign hovered/focused styles.
@@ -78,12 +78,12 @@ $atoms-button: (
   &.is-focus {
     border-color: $hover;
     background-color: $hover;
-    @include font-button( color-contrast($hover) );
+    @include tokens-text('button', color-contrast($hover));
     
     &.-hollow { 
       border-color: $normal;
       background-color: $hollow; 
-      @include font-button( $normal );
+      @include tokens-text('button', $normal);
     }
     
   }
@@ -93,12 +93,12 @@ $atoms-button: (
   &.is-active {
     border-color: $hover;
     background-color: $hover;
-    @include font-button( rgba(color-contrast($hover), .5) );
+    @include tokens-text('button', rgba(color-contrast($hover), .5));
     
     &.-hollow {
       border-color: $normal;
       background-color: $hollow;
-      @include font-button( rgba($normal, .5) );
+      @include tokens-text('button', rgba($normal, .5));
     }
     
   }

@@ -43,12 +43,7 @@ $atoms-badge: (
   
   // Defines the badge component's base styles.
   background-color: $background;
-  @if ( is-color($foreground) ) {
-    @include font-badge( $foreground );
-  }
-  @else {
-    @include font-badge( color-contrast($background) );
-  }
+  @include tokens-text('badge', default-if('is-color', $foreground, color-contrast($background)));
   
   // Adds an angeled edge to badges by default.
   &:not(.-square) {

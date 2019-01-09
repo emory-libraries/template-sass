@@ -1482,6 +1482,32 @@
                             </li>
                           
                           
+                            <li class="sidebar__item sassdoc__item" data-group="utils.functions" data-name="default-if" data-type="function">
+                              
+                              <a href="#utils.functions-function-default-if">
+                                
+                                default-if
+                                
+                                
+                                
+                              </a>
+                              
+                            </li>
+                          
+                          
+                            <li class="sidebar__item sassdoc__item" data-group="utils.functions" data-name="default-if-not" data-type="function">
+                              
+                              <a href="#utils.functions-function-default-if-not">
+                                
+                                default-if-not
+                                
+                                
+                                
+                              </a>
+                              
+                            </li>
+                          
+                          
                             <li class="sidebar__item sassdoc__item" data-group="utils.functions" data-name="icon" data-type="function">
                               
                               <a href="#utils.functions-function-icon">
@@ -6641,12 +6667,7 @@
                                 
                                 // Defines the badge component&#x27;s base styles.
                                 background-color: $background;
-                                @if ( is-color($foreground) ) {
-                                  @include font-badge( $foreground );
-                                }
-                                @else {
-                                  @include font-badge( color-contrast($background) );
-                                }
+                                @include tokens-text(&#x27;badge&#x27;, default-if(&#x27;is-color&#x27;, $foreground, color-contrast($background)));
                                 
                                 // Adds an angeled edge to badges by default.
                                 &amp;:not(.-square) {
@@ -6755,7 +6776,7 @@
                                   
                                             <span class="item__cross-type">mixin</span>
                                   
-                                            <a href="#patterns.atoms.badge-mixin-font-badge"><code>font-badge</code></a>
+                                            <a href="#patterns.atoms.badge-mixin-tokens-text"><code>tokens-text</code></a>
                                   
                                   
                                           </li>
@@ -6765,9 +6786,9 @@
                                   
                                           <li class="item__description  item__description--inline">
                                   
-                                            <span class="item__cross-type">mixin</span>
+                                            <span class="item__cross-type">function</span>
                                   
-                                            <a href="#patterns.atoms.badge-mixin-font-badge"><code>font-badge</code></a>
+                                            <a href="#patterns.atoms.badge-mixin-default-if"><code>default-if</code></a>
                                   
                                   
                                           </li>
@@ -7406,7 +7427,7 @@
                                 // Assign base styles.
                                 border: $border solid $normal;
                                 background-color: $normal;
-                                @include font-button( color-contrast($normal) );
+                                @include tokens-text(&#x27;button&#x27;, color-contrast($normal));
                                 transition: border $duration $timing,
                                             background-color $duration $timing,
                                             color $duration $timing;
@@ -7414,7 +7435,7 @@
                                 
                                 &amp;.-hollow {
                                   background-color: transparent;
-                                  @include font-button( $normal );
+                                  @include tokens-text(&#x27;button&#x27;, $normal);
                                 }
                                 
                                 // Assign hovered/focused styles.
@@ -7424,12 +7445,12 @@
                                 &amp;.is-focus {
                                   border-color: $hover;
                                   background-color: $hover;
-                                  @include font-button( color-contrast($hover) );
+                                  @include tokens-text(&#x27;button&#x27;, color-contrast($hover));
                                   
                                   &amp;.-hollow { 
                                     border-color: $normal;
                                     background-color: $hollow; 
-                                    @include font-button( $normal );
+                                    @include tokens-text(&#x27;button&#x27;, $normal);
                                   }
                                   
                                 }
@@ -7439,12 +7460,12 @@
                                 &amp;.is-active {
                                   border-color: $hover;
                                   background-color: $hover;
-                                  @include font-button( rgba(color-contrast($hover), .5) );
+                                  @include tokens-text(&#x27;button&#x27;, rgba(color-contrast($hover), .5));
                                   
                                   &amp;.-hollow {
                                     border-color: $normal;
                                     background-color: $hollow;
-                                    @include font-button( rgba($normal, .5) );
+                                    @include tokens-text(&#x27;button&#x27;, rgba($normal, .5));
                                   }
                                   
                                 }
@@ -7538,6 +7559,78 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.button-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.button-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.button-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.button-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.button-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.button-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
                                   
                                   
                                   
@@ -8346,12 +8439,12 @@
                                   $valid: map-deep-get($skin, &#x27;state.text.valid&#x27;);
                                   $invalid: map-deep-get($skin, &#x27;state.text.invalid&#x27;);
                                   
-                                  @include font-body( $foreground );
+                                  @include tokens-text(&#x27;body&#x27;, $foreground);
                                   border-color: if( is-color($default), $default, $border );
                                 
                                   // Change the placeholder styles.
                                   @include placeholder {
-                                    @include font-accent( $foreground );
+                                    @include tokens-text(&#x27;accent&#x27;, $foreground);
                                     opacity: .5;
                                   };
                                   
@@ -8379,7 +8472,7 @@
                                   
                                   // Change the placeholder styles.
                                   &amp;::-webkit-datetime-edit {
-                                    @include font-accent( $foreground );
+                                    @include tokens-text(&#x27;accent&#x27;, $foreground);
                                     opacity: .5;
                                   }
                                   
@@ -8440,7 +8533,7 @@
                                   
                                   // Overrides styles for adjacent labels.
                                   + #{$class}-label {
-                                    @include font-body;
+                                    @include tokens-text;
                                     transition: all $duration $timing;
                                   }
                                   
@@ -8463,7 +8556,7 @@
                                   $valid: map-deep-get($skin, &#x27;state.text.valid&#x27;);
                                   $invalid: map-deep-get($skin, &#x27;state.text.invalid&#x27;);
                                   
-                                  @include font-label( $color );
+                                  @include tokens-text(&#x27;label&#x27;, $color);
                                     
                                   // Apply styles when focused.
                                   &amp;.is-focused {
@@ -8610,6 +8703,54 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.input-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.input-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.input-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.input-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
                                   
                                   
                                   
@@ -9442,7 +9583,7 @@
                                 $border: map-deep-get($skin, &#x27;border&#x27;);
                                 
                                 // Build tab component styles.
-                                @include font-h6( $default );
+                                @include tokens-heading(&#x27;h6&#x27;, $default);
                                 transition: all $duration $timing;
                                 
                                 // Capture tab-specific variables.
@@ -9468,7 +9609,7 @@
                               
                                   // Displays indicator when active.
                                   &amp;::after {
-                                    content: url( icon(&#x27;arrow_drop_down&#x27;, $active, $indicator-size) );
+                                    content: url( icon(&#x27;material-arrow_drop_down&#x27;, $active, $indicator-size) );
                                     @include size( $indicator-size );
                                   }
                               
@@ -9507,7 +9648,7 @@
                                         
                                         // Displays indicator when active.
                                         &amp;::after {
-                                          content: url( icon(&#x27;arrow_drop_down&#x27;, $active, $indicator-size) );
+                                          content: url( icon(&#x27;material-arrow_drop_down&#x27;, $active, $indicator-size) );
                                           @include linear-gradient(
                                             to bottom, 
                                             transparent $indicator-start, 
@@ -9552,7 +9693,7 @@
                                         
                                         // Displays indicator when active.
                                         &amp;::after {
-                                          content: url( icon(&#x27;arrow_drop_down&#x27;, $active, $indicator-size) );
+                                          content: url( icon(&#x27;material-arrow_drop_down&#x27;, $active, $indicator-size) );
                                           @include linear-gradient(
                                             to bottom, 
                                             transparent $indicator-start, 
@@ -9659,6 +9800,18 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.tab-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
                                   
                                   
                                   
@@ -10183,18 +10336,18 @@
                                 
                                 // Build table component styles.
                                 text-align: $align;
-                                @include font-data;
+                                @include tokens-text(&#x27;data&#x27;);
                                 
                                 // Build table heading styles.
                                 &amp;-heading {
                                   text-align: $align;
-                                  @include font-h5-alt( $heading );
+                                  @include tokens-heading(&#x27;h5-alt&#x27;, $heading);
                                 }
                                 
                                 // Build table caption styles
                                 &amp;-caption {
                                   text-align: $align;
-                                  @include font-body;
+                                  @include tokens-text;
                                 }
                                 
                                 // Build table header styles.
@@ -10203,7 +10356,7 @@
                                   $foreground: map-deep-get($skin, &#x27;header.foreground&#x27;);
                                   $color: if( is-color($foreground), $foreground, color-contrast($background) );
                                   background-color: $background;
-                                  @include font-h6( $color );
+                                  @include tokens-heading(&#x27;h6&#x27;, $color);
                                 }
                                 
                                 // Build table header, body, and footer styles.
@@ -10333,6 +10486,54 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.table-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.table-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.table-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.table-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
                                   
                                   
                                   
@@ -11189,6 +11390,12 @@
                                   
                               
                               
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
                                   
                                   
                                   
@@ -13553,6 +13760,32 @@
                                   
                                   
                                   
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
                               
                               
                               
@@ -13812,6 +14045,18 @@
                             
                         
                         
+                            
+                              <h3 class="item__sub-heading">Returns</h3>
+                            
+                              <div class="item__description item__description--inline">
+                                
+                                  <code></code>
+                                
+                                 &mdash; <p>The first value that is set or the default value</p>
+                            
+                                
+                              </div>
+                            
                         
                         
                         
@@ -13824,6 +14069,254 @@
                             
                             
                             
+                            
+                            
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                      
+                      </section>  
+                    
+                      <section class="main__item container item"
+                               id="utils.functions-function-default-if">
+                      
+                        <h3 class="item__heading">
+                          
+                        
+                          <a class="item__name" href="#utils.functions-function-default-if">
+                            default-if
+                          </a>
+                        
+                        
+                          
+                          
+                        </h3>
+                        
+                        
+                      
+                        
+                          
+                        
+                        
+                          
+                        
+                          <div class="item__code-wrapper">
+                            
+                            <pre class="item__code  item__code--togglable language-scss"
+                                 data-current-state="collapsed"
+                                 data-expanded="@function default-if() { 
+                          
+                          // Get the default value.
+                          $default: last($values);
+                          
+                          // Get the desired values in order of preference.
+                          $values: head($values);
+                          
+                          // Try to use any of the given values.
+                          @each $value in $values {
+                            
+                            // See if the value is valid.
+                            @if( call(get-function($condition), $value) &#x3D;&#x3D; true ) {
+                              
+                              // Use the value if valid.
+                              @return $value;
+                              
+                            }
+                            
+                          }
+                          
+                          // Otherwise, return the default.
+                          @return $default;
+                          
+                         }"
+                                 data-collapsed="@function default-if() { ... }"><code class="js-autoindent">@function default-if() { ... }</code></pre>
+                        
+                            
+                          </div>
+                        
+                          
+                        
+                        
+                          
+                          
+                        
+                        
+                              <h3 class="item__sub-heading">Description</h3>
+                              <div class="item__description"><p>Default to a certain value if no other given value passes the condition test.</p>
+                            </div>
+                        
+                        
+                            <h3 class="item__sub-heading">Parameters</h3>
+                            
+                            
+                              <p>None.</p>
+                            
+                        
+                        
+                            
+                              <h3 class="item__sub-heading">Returns</h3>
+                            
+                              <div class="item__description item__description--inline">
+                                
+                                  <code></code>
+                                
+                                 &mdash; <p>The first value that meets the condition or the default value</p>
+                            
+                                
+                              </div>
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                      
+                      </section>  
+                    
+                      <section class="main__item container item"
+                               id="utils.functions-function-default-if-not">
+                      
+                        <h3 class="item__heading">
+                          
+                        
+                          <a class="item__name" href="#utils.functions-function-default-if-not">
+                            default-if-not
+                          </a>
+                        
+                        
+                          
+                          
+                        </h3>
+                        
+                        
+                      
+                        
+                          
+                        
+                        
+                          
+                        
+                          <div class="item__code-wrapper">
+                            
+                            <pre class="item__code  item__code--togglable language-scss"
+                                 data-current-state="collapsed"
+                                 data-expanded="@function default-if-not() { 
+                          
+                          // Get the default value.
+                          $default: last($values);
+                          
+                          // Get the desired values in order of preference.
+                          $values: head($values);
+                          
+                          // Try to use any of the given values.
+                          @each $value in $values {
+                            
+                            // See if the value is valid.
+                            @if( call(get-function($condition), $value) &#x3D;&#x3D; false ) {
+                              
+                              // Use the value if valid.
+                              @return $value;
+                              
+                            }
+                            
+                          }
+                          
+                          // Otherwise, return the default.
+                          @return $default;
+                          
+                         }"
+                                 data-collapsed="@function default-if-not() { ... }"><code class="js-autoindent">@function default-if-not() { ... }</code></pre>
+                        
+                            
+                          </div>
+                        
+                          
+                        
+                        
+                          
+                          
+                        
+                        
+                              <h3 class="item__sub-heading">Description</h3>
+                              <div class="item__description"><p>Default to a certain value if no other given value fails the condition test.</p>
+                            </div>
+                        
+                        
+                            <h3 class="item__sub-heading">Parameters</h3>
+                            
+                            
+                              <p>None.</p>
+                            
+                        
+                        
+                            
+                              <h3 class="item__sub-heading">Returns</h3>
+                            
+                              <div class="item__description item__description--inline">
+                                
+                                  <code></code>
+                                
+                                 &mdash; <p>The first value that does not meet the condition or the default value</p>
+                            
+                                
+                              </div>
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                             
                             
                             
@@ -17457,10 +17950,6 @@
                             
                         
                         
-                            
-                            
-                            
-                            
                             
                             
                             

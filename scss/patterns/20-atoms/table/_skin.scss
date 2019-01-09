@@ -55,18 +55,18 @@ $atoms-table: (
   
   // Build table component styles.
   text-align: $align;
-  @include font-data;
+  @include tokens-text('data');
   
   // Build table heading styles.
   &-heading {
     text-align: $align;
-    @include font-h5-alt( $heading );
+    @include tokens-heading('h5-alt', $heading);
   }
   
   // Build table caption styles
   &-caption {
     text-align: $align;
-    @include font-body;
+    @include tokens-text;
   }
   
   // Build table header styles.
@@ -75,7 +75,7 @@ $atoms-table: (
     $foreground: map-deep-get($skin, 'header.foreground');
     $color: if( is-color($foreground), $foreground, color-contrast($background) );
     background-color: $background;
-    @include font-h6( $color );
+    @include tokens-heading('h6', $color);
   }
   
   // Build table header, body, and footer styles.

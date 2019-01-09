@@ -23,7 +23,7 @@
 /// @output The native structure and skin of our text component
 ///
 /// @status construction
-@mixin tokens-text ( $type, $color: null, $custom: () ) {
+@mixin tokens-text ( $type: 'body', $color: null, $custom: () ) {
   
   // Extend the default skin.
   $skin: map-extend($tokens-text, $custom);
