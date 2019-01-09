@@ -96,7 +96,7 @@ $tokens-heading: (
   
   // Defines the heading token's font styles.
   font-family: font('heading.' + $level);
-  font-size: ($font-size + map-deep-get($fonts-scale, 'heading.' + $level));
+  font-size: ($font-size * map-deep-get($fonts-scale, 'heading.' + $level));
   font-weight: map-deep-get($skin, $level + '.font-weight');
   font-style: map-deep-get($skin, $level + '.font-style');
   line-height: map-deep-get($skin, $level + '.line-height');
