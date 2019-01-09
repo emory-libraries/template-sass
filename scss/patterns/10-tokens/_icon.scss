@@ -12,27 +12,49 @@
 ///
 /// @requires {placeholder} tokens-icon
 /// @requires {variable} tokens-icon
-/// @requires {mixin} tokens-icon--theme
+/// @requires {mixin} tokens-icon--icon
 /// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
 ///
-/// @param {map} $custom - A custom skin for the component
+/// @param {string} id - The ID of the desired icon
+/// @param {color} color [null] - The desired icon color
+/// @param {number} size [null] - The desired icon size
+/// @param {map} custom [()] - A custom skin for the component
+/// @param {boolean} pseudo [false] - Whether the target selector is a pseudo element
 ///
 /// @output The native structure and skin of our icon component
 ///
 /// @status construction
-@mixin tokens-icon ( $custom: () ) {
+@mixin tokens-icon ( $id, $color: null, $size: null, $custom: (), $pseudo: false ) {
   
   // Extend the default skin.
   $skin: map-extend($tokens-icon, $custom);
   
   // Initialize the icon component.
-  & {
+  @if( $pseudo == false ) {
     
-    // Load structure.
-    @extend %tokens-icon;
+    &::before {
+
+      // Load structure.
+      @extend %tokens-icon;
+
+      // Load skins.
+      @include tokens-icon--icon( $id, $color, $size, $skin );
+
+    }
     
-    // Load skins.
-    @include tokens-icon--theme( $skin );
+  }
+  
+  @else {
+    
+    & {
+
+      // Load structure.
+      @extend %tokens-icon;
+
+      // Load skins.
+      @include tokens-icon--icon( $id, $color, $size, $skin );
+
+    }
     
   }
   

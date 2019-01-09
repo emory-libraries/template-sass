@@ -103,7 +103,7 @@ $atoms-tab: (
 
     // Displays indicator when active.
     &::after {
-      content: url( icon('material-arrow_drop_down', $active, $indicator-size) );
+      @include tokens-icon('material-arrow_drop_down', $active, $indicator-size, $pseudo: true);
       @include size( $indicator-size );
     }
 
@@ -142,7 +142,7 @@ $atoms-tab: (
           
           // Displays indicator when active.
           &::after {
-            content: url( icon('material-arrow_drop_down', $active, $indicator-size) );
+            @include tokens-icon('material-arrow_drop_down', $active, $indicator-size, $pseudo: true);
             @include linear-gradient(
               to bottom, 
               transparent $indicator-start, 
@@ -187,7 +187,7 @@ $atoms-tab: (
           
           // Displays indicator when active.
           &::after {
-            content: url( icon('material-arrow_drop_down', $active, $indicator-size) );
+            @include tokens-icon('material-arrow_drop_down', $active, $indicator-size, $pseudo: true);
             @include linear-gradient(
               to bottom, 
               transparent $indicator-start, 

@@ -24,3 +24,10 @@
   &.-label { @include tokens-text('label'); }
   &.-data { @include tokens-text('data'); }
 }
+
+.arrow {
+  &.-up { @include tokens-icon('material-arrow_upward'); }
+  &.-down { @include tokens-icon('material-arrow_downward'); }
+  &.-left { @include tokens-icon('material-arrow_back'); }
+  &.-right { @include tokens-icon('material-arrow_forward'); }
+}

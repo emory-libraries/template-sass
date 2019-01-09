@@ -9,11 +9,12 @@
 /// @type map
 $tokens-icon: (
   
-  
+  'color': null,
+  'size': null
   
 );
 
-/// Defines the icon component theme.
+/// Defines the icon token's icon.
 ///
 /// @since 1.0.0
 ///
@@ -21,13 +22,14 @@ $tokens-icon: (
 ///
 /// @param {map} skin - The component's skin
 ///
-/// @output The icon component's themeable properties
-@mixin tokens-icon--theme ( $skin ) {
+/// @output The icon token's themeable properties
+@mixin tokens-icon--icon ( $id, $color: null, $size: null, $skin ) {
   
-  // Capture themeable variables from skin.
-  // ...
+  // Capture icon variables from skin.
+  $color: default($color, map-deep-get($skin, 'color'));
+  $size: default($size, map-deep-get($skin, 'size'));
   
-  // Defines the icon component's base styles.
-  // ...
+  // Defines the icon token's base styles.
+  content: url( icon($id, $color, $size) );
   
 }

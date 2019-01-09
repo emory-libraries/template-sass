@@ -1093,6 +1093,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="tokens">
+                          <a href="#patterns.tokens.data-icon">data-icon</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.tokens.data-icon-mixin">
+                                <a href="#patterns.tokens.data-icon-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.data-icon" data-name="tokens-data-icon" data-type="mixin">
+                                    
+                                    <a href="#patterns.tokens.data-icon-mixin-tokens-data-icon">
+                                      
+                                      tokens-data-icon
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.data-icon" data-name="tokens-data-icon--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.tokens.data-icon-mixin-tokens-data-icon--theme">
+                                      
+                                      tokens-data-icon--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.tokens.data-icon-variable">
+                                <a href="#patterns.tokens.data-icon-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.data-icon" data-name="tokens-data-icon" data-type="variable">
+                                    
+                                    <a href="#patterns.tokens.data-icon-variable-tokens-data-icon">
+                                      
+                                      tokens-data-icon
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.tokens.data-icon-placeholder">
+                                <a href="#patterns.tokens.data-icon-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.data-icon" data-name="tokens-data-icon" data-type="placeholder">
+                                    
+                                    <a href="#patterns.tokens.data-icon-placeholder-tokens-data-icon">
+                                      
+                                      tokens-data-icon
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="tokens">
                           <a href="#patterns.tokens.heading">heading</a>
                         </p>
                         
@@ -1241,11 +1349,11 @@
                                   </li>
                                 
                                 
-                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.icon" data-name="tokens-icon--theme" data-type="mixin">
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.icon" data-name="tokens-icon--icon" data-type="mixin">
                                     
-                                    <a href="#patterns.tokens.icon-mixin-tokens-icon--theme">
+                                    <a href="#patterns.tokens.icon-mixin-tokens-icon--icon">
                                       
-                                      tokens-icon--theme
+                                      tokens-icon--icon
                                       
                                       
                                       
@@ -9609,7 +9717,7 @@
                               
                                   // Displays indicator when active.
                                   &amp;::after {
-                                    content: url( icon(&#x27;material-arrow_drop_down&#x27;, $active, $indicator-size) );
+                                    @include tokens-icon(&#x27;material-arrow_drop_down&#x27;, $active, $indicator-size, $pseudo: true);
                                     @include size( $indicator-size );
                                   }
                               
@@ -9648,7 +9756,7 @@
                                         
                                         // Displays indicator when active.
                                         &amp;::after {
-                                          content: url( icon(&#x27;material-arrow_drop_down&#x27;, $active, $indicator-size) );
+                                          @include tokens-icon(&#x27;material-arrow_drop_down&#x27;, $active, $indicator-size, $pseudo: true);
                                           @include linear-gradient(
                                             to bottom, 
                                             transparent $indicator-start, 
@@ -9693,7 +9801,7 @@
                                         
                                         // Displays indicator when active.
                                         &amp;::after {
-                                          content: url( icon(&#x27;material-arrow_drop_down&#x27;, $active, $indicator-size) );
+                                          @include tokens-icon(&#x27;material-arrow_drop_down&#x27;, $active, $indicator-size, $pseudo: true);
                                           @include linear-gradient(
                                             to bottom, 
                                             transparent $indicator-start, 
@@ -9808,6 +9916,42 @@
                                             <span class="item__cross-type">mixin</span>
                                   
                                             <a href="#patterns.atoms.tab-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.tab-mixin-tokens-icon"><code>tokens-icon</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.tab-mixin-tokens-icon"><code>tokens-icon</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.tab-mixin-tokens-icon"><code>tokens-icon</code></a>
                                   
                                   
                                           </li>
@@ -11100,6 +11244,8 @@
             
             
             
+            
+            
             <section class="main__section main__section--level-2 ">
             
               <h2 class="main__heading" id="patterns.tokens">
@@ -11107,6 +11253,639 @@
                 <div class="container">Tokens</div>
                 
               </h2>
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
+                    <h3 class="main__heading" id="patterns.tokens.data-icon">
+                      
+                      <div class="container">data-icon</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.tokens.data-icon-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.tokens.data-icon-mixin-tokens-data-icon">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.tokens.data-icon-mixin-tokens-data-icon">
+                                  tokens-data-icon
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--construction">construction</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin tokens-data-icon($custom) { 
+                                
+                                // Extend the default skin.
+                                $skin: map-extend($tokens-data-icon, $custom);
+                                
+                                // Initialize the data-icon component.
+                                &amp; {
+                                  
+                                  // Load structure.
+                                  @extend %tokens-data-icon;
+                                  
+                                  // Load skins.
+                                  @include tokens-data-icon--theme( $skin );
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin tokens-data-icon($custom) { ... }"><code class="js-autoindent">@mixin tokens-data-icon($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                                
+                                
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the data-icon component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our data-icon component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.tokens.data-icon-mixin-tokens-data-icon"><code>tokens-data-icon</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.tokens.data-icon-mixin-tokens-data-icon"><code>tokens-data-icon</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.data-icon-mixin-tokens-data-icon--theme"><code>tokens-data-icon--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.tokens.data-icon-mixin-tokens-data-icon--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.tokens.data-icon-mixin-tokens-data-icon--theme">
+                                  tokens-data-icon--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin tokens-data-icon--theme($skin) { 
+                                
+                                // Capture themeable variables from skin.
+                                // ...
+                                
+                                // Defines the data-icon component&#x27;s base styles.
+                                // ...
+                                
+                               }"
+                                       data-collapsed="@mixin tokens-data-icon--theme($skin) { ... }"><code class="js-autoindent">@mixin tokens-data-icon--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                                
+                                
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the data-icon component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The data-icon component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.tokens.data-icon-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.tokens.data-icon-variable-tokens-data-icon">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.tokens.data-icon-variable-tokens-data-icon">
+                                  tokens-data-icon
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$tokens-data-icon: (
+                                
+                                
+                                
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                                
+                                
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the data-icon component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.tokens.data-icon-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.tokens.data-icon-placeholder-tokens-data-icon">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.tokens.data-icon-placeholder-tokens-data-icon">
+                                  tokens-data-icon
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%tokens-data-icon { 
+                                
+                                // Builds the data-icon structure.
+                                // ...
+                                
+                               }"
+                                      data-collapsed="%tokens-data-icon { ... }"><code class="js-autoindent">%tokens-data-icon { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                                
+                                
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the data-icon component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
               
               
               
@@ -12242,6 +13021,18 @@
                               
                                   
                                     
+                                  
+                                    
+                                    
+                                  
+                                    
+                                    
+                                  
+                                    
+                                    
+                                  
+                                    
+                                    
                               
                                 
                               
@@ -12249,24 +13040,42 @@
                                   
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
-                                       data-expanded="@mixin tokens-icon($custom) { 
+                                       data-expanded="@mixin tokens-icon($id, $color: null, $size: null, $custom: (), $pseudo: false) { 
                                 
                                 // Extend the default skin.
                                 $skin: map-extend($tokens-icon, $custom);
                                 
                                 // Initialize the icon component.
-                                &amp; {
+                                @if( $pseudo &#x3D;&#x3D; false ) {
                                   
-                                  // Load structure.
-                                  @extend %tokens-icon;
+                                  &amp;::before {
+                              
+                                    // Load structure.
+                                    @extend %tokens-icon;
+                              
+                                    // Load skins.
+                                    @include tokens-icon--icon( $id, $color, $size, $skin );
+                              
+                                  }
                                   
-                                  // Load skins.
-                                  @include tokens-icon--theme( $skin );
+                                }
+                                
+                                @else {
+                                  
+                                  &amp; {
+                              
+                                    // Load structure.
+                                    @extend %tokens-icon;
+                              
+                                    // Load skins.
+                                    @include tokens-icon--icon( $id, $color, $size, $skin );
+                              
+                                  }
                                   
                                 }
                                 
                                }"
-                                       data-collapsed="@mixin tokens-icon($custom) { ... }"><code class="js-autoindent">@mixin tokens-icon($custom) { ... }</code></pre>
+                                       data-collapsed="@mixin tokens-icon($id, $color: null, $size: null, $custom: (), $pseudo: false) { ... }"><code class="js-autoindent">@mixin tokens-icon($id, $color: null, $size: null, $custom: (), $pseudo: false) { ... }</code></pre>
                               
                                   
                                 </div>
@@ -12312,6 +13121,57 @@
                                       <tbody>
                                           <tr class="item__parameter">
                                             <th scope="row" data-label="name">
+                                              <code>$id</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The ID of the desired icon</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  string
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$color</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The desired icon color</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  color
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                  <code></code>
+                                            </td>
+                                          </tr>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$size</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The desired icon size</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  number
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                  <code></code>
+                                            </td>
+                                          </tr>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
                                               <code>$custom</code>
                                             </th>
                                             <td data-label="desc">
@@ -12324,7 +13184,24 @@
                                               </code>
                                             </td>
                                             <td data-label="default">
-                                                &mdash;<span class="visually-hidden"> none</span>
+                                                  <code></code>
+                                            </td>
+                                          </tr>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$pseudo</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>Whether the target selector is a pseudo element</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  boolean
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                  <code></code>
                                             </td>
                                           </tr>
                                       </tbody>
@@ -12379,7 +13256,7 @@
                                   
                                             <span class="item__cross-type">mixin</span>
                                   
-                                            <a href="#patterns.tokens.icon-mixin-tokens-icon--theme"><code>tokens-icon--theme</code></a>
+                                            <a href="#patterns.tokens.icon-mixin-tokens-icon--icon"><code>tokens-icon--icon</code></a>
                                   
                                   
                                           </li>
@@ -12408,6 +13285,12 @@
                                   
                                   
                                   
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
                               
                               
                               
@@ -12430,13 +13313,13 @@
                             </section>  
                           
                             <section class="main__item container item"
-                                     id="patterns.tokens.icon-mixin-tokens-icon--theme">
+                                     id="patterns.tokens.icon-mixin-tokens-icon--icon">
                             
                               <h3 class="item__heading">
                                 
                               
-                                <a class="item__name" href="#patterns.tokens.icon-mixin-tokens-icon--theme">
-                                  tokens-icon--theme
+                                <a class="item__name" href="#patterns.tokens.icon-mixin-tokens-icon--icon">
+                                  tokens-icon--icon
                                 </a>
                               
                               
@@ -12463,16 +13346,17 @@
                                   
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
-                                       data-expanded="@mixin tokens-icon--theme($skin) { 
+                                       data-expanded="@mixin tokens-icon--icon($skin) { 
                                 
-                                // Capture themeable variables from skin.
-                                // ...
+                                // Capture icon variables from skin.
+                                $color: default($color, map-deep-get($skin, &#x27;color&#x27;));
+                                $size: default($size, map-deep-get($skin, &#x27;size&#x27;));
                                 
-                                // Defines the icon component&#x27;s base styles.
-                                // ...
+                                // Defines the icon token&#x27;s base styles.
+                                content: url( icon($id, $color, $size) );
                                 
                                }"
-                                       data-collapsed="@mixin tokens-icon--theme($skin) { ... }"><code class="js-autoindent">@mixin tokens-icon--theme($skin) { ... }</code></pre>
+                                       data-collapsed="@mixin tokens-icon--icon($skin) { ... }"><code class="js-autoindent">@mixin tokens-icon--icon($skin) { ... }</code></pre>
                               
                                   
                                 </div>
@@ -12485,7 +13369,7 @@
                               
                               
                                     <h3 class="item__sub-heading">Description</h3>
-                                    <div class="item__description"><p>Defines the icon component theme.</p>
+                                    <div class="item__description"><p>Defines the icon token&#39;s icon.</p>
                                   </div>
                               
                               
@@ -12544,7 +13428,7 @@
                               
                               
                                     <h3 class="item__sub-heading">Output</h3>
-                                    <div class="item__description"><p>The icon component&#39;s themeable properties</p>
+                                    <div class="item__description"><p>The icon token&#39;s themeable properties</p>
                                   </div>
                               
                               
@@ -12554,6 +13438,42 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#patterns.tokens.icon-mixin-default"><code>default</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#patterns.tokens.icon-mixin-default"><code>default</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#patterns.tokens.icon-mixin-icon"><code>icon</code></a>
+                                  
+                                  
+                                          </li>
+                                  
                                   
                                   
                                   
@@ -12641,7 +13561,8 @@
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$tokens-icon: (
                                 
-                                
+                                &#x27;color&#x27;: null,
+                                &#x27;size&#x27;: null
                                 
                               );</code></pre>
                               
@@ -14075,6 +14996,10 @@
                             
                             
                             
+                            
+                            
+                            
+                            
                         
                         
                         
@@ -14650,26 +15575,20 @@
                             
                             
                             
-                        
-                        
-                        
-                        
-                            
-                            
-                            
-                            
                             
                             
                         
                         
+                        
+                        
                             
-                              <h3 class="item__sub-heading">TODO's</h3>
                             
-                              <ul class="list-unstyled">
-                                  <li><p>Move icon mixin(s) to tokens</p>
-                            </li>
-                              </ul>
                             
+                            
+                            
+                            
+                        
+                        
                         
                         
                         
