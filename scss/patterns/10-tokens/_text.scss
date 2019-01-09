@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.tokens.text
+////
+
+/// Load the text component's structure and skin.
+@import 'text/structure';
+@import 'text/skin';
+
+/// Builds a constructor for the text component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} tokens-text
+/// @requires {variable} tokens-text
+/// @requires {mixin} tokens-text--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our text component
+///
+/// @status construction
+@mixin tokens-text ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($tokens-text, $custom);
+  
+  // Initialize the text component.
+  & {
+    
+    // Load structure.
+    @extend %tokens-text;
+    
+    // Load skins.
+    @include tokens-text--theme( $skin );
+    
+  }
+  
+}

@@ -1,0 +1,33 @@
+////
+/// @group emory-libraries.patterns.tokens.text
+////
+
+/// Defines the base skin of the text component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$tokens-text: (
+  
+  
+  
+);
+
+/// Defines the text component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The text component's themeable properties
+@mixin tokens-text--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  // ...
+  
+  // Defines the text component's base styles.
+  // ...
+  
+}
