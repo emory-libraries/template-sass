@@ -1,5 +1,5 @@
 module.exports = (grunt) => { 
-  
+
   // Configure tasks.
   grunt.initConfig({
     'dart-sass': {
@@ -26,8 +26,8 @@ module.exports = (grunt) => {
       docs: {
         src: grunt.file.expand([
           'scss/*.scss',
-          'scss/**/*.scss',
-          '!scss/vends/**'
+          'scss/emory-libraries/**/*.scss',
+          '!scss/emory-libraries/vends/**'
         ])
       }
     },
