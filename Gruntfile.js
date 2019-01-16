@@ -5,7 +5,7 @@ module.exports = (grunt) => {
     'dart-sass': {
       options: {
         sourceMap: false,
-        style: 'compressed'
+        outputStyle: 'compressed'
       },
       scss: {
         files: {
