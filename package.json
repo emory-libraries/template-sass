@@ -30,7 +30,7 @@
     "fs": "0.0.1-security",
     "grunt": "^1.0.3",
     "grunt-contrib-watch": "^1.1.0",
-    "grunt-dart-sass": "^1.1.0",
+    "grunt-dart-sass": "^1.1.1",
     "grunt-gh-pages": "^3.1.0",
     "grunt-plop": "^1.0.0",
     "grunt-sassdoc": "^2.0.3",
