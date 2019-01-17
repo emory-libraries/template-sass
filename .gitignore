@@ -3,4 +3,5 @@ node_modules/
 css/
 *.css
 *.css.map
+test/tmp
 icons/svg/*.svg

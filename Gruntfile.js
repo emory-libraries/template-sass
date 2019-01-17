@@ -4,8 +4,7 @@ module.exports = (grunt) => {
   grunt.initConfig({
     'dart-sass': {
       options: {
-        sourceMap: false,
-        outputStyle: 'compressed'
+        sourceMap: false
       },
       scss: {
         files: {
@@ -17,10 +16,13 @@ module.exports = (grunt) => {
           expand: true,
           cwd: 'test',
           src: ['*.scss'],
-          dest: 'test',
+          dest: 'test/tmp',
           ext: '.css'
         }]
       }
+    },
+    clean: {
+      test: ['test/tmp']
     },
     sassdoc: {
       docs: {
@@ -65,6 +67,7 @@ module.exports = (grunt) => {
   grunt.registerTask('test', ['dart-sass:test']);
   grunt.registerTask('docs', ['sassdoc']);
   grunt.registerTask('build', [
+    'clean',
     'dart-sass',
     'docs'
   ]);
