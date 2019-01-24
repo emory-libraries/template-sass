@@ -31,7 +31,7 @@
     "grunt": "^1.0.3",
     "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-watch": "^1.1.0",
-    "grunt-dart-sass": "^1.1.2",
+    "grunt-dart-sass": "^1.1.3",
     "grunt-gh-pages": "^3.1.0",
     "grunt-plop": "^1.0.0",
     "grunt-sassdoc": "^2.0.3",
