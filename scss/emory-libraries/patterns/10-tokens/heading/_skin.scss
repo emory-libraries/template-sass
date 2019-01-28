@@ -85,6 +85,7 @@ $tokens-heading: (
 ///
 /// @requires {variable} font-size
 /// @requires {variable} fonts-scale
+/// @requires {function} important
 /// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
 /// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
 ///
@@ -92,16 +93,16 @@ $tokens-heading: (
 /// @param {map} skin - The token's skin
 ///
 /// @output The heading component's font property
-@mixin tokens-heading--font ( $level, $skin ) {
+@mixin tokens-heading--font ( $level, $skin, $important: false ) {
   
   // Defines the heading token's font styles.
-  font-family: font('heading.' + $level);
-  font-size: ($font-size * map-deep-get($fonts-scale, 'heading.' + $level));
-  font-weight: map-deep-get($skin, $level + '.font-weight');
-  font-style: map-deep-get($skin, $level + '.font-style');
-  line-height: map-deep-get($skin, $level + '.line-height');
-  letter-spacing: map-deep-get($skin, $level + '.letter-spacing');
-  text-transform: map-deep-get($skin, $level + '.text-transform');
+  font-family: important(font('heading.' + $level), $important);
+  font-size: important(($font-size * map-deep-get($fonts-scale, 'heading.' + $level)), $important);
+  font-weight: important(map-deep-get($skin, $level + '.font-weight'), $important);
+  font-style: important(map-deep-get($skin, $level + '.font-style'), $important);
+  line-height: important(map-deep-get($skin, $level + '.line-height'), $important);
+  letter-spacing: important(map-deep-get($skin, $level + '.letter-spacing'), $important);
+  text-transform: important(map-deep-get($skin, $level + '.text-transform'), $important);
   
 }
 
@@ -109,6 +110,8 @@ $tokens-heading: (
 ///
 /// @since 1.0.0
 ///
+/// @require {function} default
+/// @require {function} important
 /// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
 ///
 /// @param {string} level - The intended heading level
@@ -116,9 +119,9 @@ $tokens-heading: (
 /// @param {color} color [null] - The desired heading color
 ///
 /// @output The heading component's font property
-@mixin tokens-heading--color ( $level, $skin, $color: null ) {
+@mixin tokens-heading--color ( $level, $skin, $color: null, $important: false ) {
   
   // Defines the heading token's color styles.
-  color: default($color, map-deep-get($skin, $level + '.color'));
+  color: important(default($color, map-deep-get($skin, $level + '.color')), $important);
   
 }

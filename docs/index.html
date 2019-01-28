@@ -1508,6 +1508,19 @@
                             </li>
                           
                           
+                            <li class="sidebar__item sassdoc__item" data-group="utils.functions" data-name="important" data-type="function">
+                              
+                              <a href="#utils.functions-function-important">
+                                
+                                important
+                                
+                                
+                                
+                              </a>
+                              
+                            </li>
+                          
+                          
                             <li class="sidebar__item sassdoc__item" data-group="utils.functions" data-name="icon" data-type="function">
                               
                               <a href="#utils.functions-function-icon">
@@ -10644,8 +10657,8 @@
                                   @extend %tokens-heading;
                                   
                                   // Load skins.
-                                  @include tokens-heading--font( $level, $skin );
-                                  @include tokens-heading--color( $level, $skin, $color );
+                                  @include tokens-heading--font( $level, $skin, $important );
+                                  @include tokens-heading--color( $level, $skin, $color, $important );
                                   
                                 }
                                 
@@ -10902,13 +10915,13 @@
                                        data-expanded="@mixin tokens-heading--font($level, $skin) { 
                                 
                                 // Defines the heading token&#x27;s font styles.
-                                font-family: font(&#x27;heading.&#x27; + $level);
-                                font-size: ($font-size * map-deep-get($fonts-scale, &#x27;heading.&#x27; + $level));
-                                font-weight: map-deep-get($skin, $level + &#x27;.font-weight&#x27;);
-                                font-style: map-deep-get($skin, $level + &#x27;.font-style&#x27;);
-                                line-height: map-deep-get($skin, $level + &#x27;.line-height&#x27;);
-                                letter-spacing: map-deep-get($skin, $level + &#x27;.letter-spacing&#x27;);
-                                text-transform: map-deep-get($skin, $level + &#x27;.text-transform&#x27;);
+                                font-family: important(font(&#x27;heading.&#x27; + $level), $important);
+                                font-size: important(($font-size * map-deep-get($fonts-scale, &#x27;heading.&#x27; + $level)), $important);
+                                font-weight: important(map-deep-get($skin, $level + &#x27;.font-weight&#x27;), $important);
+                                font-style: important(map-deep-get($skin, $level + &#x27;.font-style&#x27;), $important);
+                                line-height: important(map-deep-get($skin, $level + &#x27;.line-height&#x27;), $important);
+                                letter-spacing: important(map-deep-get($skin, $level + &#x27;.letter-spacing&#x27;), $important);
+                                text-transform: important(map-deep-get($skin, $level + &#x27;.text-transform&#x27;), $important);
                                 
                                }"
                                        data-collapsed="@mixin tokens-heading--font($level, $skin) { ... }"><code class="js-autoindent">@mixin tokens-heading--font($level, $skin) { ... }</code></pre>
@@ -11037,6 +11050,18 @@
                                   
                                   
                                   
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-important"><code>important</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
                                           <li class="item__description item__description--inline">
                                   
                                             <span class="item__cross-type">external</span>
@@ -11135,7 +11160,7 @@
                                        data-expanded="@mixin tokens-heading--color($level, $skin, $color: null) { 
                                 
                                 // Defines the heading token&#x27;s color styles.
-                                color: default($color, map-deep-get($skin, $level + &#x27;.color&#x27;));
+                                color: important(default($color, map-deep-get($skin, $level + &#x27;.color&#x27;)), $important);
                                 
                                }"
                                        data-collapsed="@mixin tokens-heading--color($level, $skin, $color: null) { ... }"><code class="js-autoindent">@mixin tokens-heading--color($level, $skin, $color: null) { ... }</code></pre>
@@ -11262,6 +11287,18 @@
                                             <span class="item__cross-type">function</span>
                                   
                                             <a href="#patterns.tokens.heading-mixin-default"><code>default</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-important"><code>important</code></a>
                                   
                                   
                                           </li>
@@ -12680,13 +12717,13 @@
                                        data-expanded="@mixin tokens-text--font($type, $skin) { 
                                 
                                 // Defines the heading token&#x27;s font styles.
-                                font-family: font( $type );
-                                font-size: ($font-size * map-deep-get($fonts-scale, $type));
-                                font-weight: map-deep-get($skin, $type + &#x27;.font-weight&#x27;);
-                                font-style: map-deep-get($skin, $type + &#x27;.font-style&#x27;);
-                                line-height: map-deep-get($skin, $type + &#x27;.line-height&#x27;);
-                                letter-spacing: map-deep-get($skin, $type + &#x27;.letter-spacing&#x27;);
-                                text-transform: map-deep-get($skin, $type + &#x27;.text-transform&#x27;);
+                                font-family: important(font( $type ), $important);
+                                font-size: important(($font-size * map-deep-get($fonts-scale, $type)), $important);
+                                font-weight: important(map-deep-get($skin, $type + &#x27;.font-weight&#x27;), $important);
+                                font-style: important(map-deep-get($skin, $type + &#x27;.font-style&#x27;), $important);
+                                line-height: important(map-deep-get($skin, $type + &#x27;.line-height&#x27;), $important);
+                                letter-spacing: important(map-deep-get($skin, $type + &#x27;.letter-spacing&#x27;), $important);
+                                text-transform: important(map-deep-get($skin, $type + &#x27;.text-transform&#x27;), $important);
                                 
                                }"
                                        data-collapsed="@mixin tokens-text--font($type, $skin) { ... }"><code class="js-autoindent">@mixin tokens-text--font($type, $skin) { ... }</code></pre>
@@ -12815,6 +12852,18 @@
                                   
                                   
                                   
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#patterns.tokens.text-mixin-important"><code>important</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
                                           <li class="item__description item__description--inline">
                                   
                                             <span class="item__cross-type">external</span>
@@ -12913,7 +12962,7 @@
                                        data-expanded="@mixin tokens-text--color($type, $skin, $color: null) { 
                                 
                                 // Defines the text token&#x27;s color styles.
-                                color: default($color, map-deep-get($skin, $type + &#x27;.color&#x27;));
+                                color: important(default($color, map-deep-get($skin, $type + &#x27;.color&#x27;)), $important);
                                 
                                }"
                                        data-collapsed="@mixin tokens-text--color($type, $skin, $color: null) { ... }"><code class="js-autoindent">@mixin tokens-text--color($type, $skin, $color: null) { ... }</code></pre>
@@ -13047,6 +13096,18 @@
                                   
                                   
                                   
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#patterns.tokens.text-mixin-important"><code>important</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
                                           <li class="item__description item__description--inline">
                                   
                                             <span class="item__cross-type">external</span>
@@ -13144,8 +13205,8 @@
                                   @extend %tokens-text;
                                   
                                   // Load skins.
-                                  @include tokens-text--font( $type, $skin );
-                                  @include tokens-text--color( $type, $skin, $color );
+                                  @include tokens-text--font( $type, $skin, $important );
+                                  @include tokens-text--color( $type, $skin, $color, $important );
                                   
                                 }
                                 
@@ -13543,10 +13604,18 @@
                         </h3>
                         
                         
+                          <span class="item__since">
+                            Since 1.0.0
+                          </span>
+                        
+                        
                       
                         
                           
                         
+                            
+                              
+                              
                         
                           
                         
@@ -13554,7 +13623,7 @@
                             
                             <pre class="item__code  item__code--togglable language-scss"
                                  data-current-state="collapsed"
-                                 data-expanded="@function default() { 
+                                 data-expanded="@function default($values...) { 
                           
                           // Get the default value.
                           $default: last($values);
@@ -13579,7 +13648,7 @@
                           @return $default;
                           
                          }"
-                                 data-collapsed="@function default() { ... }"><code class="js-autoindent">@function default() { ... }</code></pre>
+                                 data-collapsed="@function default($values...) { ... }"><code class="js-autoindent">@function default($values...) { ... }</code></pre>
                         
                             
                           </div>
@@ -13599,7 +13668,50 @@
                             <h3 class="item__sub-heading">Parameters</h3>
                             
                             
-                              <p>None.</p>
+                              <table class="item__parameters">
+                                
+                                <thead>
+                                  <tr>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Name
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Description
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Type
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Default value
+                                    </th>
+                                  </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    <tr class="item__parameter">
+                                      <th scope="row" data-label="name">
+                                        <code>$values</code>
+                                      </th>
+                                      <td data-label="desc">
+                                        <p>Some values to use in order of preference, where the last value is the default</p>
+                            
+                                      </td>
+                                      <td data-label="type">
+                                        <code>
+                                            arglist
+                                        </code>
+                                      </td>
+                                      <td data-label="default">
+                                          &mdash;<span class="visually-hidden"> none</span>
+                                      </td>
+                                    </tr>
+                                </tbody>
+                                
+                              </table>
                             
                         
                         
@@ -13674,10 +13786,20 @@
                         </h3>
                         
                         
+                          <span class="item__since">
+                            Since 1.0.0
+                          </span>
+                        
+                        
                       
                         
                           
                         
+                            
+                              
+                            
+                              
+                              
                         
                           
                         
@@ -13685,7 +13807,7 @@
                             
                             <pre class="item__code  item__code--togglable language-scss"
                                  data-current-state="collapsed"
-                                 data-expanded="@function default-if() { 
+                                 data-expanded="@function default-if($condition, $values...) { 
                           
                           // Get the default value.
                           $default: last($values);
@@ -13710,7 +13832,7 @@
                           @return $default;
                           
                          }"
-                                 data-collapsed="@function default-if() { ... }"><code class="js-autoindent">@function default-if() { ... }</code></pre>
+                                 data-collapsed="@function default-if($condition, $values...) { ... }"><code class="js-autoindent">@function default-if($condition, $values...) { ... }</code></pre>
                         
                             
                           </div>
@@ -13730,7 +13852,67 @@
                             <h3 class="item__sub-heading">Parameters</h3>
                             
                             
-                              <p>None.</p>
+                              <table class="item__parameters">
+                                
+                                <thead>
+                                  <tr>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Name
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Description
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Type
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Default value
+                                    </th>
+                                  </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    <tr class="item__parameter">
+                                      <th scope="row" data-label="name">
+                                        <code>$condition</code>
+                                      </th>
+                                      <td data-label="desc">
+                                        <p>The name of a function to be used as the test condition</p>
+                            
+                                      </td>
+                                      <td data-label="type">
+                                        <code>
+                                            string
+                                        </code>
+                                      </td>
+                                      <td data-label="default">
+                                          &mdash;<span class="visually-hidden"> none</span>
+                                      </td>
+                                    </tr>
+                                    <tr class="item__parameter">
+                                      <th scope="row" data-label="name">
+                                        <code>$values</code>
+                                      </th>
+                                      <td data-label="desc">
+                                        <p>Some values to use in order of preference, where the last value is the default</p>
+                            
+                                      </td>
+                                      <td data-label="type">
+                                        <code>
+                                            arglist
+                                        </code>
+                                      </td>
+                                      <td data-label="default">
+                                          &mdash;<span class="visually-hidden"> none</span>
+                                      </td>
+                                    </tr>
+                                </tbody>
+                                
+                              </table>
                             
                         
                         
@@ -13799,10 +13981,20 @@
                         </h3>
                         
                         
+                          <span class="item__since">
+                            Since 1.0.0
+                          </span>
+                        
+                        
                       
                         
                           
                         
+                            
+                              
+                            
+                              
+                              
                         
                           
                         
@@ -13810,7 +14002,7 @@
                             
                             <pre class="item__code  item__code--togglable language-scss"
                                  data-current-state="collapsed"
-                                 data-expanded="@function default-if-not() { 
+                                 data-expanded="@function default-if-not($condition, $values...) { 
                           
                           // Get the default value.
                           $default: last($values);
@@ -13835,7 +14027,7 @@
                           @return $default;
                           
                          }"
-                                 data-collapsed="@function default-if-not() { ... }"><code class="js-autoindent">@function default-if-not() { ... }</code></pre>
+                                 data-collapsed="@function default-if-not($condition, $values...) { ... }"><code class="js-autoindent">@function default-if-not($condition, $values...) { ... }</code></pre>
                         
                             
                           </div>
@@ -13855,7 +14047,67 @@
                             <h3 class="item__sub-heading">Parameters</h3>
                             
                             
-                              <p>None.</p>
+                              <table class="item__parameters">
+                                
+                                <thead>
+                                  <tr>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Name
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Description
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Type
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Default value
+                                    </th>
+                                  </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    <tr class="item__parameter">
+                                      <th scope="row" data-label="name">
+                                        <code>$condition</code>
+                                      </th>
+                                      <td data-label="desc">
+                                        <p>The name of a function to be used as the test condition</p>
+                            
+                                      </td>
+                                      <td data-label="type">
+                                        <code>
+                                            string
+                                        </code>
+                                      </td>
+                                      <td data-label="default">
+                                          &mdash;<span class="visually-hidden"> none</span>
+                                      </td>
+                                    </tr>
+                                    <tr class="item__parameter">
+                                      <th scope="row" data-label="name">
+                                        <code>$values</code>
+                                      </th>
+                                      <td data-label="desc">
+                                        <p>Some values to use in order of preference, where the last value is the default</p>
+                            
+                                      </td>
+                                      <td data-label="type">
+                                        <code>
+                                            arglist
+                                        </code>
+                                      </td>
+                                      <td data-label="default">
+                                          &mdash;<span class="visually-hidden"> none</span>
+                                      </td>
+                                    </tr>
+                                </tbody>
+                                
+                              </table>
                             
                         
                         
@@ -13879,6 +14131,191 @@
                         
                         
                         
+                            
+                            
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                      
+                      </section>  
+                    
+                      <section class="main__item container item"
+                               id="utils.functions-function-important">
+                      
+                        <h3 class="item__heading">
+                          
+                        
+                          <a class="item__name" href="#utils.functions-function-important">
+                            important
+                          </a>
+                        
+                        
+                          
+                          
+                        </h3>
+                        
+                        
+                          <span class="item__since">
+                            Since 1.0.0
+                          </span>
+                        
+                        
+                      
+                        
+                          
+                        
+                            
+                              
+                            
+                              
+                              
+                        
+                          
+                        
+                          <div class="item__code-wrapper">
+                            
+                            <pre class="item__code  item__code--togglable language-scss"
+                                 data-current-state="collapsed"
+                                 data-expanded="@function important($value, $important: false) { 
+                          
+                          // The value is !important.
+                          @if( $important &#x3D;&#x3D; true ) { @return $value !important; }
+                          
+                          // Otherwise, the value is not !important.
+                          @return $value;
+                          
+                         }"
+                                 data-collapsed="@function important($value, $important: false) { ... }"><code class="js-autoindent">@function important($value, $important: false) { ... }</code></pre>
+                        
+                            
+                          </div>
+                        
+                          
+                        
+                        
+                          
+                          
+                        
+                        
+                              <h3 class="item__sub-heading">Description</h3>
+                              <div class="item__description"><p>Conditionally make a property value <code>!important</code> if a flag is set.</p>
+                            </div>
+                        
+                        
+                            <h3 class="item__sub-heading">Parameters</h3>
+                            
+                            
+                              <table class="item__parameters">
+                                
+                                <thead>
+                                  <tr>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Name
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Description
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Type
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Default value
+                                    </th>
+                                  </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    <tr class="item__parameter">
+                                      <th scope="row" data-label="name">
+                                        <code>$value</code>
+                                      </th>
+                                      <td data-label="desc">
+                                        <p>Some property value</p>
+                            
+                                      </td>
+                                      <td data-label="type">
+                                        <code>
+                                            mixed
+                                        </code>
+                                      </td>
+                                      <td data-label="default">
+                                          &mdash;<span class="visually-hidden"> none</span>
+                                      </td>
+                                    </tr>
+                                    <tr class="item__parameter">
+                                      <th scope="row" data-label="name">
+                                        <code>$important</code>
+                                      </th>
+                                      <td data-label="desc">
+                                        <p>A flag indicating whether the value should be <code>!important</code></p>
+                            
+                                      </td>
+                                      <td data-label="type">
+                                        <code>
+                                            boolean
+                                        </code>
+                                      </td>
+                                      <td data-label="default">
+                                            <code></code>
+                                      </td>
+                                    </tr>
+                                </tbody>
+                                
+                              </table>
+                            
+                        
+                        
+                            
+                              <h3 class="item__sub-heading">Returns</h3>
+                            
+                              <div class="item__description item__description--inline">
+                                
+                                  <code></code>
+                                
+                                 &mdash; <p>The given value either with or without !important</p>
+                            
+                                
+                              </div>
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                             
                             
                             

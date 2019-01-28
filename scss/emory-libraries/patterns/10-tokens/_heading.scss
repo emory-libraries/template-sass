@@ -23,7 +23,7 @@
 /// @output The native structure and skin of our heading component
 ///
 /// @status construction
-@mixin tokens-heading ( $level, $color: null, $custom: () ) {
+@mixin tokens-heading ( $level, $color: null, $custom: (), $important: false ) {
   
   // Extend the default skin.
   $skin: map-extend($tokens-heading, $custom);
@@ -35,8 +35,8 @@
     @extend %tokens-heading;
     
     // Load skins.
-    @include tokens-heading--font( $level, $skin );
-    @include tokens-heading--color( $level, $skin, $color );
+    @include tokens-heading--font( $level, $skin, $important );
+    @include tokens-heading--color( $level, $skin, $color, $important );
     
   }
   

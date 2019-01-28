@@ -3,6 +3,10 @@
 ////
 
 /// Default to a certain value if no other given values are set.
+/// 
+/// @since 1.0.0
+///
+/// @param {arglist} values - Some values to use in order of preference, where the last value is the default
 ///
 /// @returns {mixed} The first value that is set or the default value
 @function default( $values.../*, $default*/ ) {
@@ -32,6 +36,11 @@
 }
 
 /// Default to a certain value if no other given value passes the condition test.
+/// 
+/// @since 1.0.0
+///
+/// @param {string} condition - The name of a function to be used as the test condition
+/// @param {arglist} values - Some values to use in order of preference, where the last value is the default
 ///
 /// @returns {mixed} The first value that meets the condition or the default value
 @function default-if( $condition, $values.../*, $default*/ ) {
@@ -61,6 +70,11 @@
 }
 
 /// Default to a certain value if no other given value fails the condition test.
+/// 
+/// @since 1.0.0
+///
+/// @param {string} condition - The name of a function to be used as the test condition
+/// @param {arglist} values - Some values to use in order of preference, where the last value is the default
 ///
 /// @returns {mixed} The first value that does not meet the condition or the default value
 @function default-if-not( $condition, $values.../*, $default*/ ) {
@@ -86,5 +100,23 @@
   
   // Otherwise, return the default.
   @return $default;
+  
+}
+
+/// Conditionally make a property value `!important` if a flag is set.
+/// 
+/// @since 1.0.0
+///
+/// @param {mixed} value - Some property value
+/// @param {boolean} important [false] - A flag indicating whether the value should be `!important`
+///
+/// @returns {mixed} The given value either with or without !important
+@function important( $value, $important: false ) {
+  
+  // The value is !important.
+  @if( $important == true ) { @return $value !important; }
+  
+  // Otherwise, the value is not !important.
+  @return $value;
   
 }

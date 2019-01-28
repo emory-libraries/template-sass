@@ -93,6 +93,7 @@ $tokens-text: (
 ///
 /// @requires {variable} font-size
 /// @requires {variable} fonts-scale
+/// @requires {function} important
 /// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
 /// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
 ///
@@ -100,16 +101,16 @@ $tokens-text: (
 /// @param {map} skin - The token's skin
 ///
 /// @output The heading component's font property
-@mixin tokens-text--font ( $type, $skin ) {
+@mixin tokens-text--font ( $type, $skin, $important: false ) {
   
   // Defines the heading token's font styles.
-  font-family: font( $type );
-  font-size: ($font-size * map-deep-get($fonts-scale, $type));
-  font-weight: map-deep-get($skin, $type + '.font-weight');
-  font-style: map-deep-get($skin, $type + '.font-style');
-  line-height: map-deep-get($skin, $type + '.line-height');
-  letter-spacing: map-deep-get($skin, $type + '.letter-spacing');
-  text-transform: map-deep-get($skin, $type + '.text-transform');
+  font-family: important(font( $type ), $important);
+  font-size: important(($font-size * map-deep-get($fonts-scale, $type)), $important);
+  font-weight: important(map-deep-get($skin, $type + '.font-weight'), $important);
+  font-style: important(map-deep-get($skin, $type + '.font-style'), $important);
+  line-height: important(map-deep-get($skin, $type + '.line-height'), $important);
+  letter-spacing: important(map-deep-get($skin, $type + '.letter-spacing'), $important);
+  text-transform: important(map-deep-get($skin, $type + '.text-transform'), $important);
   
 }
 
@@ -117,6 +118,8 @@ $tokens-text: (
 ///
 /// @since 1.0.0
 ///
+/// @requires {function} default
+/// @requires {function} important
 /// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
 ///
 /// @param {string} type - The intended text type
@@ -124,9 +127,9 @@ $tokens-text: (
 /// @param {color} color [null] - The desired text color
 ///
 /// @output The text component's font property
-@mixin tokens-text--color ( $type, $skin, $color: null ) {
+@mixin tokens-text--color ( $type, $skin, $color: null, $important: false ) {
   
   // Defines the text token's color styles.
-  color: default($color, map-deep-get($skin, $type + '.color'));
+  color: important(default($color, map-deep-get($skin, $type + '.color')), $important);
   
 }
