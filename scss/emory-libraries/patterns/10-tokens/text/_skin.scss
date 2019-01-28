@@ -19,7 +19,8 @@ $tokens-text: (
     'line-height': 1.9375, // 31px
     'letter-spacing': normal,
     'text-transform': none,
-    'color': $color-text-dark
+    'color': $color-text-dark,
+    'text-align': left
   ),
   
   'body-alt':     (
@@ -28,7 +29,28 @@ $tokens-text: (
     'line-height': 1.6429, // 23px
     'letter-spacing': normal,
     'text-transform': none,
-    'color': $color-text-dark
+    'color': $color-text-dark,
+    'text-align': left
+  ),
+  
+  'lead': (
+    'font-weight': normal,
+    'font-style': normal,
+    'line-height': 1.5, // 42px
+    'letter-spacing': normal,
+    'text-transform': none,
+    'color': color('blue', 'mid'),
+    'text-align': left
+  ),
+  
+  'blockquote': (
+    'font-weight': bold,
+    'font-style': normal,
+    'line-height': normal,
+    'letter-spacing': normal,
+    'text-transform': none,
+    'color': color('blue', 'mid'),
+    'text-align': center
   ),
   
   'listing':     (
@@ -37,7 +59,8 @@ $tokens-text: (
     'line-height': 1.6364, // 36px
     'letter-spacing': normal,
     'text-transform': none,
-    'color': $color-text-dark
+    'color': $color-text-dark,
+    'text-align': left
   ),
   
   'accent':     (
@@ -46,7 +69,8 @@ $tokens-text: (
     'line-height': 1.6111, // 29px
     'letter-spacing': normal,
     'text-transform': none,
-    'color': $color-text-dark
+    'color': $color-text-dark,
+    'text-align': left
   ),
   
   'button':     (
@@ -55,7 +79,8 @@ $tokens-text: (
     'line-height': 1.6364, // 18px
     'letter-spacing': .05em,
     'text-transform': uppercase,
-    'color': $color-text-dark
+    'color': $color-text-dark,
+    'text-align': left
   ),
   
   'badge':     (
@@ -64,7 +89,8 @@ $tokens-text: (
     'line-height': 1.6667, // 20px
     'letter-spacing': .05em,
     'text-transform': uppercase,
-    'color': $color-text-dark
+    'color': $color-text-dark,
+    'text-align': left
   ),
   
   'label':     (
@@ -73,7 +99,8 @@ $tokens-text: (
     'line-height': 1.2, // 12px
     'letter-spacing': .11em,
     'text-transform': uppercase,
-    'color': color('blue', 'dark')
+    'color': color('blue', 'dark'),
+    'text-align': left
   ),
   
   'data':     (
@@ -82,7 +109,8 @@ $tokens-text: (
     'line-height': 1.6667, // 20px
     'letter-spacing': normal,
     'text-transform': none,
-    'color': $color-text-dark
+    'color': $color-text-dark,
+    'text-align': left
   )
   
 );
@@ -111,6 +139,7 @@ $tokens-text: (
   line-height: important(map-deep-get($skin, $type + '.line-height'), $important);
   letter-spacing: important(map-deep-get($skin, $type + '.letter-spacing'), $important);
   text-transform: important(map-deep-get($skin, $type + '.text-transform'), $important);
+  text-align: important(map-deep-get($skin, $type + '.text-align'), $important);
   
 }
 

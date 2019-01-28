@@ -3729,6 +3729,8 @@
                     
                     &#x27;body-alt&#x27;: (&#x27;Open Sans&#x27;, sans-serif),
                     
+                    &#x27;lead&#x27;: (&#x27;Cardo&#x27;, serif),
+                    
                     &#x27;blockquote&#x27;: (&#x27;Cardo&#x27;, serif),
                     
                     &#x27;button&#x27;: (&#x27;Open Sans&#x27;, sans-serif),
@@ -3741,7 +3743,7 @@
                     
                     &#x27;label&#x27;: (&#x27;Open Sans&#x27;, sans-serif),
                     
-                    &#x27;data&#x27;: (&#x27;Open Sans&#x27;, sans-serif) 
+                    &#x27;data&#x27;: (&#x27;Open Sans&#x27;, sans-serif),
                   
                   ) !default;</code></pre>
                   
@@ -4338,6 +4340,8 @@
                     &#x27;body&#x27;: 1,          // 16px
                     
                     &#x27;body-alt&#x27;: .875,   // 14px
+                    
+                    &#x27;lead&#x27;: 1.75,       // 28px
                     
                     &#x27;blockquote&#x27;: 3,    // 48px
                     
@@ -12495,7 +12499,8 @@
                                   &#x27;line-height&#x27;: 1.9375, // 31px
                                   &#x27;letter-spacing&#x27;: normal,
                                   &#x27;text-transform&#x27;: none,
-                                  &#x27;color&#x27;: $color-text-dark
+                                  &#x27;color&#x27;: $color-text-dark,
+                                  &#x27;text-align&#x27;: left
                                 ),
                                 
                                 &#x27;body-alt&#x27;:     (
@@ -12504,7 +12509,28 @@
                                   &#x27;line-height&#x27;: 1.6429, // 23px
                                   &#x27;letter-spacing&#x27;: normal,
                                   &#x27;text-transform&#x27;: none,
-                                  &#x27;color&#x27;: $color-text-dark
+                                  &#x27;color&#x27;: $color-text-dark,
+                                  &#x27;text-align&#x27;: left
+                                ),
+                                
+                                &#x27;lead&#x27;: (
+                                  &#x27;font-weight&#x27;: normal,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: 1.5, // 42px
+                                  &#x27;letter-spacing&#x27;: normal,
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
+                                  &#x27;text-align&#x27;: left
+                                ),
+                                
+                                &#x27;blockquote&#x27;: (
+                                  &#x27;font-weight&#x27;: bold,
+                                  &#x27;font-style&#x27;: normal,
+                                  &#x27;line-height&#x27;: normal,
+                                  &#x27;letter-spacing&#x27;: normal,
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
+                                  &#x27;text-align&#x27;: center
                                 ),
                                 
                                 &#x27;listing&#x27;:     (
@@ -12513,7 +12539,8 @@
                                   &#x27;line-height&#x27;: 1.6364, // 36px
                                   &#x27;letter-spacing&#x27;: normal,
                                   &#x27;text-transform&#x27;: none,
-                                  &#x27;color&#x27;: $color-text-dark
+                                  &#x27;color&#x27;: $color-text-dark,
+                                  &#x27;text-align&#x27;: left
                                 ),
                                 
                                 &#x27;accent&#x27;:     (
@@ -12522,7 +12549,8 @@
                                   &#x27;line-height&#x27;: 1.6111, // 29px
                                   &#x27;letter-spacing&#x27;: normal,
                                   &#x27;text-transform&#x27;: none,
-                                  &#x27;color&#x27;: $color-text-dark
+                                  &#x27;color&#x27;: $color-text-dark,
+                                  &#x27;text-align&#x27;: left
                                 ),
                                 
                                 &#x27;button&#x27;:     (
@@ -12531,7 +12559,8 @@
                                   &#x27;line-height&#x27;: 1.6364, // 18px
                                   &#x27;letter-spacing&#x27;: .05em,
                                   &#x27;text-transform&#x27;: uppercase,
-                                  &#x27;color&#x27;: $color-text-dark
+                                  &#x27;color&#x27;: $color-text-dark,
+                                  &#x27;text-align&#x27;: left
                                 ),
                                 
                                 &#x27;badge&#x27;:     (
@@ -12540,7 +12569,8 @@
                                   &#x27;line-height&#x27;: 1.6667, // 20px
                                   &#x27;letter-spacing&#x27;: .05em,
                                   &#x27;text-transform&#x27;: uppercase,
-                                  &#x27;color&#x27;: $color-text-dark
+                                  &#x27;color&#x27;: $color-text-dark,
+                                  &#x27;text-align&#x27;: left
                                 ),
                                 
                                 &#x27;label&#x27;:     (
@@ -12549,7 +12579,8 @@
                                   &#x27;line-height&#x27;: 1.2, // 12px
                                   &#x27;letter-spacing&#x27;: .11em,
                                   &#x27;text-transform&#x27;: uppercase,
-                                  &#x27;color&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;)
+                                  &#x27;color&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                  &#x27;text-align&#x27;: left
                                 ),
                                 
                                 &#x27;data&#x27;:     (
@@ -12558,7 +12589,8 @@
                                   &#x27;line-height&#x27;: 1.6667, // 20px
                                   &#x27;letter-spacing&#x27;: normal,
                                   &#x27;text-transform&#x27;: none,
-                                  &#x27;color&#x27;: $color-text-dark
+                                  &#x27;color&#x27;: $color-text-dark,
+                                  &#x27;text-align&#x27;: left
                                 )
                                 
                               );</code></pre>
@@ -12724,6 +12756,7 @@
                                 line-height: important(map-deep-get($skin, $type + &#x27;.line-height&#x27;), $important);
                                 letter-spacing: important(map-deep-get($skin, $type + &#x27;.letter-spacing&#x27;), $important);
                                 text-transform: important(map-deep-get($skin, $type + &#x27;.text-transform&#x27;), $important);
+                                text-align: important(map-deep-get($skin, $type + &#x27;.text-align&#x27;), $important);
                                 
                                }"
                                        data-collapsed="@mixin tokens-text--font($type, $skin) { ... }"><code class="js-autoindent">@mixin tokens-text--font($type, $skin) { ... }</code></pre>

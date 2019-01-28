@@ -61,6 +61,8 @@ $fonts: (
   
   'body-alt': ('Open Sans', sans-serif),
   
+  'lead': ('Cardo', serif),
+  
   'blockquote': ('Cardo', serif),
   
   'button': ('Open Sans', sans-serif),
@@ -73,7 +75,7 @@ $fonts: (
   
   'label': ('Open Sans', sans-serif),
   
-  'data': ('Open Sans', sans-serif) 
+  'data': ('Open Sans', sans-serif),
 
 ) !default;
 
@@ -139,6 +141,8 @@ $fonts-scale: (
   'body': 1,          // 16px
   
   'body-alt': .875,   // 14px
+  
+  'lead': 1.75,       // 28px
   
   'blockquote': 3,    // 48px
   
