@@ -12,7 +12,7 @@
 /// @type map
 $tokens-heading: (
   
-  'h1':     (
+  'h1': (
     'font-weight': bold,
     'font-style': normal,
     'line-height': normal,
@@ -28,7 +28,7 @@ $tokens-heading: (
     'text-transform': none,
     'color': $color-heading
   ),
-  'h2':     (
+  'h2': (
     'font-weight': normal,
     'font-style': normal,
     'line-height': 1.0833, // 78px
@@ -36,7 +36,7 @@ $tokens-heading: (
     'text-transform': none,
     'color': $color-heading
   ),
-  'h3':     (
+  'h3': (
     'font-weight': bold,
     'font-style': normal,
     'line-height': 1.7083, // 41px,
@@ -44,7 +44,7 @@ $tokens-heading: (
     'text-transform': none,
     'color': $color-text-dark
   ),
-  'h4':     (
+  'h4': (
     'font-weight': normal,
     'font-style': normal,
     'line-height': 1.5, // 42px
@@ -52,7 +52,7 @@ $tokens-heading: (
     'text-transform': none,
     'color': $color-text-dark
   ),
-  'h5':     (
+  'h5': (
     'font-weight': normal,
     'font-style': normal,
     'line-height': normal,
@@ -63,17 +63,17 @@ $tokens-heading: (
   'h5-alt': (
     'font-weight': normal,
     'font-style': normal,
-    'line-height': normal,
-    'letter-spacing': px(1.6364 * map-deep-get($fonts-scale, 'heading.h5-alt') * $font-size), // 36px
+    'line-height': 1.6364, // 36px
+    'letter-spacing': normal,
     'text-transform': none,
     'color': $color-text-dark
   ),
-  'h6':     (
+  'h6': (
     'font-weight': bold,
     'font-style': normal,
-    'line-height': normal,
-    'letter-spacing': (1.6667 * map-deep-get($fonts-scale, 'heading.h5-alt') * $font-size), // 20px
-    'text-transform': none,
+    'line-height': 1.6667, // 20px
+    'letter-spacing': 0.05em,
+    'text-transform': uppercase,
     'color': $color-text-dark
   )
   
