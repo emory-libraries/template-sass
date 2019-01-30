@@ -47,8 +47,8 @@ $tokens-heading: (
   'h4':     (
     'font-weight': normal,
     'font-style': normal,
-    'line-height': normal,
-    'letter-spacing': 1.5, // 42px
+    'line-height': 1.5, // 42px
+    'letter-spacing': normal,
     'text-transform': none,
     'color': $color-text-dark
   ),
@@ -64,7 +64,7 @@ $tokens-heading: (
     'font-weight': normal,
     'font-style': normal,
     'line-height': normal,
-    'letter-spacing': 1.6364, // 36px
+    'letter-spacing': px(1.6364 * map-deep-get($fonts-scale, 'heading.h5-alt') * $font-size), // 36px
     'text-transform': none,
     'color': $color-text-dark
   ),
@@ -72,7 +72,7 @@ $tokens-heading: (
     'font-weight': bold,
     'font-style': normal,
     'line-height': normal,
-    'letter-spacing': 1.6667, // 20px
+    'letter-spacing': (1.6667 * map-deep-get($fonts-scale, 'heading.h5-alt') * $font-size), // 20px
     'text-transform': none,
     'color': $color-text-dark
   )
