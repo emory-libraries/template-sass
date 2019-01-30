@@ -31,6 +31,9 @@ $atoms-button: (
   'transition': (
     'duration': $transition-duration,
     'timing': $transition-timing
+  ),
+  'icon': (
+    'offset': $rhythm-x
   )
   
 );
@@ -56,6 +59,7 @@ $atoms-button: (
   $border: map-deep-get($skin, 'border');
   $duration: map-deep-get($skin, 'transition.duration');
   $timing: map-deep-get($skin, 'transition.timing');
+  $offset: map-deep-get($skin, 'icon.offset');
   
   // Assign base styles.
   border: $border solid $normal;
@@ -65,10 +69,35 @@ $atoms-button: (
               background-color $duration $timing,
               color $duration $timing;
   
+  // Assign icon styles.
+  .icon {
+    
+    &.-left {
+      margin-right: $offset;
+    }
+    
+    &.-right {
+      margin-left: $offset;
+    }
+    
+    svg {
+      fill: color-contrast($normal);
+    }
+    
+  }
   
   &.-hollow {
     background-color: transparent;
     @include tokens-text('button', $normal);
+
+    .icon {
+
+      svg {
+        fill: $normal;
+      }
+
+    }
+    
   }
   
   // Assign hovered/focused styles.
@@ -80,10 +109,27 @@ $atoms-button: (
     background-color: $hover;
     @include tokens-text('button', color-contrast($hover));
     
+    .icon {
+
+      svg {
+        fill: color-contrast($hover);
+      }
+
+    }
+    
     &.-hollow { 
       border-color: $normal;
       background-color: $hollow; 
       @include tokens-text('button', $normal);
+      
+      .icon {
+
+        svg {
+          fill: $hover;
+        }
+
+      }
+      
     }
     
   }

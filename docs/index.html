@@ -7110,6 +7110,7 @@
                                 $border: map-deep-get($skin, &#x27;border&#x27;);
                                 $duration: map-deep-get($skin, &#x27;transition.duration&#x27;);
                                 $timing: map-deep-get($skin, &#x27;transition.timing&#x27;);
+                                $offset: map-deep-get($skin, &#x27;icon.offset&#x27;);
                                 
                                 // Assign base styles.
                                 border: $border solid $normal;
@@ -7119,10 +7120,35 @@
                                             background-color $duration $timing,
                                             color $duration $timing;
                                 
+                                // Assign icon styles.
+                                .icon {
+                                  
+                                  &amp;.-left {
+                                    margin-right: $offset;
+                                  }
+                                  
+                                  &amp;.-right {
+                                    margin-left: $offset;
+                                  }
+                                  
+                                  svg {
+                                    fill: color-contrast($normal);
+                                  }
+                                  
+                                }
                                 
                                 &amp;.-hollow {
                                   background-color: transparent;
                                   @include tokens-text(&#x27;button&#x27;, $normal);
+                              
+                                  .icon {
+                              
+                                    svg {
+                                      fill: $normal;
+                                    }
+                              
+                                  }
+                                  
                                 }
                                 
                                 // Assign hovered/focused styles.
@@ -7134,10 +7160,27 @@
                                   background-color: $hover;
                                   @include tokens-text(&#x27;button&#x27;, color-contrast($hover));
                                   
+                                  .icon {
+                              
+                                    svg {
+                                      fill: color-contrast($hover);
+                                    }
+                              
+                                  }
+                                  
                                   &amp;.-hollow { 
                                     border-color: $normal;
                                     background-color: $hollow; 
                                     @include tokens-text(&#x27;button&#x27;, $normal);
+                                    
+                                    .icon {
+                              
+                                      svg {
+                                        fill: $hover;
+                                      }
+                              
+                                    }
+                                    
                                   }
                                   
                                 }
@@ -7366,6 +7409,9 @@
                                 &#x27;transition&#x27;: (
                                   &#x27;duration&#x27;: $transition-duration,
                                   &#x27;timing&#x27;: $transition-timing
+                                ),
+                                &#x27;icon&#x27;: (
+                                  &#x27;offset&#x27;: $rhythm-x
                                 )
                                 
                               );</code></pre>
