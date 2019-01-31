@@ -47,28 +47,28 @@ module.exports = (plop) => {
         // 1. Generate the new pattern's SCSS file.
         {
           type: 'add',
-          path: `scss/patterns/${atomicNumber}-{{group}}s/_{{pattern}}.scss`,
+          path: `scss/emory-libraries/patterns/${atomicNumber}-{{group}}s/_{{pattern}}.scss`,
           templateFile: 'templates/pattern/_pattern.scss'
         },
         
         // 2. Initialize the new pattern's structure.
         {
           type: 'add',
-          path: `scss/patterns/${atomicNumber}-{{group}}s/{{pattern}}/_structure.scss`,
+          path: `scss/emory-libraries/patterns/${atomicNumber}-{{group}}s/{{pattern}}/_structure.scss`,
           templateFile: 'templates/pattern/pattern/_structure.scss'
         },
         
         // 3. Initialize the new pattern's skin.
         {
           type: 'add',
-          path: `scss/patterns/${atomicNumber}-{{group}}s/{{pattern}}/_skin.scss`,
+          path: `scss/emory-libraries/patterns/${atomicNumber}-{{group}}s/{{pattern}}/_skin.scss`,
           templateFile: 'templates/pattern/pattern/_skin.scss'
         },
         
         // 4. Load the new pattern by importing it into our stylesheet.
         {
           type: 'modify',
-          path: 'scss/patterns/__master.scss',
+          path: 'scss/emory-libraries/patterns/__master.scss',
           pattern: config.pattern.regex(data.group),
           template: `@import '${atomicNumber}-{{group}}s/{{pattern}}';\n$1`
         }
