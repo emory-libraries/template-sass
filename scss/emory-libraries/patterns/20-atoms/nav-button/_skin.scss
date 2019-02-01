@@ -451,6 +451,10 @@ $atoms-nav-button: (
   $timing: map-deep-get($skin, 'transition.timing');
   $offset: map-deep-get($skin, 'icon.offset');
   
+  // Capture arrow-specific variables.
+  $arrow-color: map-deep-get($skin, 'arrow.color');
+  $arrow-size: map-deep-get($skin, 'arrow.size');
+  
   // Defines the component's base styles.
   appearance: none;
   border: none;
@@ -633,9 +637,6 @@ $atoms-nav-button: (
     .icon {
       display: none;
     }
-    
-    $arrow-color: map-deep-get($skin, 'arrow.color');
-    $arrow-size: map-deep-get($skin, 'arrow.size');
     
     // Add arrow to button only on small screens.
     padding-right: (10px * 2) + $arrow-size + 10px;
@@ -1028,6 +1029,30 @@ $atoms-nav-button: (
     .icon {
       display: none;
     }
+    
+    // Add arrow to button only on small screens.
+    padding-right: (10px * 2) + $arrow-size + 10px;
+      
+    &::after {
+      @include tokens-icon('material-chevron_right', $arrow-color, $arrow-size, $pseudo: true);
+      @include padding-x( 10px );
+      @include absolute( 0 0 0 null );
+      @include absolute-center-within-container-y;
+      @include absolute-center-contents;
+      @include size( $arrow-size );
+      color: $arrow-color;
+      line-height: 1;
+    }
+    
+    // Remove arrow from button on larger screens.
+    @include breakpoint-m-l {
+      padding-right: 10px;
+      
+      &::after {
+        content: none;
+      }
+      
+    };
     
   }
   

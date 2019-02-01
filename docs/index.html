@@ -9660,6 +9660,10 @@
                                 $timing: map-deep-get($skin, &#x27;transition.timing&#x27;);
                                 $offset: map-deep-get($skin, &#x27;icon.offset&#x27;);
                                 
+                                // Capture arrow-specific variables.
+                                $arrow-color: map-deep-get($skin, &#x27;arrow.color&#x27;);
+                                $arrow-size: map-deep-get($skin, &#x27;arrow.size&#x27;);
+                                
                                 // Defines the component&#x27;s base styles.
                                 appearance: none;
                                 border: none;
@@ -9842,9 +9846,6 @@
                                   .icon {
                                     display: none;
                                   }
-                                  
-                                  $arrow-color: map-deep-get($skin, &#x27;arrow.color&#x27;);
-                                  $arrow-size: map-deep-get($skin, &#x27;arrow.size&#x27;);
                                   
                                   // Add arrow to button only on small screens.
                                   padding-right: (10px * 2) + $arrow-size + 10px;
@@ -10238,6 +10239,30 @@
                                     display: none;
                                   }
                                   
+                                  // Add arrow to button only on small screens.
+                                  padding-right: (10px * 2) + $arrow-size + 10px;
+                                    
+                                  &amp;::after {
+                                    @include tokens-icon(&#x27;material-chevron_right&#x27;, $arrow-color, $arrow-size, $pseudo: true);
+                                    @include padding-x( 10px );
+                                    @include absolute( 0 0 0 null );
+                                    @include absolute-center-within-container-y;
+                                    @include absolute-center-contents;
+                                    @include size( $arrow-size );
+                                    color: $arrow-color;
+                                    line-height: 1;
+                                  }
+                                  
+                                  // Remove arrow from button on larger screens.
+                                  @include breakpoint-m-l {
+                                    padding-right: 10px;
+                                    
+                                    &amp;::after {
+                                      content: none;
+                                    }
+                                    
+                                  };
+                                  
                                 }
                                 
                                 // Define flyout button styles.
@@ -10355,6 +10380,18 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.nav-button-mixin-tokens-icon"><code>tokens-icon</code></a>
+                                  
+                                  
+                                          </li>
+                                  
                                   
                                   
                                   
@@ -14225,6 +14262,8 @@
                                   
                               
                               
+                                  
+                                  
                                   
                                   
                                   
