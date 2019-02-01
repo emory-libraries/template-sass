@@ -17,12 +17,12 @@ $atoms-nav-button: (
         'l': color('blue', 'dark')
       ),
       'hover': (
-        's': $color-actionable,
+        's': color('white'),
         'm': $color-actionable,
         'l': $color-actionable
       ),
       'active': (
-        's': $color-actionable,
+        's': color('white'),
         'm': $color-actionable,
         'l': $color-actionable
       )
@@ -34,12 +34,12 @@ $atoms-nav-button: (
         'l': color('white')
       ),
       'hover': (
-        's': color('blue', 'dark'),
+        's': color('blue'),
         'm': color('white'),
         'l': color('white')
       ),
       'active': (
-        's': color('blue', 'dark'),
+        's': color('blue'),
         'm': color('white'),
         'l': color('white')
       )
@@ -79,12 +79,12 @@ $atoms-nav-button: (
         'l': color('blue', 'mid')
       ),
       'hover': (
-        's': $color-actionable,
+        's': color('white'),
         'm': $color-actionable,
         'l': $color-actionable
       ),
       'active': (
-        's': $color-actionable,
+        's': color('white'),
         'm': $color-actionable,
         'l': $color-actionable
       )
@@ -96,12 +96,12 @@ $atoms-nav-button: (
         'l': color('white')
       ),
       'hover': (
-        's': color('blue', 'dark'),
+        's': color('blue'),
         'm': color('white'),
         'l': color('white')
       ),
       'active': (
-        's': color('blue', 'dark'),
+        's': color('blue'),
         'm': color('white'),
         'l': color('white')
       )
