@@ -20,6 +20,11 @@ $atoms-nav-button: (
         's': $color-actionable,
         'm': $color-actionable,
         'l': $color-actionable
+      ),
+      'active': (
+        's': $color-actionable,
+        'm': $color-actionable,
+        'l': $color-actionable
       )
     ),
     'background': (
@@ -32,6 +37,36 @@ $atoms-nav-button: (
         's': color('blue', 'dark'),
         'm': color('white'),
         'l': color('white')
+      ),
+      'active': (
+        's': color('blue', 'dark'),
+        'm': color('white'),
+        'l': color('white')
+      )
+    ),
+    'font': (
+      'font-family': font('body'),
+      'font-weight': bold,
+      'font-style': normal,
+      'font-size': (
+        's': $font-size,
+        'm': 14px,
+        'l': 14px
+      ),
+      'line-height': (
+        's': 2.0625,
+        'm': 1.5,
+        'l': 1.5
+      ),
+      'text-transform': (
+        's': none,
+        'm': none,
+        'l': none
+      ),
+      'letter-spacing': (
+        's': normal,
+        'm': normal,
+        'l': normal
       )
     )
   ),
@@ -47,6 +82,11 @@ $atoms-nav-button: (
         's': $color-actionable,
         'm': $color-actionable,
         'l': $color-actionable
+      ),
+      'active': (
+        's': $color-actionable,
+        'm': $color-actionable,
+        'l': $color-actionable
       )
     ),
     'background': (
@@ -59,6 +99,36 @@ $atoms-nav-button: (
         's': color('blue', 'dark'),
         'm': color('white'),
         'l': color('white')
+      ),
+      'active': (
+        's': color('blue', 'dark'),
+        'm': color('white'),
+        'l': color('white')
+      )
+    ),
+    'font': (
+      'font-family': font('body'),
+      'font-weight': bold,
+      'font-style': normal,
+      'font-size': (
+        's': $font-size,
+        'm': 11px,
+        'l': 11px
+      ),
+      'line-height': (
+        's': 2.0625,
+        'm': 1.6364,
+        'l': 1.6364
+      ),
+      'text-transform': (
+        's': normal,
+        'm': uppercase,
+        'l': uppercase
+      ),
+      'letter-spacing': (
+        's': none,
+        'm': 0.05em,
+        'l': 0.05em
       )
     )
   ),
@@ -74,6 +144,11 @@ $atoms-nav-button: (
         's': $color-actionable,
         'm': $color-actionable,
         'l': $color-actionable
+      ),
+      'active': (
+        's': $color-actionable,
+        'm': $color-actionable,
+        'l': $color-actionable
       )
     ),
     'background': (
@@ -86,6 +161,43 @@ $atoms-nav-button: (
         's': color('white'),
         'm': color('white'),
         'l': color('white')
+      ),
+      'active': (
+        's': color('white'),
+        'm': color('white'),
+        'l': color('white')
+      )
+    ),
+    'font': (
+      'font-family': font('body'),
+      'font-weight': bold,
+      'font-style': normal,
+      'font-size': (
+        's': 9px,
+        'm': 11px,
+        'l': 11px
+      ),
+      'line-height': (
+        's': 1.6667,
+        'm': 1.6364,
+        'l': 1.6364
+      ),
+      'text-transform': (
+        's': uppercase,
+        'm': uppercase,
+        'l': uppercase
+      ),
+      'letter-spacing': (
+        's': 0.05em,
+        'm': 0.05em,
+        'l': 0.05em
+      )
+    ),
+    'icon': (
+      'size': (
+        's': 14px,
+        'm': 14px,
+        'l': 14px
       )
     )
   ),
@@ -101,6 +213,11 @@ $atoms-nav-button: (
         's': $color-actionable,
         'm': $color-actionable,
         'l': $color-actionable
+      ),
+      'active': (
+        's': $color-actionable,
+        'm': $color-actionable,
+        'l': $color-actionable
       )
     ),
     'background': (
@@ -113,6 +230,43 @@ $atoms-nav-button: (
         's': color('white'),
         'm': color('white'),
         'l': color('white')
+      ),
+      'active': (
+        's': color('white'),
+        'm': color('white'),
+        'l': color('white')
+      )
+    ),
+    'font': (
+      'font-family': font('body'),
+      'font-weight': bold,
+      'font-style': normal,
+      'font-size': (
+        's': 12px,
+        'm': initial,
+        'l': initial
+      ),
+      'line-height': (
+        's': 1.6667,
+        'm': initial,
+        'l': initial
+      ),
+      'text-transform': (
+        's': uppercase,
+        'm': none,
+        'l': none
+      ),
+      'letter-spacing': (
+        's': 0.05em,
+        'm': normal,
+        'l': normal
+      )
+    ),
+    'icon': (
+      'size': (
+        's': 17px,
+        'm': 17px,
+        'l': 17px
       )
     )
   ),
@@ -128,6 +282,11 @@ $atoms-nav-button: (
         's': color('white'),
         'm': $color-actionable,
         'l': $color-actionable
+      ),
+      'active': (
+        's': color('white'),
+        'm': $color-actionable,
+        'l': $color-actionable
       )
     ),
     'background': (
@@ -140,6 +299,43 @@ $atoms-nav-button: (
         's': color('blue', 'mid'),
         'm': color('white'),
         'l': color('white')
+      ),
+      'active': (
+        's': color('blue', 'mid'),
+        'm': color('white'),
+        'l': color('white')
+      )
+    ),
+    'font': (
+      'font-family': font('body'),
+      'font-weight': bold,
+      'font-style': normal,
+      'font-size': (
+        's': 11px,
+        'm': 11px,
+        'l': 11px
+      ),
+      'line-height': (
+        's': normal,
+        'm': 1.6364,
+        'l': 1.6364
+      ),
+      'text-transform': (
+        's': uppercase,
+        'm': uppercase,
+        'l': uppercase
+      ),
+      'letter-spacing': (
+        's': 0.05em,
+        'm': 0.05em,
+        'l': 0.05em
+      )
+    ),
+    'icon': (
+      'size': (
+        's': 24px,
+        'm': 14px,
+        'l': 14px
       )
     )
   ),
@@ -147,11 +343,45 @@ $atoms-nav-button: (
   'toggle': (
     'foreground': (
       'normal': color('blue', 'dark'),
-      'hover': $color-actionable
+      'hover': $color-actionable,
+      'active': $color-actionable
     ),
     'background': (
       'normal': color('white'),
-      'hover': color('white')
+      'hover': color('white'),
+      'active': color('white')
+    ),
+    'font': (
+      'font-family': font('body'),
+      'font-weight': bold,
+      'font-style': normal,
+      'font-size': (
+        's': 11px,
+        'm': 0,
+        'l': 0
+      ),
+      'line-height': (
+        's': 1.6364,
+        'm': 0,
+        'l': 0
+      ),
+      'text-transform': (
+        's': uppercase,
+        'm': none,
+        'l': none
+      ),
+      'letter-spacing': (
+        's': 0.05em,
+        'm': normal,
+        'l': normal
+      )
+    ),
+    'icon': (
+      'size': (
+        's': 12px,
+        'm': 0,
+        'l': 0
+      )
     )
   ),
 
@@ -187,9 +417,46 @@ $atoms-nav-button: (
   background: none;
   transition: all $duration $timing;
   
+  // Apply icon styles.
+  .icon {
+    @include absolute-center-contents;
+  }
+  
   // Defines main button styles.
   &:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
   &.-main {
+    font-family: map-deep-get($skin, 'main.font.font-family');
+    font-weight: map-deep-get($skin, 'main.font.font-weight');;
+    font-style: map-deep-get($skin, 'main.font.font-style');;
+    
+    @each $breakpoint, $size in map-deep-get($skin, 'main.font.font-size') {
+      
+      @include breakpoint( screen($breakpoint) ) {
+        font-size: $size;
+      };
+      
+    }
+    @each $breakpoint, $height in map-deep-get($skin, 'main.font.line-height') {
+      
+      @include breakpoint( screen($breakpoint) ) {
+        line-height: $height;
+      };
+      
+    }
+    @each $breakpoint, $transform in map-deep-get($skin, 'main.font.text-transform') {
+      
+      @include breakpoint( screen($breakpoint) ) {
+        text-transform: $transform;
+      };
+      
+    }
+    @each $breakpoint, $spacing in map-deep-get($skin, 'main.font.letter-spacing') {
+      
+      @include breakpoint( screen($breakpoint) ) {
+        letter-spacing: $spacing;
+      };
+      
+    }
     
     $foreground: map-deep-get($skin, 'main.foreground');
     $background: map-deep-get($skin, 'main.background');
@@ -199,6 +466,7 @@ $atoms-nav-button: (
     
       $normal: map-get($foreground, 'normal');
       $hover: map-get($foreground, 'hover');
+      $active: map-get($foreground, 'active');
       
       @each $breakpoint, $color in $normal {
         @include breakpoint( screen($breakpoint) ) {
@@ -237,6 +505,26 @@ $atoms-nav-button: (
         
       }
       
+      &:active,
+      &.is-active {
+        
+        @each $breakpoint, $color in $active {
+          @include breakpoint( screen($breakpoint) ) {
+            color: $color;
+            
+            .icon {
+        
+              svg {
+                fill: $color;
+              }
+
+            }
+            
+          };
+        }
+        
+      }
+      
     };
     
     // Apply background styles.
@@ -244,6 +532,7 @@ $atoms-nav-button: (
     
       $normal: map-get($background, 'normal');
       $hover: map-get($background, 'hover');
+      $active: map-get($background, 'active');
       
       @each $breakpoint, $color in $normal {
         @include breakpoint( screen($breakpoint) ) {
@@ -264,9 +553,20 @@ $atoms-nav-button: (
         
       }
       
+      &:active,
+      &.is-active {
+        
+        @each $breakpoint, $color in $active {
+          @include breakpoint( screen($breakpoint) ) {
+            background-color: $color;
+          };
+        }
+        
+      }
+      
     };
     
-    // Never show icons.
+    // Don't allow icons on main buttons.
     .icon {
       display: none;
     }
@@ -284,6 +584,7 @@ $atoms-nav-button: (
       
       $normal: map-get($foreground, 'normal');
       $hover: map-get($foreground, 'hover');
+      $active: map-get($foreground, 'active');
       
       color: $normal;
       
@@ -311,6 +612,11 @@ $atoms-nav-button: (
         
       }
       
+      &:active,
+      &.is-active {
+        color: $active;
+      }
+      
     };
     
     // Apply background styles.
@@ -318,6 +624,7 @@ $atoms-nav-button: (
       
       $normal: map-get($background, 'normal');
       $hover: map-get($background, 'hover');
+      $active: map-get($background, 'active');
       
       background-color: $normal;
       
@@ -326,6 +633,11 @@ $atoms-nav-button: (
       &.is-hover,
       &.is-focus {
         background-color: $hover;
+      }
+      
+      &:active,
+      &.is-active {
+        background-color: $active;
       }
       
     };
@@ -337,7 +649,7 @@ $atoms-nav-button: (
     
   }
   
-  // Define other style variations for the button. 
+  // Define other style variations for buttons.
   @each $class in ('utility', 'flyout', 'search', 'librarian') {
     
     &.-#{$class} {
@@ -350,6 +662,7 @@ $atoms-nav-button: (
 
         $normal: map-get($foreground, 'normal');
         $hover: map-get($foreground, 'hover');
+        $active: map-get($foreground, 'active');
 
         @each $breakpoint, $color in $normal {
           @include breakpoint( screen($breakpoint) ) {
@@ -387,6 +700,26 @@ $atoms-nav-button: (
           }
 
         }
+        
+        &:active,
+        &.is-active {
+
+          @each $breakpoint, $color in $active {
+            @include breakpoint( screen($breakpoint) ) {
+              color: $color;
+
+              .icon {
+
+                svg {
+                  fill: $color;
+                }
+
+              }
+
+            };
+          }
+
+        }
 
       };
 
@@ -395,6 +728,7 @@ $atoms-nav-button: (
 
         $normal: map-get($background, 'normal');
         $hover: map-get($background, 'hover');
+        $active: map-get($background, 'active');
 
         @each $breakpoint, $color in $normal {
           @include breakpoint( screen($breakpoint) ) {
@@ -409,8 +743,19 @@ $atoms-nav-button: (
 
           @each $breakpoint, $color in $hover {
             @include breakpoint( screen($breakpoint) ) {
-            background-color: $color;
-          };
+              background-color: $color;
+            };
+          }
+
+        }
+        
+        :active,
+        &.is-active {
+
+          @each $breakpoint, $color in $active {
+            @include breakpoint( screen($breakpoint) ) {
+              background-color: $color;
+            };
           }
 
         }
@@ -420,22 +765,116 @@ $atoms-nav-button: (
     }
     
   }
+  @each $class in ('utility', 'flyout', 'search', 'librarian', 'toggle') {
+    
+    &.-#{$class} {
+      font-family: map-deep-get($skin, $class + '.font.font-family');
+      font-weight: map-deep-get($skin, $class + '.font.font-weight');;
+      font-style: map-deep-get($skin, $class + '.font.font-style');;
+
+      @each $breakpoint, $size in map-deep-get($skin, $class + '.font.font-size') {
+
+        @include breakpoint( screen($breakpoint) ) {
+          font-size: $size;
+        };
+
+      }
+      @each $breakpoint, $height in map-deep-get($skin, $class + '.font.line-height') {
+
+        @include breakpoint( screen($breakpoint) ) {
+          line-height: $height;
+        };
+
+      }
+      @each $breakpoint, $transform in map-deep-get($skin, $class + '.font.text-transform') {
+
+        @include breakpoint( screen($breakpoint) ) {
+          text-transform: $transform;
+        };
+
+      }
+      @each $breakpoint, $spacing in map-deep-get($skin, $class + '.font.letter-spacing') {
+
+        @include breakpoint( screen($breakpoint) ) {
+          letter-spacing: $spacing;
+        };
+
+      }
+  
+    }
+    
+  }
+  @each $class in ('flyout', 'search', 'librarian', 'toggle') {
+    
+    &.-#{$class} {
+      
+      .icon  {    
+        
+        @each $breakpoint, $size in map-deep-get($skin, $class + '.icon.size') {
+
+          @include breakpoint( screen($breakpoint) ) {
+            @include size($size);
+          };
+
+        }
+        
+      }
+      
+    }
+    
+  }
   
   // Define search button styles.
   &.-search {
+    font-family: map-deep-get($skin, 'search.font.font-family');
+    font-weight: map-deep-get($skin, 'search.font.font-weight');;
+    font-style: map-deep-get($skin, 'search.font.font-style');;
+    
+    @each $breakpoint, $size in map-deep-get($skin, 'search.font.font-size') {
+      
+      @include breakpoint( screen($breakpoint) ) {
+        font-size: $size;
+      };
+      
+    };
+    @each $breakpoint, $height in map-deep-get($skin, 'search.font.line-height') {
+      
+      @include breakpoint( screen($breakpoint) ) {
+        line-height: $height;
+      };
+      
+    };
+    @each $breakpoint, $transform in map-deep-get($skin, 'search.font.text-transform') {
+      
+      @include breakpoint( screen($breakpoint) ) {
+        text-transform: $transform;
+      };
+      
+    };
+    @each $breakpoint, $spacing in map-deep-get($skin, 'search.font.letter-spacing') {
+      
+      @include breakpoint( screen($breakpoint) ) {
+        letter-spacing: $spacing;
+      };
+      
+    };
     
     // Assign icon styles.
     .icon {
       margin-right: $offset / 2;   
+      @include size( map-deep-get($skin, 'search.size') );
       
       @include breakpoint-m-l {
         margin-right: 0;
+        @include size( auto );
       };
       
     }
     
+    // Apply styles for larger screens.
     @include breakpoint-m-l {
       
+      // Don't show label.
       .nav-button-label {
         display: none;
       }
@@ -447,7 +886,7 @@ $atoms-nav-button: (
   // Define utility button styles.
   &.-utility {
     
-    // Never show icons.
+    // Don't allow icons on utility buttons.
     .icon {
       display: none;
     }

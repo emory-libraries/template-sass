@@ -9536,9 +9536,46 @@
                                 background: none;
                                 transition: all $duration $timing;
                                 
+                                // Apply icon styles.
+                                .icon {
+                                  @include absolute-center-contents;
+                                }
+                                
                                 // Defines main button styles.
                                 &amp;:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
                                 &amp;.-main {
+                                  font-family: map-deep-get($skin, &#x27;main.font.font-family&#x27;);
+                                  font-weight: map-deep-get($skin, &#x27;main.font.font-weight&#x27;);;
+                                  font-style: map-deep-get($skin, &#x27;main.font.font-style&#x27;);;
+                                  
+                                  @each $breakpoint, $size in map-deep-get($skin, &#x27;main.font.font-size&#x27;) {
+                                    
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      font-size: $size;
+                                    };
+                                    
+                                  }
+                                  @each $breakpoint, $height in map-deep-get($skin, &#x27;main.font.line-height&#x27;) {
+                                    
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      line-height: $height;
+                                    };
+                                    
+                                  }
+                                  @each $breakpoint, $transform in map-deep-get($skin, &#x27;main.font.text-transform&#x27;) {
+                                    
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      text-transform: $transform;
+                                    };
+                                    
+                                  }
+                                  @each $breakpoint, $spacing in map-deep-get($skin, &#x27;main.font.letter-spacing&#x27;) {
+                                    
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      letter-spacing: $spacing;
+                                    };
+                                    
+                                  }
                                   
                                   $foreground: map-deep-get($skin, &#x27;main.foreground&#x27;);
                                   $background: map-deep-get($skin, &#x27;main.background&#x27;);
@@ -9548,6 +9585,7 @@
                                   
                                     $normal: map-get($foreground, &#x27;normal&#x27;);
                                     $hover: map-get($foreground, &#x27;hover&#x27;);
+                                    $active: map-get($foreground, &#x27;active&#x27;);
                                     
                                     @each $breakpoint, $color in $normal {
                                       @include breakpoint( screen($breakpoint) ) {
@@ -9586,6 +9624,26 @@
                                       
                                     }
                                     
+                                    &amp;:active,
+                                    &amp;.is-active {
+                                      
+                                      @each $breakpoint, $color in $active {
+                                        @include breakpoint( screen($breakpoint) ) {
+                                          color: $color;
+                                          
+                                          .icon {
+                                      
+                                            svg {
+                                              fill: $color;
+                                            }
+                              
+                                          }
+                                          
+                                        };
+                                      }
+                                      
+                                    }
+                                    
                                   };
                                   
                                   // Apply background styles.
@@ -9593,6 +9651,7 @@
                                   
                                     $normal: map-get($background, &#x27;normal&#x27;);
                                     $hover: map-get($background, &#x27;hover&#x27;);
+                                    $active: map-get($background, &#x27;active&#x27;);
                                     
                                     @each $breakpoint, $color in $normal {
                                       @include breakpoint( screen($breakpoint) ) {
@@ -9613,9 +9672,20 @@
                                       
                                     }
                                     
+                                    &amp;:active,
+                                    &amp;.is-active {
+                                      
+                                      @each $breakpoint, $color in $active {
+                                        @include breakpoint( screen($breakpoint) ) {
+                                          background-color: $color;
+                                        };
+                                      }
+                                      
+                                    }
+                                    
                                   };
                                   
-                                  // Never show icons.
+                                  // Don&#x27;t allow icons on main buttons.
                                   .icon {
                                     display: none;
                                   }
@@ -9633,6 +9703,7 @@
                                     
                                     $normal: map-get($foreground, &#x27;normal&#x27;);
                                     $hover: map-get($foreground, &#x27;hover&#x27;);
+                                    $active: map-get($foreground, &#x27;active&#x27;);
                                     
                                     color: $normal;
                                     
@@ -9660,6 +9731,11 @@
                                       
                                     }
                                     
+                                    &amp;:active,
+                                    &amp;.is-active {
+                                      color: $active;
+                                    }
+                                    
                                   };
                                   
                                   // Apply background styles.
@@ -9667,6 +9743,7 @@
                                     
                                     $normal: map-get($background, &#x27;normal&#x27;);
                                     $hover: map-get($background, &#x27;hover&#x27;);
+                                    $active: map-get($background, &#x27;active&#x27;);
                                     
                                     background-color: $normal;
                                     
@@ -9675,6 +9752,11 @@
                                     &amp;.is-hover,
                                     &amp;.is-focus {
                                       background-color: $hover;
+                                    }
+                                    
+                                    &amp;:active,
+                                    &amp;.is-active {
+                                      background-color: $active;
                                     }
                                     
                                   };
@@ -9686,7 +9768,7 @@
                                   
                                 }
                                 
-                                // Define other style variations for the button. 
+                                // Define other style variations for buttons.
                                 @each $class in (&#x27;utility&#x27;, &#x27;flyout&#x27;, &#x27;search&#x27;, &#x27;librarian&#x27;) {
                                   
                                   &amp;.-#{$class} {
@@ -9699,6 +9781,7 @@
                               
                                       $normal: map-get($foreground, &#x27;normal&#x27;);
                                       $hover: map-get($foreground, &#x27;hover&#x27;);
+                                      $active: map-get($foreground, &#x27;active&#x27;);
                               
                                       @each $breakpoint, $color in $normal {
                                         @include breakpoint( screen($breakpoint) ) {
@@ -9736,6 +9819,26 @@
                                         }
                               
                                       }
+                                      
+                                      &amp;:active,
+                                      &amp;.is-active {
+                              
+                                        @each $breakpoint, $color in $active {
+                                          @include breakpoint( screen($breakpoint) ) {
+                                            color: $color;
+                              
+                                            .icon {
+                              
+                                              svg {
+                                                fill: $color;
+                                              }
+                              
+                                            }
+                              
+                                          };
+                                        }
+                              
+                                      }
                               
                                     };
                               
@@ -9744,6 +9847,7 @@
                               
                                       $normal: map-get($background, &#x27;normal&#x27;);
                                       $hover: map-get($background, &#x27;hover&#x27;);
+                                      $active: map-get($background, &#x27;active&#x27;);
                               
                                       @each $breakpoint, $color in $normal {
                                         @include breakpoint( screen($breakpoint) ) {
@@ -9758,8 +9862,19 @@
                               
                                         @each $breakpoint, $color in $hover {
                                           @include breakpoint( screen($breakpoint) ) {
-                                          background-color: $color;
-                                        };
+                                            background-color: $color;
+                                          };
+                                        }
+                              
+                                      }
+                                      
+                                      :active,
+                                      &amp;.is-active {
+                              
+                                        @each $breakpoint, $color in $active {
+                                          @include breakpoint( screen($breakpoint) ) {
+                                            background-color: $color;
+                                          };
                                         }
                               
                                       }
@@ -9769,22 +9884,116 @@
                                   }
                                   
                                 }
+                                @each $class in (&#x27;utility&#x27;, &#x27;flyout&#x27;, &#x27;search&#x27;, &#x27;librarian&#x27;, &#x27;toggle&#x27;) {
+                                  
+                                  &amp;.-#{$class} {
+                                    font-family: map-deep-get($skin, $class + &#x27;.font.font-family&#x27;);
+                                    font-weight: map-deep-get($skin, $class + &#x27;.font.font-weight&#x27;);;
+                                    font-style: map-deep-get($skin, $class + &#x27;.font.font-style&#x27;);;
+                              
+                                    @each $breakpoint, $size in map-deep-get($skin, $class + &#x27;.font.font-size&#x27;) {
+                              
+                                      @include breakpoint( screen($breakpoint) ) {
+                                        font-size: $size;
+                                      };
+                              
+                                    }
+                                    @each $breakpoint, $height in map-deep-get($skin, $class + &#x27;.font.line-height&#x27;) {
+                              
+                                      @include breakpoint( screen($breakpoint) ) {
+                                        line-height: $height;
+                                      };
+                              
+                                    }
+                                    @each $breakpoint, $transform in map-deep-get($skin, $class + &#x27;.font.text-transform&#x27;) {
+                              
+                                      @include breakpoint( screen($breakpoint) ) {
+                                        text-transform: $transform;
+                                      };
+                              
+                                    }
+                                    @each $breakpoint, $spacing in map-deep-get($skin, $class + &#x27;.font.letter-spacing&#x27;) {
+                              
+                                      @include breakpoint( screen($breakpoint) ) {
+                                        letter-spacing: $spacing;
+                                      };
+                              
+                                    }
+                                
+                                  }
+                                  
+                                }
+                                @each $class in (&#x27;flyout&#x27;, &#x27;search&#x27;, &#x27;librarian&#x27;, &#x27;toggle&#x27;) {
+                                  
+                                  &amp;.-#{$class} {
+                                    
+                                    .icon  {    
+                                      
+                                      @each $breakpoint, $size in map-deep-get($skin, $class + &#x27;.icon.size&#x27;) {
+                              
+                                        @include breakpoint( screen($breakpoint) ) {
+                                          @include size($size);
+                                        };
+                              
+                                      }
+                                      
+                                    }
+                                    
+                                  }
+                                  
+                                }
                                 
                                 // Define search button styles.
                                 &amp;.-search {
+                                  font-family: map-deep-get($skin, &#x27;search.font.font-family&#x27;);
+                                  font-weight: map-deep-get($skin, &#x27;search.font.font-weight&#x27;);;
+                                  font-style: map-deep-get($skin, &#x27;search.font.font-style&#x27;);;
+                                  
+                                  @each $breakpoint, $size in map-deep-get($skin, &#x27;search.font.font-size&#x27;) {
+                                    
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      font-size: $size;
+                                    };
+                                    
+                                  };
+                                  @each $breakpoint, $height in map-deep-get($skin, &#x27;search.font.line-height&#x27;) {
+                                    
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      line-height: $height;
+                                    };
+                                    
+                                  };
+                                  @each $breakpoint, $transform in map-deep-get($skin, &#x27;search.font.text-transform&#x27;) {
+                                    
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      text-transform: $transform;
+                                    };
+                                    
+                                  };
+                                  @each $breakpoint, $spacing in map-deep-get($skin, &#x27;search.font.letter-spacing&#x27;) {
+                                    
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      letter-spacing: $spacing;
+                                    };
+                                    
+                                  };
                                   
                                   // Assign icon styles.
                                   .icon {
                                     margin-right: $offset / 2;   
+                                    @include size( map-deep-get($skin, &#x27;search.size&#x27;) );
                                     
                                     @include breakpoint-m-l {
                                       margin-right: 0;
+                                      @include size( auto );
                                     };
                                     
                                   }
                                   
+                                  // Apply styles for larger screens.
                                   @include breakpoint-m-l {
                                     
+                                    // Don&#x27;t show label.
                                     .nav-button-label {
                                       display: none;
                                     }
@@ -9796,7 +10005,7 @@
                                 // Define utility button styles.
                                 &amp;.-utility {
                                   
-                                  // Never show icons.
+                                  // Don&#x27;t allow icons on utility buttons.
                                   .icon {
                                     display: none;
                                   }
@@ -10016,6 +10225,11 @@
                                       &#x27;s&#x27;: $color-actionable,
                                       &#x27;m&#x27;: $color-actionable,
                                       &#x27;l&#x27;: $color-actionable
+                                    ),
+                                    &#x27;active&#x27;: (
+                                      &#x27;s&#x27;: $color-actionable,
+                                      &#x27;m&#x27;: $color-actionable,
+                                      &#x27;l&#x27;: $color-actionable
                                     )
                                   ),
                                   &#x27;background&#x27;: (
@@ -10028,6 +10242,36 @@
                                       &#x27;s&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
                                       &#x27;m&#x27;: color(&#x27;white&#x27;),
                                       &#x27;l&#x27;: color(&#x27;white&#x27;)
+                                    ),
+                                    &#x27;active&#x27;: (
+                                      &#x27;s&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
+                                      &#x27;l&#x27;: color(&#x27;white&#x27;)
+                                    )
+                                  ),
+                                  &#x27;font&#x27;: (
+                                    &#x27;font-family&#x27;: font(&#x27;body&#x27;),
+                                    &#x27;font-weight&#x27;: bold,
+                                    &#x27;font-style&#x27;: normal,
+                                    &#x27;font-size&#x27;: (
+                                      &#x27;s&#x27;: $font-size,
+                                      &#x27;m&#x27;: 14px,
+                                      &#x27;l&#x27;: 14px
+                                    ),
+                                    &#x27;line-height&#x27;: (
+                                      &#x27;s&#x27;: 2.0625,
+                                      &#x27;m&#x27;: 1.5,
+                                      &#x27;l&#x27;: 1.5
+                                    ),
+                                    &#x27;text-transform&#x27;: (
+                                      &#x27;s&#x27;: none,
+                                      &#x27;m&#x27;: none,
+                                      &#x27;l&#x27;: none
+                                    ),
+                                    &#x27;letter-spacing&#x27;: (
+                                      &#x27;s&#x27;: normal,
+                                      &#x27;m&#x27;: normal,
+                                      &#x27;l&#x27;: normal
                                     )
                                   )
                                 ),
@@ -10043,6 +10287,11 @@
                                       &#x27;s&#x27;: $color-actionable,
                                       &#x27;m&#x27;: $color-actionable,
                                       &#x27;l&#x27;: $color-actionable
+                                    ),
+                                    &#x27;active&#x27;: (
+                                      &#x27;s&#x27;: $color-actionable,
+                                      &#x27;m&#x27;: $color-actionable,
+                                      &#x27;l&#x27;: $color-actionable
                                     )
                                   ),
                                   &#x27;background&#x27;: (
@@ -10055,6 +10304,36 @@
                                       &#x27;s&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
                                       &#x27;m&#x27;: color(&#x27;white&#x27;),
                                       &#x27;l&#x27;: color(&#x27;white&#x27;)
+                                    ),
+                                    &#x27;active&#x27;: (
+                                      &#x27;s&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
+                                      &#x27;l&#x27;: color(&#x27;white&#x27;)
+                                    )
+                                  ),
+                                  &#x27;font&#x27;: (
+                                    &#x27;font-family&#x27;: font(&#x27;body&#x27;),
+                                    &#x27;font-weight&#x27;: bold,
+                                    &#x27;font-style&#x27;: normal,
+                                    &#x27;font-size&#x27;: (
+                                      &#x27;s&#x27;: $font-size,
+                                      &#x27;m&#x27;: 11px,
+                                      &#x27;l&#x27;: 11px
+                                    ),
+                                    &#x27;line-height&#x27;: (
+                                      &#x27;s&#x27;: 2.0625,
+                                      &#x27;m&#x27;: 1.6364,
+                                      &#x27;l&#x27;: 1.6364
+                                    ),
+                                    &#x27;text-transform&#x27;: (
+                                      &#x27;s&#x27;: normal,
+                                      &#x27;m&#x27;: uppercase,
+                                      &#x27;l&#x27;: uppercase
+                                    ),
+                                    &#x27;letter-spacing&#x27;: (
+                                      &#x27;s&#x27;: none,
+                                      &#x27;m&#x27;: 0.05em,
+                                      &#x27;l&#x27;: 0.05em
                                     )
                                   )
                                 ),
@@ -10070,6 +10349,11 @@
                                       &#x27;s&#x27;: $color-actionable,
                                       &#x27;m&#x27;: $color-actionable,
                                       &#x27;l&#x27;: $color-actionable
+                                    ),
+                                    &#x27;active&#x27;: (
+                                      &#x27;s&#x27;: $color-actionable,
+                                      &#x27;m&#x27;: $color-actionable,
+                                      &#x27;l&#x27;: $color-actionable
                                     )
                                   ),
                                   &#x27;background&#x27;: (
@@ -10082,6 +10366,43 @@
                                       &#x27;s&#x27;: color(&#x27;white&#x27;),
                                       &#x27;m&#x27;: color(&#x27;white&#x27;),
                                       &#x27;l&#x27;: color(&#x27;white&#x27;)
+                                    ),
+                                    &#x27;active&#x27;: (
+                                      &#x27;s&#x27;: color(&#x27;white&#x27;),
+                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
+                                      &#x27;l&#x27;: color(&#x27;white&#x27;)
+                                    )
+                                  ),
+                                  &#x27;font&#x27;: (
+                                    &#x27;font-family&#x27;: font(&#x27;body&#x27;),
+                                    &#x27;font-weight&#x27;: bold,
+                                    &#x27;font-style&#x27;: normal,
+                                    &#x27;font-size&#x27;: (
+                                      &#x27;s&#x27;: 9px,
+                                      &#x27;m&#x27;: 11px,
+                                      &#x27;l&#x27;: 11px
+                                    ),
+                                    &#x27;line-height&#x27;: (
+                                      &#x27;s&#x27;: 1.6667,
+                                      &#x27;m&#x27;: 1.6364,
+                                      &#x27;l&#x27;: 1.6364
+                                    ),
+                                    &#x27;text-transform&#x27;: (
+                                      &#x27;s&#x27;: uppercase,
+                                      &#x27;m&#x27;: uppercase,
+                                      &#x27;l&#x27;: uppercase
+                                    ),
+                                    &#x27;letter-spacing&#x27;: (
+                                      &#x27;s&#x27;: 0.05em,
+                                      &#x27;m&#x27;: 0.05em,
+                                      &#x27;l&#x27;: 0.05em
+                                    )
+                                  ),
+                                  &#x27;icon&#x27;: (
+                                    &#x27;size&#x27;: (
+                                      &#x27;s&#x27;: 14px,
+                                      &#x27;m&#x27;: 14px,
+                                      &#x27;l&#x27;: 14px
                                     )
                                   )
                                 ),
@@ -10097,6 +10418,11 @@
                                       &#x27;s&#x27;: $color-actionable,
                                       &#x27;m&#x27;: $color-actionable,
                                       &#x27;l&#x27;: $color-actionable
+                                    ),
+                                    &#x27;active&#x27;: (
+                                      &#x27;s&#x27;: $color-actionable,
+                                      &#x27;m&#x27;: $color-actionable,
+                                      &#x27;l&#x27;: $color-actionable
                                     )
                                   ),
                                   &#x27;background&#x27;: (
@@ -10109,6 +10435,43 @@
                                       &#x27;s&#x27;: color(&#x27;white&#x27;),
                                       &#x27;m&#x27;: color(&#x27;white&#x27;),
                                       &#x27;l&#x27;: color(&#x27;white&#x27;)
+                                    ),
+                                    &#x27;active&#x27;: (
+                                      &#x27;s&#x27;: color(&#x27;white&#x27;),
+                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
+                                      &#x27;l&#x27;: color(&#x27;white&#x27;)
+                                    )
+                                  ),
+                                  &#x27;font&#x27;: (
+                                    &#x27;font-family&#x27;: font(&#x27;body&#x27;),
+                                    &#x27;font-weight&#x27;: bold,
+                                    &#x27;font-style&#x27;: normal,
+                                    &#x27;font-size&#x27;: (
+                                      &#x27;s&#x27;: 12px,
+                                      &#x27;m&#x27;: initial,
+                                      &#x27;l&#x27;: initial
+                                    ),
+                                    &#x27;line-height&#x27;: (
+                                      &#x27;s&#x27;: 1.6667,
+                                      &#x27;m&#x27;: initial,
+                                      &#x27;l&#x27;: initial
+                                    ),
+                                    &#x27;text-transform&#x27;: (
+                                      &#x27;s&#x27;: uppercase,
+                                      &#x27;m&#x27;: none,
+                                      &#x27;l&#x27;: none
+                                    ),
+                                    &#x27;letter-spacing&#x27;: (
+                                      &#x27;s&#x27;: 0.05em,
+                                      &#x27;m&#x27;: normal,
+                                      &#x27;l&#x27;: normal
+                                    )
+                                  ),
+                                  &#x27;icon&#x27;: (
+                                    &#x27;size&#x27;: (
+                                      &#x27;s&#x27;: 17px,
+                                      &#x27;m&#x27;: 17px,
+                                      &#x27;l&#x27;: 17px
                                     )
                                   )
                                 ),
@@ -10124,6 +10487,11 @@
                                       &#x27;s&#x27;: color(&#x27;white&#x27;),
                                       &#x27;m&#x27;: $color-actionable,
                                       &#x27;l&#x27;: $color-actionable
+                                    ),
+                                    &#x27;active&#x27;: (
+                                      &#x27;s&#x27;: color(&#x27;white&#x27;),
+                                      &#x27;m&#x27;: $color-actionable,
+                                      &#x27;l&#x27;: $color-actionable
                                     )
                                   ),
                                   &#x27;background&#x27;: (
@@ -10136,6 +10504,43 @@
                                       &#x27;s&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
                                       &#x27;m&#x27;: color(&#x27;white&#x27;),
                                       &#x27;l&#x27;: color(&#x27;white&#x27;)
+                                    ),
+                                    &#x27;active&#x27;: (
+                                      &#x27;s&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
+                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
+                                      &#x27;l&#x27;: color(&#x27;white&#x27;)
+                                    )
+                                  ),
+                                  &#x27;font&#x27;: (
+                                    &#x27;font-family&#x27;: font(&#x27;body&#x27;),
+                                    &#x27;font-weight&#x27;: bold,
+                                    &#x27;font-style&#x27;: normal,
+                                    &#x27;font-size&#x27;: (
+                                      &#x27;s&#x27;: 11px,
+                                      &#x27;m&#x27;: 11px,
+                                      &#x27;l&#x27;: 11px
+                                    ),
+                                    &#x27;line-height&#x27;: (
+                                      &#x27;s&#x27;: normal,
+                                      &#x27;m&#x27;: 1.6364,
+                                      &#x27;l&#x27;: 1.6364
+                                    ),
+                                    &#x27;text-transform&#x27;: (
+                                      &#x27;s&#x27;: uppercase,
+                                      &#x27;m&#x27;: uppercase,
+                                      &#x27;l&#x27;: uppercase
+                                    ),
+                                    &#x27;letter-spacing&#x27;: (
+                                      &#x27;s&#x27;: 0.05em,
+                                      &#x27;m&#x27;: 0.05em,
+                                      &#x27;l&#x27;: 0.05em
+                                    )
+                                  ),
+                                  &#x27;icon&#x27;: (
+                                    &#x27;size&#x27;: (
+                                      &#x27;s&#x27;: 24px,
+                                      &#x27;m&#x27;: 14px,
+                                      &#x27;l&#x27;: 14px
                                     )
                                   )
                                 ),
@@ -10143,11 +10548,45 @@
                                 &#x27;toggle&#x27;: (
                                   &#x27;foreground&#x27;: (
                                     &#x27;normal&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
-                                    &#x27;hover&#x27;: $color-actionable
+                                    &#x27;hover&#x27;: $color-actionable,
+                                    &#x27;active&#x27;: $color-actionable
                                   ),
                                   &#x27;background&#x27;: (
                                     &#x27;normal&#x27;: color(&#x27;white&#x27;),
-                                    &#x27;hover&#x27;: color(&#x27;white&#x27;)
+                                    &#x27;hover&#x27;: color(&#x27;white&#x27;),
+                                    &#x27;active&#x27;: color(&#x27;white&#x27;)
+                                  ),
+                                  &#x27;font&#x27;: (
+                                    &#x27;font-family&#x27;: font(&#x27;body&#x27;),
+                                    &#x27;font-weight&#x27;: bold,
+                                    &#x27;font-style&#x27;: normal,
+                                    &#x27;font-size&#x27;: (
+                                      &#x27;s&#x27;: 11px,
+                                      &#x27;m&#x27;: 0,
+                                      &#x27;l&#x27;: 0
+                                    ),
+                                    &#x27;line-height&#x27;: (
+                                      &#x27;s&#x27;: 1.6364,
+                                      &#x27;m&#x27;: 0,
+                                      &#x27;l&#x27;: 0
+                                    ),
+                                    &#x27;text-transform&#x27;: (
+                                      &#x27;s&#x27;: uppercase,
+                                      &#x27;m&#x27;: none,
+                                      &#x27;l&#x27;: none
+                                    ),
+                                    &#x27;letter-spacing&#x27;: (
+                                      &#x27;s&#x27;: 0.05em,
+                                      &#x27;m&#x27;: normal,
+                                      &#x27;l&#x27;: normal
+                                    )
+                                  ),
+                                  &#x27;icon&#x27;: (
+                                    &#x27;size&#x27;: (
+                                      &#x27;s&#x27;: 12px,
+                                      &#x27;m&#x27;: 0,
+                                      &#x27;l&#x27;: 0
+                                    )
                                   )
                                 ),
                               
