@@ -1642,6 +1642,19 @@
                             </li>
                           
                           
+                            <li class="sidebar__item sassdoc__item" data-group="utils.functions" data-name="icon-url" data-type="function">
+                              
+                              <a href="#utils.functions-function-icon-url">
+                                
+                                icon-url
+                                
+                                
+                                
+                              </a>
+                              
+                            </li>
+                          
+                          
                         </ul>
                       
                       </div>
@@ -8367,6 +8380,19 @@
                                 $timing: map-deep-get($skin, &#x27;transition.timing&#x27;);
                                 $foreground: map-deep-get($skin, &#x27;foreground&#x27;);
                                 $background: map-deep-get($skin, &#x27;background&#x27;);
+                                $padding-x: map-deep-get($skin, &#x27;padding.x&#x27;);
+                                $padding-y: map-deep-get($skin, &#x27;padding.y&#x27;);
+                                $spacing: map-deep-get($skin, &#x27;spacing&#x27;);
+                                
+                                // Capture icon-specific variables.
+                                $icon-size: map-deep-get($skin, &#x27;icon.size&#x27;);
+                                $icon-color: map-deep-get($skin, &#x27;icon.color&#x27;);
+                                $icon-spacing: map-deep-get($skin, &#x27;icon.spacing&#x27;);
+                                
+                                // Capture label-specific variables.
+                                $label-spacing-x: map-deep-get($skin, &#x27;label.spacing.x&#x27;);
+                                $label-spacing-y: map-deep-get($skin, &#x27;label.spacing.y&#x27;);
+                                $label-color: map-deep-get($skin, &#x27;label.color&#x27;);
                                 
                                 // Build input component styles.
                                 background-color: $background;
@@ -8374,6 +8400,8 @@
                                 border-radius: $radius;
                                 box-shadow: $shadow;
                                 transition: all $duration $timing;
+                                padding: $padding-y $padding-x;
+                                margin-bottom: $spacing;
                                 
                                 // Apply styles specific to text inputs.
                                 &amp;,
@@ -8422,11 +8450,39 @@
                                   
                                 }
                                 
+                                // Apply styles to inputs with icons.
+                                &amp;.-date,
+                                &amp;.-time,
+                                &amp;.-select {
+                                  padding-right: ($padding-x + $icon-size + $icon-spacing);
+                                  background-repeat: no-repeat;
+                                  background-size: auto $icon-size;
+                                  background-position: calc(100% - #{$icon-spacing}) center;
+                                }
+                                
                                 // Apply styles specific to date inputs.
-                                &amp;.-date { }
+                                &amp;.-date { 
+                                  
+                                  $icon: &#x27;material-calendar_today&#x27;;
+                                
+                                  // Add icon.
+                                  background-image: icon-url($icon, $icon-color, $icon-size);
+                                  
+                                  &amp;::-webkit-calendar-picker-indicator {
+                                    width: ($icon-spacing + $icon-size);
+                                  }
+                                
+                                }
                                 
                                 // Apply styles specific to time inputs.
-                                &amp;.-time { }
+                                &amp;.-time { 
+                                
+                                  $icon: &#x27;material-access_time&#x27;;
+                                
+                                  // Add icon.
+                                  background-image: icon-url($icon, $icon-color, $icon-size);
+                                
+                                }
                                 
                                 // Apply styles specific to select inputs.
                                 &amp;.-select {
@@ -8434,6 +8490,11 @@
                                   $selected: map-deep-get($skin, &#x27;state.select.focused&#x27;);
                                   
                                   transition: all $duration $timing;
+                                  
+                                  $icon: &#x27;material-keyboard_arrow_down&#x27;;
+                                
+                                  // Add icon.
+                                  background-image: icon-url($icon, $icon-color, $icon-size);
                                   
                                   &amp;:not(:focus),
                                   &amp;.is-closed {
@@ -8485,22 +8546,60 @@
                                 
                                 // Apply styles specific to checkbox inputs.
                                 &amp;.-checkbox {
+                                  $size: map-deep-get($skin, &#x27;checkbox.size&#x27;);
+                                  $buffer: map-deep-get($skin, &#x27;checkbox.buffer&#x27;);
+                                  
+                                  @include size($size);
+                                  background-size: ($size - $buffer) ($size - $buffer);
                                   border-radius: 0;
+                                  
+                                  &amp;:checked,
+                                  &amp;.is-checked {
+                                    
+                                    $icon: &#x27;material-check&#x27;;
+                                
+                                    // Add icon.
+                                    background-image: icon-url($icon, $icon-color, $icon-size);
+                                    
+                                  }
+                                  
                                 }
                                 
                                 // Apply styles specific to radio inputs.
                                 &amp;.-radio {
+                                  $size: map-deep-get($skin, &#x27;radio.size&#x27;);
+                                  $buffer: map-deep-get($skin, &#x27;radio.buffer&#x27;);
+                                  $fill: map-deep-get($skin, &#x27;radio.fill&#x27;);
+                                  $diffuse: map-deep-get($skin, &#x27;radio.diffuse&#x27;);
+                                  
+                                  @include size($size);
+                                  background-size: ($size - $buffer) ($size - $buffer);
                                   border-radius: 100%;
+                                  
+                                  &amp;:checked,
+                                  &amp;.is-checked {
+                                    @include radial-gradient(circle at center, $icon-color $fill, transparent ($fill + $diffuse));
+                                  }
+                                  
                                 }
                                 
                                 // Apply styles specific to input labels.
                                 &amp;-label {
-                                  $color: map-deep-get($skin, &#x27;label&#x27;);
                                   $focused: map-deep-get($skin, &#x27;state.text.focused&#x27;);
                                   $valid: map-deep-get($skin, &#x27;state.text.valid&#x27;);
                                   $invalid: map-deep-get($skin, &#x27;state.text.invalid&#x27;);
                                   
-                                  @include tokens-text(&#x27;label&#x27;, $color);
+                                  @include tokens-text(&#x27;label&#x27;, $label-color);
+                                  
+                                  // Defines the style when not inline.
+                                  &amp;:not(.-inline) {
+                                    @include margin-y( $label-spacing-y );
+                                  }
+                                  
+                                  // Defines the style when inline.
+                                  &amp;.-inline {
+                                    margin-left: $label-spacing-x;
+                                  }
                                     
                                   // Apply styles when focused.
                                   &amp;.is-focused {
@@ -8521,7 +8620,19 @@
                               
                                 // Apply styles specific to inputs and labels within a field.
                                 &amp;-field {
-                              
+                                  
+                                  // Apply style when not used inline.
+                                  &amp;:not(.-inline) {
+                                    margin-bottom: $spacing;
+                                    grid-gap: $label-spacing-y;
+                                  }
+                                  
+                                  // Apply styles when used inline.
+                                  &amp;.-inline {
+                                    margin-bottom: ($spacing / 2);
+                                    grid-gap: $label-spacing-x;
+                                  }
+                                  
                                   // Overrides base input styles.
                                   #{$class}:not(.-checkbox):not(.-radio):not(.-select),
                                   #{$class}.-text {
@@ -8562,6 +8673,11 @@
                                     
                                   }
                                   
+                                }
+                              
+                                // Apply styles specific to input group wrappers.
+                                &amp;-group {
+                                  @include margin-y( $spacing );
                                 }
                                 
                                }"
@@ -8647,6 +8763,54 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#patterns.atoms.input-mixin-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#patterns.atoms.input-mixin-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#patterns.atoms.input-mixin-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#patterns.atoms.input-mixin-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
                                   
                                   
                                   
@@ -8764,8 +8928,18 @@
                                 ),
                                 &#x27;radius&#x27;: 5px,
                                 &#x27;shadow&#x27;: inset 1px 2px 4px rgba(color(&#x27;slate&#x27;), .5),
+                                &#x27;padding&#x27;: (
+                                  &#x27;x&#x27;: 20px,
+                                  &#x27;y&#x27;: 10px
+                                ),
+                                &#x27;spacing&#x27;: $rhythm-y,
                                 &#x27;foreground&#x27;: $color-text-dark,
                                 &#x27;background&#x27;: color(&#x27;white&#x27;),
+                                &#x27;icon&#x27;: (
+                                  &#x27;color&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;),
+                                  &#x27;size&#x27;: 20px,
+                                  &#x27;spacing&#x27;: 20px
+                                ),
                                 &#x27;transition&#x27;: (
                                   &#x27;duration&#x27;: $transition-duration,
                                   &#x27;timing&#x27;: $transition-timing
@@ -8786,7 +8960,27 @@
                                     &#x27;invalid&#x27;: color(&#x27;ui&#x27;, &#x27;error&#x27;)
                                   )
                                 ),
-                                &#x27;label&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;)
+                                &#x27;label&#x27;: (
+                                  &#x27;color&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                  &#x27;spacing&#x27;: (
+                                    &#x27;x&#x27;: ($rhythm-x / 2),
+                                    &#x27;y&#x27;: ($rhythm-y / 2)
+                                  )
+                                ),
+                                &#x27;checkbox&#x27;: (
+                                  &#x27;size&#x27;: 15px,
+                                  &#x27;buffer&#x27;: 2.5px
+                                ),
+                                &#x27;radio&#x27;: (
+                                  &#x27;size&#x27;: 15px,
+                                  &#x27;buffer&#x27;: 2.5px,
+                                  &#x27;fill&#x27;: 40%,
+                                  &#x27;diffuse&#x27;: 5%
+                                ),
+                                &#x27;field&#x27;: (
+                                  &#x27;spacing&#x27;: $rhythm-y,
+                                  &#x27;padding&#x27;: 20px
+                                )
                                 
                               );</code></pre>
                               
@@ -8893,34 +9087,13 @@
                                 // Capture class name.
                                 $class: &amp;;
                                 
-                                // Define variables.
-                                $input-padding: 20px;
-                                $input-spacing: $rhythm-y;
-                                $icon-size: 20px;
-                                $icon-spacing: 20px;
-                                $icon-color: color(&#x27;blue&#x27;, &#x27;bright&#x27;);
-                                $label-spacing-y: ($rhythm-y / 2);
-                                $label-spacing-x: ($rhythm-x / 2);
-                                
-                                padding: 10px $input-padding;
                                 appearance: none;
                                 -webkit-appearance: none;
                                 display: block;
-                                margin-bottom: $input-spacing;
                                 
                                 // Defines base input structure.
                                 &amp;,
-                                &amp;.-text {}
-                                
-                                // Defines the structure for date, time, and select inputs.
-                                &amp;.-date,
-                                &amp;.-time,
-                                &amp;.-select {
-                                  padding-right: ($input-padding + $icon-size + $icon-spacing);
-                                  background-repeat: no-repeat;
-                                  background-size: auto $icon-size;
-                                  background-position: calc(100% - #{$icon-spacing}) center;
-                                }
+                                &amp;.-text { }
                                 
                                 // Defines the structure for date and time inputs.
                                 &amp;.-date,
@@ -8936,7 +9109,6 @@
                                 
                                 // Defines the structure specific to date inputs.
                                 &amp;.-date {
-                                  background-image: url( icon(&#x27;calendar_today&#x27;, $icon-color) );
                                   
                                   // Disable calendar picker button.
                                   &amp;::-webkit-calendar-picker-indicator {
@@ -8944,7 +9116,6 @@
                                     background: transparent;
                                     position: absolute;
                                     right: 0;
-                                    width: ($icon-spacing + $icon-size);
                                     height: 100%;
                                     box-sizing: border-box;
                                     z-index: z(&#x27;above&#x27;);
@@ -8952,28 +9123,16 @@
                                   
                                 }
                                 
-                                // Defines the structure specific to time inputs.
-                                &amp;.-time {
-                                  background-image: url( icon(&#x27;access_time&#x27;, $icon-color) );
-                                }
-                                
                                 // Defines the structure specific to select inputs.
-                                &amp;.-select {
-                                  background-image: url( icon(&#x27;keyboard_arrow_down&#x27;, $icon-color) );
-                                }
+                                &amp;.-select { }
                                 
                                 // Defines the structure for checkbox and radio inputs.
                                 &amp;.-checkbox,
                                 &amp;.-radio {
-                                  $size: 15px;
-                                  $buffer: 2.5px;
-                                  
                                   display: inline-block;
-                                  @include size($size);
                                   padding: 0;
                                   background-position: center center;
                                   background-repeat: no-repeat;
-                                  background-size: ($size - $buffer) ($size - $buffer);
                                   vertical-align: middle;
                                   
                                   // Overrides the structure of labes when following a checkbox or radio.
@@ -8984,32 +9143,10 @@
                                 }
                                 
                                 // Defines the structure specific to checkbox inputs.
-                                &amp;.-checkbox {
-                                  
-                                  // Styles the checkbox&#x27;s unselected/unchecked state.
-                                  &amp;:not(:checked) { }
-                                  
-                                  // Styles the checkbox&#x27;s selected/checked state.
-                                  &amp;:checked {
-                                    background-image: url( icon(&#x27;check&#x27;, $icon-color) );
-                                  }
-                                  
-                                }
+                                &amp;.-checkbox { }
                                 
                                 // Defines the structure specific to radio inputs.
-                                &amp;.-radio {
-                                  $percent-fill: 40%;
-                                  $percent-diffuse: 5%;
-                                  
-                                  // Styles the radio&#x27;s unselected/unchecked state.
-                                  &amp;:not(:checked) { }
-                                  
-                                  // Styles the radio&#x27;s selected/checked state.
-                                  &amp;:checked {
-                                    @include radial-gradient(circle at center, $icon-color $percent-fill, transparent ($percent-fill + $percent-diffuse));
-                                  }
-                                  
-                                }
+                                &amp;.-radio { }
                                 
                                 /* COMPONENT ACCESSORIES */
                                 
@@ -9019,13 +9156,11 @@
                                   // Defines the structure for block labels.
                                   &amp;:not(.-inline) {
                                     display: block;
-                                    @include margin-y( $label-spacing-y );
                                   }
                                   
                                   // Defines the structure for inline labels (used for labeling inputs).
                                   &amp;.-inline {
                                     display: inline-block;
-                                    margin-left: $label-spacing-x;
                                   }
                                   
                                 }
@@ -9036,18 +9171,14 @@
                                   
                                   // Apply style when not used inline.
                                   &amp;:not(.-inline) {
-                                    margin-bottom: $input-spacing;
                                     grid-template-areas: &quot;label&quot; &quot;field&quot;;
                                     grid-template-columns: min-content;
-                                    grid-gap: $label-spacing-y;
                                   }
                                   
                                   // Apply styles when used inline.
                                   &amp;.-inline {
-                                    margin-bottom: ($input-spacing / 2);
                                     grid-template-areas: &quot;field label&quot;;
                                     grid-template-columns: repeat(2, min-content);
-                                    grid-gap: $label-spacing-x;
                                     align-items: center;
                                   }
                                   
@@ -9068,7 +9199,6 @@
                                 // Defines the structure of an input group wrapper.
                                 &amp;-group {
                                   display: block;
-                                  @include margin-y( $input-spacing );
                                 }
                                 
                                }"
@@ -9690,6 +9820,29 @@
                                     display: none;
                                   }
                                   
+                                  $arrow-color: map-deep-get($skin, &#x27;arrow.color&#x27;);
+                                  $arrow-size: map-deep-get($skin, &#x27;arrow.size&#x27;);
+                                  
+                                  // Add icon to button only on small screens.
+                                  &amp;::after {
+                                    @include tokens-icon(&#x27;material-chevron_right&#x27;, $arrow-color, $arrow-size, $pseudo: true);
+                                    @include padding-x( 10px );
+                                    @include absolute( 0 10px 0 null );
+                                    @include absolute-center-within-container-y;
+                                    @include absolute-center-contents;
+                                    @include size( $arrow-size );
+                                    color: $arrow-color;
+                                  }
+                                  
+                                  // Remove icon from button on larger screens.
+                                  @include breakpoint-m-l {
+                                    
+                                    &amp;::after {
+                                      content: none;
+                                    }
+                                    
+                                  };
+                                  
                                 }
                                 
                                 // Defines toggle button styles.
@@ -10127,6 +10280,18 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.nav-button-mixin-tokens-icon"><code>tokens-icon</code></a>
+                                  
+                                  
+                                          </li>
+                                  
                                   
                                   
                                   
@@ -10596,6 +10761,10 @@
                                 ),
                                 &#x27;icon&#x27;: (
                                   &#x27;offset&#x27;: ($rhythm-x / 2)
+                                ),
+                                &#x27;arrow&#x27;: (
+                                  &#x27;color&#x27;: color(&#x27;slate&#x27;),
+                                  &#x27;size&#x27;: 16px
                                 )
                                 
                               );</code></pre>
@@ -13958,6 +14127,8 @@
                                   
                                   
                                   
+                                  
+                                  
                               
                               
                               
@@ -16643,6 +16814,235 @@
                             
                         
                         
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                      
+                      </section>  
+                    
+                      <section class="main__item container item"
+                               id="utils.functions-function-icon-url">
+                      
+                        <h3 class="item__heading">
+                          
+                        
+                          <a class="item__name" href="#utils.functions-function-icon-url">
+                            icon-url
+                          </a>
+                        
+                        
+                          
+                          
+                        </h3>
+                        
+                        
+                          <span class="item__since">
+                            Since 1.0.0
+                          </span>
+                        
+                        
+                      
+                        
+                          
+                        
+                            
+                              
+                            
+                              
+                              
+                            
+                              
+                              
+                        
+                          
+                        
+                          <div class="item__code-wrapper">
+                            
+                            <pre class="item__code  item__code--togglable language-scss"
+                                 data-current-state="collapsed"
+                                 data-expanded="@function icon-url($id, $color: null, $size: null) { 
+                          
+                          // Get the icon&#x27;s path.
+                          $path: icon($id, $color, $size);
+                          
+                          // Return the icon&#x27;s path as a URL.
+                          @return unquote( &#x27;url(&#x27; + $path + &#x27;)&#x27; );
+                          
+                         }"
+                                 data-collapsed="@function icon-url($id, $color: null, $size: null) { ... }"><code class="js-autoindent">@function icon-url($id, $color: null, $size: null) { ... }</code></pre>
+                        
+                            
+                          </div>
+                        
+                          
+                        
+                        
+                          
+                          
+                        
+                        
+                              <h3 class="item__sub-heading">Description</h3>
+                              <div class="item__description"><p>Dynamically retrieves an icon from the
+                            icon folder by icon ID. Optionally allows the
+                            icon to be recolored or resized.</p>
+                            </div>
+                        
+                        
+                            <h3 class="item__sub-heading">Parameters</h3>
+                            
+                            
+                              <table class="item__parameters">
+                                
+                                <thead>
+                                  <tr>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Name
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Description
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Type
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Default value
+                                    </th>
+                                  </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    <tr class="item__parameter">
+                                      <th scope="row" data-label="name">
+                                        <code>$id</code>
+                                      </th>
+                                      <td data-label="desc">
+                                        <p>The ID of the icon</p>
+                            
+                                      </td>
+                                      <td data-label="type">
+                                        <code>
+                                            string
+                                        </code>
+                                      </td>
+                                      <td data-label="default">
+                                          &mdash;<span class="visually-hidden"> none</span>
+                                      </td>
+                                    </tr>
+                                    <tr class="item__parameter">
+                                      <th scope="row" data-label="name">
+                                        <code>$color</code>
+                                      </th>
+                                      <td data-label="desc">
+                                        <p>The desired color of the icon</p>
+                            
+                                      </td>
+                                      <td data-label="type">
+                                        <code>
+                                            color
+                                        </code>
+                                      </td>
+                                      <td data-label="default">
+                                            <code></code>
+                                      </td>
+                                    </tr>
+                                    <tr class="item__parameter">
+                                      <th scope="row" data-label="name">
+                                        <code>$size</code>
+                                      </th>
+                                      <td data-label="desc">
+                                        <p>The desired size of the icon, either a single number or list of numbers representing width and height</p>
+                            
+                                      </td>
+                                      <td data-label="type">
+                                        <code>
+                                            number </code> or <code> list
+                                        </code>
+                                      </td>
+                                      <td data-label="default">
+                                            <code></code>
+                                      </td>
+                                    </tr>
+                                </tbody>
+                                
+                              </table>
+                            
+                        
+                        
+                            
+                              <h3 class="item__sub-heading">Returns</h3>
+                            
+                              <div class="item__description item__description--inline">
+                                
+                                  <code></code>
+                                
+                                 &mdash; <p>The icon&#39;s path as a URL</p>
+                            
+                                
+                              </div>
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                            
+                              <h3 class="item__sub-heading">Requires</h3>
+                            
+                              <ul class="list-unstyled">
+                            
+                            
+                            
+                                    <li class="item__description  item__description--inline">
+                            
+                                      <span class="item__cross-type">function</span>
+                            
+                                      <a href="#utils.functions-function-icon"><code>icon</code></a>
+                            
+                            
+                                    </li>
+                            
+                            
+                            
+                              </ul>
+                            
+                        
+                        
+                            
+                            
+                            
+                            
                             
                             
                             

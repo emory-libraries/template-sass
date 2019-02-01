@@ -391,6 +391,10 @@ $atoms-nav-button: (
   ),
   'icon': (
     'offset': ($rhythm-x / 2)
+  ),
+  'arrow': (
+    'color': color('slate'),
+    'size': 16px
   )
   
 );
@@ -570,6 +574,29 @@ $atoms-nav-button: (
     .icon {
       display: none;
     }
+    
+    $arrow-color: map-deep-get($skin, 'arrow.color');
+    $arrow-size: map-deep-get($skin, 'arrow.size');
+    
+    // Add icon to button only on small screens.
+    &::after {
+      @include tokens-icon('material-chevron_right', $arrow-color, $arrow-size, $pseudo: true);
+      @include padding-x( 10px );
+      @include absolute( 0 10px 0 null );
+      @include absolute-center-within-container-y;
+      @include absolute-center-contents;
+      @include size( $arrow-size );
+      color: $arrow-color;
+    }
+    
+    // Remove icon from button on larger screens.
+    @include breakpoint-m-l {
+      
+      &::after {
+        content: none;
+      }
+      
+    };
     
   }
   
