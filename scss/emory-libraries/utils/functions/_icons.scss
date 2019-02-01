@@ -15,9 +15,9 @@
 /// @requires {function} Brandy::is-list <https://laurenhamel.github.io/brandy/docs/#brandy-type-function-is-list>
 /// @requires {function} Brandy::to-hex <https://laurenhamel.github.io/brandy/docs/#brandy-colors-function-to-hex>
 ///
-/// @param {string} $id - The ID of the icon
-/// @param {color} $color [null] - The desired color of the icon
-/// @param {number | list} $size [null] - The desired size of the icon, either a single number or list of numbers representing width and height
+/// @param {string} id - The ID of the icon
+/// @param {color} color [null] - The desired color of the icon
+/// @param {number | list} size [null] - The desired size of the icon, either a single number or list of numbers representing width and height
 ///
 /// @returns {string} - The icon's path
 @function icon( $id, $color: null, $size: null ) {
@@ -71,5 +71,28 @@
   
   // Returns the icon path.
   @return $path; 
+  
+}
+
+/// Dynamically retrieves an icon from the
+/// icon folder by icon ID. Optionally allows the
+/// icon to be recolored or resized.
+///
+/// @since 1.0.0
+///
+/// @requires {function} icon
+///
+/// @param {string} id - The ID of the icon
+/// @param {color} color [null] - The desired color of the icon
+/// @param {number | list} size [null] - The desired size of the icon, either a single number or list of numbers representing width and height
+///
+/// @returns {string} - The icon's path as a URL
+@function icon-url( $id, $color: null, $size: null ) {
+  
+  // Get the icon's path.
+  $path: icon($id, $color, $size);
+  
+  // Return the icon's path as a URL.
+  @return unquote( 'url(' + $path + ')' );
   
 }
