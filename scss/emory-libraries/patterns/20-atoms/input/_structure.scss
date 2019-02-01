@@ -19,34 +19,13 @@
   // Capture class name.
   $class: &;
   
-  // Define variables.
-  $input-padding: 20px;
-  $input-spacing: $rhythm-y;
-  $icon-size: 20px;
-  $icon-spacing: 20px;
-  $icon-color: color('blue', 'bright');
-  $label-spacing-y: ($rhythm-y / 2);
-  $label-spacing-x: ($rhythm-x / 2);
-  
-  padding: 10px $input-padding;
   appearance: none;
   -webkit-appearance: none;
   display: block;
-  margin-bottom: $input-spacing;
   
   // Defines base input structure.
   &,
-  &.-text {}
-  
-  // Defines the structure for date, time, and select inputs.
-  &.-date,
-  &.-time,
-  &.-select {
-    padding-right: ($input-padding + $icon-size + $icon-spacing);
-    background-repeat: no-repeat;
-    background-size: auto $icon-size;
-    background-position: calc(100% - #{$icon-spacing}) center;
-  }
+  &.-text { }
   
   // Defines the structure for date and time inputs.
   &.-date,
@@ -62,7 +41,6 @@
   
   // Defines the structure specific to date inputs.
   &.-date {
-    background-image: url( icon('calendar_today', $icon-color) );
     
     // Disable calendar picker button.
     &::-webkit-calendar-picker-indicator {
@@ -70,7 +48,6 @@
       background: transparent;
       position: absolute;
       right: 0;
-      width: ($icon-spacing + $icon-size);
       height: 100%;
       box-sizing: border-box;
       z-index: z('above');
@@ -78,28 +55,16 @@
     
   }
   
-  // Defines the structure specific to time inputs.
-  &.-time {
-    background-image: url( icon('access_time', $icon-color) );
-  }
-  
   // Defines the structure specific to select inputs.
-  &.-select {
-    background-image: url( icon('keyboard_arrow_down', $icon-color) );
-  }
+  &.-select { }
   
   // Defines the structure for checkbox and radio inputs.
   &.-checkbox,
   &.-radio {
-    $size: 15px;
-    $buffer: 2.5px;
-    
     display: inline-block;
-    @include size($size);
     padding: 0;
     background-position: center center;
     background-repeat: no-repeat;
-    background-size: ($size - $buffer) ($size - $buffer);
     vertical-align: middle;
     
     // Overrides the structure of labes when following a checkbox or radio.
@@ -110,32 +75,10 @@
   }
   
   // Defines the structure specific to checkbox inputs.
-  &.-checkbox {
-    
-    // Styles the checkbox's unselected/unchecked state.
-    &:not(:checked) { }
-    
-    // Styles the checkbox's selected/checked state.
-    &:checked {
-      background-image: url( icon('check', $icon-color) );
-    }
-    
-  }
+  &.-checkbox { }
   
   // Defines the structure specific to radio inputs.
-  &.-radio {
-    $percent-fill: 40%;
-    $percent-diffuse: 5%;
-    
-    // Styles the radio's unselected/unchecked state.
-    &:not(:checked) { }
-    
-    // Styles the radio's selected/checked state.
-    &:checked {
-      @include radial-gradient(circle at center, $icon-color $percent-fill, transparent ($percent-fill + $percent-diffuse));
-    }
-    
-  }
+  &.-radio { }
   
   /* COMPONENT ACCESSORIES */
   
@@ -145,13 +88,11 @@
     // Defines the structure for block labels.
     &:not(.-inline) {
       display: block;
-      @include margin-y( $label-spacing-y );
     }
     
     // Defines the structure for inline labels (used for labeling inputs).
     &.-inline {
       display: inline-block;
-      margin-left: $label-spacing-x;
     }
     
   }
@@ -162,18 +103,14 @@
     
     // Apply style when not used inline.
     &:not(.-inline) {
-      margin-bottom: $input-spacing;
       grid-template-areas: "label" "field";
       grid-template-columns: min-content;
-      grid-gap: $label-spacing-y;
     }
     
     // Apply styles when used inline.
     &.-inline {
-      margin-bottom: ($input-spacing / 2);
       grid-template-areas: "field label";
       grid-template-columns: repeat(2, min-content);
-      grid-gap: $label-spacing-x;
       align-items: center;
     }
     
@@ -194,7 +131,6 @@
   // Defines the structure of an input group wrapper.
   &-group {
     display: block;
-    @include margin-y( $input-spacing );
   }
   
 }

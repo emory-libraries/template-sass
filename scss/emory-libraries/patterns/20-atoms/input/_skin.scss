@@ -15,8 +15,18 @@ $atoms-input: (
   ),
   'radius': 5px,
   'shadow': inset 1px 2px 4px rgba(color('slate'), .5),
+  'padding': (
+    'x': 20px,
+    'y': 10px
+  ),
+  'spacing': $rhythm-y,
   'foreground': $color-text-dark,
   'background': color('white'),
+  'icon': (
+    'color': color('blue', 'bright'),
+    'size': 20px,
+    'spacing': 20px
+  ),
   'transition': (
     'duration': $transition-duration,
     'timing': $transition-timing
@@ -37,7 +47,27 @@ $atoms-input: (
       'invalid': color('ui', 'error')
     )
   ),
-  'label': color('blue', 'dark')
+  'label': (
+    'color': color('blue', 'dark'),
+    'spacing': (
+      'x': ($rhythm-x / 2),
+      'y': ($rhythm-y / 2)
+    )
+  ),
+  'checkbox': (
+    'size': 15px,
+    'buffer': 2.5px
+  ),
+  'radio': (
+    'size': 15px,
+    'buffer': 2.5px,
+    'fill': 40%,
+    'diffuse': 5%
+  ),
+  'field': (
+    'spacing': $rhythm-y,
+    'padding': 20px
+  )
   
 );
 
@@ -67,6 +97,19 @@ $atoms-input: (
   $timing: map-deep-get($skin, 'transition.timing');
   $foreground: map-deep-get($skin, 'foreground');
   $background: map-deep-get($skin, 'background');
+  $padding-x: map-deep-get($skin, 'padding.x');
+  $padding-y: map-deep-get($skin, 'padding.y');
+  $spacing: map-deep-get($skin, 'spacing');
+  
+  // Capture icon-specific variables.
+  $icon-size: map-deep-get($skin, 'icon.size');
+  $icon-color: map-deep-get($skin, 'icon.color');
+  $icon-spacing: map-deep-get($skin, 'icon.spacing');
+  
+  // Capture label-specific variables.
+  $label-spacing-x: map-deep-get($skin, 'label.spacing.x');
+  $label-spacing-y: map-deep-get($skin, 'label.spacing.y');
+  $label-color: map-deep-get($skin, 'label.color');
   
   // Build input component styles.
   background-color: $background;
@@ -74,6 +117,8 @@ $atoms-input: (
   border-radius: $radius;
   box-shadow: $shadow;
   transition: all $duration $timing;
+  padding: $padding-y $padding-x;
+  margin-bottom: $spacing;
   
   // Apply styles specific to text inputs.
   &,
@@ -122,11 +167,39 @@ $atoms-input: (
     
   }
   
+  // Apply styles to inputs with icons.
+  &.-date,
+  &.-time,
+  &.-select {
+    padding-right: ($padding-x + $icon-size + $icon-spacing);
+    background-repeat: no-repeat;
+    background-size: auto $icon-size;
+    background-position: calc(100% - #{$icon-spacing}) center;
+  }
+  
   // Apply styles specific to date inputs.
-  &.-date { }
+  &.-date { 
+    
+    $icon: 'material-calendar_today';
+  
+    // Add icon.
+    background-image: icon-url($icon, $icon-color, $icon-size);
+    
+    &::-webkit-calendar-picker-indicator {
+      width: ($icon-spacing + $icon-size);
+    }
+  
+  }
   
   // Apply styles specific to time inputs.
-  &.-time { }
+  &.-time { 
+  
+    $icon: 'material-access_time';
+  
+    // Add icon.
+    background-image: icon-url($icon, $icon-color, $icon-size);
+  
+  }
   
   // Apply styles specific to select inputs.
   &.-select {
@@ -134,6 +207,11 @@ $atoms-input: (
     $selected: map-deep-get($skin, 'state.select.focused');
     
     transition: all $duration $timing;
+    
+    $icon: 'material-keyboard_arrow_down';
+  
+    // Add icon.
+    background-image: icon-url($icon, $icon-color, $icon-size);
     
     &:not(:focus),
     &.is-closed {
@@ -185,22 +263,60 @@ $atoms-input: (
   
   // Apply styles specific to checkbox inputs.
   &.-checkbox {
+    $size: map-deep-get($skin, 'checkbox.size');
+    $buffer: map-deep-get($skin, 'checkbox.buffer');
+    
+    @include size($size);
+    background-size: ($size - $buffer) ($size - $buffer);
     border-radius: 0;
+    
+    &:checked,
+    &.is-checked {
+      
+      $icon: 'material-check';
+  
+      // Add icon.
+      background-image: icon-url($icon, $icon-color, $icon-size);
+      
+    }
+    
   }
   
   // Apply styles specific to radio inputs.
   &.-radio {
+    $size: map-deep-get($skin, 'radio.size');
+    $buffer: map-deep-get($skin, 'radio.buffer');
+    $fill: map-deep-get($skin, 'radio.fill');
+    $diffuse: map-deep-get($skin, 'radio.diffuse');
+    
+    @include size($size);
+    background-size: ($size - $buffer) ($size - $buffer);
     border-radius: 100%;
+    
+    &:checked,
+    &.is-checked {
+      @include radial-gradient(circle at center, $icon-color $fill, transparent ($fill + $diffuse));
+    }
+    
   }
   
   // Apply styles specific to input labels.
   &-label {
-    $color: map-deep-get($skin, 'label');
     $focused: map-deep-get($skin, 'state.text.focused');
     $valid: map-deep-get($skin, 'state.text.valid');
     $invalid: map-deep-get($skin, 'state.text.invalid');
     
-    @include tokens-text('label', $color);
+    @include tokens-text('label', $label-color);
+    
+    // Defines the style when not inline.
+    &:not(.-inline) {
+      @include margin-y( $label-spacing-y );
+    }
+    
+    // Defines the style when inline.
+    &.-inline {
+      margin-left: $label-spacing-x;
+    }
       
     // Apply styles when focused.
     &.is-focused {
@@ -221,7 +337,19 @@ $atoms-input: (
 
   // Apply styles specific to inputs and labels within a field.
   &-field {
-
+    
+    // Apply style when not used inline.
+    &:not(.-inline) {
+      margin-bottom: $spacing;
+      grid-gap: $label-spacing-y;
+    }
+    
+    // Apply styles when used inline.
+    &.-inline {
+      margin-bottom: ($spacing / 2);
+      grid-gap: $label-spacing-x;
+    }
+    
     // Overrides base input styles.
     #{$class}:not(.-checkbox):not(.-radio):not(.-select),
     #{$class}.-text {
@@ -262,6 +390,11 @@ $atoms-input: (
       
     }
     
+  }
+
+  // Apply styles specific to input group wrappers.
+  &-group {
+    @include margin-y( $spacing );
   }
   
 }
