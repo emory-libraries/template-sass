@@ -268,6 +268,18 @@ $atoms-nav-button: (
         'm': 17px,
         'l': 17px
       )
+    ),
+    'padding': (
+      'x': (
+        's': false,
+        'm': false,
+        'l': false
+      ),
+      'y': (
+        's': 10px,
+        'm': unset,
+        'l': unset
+      )
     )
   ),
   
@@ -382,6 +394,18 @@ $atoms-nav-button: (
         'm': 0,
         'l': 0
       )
+    ),
+    'padding': (
+      'x': (
+        's': false,
+        'm': false,
+        'l': false
+      ),
+      'y': (
+        's': 10px,
+        'm': false,
+        'l': false
+      )
     )
   ),
 
@@ -394,7 +418,19 @@ $atoms-nav-button: (
   ),
   'arrow': (
     'color': color('slate'),
-    'size': 16px
+    'size': 24px
+  ),
+  'padding': (
+    'x': (
+      's': 10px,
+      'm': 25px,
+      'l': 25px
+    ),
+    'y': (
+      's': false,
+      'm': false,
+      'l': false
+    )
   )
   
 );
@@ -421,6 +457,29 @@ $atoms-nav-button: (
   background: none;
   transition: all $duration $timing;
   
+  @each $breakpoint, $padding in map-deep-get($skin, 'padding.x') {
+    
+    @if ( is-null($padding) == false and $padding != false ) {
+      
+      @include breakpoint( screen($breakpoint) ) {
+        @include padding-x( $padding );
+      };
+      
+    }
+    
+  }
+  @each $breakpoint, $padding in map-deep-get($skin, 'padding.y') {
+    
+    @if ( is-null($padding) == false and $padding != false ) {
+      
+      @include breakpoint( screen($breakpoint) ) {
+        @include padding-y( $padding );
+      };
+      
+    }
+    
+  }
+  
   // Apply icon styles.
   .icon {
     @include absolute-center-contents;
@@ -430,8 +489,8 @@ $atoms-nav-button: (
   &:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
   &.-main {
     font-family: map-deep-get($skin, 'main.font.font-family');
-    font-weight: map-deep-get($skin, 'main.font.font-weight');;
-    font-style: map-deep-get($skin, 'main.font.font-style');;
+    font-weight: map-deep-get($skin, 'main.font.font-weight');
+    font-style: map-deep-get($skin, 'main.font.font-style');
     
     @each $breakpoint, $size in map-deep-get($skin, 'main.font.font-size') {
       
@@ -578,19 +637,22 @@ $atoms-nav-button: (
     $arrow-color: map-deep-get($skin, 'arrow.color');
     $arrow-size: map-deep-get($skin, 'arrow.size');
     
-    // Add icon to button only on small screens.
+    // Add arrow to button only on small screens.
+    padding-right: (10px * 2) + $arrow-size + 10px;
+      
     &::after {
       @include tokens-icon('material-chevron_right', $arrow-color, $arrow-size, $pseudo: true);
       @include padding-x( 10px );
-      @include absolute( 0 10px 0 null );
+      @include absolute( 0 0 0 null );
       @include absolute-center-within-container-y;
       @include absolute-center-contents;
       @include size( $arrow-size );
       color: $arrow-color;
     }
     
-    // Remove icon from button on larger screens.
+    // Remove arrow from button on larger screens.
     @include breakpoint-m-l {
+      padding-right: 10px;
       
       &::after {
         content: none;
@@ -602,6 +664,30 @@ $atoms-nav-button: (
   
   // Defines toggle button styles.
   &.-toggle {
+    
+    // Modifies toggle style.
+    @each $breakpoint, $padding in map-deep-get($skin, 'toggle.padding.x') {
+    
+      @if ( is-null($padding) == false and $padding != false ) {
+
+        @include breakpoint( screen($breakpoint) ) {
+          @include padding-x( $padding );
+        };
+
+      }
+
+    }
+    @each $breakpoint, $padding in map-deep-get($skin, 'toggle.padding.y') {
+
+      @if ( is-null($padding) == false and $padding != false ) {
+
+        @include breakpoint( screen($breakpoint) ) {
+          @include padding-y( $padding );
+        };
+
+      }
+
+    }
     
     $foreground: map-deep-get($skin, 'toggle.foreground');
     $background: map-deep-get($skin, 'toggle.background');
@@ -796,8 +882,8 @@ $atoms-nav-button: (
     
     &.-#{$class} {
       font-family: map-deep-get($skin, $class + '.font.font-family');
-      font-weight: map-deep-get($skin, $class + '.font.font-weight');;
-      font-style: map-deep-get($skin, $class + '.font.font-style');;
+      font-weight: map-deep-get($skin, $class + '.font.font-weight');
+      font-style: map-deep-get($skin, $class + '.font.font-style');
 
       @each $breakpoint, $size in map-deep-get($skin, $class + '.font.font-size') {
 
@@ -854,8 +940,8 @@ $atoms-nav-button: (
   // Define search button styles.
   &.-search {
     font-family: map-deep-get($skin, 'search.font.font-family');
-    font-weight: map-deep-get($skin, 'search.font.font-weight');;
-    font-style: map-deep-get($skin, 'search.font.font-style');;
+    font-weight: map-deep-get($skin, 'search.font.font-weight');
+    font-style: map-deep-get($skin, 'search.font.font-style');
     
     @each $breakpoint, $size in map-deep-get($skin, 'search.font.font-size') {
       
@@ -885,6 +971,30 @@ $atoms-nav-button: (
       };
       
     };
+    
+    // Modifies search style.
+    @each $breakpoint, $padding in map-deep-get($skin, 'search.padding.x') {
+    
+      @if ( is-null($padding) == false and $padding != false ) {
+
+        @include breakpoint( screen($breakpoint) ) {
+          @include padding-x( $padding );
+        };
+
+      }
+
+    }
+    @each $breakpoint, $padding in map-deep-get($skin, 'search.padding.y') {
+
+      @if ( is-null($padding) == false and $padding != false ) {
+
+        @include breakpoint( screen($breakpoint) ) {
+          @include padding-y( $padding );
+        };
+
+      }
+
+    }
     
     // Assign icon styles.
     .icon {

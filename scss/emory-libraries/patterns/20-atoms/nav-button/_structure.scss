@@ -11,14 +11,12 @@
   @extend %atoms-button;
   display: flex;
   justify-content: flex-start;
-  @include padding-x( 10px );
   width: 100%;
   
   // Adds breakpoint-specific structure changes.
   @include breakpoint-m-l {
     display: inline-flex;
     justify-content: center;
-    @include padding-x( 25px );
     width: auto;
   };
   
@@ -36,7 +34,6 @@
   // Modifies toggle button structure
   &.-toggle {
     height: 40px;
-    @include padding-y( 10px );
     display: inline-flex;
     justify-content: center;
     width: auto;
@@ -50,14 +47,12 @@
   // Sets search button structure.
   &.-search {
     height: 40px;
-    @include padding-y( 10px );
     display: inline-flex;
     justify-content: center;
     width: auto;
     margin-left: auto;
     
     @include breakpoint-m-l {
-      @include padding-y( unset );
       margin-left: 0;
       height: 90px;
     };

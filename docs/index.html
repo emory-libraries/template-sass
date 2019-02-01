@@ -9666,6 +9666,29 @@
                                 background: none;
                                 transition: all $duration $timing;
                                 
+                                @each $breakpoint, $padding in map-deep-get($skin, &#x27;padding.x&#x27;) {
+                                  
+                                  @if ( is-null($padding) &#x3D;&#x3D; false and $padding !&#x3D; false ) {
+                                    
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      @include padding-x( $padding );
+                                    };
+                                    
+                                  }
+                                  
+                                }
+                                @each $breakpoint, $padding in map-deep-get($skin, &#x27;padding.y&#x27;) {
+                                  
+                                  @if ( is-null($padding) &#x3D;&#x3D; false and $padding !&#x3D; false ) {
+                                    
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      @include padding-y( $padding );
+                                    };
+                                    
+                                  }
+                                  
+                                }
+                                
                                 // Apply icon styles.
                                 .icon {
                                   @include absolute-center-contents;
@@ -9675,8 +9698,8 @@
                                 &amp;:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
                                 &amp;.-main {
                                   font-family: map-deep-get($skin, &#x27;main.font.font-family&#x27;);
-                                  font-weight: map-deep-get($skin, &#x27;main.font.font-weight&#x27;);;
-                                  font-style: map-deep-get($skin, &#x27;main.font.font-style&#x27;);;
+                                  font-weight: map-deep-get($skin, &#x27;main.font.font-weight&#x27;);
+                                  font-style: map-deep-get($skin, &#x27;main.font.font-style&#x27;);
                                   
                                   @each $breakpoint, $size in map-deep-get($skin, &#x27;main.font.font-size&#x27;) {
                                     
@@ -9823,19 +9846,22 @@
                                   $arrow-color: map-deep-get($skin, &#x27;arrow.color&#x27;);
                                   $arrow-size: map-deep-get($skin, &#x27;arrow.size&#x27;);
                                   
-                                  // Add icon to button only on small screens.
+                                  // Add arrow to button only on small screens.
+                                  padding-right: (10px * 2) + $arrow-size + 10px;
+                                    
                                   &amp;::after {
                                     @include tokens-icon(&#x27;material-chevron_right&#x27;, $arrow-color, $arrow-size, $pseudo: true);
                                     @include padding-x( 10px );
-                                    @include absolute( 0 10px 0 null );
+                                    @include absolute( 0 0 0 null );
                                     @include absolute-center-within-container-y;
                                     @include absolute-center-contents;
                                     @include size( $arrow-size );
                                     color: $arrow-color;
                                   }
                                   
-                                  // Remove icon from button on larger screens.
+                                  // Remove arrow from button on larger screens.
                                   @include breakpoint-m-l {
+                                    padding-right: 10px;
                                     
                                     &amp;::after {
                                       content: none;
@@ -9847,6 +9873,30 @@
                                 
                                 // Defines toggle button styles.
                                 &amp;.-toggle {
+                                  
+                                  // Modifies toggle style.
+                                  @each $breakpoint, $padding in map-deep-get($skin, &#x27;toggle.padding.x&#x27;) {
+                                  
+                                    @if ( is-null($padding) &#x3D;&#x3D; false and $padding !&#x3D; false ) {
+                              
+                                      @include breakpoint( screen($breakpoint) ) {
+                                        @include padding-x( $padding );
+                                      };
+                              
+                                    }
+                              
+                                  }
+                                  @each $breakpoint, $padding in map-deep-get($skin, &#x27;toggle.padding.y&#x27;) {
+                              
+                                    @if ( is-null($padding) &#x3D;&#x3D; false and $padding !&#x3D; false ) {
+                              
+                                      @include breakpoint( screen($breakpoint) ) {
+                                        @include padding-y( $padding );
+                                      };
+                              
+                                    }
+                              
+                                  }
                                   
                                   $foreground: map-deep-get($skin, &#x27;toggle.foreground&#x27;);
                                   $background: map-deep-get($skin, &#x27;toggle.background&#x27;);
@@ -10041,8 +10091,8 @@
                                   
                                   &amp;.-#{$class} {
                                     font-family: map-deep-get($skin, $class + &#x27;.font.font-family&#x27;);
-                                    font-weight: map-deep-get($skin, $class + &#x27;.font.font-weight&#x27;);;
-                                    font-style: map-deep-get($skin, $class + &#x27;.font.font-style&#x27;);;
+                                    font-weight: map-deep-get($skin, $class + &#x27;.font.font-weight&#x27;);
+                                    font-style: map-deep-get($skin, $class + &#x27;.font.font-style&#x27;);
                               
                                     @each $breakpoint, $size in map-deep-get($skin, $class + &#x27;.font.font-size&#x27;) {
                               
@@ -10099,8 +10149,8 @@
                                 // Define search button styles.
                                 &amp;.-search {
                                   font-family: map-deep-get($skin, &#x27;search.font.font-family&#x27;);
-                                  font-weight: map-deep-get($skin, &#x27;search.font.font-weight&#x27;);;
-                                  font-style: map-deep-get($skin, &#x27;search.font.font-style&#x27;);;
+                                  font-weight: map-deep-get($skin, &#x27;search.font.font-weight&#x27;);
+                                  font-style: map-deep-get($skin, &#x27;search.font.font-style&#x27;);
                                   
                                   @each $breakpoint, $size in map-deep-get($skin, &#x27;search.font.font-size&#x27;) {
                                     
@@ -10130,6 +10180,30 @@
                                     };
                                     
                                   };
+                                  
+                                  // Modifies search style.
+                                  @each $breakpoint, $padding in map-deep-get($skin, &#x27;search.padding.x&#x27;) {
+                                  
+                                    @if ( is-null($padding) &#x3D;&#x3D; false and $padding !&#x3D; false ) {
+                              
+                                      @include breakpoint( screen($breakpoint) ) {
+                                        @include padding-x( $padding );
+                                      };
+                              
+                                    }
+                              
+                                  }
+                                  @each $breakpoint, $padding in map-deep-get($skin, &#x27;search.padding.y&#x27;) {
+                              
+                                    @if ( is-null($padding) &#x3D;&#x3D; false and $padding !&#x3D; false ) {
+                              
+                                      @include breakpoint( screen($breakpoint) ) {
+                                        @include padding-y( $padding );
+                                      };
+                              
+                                    }
+                              
+                                  }
                                   
                                   // Assign icon styles.
                                   .icon {
@@ -10638,6 +10712,18 @@
                                       &#x27;m&#x27;: 17px,
                                       &#x27;l&#x27;: 17px
                                     )
+                                  ),
+                                  &#x27;padding&#x27;: (
+                                    &#x27;x&#x27;: (
+                                      &#x27;s&#x27;: false,
+                                      &#x27;m&#x27;: false,
+                                      &#x27;l&#x27;: false
+                                    ),
+                                    &#x27;y&#x27;: (
+                                      &#x27;s&#x27;: 10px,
+                                      &#x27;m&#x27;: unset,
+                                      &#x27;l&#x27;: unset
+                                    )
                                   )
                                 ),
                                 
@@ -10752,6 +10838,18 @@
                                       &#x27;m&#x27;: 0,
                                       &#x27;l&#x27;: 0
                                     )
+                                  ),
+                                  &#x27;padding&#x27;: (
+                                    &#x27;x&#x27;: (
+                                      &#x27;s&#x27;: false,
+                                      &#x27;m&#x27;: false,
+                                      &#x27;l&#x27;: false
+                                    ),
+                                    &#x27;y&#x27;: (
+                                      &#x27;s&#x27;: 10px,
+                                      &#x27;m&#x27;: false,
+                                      &#x27;l&#x27;: false
+                                    )
                                   )
                                 ),
                               
@@ -10764,7 +10862,19 @@
                                 ),
                                 &#x27;arrow&#x27;: (
                                   &#x27;color&#x27;: color(&#x27;slate&#x27;),
-                                  &#x27;size&#x27;: 16px
+                                  &#x27;size&#x27;: 24px
+                                ),
+                                &#x27;padding&#x27;: (
+                                  &#x27;x&#x27;: (
+                                    &#x27;s&#x27;: 10px,
+                                    &#x27;m&#x27;: 25px,
+                                    &#x27;l&#x27;: 25px
+                                  ),
+                                  &#x27;y&#x27;: (
+                                    &#x27;s&#x27;: false,
+                                    &#x27;m&#x27;: false,
+                                    &#x27;l&#x27;: false
+                                  )
                                 )
                                 
                               );</code></pre>
@@ -10873,14 +10983,12 @@
                                 @extend %atoms-button;
                                 display: flex;
                                 justify-content: flex-start;
-                                @include padding-x( 10px );
                                 width: 100%;
                                 
                                 // Adds breakpoint-specific structure changes.
                                 @include breakpoint-m-l {
                                   display: inline-flex;
                                   justify-content: center;
-                                  @include padding-x( 25px );
                                   width: auto;
                                 };
                                 
@@ -10898,7 +11006,6 @@
                                 // Modifies toggle button structure
                                 &amp;.-toggle {
                                   height: 40px;
-                                  @include padding-y( 10px );
                                   display: inline-flex;
                                   justify-content: center;
                                   width: auto;
@@ -10912,14 +11019,12 @@
                                 // Sets search button structure.
                                 &amp;.-search {
                                   height: 40px;
-                                  @include padding-y( 10px );
                                   display: inline-flex;
                                   justify-content: center;
                                   width: auto;
                                   margin-left: auto;
                                   
                                   @include breakpoint-m-l {
-                                    @include padding-y( unset );
                                     margin-left: 0;
                                     height: 90px;
                                   };
