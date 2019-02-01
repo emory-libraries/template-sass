@@ -1,5 +1,8 @@
 @import '../scss/emory-libraries';
 
+// Override configurations for testing.
+@include config('path.icons', '../../icons', true);
+
 // atoms-button
 .button {
   @include atoms-button;

@@ -1,5 +1,8 @@
 @import '../scss/emory-libraries';
 
+// Override configurations for testing.
+@include config('path.icons', '../../icons', true);
+
 @include test('color', (
   ('blue'): map-deep-get($colors, 'blue.base'),
   ('ui', 'error'): map-deep-get($colors, 'ui.error.base'),
