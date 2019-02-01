@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.atoms.nav-button
+////
+
+/// Load the nav-button component's structure and skin.
+@import 'nav-button/structure';
+@import 'nav-button/skin';
+
+/// Builds a constructor for the nav-button component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} atoms-nav-button
+/// @requires {variable} atoms-nav-button
+/// @requires {mixin} atoms-nav-button--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our nav-button component
+///
+/// @status construction
+@mixin atoms-nav-button ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-nav-button, $custom);
+  
+  // Initialize the nav-button component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-nav-button;
+    
+    // Load skins.
+    @include atoms-nav-button--theme( $skin );
+    
+  }
+  
+}

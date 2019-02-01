@@ -1,0 +1,489 @@
+////
+/// @group emory-libraries.patterns.atoms.nav-button
+////
+
+/// Defines the base skin of the nav-button component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$atoms-nav-button: (
+  
+  'main': (
+    'foreground': (
+      'normal': (
+        's': color('white'),
+        'm': color('blue', 'dark'),
+        'l': color('blue', 'dark')
+      ),
+      'hover': (
+        's': $color-actionable,
+        'm': $color-actionable,
+        'l': $color-actionable
+      )
+    ),
+    'background': (
+      'normal': (
+        's': color('blue', 'dark'),
+        'm': color('white'),
+        'l': color('white')
+      ),
+      'hover': (
+        's': color('blue', 'dark'),
+        'm': color('white'),
+        'l': color('white')
+      )
+    )
+  ),
+  
+  'utility': (
+    'foreground': (
+      'normal': (
+        's': color('white'),
+        'm': color('blue', 'mid'),
+        'l': color('blue', 'mid')
+      ),
+      'hover': (
+        's': $color-actionable,
+        'm': $color-actionable,
+        'l': $color-actionable
+      )
+    ),
+    'background': (
+      'normal': (
+        's': color('blue', 'dark'),
+        'm': color('white'),
+        'l': color('white')
+      ),
+      'hover': (
+        's': color('blue', 'dark'),
+        'm': color('white'),
+        'l': color('white')
+      )
+    )
+  ),
+  
+  'flyout': (
+    'foreground': (
+      'normal': (
+        's': color('blue', 'mid'),
+        'm': color('blue', 'mid'),
+        'l': color('blue', 'mid')
+      ),
+      'hover': (
+        's': $color-actionable,
+        'm': $color-actionable,
+        'l': $color-actionable
+      )
+    ),
+    'background': (
+      'normal': (
+        's': color('white'),
+        'm': color('white'),
+        'l': color('white')
+      ),
+      'hover': (
+        's': color('white'),
+        'm': color('white'),
+        'l': color('white')
+      )
+    )
+  ),
+  
+  'search': (
+    'foreground': (
+      'normal': (
+        's': color('blue', 'dark'),
+        'm': color('blue', 'dark'),
+        'l': color('blue', 'dark')
+      ),
+      'hover': (
+        's': $color-actionable,
+        'm': $color-actionable,
+        'l': $color-actionable
+      )
+    ),
+    'background': (
+      'normal': (
+        's': color('white'),
+        'm': color('white'),
+        'l': color('white')
+      ),
+      'hover': (
+        's': color('white'),
+        'm': color('white'),
+        'l': color('white')
+      )
+    )
+  ),
+  
+  'librarian': (
+    'foreground': (
+      'normal': (
+        's': color('white'),
+        'm': color('blue', 'mid'),
+        'l': color('blue', 'mid')
+      ),
+      'hover': (
+        's': color('white'),
+        'm': $color-actionable,
+        'l': $color-actionable
+      )
+    ),
+    'background': (
+      'normal': (
+        's': $color-actionable,
+        'm': color('white'),
+        'l': color('white')
+      ),
+      'hover': (
+        's': color('blue', 'mid'),
+        'm': color('white'),
+        'l': color('white')
+      )
+    )
+  ),
+  
+  'toggle': (
+    'foreground': (
+      'normal': color('blue', 'dark'),
+      'hover': $color-actionable
+    ),
+    'background': (
+      'normal': color('white'),
+      'hover': color('white')
+    )
+  ),
+
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  ),
+  'icon': (
+    'offset': ($rhythm-x / 2)
+  )
+  
+);
+
+/// Defines the nav-button component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The nav-button component's themeable properties
+@mixin atoms-nav-button--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $duration: map-deep-get($skin, 'transition.duration');
+  $timing: map-deep-get($skin, 'transition.timing');
+  $offset: map-deep-get($skin, 'icon.offset');
+  
+  // Defines the component's base styles.
+  appearance: none;
+  border: none;
+  background: none;
+  transition: all $duration $timing;
+  
+  // Defines main button styles.
+  &:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
+  &.-main {
+    
+    $foreground: map-deep-get($skin, 'main.foreground');
+    $background: map-deep-get($skin, 'main.background');
+    
+    // Apply foreground styles.
+    @include private('Foreground') {
+    
+      $normal: map-get($foreground, 'normal');
+      $hover: map-get($foreground, 'hover');
+      
+      @each $breakpoint, $color in $normal {
+        @include breakpoint( screen($breakpoint) ) {
+          color: $color;
+          
+          .icon {
+        
+            svg {
+              fill: $color;
+            }
+
+          }
+          
+        };
+      }
+      
+      &:hover,
+      &:focus,
+      &.is-hover,
+      &.is-focus {
+        
+        @each $breakpoint, $color in $hover {
+          @include breakpoint( screen($breakpoint) ) {
+            color: $color;
+            
+            .icon {
+        
+              svg {
+                fill: $color;
+              }
+
+            }
+            
+          };
+        }
+        
+      }
+      
+    };
+    
+    // Apply background styles.
+    @include private('Background') {
+    
+      $normal: map-get($background, 'normal');
+      $hover: map-get($background, 'hover');
+      
+      @each $breakpoint, $color in $normal {
+        @include breakpoint( screen($breakpoint) ) {
+          background-color: $color;
+        };
+      }
+      
+      &:hover,
+      &:focus,
+      &.is-hover,
+      &.is-focus {
+        
+        @each $breakpoint, $color in $hover {
+          @include breakpoint( screen($breakpoint) ) {
+          background-color: $color;
+        };
+        }
+        
+      }
+      
+    };
+    
+    // Never show icons.
+    .icon {
+      display: none;
+    }
+    
+  }
+  
+  // Defines toggle button styles.
+  &.-toggle {
+    
+    $foreground: map-deep-get($skin, 'toggle.foreground');
+    $background: map-deep-get($skin, 'toggle.background');
+    
+    // Apply foreground styles.
+    @include private('Foreground') {
+      
+      $normal: map-get($foreground, 'normal');
+      $hover: map-get($foreground, 'hover');
+      
+      color: $normal;
+      
+      .icon {
+        
+        svg {
+          fill: $normal;
+        }
+
+      }
+      
+      &:hover,
+      &:focus,
+      &.is-hover,
+      &.is-focus {
+        color: $hover;
+        
+        .icon {
+        
+          svg {
+            fill: $hover;
+          }
+
+        }
+        
+      }
+      
+    };
+    
+    // Apply background styles.
+    @include private('Background') {
+      
+      $normal: map-get($background, 'normal');
+      $hover: map-get($background, 'hover');
+      
+      background-color: $normal;
+      
+      &:hover,
+      &:focus,
+      &.is-hover,
+      &.is-focus {
+        background-color: $hover;
+      }
+      
+    };
+    
+     // Assign icon styles.
+    .icon {
+      margin-right: $offset / 2;   
+    }
+    
+  }
+  
+  // Define other style variations for the button. 
+  @each $class in ('utility', 'flyout', 'search', 'librarian') {
+    
+    &.-#{$class} {
+      
+      $foreground: map-deep-get($skin, $class + '.foreground');
+      $background: map-deep-get($skin, $class + '.background');
+
+      // Apply foreground styles.
+      @include private('Foreground') {
+
+        $normal: map-get($foreground, 'normal');
+        $hover: map-get($foreground, 'hover');
+
+        @each $breakpoint, $color in $normal {
+          @include breakpoint( screen($breakpoint) ) {
+            color: $color;
+            
+            .icon {
+        
+              svg {
+                fill: $color;
+              }
+
+            }
+            
+          };
+        }
+
+        &:hover,
+        &:focus,
+        &.is-hover,
+        &.is-focus {
+
+          @each $breakpoint, $color in $hover {
+            @include breakpoint( screen($breakpoint) ) {
+              color: $color;
+              
+              .icon {
+        
+                svg {
+                  fill: $color;
+                }
+
+              }
+              
+            };
+          }
+
+        }
+
+      };
+
+      // Apply background styles.
+      @include private('Background') {
+
+        $normal: map-get($background, 'normal');
+        $hover: map-get($background, 'hover');
+
+        @each $breakpoint, $color in $normal {
+          @include breakpoint( screen($breakpoint) ) {
+            background-color: $color;
+          };
+        }
+
+        &:hover,
+        &:focus,
+        &.is-hover,
+        &.is-focus {
+
+          @each $breakpoint, $color in $hover {
+            @include breakpoint( screen($breakpoint) ) {
+            background-color: $color;
+          };
+          }
+
+        }
+
+      };
+      
+    }
+    
+  }
+  
+  // Define search button styles.
+  &.-search {
+    
+    // Assign icon styles.
+    .icon {
+      margin-right: $offset / 2;   
+      
+      @include breakpoint-m-l {
+        margin-right: 0;
+      };
+      
+    }
+    
+    @include breakpoint-m-l {
+      
+      .nav-button-label {
+        display: none;
+      }
+      
+    };
+    
+  }
+  
+  // Define utility button styles.
+  &.-utility {
+    
+    // Never show icons.
+    .icon {
+      display: none;
+    }
+    
+  }
+  
+  // Define flyout button styles.
+  &.-flyout {
+    
+    // Assign icon styles.
+    .icon {
+      margin-bottom: ($offset / 2);   
+      
+      @include breakpoint-m-l {
+        margin-right: $offset;
+        margin-bottom: 0;
+      };
+      
+    }
+    
+  }
+  
+  // Define librarian button styles.
+  &.-librarian {
+    
+    // Assign icon styles.
+    .icon {
+      margin-right: $offset;   
+    }
+    
+  }
+  
+  // Defines disabled button style.
+  &[disabled],
+  &.is-disabled {
+    opacity: .5;
+  }
+  
+}

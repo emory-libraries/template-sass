@@ -35,3 +35,8 @@
 .tab {
   @include atoms-tab;
 }
+
+// atoms-nav-button
+.nav-button {
+  @include atoms-nav-button;
+}

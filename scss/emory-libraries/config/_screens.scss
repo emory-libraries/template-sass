@@ -55,9 +55,10 @@ $screen-l: 1200px !default;
 /// @requires {variable} $screen-m
 /// @requires {variable} $screen-l
 ///
-/// @prop {mixed} s [max-width ($screen-s - 1)] - The main breakpoint for small screens
-/// @prop {mixed} m [$screen-s ($screen-l - 1)] - The main breakpoint for medium screens
-/// @prop {mixed} l [min-width $screen-l] - The main breakpoint for large screens
+/// @prop {mixed} s [max-width $screen-s] - The main breakpoint for small screens
+/// @prop {mixed} m [($screen-s + 1) $screen-m] - The main breakpoint for medium screens
+/// @prop {mixed} l [min-width ($screen-m + 1)] - The main breakpoint for large screens
+/// @prop {mixed} xl [min-width $screen-l] - The main breakpoint for extra-large screens
 ///
 /// @link https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-screen Brandy::screen
 /// @link http://breakpoint-sass.com/ Breakpoint
@@ -65,9 +66,10 @@ $screen-l: 1200px !default;
 /// @type map
 $screens: (
   
-  's': max-width ($screen-s - 1),
-  'm': $screen-s ($screen-l - 1),
-  'l': min-width $screen-l
+  's': max-width $screen-s,
+  'm': ($screen-s + 1) $screen-m,
+  'l': min-width ($screen-m + 1),
+  'xl': min-width $screen-l
   
 ) !default;
 
