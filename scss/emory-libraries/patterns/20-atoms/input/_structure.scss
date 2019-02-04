@@ -79,6 +79,11 @@
   
   // Defines the structure specific to radio inputs.
   &.-radio { }
+
+  // Defines the structure specific to toggle inputs.
+  &.-toggle {
+    display: none;
+  }
   
   /* COMPONENT ACCESSORIES */
   
