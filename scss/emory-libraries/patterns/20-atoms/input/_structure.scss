@@ -115,7 +115,7 @@
     // Apply styles when used inline.
     &.-inline {
       grid-template-areas: "field label";
-      grid-template-columns: repeat(2, min-content);
+      grid-template-columns: min-content auto;
       align-items: center;
     }
     
