@@ -24,6 +24,7 @@ $atoms-tab: (
   ),
   'color': (
     'default': $color-text-dark,
+    'hover': $color-actionable,
     'active': color('blue')
   ),
   'border': rgba(color('charcoal'), .25),
@@ -33,7 +34,8 @@ $atoms-tab: (
       'background': color('white'),
       'foreground': (
         'default': color('blue', 'mid'),
-        'active': color('blue', 'bright')
+        'hover': $color-actionable,
+        'active': $color-actionable
       ),
       'border': rgba(color('slate'), .5)
     ),
@@ -41,6 +43,7 @@ $atoms-tab: (
       'background': color('blue', 'dark'),
       'foreground': (
         'default': color('white'),
+        'hover': color('slate'),
         'active': color('gold')
       ),
       'border': rgba(color('slate', 'light'), .25)
@@ -73,6 +76,7 @@ $atoms-tab: (
   $duration: map-deep-get($skin, 'transition.duration');
   $timing: map-deep-get($skin, 'transition.timing');
   $default: map-deep-get($skin, 'color.default');
+  $hover: map-deep-get($skin, 'color.hover');
   $active: map-deep-get($skin, 'color.active');
   $border: map-deep-get($skin, 'border');
   
@@ -97,7 +101,16 @@ $atoms-tab: (
     background-color: $border;
   }
   
+  // Builds styles for hovered/focused tabs.
+  &:hover,
+  &:focus,
+  &.is-hover,
+  &.is-focus {
+    color: $hover;
+  }
+  
   // Builds styles for active tabs.
+  &:active,
   &.is-active {
     color: $active;
 
@@ -123,6 +136,7 @@ $atoms-tab: (
       $background: map-deep-get($skin, 'theme.light.background');
       $border: map-deep-get($skin, 'theme.light.border');
       $default: map-deep-get($skin, 'theme.light.foreground.default');
+      $hover: map-deep-get($skin, 'theme.light.foreground.hover');
       $active: map-deep-get($skin, 'theme.light.foreground.active');
       
       background-color: $background;
@@ -135,8 +149,17 @@ $atoms-tab: (
       // Styles tabs when inside a light-themed menu.
       #{$class} {
         color: $default;
+        
+        // Styles the tab's hover/focus state.
+        &:hover,
+        &:focus,
+        &.is-hover,
+        &.is-focus {
+          color: $hover;
+        }
     
         // Styles the tab's active state.
+        &:active,
         &.is-active {
           color: $active;
           
@@ -168,6 +191,7 @@ $atoms-tab: (
       $background: map-deep-get($skin, 'theme.dark.background');
       $border: map-deep-get($skin, 'theme.dark.border');
       $default: map-deep-get($skin, 'theme.dark.foreground.default');
+      $hover: map-deep-get($skin, 'theme.dark.foreground.hover');
       $active: map-deep-get($skin, 'theme.dark.foreground.active');
       
       background-color: $background;
@@ -180,8 +204,17 @@ $atoms-tab: (
       // Styles tabs when inside a dark-themed menu.
       #{$class} {
         color: $default;
+        
+        // Styles the tab's hover/focus state.
+        &:hover,
+        &:focus,
+        &.is-hover,
+        &.is-focus {
+          color: $hover;
+        }
     
         // Styles the tab's active state.
+        &:active,
         &.is-active {
           color: $active;
           

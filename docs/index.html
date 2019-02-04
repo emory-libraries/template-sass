@@ -11263,6 +11263,7 @@
                                 ),
                                 &#x27;color&#x27;: (
                                   &#x27;default&#x27;: $color-text-dark,
+                                  &#x27;hover&#x27;: $color-actionable,
                                   &#x27;active&#x27;: color(&#x27;blue&#x27;)
                                 ),
                                 &#x27;border&#x27;: rgba(color(&#x27;charcoal&#x27;), .25),
@@ -11272,7 +11273,8 @@
                                     &#x27;background&#x27;: color(&#x27;white&#x27;),
                                     &#x27;foreground&#x27;: (
                                       &#x27;default&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
-                                      &#x27;active&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;)
+                                      &#x27;hover&#x27;: $color-actionable,
+                                      &#x27;active&#x27;: $color-actionable
                                     ),
                                     &#x27;border&#x27;: rgba(color(&#x27;slate&#x27;), .5)
                                   ),
@@ -11280,6 +11282,7 @@
                                     &#x27;background&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
                                     &#x27;foreground&#x27;: (
                                       &#x27;default&#x27;: color(&#x27;white&#x27;),
+                                      &#x27;hover&#x27;: color(&#x27;slate&#x27;),
                                       &#x27;active&#x27;: color(&#x27;gold&#x27;)
                                     ),
                                     &#x27;border&#x27;: rgba(color(&#x27;slate&#x27;, &#x27;light&#x27;), .25)
@@ -11403,6 +11406,7 @@
                                 $duration: map-deep-get($skin, &#x27;transition.duration&#x27;);
                                 $timing: map-deep-get($skin, &#x27;transition.timing&#x27;);
                                 $default: map-deep-get($skin, &#x27;color.default&#x27;);
+                                $hover: map-deep-get($skin, &#x27;color.hover&#x27;);
                                 $active: map-deep-get($skin, &#x27;color.active&#x27;);
                                 $border: map-deep-get($skin, &#x27;border&#x27;);
                                 
@@ -11427,7 +11431,16 @@
                                   background-color: $border;
                                 }
                                 
+                                // Builds styles for hovered/focused tabs.
+                                &amp;:hover,
+                                &amp;:focus,
+                                &amp;.is-hover,
+                                &amp;.is-focus {
+                                  color: $hover;
+                                }
+                                
                                 // Builds styles for active tabs.
+                                &amp;:active,
                                 &amp;.is-active {
                                   color: $active;
                               
@@ -11453,6 +11466,7 @@
                                     $background: map-deep-get($skin, &#x27;theme.light.background&#x27;);
                                     $border: map-deep-get($skin, &#x27;theme.light.border&#x27;);
                                     $default: map-deep-get($skin, &#x27;theme.light.foreground.default&#x27;);
+                                    $hover: map-deep-get($skin, &#x27;theme.light.foreground.hover&#x27;);
                                     $active: map-deep-get($skin, &#x27;theme.light.foreground.active&#x27;);
                                     
                                     background-color: $background;
@@ -11465,8 +11479,17 @@
                                     // Styles tabs when inside a light-themed menu.
                                     #{$class} {
                                       color: $default;
+                                      
+                                      // Styles the tab&#x27;s hover/focus state.
+                                      &amp;:hover,
+                                      &amp;:focus,
+                                      &amp;.is-hover,
+                                      &amp;.is-focus {
+                                        color: $hover;
+                                      }
                                   
                                       // Styles the tab&#x27;s active state.
+                                      &amp;:active,
                                       &amp;.is-active {
                                         color: $active;
                                         
@@ -11498,6 +11521,7 @@
                                     $background: map-deep-get($skin, &#x27;theme.dark.background&#x27;);
                                     $border: map-deep-get($skin, &#x27;theme.dark.border&#x27;);
                                     $default: map-deep-get($skin, &#x27;theme.dark.foreground.default&#x27;);
+                                    $hover: map-deep-get($skin, &#x27;theme.dark.foreground.hover&#x27;);
                                     $active: map-deep-get($skin, &#x27;theme.dark.foreground.active&#x27;);
                                     
                                     background-color: $background;
@@ -11510,8 +11534,17 @@
                                     // Styles tabs when inside a dark-themed menu.
                                     #{$class} {
                                       color: $default;
+                                      
+                                      // Styles the tab&#x27;s hover/focus state.
+                                      &amp;:hover,
+                                      &amp;:focus,
+                                      &amp;.is-hover,
+                                      &amp;.is-focus {
+                                        color: $hover;
+                                      }
                                   
                                       // Styles the tab&#x27;s active state.
+                                      &amp;:active,
                                       &amp;.is-active {
                                         color: $active;
                                         
