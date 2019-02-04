@@ -215,13 +215,13 @@ $atoms-input: (
     
     &:not(:focus),
     &.is-closed,
-    &.is-blur {
+    &.is-blurred {
       background-color: if( is-color($default), $default, $background );
     }
     
     &:focus,
     &.is-open,
-    &.is-focus {
+    &.is-focused {
       background-color: $selected;
     }
     
