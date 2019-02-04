@@ -214,12 +214,14 @@ $atoms-input: (
     background-image: icon-url($icon, $icon-color, $icon-size);
     
     &:not(:focus),
-    &.is-closed {
+    &.is-closed,
+    &.is-blur {
       background-color: if( is-color($default), $default, $background );
     }
     
     &:focus,
-    &.is-open {
+    &.is-open,
+    &.is-focus {
       background-color: $selected;
     }
     

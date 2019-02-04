@@ -8497,12 +8497,14 @@
                                   background-image: icon-url($icon, $icon-color, $icon-size);
                                   
                                   &amp;:not(:focus),
-                                  &amp;.is-closed {
+                                  &amp;.is-closed,
+                                  &amp;.is-blur {
                                     background-color: if( is-color($default), $default, $background );
                                   }
                                   
                                   &amp;:focus,
-                                  &amp;.is-open {
+                                  &amp;.is-open,
+                                  &amp;.is-focus {
                                     background-color: $selected;
                                   }
                                   
