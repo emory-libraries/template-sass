@@ -11564,9 +11564,20 @@
                                   &#x27;spacing&#x27;: 1ex
                                 ),
                                 
-                                &#x27;heading&#x27;: (
-                                  &#x27;foreground&#x27;: color(&#x27;gold&#x27;),
-                                  &#x27;background&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                &#x27;group&#x27;: (
+                                  &#x27;heading&#x27;: (
+                                    &#x27;foreground&#x27;: color(&#x27;gold&#x27;),
+                                    &#x27;background&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;)
+                                  ),
+                                  &#x27;padding&#x27;: ($rhythm-y / 2),
+                                  &#x27;spacing&#x27;: $rhythm-y
+                                ),
+                                
+                                &#x27;category&#x27;: (
+                                  &#x27;heading&#x27;: (
+                                    &#x27;foreground&#x27;: color(&#x27;gold&#x27;),
+                                    &#x27;background&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                  ),
                                   &#x27;padding&#x27;: ($rhythm-y / 2),
                                   &#x27;spacing&#x27;: $rhythm-y
                                 ),
@@ -12083,35 +12094,69 @@
                                   
                                 }
                                 
-                                // Defines button group and category styles.
-                                &amp;-group,
-                                &amp;-category {
+                                // Defines button group styles.
+                                &amp;-group {
+                                  $padding: map-deep-get($skin, &#x27;group.padding&#x27;);
+                                  $spacing: map-deep-get($skin, &#x27;group.spacing&#x27;);
                                   
-                                  // Adds styles for headings.
+                                  // Adds styles for group headings.
                                   &amp;-heading {
-                                    $background: map-deep-get($skin, &#x27;heading.background&#x27;);
-                                    $foreground: map-deep-get($skin, &#x27;heading.foreground&#x27;);
+                                    $background: map-deep-get($skin, &#x27;group.heading.background&#x27;);
+                                    $foreground: map-deep-get($skin, &#x27;group.heading.foreground&#x27;);
                                     
                                     @include tokens-heading(&#x27;h6&#x27;, $color: $foreground);
                                     background-color: $background;
-                                    @include padding-y(map-deep-get($skin, &#x27;heading.padding&#x27;));
-                                    margin-top: map-deep-get($skin, &#x27;heading.spacing&#x27;);
+                                    @include padding-y( $padding );
+                                    margin-top: $spacing;
+                                    margin-bottom: $spacing / 4;
                                     
                                     @each $breakpoint, $padding in $padding-x {
                                       @include breakpoint( screen($breakpoint) ) {
                                         @include padding-x( $padding );
                                       };
                                     }
+                                    @each $breakpoint, $padding in $padding-y {
+                                      @include breakpoint( screen($breakpoint) ) {
+                                        @include padding-y( $padding );
+                                      };
+                                    }
                                     
                                   }
-                                  
-                                } 
-                                
-                                // Defines button group styles.
-                                &amp;-group { }
+                              
+                                }
                                 
                                 // Defines button category styles.
-                                &amp;-category { }
+                                &amp;-category { 
+                                  $padding: map-deep-get($skin, &#x27;category.padding&#x27;);
+                                  $spacing: map-deep-get($skin, &#x27;category.spacing&#x27;);
+                                  
+                                  margin-bottom: $spacing;
+                              
+                                  // Adds styles for category headings.
+                                  &amp;-heading {
+                                    $background: map-deep-get($skin, &#x27;category.heading.background&#x27;);
+                                    $foreground: map-deep-get($skin, &#x27;category.heading.foreground&#x27;);
+                                    
+                                    @include tokens-heading(&#x27;h6&#x27;, $color: $foreground);
+                                    background-color: $background;
+                                    @include padding-y( $padding );
+                                    margin-top: $spacing;
+                                    margin-bottom: $spacing / 4;
+                                    
+                                    @each $breakpoint, $padding in $padding-x {
+                                      @include breakpoint( screen($breakpoint) ) {
+                                        @include padding-x( $padding );
+                                      };
+                                    }
+                                    @each $breakpoint, $padding in $padding-y {
+                                      @include breakpoint( screen($breakpoint) ) {
+                                        @include padding-y( $padding );
+                                      };
+                                    }
+                                    
+                                  }
+                              
+                                }
                                 
                                }"
                                        data-collapsed="@mixin atoms-subnav-button--theme($skin) { ... }"><code class="js-autoindent">@mixin atoms-subnav-button--theme($skin) { ... }</code></pre>
@@ -12249,6 +12294,18 @@
                                   
                                           <li class="item__description  item__description--inline">
                                   
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.subnav-button-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
                                             <span class="item__cross-type">function</span>
                                   
                                             <a href="#patterns.atoms.subnav-button-mixin-icon-url"><code>icon-url</code></a>
@@ -12339,6 +12396,9 @@
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
                                        data-expanded="@mixin atoms-subnav-button($custom) { 
+                                
+                                // Capture selector.
+                                $selector: &amp;;
                                 
                                 // Extend the default skin.
                                 $skin: map-extend($atoms-subnav-button, $custom);
@@ -12697,7 +12757,7 @@
                                   
                                   // Builds structure of group and category headings.
                                   &amp;-heading {
-                                    height: auto;
+                                    min-height: 0;
                                   }
                                   
                                 }
@@ -12717,7 +12777,16 @@
                                   // Modifies categorized button structure.
                                   &amp;:not(.-utility),
                                   &amp;.-main {
-                                    height: auto;
+                                    min-height: 0;
+                                  }
+                                  
+                                  // Adjust structure of buttons.
+                                  #{$selector} {
+                                    
+                                    @include breakpoint-m-l {
+                                      min-height: 35px;
+                                    };
+                                    
                                   }
                                   
                                 }
@@ -14786,6 +14855,8 @@
                                   
                               
                               
+                                  
+                                  
                                   
                                   
                                   

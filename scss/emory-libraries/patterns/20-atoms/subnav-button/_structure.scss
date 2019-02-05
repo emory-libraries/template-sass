@@ -112,7 +112,7 @@
     
     // Builds structure of group and category headings.
     &-heading {
-      height: auto;
+      min-height: 0;
     }
     
   }
@@ -132,7 +132,16 @@
     // Modifies categorized button structure.
     &:not(.-utility),
     &.-main {
-      height: auto;
+      min-height: 0;
+    }
+    
+    // Adjust structure of buttons.
+    #{$selector} {
+      
+      @include breakpoint-m-l {
+        min-height: 35px;
+      };
+      
     }
     
   }

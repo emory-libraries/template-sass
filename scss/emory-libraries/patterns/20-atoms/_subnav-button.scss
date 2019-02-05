@@ -22,6 +22,9 @@
 /// @status construction
 @mixin atoms-subnav-button ( $custom: () ) {
   
+  // Capture selector.
+  $selector: &;
+  
   // Extend the default skin.
   $skin: map-extend($atoms-subnav-button, $custom);
   

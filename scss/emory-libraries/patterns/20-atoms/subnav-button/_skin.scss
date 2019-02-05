@@ -161,9 +161,20 @@ $atoms-subnav-button: (
     'spacing': 1ex
   ),
   
-  'heading': (
-    'foreground': color('gold'),
-    'background': color('blue', 'dark'),
+  'group': (
+    'heading': (
+      'foreground': color('gold'),
+      'background': color('blue', 'dark')
+    ),
+    'padding': ($rhythm-y / 2),
+    'spacing': $rhythm-y
+  ),
+  
+  'category': (
+    'heading': (
+      'foreground': color('gold'),
+      'background': color('blue', 'dark'),
+    ),
     'padding': ($rhythm-y / 2),
     'spacing': $rhythm-y
   ),
@@ -584,34 +595,68 @@ $atoms-subnav-button: (
     
   }
   
-  // Defines button group and category styles.
-  &-group,
-  &-category {
+  // Defines button group styles.
+  &-group {
+    $padding: map-deep-get($skin, 'group.padding');
+    $spacing: map-deep-get($skin, 'group.spacing');
     
-    // Adds styles for headings.
+    // Adds styles for group headings.
     &-heading {
-      $background: map-deep-get($skin, 'heading.background');
-      $foreground: map-deep-get($skin, 'heading.foreground');
+      $background: map-deep-get($skin, 'group.heading.background');
+      $foreground: map-deep-get($skin, 'group.heading.foreground');
       
       @include tokens-heading('h6', $color: $foreground);
       background-color: $background;
-      @include padding-y(map-deep-get($skin, 'heading.padding'));
-      margin-top: map-deep-get($skin, 'heading.spacing');
+      @include padding-y( $padding );
+      margin-top: $spacing;
+      margin-bottom: $spacing / 4;
       
       @each $breakpoint, $padding in $padding-x {
         @include breakpoint( screen($breakpoint) ) {
           @include padding-x( $padding );
         };
       }
+      @each $breakpoint, $padding in $padding-y {
+        @include breakpoint( screen($breakpoint) ) {
+          @include padding-y( $padding );
+        };
+      }
       
     }
-    
-  } 
-  
-  // Defines button group styles.
-  &-group { }
+
+  }
   
   // Defines button category styles.
-  &-category { }
+  &-category { 
+    $padding: map-deep-get($skin, 'category.padding');
+    $spacing: map-deep-get($skin, 'category.spacing');
+    
+    margin-bottom: $spacing;
+
+    // Adds styles for category headings.
+    &-heading {
+      $background: map-deep-get($skin, 'category.heading.background');
+      $foreground: map-deep-get($skin, 'category.heading.foreground');
+      
+      @include tokens-heading('h6', $color: $foreground);
+      background-color: $background;
+      @include padding-y( $padding );
+      margin-top: $spacing;
+      margin-bottom: $spacing / 4;
+      
+      @each $breakpoint, $padding in $padding-x {
+        @include breakpoint( screen($breakpoint) ) {
+          @include padding-x( $padding );
+        };
+      }
+      @each $breakpoint, $padding in $padding-y {
+        @include breakpoint( screen($breakpoint) ) {
+          @include padding-y( $padding );
+        };
+      }
+      
+    }
+
+  }
   
 }
