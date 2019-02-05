@@ -68,6 +68,10 @@ $atoms-nav-button: (
         'm': normal,
         'l': normal
       )
+    ),
+    'border': (
+      'thickness': $border-width-s,
+      'color': color('slate', 'light')
     )
   ),
   
@@ -484,11 +488,6 @@ $atoms-nav-button: (
     
   }
   
-  // Apply icon styles.
-  .icon {
-    @include absolute-center-contents;
-  }
-  
   // Defines main button styles.
   &:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
   &.-main {
@@ -638,9 +637,13 @@ $atoms-nav-button: (
       display: none;
     }
     
+    // Get padding variable for small screens.
+    $padding: map-deep-get($skin, 'padding.x.s');
+    
     // Add arrow to button only on small screens.
-    padding-right: (10px * 2) + $arrow-size + 10px;
+    padding-right: ($padding * 2) + $arrow-size + $padding;
       
+    // Add icon to button.
     &::after {
       @include tokens-icon('material-chevron_right', $arrow-color, $arrow-size, $pseudo: true);
       @include padding-x( 10px );
@@ -652,11 +655,43 @@ $atoms-nav-button: (
       line-height: 1;
     }
     
+    // Get border-specific variables.
+    $border-thickness: map-deep-get($skin, 'main.border.thickness');
+    $border-color: map-deep-get($skin, 'main.border.color');
+    
+    // Add border to button.
+    &::before {
+      content: '';
+      display: block;
+      @include absolute(0 0 null 0);
+      height: $border-thickness;
+      background-color: $border-color;
+      @include margin-x( auto );
+      opacity: .15;
+      width: calc(100% - #{$padding * 2});
+    }
+    
+    // Remove border from first button.
+    @include first-child {
+      
+      // Remove border.
+      &::before {
+        content: none;
+      }
+      
+    };
+    
     // Remove arrow from button on larger screens.
     @include breakpoint-m-l {
       padding-right: 10px;
       
+      // Remove icon from button.
       &::after {
+        content: none;
+      }
+      
+      // Remove border from button.
+      &::before {
         content: none;
       }
       

@@ -20,7 +20,12 @@
     width: auto;
   };
   
-  // Modifies main and utility button structure.
+  // Apply icon structure.
+  .icon {
+    @include absolute-center-contents;
+  }
+  
+  // Modifies main button structure.
   &:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
   &.-main {
     height: 60px;
