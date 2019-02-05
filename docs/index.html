@@ -1002,6 +1002,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="atoms">
+                          <a href="#patterns.atoms.subnav-button">subnav-button</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.atoms.subnav-button-variable">
+                                <a href="#patterns.atoms.subnav-button-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.atoms.subnav-button" data-name="atoms-subnav-button" data-type="variable">
+                                    
+                                    <a href="#patterns.atoms.subnav-button-variable-atoms-subnav-button">
+                                      
+                                      atoms-subnav-button
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.atoms.subnav-button-mixin">
+                                <a href="#patterns.atoms.subnav-button-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.atoms.subnav-button" data-name="atoms-subnav-button--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.atoms.subnav-button-mixin-atoms-subnav-button--theme">
+                                      
+                                      atoms-subnav-button--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.atoms.subnav-button" data-name="atoms-subnav-button" data-type="mixin">
+                                    
+                                    <a href="#patterns.atoms.subnav-button-mixin-atoms-subnav-button">
+                                      
+                                      atoms-subnav-button
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.atoms.subnav-button-placeholder">
+                                <a href="#patterns.atoms.subnav-button-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.atoms.subnav-button" data-name="atoms-subnav-button" data-type="placeholder">
+                                    
+                                    <a href="#patterns.atoms.subnav-button-placeholder-atoms-subnav-button">
+                                      
+                                      atoms-subnav-button
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="atoms">
                           <a href="#patterns.atoms.tab">tab</a>
                         </p>
                         
@@ -6339,6 +6447,8 @@
             
             
             
+            
+            
             <section class="main__section main__section--level-2 ">
             
               <h2 class="main__heading" id="patterns.atoms">
@@ -8037,6 +8147,8 @@
                                   
                                   
                                   
+                                  
+                                  
                               
                               
                               
@@ -9700,11 +9812,6 @@
                                   
                                 }
                                 
-                                // Apply icon styles.
-                                .icon {
-                                  @include absolute-center-contents;
-                                }
-                                
                                 // Defines main button styles.
                                 &amp;:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
                                 &amp;.-main {
@@ -9854,9 +9961,13 @@
                                     display: none;
                                   }
                                   
+                                  // Get padding variable for small screens.
+                                  $padding: map-deep-get($skin, &#x27;padding.x.s&#x27;);
+                                  
                                   // Add arrow to button only on small screens.
-                                  padding-right: (10px * 2) + $arrow-size + 10px;
+                                  padding-right: ($padding * 2) + $arrow-size + $padding;
                                     
+                                  // Add icon to button.
                                   &amp;::after {
                                     @include tokens-icon(&#x27;material-chevron_right&#x27;, $arrow-color, $arrow-size, $pseudo: true);
                                     @include padding-x( 10px );
@@ -9868,11 +9979,43 @@
                                     line-height: 1;
                                   }
                                   
+                                  // Get border-specific variables.
+                                  $border-thickness: map-deep-get($skin, &#x27;main.border.thickness&#x27;);
+                                  $border-color: map-deep-get($skin, &#x27;main.border.color&#x27;);
+                                  
+                                  // Add border to button.
+                                  &amp;::before {
+                                    content: &#x27;&#x27;;
+                                    display: block;
+                                    @include absolute(0 0 null 0);
+                                    height: $border-thickness;
+                                    background-color: $border-color;
+                                    @include margin-x( auto );
+                                    opacity: .15;
+                                    width: calc(100% - #{$padding * 2});
+                                  }
+                                  
+                                  // Remove border from first button.
+                                  @include first-child {
+                                    
+                                    // Remove border.
+                                    &amp;::before {
+                                      content: none;
+                                    }
+                                    
+                                  };
+                                  
                                   // Remove arrow from button on larger screens.
                                   @include breakpoint-m-l {
                                     padding-right: 10px;
                                     
+                                    // Remove icon from button.
                                     &amp;::after {
+                                      content: none;
+                                    }
+                                    
+                                    // Remove border from button.
+                                    &amp;::before {
                                       content: none;
                                     }
                                     
@@ -10557,6 +10700,10 @@
                                       &#x27;m&#x27;: normal,
                                       &#x27;l&#x27;: normal
                                     )
+                                  ),
+                                  &#x27;border&#x27;: (
+                                    &#x27;thickness&#x27;: $border-width-s,
+                                    &#x27;color&#x27;: color(&#x27;slate&#x27;, &#x27;light&#x27;)
                                   )
                                 ),
                                 
@@ -11037,7 +11184,12 @@
                                   width: auto;
                                 };
                                 
-                                // Modifies main and utility button structure.
+                                // Apply icon structure.
+                                .icon {
+                                  @include absolute-center-contents;
+                                }
+                                
+                                // Modifies main button structure.
                                 &amp;:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
                                 &amp;.-main {
                                   height: 60px;
@@ -11146,6 +11298,1470 @@
                                             <span class="item__cross-type">placeholder</span>
                                   
                                             <a href="#patterns.atoms.nav-button-placeholder-atoms-button"><code>atoms-button</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
+                    <h3 class="main__heading" id="patterns.atoms.subnav-button">
+                      
+                      <div class="container">subnav-button</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.atoms.subnav-button-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.atoms.subnav-button-variable-atoms-subnav-button">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.atoms.subnav-button-variable-atoms-subnav-button">
+                                  atoms-subnav-button
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$atoms-subnav-button: (
+                                
+                                &#x27;main&#x27;: (
+                                  &#x27;background&#x27;: (
+                                    &#x27;normal&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                    &#x27;hover&#x27;: color(&#x27;blue&#x27;),
+                                    &#x27;active&#x27;: color(&#x27;blue&#x27;)
+                                  ),
+                                  &#x27;foreground&#x27;: (
+                                    &#x27;normal&#x27;: $color-text-light,
+                                    &#x27;hover&#x27;: $color-text-light,
+                                    &#x27;active&#x27;: $color-text-light
+                                  ),
+                                  &#x27;font&#x27;: (
+                                    &#x27;font-family&#x27;: font(&#x27;body&#x27;),
+                                    &#x27;font-style&#x27;: normal,
+                                    &#x27;font-weight&#x27;: bold,
+                                    &#x27;font-size&#x27;: 14px,
+                                    &#x27;line-height&#x27;: normal,
+                                    &#x27;text-align&#x27;: left
+                                  )
+                                ),
+                                
+                                &#x27;utility&#x27;: (
+                                  &#x27;background&#x27;: (
+                                    &#x27;normal&#x27;: color(&#x27;white&#x27;),
+                                    &#x27;hover&#x27;: color(&#x27;blue&#x27;),
+                                    &#x27;active&#x27;: color(&#x27;blue&#x27;)
+                                  ),
+                                  &#x27;foreground&#x27;: (
+                                    &#x27;normal&#x27;: $color-text-dark,
+                                    &#x27;hover&#x27;: $color-text-light,
+                                    &#x27;active&#x27;: $color-text-light
+                                  ),
+                                  &#x27;font&#x27;: (
+                                    &#x27;font-family&#x27;: font(&#x27;body&#x27;),
+                                    &#x27;font-style&#x27;: normal,
+                                    &#x27;font-weight&#x27;: bold,
+                                    &#x27;font-size&#x27;: 14px,
+                                    &#x27;line-height&#x27;: normal,
+                                    &#x27;text-align&#x27;: left
+                                  )
+                                ),
+                                
+                                &#x27;resource&#x27;: (
+                                  &#x27;background&#x27;: (
+                                    &#x27;normal&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                    &#x27;hover&#x27;: color(&#x27;blue&#x27;),
+                                    &#x27;active&#x27;: color(&#x27;blue&#x27;)
+                                  ),
+                                  &#x27;foreground&#x27;: (
+                                    &#x27;normal&#x27;: $color-text-light,
+                                    &#x27;hover&#x27;: $color-text-light,
+                                    &#x27;active&#x27;: $color-text-light
+                                  ),
+                                  &#x27;font&#x27;: (
+                                    &#x27;font-family&#x27;: font(&#x27;body&#x27;),
+                                    &#x27;font-style&#x27;: normal,
+                                    &#x27;font-weight&#x27;: bold,
+                                    &#x27;font-size&#x27;: 14px,
+                                    &#x27;line-height&#x27;: normal,
+                                    &#x27;text-align&#x27;: left
+                                  ),
+                                  &#x27;options&#x27;: (
+                                    &#x27;foreground&#x27;: inherit,
+                                    &#x27;background&#x27;: color(&#x27;blue&#x27;, &#x27;light&#x27;),
+                                    &#x27;shadow&#x27;: inset 2px 2px 3px rgba(color(&#x27;blue&#x27;, &#x27;dark&#x27;), .1),
+                                    &#x27;option&#x27;: (
+                                      &#x27;foreground&#x27;: (
+                                        &#x27;normal&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                        &#x27;hover&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                        &#x27;active&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;)
+                                      ),
+                                      &#x27;background&#x27;: (
+                                        &#x27;normal&#x27;: transparent,
+                                        &#x27;hover&#x27;: color(&#x27;gold&#x27;),
+                                        &#x27;active&#x27;: color(&#x27;gold&#x27;)
+                                      ),
+                                      &#x27;padding&#x27;: 10px,
+                                      &#x27;icon&#x27;: (
+                                        &#x27;spacing&#x27;: 10px,
+                                        &#x27;size&#x27;: 12px
+                                      ),
+                                      &#x27;divider&#x27;: (
+                                        &#x27;thickness&#x27;: $border-width-s,
+                                        &#x27;color&#x27;: rgba(color(&#x27;white&#x27;), .2)
+                                      )
+                                    )
+                                  )
+                                ),
+                                
+                                &#x27;viewall&#x27;: (
+                                  &#x27;foreground&#x27;: (
+                                    &#x27;normal&#x27;: $color-text-light,
+                                    &#x27;hover&#x27;: $color-text-light,
+                                    &#x27;active&#x27;: $color-text-light
+                                  ),
+                                  &#x27;background&#x27;: (
+                                    &#x27;normal&#x27;: $color-actionable,
+                                    &#x27;hover&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
+                                    &#x27;active&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;)
+                                  ),
+                                  &#x27;link&#x27;: (
+                                    &#x27;foreground&#x27;: (
+                                      &#x27;normal&#x27;: $color-text-light,
+                                      &#x27;hover&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;),
+                                      &#x27;active&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;)
+                                    ),
+                                    &#x27;background&#x27;: (
+                                      &#x27;normal&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                      &#x27;hover&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                      &#x27;active&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;)
+                                    ),
+                                    &#x27;border&#x27;: (
+                                      &#x27;thickness&#x27;: $border-width-s,
+                                      &#x27;color&#x27;: color(&#x27;slate&#x27;)
+                                    )
+                                  )
+                                ),
+                                
+                                &#x27;back&#x27;: (
+                                  &#x27;foreground&#x27;: (
+                                    &#x27;normal&#x27;: $color-text-light,
+                                    &#x27;hover&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;),
+                                    &#x27;active&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;)
+                                  ),
+                                  &#x27;background&#x27;: (
+                                    &#x27;normal&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                    &#x27;hover&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                    &#x27;active&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;)
+                                  ),
+                                  &#x27;icon&#x27;: (
+                                    &#x27;size&#x27;: 12px,
+                                    &#x27;color&#x27;: $color-actionable,
+                                    &#x27;spacing&#x27;: 1ex
+                                  ),
+                                  &#x27;border&#x27;: (
+                                    &#x27;thickness&#x27;: $border-width-s,
+                                    &#x27;color&#x27;: color(&#x27;slate&#x27;)
+                                  )
+                                ),
+                                
+                                &#x27;alias&#x27;: (
+                                  &#x27;font&#x27;: (
+                                    &#x27;font-family&#x27;: font(&#x27;body&#x27;),
+                                    &#x27;font-style&#x27;: normal,
+                                    &#x27;font-weight&#x27;: normal,
+                                    &#x27;font-size&#x27;: 13px,
+                                    &#x27;line-height&#x27;: normal,
+                                    &#x27;text-align&#x27;: left
+                                  ),
+                                  &#x27;spacing&#x27;: 1ex
+                                ),
+                                
+                                &#x27;heading&#x27;: (
+                                  &#x27;foreground&#x27;: color(&#x27;gold&#x27;),
+                                  &#x27;background&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                  &#x27;padding&#x27;: ($rhythm-y / 2),
+                                  &#x27;spacing&#x27;: $rhythm-y
+                                ),
+                                
+                                &#x27;transition&#x27;: (
+                                  &#x27;duration&#x27;: $transition-duration,
+                                  &#x27;timing&#x27;: $transition-timing
+                                ),
+                                &#x27;padding&#x27;: (
+                                  &#x27;x&#x27;: (
+                                    &#x27;s&#x27;: 10px,
+                                    &#x27;m&#x27;: 25px,
+                                    &#x27;l&#x27;: 25px
+                                  ),
+                                  &#x27;y&#x27;: (
+                                    &#x27;s&#x27;: 10px,
+                                    &#x27;m&#x27;: 10px,
+                                    &#x27;l&#x27;: 10px
+                                  )
+                                )
+                                
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                                
+                                
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the subnav-button component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.atoms.subnav-button-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.atoms.subnav-button-mixin-atoms-subnav-button--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.atoms.subnav-button-mixin-atoms-subnav-button--theme">
+                                  atoms-subnav-button--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin atoms-subnav-button--theme($skin) { 
+                                
+                                // Captures the selector.
+                                $selector: &amp;;
+                                
+                                // Capture themeable variables from skin.
+                                $duration: map-deep-get($skin, &#x27;transition.duration&#x27;);
+                                $timing: map-deep-get($skin, &#x27;transition.timing&#x27;);
+                                $padding-x: map-deep-get($skin, &#x27;padding.x&#x27;);
+                                $padding-y: map-deep-get($skin, &#x27;padding.y&#x27;);
+                                
+                                // Defines the subnav-button component&#x27;s base styles.
+                                appearance: none;
+                                border: none;
+                                background: none;
+                                transition: all $duration $timing;
+                                
+                                @each $breakpoint, $padding in $padding-x {
+                                  @include breakpoint( screen($breakpoint) ) {
+                                    @include padding-x( $padding );
+                                  };
+                                }
+                                @each $breakpoint, $padding in $padding-y {
+                                  @include breakpoint( screen($breakpoint) ) {
+                                    @include padding-y( $padding );
+                                  };
+                                }
+                                
+                                // Defines main button styles.
+                                &amp;:not(.-utility):not(.-resource):not(.-viewall):not(.-back),
+                                &amp;.-main {
+                                  $background: map-deep-get($skin, &#x27;main.background&#x27;);
+                                  $foreground: map-deep-get($skin, &#x27;main.foreground&#x27;);
+                                  $font: map-deep-get($skin, &#x27;main.font&#x27;);
+                                  
+                                  color: map-get($foreground, &#x27;normal&#x27;);
+                                  background-color: map-get($background, &#x27;normal&#x27;);
+                                  @include expand-properties($font);
+                                  
+                                  &amp;:hover,
+                                  &amp;:focus,
+                                  &amp;.is-hover,
+                                  &amp;.is-focus {
+                                    color: map-get($foreground, &#x27;hover&#x27;);
+                                    background-color: map-get($background, &#x27;hover&#x27;);
+                                  }
+                                  
+                                  &amp;:active,
+                                  &amp;.is-active {
+                                    color: map-get($foreground, &#x27;active&#x27;);
+                                    background-color: map-get($background, &#x27;active&#x27;);
+                                  }
+                                  
+                                }
+                                
+                                // Defines utility button styles.
+                                &amp;.-utility {
+                                  $background: map-deep-get($skin, &#x27;utility.background&#x27;);
+                                  $foreground: map-deep-get($skin, &#x27;utility.foreground&#x27;);
+                                  $font: map-deep-get($skin, &#x27;utility.font&#x27;);
+                                  
+                                  @include expand-properties($font);
+                                  color: map-get($foreground, &#x27;normal&#x27;);
+                                  background-color: map-get($background, &#x27;normal&#x27;);
+                              
+                                  &amp;:hover,
+                                  &amp;:focus,
+                                  &amp;.is-hover,
+                                  &amp;.is-focus {
+                                    color: map-get($foreground, &#x27;hover&#x27;);
+                                    background-color: map-get($background, &#x27;hover&#x27;);
+                                  }
+                              
+                                  &amp;:active,
+                                  &amp;.is-active {
+                                    color: map-get($foreground, &#x27;active&#x27;);
+                                    background-color: map-get($background, &#x27;active&#x27;);
+                                  }
+                                  
+                                }
+                                
+                                // Defines view all button styles.
+                                &amp;.-viewall {
+                                  $background: map-deep-get($skin, &#x27;viewall.link.background&#x27;);
+                                  $foreground: map-deep-get($skin, &#x27;viewall.link.foreground&#x27;);
+                                  
+                                  // Get border-specific variables.
+                                  $border-thickness: map-deep-get($skin, &#x27;viewall.link.border.thickness&#x27;);
+                                  $border-color: map-deep-get($skin, &#x27;viewall.link.border.color&#x27;);
+                                  $border-size: map-deep-get($skin, &#x27;viewall.link.border.size&#x27;);
+                                  
+                                  @include tokens-text(&#x27;button&#x27;, $color: map-get($foreground, &#x27;normal&#x27;));
+                                  background-color: map-get($background, &#x27;normal&#x27;);
+                              
+                                  &amp;:hover,
+                                  &amp;:focus,
+                                  &amp;.is-hover,
+                                  &amp;.is-focus {
+                                    color: map-get($foreground, &#x27;hover&#x27;);
+                                    background-color: map-get($background, &#x27;hover&#x27;);
+                                  }
+                              
+                                  &amp;:active,
+                                  &amp;.is-active {
+                                    color: map-get($foreground, &#x27;active&#x27;);
+                                    background-color: map-get($background, &#x27;active&#x27;);
+                                  }
+                                  
+                                  // Add border to button.
+                                  &amp;::before {
+                                    content: &#x27;&#x27;;
+                                    display: block;
+                                    @include absolute(0 0 null 0);
+                                    height: $border-thickness;
+                                    background-color: $border-color;
+                                    @include margin-x( auto );
+                                    opacity: .15;
+                                  }
+                                  
+                                  @each $breakpoint, $padding in $padding-x {
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      
+                                      &amp;::before {
+                                        width: calc(100% - #{$padding * 2});
+                                      }
+                                      
+                                    };
+                                  }
+                                  
+                                  @include breakpoint-m-l {
+                                    $background: map-deep-get($skin, &#x27;viewall.background&#x27;);
+                                    $foreground: map-deep-get($skin, &#x27;viewall.foreground&#x27;);
+                                    
+                                    color: map-get($foreground, &#x27;normal&#x27;);
+                                    background-color: map-get($background, &#x27;normal&#x27;);
+                              
+                                    &amp;:hover,
+                                    &amp;:focus,
+                                    &amp;.is-hover,
+                                    &amp;.is-focus {
+                                      color: map-get($foreground, &#x27;hover&#x27;);
+                                      background-color: map-get($background, &#x27;hover&#x27;);
+                                    }
+                              
+                                    &amp;:active,
+                                    &amp;.is-active {
+                                      color: map-get($foreground, &#x27;active&#x27;);
+                                      background-color: map-get($background, &#x27;active&#x27;);
+                                    }
+                                    
+                                    // Remove border from button.
+                                    &amp;::before { 
+                                      content: none;
+                                    }
+                                    
+                                  };
+                                  
+                                }
+                                
+                                // Defines resource button styles.
+                                &amp;.-resource { 
+                                  $background: map-deep-get($skin, &#x27;resource.background&#x27;);
+                                  $foreground: map-deep-get($skin, &#x27;resource.foreground&#x27;);
+                                  $font: map-deep-get($skin, &#x27;resource.font&#x27;);
+                                  
+                                  @include expand-properties($font);
+                                  color: map-get($foreground, &#x27;normal&#x27;);
+                                  background-color: map-get($background, &#x27;normal&#x27;);
+                              
+                                  &amp;:hover,
+                                  &amp;:focus,
+                                  &amp;.is-hover,
+                                  &amp;.is-focus {
+                                    color: map-get($foreground, &#x27;hover&#x27;);
+                                    background-color: map-get($background, &#x27;hover&#x27;);
+                                  }
+                              
+                                  &amp;:active,
+                                  &amp;.is-active {
+                                    color: map-get($foreground, &#x27;active&#x27;);
+                                    background-color: map-get($background, &#x27;active&#x27;);
+                                  }
+                                  
+                                  // Get menu-specific variables.
+                                  $menu-background: map-deep-get($skin, &#x27;resource.options.background&#x27;);
+                                  $menu-foreground: map-deep-get($skin, &#x27;resource.options.foreground&#x27;);
+                                  $menu-shadow: map-deep-get($skin, &#x27;resource.options.shadow&#x27;);
+                                  $menu-width: map-deep-get($skin, &#x27;resource.options.width&#x27;);
+                                  
+                                  // Get option-specific variables.
+                                  $option-background: map-deep-get($skin, &#x27;resource.options.option.background&#x27;);
+                                  $option-foreground: map-deep-get($skin, &#x27;resource.options.option.foreground&#x27;);
+                                  $option-padding: map-deep-get($skin, &#x27;resource.options.option.padding&#x27;);
+                                  $option-divider: map-deep-get($skin, &#x27;resource.options.option.divider&#x27;);
+                                  $option-icon: map-deep-get($skin, &#x27;resource.options.option.icon&#x27;);
+                                  
+                                  // Adds option menu styles.
+                                  #{$selector}-options {
+                                    transition: all $duration $timing;
+                                    @if( is-null($menu-shadow) &#x3D;&#x3D; false and $menu-shadow !&#x3D; false ) {
+                                      box-shadow: $menu-shadow;
+                                    }
+                                    color: $menu-foreground;
+                                    background-color: $menu-background;
+                                  }
+                                  
+                                  // Adds toggle styles.
+                                  #{$selector}-toggle {
+                                    
+                                    // Adjust option menu styles when showing the menu.
+                                    &amp;:not(:checked),
+                                    &amp;:not(.is-checked) {
+                                      
+                                      // Hide.
+                                      + #{$selector}-options {
+                                        max-width: 0;
+                                        overflow: hidden;
+                                      }
+                                      
+                                    }
+                                    
+                                    // Adjust option menu styles when hiding the menu.
+                                    &amp;:checked,
+                                    &amp;.is-checked {
+                                      
+                                      // Show.
+                                      + #{$selector}-options {
+                                        max-width: 300px;
+                                        overflow: auto;
+                                      }
+                                      
+                                    }
+                                    
+                                  }
+                                  
+                                  // Adds option styles.
+                                  #{$selector}-option {
+                                    
+                                    transition: all $duration $timing;
+                                    @include tokens-text(&#x27;button&#x27;, $color: map-get($option-foreground, &#x27;normal&#x27;));
+                                    background-color: map-get($option-background, &#x27;normal&#x27;);
+                                    @include padding-x( $option-padding );
+                                    text-decoration: none;
+                                    
+                                    @each $breakpoint, $padding in $padding-x {
+                                      @include breakpoint( screen($breakpoint) ) {
+                                        @include padding-x($padding);
+                                      };
+                                    }
+                              
+                                    &amp;:hover,
+                                    &amp;:focus,
+                                    &amp;.is-hover,
+                                    &amp;.is-focus {
+                                      color: map-get($option-foreground, &#x27;hover&#x27;);
+                                      background-color: map-get($option-background, &#x27;hover&#x27;);
+                                    }
+                              
+                                    &amp;:active,
+                                    &amp;.is-active {
+                                      color: map-get($option-foreground, &#x27;active&#x27;);
+                                      background-color: map-get($option-background, &#x27;active&#x27;);
+                                    }
+                                    
+                                    &amp;:last-child {
+                                      
+                                      &amp;::before {
+                                        content: &#x27;&#x27;;
+                                        display: block;
+                                        position: absolute;
+                                        left: 0;
+                                        height: 1em;
+                                        border-left: map-get($option-divider, &#x27;thickness&#x27;) solid map-get($option-divider, &#x27;color&#x27;);
+                                      }
+                                      
+                                    }
+                                    
+                                    // Modifies icon styles.
+                                    .icon {
+                                      margin-left: map-get($option-icon, &#x27;spacing&#x27;);
+                                      line-height: 1;
+                                      @include size( map-get($option-icon, &#x27;size&#x27;) );
+                                    }
+                                    
+                                  }
+                              
+                                  // Disallow toggling of the option menu when disabled.
+                                  &amp;[disabled],
+                                  &amp;.is-disabled {
+                              
+                                    #{$selector}-toggle {
+                                      
+                                      &amp;:not(:checked),
+                                      :not(.is-checked),
+                                      &amp;:checked,
+                                      &amp;.is-checked {
+                                        
+                                        + #{$selector}-options {
+                                          display: none;
+                                        }
+                                        
+                                      }
+                                      
+                                    }
+                                    
+                                  }
+                                  
+                                }
+                                
+                                // Defines the back button styles.
+                                &amp;.-back {
+                                  $background: map-deep-get($skin, &#x27;back.background&#x27;);
+                                  $foreground: map-deep-get($skin, &#x27;back.foreground&#x27;);
+                                  
+                                  // Get icon-specific variables.
+                                  $icon-id: &#x27;material-chevron_left&#x27;;
+                                  $icon-size: map-deep-get($skin, &#x27;back.icon.size&#x27;);
+                                  $icon-color: map-deep-get($skin, &#x27;back.icon.color&#x27;);
+                                  $icon-spacing: map-deep-get($skin, &#x27;back.icon.spacing&#x27;);
+                                  
+                                  // Get border-specific variables.
+                                  $border-thickness: map-deep-get($skin, &#x27;back.border.thickness&#x27;);
+                                  $border-color: map-deep-get($skin, &#x27;back.border.color&#x27;);
+                                  $border-size: map-deep-get($skin, &#x27;back.border.size&#x27;);
+                                  
+                                  @include tokens-text(&#x27;button&#x27;, $color: map-get($foreground, &#x27;normal&#x27;));
+                                  background-color: map-get($background, &#x27;normal&#x27;);
+                              
+                                  &amp;:hover,
+                                  &amp;:focus,
+                                  &amp;.is-hover,
+                                  &amp;.is-focus {
+                                    color: map-get($foreground, &#x27;hover&#x27;);
+                                    background-color: map-get($background, &#x27;hover&#x27;);
+                                  }
+                              
+                                  &amp;:active,
+                                  &amp;.is-active {
+                                    color: map-get($foreground, &#x27;active&#x27;);
+                                    background-color: map-get($background, &#x27;active&#x27;);
+                                  }
+                                  
+                                  // Adds icon to back button.
+                                  &amp;::before {
+                                    content: icon-url($icon-id, $icon-color, $icon-size);
+                                    margin-right: $icon-spacing;
+                                    line-height: 1;
+                                  }
+                                  
+                                  // Add border to button.
+                                  &amp;::after {
+                                    content: &#x27;&#x27;;
+                                    display: block;
+                                    @include absolute(null 0 0 0);
+                                    width: $border-size;
+                                    height: $border-thickness;
+                                    background-color: $border-color;
+                                    @include margin-x( auto );
+                                    opacity: .15;
+                                  }
+                                  
+                                  @each $breakpoint, $padding in $padding-x {
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      
+                                      &amp;::after {
+                                        width: calc(100% - #{$padding * 2});
+                                      }
+                                      
+                                    };
+                                  }
+                                  
+                                }
+                              
+                                // Defines alias styles.
+                                &amp;-alias {
+                                  $font: map-deep-get($skin, &#x27;alias.font&#x27;);
+                                  $spacing: map-deep-get($skin, &#x27;alias.spacing&#x27;);
+                                  
+                                  @include expand-properties($font);
+                                  @include margin-y( $spacing );
+                                  
+                                  @include breakpoint-m-l {
+                                    margin-left: $spacing;
+                                    @include margin-y( 0 );
+                                  };
+                                  
+                                }
+                                
+                                // Defines button group and category styles.
+                                &amp;-group,
+                                &amp;-category {
+                                  
+                                  // Adds styles for headings.
+                                  &amp;-heading {
+                                    $background: map-deep-get($skin, &#x27;heading.background&#x27;);
+                                    $foreground: map-deep-get($skin, &#x27;heading.foreground&#x27;);
+                                    
+                                    @include tokens-heading(&#x27;h6&#x27;, $color: $foreground);
+                                    background-color: $background;
+                                    @include padding-y(map-deep-get($skin, &#x27;heading.padding&#x27;));
+                                    margin-top: map-deep-get($skin, &#x27;heading.spacing&#x27;);
+                                    
+                                    @each $breakpoint, $padding in $padding-x {
+                                      @include breakpoint( screen($breakpoint) ) {
+                                        @include padding-x( $padding );
+                                      };
+                                    }
+                                    
+                                  }
+                                  
+                                } 
+                                
+                                // Defines button group styles.
+                                &amp;-group { }
+                                
+                                // Defines button category styles.
+                                &amp;-category { }
+                                
+                               }"
+                                       data-collapsed="@mixin atoms-subnav-button--theme($skin) { ... }"><code class="js-autoindent">@mixin atoms-subnav-button--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                                
+                                
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the subnav-button component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The subnav-button component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.subnav-button-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.subnav-button-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.subnav-button-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.subnav-button-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#patterns.atoms.subnav-button-mixin-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.atoms.subnav-button-mixin-atoms-subnav-button">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.atoms.subnav-button-mixin-atoms-subnav-button">
+                                  atoms-subnav-button
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--construction">construction</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin atoms-subnav-button($custom) { 
+                                
+                                // Extend the default skin.
+                                $skin: map-extend($atoms-subnav-button, $custom);
+                                
+                                // Initialize the subnav-button component.
+                                &amp; {
+                                  
+                                  // Load structure.
+                                  @extend %atoms-subnav-button;
+                                  
+                                  // Load parts.
+                                  &amp;-alias {
+                                    @extend %atoms-subnav-button-alias;
+                                  }
+                                  &amp;-options {
+                                    @extend %atoms-subnav-button-options;
+                                  }
+                                  &amp;-option {
+                                    @extend %atoms-subnav-button-option;
+                                  }
+                                  &amp;-toggle {
+                                    @extend %atoms-subnav-button-toggle;
+                                  }
+                                  
+                                  // Load accessories.
+                                  &amp;-group {
+                                    @extend %atoms-subnav-button-group;
+                                    
+                                    &amp;-heading {
+                                      @extend %atoms-subnav-button-group-heading;
+                                    }
+                                    
+                                  }
+                                  &amp;-category {
+                                    @extend %atoms-subnav-button-category;
+                                    
+                                    &amp;-heading {
+                                      @extend %atoms-subnav-button-category-heading;
+                                    }
+                                    
+                                  }
+                                  
+                                  // Load skins.
+                                  @include atoms-subnav-button--theme( $skin );
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin atoms-subnav-button($custom) { ... }"><code class="js-autoindent">@mixin atoms-subnav-button($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                                
+                                
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the subnav-button component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our subnav-button component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.atoms.subnav-button-mixin-atoms-subnav-button"><code>atoms-subnav-button</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.atoms.subnav-button-mixin-atoms-subnav-button"><code>atoms-subnav-button</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.subnav-button-mixin-atoms-subnav-button--theme"><code>atoms-subnav-button--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.atoms.subnav-button-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.atoms.subnav-button-placeholder-atoms-subnav-button">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.atoms.subnav-button-placeholder-atoms-subnav-button">
+                                  atoms-subnav-button
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%atoms-subnav-button { 
+                                
+                                // Capture selector.
+                                $selector: &amp;;
+                                
+                                // Builds the subnav-button structure.
+                                @extend %atoms-button;
+                                display: flex;
+                                flex-direction: column;
+                                justify-content: center;
+                                align-items: flex-start;
+                                min-height: 55px;
+                                height: auto;
+                                width: 100%;
+                                
+                                // Modify styles on larger screens.
+                                @include breakpoint-m-l {
+                                  flex-direction: row;
+                                  justify-content: flex-start;
+                                  align-items: center;
+                                };
+                                
+                                // Apply icon structure.
+                                .icon {
+                                  @include absolute-center-contents;
+                                }
+                                
+                                // Modifies main button structure.
+                                &amp;:not(.-utility):not(.-viewall):not(.-back):not(.-resource),
+                                &amp;.-main { }
+                                
+                                // Modifies utility button structure.
+                                &amp;.-utility { }
+                                
+                                // Modifies view all button structure.
+                                &amp;.-viewall {
+                                  
+                                  // Adjusts structure on larger screens.
+                                  @include breakpoint-m-l {
+                                    @include absolute-center-contents;
+                                    min-height: 75px;
+                                  };
+                                  
+                                }
+                                
+                                // Modifies back button structure.
+                                &amp;.-back { 
+                                  flex-direction: row;
+                                  justify-content: flex-start;
+                                  align-items: center;
+                                  
+                                  // Adds icon structure.
+                                  &amp;::before {
+                                    @include absolute-center-contents;
+                                  }
+                                  
+                                  // Always hide back buttons on larger screens.
+                                  @include breakpoint-m-l {
+                                    display: none;
+                                  };
+                                  
+                                }
+                                
+                                // Modifies resource button structure.
+                                &amp;.-resource {
+                                  
+                                  // Builds toggle structure.
+                                  #{$selector}-toggle {
+                                    display: none;
+                                  }
+                              
+                                  // Build options menu structure.
+                                  #{$selector}-options {
+                                    display: flex;
+                                    @include absolute(0 0 0);
+                                  }
+                                  
+                                  // Builds option structure.
+                                  #{$selector}-option { 
+                                    @include absolute-center-contents;
+                                    align-self: stretch;
+                                  }
+                                  
+                                }
+                                
+                                /* COMPONENT PARTS */
+                                
+                                // Defines structure of button aliases.
+                                &amp;-alias {
+                                  display: flex;
+                                  justify-content: flex-start;
+                                  
+                                  // Adjusts structure on larger screens.
+                                  @include breakpoint-m-l {
+                                    @include size( auto );
+                                  };
+                                  
+                                }
+                                
+                                /* COMPONENT ACCESSORIES */
+                                
+                                // Defines structure of grouped and categorized buttons.
+                                &amp;-group,
+                                &amp;-category {
+                                  
+                                  // Builds structure of group and category headings.
+                                  &amp;-heading {
+                                    height: auto;
+                                  }
+                                  
+                                }
+                                
+                                // Defines structure of grouped buttons.
+                                &amp;-group {
+                                  
+                                  // Modifies grouped button structure.
+                                  &amp;:not(.-utility),
+                                  &amp;.-main { }
+                                  
+                                }
+                                
+                                // Defines structure of categorized buttons.
+                                &amp;-category {
+                                  
+                                  // Modifies categorized button structure.
+                                  &amp;:not(.-utility),
+                                  &amp;.-main {
+                                    height: auto;
+                                  }
+                                  
+                                }
+                              
+                                /* COMPONENT STATES */
+                              
+                                // Defines structure of disabled buttons.
+                                &amp;[disabled],
+                                &amp;.is-disabled {
+                                  opacity: .5;
+                                }
+                                
+                               }"
+                                      data-collapsed="%atoms-subnav-button { ... }"><code class="js-autoindent">%atoms-subnav-button { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                                
+                                
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the subnav-button component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.atoms.subnav-button-placeholder-atoms-button"><code>atoms-button</code></a>
                                   
                                   
                                           </li>
@@ -13170,6 +14786,8 @@
                                   
                               
                               
+                                  
+                                  
                                   
                                   
                                   
@@ -15765,6 +17383,12 @@
                                   
                                   
                                   
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
                               
                               
                               
@@ -17224,6 +18848,8 @@
                             
                         
                         
+                            
+                            
                             
                             
                             

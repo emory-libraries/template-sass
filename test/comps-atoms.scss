@@ -43,3 +43,8 @@
 .nav-button {
   @include atoms-nav-button;
 }
+
+// atoms-subnav-button
+.subnav-button {
+  @include atoms-subnav-button;
+}

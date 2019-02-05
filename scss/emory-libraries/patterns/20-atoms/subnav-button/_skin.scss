@@ -1,0 +1,617 @@
+////
+/// @group emory-libraries.patterns.atoms.subnav-button
+////
+
+/// Defines the base skin of the subnav-button component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$atoms-subnav-button: (
+  
+  'main': (
+    'background': (
+      'normal': color('blue', 'dark'),
+      'hover': color('blue'),
+      'active': color('blue')
+    ),
+    'foreground': (
+      'normal': $color-text-light,
+      'hover': $color-text-light,
+      'active': $color-text-light
+    ),
+    'font': (
+      'font-family': font('body'),
+      'font-style': normal,
+      'font-weight': bold,
+      'font-size': 14px,
+      'line-height': normal,
+      'text-align': left
+    )
+  ),
+  
+  'utility': (
+    'background': (
+      'normal': color('white'),
+      'hover': color('blue'),
+      'active': color('blue')
+    ),
+    'foreground': (
+      'normal': $color-text-dark,
+      'hover': $color-text-light,
+      'active': $color-text-light
+    ),
+    'font': (
+      'font-family': font('body'),
+      'font-style': normal,
+      'font-weight': bold,
+      'font-size': 14px,
+      'line-height': normal,
+      'text-align': left
+    )
+  ),
+  
+  'resource': (
+    'background': (
+      'normal': color('blue', 'dark'),
+      'hover': color('blue'),
+      'active': color('blue')
+    ),
+    'foreground': (
+      'normal': $color-text-light,
+      'hover': $color-text-light,
+      'active': $color-text-light
+    ),
+    'font': (
+      'font-family': font('body'),
+      'font-style': normal,
+      'font-weight': bold,
+      'font-size': 14px,
+      'line-height': normal,
+      'text-align': left
+    ),
+    'options': (
+      'foreground': inherit,
+      'background': color('blue', 'light'),
+      'shadow': inset 2px 2px 3px rgba(color('blue', 'dark'), .1),
+      'option': (
+        'foreground': (
+          'normal': color('blue', 'dark'),
+          'hover': color('blue', 'dark'),
+          'active': color('blue', 'dark')
+        ),
+        'background': (
+          'normal': transparent,
+          'hover': color('gold'),
+          'active': color('gold')
+        ),
+        'padding': 10px,
+        'icon': (
+          'spacing': 10px,
+          'size': 12px
+        ),
+        'divider': (
+          'thickness': $border-width-s,
+          'color': rgba(color('white'), .2)
+        )
+      )
+    )
+  ),
+  
+  'viewall': (
+    'foreground': (
+      'normal': $color-text-light,
+      'hover': $color-text-light,
+      'active': $color-text-light
+    ),
+    'background': (
+      'normal': $color-actionable,
+      'hover': color('blue', 'mid'),
+      'active': color('blue', 'mid')
+    ),
+    'link': (
+      'foreground': (
+        'normal': $color-text-light,
+        'hover': color('blue', 'bright'),
+        'active': color('blue', 'bright')
+      ),
+      'background': (
+        'normal': color('blue', 'dark'),
+        'hover': color('blue', 'dark'),
+        'active': color('blue', 'dark')
+      ),
+      'border': (
+        'thickness': $border-width-s,
+        'color': color('slate')
+      )
+    )
+  ),
+  
+  'back': (
+    'foreground': (
+      'normal': $color-text-light,
+      'hover': color('blue', 'bright'),
+      'active': color('blue', 'bright')
+    ),
+    'background': (
+      'normal': color('blue', 'dark'),
+      'hover': color('blue', 'dark'),
+      'active': color('blue', 'dark')
+    ),
+    'icon': (
+      'size': 12px,
+      'color': $color-actionable,
+      'spacing': 1ex
+    ),
+    'border': (
+      'thickness': $border-width-s,
+      'color': color('slate')
+    )
+  ),
+  
+  'alias': (
+    'font': (
+      'font-family': font('body'),
+      'font-style': normal,
+      'font-weight': normal,
+      'font-size': 13px,
+      'line-height': normal,
+      'text-align': left
+    ),
+    'spacing': 1ex
+  ),
+  
+  'heading': (
+    'foreground': color('gold'),
+    'background': color('blue', 'dark'),
+    'padding': ($rhythm-y / 2),
+    'spacing': $rhythm-y
+  ),
+  
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  ),
+  'padding': (
+    'x': (
+      's': 10px,
+      'm': 25px,
+      'l': 25px
+    ),
+    'y': (
+      's': 10px,
+      'm': 10px,
+      'l': 10px
+    )
+  )
+  
+);
+
+/// Defines the subnav-button component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The subnav-button component's themeable properties
+@mixin atoms-subnav-button--theme ( $skin ) {
+  
+  // Captures the selector.
+  $selector: &;
+  
+  // Capture themeable variables from skin.
+  $duration: map-deep-get($skin, 'transition.duration');
+  $timing: map-deep-get($skin, 'transition.timing');
+  $padding-x: map-deep-get($skin, 'padding.x');
+  $padding-y: map-deep-get($skin, 'padding.y');
+  
+  // Defines the subnav-button component's base styles.
+  appearance: none;
+  border: none;
+  background: none;
+  transition: all $duration $timing;
+  
+  @each $breakpoint, $padding in $padding-x {
+    @include breakpoint( screen($breakpoint) ) {
+      @include padding-x( $padding );
+    };
+  }
+  @each $breakpoint, $padding in $padding-y {
+    @include breakpoint( screen($breakpoint) ) {
+      @include padding-y( $padding );
+    };
+  }
+  
+  // Defines main button styles.
+  &:not(.-utility):not(.-resource):not(.-viewall):not(.-back),
+  &.-main {
+    $background: map-deep-get($skin, 'main.background');
+    $foreground: map-deep-get($skin, 'main.foreground');
+    $font: map-deep-get($skin, 'main.font');
+    
+    color: map-get($foreground, 'normal');
+    background-color: map-get($background, 'normal');
+    @include expand-properties($font);
+    
+    &:hover,
+    &:focus,
+    &.is-hover,
+    &.is-focus {
+      color: map-get($foreground, 'hover');
+      background-color: map-get($background, 'hover');
+    }
+    
+    &:active,
+    &.is-active {
+      color: map-get($foreground, 'active');
+      background-color: map-get($background, 'active');
+    }
+    
+  }
+  
+  // Defines utility button styles.
+  &.-utility {
+    $background: map-deep-get($skin, 'utility.background');
+    $foreground: map-deep-get($skin, 'utility.foreground');
+    $font: map-deep-get($skin, 'utility.font');
+    
+    @include expand-properties($font);
+    color: map-get($foreground, 'normal');
+    background-color: map-get($background, 'normal');
+
+    &:hover,
+    &:focus,
+    &.is-hover,
+    &.is-focus {
+      color: map-get($foreground, 'hover');
+      background-color: map-get($background, 'hover');
+    }
+
+    &:active,
+    &.is-active {
+      color: map-get($foreground, 'active');
+      background-color: map-get($background, 'active');
+    }
+    
+  }
+  
+  // Defines view all button styles.
+  &.-viewall {
+    $background: map-deep-get($skin, 'viewall.link.background');
+    $foreground: map-deep-get($skin, 'viewall.link.foreground');
+    
+    // Get border-specific variables.
+    $border-thickness: map-deep-get($skin, 'viewall.link.border.thickness');
+    $border-color: map-deep-get($skin, 'viewall.link.border.color');
+    $border-size: map-deep-get($skin, 'viewall.link.border.size');
+    
+    @include tokens-text('button', $color: map-get($foreground, 'normal'));
+    background-color: map-get($background, 'normal');
+
+    &:hover,
+    &:focus,
+    &.is-hover,
+    &.is-focus {
+      color: map-get($foreground, 'hover');
+      background-color: map-get($background, 'hover');
+    }
+
+    &:active,
+    &.is-active {
+      color: map-get($foreground, 'active');
+      background-color: map-get($background, 'active');
+    }
+    
+    // Add border to button.
+    &::before {
+      content: '';
+      display: block;
+      @include absolute(0 0 null 0);
+      height: $border-thickness;
+      background-color: $border-color;
+      @include margin-x( auto );
+      opacity: .15;
+    }
+    
+    @each $breakpoint, $padding in $padding-x {
+      @include breakpoint( screen($breakpoint) ) {
+        
+        &::before {
+          width: calc(100% - #{$padding * 2});
+        }
+        
+      };
+    }
+    
+    @include breakpoint-m-l {
+      $background: map-deep-get($skin, 'viewall.background');
+      $foreground: map-deep-get($skin, 'viewall.foreground');
+      
+      color: map-get($foreground, 'normal');
+      background-color: map-get($background, 'normal');
+
+      &:hover,
+      &:focus,
+      &.is-hover,
+      &.is-focus {
+        color: map-get($foreground, 'hover');
+        background-color: map-get($background, 'hover');
+      }
+
+      &:active,
+      &.is-active {
+        color: map-get($foreground, 'active');
+        background-color: map-get($background, 'active');
+      }
+      
+      // Remove border from button.
+      &::before { 
+        content: none;
+      }
+      
+    };
+    
+  }
+  
+  // Defines resource button styles.
+  &.-resource { 
+    $background: map-deep-get($skin, 'resource.background');
+    $foreground: map-deep-get($skin, 'resource.foreground');
+    $font: map-deep-get($skin, 'resource.font');
+    
+    @include expand-properties($font);
+    color: map-get($foreground, 'normal');
+    background-color: map-get($background, 'normal');
+
+    &:hover,
+    &:focus,
+    &.is-hover,
+    &.is-focus {
+      color: map-get($foreground, 'hover');
+      background-color: map-get($background, 'hover');
+    }
+
+    &:active,
+    &.is-active {
+      color: map-get($foreground, 'active');
+      background-color: map-get($background, 'active');
+    }
+    
+    // Get menu-specific variables.
+    $menu-background: map-deep-get($skin, 'resource.options.background');
+    $menu-foreground: map-deep-get($skin, 'resource.options.foreground');
+    $menu-shadow: map-deep-get($skin, 'resource.options.shadow');
+    $menu-width: map-deep-get($skin, 'resource.options.width');
+    
+    // Get option-specific variables.
+    $option-background: map-deep-get($skin, 'resource.options.option.background');
+    $option-foreground: map-deep-get($skin, 'resource.options.option.foreground');
+    $option-padding: map-deep-get($skin, 'resource.options.option.padding');
+    $option-divider: map-deep-get($skin, 'resource.options.option.divider');
+    $option-icon: map-deep-get($skin, 'resource.options.option.icon');
+    
+    // Adds option menu styles.
+    #{$selector}-options {
+      transition: all $duration $timing;
+      @if( is-null($menu-shadow) == false and $menu-shadow != false ) {
+        box-shadow: $menu-shadow;
+      }
+      color: $menu-foreground;
+      background-color: $menu-background;
+    }
+    
+    // Adds toggle styles.
+    #{$selector}-toggle {
+      
+      // Adjust option menu styles when showing the menu.
+      &:not(:checked),
+      &:not(.is-checked) {
+        
+        // Hide.
+        + #{$selector}-options {
+          max-width: 0;
+          overflow: hidden;
+        }
+        
+      }
+      
+      // Adjust option menu styles when hiding the menu.
+      &:checked,
+      &.is-checked {
+        
+        // Show.
+        + #{$selector}-options {
+          max-width: 300px;
+          overflow: auto;
+        }
+        
+      }
+      
+    }
+    
+    // Adds option styles.
+    #{$selector}-option {
+      
+      transition: all $duration $timing;
+      @include tokens-text('button', $color: map-get($option-foreground, 'normal'));
+      background-color: map-get($option-background, 'normal');
+      @include padding-x( $option-padding );
+      text-decoration: none;
+      
+      @each $breakpoint, $padding in $padding-x {
+        @include breakpoint( screen($breakpoint) ) {
+          @include padding-x($padding);
+        };
+      }
+
+      &:hover,
+      &:focus,
+      &.is-hover,
+      &.is-focus {
+        color: map-get($option-foreground, 'hover');
+        background-color: map-get($option-background, 'hover');
+      }
+
+      &:active,
+      &.is-active {
+        color: map-get($option-foreground, 'active');
+        background-color: map-get($option-background, 'active');
+      }
+      
+      &:last-child {
+        
+        &::before {
+          content: '';
+          display: block;
+          position: absolute;
+          left: 0;
+          height: 1em;
+          border-left: map-get($option-divider, 'thickness') solid map-get($option-divider, 'color');
+        }
+        
+      }
+      
+      // Modifies icon styles.
+      .icon {
+        margin-left: map-get($option-icon, 'spacing');
+        line-height: 1;
+        @include size( map-get($option-icon, 'size') );
+      }
+      
+    }
+
+    // Disallow toggling of the option menu when disabled.
+    &[disabled],
+    &.is-disabled {
+
+      #{$selector}-toggle {
+        
+        &:not(:checked),
+        :not(.is-checked),
+        &:checked,
+        &.is-checked {
+          
+          + #{$selector}-options {
+            display: none;
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  // Defines the back button styles.
+  &.-back {
+    $background: map-deep-get($skin, 'back.background');
+    $foreground: map-deep-get($skin, 'back.foreground');
+    
+    // Get icon-specific variables.
+    $icon-id: 'material-chevron_left';
+    $icon-size: map-deep-get($skin, 'back.icon.size');
+    $icon-color: map-deep-get($skin, 'back.icon.color');
+    $icon-spacing: map-deep-get($skin, 'back.icon.spacing');
+    
+    // Get border-specific variables.
+    $border-thickness: map-deep-get($skin, 'back.border.thickness');
+    $border-color: map-deep-get($skin, 'back.border.color');
+    $border-size: map-deep-get($skin, 'back.border.size');
+    
+    @include tokens-text('button', $color: map-get($foreground, 'normal'));
+    background-color: map-get($background, 'normal');
+
+    &:hover,
+    &:focus,
+    &.is-hover,
+    &.is-focus {
+      color: map-get($foreground, 'hover');
+      background-color: map-get($background, 'hover');
+    }
+
+    &:active,
+    &.is-active {
+      color: map-get($foreground, 'active');
+      background-color: map-get($background, 'active');
+    }
+    
+    // Adds icon to back button.
+    &::before {
+      content: icon-url($icon-id, $icon-color, $icon-size);
+      margin-right: $icon-spacing;
+      line-height: 1;
+    }
+    
+    // Add border to button.
+    &::after {
+      content: '';
+      display: block;
+      @include absolute(null 0 0 0);
+      width: $border-size;
+      height: $border-thickness;
+      background-color: $border-color;
+      @include margin-x( auto );
+      opacity: .15;
+    }
+    
+    @each $breakpoint, $padding in $padding-x {
+      @include breakpoint( screen($breakpoint) ) {
+        
+        &::after {
+          width: calc(100% - #{$padding * 2});
+        }
+        
+      };
+    }
+    
+  }
+
+  // Defines alias styles.
+  &-alias {
+    $font: map-deep-get($skin, 'alias.font');
+    $spacing: map-deep-get($skin, 'alias.spacing');
+    
+    @include expand-properties($font);
+    @include margin-y( $spacing );
+    
+    @include breakpoint-m-l {
+      margin-left: $spacing;
+      @include margin-y( 0 );
+    };
+    
+  }
+  
+  // Defines button group and category styles.
+  &-group,
+  &-category {
+    
+    // Adds styles for headings.
+    &-heading {
+      $background: map-deep-get($skin, 'heading.background');
+      $foreground: map-deep-get($skin, 'heading.foreground');
+      
+      @include tokens-heading('h6', $color: $foreground);
+      background-color: $background;
+      @include padding-y(map-deep-get($skin, 'heading.padding'));
+      margin-top: map-deep-get($skin, 'heading.spacing');
+      
+      @each $breakpoint, $padding in $padding-x {
+        @include breakpoint( screen($breakpoint) ) {
+          @include padding-x( $padding );
+        };
+      }
+      
+    }
+    
+  } 
+  
+  // Defines button group styles.
+  &-group { }
+  
+  // Defines button category styles.
+  &-category { }
+  
+}

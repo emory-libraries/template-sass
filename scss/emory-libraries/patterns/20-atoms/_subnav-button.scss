@@ -1,0 +1,71 @@
+////
+/// @group emory-libraries.patterns.atoms.subnav-button
+////
+
+/// Load the subnav-button component's structure and skin.
+@import 'subnav-button/structure';
+@import 'subnav-button/skin';
+
+/// Builds a constructor for the subnav-button component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} atoms-subnav-button
+/// @requires {variable} atoms-subnav-button
+/// @requires {mixin} atoms-subnav-button--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our subnav-button component
+///
+/// @status construction
+@mixin atoms-subnav-button ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-subnav-button, $custom);
+  
+  // Initialize the subnav-button component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-subnav-button;
+    
+    // Load parts.
+    &-alias {
+      @extend %atoms-subnav-button-alias;
+    }
+    &-options {
+      @extend %atoms-subnav-button-options;
+    }
+    &-option {
+      @extend %atoms-subnav-button-option;
+    }
+    &-toggle {
+      @extend %atoms-subnav-button-toggle;
+    }
+    
+    // Load accessories.
+    &-group {
+      @extend %atoms-subnav-button-group;
+      
+      &-heading {
+        @extend %atoms-subnav-button-group-heading;
+      }
+      
+    }
+    &-category {
+      @extend %atoms-subnav-button-category;
+      
+      &-heading {
+        @extend %atoms-subnav-button-category-heading;
+      }
+      
+    }
+    
+    // Load skins.
+    @include atoms-subnav-button--theme( $skin );
+    
+  }
+  
+}
