@@ -162,6 +162,7 @@ $atoms-subnav-button: (
   ),
   
   'group': (
+    'background': color('blue', 'dark'),
     'heading': (
       'foreground': color('gold'),
       'background': color('blue', 'dark')
@@ -171,6 +172,7 @@ $atoms-subnav-button: (
   ),
   
   'category': (
+    'background': color('blue', 'dark'),
     'heading': (
       'foreground': color('gold'),
       'background': color('blue', 'dark'),
@@ -599,6 +601,9 @@ $atoms-subnav-button: (
   &-group {
     $padding: map-deep-get($skin, 'group.padding');
     $spacing: map-deep-get($skin, 'group.spacing');
+    $background: map-deep-get($skin, 'group.background');
+    
+    background-color: $background;
     
     // Adds styles for group headings.
     &-heading {
@@ -630,7 +635,9 @@ $atoms-subnav-button: (
   &-category { 
     $padding: map-deep-get($skin, 'category.padding');
     $spacing: map-deep-get($skin, 'category.spacing');
+    $background: map-deep-get($skin, 'group.background');
     
+    background-color: $background;
     margin-bottom: $spacing;
 
     // Adds styles for category headings.

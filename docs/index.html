@@ -11565,6 +11565,7 @@
                                 ),
                                 
                                 &#x27;group&#x27;: (
+                                  &#x27;background&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
                                   &#x27;heading&#x27;: (
                                     &#x27;foreground&#x27;: color(&#x27;gold&#x27;),
                                     &#x27;background&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;)
@@ -11574,6 +11575,7 @@
                                 ),
                                 
                                 &#x27;category&#x27;: (
+                                  &#x27;background&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
                                   &#x27;heading&#x27;: (
                                     &#x27;foreground&#x27;: color(&#x27;gold&#x27;),
                                     &#x27;background&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
@@ -12098,6 +12100,9 @@
                                 &amp;-group {
                                   $padding: map-deep-get($skin, &#x27;group.padding&#x27;);
                                   $spacing: map-deep-get($skin, &#x27;group.spacing&#x27;);
+                                  $background: map-deep-get($skin, &#x27;group.background&#x27;);
+                                  
+                                  background-color: $background;
                                   
                                   // Adds styles for group headings.
                                   &amp;-heading {
@@ -12129,7 +12134,9 @@
                                 &amp;-category { 
                                   $padding: map-deep-get($skin, &#x27;category.padding&#x27;);
                                   $spacing: map-deep-get($skin, &#x27;category.spacing&#x27;);
+                                  $background: map-deep-get($skin, &#x27;group.background&#x27;);
                                   
+                                  background-color: $background;
                                   margin-bottom: $spacing;
                               
                                   // Adds styles for category headings.
