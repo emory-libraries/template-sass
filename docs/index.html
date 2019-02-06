@@ -11906,39 +11906,42 @@
                                   
                                   // Adds option menu styles.
                                   #{$selector}-options {
+                                    --max: 300px;
+                                    
                                     transition: all $duration $timing;
                                     @if( is-null($menu-shadow) &#x3D;&#x3D; false and $menu-shadow !&#x3D; false ) {
                                       box-shadow: $menu-shadow;
                                     }
                                     color: $menu-foreground;
                                     background-color: $menu-background;
-                                  }
-                                  
-                                  // Adds toggle styles.
-                                  #{$selector}-toggle {
                                     
-                                    // Adjust option menu styles when showing the menu.
-                                    &amp;:not(:checked),
-                                    &amp;:not(.is-checked) {
+                                    // Adds toggle styles.
+                                    &amp;-toggle {
                                       
-                                      // Hide.
-                                      + #{$selector}-options {
-                                        max-width: 0;
-                                        overflow: hidden;
+                                      // Adjust option menu styles when showing the menu.
+                                      &amp;:not(:checked),
+                                      &amp;:not(.is-checked) {
+                              
+                                        // Hide the menu.
+                                        + #{$selector}-options {
+                                          max-width: 0;
+                                          overflow: hidden;
+                                        }
+                              
                                       }
-                                      
-                                    }
-                                    
-                                    // Adjust option menu styles when hiding the menu.
-                                    &amp;:checked,
-                                    &amp;.is-checked {
-                                      
-                                      // Show.
-                                      + #{$selector}-options {
-                                        max-width: 300px;
-                                        overflow: auto;
+                              
+                                      // Adjust option menu styles when hiding the menu.
+                                      &amp;:checked,
+                                      &amp;.is-checked {
+                              
+                                        // Show the menu.
+                                        + #{$selector}-options {
+                                          max-width: var(--max);
+                                          overflow: auto;
+                                        }
+                              
                                       }
-                                      
+                                
                                     }
                                     
                                   }
@@ -11998,7 +12001,7 @@
                                   &amp;[disabled],
                                   &amp;.is-disabled {
                               
-                                    #{$selector}-toggle {
+                                    #{$selector}-options-toggle {
                                       
                                       &amp;:not(:checked),
                                       :not(.is-checked),
@@ -12163,6 +12166,43 @@
                                     
                                   }
                               
+                                }
+                              
+                                // Defines overflow styles.
+                                &amp;-overflow {
+                                  --max: 1500px;
+                                  
+                                  transition: all $duration $timing;
+                              
+                                  &amp;-toggle {
+                                    
+                                    // Hide overflow when not checked.
+                                    &amp;:not(:checked),
+                                    &amp;:not(.is-checked) {
+                                      
+                                      // Hide overflow.
+                                      + #{$selector}-overflow {
+                                        max-height: 0;
+                                        overflow: hidden;
+                                      }
+                                      
+                                    }
+                                    
+                                    // Show overflow when checked.
+                                    &amp;:checked,
+                                    &amp;.is-checked {
+                                      
+                                      // Show overflow.
+                                      + #{$selector}-overflow {
+                                        max-height: var(--max);
+                                        overflow: auto;
+                                      }
+                                      
+                                    }
+                                    
+                                    
+                                  }
+                                  
                                 }
                                 
                                }"
@@ -12422,12 +12462,18 @@
                                   }
                                   &amp;-options {
                                     @extend %atoms-subnav-button-options;
+                                    &amp;-toggle {
+                                      @extend %atoms-subnav-button-options-toggle;
+                                    }
                                   }
                                   &amp;-option {
                                     @extend %atoms-subnav-button-option;
                                   }
-                                  &amp;-toggle {
-                                    @extend %atoms-subnav-button-toggle;
+                                  &amp;-overflow {
+                                    @extend %atoms-subnav-button-overflow;
+                                    &amp;-toggle {
+                                      @extend %atoms-subnav-button-overflow-toggle;
+                                    }
                                   }
                                   
                                   // Load accessories.
@@ -12700,6 +12746,11 @@
                                     min-height: 75px;
                                   };
                                   
+                                  // Make the button dismissable.
+                                  &amp;.is-dismissed {
+                                    display: none;
+                                  }
+                                  
                                 }
                                 
                                 // Modifies back button structure.
@@ -12722,16 +12773,17 @@
                                 
                                 // Modifies resource button structure.
                                 &amp;.-resource {
-                                  
-                                  // Builds toggle structure.
-                                  #{$selector}-toggle {
-                                    display: none;
-                                  }
                               
                                   // Build options menu structure.
                                   #{$selector}-options {
                                     display: flex;
                                     @include absolute(0 0 0);
+                                    
+                                    // Builds toggle structure.
+                                    &amp;-toggle {
+                                      display: none;
+                                    }
+                                    
                                   }
                                   
                                   // Builds option structure.
@@ -12796,6 +12848,16 @@
                                     
                                   }
                                   
+                                }
+                              
+                                // Defines structure of overflow.
+                                &amp;-overflow {
+                                  
+                                  // Builds toggle structure.
+                                  &amp;-toggle {
+                                    display: none;
+                                  }
+                              
                                 }
                               
                                 /* COMPONENT STATES */

@@ -40,12 +40,18 @@
     }
     &-options {
       @extend %atoms-subnav-button-options;
+      &-toggle {
+        @extend %atoms-subnav-button-options-toggle;
+      }
     }
     &-option {
       @extend %atoms-subnav-button-option;
     }
-    &-toggle {
-      @extend %atoms-subnav-button-toggle;
+    &-overflow {
+      @extend %atoms-subnav-button-overflow;
+      &-toggle {
+        @extend %atoms-subnav-button-overflow-toggle;
+      }
     }
     
     // Load accessories.
