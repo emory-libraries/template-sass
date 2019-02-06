@@ -11919,12 +11919,15 @@
                                     &amp;-toggle {
                                       
                                       // Adjust option menu styles when showing the menu.
-                                      &amp;:not(:checked),
-                                      &amp;:not(.is-checked) {
+                                      &amp;:not(:checked):not(.is-checked) {
                               
                                         // Hide the menu.
                                         + #{$selector}-options {
                                           max-width: 0;
+                                          border-top-width: 0;
+                                          border-bottom-width: 0;
+                                          @include padding-y( 0 );
+                                          @include margin-y( 0 );
                                           overflow: hidden;
                                         }
                               
@@ -12177,12 +12180,15 @@
                                   &amp;-toggle {
                                     
                                     // Hide overflow when not checked.
-                                    &amp;:not(:checked),
-                                    &amp;:not(.is-checked) {
+                                    &amp;:not(:checked):not(.is-checked) {
                                       
                                       // Hide overflow.
                                       + #{$selector}-overflow {
                                         max-height: 0;
+                                        border-top-width: 0;
+                                        border-bottom-width: 0;
+                                        @include padding-y( 0 );
+                                        @include margin-y( 0 );
                                         overflow: hidden;
                                       }
                                       

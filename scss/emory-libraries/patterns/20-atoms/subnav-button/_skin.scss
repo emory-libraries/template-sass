@@ -420,12 +420,15 @@ $atoms-subnav-button: (
       &-toggle {
         
         // Adjust option menu styles when showing the menu.
-        &:not(:checked),
-        &:not(.is-checked) {
+        &:not(:checked):not(.is-checked) {
 
           // Hide the menu.
           + #{$selector}-options {
             max-width: 0;
+            border-top-width: 0;
+            border-bottom-width: 0;
+            @include padding-y( 0 );
+            @include margin-y( 0 );
             overflow: hidden;
           }
 
@@ -678,12 +681,15 @@ $atoms-subnav-button: (
     &-toggle {
       
       // Hide overflow when not checked.
-      &:not(:checked),
-      &:not(.is-checked) {
+      &:not(:checked):not(.is-checked) {
         
         // Hide overflow.
         + #{$selector}-overflow {
           max-height: 0;
+          border-top-width: 0;
+          border-bottom-width: 0;
+          @include padding-y( 0 );
+          @include margin-y( 0 );
           overflow: hidden;
         }
         
