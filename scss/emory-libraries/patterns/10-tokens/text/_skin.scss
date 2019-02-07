@@ -16,7 +16,7 @@ $tokens-text: (
   'body':     (
     'font-weight': normal,
     'font-style': normal,
-    'line-height': 1.9375, // 31px
+    'line-height': $font-line-height,
     'letter-spacing': normal,
     'text-transform': none,
     'color': $color-text-dark,
