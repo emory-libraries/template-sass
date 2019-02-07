@@ -1,0 +1,58 @@
+////
+/// @group emory-libraries.patterns.atoms.link
+////
+
+/// Defines the base skin of the link component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$atoms-link: (
+  
+  'color': (
+    'normal': color('blue', 'bright'),
+    'hover': color('blue', 'mid'),
+    'active': color('blue', 'mid')
+  ),
+  'weight': bold,
+  'style': normal
+  
+);
+
+/// Defines the link component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The link component's themeable properties
+@mixin atoms-link--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $normal: map-deep-get($skin, 'color.normal');
+  $hover: map-deep-get($skin, 'color.hover');
+  $active: map-deep-get($skin, 'color.active');
+  $visited: map-deep-get($skin, 'color.visited');
+  $weight: map-deep-get($skin, 'weight');
+  $style: map-deep-get($skin, 'style');
+  
+  // Defines the link component's base styles.
+  font-weight: $weight;
+  font-style: $style;
+  color: $normal;
+  
+  &:hover,
+  &.is-hover,
+  &:focus,
+  &.is-focus {
+    color: $hover;
+  }
+  
+  &:active,
+  &.is-active {
+    color: $active;
+  }
+  
+}

@@ -59,7 +59,7 @@ $atoms-list: (
   $marker-offset: map-deep-get($skin, 'marker.offset');
   
   // Defines the list component's base styles.
-  @include tokens-text;
+  // ...
   
   // Defines bulleted list styles.
   &:not(.-numbered):not(.-links):not(.-topics):not(.-files),

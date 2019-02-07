@@ -53,3 +53,8 @@
 .list {
   @include atoms-list;
 }
+
+// atoms-link
+.link {
+  @include atoms-link;
+}

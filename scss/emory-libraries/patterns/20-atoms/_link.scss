@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.atoms.link
+////
+
+/// Load the link component's structure and skin.
+@import 'link/structure';
+@import 'link/skin';
+
+/// Builds a constructor for the link component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} atoms-link
+/// @requires {variable} atoms-link
+/// @requires {mixin} atoms-link--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our link component
+///
+/// @status construction
+@mixin atoms-link ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-link, $custom);
+  
+  // Initialize the link component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-link;
+    
+    // Load skins.
+    @include atoms-link--theme( $skin );
+    
+  }
+  
+}

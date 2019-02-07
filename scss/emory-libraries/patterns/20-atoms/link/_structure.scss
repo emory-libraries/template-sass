@@ -1,0 +1,14 @@
+////
+/// @group emory-libraries.patterns.atoms.link
+////
+
+/// Defines the base structure of the link component.
+///
+/// @since 1.0.0
+%atoms-link {
+  
+  // Builds the link structure.
+  display: inline-block;
+  text-decoration: none;
+  
+}

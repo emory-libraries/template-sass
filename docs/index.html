@@ -312,6 +312,19 @@
                       </li>
                     
                     
+                      <li class="sidebar__item sassdoc__item" data-group="config" data-name="font-line-height" data-type="variable">
+                        
+                        <a href="#config-variable-font-line-height">
+                          
+                          font-line-height
+                          
+                          
+                          
+                        </a>
+                        
+                      </li>
+                    
+                    
                       <li class="sidebar__item sassdoc__item" data-group="config" data-name="brandy-font-size" data-type="variable">
                         
                         <a href="#config-variable-brandy-font-size">
@@ -874,6 +887,114 @@
                                     <a href="#patterns.atoms.input-placeholder-atoms-input">
                                       
                                       atoms-input
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="atoms">
+                          <a href="#patterns.atoms.link">link</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.atoms.link-mixin">
+                                <a href="#patterns.atoms.link-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.atoms.link" data-name="atoms-link" data-type="mixin">
+                                    
+                                    <a href="#patterns.atoms.link-mixin-atoms-link">
+                                      
+                                      atoms-link
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.atoms.link" data-name="atoms-link--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.atoms.link-mixin-atoms-link--theme">
+                                      
+                                      atoms-link--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.atoms.link-variable">
+                                <a href="#patterns.atoms.link-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.atoms.link" data-name="atoms-link" data-type="variable">
+                                    
+                                    <a href="#patterns.atoms.link-variable-atoms-link">
+                                      
+                                      atoms-link
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.atoms.link-placeholder">
+                                <a href="#patterns.atoms.link-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.atoms.link" data-name="atoms-link" data-type="placeholder">
+                                    
+                                    <a href="#patterns.atoms.link-placeholder-atoms-link">
+                                      
+                                      atoms-link
                                       
                                       
                                       
@@ -4675,6 +4796,91 @@
                 </section>  
               
                 <section class="main__item container item"
+                         id="config-variable-font-line-height">
+                
+                  <h3 class="item__heading">
+                    
+                  
+                    <a class="item__name" href="#config-variable-font-line-height">
+                      font-line-height
+                    </a>
+                  
+                  
+                    
+                    
+                  </h3>
+                  
+                  
+                    <span class="item__since">
+                      Since 1.0.0
+                    </span>
+                  
+                  
+                
+                  
+                    <div class="item__code-wrapper">
+                      
+                      <pre class="item__code language-scss"><code class="js-autoindent">$font-line-height: 1.9375 !default;</code></pre>
+                  
+                  
+                  
+                    </div>
+                  
+                  
+                    
+                    
+                  
+                  
+                        <h3 class="item__sub-heading">Description</h3>
+                        <div class="item__description"><p>Sets the default line height for all text
+                      within the project. This is the line height
+                      that will used as our base for other line heights.</p>
+                      </div>
+                  
+                  
+                      
+                        <h3 class="item__sub-heading">Type</h3>
+                      
+                        <p>
+                            <code>variable</code>
+                        </p>
+                      
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                      
+                      
+                      
+                      
+                      
+                      
+                  
+                  
+                  
+                  
+                      
+                      
+                      
+                      
+                      
+                      
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                  
+                
+                </section>  
+              
+                <section class="main__item container item"
                          id="config-variable-brandy-font-size">
                 
                   <h3 class="item__heading">
@@ -6412,8 +6618,10 @@
                            data-current-state="collapsed"
                            data-expanded="<code>body {
                       margin: 0 auto;
-                    font-size: $font-size;
+                    font-family: font(&#x27;body&#x27;);
+                    font-size: $font-size * map-deep-get($fonts-scale, &#x27;body&#x27;);
                     color: $color-text-dark;
+                    line-height: $font-line-height;
                     }</code>"
                            data-collapsed="body { ... }"><code class="js-autoindent">body { ... }</code></pre>
                       
@@ -6538,6 +6746,8 @@
         
         
         
+            
+            
             
             
             
@@ -9656,6 +9866,665 @@
                   
                   <section class="main__section main__section--level-3 main__section--has-content">
                   
+                    <h3 class="main__heading" id="patterns.atoms.link">
+                      
+                      <div class="container">link</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.atoms.link-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.atoms.link-mixin-atoms-link">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.atoms.link-mixin-atoms-link">
+                                  atoms-link
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--construction">construction</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin atoms-link($custom) { 
+                                
+                                // Extend the default skin.
+                                $skin: map-extend($atoms-link, $custom);
+                                
+                                // Initialize the link component.
+                                &amp; {
+                                  
+                                  // Load structure.
+                                  @extend %atoms-link;
+                                  
+                                  // Load skins.
+                                  @include atoms-link--theme( $skin );
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin atoms-link($custom) { ... }"><code class="js-autoindent">@mixin atoms-link($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                                
+                                
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the link component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our link component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.atoms.link-mixin-atoms-link"><code>atoms-link</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.atoms.link-mixin-atoms-link"><code>atoms-link</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.link-mixin-atoms-link--theme"><code>atoms-link--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.atoms.link-mixin-atoms-link--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.atoms.link-mixin-atoms-link--theme">
+                                  atoms-link--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin atoms-link--theme($skin) { 
+                                
+                                // Capture themeable variables from skin.
+                                $normal: map-deep-get($skin, &#x27;color.normal&#x27;);
+                                $hover: map-deep-get($skin, &#x27;color.hover&#x27;);
+                                $active: map-deep-get($skin, &#x27;color.active&#x27;);
+                                $visited: map-deep-get($skin, &#x27;color.visited&#x27;);
+                                $weight: map-deep-get($skin, &#x27;weight&#x27;);
+                                $style: map-deep-get($skin, &#x27;style&#x27;);
+                                
+                                // Defines the link component&#x27;s base styles.
+                                font-weight: $weight;
+                                font-style: $style;
+                                color: $normal;
+                                
+                                &amp;:hover,
+                                &amp;.is-hover,
+                                &amp;:focus,
+                                &amp;.is-focus {
+                                  color: $hover;
+                                }
+                                
+                                &amp;:active,
+                                &amp;.is-active {
+                                  color: $active;
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin atoms-link--theme($skin) { ... }"><code class="js-autoindent">@mixin atoms-link--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                                
+                                
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the link component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The link component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.atoms.link-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.atoms.link-variable-atoms-link">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.atoms.link-variable-atoms-link">
+                                  atoms-link
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$atoms-link: (
+                                
+                                &#x27;color&#x27;: (
+                                  &#x27;normal&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;),
+                                  &#x27;hover&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
+                                  &#x27;active&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;)
+                                ),
+                                &#x27;weight&#x27;: bold,
+                                &#x27;style&#x27;: normal
+                                
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                                
+                                
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the link component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.atoms.link-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.atoms.link-placeholder-atoms-link">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.atoms.link-placeholder-atoms-link">
+                                  atoms-link
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%atoms-link { 
+                                
+                                // Builds the link structure.
+                                display: inline-block;
+                                text-decoration: none;
+                                
+                               }"
+                                      data-collapsed="%atoms-link { ... }"><code class="js-autoindent">%atoms-link { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                                
+                                
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the link component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
                     <h3 class="main__heading" id="patterns.atoms.list">
                       
                       <div class="container">list</div>
@@ -9939,7 +10808,7 @@
                                 $marker-offset: map-deep-get($skin, &#x27;marker.offset&#x27;);
                                 
                                 // Defines the list component&#x27;s base styles.
-                                @include tokens-text;
+                                // ...
                                 
                                 // Defines bulleted list styles.
                                 &amp;:not(.-numbered):not(.-links):not(.-topics):not(.-files),
@@ -10096,18 +10965,6 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
-                                  
-                                  
-                                  
-                                          <li class="item__description  item__description--inline">
-                                  
-                                            <span class="item__cross-type">mixin</span>
-                                  
-                                            <a href="#patterns.atoms.list-mixin-tokens-text"><code>tokens-text</code></a>
-                                  
-                                  
-                                          </li>
-                                  
                                   
                                   
                                   
@@ -17566,7 +18423,7 @@
                                 &#x27;body&#x27;:     (
                                   &#x27;font-weight&#x27;: normal,
                                   &#x27;font-style&#x27;: normal,
-                                  &#x27;line-height&#x27;: 1.9375, // 31px
+                                  &#x27;line-height&#x27;: $font-line-height,
                                   &#x27;letter-spacing&#x27;: normal,
                                   &#x27;text-transform&#x27;: none,
                                   &#x27;color&#x27;: $color-text-dark,
@@ -18496,8 +19353,6 @@
                                   
                               
                               
-                                  
-                                  
                                   
                                   
                                   
