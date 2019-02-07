@@ -14,8 +14,10 @@
 /// Initializes core body styles.
 body {
   margin: 0 auto;
-  font-size: $font-size;
+  font-family: font('body');
+  font-size: $font-size * map-deep-get($fonts-scale, 'body');
   color: $color-text-dark;
+  line-height: $font-line-height;
 }
 
 
