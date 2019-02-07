@@ -10142,21 +10142,56 @@
                                 $weight: map-deep-get($skin, &#x27;weight&#x27;);
                                 $style: map-deep-get($skin, &#x27;style&#x27;);
                                 
+                                // Get icon-specific variables.
+                                $icon-size: map-deep-get($skin, &#x27;icon.size&#x27;);
+                                $icon-spacing: map-deep-get($skin, &#x27;icon.spacing&#x27;);
+                                
                                 // Defines the link component&#x27;s base styles.
                                 font-weight: $weight;
                                 font-style: $style;
                                 color: $normal;
+                                
+                                // Adds styles for icons.
+                                .icon {
+                                  @include size( $icon-size );
+                                  margin-right: $icon-spacing;
+                                  
+                                  svg {
+                                    fill: $normal;
+                                  }
+                                  
+                                }
                                 
                                 &amp;:hover,
                                 &amp;.is-hover,
                                 &amp;:focus,
                                 &amp;.is-focus {
                                   color: $hover;
+                                  
+                                  // Adds styles for icons.
+                                  .icon {
+                              
+                                    svg {
+                                      fill: $hover;
+                                    }
+                              
+                                  }
+                                  
                                 }
                                 
                                 &amp;:active,
                                 &amp;.is-active {
                                   color: $active;
+                                  
+                                  // Adds styles for icons.
+                                  .icon {
+                              
+                                    svg {
+                                      fill: $active;
+                                    }
+                              
+                                  }
+                                  
                                 }
                                 
                                }"
@@ -10335,7 +10370,11 @@
                                   &#x27;active&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;)
                                 ),
                                 &#x27;weight&#x27;: bold,
-                                &#x27;style&#x27;: normal
+                                &#x27;style&#x27;: normal,
+                                &#x27;icon&#x27;: (
+                                  &#x27;size&#x27;: 24px,
+                                  &#x27;spacing&#x27;: 1ex
+                                )
                                 
                               );</code></pre>
                               
@@ -10442,6 +10481,12 @@
                                 // Builds the link structure.
                                 display: inline-block;
                                 text-decoration: none;
+                                cursor: pointer;
+                                
+                                // Builds structure for link icons.
+                                .icon {
+                                  @include absolute-center-contents(true);
+                                }
                                 
                                }"
                                       data-collapsed="%atoms-link { ... }"><code class="js-autoindent">%atoms-link { ... }</code></pre>

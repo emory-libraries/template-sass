@@ -15,7 +15,11 @@ $atoms-link: (
     'active': color('blue', 'mid')
   ),
   'weight': bold,
-  'style': normal
+  'style': normal,
+  'icon': (
+    'size': 24px,
+    'spacing': 1ex
+  )
   
 );
 
@@ -38,21 +42,56 @@ $atoms-link: (
   $weight: map-deep-get($skin, 'weight');
   $style: map-deep-get($skin, 'style');
   
+  // Get icon-specific variables.
+  $icon-size: map-deep-get($skin, 'icon.size');
+  $icon-spacing: map-deep-get($skin, 'icon.spacing');
+  
   // Defines the link component's base styles.
   font-weight: $weight;
   font-style: $style;
   color: $normal;
+  
+  // Adds styles for icons.
+  .icon {
+    @include size( $icon-size );
+    margin-right: $icon-spacing;
+    
+    svg {
+      fill: $normal;
+    }
+    
+  }
   
   &:hover,
   &.is-hover,
   &:focus,
   &.is-focus {
     color: $hover;
+    
+    // Adds styles for icons.
+    .icon {
+
+      svg {
+        fill: $hover;
+      }
+
+    }
+    
   }
   
   &:active,
   &.is-active {
     color: $active;
+    
+    // Adds styles for icons.
+    .icon {
+
+      svg {
+        fill: $active;
+      }
+
+    }
+    
   }
   
 }
