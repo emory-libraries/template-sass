@@ -67,6 +67,18 @@ $atoms-input: (
   'field': (
     'spacing': $rhythm-y,
     'padding': 20px
+  ),
+  'search': (
+    'big': (
+      'font-family': font('accent'),
+      'font-size': 1.56em,
+      'line-height': 1.5
+    ),
+    'small': (
+      'font-family': font('body'),
+      'font-size': .78em,
+      'line-height': 1.7857
+    )
   )
   
 );
@@ -175,6 +187,31 @@ $atoms-input: (
     background-repeat: no-repeat;
     background-size: auto $icon-size;
     background-position: calc(100% - #{$icon-spacing}) center;
+  }
+  
+  // Apply styles specific to search inputs.
+  &.-search {
+    
+    // Change styles when big.
+    &.-big {
+      $font: map-deep-get($skin, 'search.big');
+      
+      @include placeholder {
+        @include expand-properties($font);
+      };
+      
+    }
+    
+    // Change styles when small.
+    &.-small {
+      $font: map-deep-get($skin, 'search.small');
+      
+      @include placeholder {
+        @include expand-properties($font);
+      };
+      
+    }
+    
   }
   
   // Apply styles specific to date inputs.
