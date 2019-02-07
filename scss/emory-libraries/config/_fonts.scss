@@ -103,6 +103,15 @@ $brandy-fonts-map: $fonts;
 /// @type number
 $font-size: 16px !default;
 
+/// Sets the default line height for all text
+/// within the project. This is the line height
+/// that will used as our base for other line heights.
+///
+/// @since 1.0.0
+///
+/// @type number
+$font-line-height: 1.9375 !default; // 31px
+
 
 /// Sets the default font size used by Brandy
 /// to the chosen font size for use with 
