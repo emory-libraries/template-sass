@@ -48,3 +48,8 @@
 .subnav-button {
   @include atoms-subnav-button;
 }
+
+// atoms-list
+.list {
+  @include atoms-list;
+}

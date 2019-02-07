@@ -1,0 +1,44 @@
+////
+/// @group emory-libraries.patterns.atoms.list
+////
+
+/// Load the list component's structure and skin.
+@import 'list/structure';
+@import 'list/skin';
+
+/// Builds a constructor for the list component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} atoms-list
+/// @requires {variable} atoms-list
+/// @requires {mixin} atoms-list--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our list component
+///
+/// @status construction
+@mixin atoms-list ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-list, $custom);
+  
+  // Initialize the list component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-list;
+    
+    // Loads accessories.
+    &-item {
+      @extend %atoms-list-item;
+    }
+    
+    // Load skins.
+    @include atoms-list--theme( $skin );
+    
+  }
+  
+}
