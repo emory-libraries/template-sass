@@ -1,0 +1,18 @@
+////
+/// @group emory-libraries.patterns.atoms.callout
+////
+
+/// Defines the base structure of the callout component.
+///
+/// @since 1.0.0
+%atoms-callout {
+  
+  // Builds the callout structure.
+  display: block;
+  
+  &::after {
+    content: '';
+    display: block;
+  }
+  
+}

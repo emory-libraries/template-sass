@@ -68,3 +68,13 @@
 .video {
   @include atoms-iframe;
 }
+
+// atoms-callout
+.callout {
+  @include atoms-callout;
+}
+
+// note
+.note {
+  @include atoms-note;
+}

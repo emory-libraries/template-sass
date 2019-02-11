@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.atoms.note
+////
+
+/// Load the note component's structure and skin.
+@import 'note/structure';
+@import 'note/skin';
+
+/// Builds a constructor for the note component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} atoms-note
+/// @requires {variable} atoms-note
+/// @requires {mixin} atoms-note--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our note component
+///
+/// @status construction
+@mixin atoms-note ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-note, $custom);
+  
+  // Initialize the note component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-note;
+    
+    // Load skins.
+    @include atoms-note--theme( $skin );
+    
+  }
+  
+}

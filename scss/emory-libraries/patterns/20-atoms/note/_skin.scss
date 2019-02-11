@@ -1,0 +1,72 @@
+////
+/// @group emory-libraries.patterns.atoms.note
+////
+
+/// Defines the base skin of the note component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$atoms-note: (
+  
+  'background': color('gold'),
+  'foreground': color('blue', 'dark'),
+  'padding': (
+    'x': $rhythm-x,
+    'y': 10px
+  ),
+  'spacing': $rhythm-y / 2,
+  'font': (
+    'font-family': font('accent'),
+    'font-weight': normal,
+    'font-style': italic,
+    'font-size': 18px,
+    'line-height': 1.6111
+  ),
+  
+  'label': (
+    'color': color('blue'),
+    'spacing': $rhythm-x
+  )
+  
+);
+
+/// Defines the note component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The note component's themeable properties
+@mixin atoms-note--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $background: map-deep-get($skin, 'background');
+  $foreground: map-deep-get($skin, 'foreground');
+  $padding-x: map-deep-get($skin, 'padding.x');
+  $padding-y: map-deep-get($skin, 'padding.y');
+  $font: map-deep-get($skin, 'font');
+  $spacing: map-deep-get($skin, 'spacing');
+  
+  // Set variables.
+  --label: 'Note';
+  
+  // Defines the note component's base styles.
+  color: $foreground;
+  background-color: $background;
+  @include expand-properties( $font );
+  @include padding-x( $padding-x );
+  @include padding-y( $padding-y );
+  @include margin-y( $spacing );
+  
+  // Defines note label styles.
+  &::before {
+    content: var(--label);
+    @include tokens-text('label', $color: map-deep-get($skin, 'label.color'));
+    margin-right: map-deep-get($skin, 'label.spacing');
+    vertical-align: middle;
+  }
+  
+}

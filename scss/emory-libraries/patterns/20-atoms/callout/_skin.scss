@@ -1,0 +1,59 @@
+////
+/// @group emory-libraries.patterns.atoms.callout
+////
+
+/// Defines the base skin of the callout component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$atoms-callout: (
+  
+  'background': color('white'),
+  'padding': (
+    'x': 50px,
+    'y': 50px
+  ),
+  'border': (
+    'color': rgba(color('charcoal'), .2),
+    'thickness': $border-width-s,
+    'offset': 15px
+  ),
+  'spacing': $rhythm-y
+  
+);
+
+/// Defines the callout component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The callout component's themeable properties
+@mixin atoms-callout--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $background: map-deep-get($skin, 'background');
+  $padding-x: map-deep-get($skin, 'padding.x');
+  $padding-y: map-deep-get($skin, 'padding.y');
+  $spacing: map-deep-get($skin, 'spacing');
+  
+  // Get border-specific variables.
+  $border-color: map-deep-get($skin, 'border.color');
+  $border-thickness: map-deep-get($skin, 'border.thickness');
+  $border-offset: map-deep-get($skin, 'border.offset');
+  
+  // Defines the callout component's base styles.
+  background-color: $background;
+  @include padding-x( $padding-x );
+  @include padding-y( $padding-y );
+  @include margin-y( $spacing );
+  
+  &::after {
+    @include absolute( $border-offset );
+    border: $border-thickness solid $border-color;
+  }
+  
+}

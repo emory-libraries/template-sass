@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.atoms.callout
+////
+
+/// Load the callout component's structure and skin.
+@import 'callout/structure';
+@import 'callout/skin';
+
+/// Builds a constructor for the callout component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} atoms-callout
+/// @requires {variable} atoms-callout
+/// @requires {mixin} atoms-callout--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our callout component
+///
+/// @status construction
+@mixin atoms-callout ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-callout, $custom);
+  
+  // Initialize the callout component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-callout;
+    
+    // Load skins.
+    @include atoms-callout--theme( $skin );
+    
+  }
+  
+}
