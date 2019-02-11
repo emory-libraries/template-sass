@@ -216,6 +216,6 @@ module.exports = function() {
     // Output whitespace for clarity.
     console.log('\n');
     
-  });
+  }).catch((e) => console.log(`An error occurred: ${e}`));
   
 };

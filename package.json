@@ -5,7 +5,7 @@
   "description": "A baseline Sass framework for Emory Libraries",
   "main": "index.js",
   "scripts": {
-    "postinstall": "node scripts/postinstall.js"
+    "icons": "node ./icons/bin/icons.js"
   },
   "repository": {
     "type": "git",
