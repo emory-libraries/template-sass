@@ -1,0 +1,121 @@
+////
+/// @group emory-libraries.patterns.atoms.iframe
+////
+
+/// Defines the base skin of the iframe component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$atoms-iframe: (
+  
+  'aspect': (
+    'default': 'hd',
+    'ratios': (
+      'standard':     3/4,
+      'hd':           9/16,
+      'wide':         1/1.85,
+      'golden':       1/1.6180,
+      'square':       1/1,
+      'academy':      8/11,
+      'imax':         1/1.43,
+      '4k':           1/1.9,
+      'silver':       1/2.414,
+      'ultrawide':    1/3.6
+    )
+  ),
+  
+  'widths': (
+    'quarter':        25%,
+    'third':          33.333%,
+    'half':           50%,
+    'two-third':      66.667%,
+    'three-quarter':  75%,
+    'full':           100%
+  ),
+  
+  'spacing': 1em
+  
+);
+
+/// Defines the iframe component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The iframe component's themeable properties
+@mixin atoms-iframe--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $spacing: map-deep-get($skin, 'spacing');
+  
+  // Get aspec-ratio specific variables.
+  $aspect-ratios: map-deep-get($skin, 'aspect.ratios');
+  $aspect-default: map-deep-get($skin, 'aspect.default');
+  
+  // Defines the iframe component's base styles.
+  // ...
+  
+  // Defines the iframe frame style.
+  &-frame {
+    --aspect-ratio: #{map-get($aspect-ratios, $aspect-default)};
+    
+    padding-top: calc(var(--aspect-ratio) * 100%);
+    
+    // Defines style variations.
+    
+    @each $name, $aspect in $aspect-ratios {
+
+      &.-ar-#{$name} {
+        --aspect-ratio: #{$aspect};
+      }
+
+    }
+    
+    @each $name, $width in map-deep-get($skin, 'widths') {
+    
+      &.-w-#{$name} {
+        width: $width;
+        padding-top: calc(var(--aspect-ratio) * #{$width / 100%} * 100%);
+      }
+
+    }
+    
+    &.-center {
+      @include margin-x( auto );
+    }
+
+    &.-left {
+      float: left;
+      margin-right: $spacing;
+    }
+
+    &.-right {
+      float: right;
+      margin-left: $spacing;
+    }
+
+    &.-left,
+    &.-right {
+      @include margin-y( $spacing );
+
+      &::after {
+        @include clearfix;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+    }
+    
+  }
+  
+}

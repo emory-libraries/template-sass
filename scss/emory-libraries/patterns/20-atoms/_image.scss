@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.atoms.image
+////
+
+/// Load the image component's structure and skin.
+@import 'image/structure';
+@import 'image/skin';
+
+/// Builds a constructor for the image component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} atoms-image
+/// @requires {variable} atoms-image
+/// @requires {mixin} atoms-image--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our image component
+///
+/// @status construction
+@mixin atoms-image ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-image, $custom);
+  
+  // Initialize the image component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-image;
+    
+    // Load skins.
+    @include atoms-image--theme( $skin );
+    
+  }
+  
+}

@@ -1,0 +1,86 @@
+////
+/// @group emory-libraries.patterns.atoms.image
+////
+
+/// Defines the base skin of the image component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$atoms-image: (
+  
+  'widths': (
+    'quarter':        25%,
+    'third':          33.333%,
+    'half':           50%,
+    'two-third':      66.667%,
+    'three-quarter':  75%,
+    'full':           100%,
+    'auto':           auto
+  ),
+  
+  'spacing': 1em
+  
+);
+
+/// Defines the image component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The image component's themeable properties
+@mixin atoms-image--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $spacing: map-deep-get($skin, 'spacing');
+  
+  // Defines the image component's base styles.
+  // ...
+  
+  // Defines image style variations.
+  
+  @each $name, $width in map-deep-get($skin, 'widths') {
+    
+    &.-w-#{$name} {
+      width: $width;
+    }
+    
+  }
+
+  &.-center {
+    @include margin-x( auto );
+  }
+
+  &.-left {
+    float: left;
+    margin-right: $spacing;
+  }
+
+  &.-right {
+    float: right;
+    margin-left: $spacing;
+  }
+
+  &.-left,
+  &.-right {
+    @include margin-y( $spacing );
+
+    &::after {
+      @include clearfix;
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    &:first-child {
+      margin-top: 0;
+    }
+
+  }
+  
+  
+}

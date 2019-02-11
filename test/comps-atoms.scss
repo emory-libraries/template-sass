@@ -58,3 +58,13 @@
 .link {
   @include atoms-link;
 }
+
+// atoms-image
+.image {
+  @include atoms-image;
+}
+
+// atoms-iframe
+.video {
+  @include atoms-iframe;
+}
