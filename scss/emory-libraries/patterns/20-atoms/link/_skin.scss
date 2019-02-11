@@ -19,6 +19,25 @@ $atoms-link: (
   'icon': (
     'size': 24px,
     'spacing': 1ex
+  ),
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  ),
+  
+  'popular': (
+    'font': (
+      'font-family': font('accent'),
+      'font-size': 20px,
+      'font-weight': normal,
+      'font-style': normal,
+      'line-height': 2.05
+    ),
+    'color': (
+      'normal': $color-text-light,
+      'hover': $color-actionable,
+      'active': $color-actionable
+    )
   )
   
 );
@@ -41,6 +60,8 @@ $atoms-link: (
   $visited: map-deep-get($skin, 'color.visited');
   $weight: map-deep-get($skin, 'weight');
   $style: map-deep-get($skin, 'style');
+  $duration: map-deep-get($skin, 'transition.duration');
+  $timing: map-deep-get($skin, 'transition.timing');
   
   // Get icon-specific variables.
   $icon-size: map-deep-get($skin, 'icon.size');
@@ -50,6 +71,7 @@ $atoms-link: (
   font-weight: $weight;
   font-style: $style;
   color: $normal;
+  transition: all $duration $timing;
   
   // Adds styles for icons.
   .icon {
@@ -90,6 +112,30 @@ $atoms-link: (
         fill: $active;
       }
 
+    }
+    
+  }
+  
+  // Defines style variations.
+  &.-popular {
+    $font: map-deep-get($skin, 'popular.font');
+    $normal: map-deep-get($skin, 'popular.color.normal');
+    $hover: map-deep-get($skin, 'popular.color.hover');
+    $active: map-deep-get($skin, 'popular.color.active');
+    
+    @include expand-properties($font);
+    color: $normal;
+    
+    &:hover,
+    &.is-hover,
+    &:focus,
+    &.is-focus {
+      color: $hover;
+    }
+    
+    &:active,
+    &.is-active {
+      color: $active;
     }
     
   }
