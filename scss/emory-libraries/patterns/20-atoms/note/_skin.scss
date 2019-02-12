@@ -50,9 +50,6 @@ $atoms-note: (
   $font: map-deep-get($skin, 'font');
   $spacing: map-deep-get($skin, 'spacing');
   
-  // Set variables.
-  --label: 'Note';
-  
   // Defines the note component's base styles.
   color: $foreground;
   background-color: $background;
@@ -63,7 +60,7 @@ $atoms-note: (
   
   // Defines note label styles.
   &::before {
-    content: var(--label);
+    content: attr(data-label, "Note");
     @include tokens-text('label', $color: map-deep-get($skin, 'label.color'));
     margin-right: map-deep-get($skin, 'label.spacing');
     vertical-align: middle;

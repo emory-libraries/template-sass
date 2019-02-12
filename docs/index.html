@@ -15364,9 +15364,6 @@
                                 $font: map-deep-get($skin, &#x27;font&#x27;);
                                 $spacing: map-deep-get($skin, &#x27;spacing&#x27;);
                                 
-                                // Set variables.
-                                --label: &#x27;Note&#x27;;
-                                
                                 // Defines the note component&#x27;s base styles.
                                 color: $foreground;
                                 background-color: $background;
@@ -15377,7 +15374,7 @@
                                 
                                 // Defines note label styles.
                                 &amp;::before {
-                                  content: var(--label);
+                                  content: attr(data-label, &quot;Note&quot;);
                                   @include tokens-text(&#x27;label&#x27;, $color: map-deep-get($skin, &#x27;label.color&#x27;));
                                   margin-right: map-deep-get($skin, &#x27;label.spacing&#x27;);
                                   vertical-align: middle;
