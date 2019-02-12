@@ -2450,6 +2450,19 @@
                         <ul class="list-unstyled">
                         
                           
+                            <li class="sidebar__item sassdoc__item" data-group="utils.mixins" data-name="layered-border" data-type="mixin">
+                              
+                              <a href="#utils.mixins-mixin-layered-border">
+                                
+                                layered-border
+                                
+                                
+                                
+                              </a>
+                              
+                            </li>
+                          
+                          
                             <li class="sidebar__item sassdoc__item" data-group="utils.mixins" data-name="breakpoints" data-type="mixin">
                               
                               <a href="#utils.mixins-mixin-breakpoints">
@@ -9244,12 +9257,12 @@
                                 background-color: $background;
                                 @include padding-x( $padding-x );
                                 @include padding-y( $padding-y );
-                                @include margin-y( $spacing );
-                                
-                                &amp;::after {
-                                  @include absolute( $border-offset );
-                                  border: $border-thickness solid $border-color;
-                                }
+                                @include margin-y( px($spacing) + px($border-offset) + px($border-thickness) );
+                                @include margin-x( px($border-offset) + px($border-thickness) );
+                                @include layered-border( 
+                                  $border-thickness solid $border-color, 
+                                  $border-offset solid $background
+                                );
                                 
                                }"
                                        data-collapsed="@mixin atoms-callout--theme($skin) { ... }"><code class="js-autoindent">@mixin atoms-callout--theme($skin) { ... }</code></pre>
@@ -9334,6 +9347,18 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.callout-mixin-layered-border"><code>layered-border</code></a>
+                                  
+                                  
+                                          </li>
+                                  
                                   
                                   
                                   
@@ -24245,6 +24270,169 @@
                       
                     </h3>
                     
+                    
+                      <section class="main__item container item"
+                               id="utils.mixins-mixin-layered-border">
+                      
+                        <h3 class="item__heading">
+                          
+                        
+                          <a class="item__name" href="#utils.mixins-mixin-layered-border">
+                            layered-border
+                          </a>
+                        
+                        
+                          
+                          
+                        </h3>
+                        
+                        
+                          <span class="item__since">
+                            Since 1.0.0
+                          </span>
+                        
+                        
+                      
+                        
+                          
+                        
+                            
+                              
+                              
+                        
+                          
+                        
+                          <div class="item__code-wrapper">
+                            
+                            <pre class="item__code  item__code--togglable language-scss"
+                                 data-current-state="collapsed"
+                                 data-expanded="@mixin layered-border($layers...) { 
+                          
+                          // Initialize the box shadow value needed to create the desired border layers.
+                          $borders: ();
+                          
+                          // Build the border layers.
+                          @each $layer in $layers {
+                            
+                            // Get border properties.
+                            $width: nth($layer, 1);
+                            $style: nth($layer, 2); // Ignore this and always treat it as &#x60;solid&#x60;.
+                            $color: nth($layer, 3);
+                            
+                            // Create border layer.
+                            $borders: append($borders, 0 0 0 $width $color, comma);
+                            
+                          }
+                          
+                          // Add border layers.
+                          box-shadow: $borders;
+                          
+                         }"
+                                 data-collapsed="@mixin layered-border($layers...) { ... }"><code class="js-autoindent">@mixin layered-border($layers...) { ... }</code></pre>
+                        
+                            
+                          </div>
+                        
+                          
+                        
+                        
+                          
+                          
+                        
+                        
+                              <h3 class="item__sub-heading">Description</h3>
+                              <div class="item__description"><p>Creates a layered border effect using box shadow.</p>
+                            </div>
+                        
+                        
+                            <h3 class="item__sub-heading">Parameters</h3>
+                            
+                            
+                              <table class="item__parameters">
+                                
+                                <thead>
+                                  <tr>
+                                    <th scope="col">
+                                      <span class="visually-hidden">mixin parameter </span>
+                                      Name
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">mixin parameter </span>
+                                      Description
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">mixin parameter </span>
+                                      Type
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">mixin parameter </span>
+                                      Default value
+                                    </th>
+                                  </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    <tr class="item__parameter">
+                                      <th scope="row" data-label="name">
+                                        <code>$layers</code>
+                                      </th>
+                                      <td data-label="desc">
+                                        <p>The desired border layers</p>
+                            
+                                      </td>
+                                      <td data-label="type">
+                                        <code>
+                                            arglist
+                                        </code>
+                                      </td>
+                                      <td data-label="default">
+                                          &mdash;<span class="visually-hidden"> none</span>
+                                      </td>
+                                    </tr>
+                                </tbody>
+                                
+                              </table>
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                      
+                      </section>  
                     
                       <section class="main__item container item"
                                id="utils.mixins-mixin-breakpoints">

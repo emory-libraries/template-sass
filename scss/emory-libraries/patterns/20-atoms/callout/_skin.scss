@@ -49,11 +49,11 @@ $atoms-callout: (
   background-color: $background;
   @include padding-x( $padding-x );
   @include padding-y( $padding-y );
-  @include margin-y( $spacing );
-  
-  &::after {
-    @include absolute( $border-offset );
-    border: $border-thickness solid $border-color;
-  }
+  @include margin-y( px($spacing) + px($border-offset) + px($border-thickness) );
+  @include margin-x( px($border-offset) + px($border-thickness) );
+  @include layered-border( 
+    $border-thickness solid $border-color, 
+    $border-offset solid $background
+  );
   
 }

@@ -10,11 +10,6 @@
   // Builds the callout structure.
   display: block;
   
-  &::after {
-    content: '';
-    display: block;
-  }
-  
   // Handle structure of descendents.
   
   :first-child {
