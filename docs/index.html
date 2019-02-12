@@ -9563,11 +9563,6 @@
                                 // Builds the callout structure.
                                 display: block;
                                 
-                                &amp;::after {
-                                  content: &#x27;&#x27;;
-                                  display: block;
-                                }
-                                
                                 // Handle structure of descendents.
                                 
                                 :first-child {
@@ -15418,6 +15413,7 @@
                                 $padding-y: map-deep-get($skin, &#x27;padding.y&#x27;);
                                 $font: map-deep-get($skin, &#x27;font&#x27;);
                                 $spacing: map-deep-get($skin, &#x27;spacing&#x27;);
+                                $radius: map-deep-get($skin, &#x27;radius&#x27;);
                                 
                                 // Defines the note component&#x27;s base styles.
                                 color: $foreground;
@@ -15426,6 +15422,7 @@
                                 @include padding-x( $padding-x );
                                 @include padding-y( $padding-y );
                                 @include margin-y( $spacing );
+                                border-radius: $radius;
                                 
                                 // Defines note label styles.
                                 &amp;::before {
@@ -15624,6 +15621,7 @@
                                   &#x27;y&#x27;: 10px
                                 ),
                                 &#x27;spacing&#x27;: $rhythm-y / 2,
+                                &#x27;radius&#x27;: 4px,
                                 &#x27;font&#x27;: (
                                   &#x27;font-family&#x27;: font(&#x27;accent&#x27;),
                                   &#x27;font-weight&#x27;: normal,

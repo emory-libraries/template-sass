@@ -16,6 +16,7 @@ $atoms-note: (
     'y': 10px
   ),
   'spacing': $rhythm-y / 2,
+  'radius': 4px,
   'font': (
     'font-family': font('accent'),
     'font-weight': normal,
@@ -49,6 +50,7 @@ $atoms-note: (
   $padding-y: map-deep-get($skin, 'padding.y');
   $font: map-deep-get($skin, 'font');
   $spacing: map-deep-get($skin, 'spacing');
+  $radius: map-deep-get($skin, 'radius');
   
   // Defines the note component's base styles.
   color: $foreground;
@@ -57,6 +59,7 @@ $atoms-note: (
   @include padding-x( $padding-x );
   @include padding-y( $padding-y );
   @include margin-y( $spacing );
+  border-radius: $radius;
   
   // Defines note label styles.
   &::before {
