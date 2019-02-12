@@ -1,13 +1,13 @@
 ////
-/// @group emory-libraries.patterns.atoms.iframe
+/// @group emory-libraries.patterns.atoms.video
 ////
 
-/// Defines the base skin of the iframe component.
+/// Defines the base skin of the video component.
 ///
 /// @since 1.0.0
 ///
 /// @type map
-$atoms-iframe: (
+$atoms-video: (
   
   'aspect': (
     'default': 'hd',
@@ -38,7 +38,7 @@ $atoms-iframe: (
   
 );
 
-/// Defines the iframe component theme.
+/// Defines the video component theme.
 ///
 /// @since 1.0.0
 ///
@@ -46,8 +46,8 @@ $atoms-iframe: (
 ///
 /// @param {map} skin - The component's skin
 ///
-/// @output The iframe component's themeable properties
-@mixin atoms-iframe--theme ( $skin ) {
+/// @output The video component's themeable properties
+@mixin atoms-video--theme ( $skin ) {
   
   // Capture themeable variables from skin.
   $spacing: map-deep-get($skin, 'spacing');
@@ -56,10 +56,10 @@ $atoms-iframe: (
   $aspect-ratios: map-deep-get($skin, 'aspect.ratios');
   $aspect-default: map-deep-get($skin, 'aspect.default');
   
-  // Defines the iframe component's base styles.
+  // Defines the video component's base styles.
   // ...
   
-  // Defines the iframe frame style.
+  // Defines the video frame style.
   &-frame {
     --aspect-ratio: #{map-get($aspect-ratios, $aspect-default)};
     

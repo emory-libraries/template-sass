@@ -1,0 +1,21 @@
+////
+/// @group emory-libraries.patterns.atoms.video
+////
+
+/// Defines the base structure of the video component.
+///
+/// @since 1.0.0
+%atoms-video {
+  
+  // Builds the video structure.
+  border: 0;
+  @include size( 100% );
+  @include absolute( 0 );
+  
+  // Builds the video frame structure.
+  &-frame {
+    display: block;
+    overflow: hidden;
+  }
+  
+}

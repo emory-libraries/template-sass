@@ -1,0 +1,44 @@
+////
+/// @group emory-libraries.patterns.atoms.video
+////
+
+/// Load the video component's structure and skin.
+@import 'video/structure';
+@import 'video/skin';
+
+/// Builds a constructor for the video component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} atoms-video
+/// @requires {variable} atoms-video
+/// @requires {mixin} atoms-video--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our video component
+///
+/// @status construction
+@mixin atoms-video ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-video, $custom);
+  
+  // Initialize the video component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-video;
+    
+    // Load accessories.
+    &-frame {
+      @extend %atoms-video-frame;
+    }
+    
+    // Load skins.
+    @include atoms-video--theme( $skin );
+    
+  }
+  
+}
