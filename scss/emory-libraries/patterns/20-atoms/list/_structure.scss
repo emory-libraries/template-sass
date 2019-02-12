@@ -33,6 +33,16 @@
         top: 0;
       }
       
+      // Handle structure of descendents.
+  
+      :first-child {
+        margin-top: 0;
+      }
+
+      :last-child {
+        margin-bottom: 0;
+      }
+      
     }
     
   }
@@ -49,6 +59,16 @@
         position: absolute;
         display: block;
         top: 0;
+      }
+      
+      // Handle structure of descendents.
+  
+      :first-child {
+        margin-top: 0;
+      }
+
+      :last-child {
+        margin-bottom: 0;
       }
       
     }

@@ -15,4 +15,14 @@
     display: block;
   }
   
+  // Handle structure of descendents.
+  
+  :first-child {
+    margin-top: 0;
+  }
+  
+  :last-child {
+    margin-bottom: 0;
+  }
+  
 }
