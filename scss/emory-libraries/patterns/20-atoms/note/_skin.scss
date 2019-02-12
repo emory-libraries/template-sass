@@ -60,7 +60,7 @@ $atoms-note: (
   
   // Defines note label styles.
   &::before {
-    content: attr(data-label, "Note");
+    content: attr(data-label);
     @include tokens-text('label', $color: map-deep-get($skin, 'label.color'));
     margin-right: map-deep-get($skin, 'label.spacing');
     vertical-align: middle;

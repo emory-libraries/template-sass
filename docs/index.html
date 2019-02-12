@@ -15404,7 +15404,7 @@
                                 
                                 // Defines note label styles.
                                 &amp;::before {
-                                  content: attr(data-label, &quot;Note&quot;);
+                                  content: attr(data-label);
                                   @include tokens-text(&#x27;label&#x27;, $color: map-deep-get($skin, &#x27;label.color&#x27;));
                                   margin-right: map-deep-get($skin, &#x27;label.spacing&#x27;);
                                   vertical-align: middle;
