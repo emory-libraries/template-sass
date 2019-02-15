@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.atoms.map
+////
+
+/// Defines the base skin of the map component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$atoms-map: (
+  
+  'width': 100%,
+  'height': 25%
+  
+);
+
+/// Defines the map component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The map component's themeable properties
+@mixin atoms-map--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $width: map-deep-get($skin, 'width');
+  $height: map-deep-get($skin, 'height');
+  
+  // Defines the map component's base styles.
+  // ...
+  
+  // Defines the map frame style.
+  &-frame {
+    --width: #{$width};
+    --height: #{$height};
+    
+    width: var(--width);
+    padding-top: var(--height);
+    
+    &.-h-fixed {
+      padding-top: 0;
+      height: var(--height);
+    }
+    
+  }
+  
+}
