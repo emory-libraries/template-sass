@@ -35,19 +35,19 @@ module.exports = function( pattern ) {
     const data = fs.existsSync(json) ? require(json) : {};
 
     // Get status data for all patterns.
-   patterns.forEach((pattern) => {
-      
-      // Get the pattern file's contents.
-      const contents = fs.readFileSync(pattern, 'utf8');
-      
-      // Get pattern data.
-      const name = path.basename(path.dirname(pattern)).replace(/^\d*-/, '') + '-' + path.basename(pattern, '.scss').substring(1);
-      const status = contents.match(regex)[1];
-      
-      // Save the data.
-      data[name] = status;
-      
-    });
+     patterns.forEach((pattern) => {
+
+        // Get the pattern file's contents.
+        const contents = fs.readFileSync(pattern, 'utf8');
+
+        // Get pattern data.
+        const name = path.basename(path.dirname(pattern)).replace(/^\d*-/, '') + '-' + path.basename(pattern, '.scss').substring(1);
+        const status = contents.match(regex)[1];
+
+        // Save the data.
+        data[name] = status;
+
+      });
     
     // Save the data to a JSON file.
     fs.writeFileSync(json, JSON.stringify(data, null, 2));
