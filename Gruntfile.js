@@ -79,5 +79,6 @@ module.exports = (grunt) => {
     'build',
     'gh-pages'
   ]);
+  grunt.registerTask('status', 'Update the status of a pattern', require('./scripts/status.js'));
   
 };
