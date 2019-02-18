@@ -22,7 +22,7 @@
 ///
 /// @output The native structure and skin of our text component
 ///
-/// @status construction
+/// @status review
 @mixin tokens-text ( $type: 'body', $color: null, $custom: (), $important: false ) {
   
   // Extend the default skin.

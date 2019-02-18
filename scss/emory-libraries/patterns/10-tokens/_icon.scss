@@ -23,7 +23,7 @@
 ///
 /// @output The native structure and skin of our icon component
 ///
-/// @status construction
+/// @status review
 @mixin tokens-icon ( $id, $color: null, $size: null, $custom: (), $pseudo: false ) {
   
   // Extend the default skin.

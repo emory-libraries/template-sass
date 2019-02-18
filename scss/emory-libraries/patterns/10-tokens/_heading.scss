@@ -22,7 +22,7 @@
 ///
 /// @output The native structure and skin of our heading component
 ///
-/// @status construction
+/// @status review
 @mixin tokens-heading ( $level, $color: null, $custom: (), $important: false ) {
   
   // Extend the default skin.
