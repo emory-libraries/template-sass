@@ -10,14 +10,14 @@ module.exports = function( pattern ) {
   const _ = require('lodash');
   
   // Set status flags.
-  const statuses = {
-    specification:    ['-s', '--specification'],
-    construction:     ['-c', '--construction'],
-    review:           ['-r', '--review'],
-    complete:         ['-x', '--complete'],
-    reconsideration:  ['-r', '--reconsideration'],
-    deprecated:       ['-d', '--deprecated'],
-  };
+  const statuses = [
+    'specification',
+    'construction',
+    'review',
+    'complete',
+    'reconsideration',
+    'deprecated'
+  ];
   
   // Set the path to a JSON file that holds pattern status data.
   const json = path.resolve('pattern-status.json');
@@ -98,33 +98,34 @@ module.exports = function( pattern ) {
   // Enable updating of pattern statuses.
   else {
 
-    // Get all valid status flags.
-    const flags = Object.values(statuses).reduce((result, flags) => {
-
-      // Combine all flags into a single array.
-      result = result.concat(flags);
-
-      // Continue reducing.
-      return result;
-
-    }, []);
-
     // Get the flag.
-    const flag = process.argv.slice(3)[0];
+    let flag = process.argv.slice(3);
+    
+    // Ignore invalid flags.
+    if( flag.length === 0 ) {
+      
+      // Report pattern error.
+      grunt.log.warn(`Missing a status flag. Please provide one as an \'--option\' then try again.`);
+      
+      // Exit.
+      return;
+      
+    }
+    
+    // Parse the flag as a status.
+    const status = flag[0].substring(2);
 
     // Ignore invalid flags.
-    if( !flags.includes(flag) ) return;
-
-    // Initialize the status.
-    let status;
-
-    // Get the status,
-    _.each(statuses, (flags, state) => {
-
-      // Capture the status.
-      if( flags.includes(flag) ) status = state;
-
-    });
+    if( !statuses.includes(status) ) {
+      
+      // Report status error.
+      grunt.log.warn(`Invalid status \'${status}\'. Please choose a status from the list below:`);
+      grunt.log.warn(statuses.join('\n'));
+      
+      // Exit.
+      return;
+      
+    }
 
     // Get the pattern's atomic group and name.
     const group = pattern.substring(0, pattern.indexOf('-'));
@@ -140,6 +141,17 @@ module.exports = function( pattern ) {
       return result;
 
     }, []);
+    
+    // Exit if the pattern couldn't be found.
+    if( files.length === 0 ) {
+      
+      // Report pattern error.
+      grunt.log.warn(`Could not find pattern \'${pattern}\'. Verify that it exists then try again.`);
+      
+      // Exit.
+      return;
+      
+    }
 
     // Update status across files.
     files.forEach((file) => {
