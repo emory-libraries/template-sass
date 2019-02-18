@@ -26,6 +26,7 @@
   "homepage": "https://github.com/emory-libraries/template-sass#readme",
   "devDependencies": {
     "chalk": "^2.4.2",
+    "child_process": "^1.0.2",
     "download": "^7.1.0",
     "font-blast": "^0.7.0",
     "fs": "0.0.1-security",

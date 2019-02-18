@@ -2,6 +2,7 @@ module.exports = (plop) => {
   
   // Load dependencies.
   const slugify = require('slugify');
+  const spawn = require('child_process').spawn;
   
   // Configures generators.
   const config = {
@@ -19,6 +20,22 @@ module.exports = (plop) => {
     }
     
   };
+  
+  // Enable triggering of a grunt task.
+  plop.setActionType('grunt', (answers, config) => {
+
+    // Make it asynchronous.
+    return new Promise((resolve, reject) => {
+    
+      // Run grunt.
+      const grunt = spawn('grunt', [...config.tasks], {stdio: 'inherit'});
+
+      // Resolve when done.
+      grunt.on('close', () => resolve());
+      
+    });
+    
+  });
 
   // Build generator for patterns.
   plop.setGenerator('pattern', {
@@ -71,6 +88,12 @@ module.exports = (plop) => {
           path: 'scss/emory-libraries/patterns/__master.scss',
           pattern: config.pattern.regex(data.group),
           template: `@import '${atomicNumber}-{{group}}s/{{pattern}}';\n$1`
+        },
+        
+        // 5. Re-export all pattern statuses.
+        {
+          type: 'grunt',
+          tasks: ['status:export']
         }
       ];
       
