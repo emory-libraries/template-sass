@@ -69,6 +69,7 @@ module.exports = (grunt) => {
   grunt.registerTask('build', [
     'clean',
     'dart-sass',
+    'status:export',
     'docs'
   ]);
   grunt.registerTask('dev', [
