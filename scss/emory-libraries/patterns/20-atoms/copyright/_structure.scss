@@ -10,11 +10,27 @@
   // Get the selector.
   $selector: &;
   
+  // Set breakpoints.
+  $breakpoint-m: 799px 601px;
+  $breakpoint-l: min-width 800px;
+  
   // Builds the copyright structure.
-  display: grid;
-  grid-template-areas: "notice address phone";
-  grid-template-columns: repeat(3, auto);
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  
+  // Modifies structure for medium screens.
+  @include breakpoint( $breakpoint-m ) {
+    flex-direction: row;
+    flex-wrap: wrap;
+  };
+  
+  // Modifies structure for large screens.
+  @include breakpoint( $breakpoint-l ) {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  };
   
   // Builds copyright container structure.
   &-notice,
@@ -34,13 +50,54 @@
   
   // Builds copyright notice structure.
   &-notice {
-    grid-area: notice;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+  
+    // Modifies structure for medium screens.
+    @include breakpoint( $breakpoint-m ) {
+      flex-basis: 100%;
+    };
+
+    // Modifies structure for large screens.
+    @include breakpoint( $breakpoint-l ) {
+      flex-basis: unset;
+    };
     
-    // Builds copyright year structure.
-    #{$selector}-year {}
+    // Modifies structure for medium and large screens.
+    @include breakpoints( $breakpoint-m, $breakpoint-l ) {
+      display: block;
+    };
     
-    // Builds copyright owner structure.
-    #{$selector}-owner {}
+    // Builds copyright notice containers structure.
+    #{$selector}-signature {
+      flex-basis: 100%;
+      
+      // Modifies structure for medium and large screens.
+      @include breakpoints( $breakpoint-m, $breakpoint-l ) {
+        flex-basis: unset;
+      };
+      
+      // Builds copyright year structure.
+      #{$selector}-year {}
+
+      // Builds copyright owner structure.
+      #{$selector}-owner {}
+
+    }
+
+    // Builds copyright rights structure.
+    #{$selector}-rights {
+      
+      // Modifies strcture for medium and large screens.
+      @include breakpoints( $breakpoint-m, $breakpoint-l ) {
+        &::before {
+          content: " - ";
+        }
+      };
+      
+    }
     
     // Builds copyright policies structure.
     #{$selector}-policies {

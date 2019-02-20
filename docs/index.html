@@ -9879,11 +9879,17 @@
                                   // Load parts.
                                   &amp;-notice {
                                     @extend %atoms-copyright-notice;
-                                    #{$selector}-year {
-                                      @extend %atoms-copyright-year;
+                                    #{$selector}-signature {
+                                      @extend %atoms-copyright-signature;
+                                      #{$selector}-year {
+                                        @extend %atoms-copyright-year;
+                                      }
+                                      #{$selector}-owner {
+                                        @extend %atoms-copyright-owner;
+                                      }
                                     }
-                                    #{$selector}-owner {
-                                      @extend %atoms-copyright-owner;
+                                    #{$selector}-rights {
+                                      @extend %atoms-copyright-rights;
                                     }
                                     #{$selector}-policies {
                                       @extend %atoms-copyright-policies;
@@ -10111,6 +10117,10 @@
                                 // Get selector.
                                 $selector: &amp;;
                                 
+                                // Set breakpoints.
+                                $breakpoint-m: 799px 601px;
+                                $breakpoint-l: min-width 800px;
+                                
                                 // Capture themeable variables from skin.
                                 $spacing: map-deep-get($skin, &#x27;spacing&#x27;);
                                 $padding: map-deep-get($skin, &#x27;padding&#x27;);
@@ -10118,25 +10128,88 @@
                                 $hover: map-deep-get($skin, &#x27;color.hover&#x27;);
                                 $active: map-deep-get($skin, &#x27;color.active&#x27;);
                                 $font: map-deep-get($skin, &#x27;font&#x27;);
+                                $size: map-deep-get($skin, &#x27;size&#x27;);
                                 $divider: map-deep-get($skin, &#x27;divider&#x27;);
+                                
+                                // Get the font size scale.
+                                $scale: numeric-scale(map-get($size, &#x27;min&#x27;), map-get($size, &#x27;max&#x27;), 3, true);
                                 
                                 // Defines the copyright component&#x27;s base styles.
                                 @include margin-y($spacing);
                                 color: $normal;
                                 @include expand-properties($font);
+                                font-size: nth($scale, 1);
+                                
+                                // Set font size for larger screens.
+                                @include breakpoint( $breakpoint-m ) {
+                                  font-size: nth($scale, 2);
+                                };
+                                @include breakpoint( $breakpoint-l ) {
+                                  font-size: nth($scale, 3);
+                                };
                                 
                                 // Define styles for copyright containers.
                                 &amp;-notice,
                                 &amp;-address,
                                 &amp;-phone {
                                   @include padding-x( $padding );
+                                  text-align: center;
                                   
                                   // Add a divider between copyright containers.
-                                  + #{$selector}-notice::before,
-                                  + #{$selector}-address::before,
-                                  + #{$selector}-phone::before {
-                                    content: $divider;
+                                  + #{$selector}-notice,
+                                  + #{$selector}-address,
+                                  + #{$selector}-phone {
+                                    
+                                    // Only add a divider to the last child for medium screens.
+                                    @include breakpoint( $breakpoint-m ) {
+                                      &amp;:last-child::before {
+                                        content: $divider;
+                                      }
+                                    };
+                                    
+                                    // Add a divider to all on large screens.
+                                    @include breakpoint( $breakpoint-l ) {
+                                       &amp;::before {
+                                        content: $divider;
+                                      }
+                                    };
+                                    
                                   }
+                              
+                                  // Adjust padding on medium screens.
+                                  @include breakpoint( $breakpoint-m ) {
+                              
+                                    // Remove padding from first child.
+                                    &amp;:first-child {
+                                      @include padding-x( 0 );
+                                    }
+                                    
+                                    // Remove padding from second child.
+                                    &amp;:nth-child(2) {
+                                      padding-left: 0;
+                                    }
+                              
+                                    // Remove padding from last child.
+                                    &amp;:last-child {
+                                      padding-right: 0;
+                                    }
+                                    
+                                  };
+                              
+                                  // Adjust padding on large screens.
+                                  @include breakpoint( $breakpoint-l ) {
+                              
+                                    // Remove padding from first child.
+                                    &amp;:first-child {
+                                      padding-left: 0;
+                                    }
+                              
+                                    // Remove padding from last child.
+                                    &amp;:last-child {
+                                      padding-right: 0;
+                                    }
+                                    
+                                  };
                                   
                                 }
                                 
@@ -10355,6 +10428,10 @@
                                 
                                 &#x27;spacing&#x27;: 25px,
                                 &#x27;padding&#x27;: 20px,
+                                &#x27;size&#x27;: (
+                                  &#x27;min&#x27;: 12px,
+                                  &#x27;max&#x27;: 13px
+                                ),
                                 &#x27;color&#x27;: (
                                   &#x27;normal&#x27;: color(&#x27;blue&#x27;, &#x27;light&#x27;),
                                   &#x27;hover&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;),
@@ -10364,7 +10441,6 @@
                                   &#x27;font-family&#x27;: font(&#x27;body&#x27;),
                                   &#x27;font-style&#x27;: normal,
                                   &#x27;font-weight&#x27;: normal,
-                                  &#x27;font-size&#x27;: 13px,
                                   &#x27;line-height&#x27;: 1.7692
                                 ),
                                 &#x27;divider&#x27;: &quot;|&quot;
@@ -10472,11 +10548,27 @@
                                 // Get the selector.
                                 $selector: &amp;;
                                 
+                                // Set breakpoints.
+                                $breakpoint-m: 799px 601px;
+                                $breakpoint-l: min-width 800px;
+                                
                                 // Builds the copyright structure.
-                                display: grid;
-                                grid-template-areas: &quot;notice address phone&quot;;
-                                grid-template-columns: repeat(3, auto);
+                                display: flex;
+                                flex-direction: column;
                                 justify-content: center;
+                                align-items: center;
+                                
+                                // Modifies structure for medium screens.
+                                @include breakpoint( $breakpoint-m ) {
+                                  flex-direction: row;
+                                  flex-wrap: wrap;
+                                };
+                                
+                                // Modifies structure for large screens.
+                                @include breakpoint( $breakpoint-l ) {
+                                  flex-direction: row;
+                                  flex-wrap: nowrap;
+                                };
                                 
                                 // Builds copyright container structure.
                                 &amp;-notice,
@@ -10496,13 +10588,54 @@
                                 
                                 // Builds copyright notice structure.
                                 &amp;-notice {
-                                  grid-area: notice;
+                                  display: flex;
+                                  flex-wrap: wrap;
+                                  flex-direction: row;
+                                  justify-content: center;
+                                
+                                  // Modifies structure for medium screens.
+                                  @include breakpoint( $breakpoint-m ) {
+                                    flex-basis: 100%;
+                                  };
+                              
+                                  // Modifies structure for large screens.
+                                  @include breakpoint( $breakpoint-l ) {
+                                    flex-basis: unset;
+                                  };
                                   
-                                  // Builds copyright year structure.
-                                  #{$selector}-year {}
+                                  // Modifies structure for medium and large screens.
+                                  @include breakpoints( $breakpoint-m, $breakpoint-l ) {
+                                    display: block;
+                                  };
                                   
-                                  // Builds copyright owner structure.
-                                  #{$selector}-owner {}
+                                  // Builds copyright notice containers structure.
+                                  #{$selector}-signature {
+                                    flex-basis: 100%;
+                                    
+                                    // Modifies structure for medium and large screens.
+                                    @include breakpoints( $breakpoint-m, $breakpoint-l ) {
+                                      flex-basis: unset;
+                                    };
+                                    
+                                    // Builds copyright year structure.
+                                    #{$selector}-year {}
+                              
+                                    // Builds copyright owner structure.
+                                    #{$selector}-owner {}
+                              
+                                  }
+                              
+                                  // Builds copyright rights structure.
+                                  #{$selector}-rights {
+                                    
+                                    // Modifies strcture for medium and large screens.
+                                    @include breakpoints( $breakpoint-m, $breakpoint-l ) {
+                                      &amp;::before {
+                                        content: &quot; - &quot;;
+                                      }
+                                    };
+                                    
+                                  }
                                   
                                   // Builds copyright policies structure.
                                   #{$selector}-policies {
@@ -10542,6 +10675,56 @@
                               
                               
                               
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#utils.mixins-mixin-breakpoints"><code>breakpoints</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#utils.mixins-mixin-breakpoints"><code>breakpoints</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#utils.mixins-mixin-breakpoints"><code>breakpoints</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
                               
                               
                                   
@@ -26477,6 +26660,12 @@
                             
                         
                         
+                            
+                            
+                            
+                            
+                            
+                            
                             
                             
                             

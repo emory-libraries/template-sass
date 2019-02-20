@@ -37,11 +37,17 @@
     // Load parts.
     &-notice {
       @extend %atoms-copyright-notice;
-      #{$selector}-year {
-        @extend %atoms-copyright-year;
+      #{$selector}-signature {
+        @extend %atoms-copyright-signature;
+        #{$selector}-year {
+          @extend %atoms-copyright-year;
+        }
+        #{$selector}-owner {
+          @extend %atoms-copyright-owner;
+        }
       }
-      #{$selector}-owner {
-        @extend %atoms-copyright-owner;
+      #{$selector}-rights {
+        @extend %atoms-copyright-rights;
       }
       #{$selector}-policies {
         @extend %atoms-copyright-policies;
