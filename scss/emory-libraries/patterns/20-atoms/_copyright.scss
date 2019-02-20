@@ -1,0 +1,65 @@
+////
+/// @group emory-libraries.patterns.atoms.copyright
+////
+
+/// Load the copyright component's structure and skin.
+@import 'copyright/structure';
+@import 'copyright/skin';
+
+/// Builds a constructor for the copyright component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} atoms-copyright
+/// @requires {variable} atoms-copyright
+/// @requires {mixin} atoms-copyright--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our copyright component
+///
+/// @status construction
+@mixin atoms-copyright ( $custom: () ) {
+  
+  // Get the selector.
+  $selector: &;
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-copyright, $custom);
+  
+  // Initialize the copyright component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-copyright;
+    
+    // Load parts.
+    &-notice {
+      @extend %atoms-copyright-notice;
+      #{$selector}-year {
+        @extend %atoms-copyright-year;
+      }
+      #{$selector}-owner {
+        @extend %atoms-copyright-owner;
+      }
+      #{$selector}-policies {
+        @extend %atoms-copyright-policies;
+        #{$selector}-policy {
+          @extend %atoms-copyright-policy;
+        }
+      }
+    }
+    &-address {
+      @extend %atoms-copyright-address;
+    }
+    &-phone {
+      @extend %atoms-copyright-phone;
+    }
+    
+    // Load skins.
+    @include atoms-copyright--theme( $skin );
+    
+  }
+  
+}

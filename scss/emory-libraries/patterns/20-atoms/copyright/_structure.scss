@@ -1,0 +1,65 @@
+////
+/// @group emory-libraries.patterns.atoms.copyright
+////
+
+/// Defines the base structure of the copyright component.
+///
+/// @since 1.0.0
+%atoms-copyright {
+  
+  // Get the selector.
+  $selector: &;
+  
+  // Builds the copyright structure.
+  display: grid;
+  grid-template-areas: "notice address phone";
+  grid-template-columns: repeat(3, auto);
+  justify-content: center;
+  
+  // Builds copyright container structure.
+  &-notice,
+  &-address,
+  &-phone {
+    
+    // Add a divider between copyright containers.
+    + #{$selector}-notice::before,
+    + #{$selector}-address::before,
+    + #{$selector}-phone::before {
+      display: block;
+      @include absolute-center-within-container-y;
+      left: 0;
+    }
+    
+  }
+  
+  // Builds copyright notice structure.
+  &-notice {
+    grid-area: notice;
+    
+    // Builds copyright year structure.
+    #{$selector}-year {}
+    
+    // Builds copyright owner structure.
+    #{$selector}-owner {}
+    
+    // Builds copyright policies structure.
+    #{$selector}-policies {
+      
+      // Builds copyright policy structure.
+      #{$selector}-policy {}
+
+    }
+    
+  }
+  
+  // Builds copyright address structure.
+  &-address {
+    grid-area: address;
+  }
+  
+  // Builds copyright phone structure.
+  &-phone {
+    grid-area: phone;
+  }
+  
+}

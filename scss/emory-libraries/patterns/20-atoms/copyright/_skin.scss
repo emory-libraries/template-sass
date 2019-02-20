@@ -1,0 +1,118 @@
+////
+/// @group emory-libraries.patterns.atoms.copyright
+////
+
+/// Defines the base skin of the copyright component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$atoms-copyright: (
+  
+  'spacing': 25px,
+  'padding': 20px,
+  'color': (
+    'normal': color('blue', 'light'),
+    'hover': color('blue', 'bright'),
+    'active': color('blue', 'light')
+  ),
+  'font': (
+    'font-family': font('body'),
+    'font-style': normal,
+    'font-weight': normal,
+    'font-size': 13px,
+    'line-height': 1.7692
+  ),
+  'divider': "|"
+  
+);
+
+/// Defines the copyright component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The copyright component's themeable properties
+@mixin atoms-copyright--theme ( $skin ) {
+  
+  // Get selector.
+  $selector: &;
+  
+  // Capture themeable variables from skin.
+  $spacing: map-deep-get($skin, 'spacing');
+  $padding: map-deep-get($skin, 'padding');
+  $normal: map-deep-get($skin, 'color.normal');
+  $hover: map-deep-get($skin, 'color.hover');
+  $active: map-deep-get($skin, 'color.active');
+  $font: map-deep-get($skin, 'font');
+  $divider: map-deep-get($skin, 'divider');
+  
+  // Defines the copyright component's base styles.
+  @include margin-y($spacing);
+  color: $normal;
+  @include expand-properties($font);
+  
+  // Define styles for copyright containers.
+  &-notice,
+  &-address,
+  &-phone {
+    @include padding-x( $padding );
+    
+    // Add a divider between copyright containers.
+    + #{$selector}-notice::before,
+    + #{$selector}-address::before,
+    + #{$selector}-phone::before {
+      content: $divider;
+    }
+    
+  }
+  
+  // Define styles for copyright notice.
+  &-notice {
+  
+    // Define styles for copyright policies.
+    #{$selector}-policies {
+
+      // Set styles for copyright policy links.
+      #{$selector}-policy {
+        color: inherit;
+        margin-left: ($padding / 2);
+
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.is-hover,
+        &.is-focus,
+        &.is-active {
+          font-weight: inherit;
+          text-decoration: underline;
+        }
+
+        &:hover,
+        &:focus,
+        &.is-hover,
+        &.is-focus {
+          color: $hover;
+        }
+
+        &:active,
+        &.is-active {
+          color: $active;
+        }
+
+      }
+
+    }
+  
+  }
+
+  // Defines styles for copyright phone.
+  &-phone {
+    font-weight: bold;
+  }
+
+}
