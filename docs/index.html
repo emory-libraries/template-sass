@@ -1771,6 +1771,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="atoms">
+                          <a href="#patterns.atoms.search">search</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.atoms.search-mixin">
+                                <a href="#patterns.atoms.search-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.atoms.search" data-name="atoms-search" data-type="mixin">
+                                    
+                                    <a href="#patterns.atoms.search-mixin-atoms-search">
+                                      
+                                      atoms-search
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.atoms.search" data-name="atoms-search--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.atoms.search-mixin-atoms-search--theme">
+                                      
+                                      atoms-search--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.atoms.search-variable">
+                                <a href="#patterns.atoms.search-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.atoms.search" data-name="atoms-search" data-type="variable">
+                                    
+                                    <a href="#patterns.atoms.search-variable-atoms-search">
+                                      
+                                      atoms-search
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.atoms.search-placeholder">
+                                <a href="#patterns.atoms.search-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.atoms.search" data-name="atoms-search" data-type="placeholder">
+                                    
+                                    <a href="#patterns.atoms.search-placeholder-atoms-search">
+                                      
+                                      atoms-search
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="atoms">
                           <a href="#patterns.atoms.subnav-button">subnav-button</a>
                         </p>
                         
@@ -7365,6 +7473,8 @@
             
             
             
+            
+            
             <section class="main__section main__section--level-2 ">
             
               <h2 class="main__heading" id="patterns.atoms">
@@ -8432,21 +8542,29 @@
                                        data-expanded="@mixin atoms-button--theme($skin) { 
                                 
                                 // Capture any variables that will be used.
-                                $normal: map-deep-get($skin, &#x27;color.normal&#x27;);
-                                $hover: map-deep-get($skin, &#x27;color.hover&#x27;);
-                                $hollow: map-deep-get($skin, &#x27;color.hollow&#x27;);
                                 $border: map-deep-get($skin, &#x27;border&#x27;);
                                 $duration: map-deep-get($skin, &#x27;transition.duration&#x27;);
                                 $timing: map-deep-get($skin, &#x27;transition.timing&#x27;);
                                 $offset: map-deep-get($skin, &#x27;icon.offset&#x27;);
+                                $fade: map-deep-get($skin, &#x27;fade&#x27;);
+                                
+                                // Get foreground-specific variables.
+                                $foreground-normal: map-deep-get($skin, &#x27;foreground.normal&#x27;);
+                                $foreground-hover: map-deep-get($skin, &#x27;foreground.hover&#x27;);
+                                $foreground-active: map-deep-get($skin, &#x27;foreground.active&#x27;);
+                                $foreground-hollow: map-deep-get($skin, &#x27;foreground.hollow&#x27;);
+                                
+                                // Get background-specific variables.
+                                $background-normal: map-deep-get($skin, &#x27;background.normal&#x27;);
+                                $background-hover: map-deep-get($skin, &#x27;background.hover&#x27;);
+                                $background-active: map-deep-get($skin, &#x27;background.active&#x27;);
+                                $background-hollow: map-deep-get($skin, &#x27;background.hollow&#x27;);
                                 
                                 // Assign base styles.
-                                border: $border solid $normal;
-                                background-color: $normal;
-                                @include tokens-text(&#x27;button&#x27;, color-contrast($normal));
-                                transition: border $duration $timing,
-                                            background-color $duration $timing,
-                                            color $duration $timing;
+                                border: $border solid $background-normal;
+                                background-color: $background-normal;
+                                @include tokens-text(&#x27;button&#x27;, $foreground-normal);
+                                transition: all $duration $timing;
                                 
                                 // Assign icon styles.
                                 .icon {
@@ -8460,19 +8578,19 @@
                                   }
                                   
                                   svg {
-                                    fill: color-contrast($normal);
+                                    fill: $foreground-normal;
                                   }
                                   
                                 }
                                 
                                 &amp;.-hollow {
                                   background-color: transparent;
-                                  @include tokens-text(&#x27;button&#x27;, $normal);
+                                  @include tokens-text(&#x27;button&#x27;, $background-normal);
                               
                                   .icon {
                               
                                     svg {
-                                      fill: $normal;
+                                      fill: $background-normal;
                                     }
                               
                                   }
@@ -8484,27 +8602,27 @@
                                 &amp;:focus,
                                 &amp;.is-hover,
                                 &amp;.is-focus {
-                                  border-color: $hover;
-                                  background-color: $hover;
-                                  @include tokens-text(&#x27;button&#x27;, color-contrast($hover));
+                                  border-color: $background-hover;
+                                  background-color: $background-hover;
+                                  @include tokens-text(&#x27;button&#x27;, $foreground-hover);
                                   
                                   .icon {
                               
                                     svg {
-                                      fill: color-contrast($hover);
+                                      fill: $foreground-hover;
                                     }
                               
                                   }
                                   
                                   &amp;.-hollow { 
-                                    border-color: $normal;
-                                    background-color: $hollow; 
-                                    @include tokens-text(&#x27;button&#x27;, $normal);
+                                    border-color: $background-normal;
+                                    background-color: $background-hollow; 
+                                    @include tokens-text(&#x27;button&#x27;, $background-normal);
                                     
                                     .icon {
                               
                                       svg {
-                                        fill: $hover;
+                                        fill: $background-hover;
                                       }
                               
                                     }
@@ -8516,14 +8634,14 @@
                                 // Assigns pressed styles.
                                 &amp;:active,
                                 &amp;.is-active {
-                                  border-color: $hover;
-                                  background-color: $hover;
-                                  @include tokens-text(&#x27;button&#x27;, rgba(color-contrast($hover), .5));
+                                  border-color: $background-hover;
+                                  background-color: $background-hover;
+                                  @include tokens-text(&#x27;button&#x27;, rgba($foreground-active, $fade));
                                   
                                   &amp;.-hollow {
-                                    border-color: $normal;
-                                    background-color: $hollow;
-                                    @include tokens-text(&#x27;button&#x27;, rgba($normal, .5));
+                                    border-color: $background-normal;
+                                    background-color: $background-hollow;
+                                    @include tokens-text(&#x27;button&#x27;, rgba($background-normal, $fade));
                                   }
                                   
                                 }
@@ -8531,7 +8649,7 @@
                                 // Assigns disabled styles.
                                 &amp;[disabled],
                                 &amp;.is-disabled { 
-                                  opacity: .5; 
+                                  opacity: $fade; 
                                 }
                                 
                                }"
@@ -8728,11 +8846,19 @@
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$atoms-button: (
                               
-                                &#x27;color&#x27;: (
+                                &#x27;background&#x27;: (
                                   &#x27;normal&#x27;: $color-actionable,
                                   &#x27;hover&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
+                                  &#x27;active&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
                                   &#x27;hollow&#x27;: color(&#x27;blue&#x27;, &#x27;light&#x27;)
                                 ),
+                                &#x27;foreground&#x27;: (
+                                  &#x27;normal&#x27;: $color-text-light,
+                                  &#x27;hover&#x27;: $color-text-light,
+                                  &#x27;active&#x27;: $color-text-light,
+                                  &#x27;hollow&#x27;: $color-actionable
+                                ),
+                                &#x27;fade&#x27;: .5,
                                 &#x27;border&#x27;: $border-width-s,
                                 &#x27;transition&#x27;: (
                                   &#x27;duration&#x27;: $transition-duration,
@@ -9839,7 +9965,7 @@
                               
                               
                                 
-                                  <span class="item__status item__status--construction">construction</span>
+                                  <span class="item__status item__status--review">review</span>
                                 
                               </h3>
                               
@@ -10118,8 +10244,8 @@
                                 $selector: &amp;;
                                 
                                 // Set breakpoints.
-                                $breakpoint-m: 799px 601px;
-                                $breakpoint-l: min-width 800px;
+                                $breakpoint-m: 774px 601px;
+                                $breakpoint-l: min-width 775px;
                                 
                                 // Capture themeable variables from skin.
                                 $spacing: map-deep-get($skin, &#x27;spacing&#x27;);
@@ -10549,8 +10675,8 @@
                                 $selector: &amp;;
                                 
                                 // Set breakpoints.
-                                $breakpoint-m: 799px 601px;
-                                $breakpoint-l: min-width 800px;
+                                $breakpoint-m: 774px 601px;
+                                $breakpoint-l: min-width 775px;
                                 
                                 // Builds the copyright structure.
                                 display: flex;
@@ -11769,6 +11895,7 @@
                                 $padding-x: map-deep-get($skin, &#x27;padding.x&#x27;);
                                 $padding-y: map-deep-get($skin, &#x27;padding.y&#x27;);
                                 $spacing: map-deep-get($skin, &#x27;spacing&#x27;);
+                                $alpha: map-deep-get($skin, &#x27;alpha&#x27;);
                                 
                                 // Capture icon-specific variables.
                                 $icon-size: map-deep-get($skin, &#x27;icon.size&#x27;);
@@ -11820,6 +11947,12 @@
                                   // Apply styles when validation fails.
                                   &amp;.is-invalid {
                                     border-color: $invalid;
+                                  }
+                                  
+                                  // Apply styles when disabled.
+                                  &amp;[disabled],
+                                  &amp;.is-disabled {
+                                    opacity: $alpha;
                                   }
                                   
                                 }
@@ -12348,6 +12481,7 @@
                                   &#x27;color&#x27;: color(&#x27;slate&#x27;)
                                 ),
                                 &#x27;radius&#x27;: 5px,
+                                &#x27;alpha&#x27;: .5,
                                 &#x27;shadow&#x27;: inset 1px 2px 4px rgba(color(&#x27;slate&#x27;), .5),
                                 &#x27;padding&#x27;: (
                                   &#x27;x&#x27;: 20px,
@@ -12524,7 +12658,14 @@
                                 
                                 // Defines base input structure.
                                 &amp;,
-                                &amp;.-text { }
+                                &amp;.-text { 
+                                
+                                  &amp;[disabled],
+                                  &amp;.is-disabled {
+                                    cursor: not-allowed;
+                                  }
+                                  
+                                }
                                 
                                 // Defines the structure for search inputs.
                                 &amp;.-search { }
@@ -17579,6 +17720,1221 @@
                               
                                     <h3 class="item__sub-heading">Description</h3>
                                     <div class="item__description"><p>Defines the base structure of the note component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
+                    <h3 class="main__heading" id="patterns.atoms.search">
+                      
+                      <div class="container">search</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.atoms.search-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.atoms.search-mixin-atoms-search">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.atoms.search-mixin-atoms-search">
+                                  atoms-search
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--review">review</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin atoms-search($custom) { 
+                                
+                                // Extend the default skin.
+                                $skin: map-extend($atoms-search, $custom);
+                                
+                                // Initialize the search component.
+                                &amp; {
+                                  
+                                  // Load structure.
+                                  @extend %atoms-search;
+                                  
+                                  // Load parts.
+                                  &amp;-box {
+                                    @extend %atoms-search-box;
+                                  }
+                                  &amp;-button {
+                                    @extend %atoms-search-button;
+                                  }
+                                  &amp;-form {
+                                    @extend %atoms-search-form;
+                                  }
+                                  &amp;-toggle {
+                                    @extend %atoms-search-toggle;
+                                  }
+                                  
+                                  // Load skins.
+                                  @include atoms-search--theme( $skin );
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin atoms-search($custom) { ... }"><code class="js-autoindent">@mixin atoms-search($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the search component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our search component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.atoms.search-placeholder-atoms-search"><code>atoms-search</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.atoms.search-variable-atoms-search"><code>atoms-search</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.search-mixin-atoms-search--theme"><code>atoms-search--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.atoms.search-mixin-atoms-search--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.atoms.search-mixin-atoms-search--theme">
+                                  atoms-search--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin atoms-search--theme($skin) { 
+                                
+                                // Get selector.
+                                $selector: &amp;;
+                                
+                                // Capture themeable variables from skin.
+                                $size: map-deep-get($skin, &#x27;size&#x27;);
+                                $radius: map-deep-get($skin, &#x27;radius&#x27;);
+                                $spacing: map-deep-get($skin, &#x27;spacing&#x27;);
+                                $padding-x: map-deep-get($skin, &#x27;padding.x&#x27;);
+                                $padding-y: map-deep-get($skin, &#x27;padding.y&#x27;);
+                                $duration: map-deep-get($skin, &#x27;transition.duration&#x27;);
+                                $timing: map-deep-get($skin, &#x27;transition.timing&#x27;);
+                                $alpha: map-deep-get($skin, &#x27;alpha&#x27;);
+                                
+                                // Get the size scale.
+                                $scale: numeric-scale(map-get($size, &#x27;small&#x27;), map-get($size, &#x27;big&#x27;), 3, true);
+                                
+                                // Defines the search component&#x27;s base styles.
+                                @include margin-y( $spacing );
+                                
+                                // Defines search component size.
+                                &amp; {
+                                  $height: nth($scale, 2);
+                                  
+                                  height: $height;
+                                  
+                                  #{$selector}-box,
+                                  #{$selector}-button {
+                                    height: $height;
+                                  }
+                              
+                                  &amp;.-contained {
+                                    
+                                    #{$selector}-box {
+                                      padding-right: ($height + $padding-x);
+                                    }
+                                    
+                                    #{$selector}-button {
+                                      @include size( $height );
+                                    }
+                              
+                                  }
+                                  
+                                }
+                                &amp;.-small {
+                                  $height: nth($scale, 1);
+                                  
+                                  height: $height;
+                                  
+                                  #{$selector}-box,
+                                  #{$selector}-button {
+                                    height: $height;
+                                  }
+                              
+                                  &amp;.-contained {
+                                    
+                                    #{$selector}-box {
+                                      padding-right: ($height + $padding-x);
+                                    }
+                                    
+                                    #{$selector}-button {
+                                      @include size( $height );
+                                    }
+                              
+                                  }
+                                  
+                                }
+                                &amp;.-big {
+                                  $height: nth($scale, 3);
+                                  
+                                  height: $height;
+                                  
+                                  #{$selector}-box,
+                                  #{$selector}-button {
+                                    height: $height;
+                                  }
+                              
+                                  &amp;.-contained {
+                                    
+                                    #{$selector}-box {
+                                      padding-right: ($height + $padding-x);
+                                    }
+                                    
+                                    #{$selector}-button {
+                                      @include size( $height );
+                                    }
+                              
+                                  }
+                                  
+                                }
+                                
+                                // Defines default search styles.
+                                &amp;:not(.-contained):not(.-form) {
+                                  
+                                  // Modifies search box styles.
+                                  #{$selector}-box {
+                                   border-radius: 0;
+                                  }
+                                
+                                }
+                              
+                                // Defines search box styles.
+                                &amp;-box {
+                                  @include padding-x( $padding-x );
+                                  @include padding-y( $padding-y );
+                                  border-radius: $radius;
+                                  
+                                  &amp;[disabled],
+                                  &amp;.is-disabled {
+                                    opacity: $alpha;
+                                  }
+                                  
+                                }
+                              
+                                // Defines search button styles.
+                                &amp;-button {
+                                  
+                                  // Get background-specific variables.
+                                  $background-normal: map-deep-get($skin, &#x27;button.default.background.normal&#x27;);
+                                  $background-hover: map-deep-get($skin, &#x27;button.default.background.hover&#x27;);
+                                  $background-active: map-deep-get($skin, &#x27;button.default.background.active&#x27;);
+                                  
+                                  // Get foreground-specific variables.
+                                  $foreground-normal: map-deep-get($skin, &#x27;button.default.foreground.normal&#x27;);
+                                  $foreground-hover: map-deep-get($skin, &#x27;button.default.foreground.hover&#x27;);
+                                  $foreground-active: map-deep-get($skin, &#x27;button.default.foreground.active&#x27;);
+                                  
+                                  @include tokens-text(&#x27;button&#x27;, $foreground-normal);
+                                  transition: all $duration $timing;
+                                  
+                                  &amp;:hover,
+                                  &amp;:focus,
+                                  &amp;.is-hover,
+                                  &amp;.is-focus {
+                                    color: $foreground-hover;
+                                  }
+                                  
+                                  &amp;:active,
+                                  &amp;.is-active {
+                                    color: rgba($foreground-active, $alpha);
+                                  }
+                                  
+                                  // Get separator-specific variables.
+                                  $separator-color: map-deep-get($skin, &#x27;button.separator.color&#x27;);
+                                  $separator-thickness: map-deep-get($skin, &#x27;button.separator.thickness&#x27;);
+                                  $separator-size: map-deep-get($skin, &#x27;button.separator.size&#x27;);
+                              
+                                  // Get icon-specific variables.
+                                  $icon-id: map-deep-get($skin, &#x27;button.contained.icon.id&#x27;);
+                                  $icon-size: map-deep-get($skin, &#x27;button.contained.icon.size&#x27;);
+                                  $icon-normal: map-deep-get($skin, &#x27;button.contained.icon.color.normal&#x27;);
+                                  $icon-hover: map-deep-get($skin, &#x27;button.contained.icon.color.hover&#x27;);
+                                  $icon-active: map-deep-get($skin, &#x27;button.contained.icon.color.active&#x27;);
+                                  
+                                  @include when-descendant-of( &#x27;#{$selector}.-contained&#x27; ) {
+                                    $size: nth($scale, 2);
+                                    $stop: percentage($separator-thickness / $size);
+                                    $separator: linear-gradient(to right, $separator-color $stop, transparent $stop) no-repeat center/100% $separator-size;
+                              
+                                    background: $separator, icon-url($icon-id, $icon-normal, $icon-size) no-repeat $icon-size center;
+                                    
+                                    &amp;:hover,
+                                    &amp;:focus,
+                                    &amp;.is-hover,
+                                    &amp;.is-focus {
+                                      background: $separator, icon-url($icon-id, $icon-hover, $icon-size) no-repeat $icon-size center;
+                                    }
+                                    
+                                    &amp;:active,
+                                    &amp;.is-active {
+                                      background: $separator, icon-url($icon-id, $icon-active, $icon-size) no-repeat $icon-size center;
+                                    }
+                                    
+                                  };
+                                  @include when-descendant-of( &#x27;#{$selector}.-contained.-small&#x27; ) {
+                                    $size: nth($scale, 1);
+                                    $stop: percentage($separator-thickness / $size);
+                                    $separator: linear-gradient(to right, $separator-color $stop, transparent $stop) no-repeat center/100% $separator-size;
+                                    
+                                    background: $separator, icon-url($icon-id, $icon-normal, $icon-size) no-repeat $icon-size center;
+                                    
+                                    &amp;:hover,
+                                    &amp;:focus,
+                                    &amp;.is-hover,
+                                    &amp;.is-focus {
+                                      background: $separator, icon-url($icon-id, $icon-hover, $icon-size) no-repeat $icon-size center;
+                                    }
+                                    
+                                    &amp;:active,
+                                    &amp;.is-active {
+                                      background: $separator, icon-url($icon-id, $icon-active, $icon-size) no-repeat $icon-size center;
+                                    }
+                                    
+                                  };
+                                  @include when-descendant-of( &#x27;#{$selector}.-contained.-big&#x27; ) {
+                                    $size: nth($scale, 3);
+                                    $stop: percentage($separator-thickness / $size);
+                                    $separator: linear-gradient(to right, $separator-color $stop, transparent $stop) no-repeat center/100% $separator-size;
+                                    
+                                    background: $separator, icon-url($icon-id, $icon-normal, $icon-size) no-repeat $icon-size center;
+                                    
+                                    &amp;:hover,
+                                    &amp;:focus,
+                                    &amp;.is-hover,
+                                    &amp;.is-focus {
+                                      background: $separator, icon-url($icon-id, $icon-hover, $icon-size) no-repeat $icon-size center;
+                                    }
+                                    
+                                    &amp;:active,
+                                    &amp;.is-active {
+                                      background: $separator, icon-url($icon-id, $icon-active, $icon-size) no-repeat $icon-size center;
+                                    }
+                                    
+                                  };
+                                  
+                                  &amp;[disabled],
+                                  &amp;.is-disabled {
+                                    opacity: $alpha;
+                                  }
+                                  
+                                }
+                                
+                                // Defines contained search styles.
+                                &amp;.-contained {
+                                  
+                                  // Modifies search box styles.
+                                  #{$selector}-box { }
+                              
+                                  // Modifies search box styles.
+                                  #{$selector}-button { 
+                                    border: none;
+                                    @include border-right-radius( $radius );
+                                  }
+                                  
+                                }
+                              
+                                // Defines contained search styles inside a form.
+                                &amp;.-contained.-form {
+                                
+                                // Modifies search button styles.
+                                  #{$selector}-button {
+                                    color: transparent;
+                                  }
+                                
+                                }
+                              
+                                // Defines form search styles.
+                                &amp;.-form {
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin atoms-search--theme($skin) { ... }"><code class="js-autoindent">@mixin atoms-search--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the search component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The search component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.text-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#utils.functions-function-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#utils.functions-function-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#utils.functions-function-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#utils.functions-function-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#utils.functions-function-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#utils.functions-function-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#utils.functions-function-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#utils.functions-function-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#utils.functions-function-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.atoms.search-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.atoms.search-variable-atoms-search">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.atoms.search-variable-atoms-search">
+                                  atoms-search
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$atoms-search: (
+                                
+                                &#x27;size&#x27;: (
+                                  &#x27;small&#x27;: 45px,
+                                  &#x27;big&#x27;: 60px
+                                ),
+                                &#x27;padding&#x27;: (
+                                  &#x27;x&#x27;: 20px,
+                                  &#x27;y&#x27;: 10px
+                                ),
+                                &#x27;spacing&#x27;: $rhythm-x,
+                                &#x27;radius&#x27;: 2px,
+                                &#x27;alpha&#x27;: .5,
+                                &#x27;button&#x27;: (
+                                  &#x27;alpha&#x27;: .5,
+                                  &#x27;default&#x27;: (
+                                    &#x27;background&#x27;: (
+                                      &#x27;normal&#x27;: $color-actionable,
+                                      &#x27;hover&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
+                                      &#x27;active&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;)
+                                    ),
+                                    &#x27;foreground&#x27;: (
+                                      &#x27;normal&#x27;: $color-text-light,
+                                      &#x27;hover&#x27;: $color-text-light,
+                                      &#x27;active&#x27;: $color-text-light
+                                    )
+                                  ),
+                                  &#x27;contained&#x27;: (
+                                    &#x27;icon&#x27;: (
+                                      &#x27;id&#x27;: &#x27;material-search&#x27;,
+                                      &#x27;size&#x27;: 20px,
+                                      &#x27;color&#x27;: (
+                                        &#x27;normal&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;),
+                                        &#x27;hover&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
+                                        &#x27;active&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;)
+                                      )
+                                    )
+                                  ),
+                                  &#x27;separator&#x27;: (
+                                    &#x27;thickness&#x27;: $border-width-s,
+                                    &#x27;size&#x27;: 60%,
+                                    &#x27;color&#x27;: color(&#x27;slate&#x27;, &#x27;light&#x27;)
+                                  )
+                                ),
+                                &#x27;transition&#x27;: (
+                                  &#x27;duration&#x27;: $transition-duration,
+                                  &#x27;timing&#x27;: $transition-timing
+                                )
+                                
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the search component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.atoms.search-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.atoms.search-placeholder-atoms-search">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.atoms.search-placeholder-atoms-search">
+                                  atoms-search
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%atoms-search { 
+                                
+                                // Get selector.
+                                $selector: &amp;;
+                                
+                                // Builds the search structure.
+                                // ...
+                                
+                                // Builds structure for search box.
+                                &amp;-box {
+                                  margin: 0 !important;
+                                  grid-area: box;
+                                  
+                                  &amp;[disabled],
+                                  &amp;.is-disabled {
+                                    cursor: not-allowed;
+                                  }
+                                  
+                                }
+                                
+                                // Builds structure for search button.
+                                &amp;-button {
+                                  grid-area: button;
+                                  
+                                  &amp;[disabled],
+                                  &amp;.is-disabled {
+                                    cursor: not-allowed;
+                                  }
+                                  
+                                }
+                                
+                                // Builds structure for form.
+                                &amp;-form {
+                                  @include absolute( 0 );
+                                  margin: 0;
+                                    
+                                  // Builds structure for search box.
+                                  #{$selector}-box { }
+                              
+                                  // Builds structure for search button.
+                                  #{$selector}-button { }
+                              
+                                  // Modifies structure when inactive.
+                                  &amp;:not(.is-active) {
+                                    display: none;
+                                  }
+                              
+                                  // Modifies structure when active.
+                                  &amp;.is-default {
+                                    display: block;
+                                  }
+                                    
+                                }
+                              
+                                // Builds structure for search toggles.
+                                &amp;-toggle {
+                                  display: none;
+                                  
+                                  // Hide the form when not checked.
+                                  &amp;:not(:checked) + #{$selector}-form {
+                                    display: none;
+                                  }
+                              
+                                  // Show the form when checked.
+                                  &amp;:checked + #{$selector}-form {
+                                    display: grid;
+                                  }
+                                  
+                                }
+                              
+                              // Builds default search structure.
+                                &amp;:not(.-contained):not(.-form),
+                                &amp;-form {
+                                  display: grid;
+                                  grid-template-areas: &quot;box button&quot;;
+                                  grid-template-columns: 1fr auto;
+                                }
+                                
+                                // Builds the structure for form search boxes.
+                                &amp;.-form { 
+                              
+                                  // Modifies structure for search box.
+                                  #{$selector}-box {
+                                    display: block;
+                                    grid-area: box;
+                                  }
+                              
+                                  // Modifies structure for search button.
+                                  #{$selector}-button {
+                                    display: block;
+                                    grid-area: button;
+                                  }
+                                  
+                                }
+                              
+                                // Builds the structure for contained search boxes inside a form.
+                                &amp;.-form.-contained {
+                              
+                                  // Modifies structure for search box.
+                                  #{$selector}-box {
+                                    display: block;
+                                    grid-area-start: box;
+                                    grid-area-end: button;
+                                  }
+                              
+                                  // Modifies structure for search button.
+                                  #{$selector}-button {
+                                    display: block;
+                                    grid-area: none;
+                                  }
+                                  
+                                }
+                              
+                                // Builds the structure for contained search boxes.
+                                &amp;.-contained { 
+                                  display: block;
+                                  
+                                  // Modifies structure for search box.
+                                  #{$selector}-box {
+                                    display: block;
+                                    @include absolute( 0 );
+                                    @include size( 100% );
+                                  }
+                              
+                                  // Modifies structure for search button.
+                                  #{$selector}-button {
+                                    display: block;
+                                    @include absolute( 0 0 0 null );
+                                    
+                                    // Add separator.
+                                    &amp;::before {
+                                      content: &#x27;&#x27;;
+                                      @include absolute-center-within-container-y;
+                                      left: 0;
+                                    }
+                                    
+                                  }
+                                  
+                                }
+                              
+                                // Builds the structure for big mode.
+                                &amp;.-big { }
+                                
+                                // Builds the structure for small mode.
+                                &amp;.-small { }
+                                
+                               }"
+                                      data-collapsed="%atoms-search { ... }"><code class="js-autoindent">%atoms-search { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the search component.</p>
                                   </div>
                               
                               
@@ -24837,6 +26193,8 @@
                                   
                                   
                                   
+                                  
+                                  
                               
                               
                               
@@ -26283,6 +27641,24 @@
                             
                         
                         
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                             
                             
                             

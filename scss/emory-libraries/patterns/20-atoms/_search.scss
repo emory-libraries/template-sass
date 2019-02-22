@@ -1,0 +1,53 @@
+////
+/// @group emory-libraries.patterns.atoms.search
+////
+
+/// Load the search component's structure and skin.
+@import 'search/structure';
+@import 'search/skin';
+
+/// Builds a constructor for the search component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} atoms-search
+/// @requires {variable} atoms-search
+/// @requires {mixin} atoms-search--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our search component
+///
+/// @status review
+@mixin atoms-search ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-search, $custom);
+  
+  // Initialize the search component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-search;
+    
+    // Load parts.
+    &-box {
+      @extend %atoms-search-box;
+    }
+    &-button {
+      @extend %atoms-search-button;
+    }
+    &-form {
+      @extend %atoms-search-form;
+    }
+    &-toggle {
+      @extend %atoms-search-toggle;
+    }
+    
+    // Load skins.
+    @include atoms-search--theme( $skin );
+    
+  }
+  
+}
