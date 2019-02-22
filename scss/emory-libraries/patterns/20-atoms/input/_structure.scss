@@ -25,7 +25,14 @@
   
   // Defines base input structure.
   &,
-  &.-text { }
+  &.-text { 
+  
+    &[disabled],
+    &.is-disabled {
+      cursor: not-allowed;
+    }
+    
+  }
   
   // Defines the structure for search inputs.
   &.-search { }

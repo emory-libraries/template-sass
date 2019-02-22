@@ -14,6 +14,7 @@ $atoms-input: (
     'color': color('slate')
   ),
   'radius': 5px,
+  'alpha': .5,
   'shadow': inset 1px 2px 4px rgba(color('slate'), .5),
   'padding': (
     'x': 20px,
@@ -112,6 +113,7 @@ $atoms-input: (
   $padding-x: map-deep-get($skin, 'padding.x');
   $padding-y: map-deep-get($skin, 'padding.y');
   $spacing: map-deep-get($skin, 'spacing');
+  $alpha: map-deep-get($skin, 'alpha');
   
   // Capture icon-specific variables.
   $icon-size: map-deep-get($skin, 'icon.size');
@@ -163,6 +165,12 @@ $atoms-input: (
     // Apply styles when validation fails.
     &.is-invalid {
       border-color: $invalid;
+    }
+    
+    // Apply styles when disabled.
+    &[disabled],
+    &.is-disabled {
+      opacity: $alpha;
     }
     
   }
