@@ -45,8 +45,8 @@ $atoms-copyright: (
   $selector: &;
   
   // Set breakpoints.
-  $breakpoint-m: 799px 601px;
-  $breakpoint-l: min-width 800px;
+  $breakpoint-m: 774px 601px;
+  $breakpoint-l: min-width 775px;
   
   // Capture themeable variables from skin.
   $spacing: map-deep-get($skin, 'spacing');
