@@ -9,10 +9,14 @@
   
   &.-success {
     @include atoms-button((
-      'color': (
+      'background': (
         'normal': color('ui', 'success'),
         'hover': shade(color('ui', 'success'), 25%),
+        'active': shade(color('ui', 'success'), 25%),
         'hollow': color('ui', 'success', 'light')
+      ),
+      'foreground': (
+        'hollow': color('ui', 'success')
       )
     ));
   }
@@ -82,4 +86,9 @@
 // atoms-copyright
 .copyright {
   @include atoms-copyright;
+}
+
+// atoms-search
+.search {
+  @include atoms-search;
 }

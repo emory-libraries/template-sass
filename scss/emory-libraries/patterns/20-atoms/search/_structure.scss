@@ -1,0 +1,154 @@
+////
+/// @group emory-libraries.patterns.atoms.search
+////
+
+/// Defines the base structure of the search component.
+///
+/// @since 1.0.0
+%atoms-search {
+  
+  // Get selector.
+  $selector: &;
+  
+  // Builds the search structure.
+  // ...
+  
+  // Builds structure for search box.
+  &-box {
+    margin: 0 !important;
+    grid-area: box;
+    
+    &[disabled],
+    &.is-disabled {
+      cursor: not-allowed;
+    }
+    
+  }
+  
+  // Builds structure for search button.
+  &-button {
+    grid-area: button;
+    
+    &[disabled],
+    &.is-disabled {
+      cursor: not-allowed;
+    }
+    
+  }
+  
+  // Builds structure for form.
+  &-form {
+    @include absolute( 0 );
+    margin: 0;
+      
+    // Builds structure for search box.
+    #{$selector}-box { }
+
+    // Builds structure for search button.
+    #{$selector}-button { }
+
+    // Modifies structure when inactive.
+    &:not(.is-active) {
+      display: none;
+    }
+
+    // Modifies structure when active.
+    &.is-default {
+      display: block;
+    }
+      
+  }
+
+  // Builds structure for search toggles.
+  &-toggle {
+    display: none;
+    
+    // Hide the form when not checked.
+    &:not(:checked) + #{$selector}-form {
+      display: none;
+    }
+
+    // Show the form when checked.
+    &:checked + #{$selector}-form {
+      display: grid;
+    }
+    
+  }
+
+// Builds default search structure.
+  &:not(.-contained):not(.-form),
+  &-form {
+    display: grid;
+    grid-template-areas: "box button";
+    grid-template-columns: 1fr auto;
+  }
+  
+  // Builds the structure for form search boxes.
+  &.-form { 
+
+    // Modifies structure for search box.
+    #{$selector}-box {
+      display: block;
+      grid-area: box;
+    }
+
+    // Modifies structure for search button.
+    #{$selector}-button {
+      display: block;
+      grid-area: button;
+    }
+    
+  }
+
+  // Builds the structure for contained search boxes inside a form.
+  &.-form.-contained {
+
+    // Modifies structure for search box.
+    #{$selector}-box {
+      display: block;
+      grid-area-start: box;
+      grid-area-end: button;
+    }
+
+    // Modifies structure for search button.
+    #{$selector}-button {
+      display: block;
+      grid-area: none;
+    }
+    
+  }
+
+  // Builds the structure for contained search boxes.
+  &.-contained { 
+    display: block;
+    
+    // Modifies structure for search box.
+    #{$selector}-box {
+      display: block;
+      @include absolute( 0 );
+      @include size( 100% );
+    }
+
+    // Modifies structure for search button.
+    #{$selector}-button {
+      display: block;
+      @include absolute( 0 0 0 null );
+      
+      // Add separator.
+      &::before {
+        content: '';
+        @include absolute-center-within-container-y;
+        left: 0;
+      }
+      
+    }
+    
+  }
+
+  // Builds the structure for big mode.
+  &.-big { }
+  
+  // Builds the structure for small mode.
+  &.-small { }
+  
+}

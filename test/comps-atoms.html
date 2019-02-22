@@ -701,5 +701,46 @@
   
   </div>
   
+  <!-- atom-search -->
+  <div>
+    
+    <div class="search">
+      <input type="search" class="input -search search-box" placeholder="Search the Library Catalog">
+      <button class="button search-button">Search</button>
+    </div>
+  
+    <div class="search -big -contained">
+      <input type="search" class="input -search -big search-box" placeholder="Search the Library Catalog">
+      <button class="button search-button"></button>
+    </div>
+  
+    <div class="search -small">
+      <input type="search" class="input -search -small search-box" placeholder="Search the Library Catalog">
+      <button class="button search-button">
+        <span class="icon -left">&#128269;</span> Search
+      </button>
+    </div>
+    
+    <div>
+      <ul>
+        <li><label for="search-catalog">Library Catalog</label></li>
+        <li><label for="search-databases">Databases</label></li>
+      </ul>
+      <div class="search -small -form -contained">
+        <input type="radio" name="search" id="search-catalog" class="search-toggle" checked>
+        <form class="search-form is-default">
+          <input type="search" class="input -search -small search-box" placeholder="Search the Library Catalog">
+          <input type="submit" class="button search-button" label="">
+        </form>
+        <input type="radio" name="search" id="search-databases" class="search-toggle">
+        <form class="search-form">
+          <input type="search" class="input -search -small search-box" placeholder="Search for a Database">
+          <input type="submit" class="button search-button" label="">
+        </form>
+      </div>
+    </div>
+  
+  </div>
+  
 </body>
 </html>

@@ -1,0 +1,322 @@
+////
+/// @group emory-libraries.patterns.atoms.search
+////
+
+/// Defines the base skin of the search component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$atoms-search: (
+  
+  'size': (
+    'small': 45px,
+    'big': 60px
+  ),
+  'padding': (
+    'x': 20px,
+    'y': 10px
+  ),
+  'spacing': $rhythm-x,
+  'radius': 2px,
+  'alpha': .5,
+  'button': (
+    'alpha': .5,
+    'default': (
+      'background': (
+        'normal': $color-actionable,
+        'hover': color('blue', 'mid'),
+        'active': color('blue', 'mid')
+      ),
+      'foreground': (
+        'normal': $color-text-light,
+        'hover': $color-text-light,
+        'active': $color-text-light
+      )
+    ),
+    'contained': (
+      'icon': (
+        'id': 'material-search',
+        'size': 20px,
+        'color': (
+          'normal': color('blue', 'bright'),
+          'hover': color('blue', 'mid'),
+          'active': color('blue', 'mid')
+        )
+      )
+    ),
+    'separator': (
+      'thickness': $border-width-s,
+      'size': 60%,
+      'color': color('slate', 'light')
+    )
+  ),
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  )
+  
+);
+
+/// Defines the search component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The search component's themeable properties
+@mixin atoms-search--theme ( $skin ) {
+  
+  // Get selector.
+  $selector: &;
+  
+  // Capture themeable variables from skin.
+  $size: map-deep-get($skin, 'size');
+  $radius: map-deep-get($skin, 'radius');
+  $spacing: map-deep-get($skin, 'spacing');
+  $padding-x: map-deep-get($skin, 'padding.x');
+  $padding-y: map-deep-get($skin, 'padding.y');
+  $duration: map-deep-get($skin, 'transition.duration');
+  $timing: map-deep-get($skin, 'transition.timing');
+  $alpha: map-deep-get($skin, 'alpha');
+  
+  // Get the size scale.
+  $scale: numeric-scale(map-get($size, 'small'), map-get($size, 'big'), 3, true);
+  
+  // Defines the search component's base styles.
+  @include margin-y( $spacing );
+  
+  // Defines search component size.
+  & {
+    $height: nth($scale, 2);
+    
+    height: $height;
+    
+    #{$selector}-box,
+    #{$selector}-button {
+      height: $height;
+    }
+
+    &.-contained {
+      
+      #{$selector}-box {
+        padding-right: ($height + $padding-x);
+      }
+      
+      #{$selector}-button {
+        @include size( $height );
+      }
+
+    }
+    
+  }
+  &.-small {
+    $height: nth($scale, 1);
+    
+    height: $height;
+    
+    #{$selector}-box,
+    #{$selector}-button {
+      height: $height;
+    }
+
+    &.-contained {
+      
+      #{$selector}-box {
+        padding-right: ($height + $padding-x);
+      }
+      
+      #{$selector}-button {
+        @include size( $height );
+      }
+
+    }
+    
+  }
+  &.-big {
+    $height: nth($scale, 3);
+    
+    height: $height;
+    
+    #{$selector}-box,
+    #{$selector}-button {
+      height: $height;
+    }
+
+    &.-contained {
+      
+      #{$selector}-box {
+        padding-right: ($height + $padding-x);
+      }
+      
+      #{$selector}-button {
+        @include size( $height );
+      }
+
+    }
+    
+  }
+  
+  // Defines default search styles.
+  &:not(.-contained):not(.-form) {
+    
+    // Modifies search box styles.
+    #{$selector}-box {
+     border-radius: 0;
+    }
+  
+  }
+
+  // Defines search box styles.
+  &-box {
+    @include padding-x( $padding-x );
+    @include padding-y( $padding-y );
+    border-radius: $radius;
+    
+    &[disabled],
+    &.is-disabled {
+      opacity: $alpha;
+    }
+    
+  }
+
+  // Defines search button styles.
+  &-button {
+    
+    // Get background-specific variables.
+    $background-normal: map-deep-get($skin, 'button.default.background.normal');
+    $background-hover: map-deep-get($skin, 'button.default.background.hover');
+    $background-active: map-deep-get($skin, 'button.default.background.active');
+    
+    // Get foreground-specific variables.
+    $foreground-normal: map-deep-get($skin, 'button.default.foreground.normal');
+    $foreground-hover: map-deep-get($skin, 'button.default.foreground.hover');
+    $foreground-active: map-deep-get($skin, 'button.default.foreground.active');
+    
+    @include tokens-text('button', $foreground-normal);
+    transition: all $duration $timing;
+    
+    &:hover,
+    &:focus,
+    &.is-hover,
+    &.is-focus {
+      color: $foreground-hover;
+    }
+    
+    &:active,
+    &.is-active {
+      color: rgba($foreground-active, $alpha);
+    }
+    
+    // Get separator-specific variables.
+    $separator-color: map-deep-get($skin, 'button.separator.color');
+    $separator-thickness: map-deep-get($skin, 'button.separator.thickness');
+    $separator-size: map-deep-get($skin, 'button.separator.size');
+
+    // Get icon-specific variables.
+    $icon-id: map-deep-get($skin, 'button.contained.icon.id');
+    $icon-size: map-deep-get($skin, 'button.contained.icon.size');
+    $icon-normal: map-deep-get($skin, 'button.contained.icon.color.normal');
+    $icon-hover: map-deep-get($skin, 'button.contained.icon.color.hover');
+    $icon-active: map-deep-get($skin, 'button.contained.icon.color.active');
+    
+    @include when-descendant-of( '#{$selector}.-contained' ) {
+      $size: nth($scale, 2);
+      $stop: percentage($separator-thickness / $size);
+      $separator: linear-gradient(to right, $separator-color $stop, transparent $stop) no-repeat center/100% $separator-size;
+
+      background: $separator, icon-url($icon-id, $icon-normal, $icon-size) no-repeat $icon-size center;
+      
+      &:hover,
+      &:focus,
+      &.is-hover,
+      &.is-focus {
+        background: $separator, icon-url($icon-id, $icon-hover, $icon-size) no-repeat $icon-size center;
+      }
+      
+      &:active,
+      &.is-active {
+        background: $separator, icon-url($icon-id, $icon-active, $icon-size) no-repeat $icon-size center;
+      }
+      
+    };
+    @include when-descendant-of( '#{$selector}.-contained.-small' ) {
+      $size: nth($scale, 1);
+      $stop: percentage($separator-thickness / $size);
+      $separator: linear-gradient(to right, $separator-color $stop, transparent $stop) no-repeat center/100% $separator-size;
+      
+      background: $separator, icon-url($icon-id, $icon-normal, $icon-size) no-repeat $icon-size center;
+      
+      &:hover,
+      &:focus,
+      &.is-hover,
+      &.is-focus {
+        background: $separator, icon-url($icon-id, $icon-hover, $icon-size) no-repeat $icon-size center;
+      }
+      
+      &:active,
+      &.is-active {
+        background: $separator, icon-url($icon-id, $icon-active, $icon-size) no-repeat $icon-size center;
+      }
+      
+    };
+    @include when-descendant-of( '#{$selector}.-contained.-big' ) {
+      $size: nth($scale, 3);
+      $stop: percentage($separator-thickness / $size);
+      $separator: linear-gradient(to right, $separator-color $stop, transparent $stop) no-repeat center/100% $separator-size;
+      
+      background: $separator, icon-url($icon-id, $icon-normal, $icon-size) no-repeat $icon-size center;
+      
+      &:hover,
+      &:focus,
+      &.is-hover,
+      &.is-focus {
+        background: $separator, icon-url($icon-id, $icon-hover, $icon-size) no-repeat $icon-size center;
+      }
+      
+      &:active,
+      &.is-active {
+        background: $separator, icon-url($icon-id, $icon-active, $icon-size) no-repeat $icon-size center;
+      }
+      
+    };
+    
+    &[disabled],
+    &.is-disabled {
+      opacity: $alpha;
+    }
+    
+  }
+  
+  // Defines contained search styles.
+  &.-contained {
+    
+    // Modifies search box styles.
+    #{$selector}-box { }
+
+    // Modifies search box styles.
+    #{$selector}-button { 
+      border: none;
+      @include border-right-radius( $radius );
+    }
+    
+  }
+
+  // Defines contained search styles inside a form.
+  &.-contained.-form {
+  
+  // Modifies search button styles.
+    #{$selector}-button {
+      color: transparent;
+    }
+  
+  }
+
+  // Defines form search styles.
+  &.-form {
+    
+  }
+  
+}
