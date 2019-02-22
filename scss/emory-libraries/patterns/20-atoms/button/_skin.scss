@@ -22,11 +22,19 @@
 /// @type map
 $atoms-button: (
 
-  'color': (
+  'background': (
     'normal': $color-actionable,
     'hover': color('blue', 'mid'),
+    'active': color('blue', 'mid'),
     'hollow': color('blue', 'light')
   ),
+  'foreground': (
+    'normal': $color-text-light,
+    'hover': $color-text-light,
+    'active': $color-text-light,
+    'hollow': $color-actionable
+  ),
+  'fade': .5,
   'border': $border-width-s,
   'transition': (
     'duration': $transition-duration,
@@ -53,21 +61,29 @@ $atoms-button: (
 @mixin atoms-button--theme ( $skin ) {
   
   // Capture any variables that will be used.
-  $normal: map-deep-get($skin, 'color.normal');
-  $hover: map-deep-get($skin, 'color.hover');
-  $hollow: map-deep-get($skin, 'color.hollow');
   $border: map-deep-get($skin, 'border');
   $duration: map-deep-get($skin, 'transition.duration');
   $timing: map-deep-get($skin, 'transition.timing');
   $offset: map-deep-get($skin, 'icon.offset');
+  $fade: map-deep-get($skin, 'fade');
+  
+  // Get foreground-specific variables.
+  $foreground-normal: map-deep-get($skin, 'foreground.normal');
+  $foreground-hover: map-deep-get($skin, 'foreground.hover');
+  $foreground-active: map-deep-get($skin, 'foreground.active');
+  $foreground-hollow: map-deep-get($skin, 'foreground.hollow');
+  
+  // Get background-specific variables.
+  $background-normal: map-deep-get($skin, 'background.normal');
+  $background-hover: map-deep-get($skin, 'background.hover');
+  $background-active: map-deep-get($skin, 'background.active');
+  $background-hollow: map-deep-get($skin, 'background.hollow');
   
   // Assign base styles.
-  border: $border solid $normal;
-  background-color: $normal;
-  @include tokens-text('button', color-contrast($normal));
-  transition: border $duration $timing,
-              background-color $duration $timing,
-              color $duration $timing;
+  border: $border solid $background-normal;
+  background-color: $background-normal;
+  @include tokens-text('button', $foreground-normal);
+  transition: all $duration $timing;
   
   // Assign icon styles.
   .icon {
@@ -81,19 +97,19 @@ $atoms-button: (
     }
     
     svg {
-      fill: color-contrast($normal);
+      fill: $foreground-normal;
     }
     
   }
   
   &.-hollow {
     background-color: transparent;
-    @include tokens-text('button', $normal);
+    @include tokens-text('button', $background-normal);
 
     .icon {
 
       svg {
-        fill: $normal;
+        fill: $background-normal;
       }
 
     }
@@ -105,27 +121,27 @@ $atoms-button: (
   &:focus,
   &.is-hover,
   &.is-focus {
-    border-color: $hover;
-    background-color: $hover;
-    @include tokens-text('button', color-contrast($hover));
+    border-color: $background-hover;
+    background-color: $background-hover;
+    @include tokens-text('button', $foreground-hover);
     
     .icon {
 
       svg {
-        fill: color-contrast($hover);
+        fill: $foreground-hover;
       }
 
     }
     
     &.-hollow { 
-      border-color: $normal;
-      background-color: $hollow; 
-      @include tokens-text('button', $normal);
+      border-color: $background-normal;
+      background-color: $background-hollow; 
+      @include tokens-text('button', $background-normal);
       
       .icon {
 
         svg {
-          fill: $hover;
+          fill: $background-hover;
         }
 
       }
@@ -137,14 +153,14 @@ $atoms-button: (
   // Assigns pressed styles.
   &:active,
   &.is-active {
-    border-color: $hover;
-    background-color: $hover;
-    @include tokens-text('button', rgba(color-contrast($hover), .5));
+    border-color: $background-hover;
+    background-color: $background-hover;
+    @include tokens-text('button', rgba($foreground-active, $fade));
     
     &.-hollow {
-      border-color: $normal;
-      background-color: $hollow;
-      @include tokens-text('button', rgba($normal, .5));
+      border-color: $background-normal;
+      background-color: $background-hollow;
+      @include tokens-text('button', rgba($background-normal, $fade));
     }
     
   }
@@ -152,7 +168,7 @@ $atoms-button: (
   // Assigns disabled styles.
   &[disabled],
   &.is-disabled { 
-    opacity: .5; 
+    opacity: $fade; 
   }
   
 }
