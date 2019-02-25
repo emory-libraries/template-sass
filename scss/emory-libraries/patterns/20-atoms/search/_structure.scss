@@ -81,6 +81,7 @@
     display: grid;
     grid-template-areas: "box button";
     grid-template-columns: 1fr auto;
+    align-items: center;
   }
   
   // Builds the structure for form search boxes.
