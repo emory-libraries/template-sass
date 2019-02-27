@@ -72,6 +72,8 @@ $atoms-link: (
   font-style: $style;
   color: $normal;
   transition: all $duration $timing;
+  background: none;
+  border: none;
   
   // Adds styles for icons.
   .icon {
