@@ -289,6 +289,12 @@ $atoms-search: (
     }
     
   }
+
+  // Defines search cancel button styles.
+  &-cancel {
+    margin-left: $spacing;
+    text-decoration: underline;
+  }
   
   // Defines contained search styles.
   &.-contained {
@@ -300,6 +306,7 @@ $atoms-search: (
     #{$selector}-button { 
       border: none;
       @include border-right-radius( $radius );
+      color: transparent;
     }
     
   }

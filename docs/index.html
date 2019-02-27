@@ -13264,6 +13264,8 @@
                                 font-style: $style;
                                 color: $normal;
                                 transition: all $duration $timing;
+                                background: none;
+                                border: none;
                                 
                                 // Adds styles for icons.
                                 .icon {
@@ -17859,6 +17861,9 @@
                                   &amp;-button {
                                     @extend %atoms-search-button;
                                   }
+                                  &amp;-cancel {
+                                    @extend %atoms-search-cancel;
+                                  }
                                   &amp;-form {
                                     @extend %atoms-search-form;
                                   }
@@ -18295,6 +18300,12 @@
                                   }
                                   
                                 }
+                              
+                                // Defines search cancel button styles.
+                                &amp;-cancel {
+                                  margin-left: $spacing;
+                                  text-decoration: underline;
+                                }
                                 
                                 // Defines contained search styles.
                                 &amp;.-contained {
@@ -18306,6 +18317,7 @@
                                   #{$selector}-button { 
                                     border: none;
                                     @include border-right-radius( $radius );
+                                    color: transparent;
                                   }
                                   
                                 }
@@ -18809,6 +18821,17 @@
                                   
                                 }
                                 
+                                // Builds structure for search cancel button.
+                                &amp;-cancel {
+                                  grid-area: cancel;
+                                  
+                                  &amp;[disabled],
+                                  &amp;.is-disabled {
+                                    cursor: not-allowed;
+                                  }
+                                  
+                                }
+                                
                                 // Builds structure for form.
                                 &amp;-form {
                                   @include absolute( 0 );
@@ -18852,7 +18875,7 @@
                                 &amp;:not(.-contained):not(.-form),
                                 &amp;-form {
                                   display: grid;
-                                  grid-template-areas: &quot;box button&quot;;
+                                  grid-template-areas: &quot;box button cancel&quot;;
                                   grid-template-columns: 1fr auto;
                                   align-items: center;
                                 }
@@ -18894,11 +18917,14 @@
                               
                                 // Builds the structure for contained search boxes.
                                 &amp;.-contained { 
-                                  display: block;
+                                  display: grid;
+                                  grid-template-areas: &quot;box cancel&quot;;
+                                  grid-template-columns: 1fr auto;
                                   
                                   // Modifies structure for search box.
                                   #{$selector}-box {
                                     display: block;
+                                    grid-area: box;
                                     @include absolute( 0 );
                                     @include size( 100% );
                                   }
@@ -18906,6 +18932,7 @@
                                   // Modifies structure for search button.
                                   #{$selector}-button {
                                     display: block;
+                                    grid-area: box;
                                     @include absolute( 0 0 0 null );
                                     
                                     // Add separator.
@@ -18915,6 +18942,11 @@
                                       left: 0;
                                     }
                                     
+                                  }
+                              
+                                  // Modifies structure for search cancel button.
+                                  #{$selector}-cancel {
+                                    grid-area: cancel;
                                   }
                                   
                                 }

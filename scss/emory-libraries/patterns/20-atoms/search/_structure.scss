@@ -36,6 +36,17 @@
     
   }
   
+  // Builds structure for search cancel button.
+  &-cancel {
+    grid-area: cancel;
+    
+    &[disabled],
+    &.is-disabled {
+      cursor: not-allowed;
+    }
+    
+  }
+  
   // Builds structure for form.
   &-form {
     @include absolute( 0 );
@@ -79,7 +90,7 @@
   &:not(.-contained):not(.-form),
   &-form {
     display: grid;
-    grid-template-areas: "box button";
+    grid-template-areas: "box button cancel";
     grid-template-columns: 1fr auto;
     align-items: center;
   }
@@ -121,11 +132,14 @@
 
   // Builds the structure for contained search boxes.
   &.-contained { 
-    display: block;
+    display: grid;
+    grid-template-areas: "box cancel";
+    grid-template-columns: 1fr auto;
     
     // Modifies structure for search box.
     #{$selector}-box {
       display: block;
+      grid-area: box;
       @include absolute( 0 );
       @include size( 100% );
     }
@@ -133,6 +147,7 @@
     // Modifies structure for search button.
     #{$selector}-button {
       display: block;
+      grid-area: box;
       @include absolute( 0 0 0 null );
       
       // Add separator.
@@ -142,6 +157,11 @@
         left: 0;
       }
       
+    }
+
+    // Modifies structure for search cancel button.
+    #{$selector}-cancel {
+      grid-area: cancel;
     }
     
   }

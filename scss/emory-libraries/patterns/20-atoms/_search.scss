@@ -38,6 +38,9 @@
     &-button {
       @extend %atoms-search-button;
     }
+    &-cancel {
+      @extend %atoms-search-cancel;
+    }
     &-form {
       @extend %atoms-search-form;
     }
