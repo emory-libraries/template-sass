@@ -66,7 +66,14 @@
   }
   
   // Defines the structure specific to select inputs.
-  &.-select { }
+  &.-select { 
+  
+    // Modified style for inline select inputs.
+    &.-inline {
+      display: inline-block;
+    }
+    
+  }
   
   // Defines the structure for checkbox and radio inputs.
   &.-checkbox,
@@ -94,8 +101,6 @@
   &.-toggle {
     display: none;
   }
-  
-  /* COMPONENT ACCESSORIES */
   
   // Defines the structure of an input label.
   &-label {
@@ -139,6 +144,27 @@
     #{$class}-label {
       margin: 0;
       grid-area: label;
+    }
+    
+  }
+
+  // Defines the structure of an input container.
+  &-container {
+    display: grid;
+    
+    &.-row {
+      align-items: center;
+      grid-template-rows: 1fr;
+    }
+    
+    &.-column {
+      justify-content: left;
+    }
+    
+    &.-grid {}
+    
+    &.-inline {
+      display: inline-grid;
     }
     
   }

@@ -39,6 +39,9 @@
     &-field {
       @extend %atoms-input-field;
     }
+    &-container {
+      @extend %atoms-input-container;
+    }
     &-group {
       @extend %atoms-input-group;
     }

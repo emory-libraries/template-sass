@@ -142,4 +142,9 @@ $atoms-link: (
     
   }
   
+  // Adds style variation for underlining.
+  &.-underline {
+    text-decoration: underline;
+  }
+  
 }

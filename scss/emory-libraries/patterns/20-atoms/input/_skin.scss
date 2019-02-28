@@ -69,6 +69,11 @@ $atoms-input: (
     'spacing': $rhythm-y,
     'padding': 20px
   ),
+  'container': (
+    'rows': 2,
+    'columns': 2,
+    'gap': $rhythm-x
+  ),
   'search': (
     'big': (
       'font-family': font('accent'),
@@ -79,6 +84,23 @@ $atoms-input: (
       'font-family': font('body'),
       'font-size': .78em,
       'line-height': 1.7857
+    )
+  ),
+  'select': (
+    'inline': (
+      'border': (
+        'thickness': $border-width-s,
+        'color': color('blue', 'bright')
+      ),
+      'padding': (
+        'x': 0px,
+        'y': 0px
+      ),
+      'icon': (
+        'color': color('blue', 'bright'),
+        'size': 30px,
+        'spacing': 10px
+      )
     )
   )
   
@@ -270,6 +292,55 @@ $atoms-input: (
       background-color: $selected;
     }
     
+    // Modifies styles for inline select inputs.
+    &.-inline {
+      
+      // Get inline icon-specific variables.
+      $inline-icon-size: map-deep-get($skin, 'select.inline.icon.size');
+      $inline-icon-spacing: map-deep-get($skin, 'select.inline.icon.spacing');
+      $inline-icon-color: map-deep-get($skin, 'select.inline.icon.color');
+      
+      // Get inline padding-specific variables.
+      $inline-padding-x: map-deep-get($skin, 'select.inline.padding.x');
+      $inline-padding-y: map-deep-get($skin, 'select.inline.padding.y');
+      
+      // Get inline border-specific variables.
+      $inline-border-color: map-deep-get($skin, 'select.inline.border.color');
+      $inline-border-thickness: map-deep-get($skin, 'select.inline.border.thickness');
+      $inline-border-stop: calc(100% - (#{$inline-padding-x} + #{$inline-icon-size} + #{$inline-icon-spacing}));
+      
+      margin-bottom: 0;
+      font: inherit;
+      background-color: transparent;
+      box-shadow: none;
+      color: inherit;
+      overflow: auto;
+      border-radius: 0;
+      border-image: linear-gradient(
+        to right, 
+        $inline-border-color $inline-border-stop, 
+        transparent $inline-border-stop
+      ) 1 / 0 0 $inline-border-thickness 0;
+      
+      padding-left: $inline-padding-x;
+      padding-right: calc(#{$inline-padding-x} + #{$inline-icon-size} + #{$inline-icon-spacing});
+      @include padding-y( $inline-padding-y );
+      
+      background-image: icon-url($icon, $inline-icon-color);
+      background-size: auto $inline-icon-size;
+      background-position: calc(100% - #{$inline-padding-x}) center;
+      
+      option {
+        font-family: font('body');
+        font-size: $font-size;
+        font-weight: normal;
+        font-style: normal;
+        text-transform: normal;
+        line-height: normal;
+      }
+      
+    }
+    
   }
   
   // Apply styles specific to checkbox and radio inputs.
@@ -435,6 +506,47 @@ $atoms-input: (
 
       }
       
+    }
+    
+  }
+
+  // Apply styles specific to input container.
+  &-container {
+    $rows: map-deep-get($skin, 'container.rows');
+    $columns: map-deep-get($skin, 'container.columns');
+    $gap: map-deep-get($skin, 'container.gap');
+    
+    margin-bottom: $spacing;
+    
+    #{$class} {
+      margin-bottom: 0;
+    }
+    
+    &.-row {
+      --columns: #{$columns};
+      --layout: repeat(var(--columns), auto);
+      --gap: #{$gap};
+      grid-template-columns: var(--layout);
+      grid-gap: var(--gap);
+    }
+    
+    &.-columns {
+      --rows: #{$rows};
+      --layout: repeat(var(--rows), auto);
+      --gap: #{$gap};
+      grid-template-rows: var(--layout);
+      grid-gap: var(--gap);
+    }
+    
+    &.-grid {
+      --columns: #{$columns};
+      --rows: #{$rows};
+      --gap: #{$gap};
+      --layout-rows: repeat(var(--rows), auto);
+      --layout-columns: repeat(var(--columns), auto);
+      grid-template-columns: var(--layout-columns);
+      grid-template-rows: var(--layout-rows);
+      grid-gap: var(--gap);
     }
     
   }

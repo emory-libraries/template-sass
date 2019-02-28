@@ -5496,6 +5496,8 @@
                       
                       
                       
+                      
+                      
                   
                   
                   
@@ -11667,6 +11669,9 @@
                                   &amp;-field {
                                     @extend %atoms-input-field;
                                   }
+                                  &amp;-container {
+                                    @extend %atoms-input-container;
+                                  }
                                   &amp;-group {
                                     @extend %atoms-input-group;
                                   }
@@ -12052,6 +12057,55 @@
                                     background-color: $selected;
                                   }
                                   
+                                  // Modifies styles for inline select inputs.
+                                  &amp;.-inline {
+                                    
+                                    // Get inline icon-specific variables.
+                                    $inline-icon-size: map-deep-get($skin, &#x27;select.inline.icon.size&#x27;);
+                                    $inline-icon-spacing: map-deep-get($skin, &#x27;select.inline.icon.spacing&#x27;);
+                                    $inline-icon-color: map-deep-get($skin, &#x27;select.inline.icon.color&#x27;);
+                                    
+                                    // Get inline padding-specific variables.
+                                    $inline-padding-x: map-deep-get($skin, &#x27;select.inline.padding.x&#x27;);
+                                    $inline-padding-y: map-deep-get($skin, &#x27;select.inline.padding.y&#x27;);
+                                    
+                                    // Get inline border-specific variables.
+                                    $inline-border-color: map-deep-get($skin, &#x27;select.inline.border.color&#x27;);
+                                    $inline-border-thickness: map-deep-get($skin, &#x27;select.inline.border.thickness&#x27;);
+                                    $inline-border-stop: calc(100% - (#{$inline-padding-x} + #{$inline-icon-size} + #{$inline-icon-spacing}));
+                                    
+                                    margin-bottom: 0;
+                                    font: inherit;
+                                    background-color: transparent;
+                                    box-shadow: none;
+                                    color: inherit;
+                                    overflow: auto;
+                                    border-radius: 0;
+                                    border-image: linear-gradient(
+                                      to right, 
+                                      $inline-border-color $inline-border-stop, 
+                                      transparent $inline-border-stop
+                                    ) 1 / 0 0 $inline-border-thickness 0;
+                                    
+                                    padding-left: $inline-padding-x;
+                                    padding-right: calc(#{$inline-padding-x} + #{$inline-icon-size} + #{$inline-icon-spacing});
+                                    @include padding-y( $inline-padding-y );
+                                    
+                                    background-image: icon-url($icon, $inline-icon-color);
+                                    background-size: auto $inline-icon-size;
+                                    background-position: calc(100% - #{$inline-padding-x}) center;
+                                    
+                                    option {
+                                      font-family: font(&#x27;body&#x27;);
+                                      font-size: $font-size;
+                                      font-weight: normal;
+                                      font-style: normal;
+                                      text-transform: normal;
+                                      line-height: normal;
+                                    }
+                                    
+                                  }
+                                  
                                 }
                                 
                                 // Apply styles specific to checkbox and radio inputs.
@@ -12221,6 +12275,47 @@
                                   
                                 }
                               
+                                // Apply styles specific to input container.
+                                &amp;-container {
+                                  $rows: map-deep-get($skin, &#x27;container.rows&#x27;);
+                                  $columns: map-deep-get($skin, &#x27;container.columns&#x27;);
+                                  $gap: map-deep-get($skin, &#x27;container.gap&#x27;);
+                                  
+                                  margin-bottom: $spacing;
+                                  
+                                  #{$class} {
+                                    margin-bottom: 0;
+                                  }
+                                  
+                                  &amp;.-row {
+                                    --columns: #{$columns};
+                                    --layout: repeat(var(--columns), auto);
+                                    --gap: #{$gap};
+                                    grid-template-columns: var(--layout);
+                                    grid-gap: var(--gap);
+                                  }
+                                  
+                                  &amp;.-columns {
+                                    --rows: #{$rows};
+                                    --layout: repeat(var(--rows), auto);
+                                    --gap: #{$gap};
+                                    grid-template-rows: var(--layout);
+                                    grid-gap: var(--gap);
+                                  }
+                                  
+                                  &amp;.-grid {
+                                    --columns: #{$columns};
+                                    --rows: #{$rows};
+                                    --gap: #{$gap};
+                                    --layout-rows: repeat(var(--rows), auto);
+                                    --layout-columns: repeat(var(--columns), auto);
+                                    grid-template-columns: var(--layout-columns);
+                                    grid-template-rows: var(--layout-rows);
+                                    grid-gap: var(--gap);
+                                  }
+                                  
+                                }
+                              
                                 // Apply styles specific to input group wrappers.
                                 &amp;-group {
                                   @include margin-y( $spacing );
@@ -12359,6 +12454,34 @@
                                             <span class="item__cross-type">function</span>
                                   
                                             <a href="#utils.functions-function-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#utils.functions-function-icon-url"><code>icon-url</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-font-size"><code>font-size</code></a>
                                   
                                   
                                           </li>
@@ -12536,6 +12659,11 @@
                                   &#x27;spacing&#x27;: $rhythm-y,
                                   &#x27;padding&#x27;: 20px
                                 ),
+                                &#x27;container&#x27;: (
+                                  &#x27;rows&#x27;: 2,
+                                  &#x27;columns&#x27;: 2,
+                                  &#x27;gap&#x27;: $rhythm-x
+                                ),
                                 &#x27;search&#x27;: (
                                   &#x27;big&#x27;: (
                                     &#x27;font-family&#x27;: font(&#x27;accent&#x27;),
@@ -12546,6 +12674,23 @@
                                     &#x27;font-family&#x27;: font(&#x27;body&#x27;),
                                     &#x27;font-size&#x27;: .78em,
                                     &#x27;line-height&#x27;: 1.7857
+                                  )
+                                ),
+                                &#x27;select&#x27;: (
+                                  &#x27;inline&#x27;: (
+                                    &#x27;border&#x27;: (
+                                      &#x27;thickness&#x27;: $border-width-s,
+                                      &#x27;color&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;)
+                                    ),
+                                    &#x27;padding&#x27;: (
+                                      &#x27;x&#x27;: 0px,
+                                      &#x27;y&#x27;: 0px
+                                    ),
+                                    &#x27;icon&#x27;: (
+                                      &#x27;color&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;),
+                                      &#x27;size&#x27;: 30px,
+                                      &#x27;spacing&#x27;: 10px
+                                    )
                                   )
                                 )
                                 
@@ -12699,7 +12844,14 @@
                                 }
                                 
                                 // Defines the structure specific to select inputs.
-                                &amp;.-select { }
+                                &amp;.-select { 
+                                
+                                  // Modified style for inline select inputs.
+                                  &amp;.-inline {
+                                    display: inline-block;
+                                  }
+                                  
+                                }
                                 
                                 // Defines the structure for checkbox and radio inputs.
                                 &amp;.-checkbox,
@@ -12727,8 +12879,6 @@
                                 &amp;.-toggle {
                                   display: none;
                                 }
-                                
-                                /* COMPONENT ACCESSORIES */
                                 
                                 // Defines the structure of an input label.
                                 &amp;-label {
@@ -12772,6 +12922,27 @@
                                   #{$class}-label {
                                     margin: 0;
                                     grid-area: label;
+                                  }
+                                  
+                                }
+                              
+                                // Defines the structure of an input container.
+                                &amp;-container {
+                                  display: grid;
+                                  
+                                  &amp;.-row {
+                                    align-items: center;
+                                    grid-template-rows: 1fr;
+                                  }
+                                  
+                                  &amp;.-column {
+                                    justify-content: left;
+                                  }
+                                  
+                                  &amp;.-grid {}
+                                  
+                                  &amp;.-inline {
+                                    display: inline-grid;
                                   }
                                   
                                 }
@@ -13332,6 +13503,11 @@
                                     color: $active;
                                   }
                                   
+                                }
+                                
+                                // Adds style variation for underlining.
+                                &amp;.-underline {
+                                  text-decoration: underline;
                                 }
                                 
                                }"
@@ -27674,6 +27850,8 @@
                             
                         
                         
+                            
+                            
                             
                             
                             
