@@ -22,6 +22,8 @@
 /// @type map
 $atoms-button: (
 
+  'size': 50px,
+  'padding': 25px,
   'background': (
     'normal': $color-actionable,
     'hover': color('blue', 'mid'),
@@ -66,6 +68,8 @@ $atoms-button: (
   $timing: map-deep-get($skin, 'transition.timing');
   $offset: map-deep-get($skin, 'icon.offset');
   $fade: map-deep-get($skin, 'fade');
+  $size: map-deep-get($skin, 'size');
+  $padding: map-deep-get($skin, 'padding');
   
   // Get foreground-specific variables.
   $foreground-normal: map-deep-get($skin, 'foreground.normal');
@@ -84,6 +88,8 @@ $atoms-button: (
   background-color: $background-normal;
   @include tokens-text('button', $foreground-normal);
   transition: all $duration $timing;
+  @include padding-x( $padding );
+  height: $size;
   
   // Assign icon styles.
   .icon {
@@ -102,6 +108,7 @@ $atoms-button: (
     
   }
   
+  // Assign hollow variation styles.
   &.-hollow {
     background-color: transparent;
     @include tokens-text('button', $background-normal);
@@ -114,6 +121,11 @@ $atoms-button: (
 
     }
     
+  }
+  
+  // Assign pill variation styles.
+  &.-pill {
+    border-radius: ($size / 2);
   }
   
   // Assign hovered/focused styles.

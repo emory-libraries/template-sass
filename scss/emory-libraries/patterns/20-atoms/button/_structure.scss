@@ -12,8 +12,6 @@
   
   // Defines base structure.
   @include absolute-center-contents(true);
-  @include padding-x( 25px );
-  height: 50px;
   cursor: pointer;
   
   &[disabled],
