@@ -201,11 +201,9 @@ $atoms-button: (
     $gap-x: map-deep-get($skin, 'group.gap.x');
     $gap-y: map-deep-get($skin, 'group.gap.y');
     
-    padding-top: $gap-y;
-    
     > * {
       margin-right: $gap-x;
-      margin-bottom: $gap-y;
+      @include margin-y( $gap-y / 2 );
     }
     
   }

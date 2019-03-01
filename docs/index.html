@@ -8681,11 +8681,9 @@
                                   $gap-x: map-deep-get($skin, &#x27;group.gap.x&#x27;);
                                   $gap-y: map-deep-get($skin, &#x27;group.gap.y&#x27;);
                                   
-                                  padding-top: $gap-y;
-                                  
                                   &gt; * {
                                     margin-right: $gap-x;
-                                    margin-bottom: $gap-y;
+                                    @include margin-y( $gap-y / 2 );
                                   }
                                   
                                 }
