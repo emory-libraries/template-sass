@@ -14,6 +14,17 @@
   @include absolute-center-contents(true);
   cursor: pointer;
   
+  // Defines structure for button group.
+  &-group {
+    display: flex;
+    flex-wrap: wrap;
+    
+    &.-inline {
+      display: inline-flex;
+    }
+    
+  }
+  
   &[disabled],
   &.is-disabled { 
     cursor: not-allowed; 

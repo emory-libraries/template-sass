@@ -32,6 +32,11 @@
     // Load structure.
     @extend %atoms-button;
     
+    // Load parts.
+    &-group {
+      @extend %atoms-button-group;
+    }
+    
     // Load skins.
     @include atoms-button--theme( $skin );
     

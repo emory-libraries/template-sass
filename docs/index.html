@@ -8334,6 +8334,11 @@
                                   // Load structure.
                                   @extend %atoms-button;
                                   
+                                  // Load parts.
+                                  &amp;-group {
+                                    @extend %atoms-button-group;
+                                  }
+                                  
                                   // Load skins.
                                   @include atoms-button--theme( $skin );
                                   
@@ -8609,6 +8614,11 @@
                                   border-radius: ($size / 2);
                                 }
                                 
+                                // Assign style variation for transforming text.
+                                &amp;.-uncapitalize {
+                                  text-transform: none !important;
+                                }
+                                
                                 // Assign hovered/focused styles.
                                 &amp;:hover,
                                 &amp;:focus,
@@ -8662,6 +8672,22 @@
                                 &amp;[disabled],
                                 &amp;.is-disabled { 
                                   opacity: $fade; 
+                                }
+                                
+                                // Assigns button group styles.
+                                &amp;-group {
+                                  
+                                  // Get group-specific variables.
+                                  $gap-x: map-deep-get($skin, &#x27;group.gap.x&#x27;);
+                                  $gap-y: map-deep-get($skin, &#x27;group.gap.y&#x27;);
+                                  
+                                  padding-top: $gap-y;
+                                  
+                                  &gt; * {
+                                    margin-right: $gap-x;
+                                    margin-bottom: $gap-y;
+                                  }
+                                  
                                 }
                                 
                                }"
@@ -8880,6 +8906,12 @@
                                 ),
                                 &#x27;icon&#x27;: (
                                   &#x27;offset&#x27;: $rhythm-x
+                                ),
+                                &#x27;group&#x27;: (
+                                  &#x27;gap&#x27;: (
+                                    &#x27;x&#x27;: 15px,
+                                    &#x27;y&#x27;: 15px
+                                  )
                                 )
                                 
                               );</code></pre>
@@ -9145,6 +9177,17 @@
                                 // Defines base structure.
                                 @include absolute-center-contents(true);
                                 cursor: pointer;
+                                
+                                // Defines structure for button group.
+                                &amp;-group {
+                                  display: flex;
+                                  flex-wrap: wrap;
+                                  
+                                  &amp;.-inline {
+                                    display: inline-flex;
+                                  }
+                                  
+                                }
                                 
                                 &amp;[disabled],
                                 &amp;.is-disabled { 

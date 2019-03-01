@@ -44,6 +44,12 @@ $atoms-button: (
   ),
   'icon': (
     'offset': $rhythm-x
+  ),
+  'group': (
+    'gap': (
+      'x': 15px,
+      'y': 15px
+    )
   )
   
 );
@@ -128,6 +134,11 @@ $atoms-button: (
     border-radius: ($size / 2);
   }
   
+  // Assign style variation for transforming text.
+  &.-uncapitalize {
+    text-transform: none !important;
+  }
+  
   // Assign hovered/focused styles.
   &:hover,
   &:focus,
@@ -181,6 +192,22 @@ $atoms-button: (
   &[disabled],
   &.is-disabled { 
     opacity: $fade; 
+  }
+  
+  // Assigns button group styles.
+  &-group {
+    
+    // Get group-specific variables.
+    $gap-x: map-deep-get($skin, 'group.gap.x');
+    $gap-y: map-deep-get($skin, 'group.gap.y');
+    
+    padding-top: $gap-y;
+    
+    > * {
+      margin-right: $gap-x;
+      margin-bottom: $gap-y;
+    }
+    
   }
   
 }
