@@ -40,35 +40,35 @@
 $colors-brand: (
   
   'blue': (
-    'dark': #091C44,
-    'base': #082B73,
-    'mid': #004990,
+    'dark': #091C44, // rgb(9, 28, 68)
+    'base': #082B73, // rgb(8, 43, 115)
+    'mid': #004990, // rgb(0, 73, 144)
     'bright': (
-      'base': #5387F7,
-      'accessible': #336BE6
+      'base': #5387F7, // rgb(83, 135, 247)
+      'accessible': #336BE6 // rgb(51, 107, 230)
     ),
-    'light': #D0DEFD
+    'light': #D0DEFD // rgb(208, 222, 253)
   ),
   
   'gold': (
-    'base': #E9BF55
+    'base': #E9BF55 // rgb(233, 191, 85)
   ),
   
   'charcoal': (
-    'base': #605858
+    'base': #605858 // rgb(96, 88, 88)
   ),
   
   'slate': (
-    'base': #B6BDCC,
-    'light': #E7EAF1
+    'base': #B6BDCC, // rgb(182, 189, 204)
+    'light': #E7EAF1 // rgb(231, 234, 241)
   ),
   
   'black': (
-    'base': #000000
+    'base': #000000 // rgb(0, 0, 0)
   ),
   
   'white': (
-    'base': #FFFFFF
+    'base': #FFFFFF // rgb(255, 255, 255)
   )
   
 ) !default;
@@ -102,18 +102,18 @@ $colors-brand: (
 $colors-ui: (
   
   'error': (
-    'base': #B82216,
-    'light': #EABDB9
+    'base': #B82216, // rgb(184, 34, 22)
+    'light': #EABDB9 // rgb(234, 189, 185)
   ),
   
   'success': (
-    'base': #257611,
-    'light': #E0F6DA
+    'base': #257611, // rgb(37, 118, 17)
+    'light': #E0F6DA // rgb(224, 246, 218)
   ),
   
   'caution': (
-    'base': #AB750C,
-    'light': #F6E4C1
+    'base': #AB750C, // rgb(171, 117, 12)
+    'light': #F6E4C1 // rgb(246, 228, 193)
   ),
   
   'info': (
