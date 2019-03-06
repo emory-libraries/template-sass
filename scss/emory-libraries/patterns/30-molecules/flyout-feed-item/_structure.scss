@@ -15,6 +15,7 @@
   grid-template-areas: "date" 
                        "heading";
   grid-template-rows: repeat(2, min-content);
+  align-items: start;
   
   // Modifies structure for larger screens.
   @include breakpoint-m-l {
