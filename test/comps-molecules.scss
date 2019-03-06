@@ -4,3 +4,8 @@
 .block {
   @include molecules-block;
 }
+
+// molecules-flyout-feed-item
+.flyout-feed-item {
+  @include molecules-flyout-feed-item;
+}

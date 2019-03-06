@@ -1,0 +1,53 @@
+////
+/// @group emory-libraries.patterns.molecules.flyout-feed-item
+////
+
+/// Defines the base structure of the flyout-feed-item component.
+///
+/// @since 1.0.0
+%molecules-flyout-feed-item {
+  
+  // Builds the flyout-feed-item structure.
+  display: grid;
+  grid-template-areas: "thumbnail date" 
+                       "thumbnail heading" 
+                       "thumbnail description" 
+                       "thumbnail link";
+  
+  // Builds the flyout feed item's thumbnail structure.
+  &-thumbnail { 
+    grid-area: thumbnail;
+    overflow: hidden;
+    @include absolute( 0 null 0 null );
+    @include absolute-center-contents;
+    
+    img {
+      width: 100%;
+    }
+    
+  }
+  
+  // Builds the flyout feed item's date structure.
+  &-date { 
+    grid-area: date;
+    margin: 0;
+  }
+  
+  // Builds the flyout feed item's heading structure.
+  &-heading { 
+    grid-area: heading;
+    margin: 0;
+  }
+  
+  // Builds the flyout feed item's description structure.
+  &-description { 
+    grid-area: description;
+    margin: 0;
+  }
+  
+  // Builds the flyout feed item's link structure.
+  &-link { 
+    grid-area: link;
+  }
+  
+}

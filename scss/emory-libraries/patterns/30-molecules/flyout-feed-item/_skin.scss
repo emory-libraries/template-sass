@@ -1,0 +1,75 @@
+////
+/// @group emory-libraries.patterns.molecules.flyout-feed-item
+////
+
+/// Defines the base skin of the flyout-feed-item component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$molecules-flyout-feed-item: (
+  
+  'gap': 25px,
+  'thumbnail': 175px,
+  'padding': 25px,
+  'color': (
+    'heading': color('blue', 'dark'),
+    'date': color('blue'),
+    'description': $color-text-dark
+  )
+  
+);
+
+/// Defines the flyout-feed-item component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The flyout-feed-item component's themeable properties
+@mixin molecules-flyout-feed-item--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $thumbnail: map-deep-get($skin, 'thumbnail');
+  $gap: map-deep-get($skin, 'gap');
+  $padding: map-deep-get($skin, 'padding');
+  $heading: map-deep-get($skin, 'color.heading');
+  $date: map-deep-get($skin, 'color.date');
+  $description: map-deep-get($skin, 'color.description');
+  
+  // Defines the flyout-feed-item component's base styles.
+  grid-template-columns: $thumbnail 1fr;
+  grid-column-gap: $gap;
+  padding: $padding;
+  
+  // Defines flyout feed item thumbnail styles.
+  &-thumbnail { }
+  
+  // Defines flyout feed item date styles.
+  &-date { 
+    @include tokens-heading('h6', $date);
+    font-size: 12px !important;
+  }
+  
+  // Defines flyout feed item heading styles.
+  &-heading {
+    @include tokens-text('body-alt', $heading);
+    font-weight: bold !important;
+  }
+  
+  // Defines flyout feed item description styles.
+  &-description {
+    @include tokens-text('body-alt', $description);
+    @include margin-y( 5px );
+  }
+  
+  // Defines flyout feed item link styles.
+  &-link {
+    @include atoms-link;
+    text-decoration: underline;
+    font-size: 14px !important;
+  }
+  
+}

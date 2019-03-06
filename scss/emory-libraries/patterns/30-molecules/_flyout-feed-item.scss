@@ -1,0 +1,56 @@
+////
+/// @group emory-libraries.patterns.molecules.flyout-feed-item
+////
+
+/// Load the flyout-feed-item component's structure and skin.
+@import 'flyout-feed-item/structure';
+@import 'flyout-feed-item/skin';
+
+/// Builds a constructor for the flyout-feed-item component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-flyout-feed-item
+/// @requires {variable} molecules-flyout-feed-item
+/// @requires {mixin} molecules-flyout-feed-item--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our flyout-feed-item component
+///
+/// @status review
+@mixin molecules-flyout-feed-item ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-flyout-feed-item, $custom);
+  
+  // Initialize the flyout-feed-item component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-flyout-feed-item;
+    
+    // Load parts.
+    &-thumbnail {
+      @extend %molecules-flyout-feed-item-thumbnail;
+    }
+    &-date {
+      @extend %molecules-flyout-feed-item-date;
+    }
+    &-heading {
+      @extend %molecules-flyout-feed-item-heading;
+    }
+    &-description {
+      @extend %molecules-flyout-feed-item-description;
+    }
+    &-link {
+      @extend %molecules-flyout-feed-item-link;
+    }
+    
+    // Load skins.
+    @include molecules-flyout-feed-item--theme( $skin );
+    
+  }
+  
+}
