@@ -24964,6 +24964,7 @@
                                 $theme-heading: map-deep-get($skin, &#x27;themes.&#x27; + $theme + &#x27;.heading&#x27;);
                                 $theme-foreground: map-deep-get($skin, &#x27;themes.&#x27; + $theme + &#x27;.foreground&#x27;);
                                 $theme-background: map-deep-get($skin, &#x27;themes.&#x27; + $theme + &#x27;.background&#x27;);
+                                $theme-shadow: map-deep-get($skin, &#x27;themes.&#x27; + $theme + &#x27;.shadow&#x27;);
                                 
                                 // Defines the block component&#x27;s base styles.
                                 @include tokens-layout( $layout );
@@ -25026,8 +25027,7 @@
                                 &amp;.-shadow {
                                   
                                   // Get shadow-specific variables.
-                                  $color: map-deep-get($skin, &#x27;shadow.color&#x27;);
-                                  $size: map-deep-get($skin, &#x27;shadow.size&#x27;);
+                                  $size: map-deep-get($skin, &#x27;shadow&#x27;);
                                   
                                   &amp;-bottom,
                                   &amp;-top {
@@ -25055,22 +25055,22 @@
                                   
                                   &amp;-bottom::after {
                                     bottom: 0;
-                                    @include linear-gradient(to bottom, transparent, $color);
+                                    @include linear-gradient(to bottom, transparent, $theme-shadow);
                                   }
                                     
                                   &amp;-top::after {
                                     top: 0;
-                                    @include linear-gradient(to top, transparent, $color);
+                                    @include linear-gradient(to top, transparent, $theme-shadow);
                                   }
                                     
                                   &amp;-left::after {
                                     left: 0;
-                                    @include linear-gradient(to left, transparent, $color);
+                                    @include linear-gradient(to left, transparent, $theme-shadow);
                                   }
                                     
                                   &amp;-right::after {
                                     right: 0;
-                                    @include linear-gradient(to right, transparent, $color);
+                                    @include linear-gradient(to right, transparent, $theme-shadow);
                                   }
                                   
                                 }
@@ -25218,6 +25218,60 @@
                                     };
                                     
                                   };
+                                  
+                                }
+                              
+                                // Defines theme styles for blocks.
+                                @each $name, $theme in map-deep-get($skin, &#x27;themes&#x27;) {
+                                  
+                                   // Get theme-specific variables.
+                                  $theme-heading: map-deep-get($theme, &#x27;heading&#x27;);
+                                  $theme-foreground: map-deep-get($theme, &#x27;foreground&#x27;);
+                                  $theme-background: map-deep-get($theme, &#x27;background&#x27;);
+                                  $theme-shadow: map-deep-get($theme, &#x27;shadow&#x27;);
+                                  
+                                  // Modifies block styles.
+                                  &amp;.-#{$name} {
+                                    background-color: $theme-background;
+                              
+                                    // Modifies block content styles.
+                                    #{$selector}-content {
+                                      
+                                      // Adjusts styles for block heading content.
+                                      #{$selector}-heading {
+                                        color: $theme-heading;
+                                      }
+                                  
+                                      // Adjusts styles for block text content.
+                                      #{$selector}-text {
+                                        color: $theme-foreground;
+                                      }
+                                      
+                                    }
+                              
+                                    // Modifies shadow styles for blocks.
+                                    &amp;.-shadow {
+                              
+                                      
+                                      &amp;-bottom::after {
+                                        @include linear-gradient(to bottom, transparent, $theme-shadow);
+                                      }
+                              
+                                      &amp;-top::after {
+                                        @include linear-gradient(to top, transparent, $theme-shadow);
+                                      }
+                              
+                                      &amp;-left::after {
+                                        @include linear-gradient(to left, transparent, $theme-shadow);
+                                      }
+                              
+                                      &amp;-right::after {
+                                        @include linear-gradient(to right, transparent, $theme-shadow);
+                                      }
+                                      
+                                    }
+                                  
+                                  }
                                   
                                 }
                                 
@@ -25436,12 +25490,14 @@
                                   &#x27;dark&#x27;: (
                                     &#x27;heading&#x27;: color(&#x27;gold&#x27;),
                                     &#x27;foreground&#x27;: $color-text-light,
-                                    &#x27;background&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;)
+                                    &#x27;background&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                    &#x27;shadow&#x27;: color(&#x27;black&#x27;)
                                   ),
                                   &#x27;light&#x27;: (
                                     &#x27;heading&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
                                     &#x27;foreground&#x27;: $color-text-dark,
-                                    &#x27;background&#x27;: color(&#x27;slate&#x27;, &#x27;light&#x27;)
+                                    &#x27;background&#x27;: color(&#x27;slate&#x27;, &#x27;light&#x27;),
+                                    &#x27;shadow&#x27;: color(&#x27;charcoal&#x27;)
                                   )
                                 ),
                                 
@@ -25457,10 +25513,7 @@
                                 
                                 &#x27;overhang&#x27;: 25px,
                                 
-                                &#x27;shadow&#x27;: (
-                                  &#x27;color&#x27;: color(&#x27;black&#x27;),
-                                  &#x27;size&#x27;: 50px,
-                                )
+                                &#x27;shadow&#x27;: 50px
                                 
                               );</code></pre>
                               

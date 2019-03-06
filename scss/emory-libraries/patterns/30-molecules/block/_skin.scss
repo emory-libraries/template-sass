@@ -14,12 +14,14 @@ $molecules-block: (
     'dark': (
       'heading': color('gold'),
       'foreground': $color-text-light,
-      'background': color('blue', 'dark')
+      'background': color('blue', 'dark'),
+      'shadow': color('black')
     ),
     'light': (
       'heading': color('blue', 'dark'),
       'foreground': $color-text-dark,
-      'background': color('slate', 'light')
+      'background': color('slate', 'light'),
+      'shadow': color('charcoal')
     )
   ),
   
@@ -35,10 +37,7 @@ $molecules-block: (
   
   'overhang': 25px,
   
-  'shadow': (
-    'color': color('black'),
-    'size': 50px,
-  )
+  'shadow': 50px
   
 );
 
@@ -66,6 +65,7 @@ $molecules-block: (
   $theme-heading: map-deep-get($skin, 'themes.' + $theme + '.heading');
   $theme-foreground: map-deep-get($skin, 'themes.' + $theme + '.foreground');
   $theme-background: map-deep-get($skin, 'themes.' + $theme + '.background');
+  $theme-shadow: map-deep-get($skin, 'themes.' + $theme + '.shadow');
   
   // Defines the block component's base styles.
   @include tokens-layout( $layout );
@@ -128,8 +128,7 @@ $molecules-block: (
   &.-shadow {
     
     // Get shadow-specific variables.
-    $color: map-deep-get($skin, 'shadow.color');
-    $size: map-deep-get($skin, 'shadow.size');
+    $size: map-deep-get($skin, 'shadow');
     
     &-bottom,
     &-top {
@@ -157,22 +156,22 @@ $molecules-block: (
     
     &-bottom::after {
       bottom: 0;
-      @include linear-gradient(to bottom, transparent, $color);
+      @include linear-gradient(to bottom, transparent, $theme-shadow);
     }
       
     &-top::after {
       top: 0;
-      @include linear-gradient(to top, transparent, $color);
+      @include linear-gradient(to top, transparent, $theme-shadow);
     }
       
     &-left::after {
       left: 0;
-      @include linear-gradient(to left, transparent, $color);
+      @include linear-gradient(to left, transparent, $theme-shadow);
     }
       
     &-right::after {
       right: 0;
-      @include linear-gradient(to right, transparent, $color);
+      @include linear-gradient(to right, transparent, $theme-shadow);
     }
     
   }
@@ -320,6 +319,60 @@ $molecules-block: (
       };
       
     };
+    
+  }
+
+  // Defines theme styles for blocks.
+  @each $name, $theme in map-deep-get($skin, 'themes') {
+    
+     // Get theme-specific variables.
+    $theme-heading: map-deep-get($theme, 'heading');
+    $theme-foreground: map-deep-get($theme, 'foreground');
+    $theme-background: map-deep-get($theme, 'background');
+    $theme-shadow: map-deep-get($theme, 'shadow');
+    
+    // Modifies block styles.
+    &.-#{$name} {
+      background-color: $theme-background;
+
+      // Modifies block content styles.
+      #{$selector}-content {
+        
+        // Adjusts styles for block heading content.
+        #{$selector}-heading {
+          color: $theme-heading;
+        }
+    
+        // Adjusts styles for block text content.
+        #{$selector}-text {
+          color: $theme-foreground;
+        }
+        
+      }
+
+      // Modifies shadow styles for blocks.
+      &.-shadow {
+
+        
+        &-bottom::after {
+          @include linear-gradient(to bottom, transparent, $theme-shadow);
+        }
+
+        &-top::after {
+          @include linear-gradient(to top, transparent, $theme-shadow);
+        }
+
+        &-left::after {
+          @include linear-gradient(to left, transparent, $theme-shadow);
+        }
+
+        &-right::after {
+          @include linear-gradient(to right, transparent, $theme-shadow);
+        }
+        
+      }
+    
+    }
     
   }
   
