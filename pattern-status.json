@@ -2,6 +2,7 @@
   "tokens-heading": "review",
   "tokens-icon": "review",
   "tokens-text": "review",
+  "tokens-layout": "review",
   "atoms-badge": "review",
   "atoms-button": "review",
   "atoms-callout": "review",
@@ -17,5 +18,6 @@
   "atoms-table": "review",
   "atoms-video": "review",
   "atoms-copyright": "review",
-  "atoms-search": "review"
+  "atoms-search": "review",
+  "molecules-block": "review"
 }

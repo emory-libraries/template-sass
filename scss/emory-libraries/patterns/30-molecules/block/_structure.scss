@@ -1,0 +1,146 @@
+////
+/// @group emory-libraries.patterns.molecules.block
+////
+
+/// Defines the base structure of the block component.
+///
+/// @since 1.0.0
+%molecules-block {
+  
+  // Capture selector.
+  $selector: &;
+  
+  // Builds the block structure.
+  display: grid;
+  
+  // Builds default structure.
+  grid-template-areas: "content" "image";
+  grid-template-columns: 1fr;
+
+  @include breakpoint-m-l {
+    grid-template-areas: "content image";
+    grid-template-columns: repeat(2, 1fr);
+  };
+  
+  // Builds block content structure.
+  &-content {
+    grid-area: content;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    
+    // Builds block heading structure.
+    #{$selector}-heading { }
+  
+    // Builds block text structure.
+    #{$selector}-text { }
+
+    // Builds block action structure.
+    #{$selector}-action {
+      display: flex;
+    }
+    
+  }
+  
+  // Builds block image structure.
+  &-image {
+    grid-area: image;
+    @include absolute-center-contents;
+    
+    // Sets default structure for images.
+    img { 
+      width: 100%;
+    }
+    
+  }
+
+  // Builds shadow structure.
+  &.-shadow {
+    
+    // Modifies structure for all shadows.
+    &-bottom,
+    &-top,
+    &-left,
+    &-right {
+    
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        z-index: z('above');
+      }
+      
+    }
+    
+  }
+
+  // Builds flipped structure.
+  &.-flipped {
+    grid-template-areas: "image" "content";
+    grid-template-columns: 1fr;
+
+    @include breakpoint-m-l {
+      grid-template-areas: "image content";
+      grid-template-columns: repeat(2, 1fr);
+    };
+    
+    // Modifies block content structure when flipped.
+    #{$selector}-content { }
+
+    // Modifies block image structure when flipped.
+    #{$selector}-image { }
+    
+  }
+
+  // Builds stretch structure.
+  &.-stretch {
+
+    // Modifies structure for all stretches.
+    &-top,
+    &-bottom,
+    &-both {
+      
+      // Modifies image structure for stretched image blocks.
+      #{$selector}-image {
+        
+        @include breakpoint-m-l {
+          position: absolute;
+          overflow: hidden;
+          width: 100%;
+        };
+        
+      }
+      
+    }
+    
+  }
+
+  // Builds overhang structure.
+  &.-overhang { 
+
+    // Modifies structure for all overhangs.
+    &-top,
+    &-bottom,
+    &-both {
+      
+      // Modifies image structure for overhang image blocks.
+      #{$selector}-image {
+        
+        @include breakpoint-m-l {
+          overflow: hidden;
+          width: 100%;
+
+          img {
+            min-height: 100%;
+            width: auto;
+          }
+          
+        };
+        
+      }
+
+    }
+    
+  }
+    
+}

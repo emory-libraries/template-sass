@@ -14,6 +14,7 @@
 @import '10-tokens/heading';
 @import '10-tokens/text';
 @import '10-tokens/icon';
+@import '10-tokens/layout';
 /*** INSERT NEW TOKENS HERE ***/
 
 /// Load atoms.
@@ -41,6 +42,7 @@
 /// Loads molecules.
 ///
 /// @since 1.0.0
+@import '30-molecules/block';
 /*** INSERT NEW MOLECULES HERE ***/
 
 

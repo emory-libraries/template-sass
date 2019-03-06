@@ -1,0 +1,59 @@
+////
+/// @group emory-libraries.patterns.molecules.block
+////
+
+/// Load the block component's structure and skin.
+@import 'block/structure';
+@import 'block/skin';
+
+/// Builds a constructor for the block component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-block
+/// @requires {variable} molecules-block
+/// @requires {mixin} molecules-block--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our block component
+///
+/// @status review
+@mixin molecules-block ( $custom: () ) {
+  
+  // Capture selector.
+  $selector: &;
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-block, $custom);
+  
+  // Initialize the block component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-block;
+    
+    // Load parts.
+    &-content {
+      @extend %molecules-block-content;
+      &-heading {
+        @extend %molecules-block-heading;
+      }
+      &-text {
+        @extend %molecules-block-text;
+      }
+      &-action {
+        @extend %molecules-block-action;
+      }
+    }
+    &-image {
+      @extend %molecules-block-image;
+    }
+    
+    // Load skins.
+    @include molecules-block--theme( $skin );
+    
+  }
+  
+}
