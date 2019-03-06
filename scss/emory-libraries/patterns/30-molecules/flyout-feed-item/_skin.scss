@@ -79,11 +79,14 @@ $molecules-flyout-feed-item: (
   grid-column-gap: $gap-x;
   grid-row-gap: $gap-y;
   padding: $padding;
+  grid-template-columns: 1fr;
   
   // Modifies column sizes for flyout feed items.
   @each $breakpoint, $size in $thumbnail {
     @include breakpoint( screen($breakpoint) ) {
-      grid-template-columns: $size 1fr;
+      &.has-thumbnail {
+        grid-template-columns: $size 1fr;
+      }
     };
   }
   
@@ -93,6 +96,7 @@ $molecules-flyout-feed-item: (
       background-color: $color;
     };
   }
+  
   
   // Defines flyout feed item thumbnail styles.
   &-thumbnail { 

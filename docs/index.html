@@ -26252,11 +26252,14 @@
                                 grid-column-gap: $gap-x;
                                 grid-row-gap: $gap-y;
                                 padding: $padding;
+                                grid-template-columns: 1fr;
                                 
                                 // Modifies column sizes for flyout feed items.
                                 @each $breakpoint, $size in $thumbnail {
                                   @include breakpoint( screen($breakpoint) ) {
-                                    grid-template-columns: $size 1fr;
+                                    &amp;.has-thumbnail {
+                                      grid-template-columns: $size 1fr;
+                                    }
                                   };
                                 }
                                 
@@ -26266,6 +26269,7 @@
                                     background-color: $color;
                                   };
                                 }
+                                
                                 
                                 // Defines flyout feed item thumbnail styles.
                                 &amp;-thumbnail { 
@@ -26691,20 +26695,37 @@
                                       data-current-state="collapsed"
                                       data-expanded="%molecules-flyout-feed-item { 
                                 
+                                // Capture selector.
+                                $selector: &amp;;
+                                
                                 // Builds the flyout-feed-item structure.
                                 display: grid;
-                                grid-template-areas: &quot;thumbnail date&quot; 
-                                                     &quot;thumbnail heading&quot;;
+                                grid-template-areas: &quot;date&quot; 
+                                                     &quot;heading&quot;;
                                 grid-template-rows: repeat(2, min-content);
                                 
                                 // Modifies structure for larger screens.
                                 @include breakpoint-m-l {
-                                  grid-template-areas: &quot;thumbnail date&quot; 
-                                                       &quot;thumbnail heading&quot; 
-                                                       &quot;thumbnail description&quot; 
-                                                       &quot;thumbnail link&quot;;
+                                  grid-template-areas: &quot;date&quot; 
+                                                       &quot;heading&quot; 
+                                                       &quot;description&quot; 
+                                                       &quot;link&quot;;
                                   grid-template-rows: repeat(2, min-content) 1fr min-content;
                                 };
+                                
+                                // Modifies structure for thumbnails.
+                                &amp;.has-thumbnail {
+                                  grid-template-areas: &quot;thumbnail date&quot; 
+                                                       &quot;thumbnail heading&quot;;
+                                  
+                                  @include breakpoint-m-l {
+                                    grid-template-areas: &quot;thumbnail date&quot; 
+                                                         &quot;thumbnail heading&quot; 
+                                                         &quot;thumbnail description&quot; 
+                                                         &quot;thumbnail link&quot;;
+                                  };
+                                  
+                                }
                                 
                                 // Builds the flyout feed item&#x27;s thumbnail structure.
                                 &amp;-thumbnail { 
@@ -26717,6 +26738,10 @@
                                   img {
                                     width: 100%;
                                   }
+                                  
+                                  @include when-descendant-of( &#x27;#{$selector}:not(.has-thumbnail)&#x27; ) {
+                                    display: none;
+                                  };
                                   
                                 }
                                 

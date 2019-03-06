@@ -7,20 +7,37 @@
 /// @since 1.0.0
 %molecules-flyout-feed-item {
   
+  // Capture selector.
+  $selector: &;
+  
   // Builds the flyout-feed-item structure.
   display: grid;
-  grid-template-areas: "thumbnail date" 
-                       "thumbnail heading";
+  grid-template-areas: "date" 
+                       "heading";
   grid-template-rows: repeat(2, min-content);
   
   // Modifies structure for larger screens.
   @include breakpoint-m-l {
-    grid-template-areas: "thumbnail date" 
-                         "thumbnail heading" 
-                         "thumbnail description" 
-                         "thumbnail link";
+    grid-template-areas: "date" 
+                         "heading" 
+                         "description" 
+                         "link";
     grid-template-rows: repeat(2, min-content) 1fr min-content;
   };
+  
+  // Modifies structure for thumbnails.
+  &.has-thumbnail {
+    grid-template-areas: "thumbnail date" 
+                         "thumbnail heading";
+    
+    @include breakpoint-m-l {
+      grid-template-areas: "thumbnail date" 
+                           "thumbnail heading" 
+                           "thumbnail description" 
+                           "thumbnail link";
+    };
+    
+  }
   
   // Builds the flyout feed item's thumbnail structure.
   &-thumbnail { 
@@ -33,6 +50,10 @@
     img {
       width: 100%;
     }
+    
+    @include when-descendant-of( '#{$selector}:not(.has-thumbnail)' ) {
+      display: none;
+    };
     
   }
   
