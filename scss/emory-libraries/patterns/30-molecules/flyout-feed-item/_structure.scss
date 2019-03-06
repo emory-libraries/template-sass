@@ -87,7 +87,7 @@
     display: none;
     
     @include breakpoint-m-l {
-      display: block;
+      display: inline-flex;
     }
     
   }

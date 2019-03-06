@@ -26,3 +26,9 @@ body {
   position: relative;
   box-sizing: border-box;
 }
+
+// Reset button appearance.
+#{$all-buttons} {
+  appearance: none;
+  padding: 0;
+}
