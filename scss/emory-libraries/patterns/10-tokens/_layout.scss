@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.tokens.layout
+////
+
+/// Load the layout component's structure and skin.
+@import 'layout/structure';
+@import 'layout/skin';
+
+/// Builds a constructor for the layout component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} tokens-layout
+/// @requires {variable} tokens-layout
+/// @requires {mixin} tokens-layout--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our layout component
+///
+/// @status construction
+@mixin tokens-layout ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($tokens-layout, $custom);
+  
+  // Initialize the layout component.
+  & {
+    
+    // Load structure.
+    @extend %tokens-layout;
+    
+    // Load skins.
+    @include tokens-layout--theme( $skin );
+    
+  }
+  
+}

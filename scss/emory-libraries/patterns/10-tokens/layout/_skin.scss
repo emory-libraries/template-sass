@@ -1,0 +1,46 @@
+////
+/// @group emory-libraries.patterns.tokens.layout
+////
+
+/// Defines the base skin of the layout component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$tokens-layout: (
+  
+  'x': $layout-x,
+  'y': $layout-y
+  
+);
+
+/// Defines the layout component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The layout component's themeable properties
+@mixin tokens-layout--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $x: map-deep-get($skin, 'x');
+  $y: map-deep-get($skin, 'y');
+  
+  // Defines the layout component's base styles.
+  transition: padding $transition-duration $transition-timing;
+  
+  @each $breakpoint, $padding in $x {
+    @include breakpoint( screen($breakpoint) ) {
+      @include padding-x( $padding );
+    };
+  }
+  @each $breakpoint, $padding in $y {
+    @include breakpoint( screen($breakpoint) ) {
+      @include padding-y( $padding );
+    };
+  }
+  
+}

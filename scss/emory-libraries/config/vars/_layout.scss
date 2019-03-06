@@ -1,0 +1,81 @@
+////
+/// @group emory-libraries.config
+////
+
+
+/// Sets the minimum vertical layout spacing.
+///
+/// @since 1.0.0
+///
+/// @type number
+$layout-y-min: 40px !default;
+
+
+/// Sets the maximum vertical layout spacing.
+///
+/// @since 1.0.0
+///
+/// @type number
+$layout-y-max: 100px !default;
+
+
+/// Sets the minimum horizontal layout spacing.
+///
+/// @since 1.0.0
+///
+/// @type number
+$layout-x-min: 20px !default;
+
+
+/// Sets the maximum horizontal layout spacing.
+///
+/// @since 1.0.0
+///
+/// @type number
+$layout-x-max: 170px !default;
+
+
+/// Sets vertical layout scale for resizing layouts across breakpoints.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} layout-y-min
+/// @requires {variable} layout-y-max
+/// @requires {variable} screens
+///
+/// @type list
+$layout-scale-y: numeric-scale($layout-y-min, $layout-y-max, length(map-keys($screens)), true) !default;
+
+
+/// Sets horizontal layout scale for resizing layouts across breakpoints.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} layout-x-min
+/// @requires {variable} layout-x-max
+/// @requires {variable} screens
+///
+/// @type list
+$layout-scale-x: numeric-scale($layout-x-min, $layout-x-max, length(map-keys($screens)), true) !default;
+
+
+/// Sets layout spacing accross breakpoint.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} layout-scale-y
+/// @requires {variable} screens
+///
+/// @type map
+$layout-y: map-combine(map-keys($screens), $layout-scale-y) !default;
+
+
+/// Sets layout spacing accross breakpoint.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} layout-scale-x
+/// @requires {variable} screens
+///
+/// @type map
+$layout-x: map-combine(map-keys($screens), $layout-scale-x) !default;
