@@ -30,10 +30,14 @@
     align-self: center;
     
     // Builds block heading structure.
-    #{$selector}-heading { }
+    #{$selector}-heading { 
+      margin: 0;
+    }
   
     // Builds block text structure.
-    #{$selector}-text { }
+    #{$selector}-text { 
+      margin: 0;
+    }
 
     // Builds block action structure.
     #{$selector}-action {

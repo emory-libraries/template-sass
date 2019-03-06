@@ -25094,7 +25094,6 @@
                                   // Defines styles for block heading content.
                                   #{$selector}-heading { 
                                     @include tokens-heading( &#x27;h4&#x27;, $theme-heading );
-                                    margin: 0;
                                     text-align: center;
                                     
                                     // Modifies styles on larger screens.
@@ -25638,10 +25637,14 @@
                                   align-self: center;
                                   
                                   // Builds block heading structure.
-                                  #{$selector}-heading { }
+                                  #{$selector}-heading { 
+                                    margin: 0;
+                                  }
                                 
                                   // Builds block text structure.
-                                  #{$selector}-text { }
+                                  #{$selector}-text { 
+                                    margin: 0;
+                                  }
                               
                                   // Builds block action structure.
                                   #{$selector}-action {

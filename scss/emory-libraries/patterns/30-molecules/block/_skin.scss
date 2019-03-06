@@ -195,7 +195,6 @@ $molecules-block: (
     // Defines styles for block heading content.
     #{$selector}-heading { 
       @include tokens-heading( 'h4', $theme-heading );
-      margin: 0;
       text-align: center;
       
       // Modifies styles on larger screens.
