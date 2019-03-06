@@ -26236,37 +26236,88 @@
                                        data-expanded="@mixin molecules-flyout-feed-item--theme($skin) { 
                                 
                                 // Capture themeable variables from skin.
-                                $thumbnail: map-deep-get($skin, &#x27;thumbnail&#x27;);
-                                $gap: map-deep-get($skin, &#x27;gap&#x27;);
+                                $thumbnail: map-deep-get($skin, &#x27;thumbnail.width&#x27;);
+                                $aspect: map-deep-get($skin, &#x27;thumbnail.aspect&#x27;);
+                                $gap-x: map-deep-get($skin, &#x27;gap.x&#x27;);
+                                $gap-y: map-deep-get($skin, &#x27;gap.y&#x27;);
                                 $padding: map-deep-get($skin, &#x27;padding&#x27;);
-                                $heading: map-deep-get($skin, &#x27;color.heading&#x27;);
-                                $date: map-deep-get($skin, &#x27;color.date&#x27;);
-                                $description: map-deep-get($skin, &#x27;color.description&#x27;);
+                                $heading: map-deep-get($skin, &#x27;foreground.heading&#x27;);
+                                $date: map-deep-get($skin, &#x27;foreground.date&#x27;);
+                                $description: map-deep-get($skin, &#x27;foreground.description&#x27;);
+                                $background: map-deep-get($skin, &#x27;background&#x27;);
+                                $duration: map-deep-get($skin, &#x27;transition.duration&#x27;);
+                                $timing: map-deep-get($skin, &#x27;transition.timing&#x27;);
                                 
                                 // Defines the flyout-feed-item component&#x27;s base styles.
-                                grid-template-columns: $thumbnail 1fr;
-                                grid-column-gap: $gap;
+                                grid-column-gap: $gap-x;
+                                grid-row-gap: $gap-y;
                                 padding: $padding;
                                 
+                                // Modifies column sizes for flyout feed items.
+                                @each $breakpoint, $size in $thumbnail {
+                                  @include breakpoint( screen($breakpoint) ) {
+                                    grid-template-columns: $size 1fr;
+                                  };
+                                }
+                                
+                                // Modifies background colors for flyout feed items.
+                                @each $breakpoint, $color in $background {
+                                  @include breakpoint( screen($breakpoint) ) {
+                                    background-color: $color;
+                                  };
+                                }
+                                
                                 // Defines flyout feed item thumbnail styles.
-                                &amp;-thumbnail { }
+                                &amp;-thumbnail { 
+                                  transition: all $duration $timing;
+                                
+                                  @each $breakpoint, $size in $thumbnail {
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      height: ($size * $aspect);
+                                    };
+                                  }
+                                  
+                                }
                                 
                                 // Defines flyout feed item date styles.
                                 &amp;-date { 
-                                  @include tokens-heading(&#x27;h6&#x27;, $date);
+                                  @include tokens-heading(&#x27;h6&#x27;);
                                   font-size: 12px !important;
+                                  
+                                  @each $breakpoint, $color in $date {
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      color: $color;
+                                    };
+                                  }
+                                  
                                 }
                                 
                                 // Defines flyout feed item heading styles.
                                 &amp;-heading {
-                                  @include tokens-text(&#x27;body-alt&#x27;, $heading);
-                                  font-weight: bold !important;
+                                  @include tokens-text(&#x27;body-alt&#x27;);
+                                  
+                                  @each $breakpoint, $color in $heading {
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      color: $color;
+                                    };
+                                  }
+                                  
+                                  @include breakpoint-m-l {
+                                    font-weight: bold;
+                                  };
+                                  
                                 }
                                 
                                 // Defines flyout feed item description styles.
                                 &amp;-description {
-                                  @include tokens-text(&#x27;body-alt&#x27;, $description);
-                                  @include margin-y( 5px );
+                                  @include tokens-text(&#x27;body-alt&#x27;);
+                                  
+                                  @each $breakpoint, $color in $description {
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      color: $color;
+                                    };
+                                  }
+                                  
                                 }
                                 
                                 // Defines flyout feed item link styles.
@@ -26500,13 +26551,44 @@
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$molecules-flyout-feed-item: (
                                 
-                                &#x27;gap&#x27;: 25px,
-                                &#x27;thumbnail&#x27;: 175px,
+                                &#x27;gap&#x27;: (
+                                  &#x27;x&#x27;: 25px,
+                                  &#x27;y&#x27;: 5px
+                                ),
+                                &#x27;thumbnail&#x27;: (
+                                  &#x27;width&#x27;: (
+                                    &#x27;s&#x27;: 100px,
+                                    &#x27;m&#x27;: 150px,
+                                    &#x27;l&#x27;: 175px
+                                  ),
+                                  &#x27;aspect&#x27;: .83
+                                ),
                                 &#x27;padding&#x27;: 25px,
-                                &#x27;color&#x27;: (
-                                  &#x27;heading&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
-                                  &#x27;date&#x27;: color(&#x27;blue&#x27;),
-                                  &#x27;description&#x27;: $color-text-dark
+                                &#x27;background&#x27;: (
+                                  &#x27;s&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                  &#x27;m&#x27;: color(&#x27;white&#x27;),
+                                  &#x27;l&#x27;: color(&#x27;white&#x27;)
+                                ),
+                                &#x27;foreground&#x27;: (
+                                  &#x27;heading&#x27;: (
+                                    &#x27;s&#x27;: $color-text-light,
+                                    &#x27;m&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                    &#x27;l&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;)
+                                  ),
+                                  &#x27;date&#x27;: (
+                                    &#x27;s&#x27;: $color-text-light,
+                                    &#x27;m&#x27;: color(&#x27;blue&#x27;),
+                                    &#x27;l&#x27;: color(&#x27;blue&#x27;)
+                                  ),
+                                  &#x27;description&#x27;: (
+                                    &#x27;s&#x27;: $color-text-light,
+                                    &#x27;m&#x27;: $color-text-dark,
+                                    &#x27;l&#x27;: $color-text-dark
+                                  )
+                                ),
+                                &#x27;transition&#x27;: (
+                                  &#x27;duration&#x27;: $transition-duration,
+                                  &#x27;timing&#x27;: $transition-timing
                                 )
                                 
                               );</code></pre>
@@ -26612,15 +26694,24 @@
                                 // Builds the flyout-feed-item structure.
                                 display: grid;
                                 grid-template-areas: &quot;thumbnail date&quot; 
-                                                     &quot;thumbnail heading&quot; 
-                                                     &quot;thumbnail description&quot; 
-                                                     &quot;thumbnail link&quot;;
+                                                     &quot;thumbnail heading&quot;;
+                                grid-template-rows: repeat(2, min-content);
+                                
+                                // Modifies structure for larger screens.
+                                @include breakpoint-m-l {
+                                  grid-template-areas: &quot;thumbnail date&quot; 
+                                                       &quot;thumbnail heading&quot; 
+                                                       &quot;thumbnail description&quot; 
+                                                       &quot;thumbnail link&quot;;
+                                  grid-template-rows: repeat(2, min-content) 1fr min-content;
+                                };
                                 
                                 // Builds the flyout feed item&#x27;s thumbnail structure.
                                 &amp;-thumbnail { 
                                   grid-area: thumbnail;
                                   overflow: hidden;
-                                  @include absolute( 0 null 0 null );
+                                  top: 0;
+                                  bottom: 0;
                                   @include absolute-center-contents;
                                   
                                   img {
@@ -26645,11 +26736,23 @@
                                 &amp;-description { 
                                   grid-area: description;
                                   margin: 0;
+                                  display: none;
+                                  
+                                  @include breakpoint-m-l {
+                                    display: block;
+                                  }
+                                  
                                 }
                                 
                                 // Builds the flyout feed item&#x27;s link structure.
                                 &amp;-link { 
                                   grid-area: link;
+                                  display: none;
+                                  
+                                  @include breakpoint-m-l {
+                                    display: block;
+                                  }
+                                  
                                 }
                                 
                                }"

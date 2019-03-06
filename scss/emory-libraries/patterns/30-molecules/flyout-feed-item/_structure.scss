@@ -10,15 +10,24 @@
   // Builds the flyout-feed-item structure.
   display: grid;
   grid-template-areas: "thumbnail date" 
-                       "thumbnail heading" 
-                       "thumbnail description" 
-                       "thumbnail link";
+                       "thumbnail heading";
+  grid-template-rows: repeat(2, min-content);
+  
+  // Modifies structure for larger screens.
+  @include breakpoint-m-l {
+    grid-template-areas: "thumbnail date" 
+                         "thumbnail heading" 
+                         "thumbnail description" 
+                         "thumbnail link";
+    grid-template-rows: repeat(2, min-content) 1fr min-content;
+  };
   
   // Builds the flyout feed item's thumbnail structure.
   &-thumbnail { 
     grid-area: thumbnail;
     overflow: hidden;
-    @include absolute( 0 null 0 null );
+    top: 0;
+    bottom: 0;
     @include absolute-center-contents;
     
     img {
@@ -43,11 +52,23 @@
   &-description { 
     grid-area: description;
     margin: 0;
+    display: none;
+    
+    @include breakpoint-m-l {
+      display: block;
+    }
+    
   }
   
   // Builds the flyout feed item's link structure.
   &-link { 
     grid-area: link;
+    display: none;
+    
+    @include breakpoint-m-l {
+      display: block;
+    }
+    
   }
   
 }

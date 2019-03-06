@@ -9,13 +9,44 @@
 /// @type map
 $molecules-flyout-feed-item: (
   
-  'gap': 25px,
-  'thumbnail': 175px,
+  'gap': (
+    'x': 25px,
+    'y': 5px
+  ),
+  'thumbnail': (
+    'width': (
+      's': 100px,
+      'm': 150px,
+      'l': 175px
+    ),
+    'aspect': .83
+  ),
   'padding': 25px,
-  'color': (
-    'heading': color('blue', 'dark'),
-    'date': color('blue'),
-    'description': $color-text-dark
+  'background': (
+    's': color('blue', 'dark'),
+    'm': color('white'),
+    'l': color('white')
+  ),
+  'foreground': (
+    'heading': (
+      's': $color-text-light,
+      'm': color('blue', 'dark'),
+      'l': color('blue', 'dark')
+    ),
+    'date': (
+      's': $color-text-light,
+      'm': color('blue'),
+      'l': color('blue')
+    ),
+    'description': (
+      's': $color-text-light,
+      'm': $color-text-dark,
+      'l': $color-text-dark
+    )
+  ),
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
   )
   
 );
@@ -32,37 +63,88 @@ $molecules-flyout-feed-item: (
 @mixin molecules-flyout-feed-item--theme ( $skin ) {
   
   // Capture themeable variables from skin.
-  $thumbnail: map-deep-get($skin, 'thumbnail');
-  $gap: map-deep-get($skin, 'gap');
+  $thumbnail: map-deep-get($skin, 'thumbnail.width');
+  $aspect: map-deep-get($skin, 'thumbnail.aspect');
+  $gap-x: map-deep-get($skin, 'gap.x');
+  $gap-y: map-deep-get($skin, 'gap.y');
   $padding: map-deep-get($skin, 'padding');
-  $heading: map-deep-get($skin, 'color.heading');
-  $date: map-deep-get($skin, 'color.date');
-  $description: map-deep-get($skin, 'color.description');
+  $heading: map-deep-get($skin, 'foreground.heading');
+  $date: map-deep-get($skin, 'foreground.date');
+  $description: map-deep-get($skin, 'foreground.description');
+  $background: map-deep-get($skin, 'background');
+  $duration: map-deep-get($skin, 'transition.duration');
+  $timing: map-deep-get($skin, 'transition.timing');
   
   // Defines the flyout-feed-item component's base styles.
-  grid-template-columns: $thumbnail 1fr;
-  grid-column-gap: $gap;
+  grid-column-gap: $gap-x;
+  grid-row-gap: $gap-y;
   padding: $padding;
   
+  // Modifies column sizes for flyout feed items.
+  @each $breakpoint, $size in $thumbnail {
+    @include breakpoint( screen($breakpoint) ) {
+      grid-template-columns: $size 1fr;
+    };
+  }
+  
+  // Modifies background colors for flyout feed items.
+  @each $breakpoint, $color in $background {
+    @include breakpoint( screen($breakpoint) ) {
+      background-color: $color;
+    };
+  }
+  
   // Defines flyout feed item thumbnail styles.
-  &-thumbnail { }
+  &-thumbnail { 
+    transition: all $duration $timing;
+  
+    @each $breakpoint, $size in $thumbnail {
+      @include breakpoint( screen($breakpoint) ) {
+        height: ($size * $aspect);
+      };
+    }
+    
+  }
   
   // Defines flyout feed item date styles.
   &-date { 
-    @include tokens-heading('h6', $date);
+    @include tokens-heading('h6');
     font-size: 12px !important;
+    
+    @each $breakpoint, $color in $date {
+      @include breakpoint( screen($breakpoint) ) {
+        color: $color;
+      };
+    }
+    
   }
   
   // Defines flyout feed item heading styles.
   &-heading {
-    @include tokens-text('body-alt', $heading);
-    font-weight: bold !important;
+    @include tokens-text('body-alt');
+    
+    @each $breakpoint, $color in $heading {
+      @include breakpoint( screen($breakpoint) ) {
+        color: $color;
+      };
+    }
+    
+    @include breakpoint-m-l {
+      font-weight: bold;
+    };
+    
   }
   
   // Defines flyout feed item description styles.
   &-description {
-    @include tokens-text('body-alt', $description);
-    @include margin-y( 5px );
+    @include tokens-text('body-alt');
+    
+    @each $breakpoint, $color in $description {
+      @include breakpoint( screen($breakpoint) ) {
+        color: $color;
+      };
+    }
+    
   }
   
   // Defines flyout feed item link styles.
