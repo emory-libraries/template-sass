@@ -24995,17 +24995,29 @@
                               
                                   // Applies styles to top overhangs.
                                   &amp;-top {
-                                    margin-top: $overhang;
+                                    
+                                    @include breakpoint-m-l {
+                                      margin-top: $overhang;
+                                    };
+                                    
                                   }
                               
                                   // Applies styles to bottom overhangs.
                                   &amp;-bottom {
-                                    margin-bottom: $overhang;
+                                    
+                                    @include breakpoint-m-l {
+                                      margin-bottom: $overhang;
+                                    };
+                                    
                                   }
                                   
                                   // Applies styles to both top and bottom overhangs.
                                   &amp;-both {
-                                    @include margin-y( $overhang );
+                                    
+                                    @include breakpoint-m-l {
+                                      @include margin-y( $overhang );
+                                    };
+                                    
                                   }
                               
                                 }
