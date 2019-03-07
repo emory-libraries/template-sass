@@ -12,7 +12,7 @@ $molecules-feature: (
   'theme': 'light',
   'themes': (
     'light': (
-      'background': color('slate', 'light'),
+      'background': tint(color('slate', 'light'), 50%),
       'context': $color-text-dark,
       'heading': color('blue', 'mid'),
       'description': $color-text-dark
