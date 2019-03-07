@@ -18,6 +18,14 @@
                        "action";
   grid-template-rows: 250px repeat(3, min-content);
   
+  // Modifies structure for larger screens.
+  @include breakpoint-m-l {
+    grid-template-areas: "image context"
+                         "image heading"
+                         "image action";
+    grid-template-rows: repeat(2, min-content) 1fr;
+  };
+  
   // Modifies styles for descriptions.
   &.-has-description {
     grid-template-areas: "image"
@@ -25,25 +33,17 @@
                          "heading"
                          "description"
                          "action";
-  }
-  
-  // Modifies structure for larger screens.
-  @include breakpoint-m-l {
-    grid-template-areas: "image context"
-                         "image heading"
-                         "image action";
-    grid-template-rows: repeat(2, min-content) 1fr;
     
     // Modifies styles for descriptions.
-    &.-has-description {
+    @include breakpoint-m-l {
       grid-template-areas: "image context"
                            "image heading"
                            "image description"
                            "image action";
       grid-template-rows: repeat(2, min-content) auto 1fr;
-    }
+    };
     
-  };
+  }
   
   // Builds feature image structure.
   &-image {
@@ -112,7 +112,7 @@
     display: none;
     
     // Requires a flag to show descriptions.
-    @include when-descendant-of( '#{$selector}.has-description' ) {
+    @include when-descendant-of( '#{$selector}.-has-description' ) {
       grid-area: description;
       margin: 0;
       display: block;

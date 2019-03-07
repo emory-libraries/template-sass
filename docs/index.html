@@ -27052,6 +27052,14 @@
                                                      &quot;action&quot;;
                                 grid-template-rows: 250px repeat(3, min-content);
                                 
+                                // Modifies structure for larger screens.
+                                @include breakpoint-m-l {
+                                  grid-template-areas: &quot;image context&quot;
+                                                       &quot;image heading&quot;
+                                                       &quot;image action&quot;;
+                                  grid-template-rows: repeat(2, min-content) 1fr;
+                                };
+                                
                                 // Modifies styles for descriptions.
                                 &amp;.-has-description {
                                   grid-template-areas: &quot;image&quot;
@@ -27059,25 +27067,17 @@
                                                        &quot;heading&quot;
                                                        &quot;description&quot;
                                                        &quot;action&quot;;
-                                }
-                                
-                                // Modifies structure for larger screens.
-                                @include breakpoint-m-l {
-                                  grid-template-areas: &quot;image context&quot;
-                                                       &quot;image heading&quot;
-                                                       &quot;image action&quot;;
-                                  grid-template-rows: repeat(2, min-content) 1fr;
                                   
                                   // Modifies styles for descriptions.
-                                  &amp;.-has-description {
+                                  @include breakpoint-m-l {
                                     grid-template-areas: &quot;image context&quot;
                                                          &quot;image heading&quot;
                                                          &quot;image description&quot;
                                                          &quot;image action&quot;;
                                     grid-template-rows: repeat(2, min-content) auto 1fr;
-                                  }
+                                  };
                                   
-                                };
+                                }
                                 
                                 // Builds feature image structure.
                                 &amp;-image {
@@ -27146,7 +27146,7 @@
                                   display: none;
                                   
                                   // Requires a flag to show descriptions.
-                                  @include when-descendant-of( &#x27;#{$selector}.has-description&#x27; ) {
+                                  @include when-descendant-of( &#x27;#{$selector}.-has-description&#x27; ) {
                                     grid-area: description;
                                     margin: 0;
                                     display: block;
