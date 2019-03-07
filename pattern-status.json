@@ -19,9 +19,9 @@
   "atoms-video": "review",
   "atoms-copyright": "review",
   "atoms-search": "review",
+  "atoms-rule": "construction",
   "molecules-block": "review",
   "molecules-flyout-feed-item": "review",
   "molecules-flyout-info-item": "review",
-  "molecules-feature": "review",
-  "atoms-rule": "construction"
+  "molecules-feature": "review"
 }
