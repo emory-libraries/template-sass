@@ -27143,12 +27143,12 @@
                                 
                                 // Builds feature description structure.
                                 &amp;-description {
+                                  grid-area: description;
+                                  margin: 0;
                                   display: none;
                                   
                                   // Requires a flag to show descriptions.
                                   @include when-descendant-of( &#x27;#{$selector}.-has-description&#x27; ) {
-                                    grid-area: description;
-                                    margin: 0;
                                     display: block;
                                   };
                                   
@@ -28066,6 +28066,7 @@
                                 // Builds the flyout feed item&#x27;s link structure.
                                 &amp;-link { 
                                   grid-area: link;
+                                  padding: 0;
                                   display: none;
                                   
                                   @include breakpoint-m-l {

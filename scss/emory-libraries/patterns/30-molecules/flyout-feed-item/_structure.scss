@@ -85,6 +85,7 @@
   // Builds the flyout feed item's link structure.
   &-link { 
     grid-area: link;
+    padding: 0;
     display: none;
     
     @include breakpoint-m-l {

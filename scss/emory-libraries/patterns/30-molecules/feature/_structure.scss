@@ -109,12 +109,12 @@
   
   // Builds feature description structure.
   &-description {
+    grid-area: description;
+    margin: 0;
     display: none;
     
     // Requires a flag to show descriptions.
     @include when-descendant-of( '#{$selector}.-has-description' ) {
-      grid-area: description;
-      margin: 0;
       display: block;
     };
     
