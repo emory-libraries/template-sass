@@ -1,0 +1,15 @@
+////
+/// @group emory-libraries.patterns.atoms.rule
+////
+
+/// Defines the base structure of the rule component.
+///
+/// @since 1.0.0
+%atoms-rule {
+  
+  // Builds the rule structure.
+  display: block;
+  width: 100%;
+  height: 0;
+  
+}

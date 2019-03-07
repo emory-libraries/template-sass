@@ -1,0 +1,87 @@
+////
+/// @group emory-libraries.patterns.atoms.rule
+////
+
+/// Defines the base skin of the rule component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$atoms-rule: (
+  
+  'styles': (
+    'default': (
+      'border': $border-width-s solid rgba(color('blue', 'dark'), .1),
+      'width': 100%
+    ),
+    'light': (
+      'border': $border-width-s solid rgba(color('slate', 'light'), .5),
+      'width': 100%
+    ),
+    'dark': (
+      'border': $border-width-s solid color('blue', 'dark'),
+      'width': 100%
+    ),
+    'dotted': (
+      'border': $border-width-s dotted color('blue', 'bright'),
+      'width': 100%
+    ),
+    'thick': (
+      'border': $border-width-l solid color('blue', 'bright'),
+      'width': 100%
+    ),
+    'heading': (
+      'border': $border-width-xl solid color('gold'),
+      'width': 60px
+    ),
+    'feed': (
+      'border': $border-width-xl solid color('slate', 'light'),
+      'width': 30px
+    )
+  )
+  
+);
+
+/// Defines the rule component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The rule component's themeable properties
+@mixin atoms-rule--theme ( $skin, $width: null ) {
+  
+  // Capture themeable variables from skin.
+  $styles: map-deep-get($skin, 'styles');
+  
+  // Get defaults rule styles.
+  $border: map-deep-get($styles, 'default.border');
+  $width: map-deep-get($styles, 'default.width');
+  
+  // Defines the rule component's base styles.
+  border-top: $border;
+  width: $width;
+  
+  // Apply style variations to rules.
+  @each $style, $settings in $styles {
+    
+    // Ignore defaults.
+    @if( $style != 'default' ) {
+      
+      // Get style-specific variables.
+      $border: map-deep-get($settings, 'border');
+      $width: map-deep-get($settings, 'width');
+      
+      // Modify styles.
+      &.-#{$style} {
+        border-top: $border;
+        width: $width;
+      }
+      
+    }
+    
+  }
+  
+}

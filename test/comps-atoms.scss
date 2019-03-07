@@ -92,3 +92,8 @@
 .search {
   @include atoms-search;
 }
+
+// atoms-rule
+.rule {
+  @include atoms-rule;
+}

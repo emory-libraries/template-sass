@@ -22,5 +22,6 @@
   "molecules-block": "review",
   "molecules-flyout-feed-item": "review",
   "molecules-flyout-info-item": "review",
-  "molecules-feature": "review"
+  "molecules-feature": "review",
+  "atoms-rule": "construction"
 }

@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.atoms.rule
+////
+
+/// Load the rule component's structure and skin.
+@import 'rule/structure';
+@import 'rule/skin';
+
+/// Builds a constructor for the rule component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} atoms-rule
+/// @requires {variable} atoms-rule
+/// @requires {mixin} atoms-rule--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our rule component
+///
+/// @status construction
+@mixin atoms-rule ( $custom: (), $width: null ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($atoms-rule, $custom);
+  
+  // Initialize the rule component.
+  & {
+    
+    // Load structure.
+    @extend %atoms-rule;
+    
+    // Load skins.
+    @include atoms-rule--theme( $skin, $width );
+    
+  }
+  
+}
