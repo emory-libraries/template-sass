@@ -1,0 +1,130 @@
+////
+/// @group emory-libraries.patterns.molecules.flyout-info-item
+////
+
+/// Defines the base skin of the flyout-info-item component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$molecules-flyout-info-item: (
+  
+  'background': (
+    's': color('blue', 'dark'),
+    'm': color('white'),
+    'l': color('white')
+  ),
+  
+  'data': (
+    'color': (
+      'normal': (
+        's': $color-text-light,
+        'm': color('blue'),
+        'l': color('blue')
+      ),
+      'faded': (
+        's': color('slate'),
+        'm': color('slate'),
+        'l': color('slate')
+      )
+    )
+  ),
+  
+  'label': (
+    'color': (
+      's': color('blue', 'light'),
+      'm': $color-text-dark,
+      'l': $color-text-dark
+    )
+  ),
+  
+  'spacing': 25px
+  
+);
+
+/// Defines the flyout-info-item component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The flyout-info-item component's themeable properties
+@mixin molecules-flyout-info-item--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $spacing: map-deep-get($skin, 'spacing');
+  $padding: map-deep-get($skin, 'padding');
+  $background: map-deep-get($skin, 'background');
+  
+  // Defines the flyout-info-item component's base styles.
+  @include tokens-text('body-alt');
+  
+  // Modifies background styles for screens.
+  @each $breakpoint, $color in $background {
+    @include breakpoint( screen($breakpoint) ) {
+      background-color: $color;
+    };
+  }
+  
+  // Defines the flyout info item's label and data styles.
+  &-label,
+  &-data {
+    @include padding-y( $spacing / 2 );
+    
+    &:first-child {
+      padding-right: ($spacing / 2);
+    }
+    
+    &:last-child {
+      padding-left: ($spacing / 2);
+    }
+    
+  }
+  
+  // Defines the flyout info item's label styles.
+  &-label { 
+  
+    // Get label-specific variables.
+    $color: map-deep-get($skin, 'label.color');
+    
+    // Modifies color styles for screens.
+    @each $breakpoint, $foreground in $color {
+      @include breakpoint( screen($breakpoint) ) {
+        color: $foreground;
+      };
+    }
+  
+  }
+  
+  // Defines the flyout info item's data styles.
+  &-data {
+    
+    // Get data-specific variables.
+    $normal: map-deep-get($skin, 'data.color.normal');
+    $faded: map-deep-get($skin, 'data.color.faded');
+    
+    font-weight: bold;
+    
+    // Modifies color styles for screens.
+    @each $breakpoint, $foreground in $normal {
+      @include breakpoint( screen($breakpoint) ) {
+        color: $foreground;
+      };
+    }
+    
+    &.-faded {
+      
+      // Modifies color styles for screens.
+      @each $breakpoint, $foreground in $faded {
+        @include breakpoint( screen($breakpoint) ) {
+          color: $foreground;
+        };
+      }
+      
+    }
+    
+  }
+  
+}

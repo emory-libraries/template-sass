@@ -1,0 +1,47 @@
+////
+/// @group emory-libraries.patterns.molecules.flyout-info-item
+////
+
+/// Load the flyout-info-item component's structure and skin.
+@import 'flyout-info-item/structure';
+@import 'flyout-info-item/skin';
+
+/// Builds a constructor for the flyout-info-item component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-flyout-info-item
+/// @requires {variable} molecules-flyout-info-item
+/// @requires {mixin} molecules-flyout-info-item--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our flyout-info-item component
+///
+/// @status review
+@mixin molecules-flyout-info-item ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-flyout-info-item, $custom);
+  
+  // Initialize the flyout-info-item component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-flyout-info-item;
+    
+    // Load parts.
+    &-label {
+      @extend %molecules-flyout-info-item-label;
+    }
+    &-data {
+      @extend %molecules-flyout-info-item-data;
+    }
+    
+    // Load skins.
+    @include molecules-flyout-info-item--theme( $skin );
+    
+  }
+  
+}

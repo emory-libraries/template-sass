@@ -1,0 +1,25 @@
+////
+/// @group emory-libraries.patterns.molecules.flyout-info-item
+////
+
+/// Defines the base structure of the flyout-info-item component.
+///
+/// @since 1.0.0
+%molecules-flyout-info-item {
+  
+  // Builds the flyout-info-item structure.
+  display: table-row;
+
+  // Builds flyout info item label and data structure.
+  &-label,
+  &-data {
+    display: table-cell;
+  }
+
+  // Builds flyout info item label structure.
+  &-label { }
+  
+  // Builds flyout info item data structure.
+  &-data { }
+  
+}
