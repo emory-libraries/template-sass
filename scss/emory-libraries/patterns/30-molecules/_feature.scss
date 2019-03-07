@@ -1,0 +1,56 @@
+////
+/// @group emory-libraries.patterns.molecules.feature
+////
+
+/// Load the feature component's structure and skin.
+@import 'feature/structure';
+@import 'feature/skin';
+
+/// Builds a constructor for the feature component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-feature
+/// @requires {variable} molecules-feature
+/// @requires {mixin} molecules-feature--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our feature component
+///
+/// @status review
+@mixin molecules-feature ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-feature, $custom);
+  
+  // Initialize the feature component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-feature;
+    
+    // Load parts.
+    &-image {
+      @extend %molecules-feature-image;
+    }
+    &-context {
+      @extend %molecules-feature-context;
+    }
+    &-heading {
+      @extend %molecules-feature-heading;
+    }
+    &-description {
+      @extend %molecules-feature-description;
+    }
+    &-action {
+      @extend %molecules-feature-action;
+    }
+    
+    // Load skins.
+    @include molecules-feature--theme( $skin );
+    
+  }
+  
+}
