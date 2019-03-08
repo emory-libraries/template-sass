@@ -1,0 +1,105 @@
+////
+/// @group emory-libraries.patterns.molecules.wayfinder
+////
+
+/// Defines the base structure of the wayfinder component.
+///
+/// @since 1.0.0
+%molecules-wayfinder {
+  
+  // Builds the wayfinder structure.
+  display: grid;
+  grid-template-areas: "heading"
+                       "text"
+                       "action";
+  grid-template-rows: min-content 1fr min-content;
+  grid-template-columns: 1fr;
+  
+  &::before,
+  &::after {
+    content: '';
+    display: block;
+    @include absolute( 0 );
+    z-index: 1;
+  }
+  
+  // Builds the wayfinder image structure.
+  &-image { 
+    @include absolute-center-contents;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    
+    img {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+    }
+    
+    // Modifies structure on larger screens.
+    @include breakpoint-m-l {
+      bottom: 0;
+      right: auto;
+    };
+    
+    // Applies image variations.
+    &.-align-x-left {
+      justify-content: flex-start;
+    }
+    &.-align-x-right {
+      justify-content: flex-end;
+    }
+    &.-align-x-center {
+      justify-content: center;
+    }
+    &.-align-y-top {
+      align-items: flex-start;
+    }
+    &.-align-y-bottom {
+      align-items: flex-end;
+    }
+    &.-align-y-center {
+      align-items: center;
+    }
+    
+  }
+  
+  // Builds the wayfinder heading, text, and action structure.
+  &-heading,
+  &-text,
+  &-action {
+    z-index: 2;
+  }
+  
+  // Builds the wayfinder heading and text structure.
+  &-heading,
+  &-text {
+    margin: 0;
+  }
+  
+  // Builds the wayfinder heading structure.
+  &-heading { }
+  
+  // Builds the wayfinder text structure.
+  &-text { }
+  
+  // Builds the wayfinder action structure.
+  &-action { 
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: center;
+    
+    // Modifies structure on larger screens.
+    @include breakpoint-m-l {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    };
+    
+  }
+  
+}

@@ -19,3 +19,8 @@
 .feature {
   @include molecules-feature;
 }
+
+// molecules-wayfinder
+.wayfinder {
+  @include molecules-wayfinder;
+}

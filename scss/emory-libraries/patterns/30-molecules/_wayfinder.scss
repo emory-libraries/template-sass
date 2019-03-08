@@ -1,0 +1,53 @@
+////
+/// @group emory-libraries.patterns.molecules.wayfinder
+////
+
+/// Load the wayfinder component's structure and skin.
+@import 'wayfinder/structure';
+@import 'wayfinder/skin';
+
+/// Builds a constructor for the wayfinder component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-wayfinder
+/// @requires {variable} molecules-wayfinder
+/// @requires {mixin} molecules-wayfinder--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our wayfinder component
+///
+/// @status review
+@mixin molecules-wayfinder ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-wayfinder, $custom);
+  
+  // Initialize the wayfinder component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-wayfinder;
+    
+    // Load parts.
+    &-image {
+      @extend %molecules-wayfinder-image;
+    }
+    &-heading {
+      @extend %molecules-wayfinder-heading;
+    }
+    &-text {
+      @extend %molecules-wayfinder-text;
+    }
+    &-action {
+      @extend %molecules-wayfinder-action;
+    }
+    
+    // Load skins.
+    @include molecules-wayfinder--theme( $skin );
+    
+  }
+  
+}
