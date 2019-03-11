@@ -1,0 +1,83 @@
+////
+/// @group emory-libraries.patterns.molecules.card-librarian
+////
+
+/// Load the card-librarian component's structure and skin.
+@import 'card-librarian/structure';
+@import 'card-librarian/skin';
+
+/// Builds a constructor for the card-librarian component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-card-librarian
+/// @requires {variable} molecules-card-librarian
+/// @requires {mixin} molecules-card-librarian--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our card-librarian component
+///
+/// @status review
+@mixin molecules-card-librarian ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-card-librarian, $custom);
+  
+  // Initialize the card-librarian component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-card-librarian;
+    
+    // Load parts.
+    &-about {
+      @extend %molecules-card-librarian-about;
+    }
+    &-subjects {
+      @extend %molecules-card-librarian-subjects;
+      &-list {
+        @extend %molecules-card-librarian-subjects-list;
+        &-item {
+          @extend %molecules-card-librarian-subjects-list-item;
+        }
+      }
+    }
+    &-contact {
+      @extend %molecules-card-librarian-contact;
+      &-info {
+        @extend %molecules-card-librarian-contact-info;
+        &-item {
+          @extend %molecules-card-librarian-contact-info-item;
+        }
+      }
+      &-links {
+        @extend %molecules-card-librarian-contact-links;
+        &-item {
+          @extend %molecules-card-librarian-contact-links-item;
+        }
+      }
+    }
+    &-image {
+      @extend %molecules-card-librarian-image;
+    }
+    &-name {
+      @extend %molecules-card-librarian-name;
+    }
+    &-title {
+      @extend %molecules-card-librarian-title;
+    }
+    &-library {
+      @extend %molecules-card-librarian-library;
+    }
+    &-context {
+      @extend %molecules-card-librarian-context;
+    }
+    
+    // Load skins.
+    @include molecules-card-librarian--theme( $skin );
+    
+  }
+  
+}

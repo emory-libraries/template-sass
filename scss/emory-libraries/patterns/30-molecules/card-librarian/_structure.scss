@@ -1,0 +1,167 @@
+////
+/// @group emory-libraries.patterns.molecules.card-librarian
+////
+
+/// Defines the base structure of the card-librarian component.
+///
+/// @since 1.0.0
+%molecules-card-librarian {
+  
+  // Builds the card-librarian structure.
+  display: grid;
+  grid-template-areas: "about";
+  grid-template-columns: 1fr;
+  
+  @include breakpoint-m {
+    grid-template-areas: "about contact";
+    grid-template-columns: repeat(2, 1fr);
+  };
+  @include breakpoint-l {
+    grid-template-areas: "about subjects contact";
+    grid-template-columns: 1fr 2fr 1fr;
+  };
+  
+  // Builds the card's about, subjects, and contact structure.
+  &-subjects,
+  &-contact {
+    
+    &::before {
+      content: '';
+      display: block;
+      @include absolute( 0 null 0 0 );
+      @include margin-y( auto );
+    }
+    
+  }
+  
+  // Builds the card about structure.
+  &-about { 
+    grid-area: about;
+    display: grid;
+    grid-template-areas: "image"
+                         "name"
+                         "title"
+                         "library";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr min-content auto min-content;
+  }
+  
+  // Builds the card subjects structure.
+  &-subjects {
+    display: none;
+    grid-area: subjects;
+    flex-direction: column;
+  
+    // Builds the card subjects list structure.
+    &-list { 
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      grid-area: list;
+      grid-area: list;
+      display: grid;
+      grid-auto-flow: row;
+      grid-auto-rows: auto;
+    
+      // Builds the card subjects list item structure.
+      &-item { 
+        display: block;
+      }
+      
+    }
+    
+    // Only shows subjects on large screens.
+    @include breakpoint-l {
+      display: flex;
+    };
+  
+  }
+  
+  // Builds the card contact structure.
+  &-contact {
+    display: none;
+    grid-area: contact;
+    flex-direction: column;
+  
+    // Builds the card contact info structure.
+    &-info { 
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      grid-area: info;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+    
+      // Builds the card contact list item structure.
+      &-item {
+        display: block;
+      }
+      
+    }
+    
+    // Builds the card contact links structure.
+    &-links { 
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      grid-area: links;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-auto-rows: auto;
+    
+      // Builds the card contact list item structure.
+      &-item {
+        display: block;
+      }
+      
+    }
+    
+    // Only shows contact on larger screens.
+    @include breakpoint-m-l {
+      display: flex;
+    };
+    
+  }
+  
+  // Builds the card image structure.
+  &-image { 
+    grid-area: image;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    @include margin-x( auto );
+    
+    img {
+      width: 100%;
+    }
+    
+  }
+  
+  // Builds the card name structure.
+  &-name {
+    grid-area: name;
+    margin: 0;
+    @include absolute-center-contents( true );
+  }
+  
+  // Builds the card title structure.
+  &-title { 
+    grid-area: title;
+    margin: 0;
+  }
+  
+  // Builds the card library structure.
+  &-library { 
+    grid-area: library;
+    margin: 0;
+  }
+  
+  // Builds the card context structure.
+  &-context {
+    grid-area: context;
+    margin: 0;
+  }
+  
+}
