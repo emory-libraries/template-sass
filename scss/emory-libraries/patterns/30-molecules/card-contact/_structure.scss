@@ -1,0 +1,47 @@
+////
+/// @group emory-libraries.patterns.molecules.card-contact
+////
+
+/// Defines the base structure of the card-contact component.
+///
+/// @since 1.0.0
+%molecules-card-contact {
+  
+  // Builds the card-contact structure.
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr repeat(3, min-content);
+  justify-content: center;
+  
+  // Defines the card contact image structure.
+  &-image { 
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: hidden;
+    @include margin-x( auto );
+    
+    img {
+      width: 100%;
+    }
+    
+  }
+  
+  // Defines the card contact name structure.
+  &-name { 
+    margin: 0;
+    @include absolute-center-contents( true );
+  }
+  
+  // Defines the card contact title structure.
+  &-title {
+    margin: 0;
+  }
+  
+  // Defines the card contact email structure.
+  &-email { 
+    margin: 0;
+    @include absolute-center-contents( true );
+  }
+  
+}

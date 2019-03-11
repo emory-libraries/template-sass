@@ -29,3 +29,8 @@
 .explorer {
   @include molecules-explorer;
 }
+
+// molecules-card-contact
+.card-contact {
+  @include molecules-card-contact;
+}

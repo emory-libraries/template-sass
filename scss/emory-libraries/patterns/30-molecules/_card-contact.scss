@@ -1,0 +1,53 @@
+////
+/// @group emory-libraries.patterns.molecules.card-contact
+////
+
+/// Load the card-contact component's structure and skin.
+@import 'card-contact/structure';
+@import 'card-contact/skin';
+
+/// Builds a constructor for the card-contact component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-card-contact
+/// @requires {variable} molecules-card-contact
+/// @requires {mixin} molecules-card-contact--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our card-contact component
+///
+/// @status review
+@mixin molecules-card-contact ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-card-contact, $custom);
+  
+  // Initialize the card-contact component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-card-contact;
+    
+    // Load parts.
+    &-image {
+      @extend %molecules-card-contact-image;
+    }
+    &-name {
+      @extend %molecules-card-contact-name;
+    }
+    &-title {
+      @extend %molecules-card-contact-title;
+    }
+    &-email {
+      @extend %molecules-card-contact-email;
+    }
+    
+    // Load skins.
+    @include molecules-card-contact--theme( $skin );
+    
+  }
+  
+}
