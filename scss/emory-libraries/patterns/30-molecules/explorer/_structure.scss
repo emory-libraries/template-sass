@@ -1,0 +1,46 @@
+////
+/// @group emory-libraries.patterns.molecules.explorer
+////
+
+/// Defines the base structure of the explorer component.
+///
+/// @since 1.0.0
+%molecules-explorer {
+  
+  // Builds the explorer structure.
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "context"
+                       "heading"
+                       "list";
+  
+  // Builds the explorer context structure.
+  &-context {
+    display: block;
+    margin: 0;
+    grid-area: context;
+  }
+  
+  // Builds the explorer heading structure.
+  &-heading {
+    display: block;
+    margin: 0;
+    grid-area: heading;
+  }
+  
+  // Builds the explorer list structure.
+  &-list { 
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    grid-area: list;
+  
+    // Builds the explorer list item structure.
+    &-item { }
+  
+  }
+  
+  // Builds the explorer link structure.
+  &-link { }
+  
+}

@@ -24,3 +24,8 @@
 .wayfinder {
   @include molecules-wayfinder;
 }
+
+// molecules-explorer
+.explorer {
+  @include molecules-explorer;
+}

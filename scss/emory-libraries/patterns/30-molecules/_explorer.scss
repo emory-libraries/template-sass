@@ -1,0 +1,56 @@
+////
+/// @group emory-libraries.patterns.molecules.explorer
+////
+
+/// Load the explorer component's structure and skin.
+@import 'explorer/structure';
+@import 'explorer/skin';
+
+/// Builds a constructor for the explorer component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-explorer
+/// @requires {variable} molecules-explorer
+/// @requires {mixin} molecules-explorer--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our explorer component
+///
+/// @status review
+@mixin molecules-explorer ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-explorer, $custom);
+  
+  // Initialize the explorer component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-explorer;
+    
+    // Load parts.
+    &-context {
+      @extend %molecules-explorer-context;
+    }
+    &-heading {
+      @extend %molecules-explorer-heading;
+    }
+    &-list {
+      @extend %molecules-explorer-list;
+      &-item {
+        @extend %molecules-explorer-list-item;
+      }
+    }
+    &-link {
+      @extend %molecules-explorer-link;
+    }
+    
+    // Load skins.
+    @include molecules-explorer--theme( $skin );
+    
+  }
+  
+}
