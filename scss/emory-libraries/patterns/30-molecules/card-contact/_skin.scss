@@ -28,7 +28,7 @@ $molecules-card-contact: (
   'name': (
     'normal': color('blue', 'dark'),
     'hover': color('blue', 'bright'),
-    'active': color('blue', 'active')
+    'active': color('blue', 'bright')
   ),
   'email': (
     'normal': $color-actionable,
