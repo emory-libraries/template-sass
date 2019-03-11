@@ -28554,7 +28554,11 @@
                                 $contact: map-deep-get($skin, &#x27;contact&#x27;);
                                 $subjects: map-deep-get($skin, &#x27;subjects&#x27;);
                                 $context: map-deep-get($skin, &#x27;context&#x27;);
-                                $icon: map-deep-get($skin, &#x27;icon&#x27;);
+                                
+                                // Get icon-specific variables.
+                                $icon-size: map-deep-get($skin, &#x27;icon.size&#x27;);
+                                $icon-color: map-deep-get($skin, &#x27;icon.color&#x27;);
+                                $icon-spacing: map-deep-get($skin, &#x27;icon.spacing&#x27;);
                                 
                                 // Get border-specific variables.
                                 $border-thickness: map-deep-get($skin, &#x27;border.thickness&#x27;);
@@ -28655,7 +28659,12 @@
                                       }
                                       
                                       .icon {
-                                        @include size( $icon );
+                                        @include size( $icon-size );
+                                        margin-right: $icon-spacing;
+                                      }
+                                      
+                                      svg {
+                                        fill: $icon-color;
                                       }
                                       
                                     }
@@ -29010,7 +29019,11 @@
                                 ),
                                 
                                 &#x27;image&#x27;: 60px,
-                                &#x27;icon&#x27;: 18px,
+                                &#x27;icon&#x27;: (
+                                  &#x27;size&#x27;: 18px,
+                                  &#x27;color&#x27;: color(&#x27;blue&#x27;),
+                                  &#x27;spacing&#x27;: 10px
+                                ),
                                 &#x27;padding&#x27;: 25px,
                                 &#x27;gap&#x27;: (
                                   &#x27;x&#x27;: 50px,
@@ -29205,7 +29218,8 @@
                                   
                                     // Builds the card contact list item structure.
                                     &amp;-item {
-                                      display: block;
+                                      display: flex;
+                                      align-items: center;
                                     }
                                     
                                   }

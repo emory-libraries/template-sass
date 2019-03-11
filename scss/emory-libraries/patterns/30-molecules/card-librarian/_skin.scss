@@ -43,7 +43,11 @@ $molecules-card-librarian: (
   ),
   
   'image': 60px,
-  'icon': 18px,
+  'icon': (
+    'size': 18px,
+    'color': color('blue'),
+    'spacing': 10px
+  ),
   'padding': 25px,
   'gap': (
     'x': 50px,
@@ -75,7 +79,11 @@ $molecules-card-librarian: (
   $contact: map-deep-get($skin, 'contact');
   $subjects: map-deep-get($skin, 'subjects');
   $context: map-deep-get($skin, 'context');
-  $icon: map-deep-get($skin, 'icon');
+  
+  // Get icon-specific variables.
+  $icon-size: map-deep-get($skin, 'icon.size');
+  $icon-color: map-deep-get($skin, 'icon.color');
+  $icon-spacing: map-deep-get($skin, 'icon.spacing');
   
   // Get border-specific variables.
   $border-thickness: map-deep-get($skin, 'border.thickness');
@@ -176,7 +184,12 @@ $molecules-card-librarian: (
         }
         
         .icon {
-          @include size( $icon );
+          @include size( $icon-size );
+          margin-right: $icon-spacing;
+        }
+        
+        svg {
+          fill: $icon-color;
         }
         
       }
