@@ -13,6 +13,7 @@
   grid-template-areas: "context"
                        "heading"
                        "list";
+  grid-template-rows: repeat(2, min-content) 1fr;
   
   // Builds the explorer context structure.
   &-context {
