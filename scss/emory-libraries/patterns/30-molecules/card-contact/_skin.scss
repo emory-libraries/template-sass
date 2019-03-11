@@ -16,7 +16,7 @@ $molecules-card-contact: (
   'stripe': tint(color('slate', 'light'), 50%),
   'border': (
     'thickness': $border-width-s,
-    'color': color('slate')
+    'color': tint(color('slate'), 50%)
   ),
   'foreground': color('blue'),
   'background': color('white'),
