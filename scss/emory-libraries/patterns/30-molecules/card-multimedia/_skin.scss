@@ -26,6 +26,7 @@ $molecules-card-multimedia: (
   'gap': 15px,
   'icon': (
     'size': 60px,
+    'scale': 75%,
     'background': color('blue', 'bright'),
     'border': 4px solid color('white')
   ),
@@ -63,6 +64,7 @@ $molecules-card-multimedia: (
   
   // Get icon-specific variables.
   $icon-size: map-deep-get($skin, 'icon.size');
+  $icon-scale: map-deep-get($skin, 'icon.scale');
   $icon-border: map-deep-get($skin, 'icon.border');
   $icon-background: map-deep-get($skin, 'icon.background');
   $icon-foreground: color-contrast($icon-background);
@@ -99,6 +101,7 @@ $molecules-card-multimedia: (
     
     svg {
       fill: $icon-foreground;
+      height: $icon-scale;
     }
     
   }
