@@ -1,0 +1,49 @@
+////
+/// @group emory-libraries.patterns.molecules.card-multimedia
+////
+
+/// Defines the base structure of the card-multimedia component.
+///
+/// @since 1.0.0
+%molecules-card-multimedia {
+  
+  // Builds the card-multimedia structure.
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr repeat(3, min-content);
+  justify-content: center;
+  
+  // Builds the card multimedia icon structure.
+  &-icon {
+    @include absolute-center-contents;
+    overflow: hidden;
+    @include margin-x( auto );
+    
+    .icon {
+      @include size( 100% );
+      @include absolute-center-contents;
+    }
+    
+    svg {
+      width: 100%;
+    }
+    
+  }
+  
+  // Builds the card multimedia context structure.
+  &-context {
+    margin: 0;
+  }
+  
+  // Builds the card multimedia title structure.
+  &-title {
+    margin: 0;
+    @include absolute-center-contents( true );
+  }
+  
+  // Builds the card multimedia duration structure.
+  &-duration {
+    margin: 0;
+  }
+  
+}

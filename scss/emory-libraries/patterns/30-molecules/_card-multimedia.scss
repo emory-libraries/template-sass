@@ -1,0 +1,53 @@
+////
+/// @group emory-libraries.patterns.molecules.card-multimedia
+////
+
+/// Load the card-multimedia component's structure and skin.
+@import 'card-multimedia/structure';
+@import 'card-multimedia/skin';
+
+/// Builds a constructor for the card-multimedia component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-card-multimedia
+/// @requires {variable} molecules-card-multimedia
+/// @requires {mixin} molecules-card-multimedia--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our card-multimedia component
+///
+/// @status review
+@mixin molecules-card-multimedia ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-card-multimedia, $custom);
+  
+  // Initialize the card-multimedia component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-card-multimedia;
+    
+    // Load parts.
+    &-icon {
+      @extend %molecules-card-multimedia-icon;
+    }
+    &-context {
+      @extend %molecules-card-multimedia-context;
+    }
+    &-title {
+      @extend %molecules-card-multimedia-title;
+    }
+    &-duration {
+      @extend %molecules-card-multimedia-duration;
+    }
+    
+    // Load skins.
+    @include molecules-card-multimedia--theme( $skin );
+    
+  }
+  
+}

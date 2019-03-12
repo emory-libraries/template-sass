@@ -39,3 +39,13 @@
 .card-librarian {
   @include molecules-card-librarian;
 }
+
+// molecules-card-multimedia
+.card-multimedia {
+  @include molecules-card-multimedia;
+}
+
+// molecules-card-library-aid
+.card-library-aid {
+  @include molecules-card-library-aid;
+}

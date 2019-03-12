@@ -1,0 +1,131 @@
+////
+/// @group emory-libraries.patterns.molecules.card-multimedia
+////
+
+/// Defines the base skin of the card-multimedia component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$molecules-card-multimedia: (
+  
+  'bar': (
+    'thickness': $border-width-m,
+    'color': $color-actionable
+  ),
+  'stripe': tint(color('slate', 'light'), 50%),
+  'border': (
+    'thickness': $border-width-s,
+    'color': tint(color('slate'), 50%)
+  ),
+  'background': color('white'),
+  
+  'radius': 5px,
+  'padding': 40px 25px 80px,
+  'spacing': 25px,
+  'gap': 15px,
+  'icon': (
+    'size': 60px,
+    'background': color('blue', 'bright'),
+    'border': 4px solid color('white')
+  ),
+  
+  'title': (
+    'normal': color('blue'),
+    'hover': $color-actionable,
+    'active': $color-actionable
+  ),
+  'context': color('blue'),
+  'duration': $color-text-dark
+  
+);
+
+/// Defines the card-multimedia component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The card-multimedia component's themeable properties
+@mixin molecules-card-multimedia--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $gap: map-deep-get($skin, 'gap');
+  $padding: map-deep-get($skin, 'padding');
+  $spacing: map-deep-get($skin, 'spacing');
+  $radius: map-deep-get($skin, 'radius');
+  $background: map-deep-get($skin, 'background');
+  $title: map-deep-get($skin, 'title');
+  $context: map-deep-get($skin, 'context');
+  $duration: map-deep-get($skin, 'duration');
+  
+  // Get icon-specific variables.
+  $icon-size: map-deep-get($skin, 'icon.size');
+  $icon-border: map-deep-get($skin, 'icon.border');
+  $icon-background: map-deep-get($skin, 'icon.background');
+  $icon-foreground: color-contrast($icon-background);
+  
+  // Get bar-specific variables.
+  $bar-thickness: map-deep-get($skin, 'bar.thickness');
+  $bar-color: map-deep-get($skin, 'bar.color');
+  
+  // Get stripe-specific variables.
+  $stripe-color: map-deep-get($skin, 'stripe');
+  $stripe-thickness: nth($padding, 1) + ($icon-size / 2);
+  
+  // Get border-specific variables.
+  $border-thickness: map-deep-get($skin, 'border.thickness');
+  $border-color: map-deep-get($skin, 'border.color');
+  
+  // Defines the card-multimedia component's base styles.
+  grid-gap: $gap;
+  padding: $padding;
+  border: $border-thickness solid $border-color;
+  border-top: $bar-thickness solid $bar-color;
+  @include border-bottom-radius( $radius );
+  background-color: $background;
+  @include linear-gradient(to bottom, $stripe-color $stripe-thickness, transparent $stripe-thickness);
+  
+  // Defines the card multimedia icon styles.
+  &-icon { 
+    box-sizing: content-box;
+    text-align: center;
+    @include size( $icon-size );
+    border-radius: 100%;
+    border: $icon-border;
+    background-color: $icon-background;
+    
+    svg {
+      fill: $icon-foreground;
+    }
+    
+  }
+  
+  // Defines the card multimedia context styles.
+  &-context { 
+    @include tokens-heading('h6', $context);
+    font-size: 12px;
+    text-align: center;
+  }
+  
+  // Defines the card multimedia title styles.
+  &-title { 
+    @include tokens-heading('h5');
+    @include atoms-link((
+      color: $title,
+      weight: normal
+    ));
+    text-align: center;
+    margin-top: $spacing;
+  }
+  
+  // Defines the card multimedia duration styles.
+  &-duration {
+    @include tokens-heading('h6', $duration);
+    font-size: 12px;
+    text-align: center;
+  }
+  
+}

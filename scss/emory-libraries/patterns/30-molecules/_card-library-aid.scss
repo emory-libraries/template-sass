@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.molecules.card-library-aid
+////
+
+/// Load the card-library-aid component's structure and skin.
+@import 'card-library-aid/structure';
+@import 'card-library-aid/skin';
+
+/// Builds a constructor for the card-library-aid component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-card-library-aid
+/// @requires {variable} molecules-card-library-aid
+/// @requires {mixin} molecules-card-library-aid--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our card-library-aid component
+///
+/// @status review
+@mixin molecules-card-library-aid ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-card-library-aid, $custom);
+  
+  // Initialize the card-library-aid component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-card-library-aid;
+    
+    // Load parts.
+    &-icon {
+      @extend %molecules-card-multimedia-icon;
+    }
+    &-context {
+      @extend %molecules-card-multimedia-context;
+    }
+    &-title {
+      @extend %molecules-card-multimedia-title;
+    }
+    
+    // Load skins.
+    @include molecules-card-library-aid--theme( $skin );
+    
+  }
+  
+}
