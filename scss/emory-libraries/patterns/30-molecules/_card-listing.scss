@@ -1,0 +1,56 @@
+////
+/// @group emory-libraries.patterns.molecules.card-listing
+////
+
+/// Load the card-listing component's structure and skin.
+@import 'card-listing/structure';
+@import 'card-listing/skin';
+
+/// Builds a constructor for the card-listing component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-card-listing
+/// @requires {variable} molecules-card-listing
+/// @requires {mixin} molecules-card-listing--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our card-listing component
+///
+/// @status review
+@mixin molecules-card-listing ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-card-listing, $custom);
+  
+  // Initialize the card-listing component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-card-listing;
+    
+    // Load parts.
+    &-date {
+      @extend %molecules-card-listing-date;
+    }
+    &-title {
+      @extend %molecules-card-listing-title;
+    }
+    &-description {
+      @extend %molecules-card-listing-description;
+    }
+    &-action {
+      @extend %molecules-card-listing-action;
+    }
+    &-image {
+      @extend %molecules-card-listing-image;
+    }
+    
+    // Load skins.
+    @include molecules-card-listing--theme( $skin );
+    
+  }
+  
+}

@@ -120,3 +120,63 @@
   @return $value;
   
 }
+
+/// Gets a positional value from a base property value.
+///
+/// @since 1.0.0
+///
+/// @param {list} value - The base property value that a positional value should be extracted from.
+/// @param {string} position [null] - The positional value to extract if given.
+///
+/// @returns {mixed} The positional value extracted from the base property value.
+@function positional-value( $value, $position: null ) {
+  
+  // Initialize positional values.
+  $positions: (
+    top: null,
+    right: null,
+    bottom: null,
+    left: null
+  );
+  
+  // Extract positional values.
+  @if( length($value) == 1 ) {
+    
+    $positions: map-set($positions, top, $value);
+    $positions: map-set($positions, right, $value);
+    $positions: map-set($positions, bottom, $value);
+    $positions: map-set($positions, left, $value);
+    
+  }
+  @else if( length($value) == 2 ) {
+    
+    $positions: map-set($positions, top, nth($value, 1));
+    $positions: map-set($positions, right, nth($value, 2));
+    $positions: map-set($positions, bottom, nth($value, 1));
+    $positions: map-set($positions, left, nth($value, 2));
+    
+  }
+  @else if( length($value) == 3 ) {
+    
+    $positions: map-set($positions, top, nth($value, 1));
+    $positions: map-set($positions, right, nth($value, 2));
+    $positions: map-set($positions, bottom, nth($value, 3));
+    $positions: map-set($positions, left, nth($value, 2));
+    
+  }
+  @else if( length($value) == 4 ) {
+    
+    $positions: map-set($positions, top, nth($value, 1));
+    $positions: map-set($positions, right, nth($value, 2));
+    $positions: map-set($positions, bottom, nth($value, 3));
+    $positions: map-set($positions, left, nth($value, 4));
+    
+  }
+  
+  // Return the position.
+  @if( $position != null ) { @return map-get($positions, $position); }
+  
+  // Otherwise, return all positions.
+  @return $positions;
+  
+}
