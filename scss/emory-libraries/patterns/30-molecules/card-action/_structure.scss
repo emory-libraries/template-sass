@@ -1,0 +1,43 @@
+////
+/// @group emory-libraries.patterns.molecules.card-action
+////
+
+/// Defines the base structure of the card-action component.
+///
+/// @since 1.0.0
+%molecules-card-action {
+  
+  // Builds the card-action structure.
+  display: grid;
+  grid-template-areas: "image image"
+                       "text action";
+  grid-template-columns: 1fr auto;
+  
+  // Builds card action image structure.
+  &-image {
+    grid-area: image;
+    @include absolute-center-contents;
+    @include absolute( 0 0 null 0 );
+    overflow: hidden;
+    
+    img {
+      width: 100%;
+    }
+    
+  }
+  
+  // Builds card action text structure.
+  &-text {
+    grid-area: text;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  
+  // Builds card action action structure.
+  &-action { 
+    grid-area: action;
+  }
+  
+}

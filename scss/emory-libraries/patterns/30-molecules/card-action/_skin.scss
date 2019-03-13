@@ -1,0 +1,82 @@
+////
+/// @group emory-libraries.patterns.molecules.card-action
+////
+
+/// Defines the base skin of the card-action component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$molecules-card-action: (
+  
+  'padding': 25px,
+  'gap': 25px,
+  'size': 265px,
+  'image': 190px,
+  'color': color('blue'),
+  'bar': (
+    'thickness': $border-width-l,
+    'color': color('blue', 'bright')
+  ),
+  'border': (
+    'thickness': $border-width-s,
+    'color': color('slate', 'light')
+  ),
+  'shadow': 0px 3px 3px rgba(color('black'), .08)
+  
+);
+
+/// Defines the card-action component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The card-action component's themeable properties
+@mixin molecules-card-action--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $padding: map-deep-get($skin, 'padding');
+  $gap: map-deep-get($skin, 'gap');
+  $size: map-deep-get($skin, 'size');
+  $image: map-deep-get($skin, 'image');
+  $color: map-deep-get($skin, 'color');
+  $shadow: map-deep-get($skin, 'shadow');
+  
+  // Get bar-specific variables.
+  $bar-thickness: map-deep-get($skin, 'bar.thickness');
+  $bar-color: map-deep-get($skin, 'bar.color');
+  
+  // Get border-specific variables.
+  $border-thickness: map-deep-get($skin, 'border.thickness');
+  $border-color: map-deep-get($skin, 'border.color');
+  
+  // Defines the card-action component's base styles.
+  padding: $padding;
+  grid-gap: $gap;
+  min-height: $size;
+  border: $border-thickness solid $border-color;
+  border-top: $bar-thickness solid $bar-color;
+  box-shadow: $shadow;
+  grid-template-rows: $image auto;
+  
+  // Defines card action image styles.
+  &-image { 
+    height: calc(#{$image} + #{$padding});
+    width: calc(100% + (#{$padding} * 2));
+    top: -$padding;
+    left: -$padding;
+    right: -$padding;
+  }
+  
+  // Defines card action text styles.
+  &-text { 
+    @include tokens-heading('h5-alt', $color);
+  }
+  
+  // Defines card action action styles.
+  &-action { }
+  
+}

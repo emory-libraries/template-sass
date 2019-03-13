@@ -59,3 +59,8 @@
 .card-listing {
   @include molecules-card-listing;
 }
+
+// molecules-card-action
+.card-action {
+  @include molecules-card-action;
+}
