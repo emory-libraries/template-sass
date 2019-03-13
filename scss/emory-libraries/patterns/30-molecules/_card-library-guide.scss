@@ -1,0 +1,44 @@
+////
+/// @group emory-libraries.patterns.molecules.card-library-guide
+////
+
+/// Load the card-library-guide component's structure and skin.
+@import 'card-library-guide/structure';
+@import 'card-library-guide/skin';
+
+/// Builds a constructor for the card-library-guide component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-card-library-guide
+/// @requires {variable} molecules-card-library-guide
+/// @requires {mixin} molecules-card-library-guide--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our card-library-guide component
+///
+/// @status review
+@mixin molecules-card-library-guide ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-card-library-guide, $custom);
+  
+  // Initialize the card-library-guide component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-card-library-guide;
+    
+    // Load parts.
+    &-title {
+      @extend %molecules-card-library-guide-title;
+    }
+    
+    // Load skins.
+    @include molecules-card-library-guide--theme( $skin );
+    
+  }
+  
+}

@@ -1,0 +1,21 @@
+////
+/// @group emory-libraries.patterns.molecules.card-library-guide
+////
+
+/// Defines the base structure of the card-library-guide component.
+///
+/// @since 1.0.0
+%molecules-card-library-guide {
+  
+  // Builds the card-library-guide structure.
+  display: block;
+  
+  // Builds the card library guide title structure.
+  &-title { 
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin: 0;
+  }
+  
+}
