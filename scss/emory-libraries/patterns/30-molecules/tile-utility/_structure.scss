@@ -14,6 +14,7 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-auto-rows: min-content;
+  overflow: hidden;
   
   // Builds the tile utility structure without descriptions.
   &:not(.has-description) {
