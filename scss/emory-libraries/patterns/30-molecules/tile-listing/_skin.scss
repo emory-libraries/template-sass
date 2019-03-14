@@ -40,7 +40,7 @@ $molecules-tile-listing: (
 /// @output The tile-listing component's themeable properties
 @mixin molecules-tile-listing--theme ( $skin ) {
   
-  // Caoture selector.
+  // Capture selector.
   $selector: &;
   
   // Capture themeable variables from skin.

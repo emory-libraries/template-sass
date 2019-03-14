@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.molecules.tile-utility
+////
+
+/// Load the tile-utility component's structure and skin.
+@import 'tile-utility/structure';
+@import 'tile-utility/skin';
+
+/// Builds a constructor for the tile-utility component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-tile-utility
+/// @requires {variable} molecules-tile-utility
+/// @requires {mixin} molecules-tile-utility--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our tile-utility component
+///
+/// @status review
+@mixin molecules-tile-utility ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-tile-utility, $custom);
+  
+  // Initialize the tile-utility component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-tile-utility;
+    
+    // Load parts.
+    &-image {
+      @extend %molecules-tile-utility-image;
+    }
+    &-title {
+      @extend %molecules-tile-utility-title;
+    }
+    &-description {
+      @extend %molecules-tile-utility-description;
+    }
+    
+    // Load skins.
+    @include molecules-tile-utility--theme( $skin );
+    
+  }
+  
+}

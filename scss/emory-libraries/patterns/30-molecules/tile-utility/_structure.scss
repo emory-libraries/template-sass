@@ -1,0 +1,111 @@
+////
+/// @group emory-libraries.patterns.molecules.tile-utility
+////
+
+/// Defines the base structure of the tile-utility component.
+///
+/// @since 1.0.0
+%molecules-tile-utility {
+  
+  // Capture selector.
+  $selector: &;
+  
+  // Builds the tile-utility structure.
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-auto-rows: min-content;
+  
+  // Builds the tile utility structure without descriptions.
+  &:not(.has-description) {
+    grid-template-areas: "title";
+    
+    #{$selector}-description {
+      display: none;
+    }
+    
+  }
+  
+  // Builds the tile utility structure with descriptions.
+  &.has-description {
+    grid-template-areas: "title"
+                         "description";
+    
+     #{$selector}-description {
+      display: block;
+    }
+    
+  }
+  
+  // Builds the tile utility image structure.
+  &-image {
+    @include absolute( 0 0 null 0 );
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    
+    img {
+      display: block;
+      @include absolute-center-within-container;
+      min-width: 100%;
+      min-height: 100%;
+    }
+    
+    // Modifies structure in terms of image alignment.
+    &.-align-x-left:not(.-align-y-top):not(.-align-y-bottom) img {
+      left: 0;
+      transform: translatex(0%) translatey(-50%);
+    }
+    &.-align-x-right:not(.-align-y-top):not(.-align-y-bottom) img {
+      left: auto;
+      right: 0;
+      transform: translatex(0%) translatey(-50%);
+    }
+    &.-align-y-top:not(.-align-x-left):not(.-align-x-right) img {
+      top: 0;
+      transform: translatex(-50%) translatey(0%);
+    }
+    &.-align-y-bottom:not(.-align-x-left):not(.-align-x-right) img {
+      top: auto;
+      bottom: 0;
+      transform: translatex(-50%) translatey(0%);
+    }
+    &.-align-x-left.-align-y-top img {
+      left: 0;
+      top: 0;
+      transform: translatex(0%) translatey(0%);
+    }
+    &.-align-x-left.-align-y-bottom img {
+      left: 0;
+      top: auto;
+      bottom: 0;
+      transform: translatex(0%) translatey(0%);
+    }
+    &.-align-x-right.-align-y-top img {
+      left: auto;
+      right: 0;
+      top: 0;
+      transform: translatex(0%) translatey(0%);
+    }
+    &.-align-x-right.-align-y-bottom img {
+      left: auto;
+      right: 0;
+      top: auto;
+      bottom: 0;
+      transform: translatex(0%) translatey(0%);
+    }
+    
+  }
+  
+  // Builds the tile utility title structure.
+  &-title {
+    grid-area: title;
+    margin: 0;
+  }
+  
+  // Builds the tile utility description structure.
+  &-description {
+    grid-area: description;
+    margin: 0;
+  }
+  
+}
