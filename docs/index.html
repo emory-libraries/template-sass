@@ -39133,8 +39133,17 @@
                                   img {
                                     display: block;
                                     @include absolute-center-within-container;
-                                    min-width: 100%;
                                     min-height: 100%;
+                                  }
+                                  
+                                  &amp; img,
+                                  &amp;.-contain img {
+                                    width: 100%;
+                                  }
+                                  
+                                  &amp;.-cover img {
+                                    width: auto;
+                                    min-width: 100%;
                                   }
                                   
                                   // Modifies structure in terms of image alignment.
@@ -40046,8 +40055,17 @@
                                   img {
                                     display: block;
                                     @include absolute-center-within-container;
-                                    min-width: 100%;
                                     min-height: 100%;
+                                  }
+                                  
+                                  &amp; img,
+                                  &amp;.-contain img {
+                                    width: 100%;
+                                  }
+                                  
+                                  &amp;.-cover img {
+                                    width: auto;
+                                    min-width: 100%;
                                   }
                                   
                                   // Modifies structure in terms of image alignment.

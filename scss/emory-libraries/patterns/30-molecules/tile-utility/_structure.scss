@@ -46,8 +46,17 @@
     img {
       display: block;
       @include absolute-center-within-container;
-      min-width: 100%;
       min-height: 100%;
+    }
+    
+    & img,
+    &.-contain img {
+      width: 100%;
+    }
+    
+    &.-cover img {
+      width: auto;
+      min-width: 100%;
     }
     
     // Modifies structure in terms of image alignment.
