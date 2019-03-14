@@ -123,7 +123,7 @@ $molecules-card-listing: (
   }
   
   // Defines card listing styles with badges.
-  &.-has-badge {
+  &.has-badge {
     
     // Moves badge according to border offset.
     .badge {

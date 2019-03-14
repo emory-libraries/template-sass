@@ -19,7 +19,7 @@
   }
   
   // Builds card listing structure without descriptions.
-  &:not(.-has-description) {
+  &:not(.has-description) {
     
     // Sets default structure.
     &,
@@ -50,7 +50,7 @@
   }
 
   // Builds card listing strucutre with descriptions.
-  &.-has-description {
+  &.has-description {
     
      // Sets default structure.
     &,
@@ -83,7 +83,7 @@
   }
   
   // Builds card listing structure without badges.
-  &:not(.-has-badge) {
+  &:not(.has-badge) {
     
     .badge {
       display: none;
@@ -92,7 +92,7 @@
   }
   
   // Builds card listing structure with badges.
-  &.-has-badge {
+  &.has-badge {
     
     // Builds badge structure.
     .badge {
