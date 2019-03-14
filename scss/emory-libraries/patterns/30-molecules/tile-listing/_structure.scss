@@ -1,0 +1,180 @@
+////
+/// @group emory-libraries.patterns.molecules.tile-listing
+////
+
+/// Defines the base structure of the tile-listing component.
+///
+/// @since 1.0.0
+%molecules-tile-listing {
+  
+  // Capture selector.
+  $selector: &;
+  
+  // Builds the tile-listing structure.
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+  
+  // Builds the tile listing default structure without descriptions and actions.
+  &:not(.has-description):not(.has-action) {
+    grid-template-areas: "date"
+                         "title";
+
+    #{$selector}-description,
+    #{$selector}-action {
+      display: none;
+    }
+    
+  }
+
+  // Builds the tile listing default structure with descriptions and actions.
+  &.has-description.has-action {
+    grid-template-areas: "date"
+                         "title"
+                         "description"
+                         "action";
+    
+    #{$selector}-description
+    #{$selector}-action {
+      display: flex;
+    }
+    
+  }
+  
+  // Builds the tile listing structure without descriptions but with actions.
+  &:not(.has-description).has-action {
+    grid-template-areas: "date"
+                         "title"
+                         "action";
+    
+    #{$selector}-description {
+      display: none;
+    }
+    #{$selector}-action {
+      display: flex;
+    }
+
+  }
+  
+  // Builds the tile listing structure without actions but with descriptions.
+  &:not(.has-action).has-description {
+    grid-template-areas: "date"
+                         "title"
+                         "description";
+    
+    #{$selector}-description {
+      display: flex;
+    }
+    #{$selector}-action {
+      display: none;
+    }
+    
+  }
+  
+  // Builds the tile listing structure without badges.
+  &:not(.has-badge) {
+    
+    .badge {
+      display: none;
+    }
+    
+  }
+  
+  // Builds the tile listing structure with badges.
+  &.has-badge {
+    
+    .badge {
+      display: block;
+      margin: 0;
+      @include absolute( 0 null null 0 );
+      z-index: z('above');
+    }
+    
+  }
+  
+  // Builds tile listing image structure.
+  &-image { 
+    @include absolute( 0 0 null 0 );
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    
+    img {
+      display: block;
+      @include absolute-center-within-container;
+      min-width: 100%;
+      min-height: 100%;
+    }
+    
+    // Modifies structure in terms of image alignment.
+    &.-align-x-left:not(.-align-y-top):not(.-align-y-bottom) img {
+      left: 0;
+      transform: translatex(0%) translatey(-50%);
+    }
+    &.-align-x-right:not(.-align-y-top):not(.-align-y-bottom) img {
+      left: auto;
+      right: 0;
+      transform: translatex(0%) translatey(-50%);
+    }
+    &.-align-y-top:not(.-align-x-left):not(.-align-x-right) img {
+      top: 0;
+      transform: translatex(-50%) translatey(0%);
+    }
+    &.-align-y-bottom:not(.-align-x-left):not(.-align-x-right) img {
+      top: auto;
+      bottom: 0;
+      transform: translatex(-50%) translatey(0%);
+    }
+    &.-align-x-left.-align-y-top img {
+      left: 0;
+      top: 0;
+      transform: translatex(0%) translatey(0%);
+    }
+    &.-align-x-left.-align-y-bottom img {
+      left: 0;
+      top: auto;
+      bottom: 0;
+      transform: translatex(0%) translatey(0%);
+    }
+    &.-align-x-right.-align-y-top img {
+      left: auto;
+      right: 0;
+      top: 0;
+      transform: translatex(0%) translatey(0%);
+    }
+    &.-align-x-right.-align-y-bottom img {
+      left: auto;
+      right: 0;
+      top: auto;
+      bottom: 0;
+      transform: translatex(0%) translatey(0%);
+    }
+   
+  }
+  
+  // Builds tile listing date structure.
+  &-date {
+    grid-area: date;
+    margin: 0;
+  }
+  
+  // Builds tile listing title structure.
+  &-title {
+    grid-area: title;
+    margin: 0;
+  }
+  
+  // Builds tile listing description structure.
+  &-description {
+    grid-area: description;
+    margin: 0;
+    align-items: flex-start;
+  }
+  
+  // Builds tile listing action structure.
+  &-action { 
+    grid-area: action;
+    align-items: flex-end;
+  }
+  
+}

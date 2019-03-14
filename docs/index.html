@@ -3830,6 +3830,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="molecules">
+                          <a href="#patterns.molecules.tile-listing">tile-listing</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.molecules.tile-listing-variable">
+                                <a href="#patterns.molecules.tile-listing-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.tile-listing" data-name="molecules-tile-listing" data-type="variable">
+                                    
+                                    <a href="#patterns.molecules.tile-listing-variable-molecules-tile-listing">
+                                      
+                                      molecules-tile-listing
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.molecules.tile-listing-mixin">
+                                <a href="#patterns.molecules.tile-listing-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.tile-listing" data-name="molecules-tile-listing--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.molecules.tile-listing-mixin-molecules-tile-listing--theme">
+                                      
+                                      molecules-tile-listing--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.tile-listing" data-name="molecules-tile-listing" data-type="mixin">
+                                    
+                                    <a href="#patterns.molecules.tile-listing-mixin-molecules-tile-listing">
+                                      
+                                      molecules-tile-listing
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.molecules.tile-listing-placeholder">
+                                <a href="#patterns.molecules.tile-listing-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.tile-listing" data-name="molecules-tile-listing" data-type="placeholder">
+                                    
+                                    <a href="#patterns.molecules.tile-listing-placeholder-molecules-tile-listing">
+                                      
+                                      molecules-tile-listing
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="molecules">
                           <a href="#patterns.molecules.wayfinder">wayfinder</a>
                         </p>
                         
@@ -15975,6 +16083,12 @@
                                   
                                   
                                   
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
                               
                               
                               
@@ -26800,6 +26914,8 @@
             
             
             
+            
+            
             <section class="main__section main__section--level-2 ">
             
               <h2 class="main__heading" id="patterns.molecules">
@@ -32557,7 +32673,7 @@
                                 }
                                 
                                 // Defines card listing styles with badges.
-                                &amp;.-has-badge {
+                                &amp;.has-badge {
                                   
                                   // Moves badge according to border offset.
                                   .badge {
@@ -33282,7 +33398,7 @@
                                 }
                                 
                                 // Builds card listing structure without descriptions.
-                                &amp;:not(.-has-description) {
+                                &amp;:not(.has-description) {
                                   
                                   // Sets default structure.
                                   &amp;,
@@ -33313,7 +33429,7 @@
                                 }
                               
                                 // Builds card listing strucutre with descriptions.
-                                &amp;.-has-description {
+                                &amp;.has-description {
                                   
                                    // Sets default structure.
                                   &amp;,
@@ -33346,7 +33462,7 @@
                                 }
                                 
                                 // Builds card listing structure without badges.
-                                &amp;:not(.-has-badge) {
+                                &amp;:not(.has-badge) {
                                   
                                   .badge {
                                     display: none;
@@ -33355,7 +33471,7 @@
                                 }
                                 
                                 // Builds card listing structure with badges.
-                                &amp;.-has-badge {
+                                &amp;.has-badge {
                                   
                                   // Builds badge structure.
                                   .badge {
@@ -36106,7 +36222,7 @@
                                 };
                                 
                                 // Modifies styles for descriptions.
-                                &amp;.-has-description {
+                                &amp;.has-description {
                                   grid-template-areas: &quot;image&quot;
                                                        &quot;context&quot;
                                                        &quot;heading&quot;
@@ -36193,7 +36309,7 @@
                                   display: none;
                                   
                                   // Requires a flag to show descriptions.
-                                  @include when-descendant-of( &#x27;#{$selector}.-has-description&#x27; ) {
+                                  @include when-descendant-of( &#x27;#{$selector}.has-description&#x27; ) {
                                     display: block;
                                   };
                                   
@@ -37962,6 +38078,1104 @@
                   
                   <section class="main__section main__section--level-3 main__section--has-content">
                   
+                    <h3 class="main__heading" id="patterns.molecules.tile-listing">
+                      
+                      <div class="container">tile-listing</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.molecules.tile-listing-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.tile-listing-variable-molecules-tile-listing">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.tile-listing-variable-molecules-tile-listing">
+                                  molecules-tile-listing
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$molecules-tile-listing: (
+                                
+                                &#x27;padding&#x27;: 40px 25px,
+                                &#x27;gap&#x27;: 10px,
+                                &#x27;image&#x27;: 55%,
+                                
+                                &#x27;date&#x27;: color(&#x27;blue&#x27;),
+                                &#x27;description&#x27;: $color-text-dark,
+                                &#x27;title&#x27;: (
+                                  &#x27;normal&#x27;: color(&#x27;blue&#x27;),
+                                  &#x27;hover&#x27;: $color-actionable,
+                                  &#x27;active&#x27;: $color-actionable
+                                ),
+                                
+                                &#x27;border&#x27;: (
+                                  &#x27;thickness&#x27;: $border-width-s,
+                                  &#x27;color&#x27;: tint(color(&#x27;slate&#x27;), 50%)
+                                ),
+                                &#x27;radius&#x27;: 5px
+                                
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the tile-listing component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.molecules.tile-listing-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.tile-listing-mixin-molecules-tile-listing--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.tile-listing-mixin-molecules-tile-listing--theme">
+                                  molecules-tile-listing--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin molecules-tile-listing--theme($skin) { 
+                                
+                                // Caoture selector.
+                                $selector: &amp;;
+                                
+                                // Capture themeable variables from skin.
+                                $padding: map-deep-get($skin, &#x27;padding&#x27;);
+                                $gap: map-deep-get($skin, &#x27;gap&#x27;);
+                                $image: map-deep-get($skin, &#x27;image&#x27;);
+                                $date: map-deep-get($skin, &#x27;date&#x27;);
+                                $title: map-deep-get($skin, &#x27;title&#x27;);
+                                $description: map-deep-get($skin, &#x27;description&#x27;);
+                                $radius: map-deep-get($skin, &#x27;radius&#x27;);
+                                
+                                // Get positional padding values.
+                                $padding-top: positional-value($padding, &#x27;top&#x27;);
+                                $padding-right: positional-value($padding, &#x27;right&#x27;);
+                                $padding-bottom: positional-value($padding, &#x27;bottom&#x27;);
+                                $padding-left: positional-value($padding, &#x27;left&#x27;);
+                                
+                                // Get border-specific variables.
+                                $border-thickness: map-deep-get($skin, &#x27;border.thickness&#x27;);
+                                $border-color: map-deep-get($skin, &#x27;border.color&#x27;);
+                                
+                                // Defines the tile-listing component&#x27;s base styles.
+                                padding: $padding;
+                                padding-top: calc(#{$image} + #{$padding-top});
+                                grid-gap: $gap;
+                                border-radius: $radius;
+                                border: $border-thickness solid $border-color;
+                                
+                                // Defines tile listing styles without descriptions and actions.
+                                &amp;:not(.has-description):not(.has-action) {
+                                  grid-template-rows: repeat(2, min-content);
+                                }
+                                
+                                // Defines tile listing styles with descriptions and actions.
+                                &amp;.has-description.has-action {
+                                  grid-template-rows: repeat(3, min-content) 1fr;
+                                }
+                                
+                                // Defines tile listing styles without descriptions but with actions.
+                                &amp;:not(.has-description).has-action {
+                                  grid-template-rows: repeat(2, min-content) 1fr;
+                                }
+                                
+                                // Defines tile listing styles without actions but with descriptions.
+                                &amp;:not(.has-action).has-description {
+                                  grid-template-rows: repeat(2, min-content) 1fr;
+                                }
+                                
+                                // Defines tile listing styles without badge.
+                                &amp;:not(.has-badge) { }
+                                
+                                // Defines tile listing styles with badge.
+                                &amp;.has-badge {
+                                  border-top-left-radius: 0;
+                                }
+                                
+                                // Defines tile listing styles without actions.
+                                &amp;:not(.has-action) { }
+                                
+                                // Defines tile listing styles with actions.
+                                &amp;.has-action { }
+                                
+                                // Defines tile listing image styles.
+                                &amp;-image {
+                                  padding-bottom: $image;
+                                }
+                                
+                                // Defines tile listing date styles.
+                                &amp;-date {
+                                  @include tokens-heading(&#x27;h6&#x27;, $date);
+                                }
+                                
+                                // Defines tile listing title styles.
+                                &amp;-title {
+                                  
+                                  // Modifies styles based on presence of a description.
+                                  @include when-descendant-of( &#x27;#{$selector}:not(.has-description)&#x27; ) {
+                                    @include tokens-heading(&#x27;h5&#x27;);
+                                    @include atoms-link((
+                                      color: $title,
+                                      weight: normal
+                                    ));
+                                  };
+                                  @include when-descendant-of( &#x27;#{$selector}.has-description&#x27; ) {
+                                    @include tokens-text(&#x27;listing&#x27;);
+                                    @include atoms-link((
+                                      color: $title,
+                                      weight: normal
+                                    ));
+                                  };
+                                  
+                                }
+                                
+                                // Defines tile listing description styles.
+                                &amp;-description {
+                                  @include tokens-text(&#x27;body-alt&#x27;, $description);
+                                }
+                                
+                                // Defines tile listing action styles.
+                                &amp;-action {
+                                  @include tokens-heading(&#x27;h6&#x27;);
+                                  @include atoms-link;
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin molecules-tile-listing--theme($skin) { ... }"><code class="js-autoindent">@mixin molecules-tile-listing--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the tile-listing component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The tile-listing component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.link-mixin-atoms-link"><code>atoms-link</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.text-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.link-mixin-atoms-link"><code>atoms-link</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.text-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.link-mixin-atoms-link"><code>atoms-link</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#utils.functions-function-positional-value"><code>positional-value</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#utils.functions-function-positional-value"><code>positional-value</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#utils.functions-function-positional-value"><code>positional-value</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#utils.functions-function-positional-value"><code>positional-value</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.tile-listing-mixin-molecules-tile-listing">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.tile-listing-mixin-molecules-tile-listing">
+                                  molecules-tile-listing
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--review">review</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin molecules-tile-listing($custom) { 
+                                
+                                // Extend the default skin.
+                                $skin: map-extend($molecules-tile-listing, $custom);
+                                
+                                // Initialize the tile-listing component.
+                                &amp; {
+                                  
+                                  // Load structure.
+                                  @extend %molecules-tile-listing;
+                                  
+                                  // Load parts.
+                                  &amp;-image {
+                                    @extend %molecules-tile-listing-image;
+                                  }
+                                  &amp;-date {
+                                    @extend %molecules-tile-listing-date;
+                                  }
+                                  &amp;-title {
+                                    @extend %molecules-tile-listing-title;
+                                  }
+                                  &amp;-description {
+                                    @extend %molecules-tile-listing-description;
+                                  }
+                                  &amp;-action {
+                                    @extend %molecules-tile-listing-action;
+                                  }
+                                  
+                                  // Load skins.
+                                  @include molecules-tile-listing--theme( $skin );
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin molecules-tile-listing($custom) { ... }"><code class="js-autoindent">@mixin molecules-tile-listing($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the tile-listing component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our tile-listing component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.molecules.tile-listing-placeholder-molecules-tile-listing"><code>molecules-tile-listing</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.molecules.tile-listing-variable-molecules-tile-listing"><code>molecules-tile-listing</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.molecules.tile-listing-mixin-molecules-tile-listing--theme"><code>molecules-tile-listing--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.molecules.tile-listing-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.tile-listing-placeholder-molecules-tile-listing">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.tile-listing-placeholder-molecules-tile-listing">
+                                  molecules-tile-listing
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%molecules-tile-listing { 
+                                
+                                // Capture selector.
+                                $selector: &amp;;
+                                
+                                // Builds the tile-listing structure.
+                                display: grid;
+                                grid-template-columns: 1fr;
+                                overflow: hidden;
+                                
+                                // Builds the tile listing default structure without descriptions and actions.
+                                &amp;:not(.has-description):not(.has-action) {
+                                  grid-template-areas: &quot;date&quot;
+                                                       &quot;title&quot;;
+                              
+                                  #{$selector}-description,
+                                  #{$selector}-action {
+                                    display: none;
+                                  }
+                                  
+                                }
+                              
+                                // Builds the tile listing default structure with descriptions and actions.
+                                &amp;.has-description.has-action {
+                                  grid-template-areas: &quot;date&quot;
+                                                       &quot;title&quot;
+                                                       &quot;description&quot;
+                                                       &quot;action&quot;;
+                                  
+                                  #{$selector}-description
+                                  #{$selector}-action {
+                                    display: flex;
+                                  }
+                                  
+                                }
+                                
+                                // Builds the tile listing structure without descriptions but with actions.
+                                &amp;:not(.has-description).has-action {
+                                  grid-template-areas: &quot;date&quot;
+                                                       &quot;title&quot;
+                                                       &quot;action&quot;;
+                                  
+                                  #{$selector}-description {
+                                    display: none;
+                                  }
+                                  #{$selector}-action {
+                                    display: flex;
+                                  }
+                              
+                                }
+                                
+                                // Builds the tile listing structure without actions but with descriptions.
+                                &amp;:not(.has-action).has-description {
+                                  grid-template-areas: &quot;date&quot;
+                                                       &quot;title&quot;
+                                                       &quot;description&quot;;
+                                  
+                                  #{$selector}-description {
+                                    display: flex;
+                                  }
+                                  #{$selector}-action {
+                                    display: none;
+                                  }
+                                  
+                                }
+                                
+                                // Builds the tile listing structure without badges.
+                                &amp;:not(.has-badge) {
+                                  
+                                  .badge {
+                                    display: none;
+                                  }
+                                  
+                                }
+                                
+                                // Builds the tile listing structure with badges.
+                                &amp;.has-badge {
+                                  
+                                  .badge {
+                                    display: block;
+                                    margin: 0;
+                                    @include absolute( 0 null null 0 );
+                                    z-index: z(&#x27;above&#x27;);
+                                  }
+                                  
+                                }
+                                
+                                // Builds tile listing image structure.
+                                &amp;-image { 
+                                  @include absolute( 0 0 null 0 );
+                                  overflow: hidden;
+                                  width: 100%;
+                                  height: 0;
+                                  
+                                  img {
+                                    display: block;
+                                    @include absolute-center-within-container;
+                                    min-width: 100%;
+                                    min-height: 100%;
+                                  }
+                                  
+                                  // Modifies structure in terms of image alignment.
+                                  &amp;.-align-x-left:not(.-align-y-top):not(.-align-y-bottom) img {
+                                    left: 0;
+                                    transform: translatex(0%) translatey(-50%);
+                                  }
+                                  &amp;.-align-x-right:not(.-align-y-top):not(.-align-y-bottom) img {
+                                    left: auto;
+                                    right: 0;
+                                    transform: translatex(0%) translatey(-50%);
+                                  }
+                                  &amp;.-align-y-top:not(.-align-x-left):not(.-align-x-right) img {
+                                    top: 0;
+                                    transform: translatex(-50%) translatey(0%);
+                                  }
+                                  &amp;.-align-y-bottom:not(.-align-x-left):not(.-align-x-right) img {
+                                    top: auto;
+                                    bottom: 0;
+                                    transform: translatex(-50%) translatey(0%);
+                                  }
+                                  &amp;.-align-x-left.-align-y-top img {
+                                    left: 0;
+                                    top: 0;
+                                    transform: translatex(0%) translatey(0%);
+                                  }
+                                  &amp;.-align-x-left.-align-y-bottom img {
+                                    left: 0;
+                                    top: auto;
+                                    bottom: 0;
+                                    transform: translatex(0%) translatey(0%);
+                                  }
+                                  &amp;.-align-x-right.-align-y-top img {
+                                    left: auto;
+                                    right: 0;
+                                    top: 0;
+                                    transform: translatex(0%) translatey(0%);
+                                  }
+                                  &amp;.-align-x-right.-align-y-bottom img {
+                                    left: auto;
+                                    right: 0;
+                                    top: auto;
+                                    bottom: 0;
+                                    transform: translatex(0%) translatey(0%);
+                                  }
+                                 
+                                }
+                                
+                                // Builds tile listing date structure.
+                                &amp;-date {
+                                  grid-area: date;
+                                  margin: 0;
+                                }
+                                
+                                // Builds tile listing title structure.
+                                &amp;-title {
+                                  grid-area: title;
+                                  margin: 0;
+                                }
+                                
+                                // Builds tile listing description structure.
+                                &amp;-description {
+                                  grid-area: description;
+                                  margin: 0;
+                                  align-items: flex-start;
+                                }
+                                
+                                // Builds tile listing action structure.
+                                &amp;-action { 
+                                  grid-area: action;
+                                  align-items: flex-end;
+                                }
+                                
+                               }"
+                                      data-collapsed="%molecules-tile-listing { ... }"><code class="js-autoindent">%molecules-tile-listing { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the tile-listing component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
                     <h3 class="main__heading" id="patterns.molecules.wayfinder">
                       
                       <div class="container">wayfinder</div>
@@ -39162,6 +40376,12 @@
                                   
                               
                               
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
                                   
                                   
                                   
@@ -42525,6 +43745,10 @@
                                   
                                   
                                   
+                                  
+                                  
+                                  
+                                  
                               
                               
                               
@@ -43642,6 +44866,14 @@
                         
                         
                         
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                             
                             
                             

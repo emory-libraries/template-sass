@@ -1,0 +1,56 @@
+////
+/// @group emory-libraries.patterns.molecules.tile-listing
+////
+
+/// Load the tile-listing component's structure and skin.
+@import 'tile-listing/structure';
+@import 'tile-listing/skin';
+
+/// Builds a constructor for the tile-listing component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-tile-listing
+/// @requires {variable} molecules-tile-listing
+/// @requires {mixin} molecules-tile-listing--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our tile-listing component
+///
+/// @status review
+@mixin molecules-tile-listing ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-tile-listing, $custom);
+  
+  // Initialize the tile-listing component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-tile-listing;
+    
+    // Load parts.
+    &-image {
+      @extend %molecules-tile-listing-image;
+    }
+    &-date {
+      @extend %molecules-tile-listing-date;
+    }
+    &-title {
+      @extend %molecules-tile-listing-title;
+    }
+    &-description {
+      @extend %molecules-tile-listing-description;
+    }
+    &-action {
+      @extend %molecules-tile-listing-action;
+    }
+    
+    // Load skins.
+    @include molecules-tile-listing--theme( $skin );
+    
+  }
+  
+}
