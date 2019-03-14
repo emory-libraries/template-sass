@@ -27,7 +27,7 @@
   };
   
   // Modifies styles for descriptions.
-  &.-has-description {
+  &.has-description {
     grid-template-areas: "image"
                          "context"
                          "heading"
@@ -114,7 +114,7 @@
     display: none;
     
     // Requires a flag to show descriptions.
-    @include when-descendant-of( '#{$selector}.-has-description' ) {
+    @include when-descendant-of( '#{$selector}.has-description' ) {
       display: block;
     };
     
