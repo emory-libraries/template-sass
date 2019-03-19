@@ -1,0 +1,121 @@
+////
+/// @group emory-libraries.patterns.molecules.slide
+////
+
+/// Defines the base skin of the slide component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$molecules-slide: (
+  
+  'background': color('blue', 'mid'),
+  'foreground': $color-text-light,
+  'context': color('gold'),
+  'button': (
+    'background': (
+      'normal': color('white'),
+      'hover': color('gold'),
+      'active': color('gold'),
+      'hollow': tint(color('blue', 'mid'), 25%),
+    ),
+    'foreground': (
+      'normal': color('blue', 'mid'),
+      'hover': color('blue'),
+      'active': color('blue'),
+      'hollow': $color-text-light
+    ),
+  ),
+  
+  'image': (
+    'max': 200px,
+    'min': 125px
+  ),
+  'gap': (
+    'x': 25px,
+    'y': 10px
+  ),
+  'padding': (
+    'y': 40px,
+    'x': 100px
+  )
+  
+);
+
+/// Defines the slide component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The slide component's themeable properties
+@mixin molecules-slide--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $background: map-deep-get($skin, 'background');
+  $foreground: map-deep-get($skin, 'foreground');
+  $context: map-deep-get($skin, 'context');
+  $button: map-deep-get($skin, 'button');
+  $gap-x: map-deep-get($skin, 'gap.x');
+  $gap-y: map-deep-get($skin, 'gap.y');
+  $padding-y: map-deep-get($skin, 'padding.y');
+  $padding-x: map-deep-get($skin, 'padding.x');
+  
+  // Get image-specific variables.
+  $image-min: map-deep-get($skin, 'image.min');
+  $image-max: map-deep-get($skin, 'image.max');
+  $image-scale: numeric-scale( $image-min, $image-max, length(map-keys($screens)), true );
+  $image-size: map-combine(map-keys($screens), $image-scale);
+  
+  // Defines the slide component's base styles.
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, min-content);
+  grid-column-gap: $gap-x;
+  grid-row-gap: $gap-y;
+  background-color: $background;
+  color: $foreground;
+  padding: $padding-y $padding-x;
+  
+  // Modifies styles for larger screens.
+  @include breakpoint-m-l {
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: repeat(2, min-content) 1fr;
+  };
+  
+  // Defines the slide context styles.
+  &-context {
+    @include tokens-heading('h6', $context);
+  }
+  
+  // Defines the slide image styles.
+  &-image { 
+    
+    // Resize image across screens.
+    @each $breakpoint, $size in $image-size {
+      
+      @include breakpoint( screen($breakpoint) ) {
+        @include size( $size );
+      };
+      
+    }
+    
+  }
+  
+  // Defines the slide title styles.
+  &-title { 
+    @include tokens-heading('h5-alt', $foreground);
+    font-size: 20px;
+  }
+  
+  // Defines the slide action styles.
+  &-action {
+  
+    .button {
+      @include atoms-button( $button );
+    }
+    
+  }
+  
+}

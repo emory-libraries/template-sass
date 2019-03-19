@@ -3830,6 +3830,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="molecules">
+                          <a href="#patterns.molecules.slide">slide</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.molecules.slide-variable">
+                                <a href="#patterns.molecules.slide-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.slide" data-name="molecules-slide" data-type="variable">
+                                    
+                                    <a href="#patterns.molecules.slide-variable-molecules-slide">
+                                      
+                                      molecules-slide
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.molecules.slide-mixin">
+                                <a href="#patterns.molecules.slide-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.slide" data-name="molecules-slide--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.molecules.slide-mixin-molecules-slide--theme">
+                                      
+                                      molecules-slide--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.slide" data-name="molecules-slide" data-type="mixin">
+                                    
+                                    <a href="#patterns.molecules.slide-mixin-molecules-slide">
+                                      
+                                      molecules-slide
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.molecules.slide-placeholder">
+                                <a href="#patterns.molecules.slide-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.slide" data-name="molecules-slide" data-type="placeholder">
+                                    
+                                    <a href="#patterns.molecules.slide-placeholder-molecules-slide">
+                                      
+                                      molecules-slide
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="molecules">
                           <a href="#patterns.molecules.tile-listing">tile-listing</a>
                         </p>
                         
@@ -9251,6 +9359,10 @@
                       
                       
                       
+                      
+                      
+                      
+                      
                   
                   
                   
@@ -11234,6 +11346,8 @@
                                   
                               
                               
+                                  
+                                  
                                   
                                   
                                   
@@ -27028,6 +27142,8 @@
             
             
             
+            
+            
             <section class="main__section main__section--level-2 ">
             
               <h2 class="main__heading" id="patterns.molecules">
@@ -38190,6 +38306,917 @@
                   
                   <section class="main__section main__section--level-3 main__section--has-content">
                   
+                    <h3 class="main__heading" id="patterns.molecules.slide">
+                      
+                      <div class="container">slide</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.molecules.slide-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.slide-variable-molecules-slide">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.slide-variable-molecules-slide">
+                                  molecules-slide
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$molecules-slide: (
+                                
+                                &#x27;background&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
+                                &#x27;foreground&#x27;: $color-text-light,
+                                &#x27;context&#x27;: color(&#x27;gold&#x27;),
+                                &#x27;button&#x27;: (
+                                  &#x27;background&#x27;: (
+                                    &#x27;normal&#x27;: color(&#x27;white&#x27;),
+                                    &#x27;hover&#x27;: color(&#x27;gold&#x27;),
+                                    &#x27;active&#x27;: color(&#x27;gold&#x27;),
+                                    &#x27;hollow&#x27;: tint(color(&#x27;blue&#x27;, &#x27;mid&#x27;), 25%),
+                                  ),
+                                  &#x27;foreground&#x27;: (
+                                    &#x27;normal&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
+                                    &#x27;hover&#x27;: color(&#x27;blue&#x27;),
+                                    &#x27;active&#x27;: color(&#x27;blue&#x27;),
+                                    &#x27;hollow&#x27;: $color-text-light
+                                  ),
+                                ),
+                                
+                                &#x27;image&#x27;: (
+                                  &#x27;max&#x27;: 200px,
+                                  &#x27;min&#x27;: 125px
+                                ),
+                                &#x27;gap&#x27;: (
+                                  &#x27;x&#x27;: 25px,
+                                  &#x27;y&#x27;: 10px
+                                ),
+                                &#x27;padding&#x27;: (
+                                  &#x27;y&#x27;: 40px,
+                                  &#x27;x&#x27;: 100px
+                                )
+                                
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the slide component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.molecules.slide-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.slide-mixin-molecules-slide--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.slide-mixin-molecules-slide--theme">
+                                  molecules-slide--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin molecules-slide--theme($skin) { 
+                                
+                                // Capture themeable variables from skin.
+                                $background: map-deep-get($skin, &#x27;background&#x27;);
+                                $foreground: map-deep-get($skin, &#x27;foreground&#x27;);
+                                $context: map-deep-get($skin, &#x27;context&#x27;);
+                                $button: map-deep-get($skin, &#x27;button&#x27;);
+                                $gap-x: map-deep-get($skin, &#x27;gap.x&#x27;);
+                                $gap-y: map-deep-get($skin, &#x27;gap.y&#x27;);
+                                $padding-y: map-deep-get($skin, &#x27;padding.y&#x27;);
+                                $padding-x: map-deep-get($skin, &#x27;padding.x&#x27;);
+                                
+                                // Get image-specific variables.
+                                $image-min: map-deep-get($skin, &#x27;image.min&#x27;);
+                                $image-max: map-deep-get($skin, &#x27;image.max&#x27;);
+                                $image-scale: numeric-scale( $image-min, $image-max, length(map-keys($screens)), true );
+                                $image-size: map-combine(map-keys($screens), $image-scale);
+                                
+                                // Defines the slide component&#x27;s base styles.
+                                grid-template-columns: 1fr;
+                                grid-template-rows: repeat(4, min-content);
+                                grid-column-gap: $gap-x;
+                                grid-row-gap: $gap-y;
+                                background-color: $background;
+                                color: $foreground;
+                                padding: $padding-y $padding-x;
+                                
+                                // Modifies styles for larger screens.
+                                @include breakpoint-m-l {
+                                  grid-template-columns: min-content 1fr;
+                                  grid-template-rows: repeat(2, min-content) 1fr;
+                                };
+                                
+                                // Defines the slide context styles.
+                                &amp;-context {
+                                  @include tokens-heading(&#x27;h6&#x27;, $context);
+                                }
+                                
+                                // Defines the slide image styles.
+                                &amp;-image { 
+                                  
+                                  // Resize image across screens.
+                                  @each $breakpoint, $size in $image-size {
+                                    
+                                    @include breakpoint( screen($breakpoint) ) {
+                                      @include size( $size );
+                                    };
+                                    
+                                  }
+                                  
+                                }
+                                
+                                // Defines the slide title styles.
+                                &amp;-title { 
+                                  @include tokens-heading(&#x27;h5-alt&#x27;, $foreground);
+                                  font-size: 20px;
+                                }
+                                
+                                // Defines the slide action styles.
+                                &amp;-action {
+                                
+                                  .button {
+                                    @include atoms-button( $button );
+                                  }
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin molecules-slide--theme($skin) { ... }"><code class="js-autoindent">@mixin molecules-slide--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the slide component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The slide component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.button-mixin-atoms-button"><code>atoms-button</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-screens"><code>screens</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-screens"><code>screens</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.slide-mixin-molecules-slide">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.slide-mixin-molecules-slide">
+                                  molecules-slide
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--review">review</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin molecules-slide($custom) { 
+                                
+                                // Extend the default skin.
+                                $skin: map-extend($molecules-slide, $custom);
+                                
+                                // Initialize the slide component.
+                                &amp; {
+                                  
+                                  // Load structure.
+                                  @extend %molecules-slide;
+                                  
+                                  // Load parts.
+                                  &amp;-context {
+                                    @extend %molecules-slide-context;
+                                  }
+                                  &amp;-image {
+                                    @extend %molecules-slide-image;
+                                  }
+                                  &amp;-title {
+                                    @extend %molecules-slide-title;
+                                  }
+                                  &amp;-action {
+                                    @extend %molecules-slide-action;
+                                  }
+                                  
+                                  // Load skins.
+                                  @include molecules-slide--theme( $skin );
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin molecules-slide($custom) { ... }"><code class="js-autoindent">@mixin molecules-slide($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the slide component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our slide component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.molecules.slide-placeholder-molecules-slide"><code>molecules-slide</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.molecules.slide-variable-molecules-slide"><code>molecules-slide</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.molecules.slide-mixin-molecules-slide--theme"><code>molecules-slide--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.molecules.slide-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.slide-placeholder-molecules-slide">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.slide-placeholder-molecules-slide">
+                                  molecules-slide
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%molecules-slide { 
+                                
+                                // Builds the slide structure.
+                                display: grid;
+                                grid-template-areas: &quot;image context&quot;
+                                                     &quot;image title&quot;
+                                                     &quot;action action&quot;;
+                                
+                                // Modifies structure for larger screens.
+                                @include breakpoint-m-l {
+                                  grid-template-areas: &quot;image context&quot;
+                                                       &quot;image title&quot;
+                                                       &quot;image action&quot;;
+                                };
+                                
+                                // Builds the slide context structure.
+                                &amp;-context {
+                                  grid-area: context;
+                                  margin: 0;
+                                }
+                                
+                                // Builds the slide image structure.
+                                &amp;-image {
+                                  grid-area: image;
+                                  overflow: hidden;
+                                  align-self: center;
+                                  justify-self: center;
+                                  
+                                  img {
+                                    display: block;
+                                    @include absolute-center-within-container;
+                                    width: 100%;
+                                    min-height: 100%;
+                                  }
+                                  
+                                  // Modifies structure based on image orientation.
+                                  &amp;.-landscape img {
+                                    height: 100%;
+                                    width: auto;
+                                    min-width: 100%;
+                                  }
+                                  &amp;.-portrait img {
+                                    width: 100%;
+                                    height: auto;
+                                    min-height: 100%;
+                                  }
+                                  
+                                  // Modifies structure in terms of image alignment.
+                                  &amp;.-align-x-left:not(.-align-y-top):not(.-align-y-bottom) img {
+                                    left: 0;
+                                    transform: translatex(0%) translatey(-50%);
+                                  }
+                                  &amp;.-align-x-right:not(.-align-y-top):not(.-align-y-bottom) img {
+                                    left: auto;
+                                    right: 0;
+                                    transform: translatex(0%) translatey(-50%);
+                                  }
+                                  &amp;.-align-y-top:not(.-align-x-left):not(.-align-x-right) img {
+                                    top: 0;
+                                    transform: translatex(-50%) translatey(0%);
+                                  }
+                                  &amp;.-align-y-bottom:not(.-align-x-left):not(.-align-x-right) img {
+                                    top: auto;
+                                    bottom: 0;
+                                    transform: translatex(-50%) translatey(0%);
+                                  }
+                                  &amp;.-align-x-left.-align-y-top img {
+                                    left: 0;
+                                    top: 0;
+                                    transform: translatex(0%) translatey(0%);
+                                  }
+                                  &amp;.-align-x-left.-align-y-bottom img {
+                                    left: 0;
+                                    top: auto;
+                                    bottom: 0;
+                                    transform: translatex(0%) translatey(0%);
+                                  }
+                                  &amp;.-align-x-right.-align-y-top img {
+                                    left: auto;
+                                    right: 0;
+                                    top: 0;
+                                    transform: translatex(0%) translatey(0%);
+                                  }
+                                  &amp;.-align-x-right.-align-y-bottom img {
+                                    left: auto;
+                                    right: 0;
+                                    top: auto;
+                                    bottom: 0;
+                                    transform: translatex(0%) translatey(0%);
+                                  }
+                                  
+                                }
+                                
+                                // Builds the slide title structure.
+                                &amp;-title {
+                                  grid-area: title;
+                                  margin: 0;
+                                }
+                                
+                                // Builds the slide action structure.
+                                &amp;-action {
+                                  grid-area: action;
+                                  display: flex;
+                                  align-items: flex-end;
+                                  justify-content: center;
+                                  
+                                  // Modifies structure on larger screens.
+                                  @include breakpoint-m-l {
+                                    justify-content: flex-start;
+                                  };
+                                  
+                                }
+                                
+                               }"
+                                      data-collapsed="%molecules-slide { ... }"><code class="js-autoindent">%molecules-slide { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the slide component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
                     <h3 class="main__heading" id="patterns.molecules.tile-listing">
                       
                       <div class="container">tile-listing</div>
@@ -41407,6 +42434,10 @@
                                   
                               
                               
+                                  
+                                  
+                                  
+                                  
                                   
                                   
                                   

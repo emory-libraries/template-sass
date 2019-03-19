@@ -74,3 +74,8 @@
 .tile-utility {
   @include molecules-tile-utility;
 }
+
+// molecules-slide
+.slide {
+  @include molecules-slide;
+}

@@ -1,0 +1,53 @@
+////
+/// @group emory-libraries.patterns.molecules.slide
+////
+
+/// Load the slide component's structure and skin.
+@import 'slide/structure';
+@import 'slide/skin';
+
+/// Builds a constructor for the slide component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-slide
+/// @requires {variable} molecules-slide
+/// @requires {mixin} molecules-slide--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our slide component
+///
+/// @status review
+@mixin molecules-slide ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-slide, $custom);
+  
+  // Initialize the slide component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-slide;
+    
+    // Load parts.
+    &-context {
+      @extend %molecules-slide-context;
+    }
+    &-image {
+      @extend %molecules-slide-image;
+    }
+    &-title {
+      @extend %molecules-slide-title;
+    }
+    &-action {
+      @extend %molecules-slide-action;
+    }
+    
+    // Load skins.
+    @include molecules-slide--theme( $skin );
+    
+  }
+  
+}

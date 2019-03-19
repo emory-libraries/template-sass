@@ -1,0 +1,121 @@
+////
+/// @group emory-libraries.patterns.molecules.slide
+////
+
+/// Defines the base structure of the slide component.
+///
+/// @since 1.0.0
+%molecules-slide {
+  
+  // Builds the slide structure.
+  display: grid;
+  grid-template-areas: "image context"
+                       "image title"
+                       "action action";
+  
+  // Modifies structure for larger screens.
+  @include breakpoint-m-l {
+    grid-template-areas: "image context"
+                         "image title"
+                         "image action";
+  };
+  
+  // Builds the slide context structure.
+  &-context {
+    grid-area: context;
+    margin: 0;
+  }
+  
+  // Builds the slide image structure.
+  &-image {
+    grid-area: image;
+    overflow: hidden;
+    align-self: center;
+    justify-self: center;
+    
+    img {
+      display: block;
+      @include absolute-center-within-container;
+      width: 100%;
+      min-height: 100%;
+    }
+    
+    // Modifies structure based on image orientation.
+    &.-landscape img {
+      height: 100%;
+      width: auto;
+      min-width: 100%;
+    }
+    &.-portrait img {
+      width: 100%;
+      height: auto;
+      min-height: 100%;
+    }
+    
+    // Modifies structure in terms of image alignment.
+    &.-align-x-left:not(.-align-y-top):not(.-align-y-bottom) img {
+      left: 0;
+      transform: translatex(0%) translatey(-50%);
+    }
+    &.-align-x-right:not(.-align-y-top):not(.-align-y-bottom) img {
+      left: auto;
+      right: 0;
+      transform: translatex(0%) translatey(-50%);
+    }
+    &.-align-y-top:not(.-align-x-left):not(.-align-x-right) img {
+      top: 0;
+      transform: translatex(-50%) translatey(0%);
+    }
+    &.-align-y-bottom:not(.-align-x-left):not(.-align-x-right) img {
+      top: auto;
+      bottom: 0;
+      transform: translatex(-50%) translatey(0%);
+    }
+    &.-align-x-left.-align-y-top img {
+      left: 0;
+      top: 0;
+      transform: translatex(0%) translatey(0%);
+    }
+    &.-align-x-left.-align-y-bottom img {
+      left: 0;
+      top: auto;
+      bottom: 0;
+      transform: translatex(0%) translatey(0%);
+    }
+    &.-align-x-right.-align-y-top img {
+      left: auto;
+      right: 0;
+      top: 0;
+      transform: translatex(0%) translatey(0%);
+    }
+    &.-align-x-right.-align-y-bottom img {
+      left: auto;
+      right: 0;
+      top: auto;
+      bottom: 0;
+      transform: translatex(0%) translatey(0%);
+    }
+    
+  }
+  
+  // Builds the slide title structure.
+  &-title {
+    grid-area: title;
+    margin: 0;
+  }
+  
+  // Builds the slide action structure.
+  &-action {
+    grid-area: action;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    
+    // Modifies structure on larger screens.
+    @include breakpoint-m-l {
+      justify-content: flex-start;
+    };
+    
+  }
+  
+}
