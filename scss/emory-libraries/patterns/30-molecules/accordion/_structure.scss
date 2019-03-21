@@ -1,0 +1,66 @@
+////
+/// @group emory-libraries.patterns.molecules.accordion
+////
+
+/// Defines the base structure of the accordion component.
+///
+/// @since 1.0.0
+%molecules-accordion {
+  
+  // Capture selector.
+  $selector: &;
+  
+  // Builds the accordion structure.
+  display: grid;
+  grid-template-areas: "toggle"
+                       "content";
+  grid-template-columns: 1fr;
+  
+  // Builds the accordion switch structure.
+  &-switch { 
+    display: none;
+  }
+  
+  // Builds the accordion toggle structure.
+  &-toggle {
+    grid-area: toggle;
+    display: grid;
+    grid-template-areas: "title indicator";
+    cursor: pointer;
+    
+    // Builds the accordion title and indicator structure.
+    #{$selector}-title,
+    #{$selector}-indicator {
+      display: flex;
+      align-items: center;
+    }
+
+    // Builds the accordion title structure.
+    #{$selector}-title {
+      grid-area: title;
+      justify-content: flex-start;
+    }
+
+    // Builds the accordion indicator structure.
+    #{$selector}-indicator {
+      grid-area: indicator;
+      justify-content: center;
+
+      .icon {
+
+        svg {
+          @include size( 100% );
+        }
+
+      }
+
+    }
+    
+  }
+  
+  // Builds the accordion content structure.
+  &-content {
+    grid-area: content;
+  }
+  
+}

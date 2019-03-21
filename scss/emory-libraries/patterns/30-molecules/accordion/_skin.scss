@@ -1,0 +1,148 @@
+////
+/// @group emory-libraries.patterns.molecules.accordion
+////
+
+/// Defines the base skin of the accordion component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$molecules-accordion: (
+  
+  'background': rgba(color('slate', 'light'), .5),
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  ),
+  'size': 100px,
+  'indicator': (
+    'size': 25px,
+    'color': $color-actionable
+  ),
+  'padding': 25px,
+  'title': color('blue', 'dark'),
+  'border': (
+    'thickness': $border-width-s,
+    'color': color('slate')
+  )
+  
+);
+
+/// Defines the accordion component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The accordion component's themeable properties
+@mixin molecules-accordion--theme ( $skin ) {
+  
+  // Capture selector.
+  $selector: &;
+  
+  // Capture themeable variables from skin.
+  $duration: map-deep-get($skin, 'transition.duration');
+  $timing: map-deep-get($skin, 'transition.timing');
+  $size: map-deep-get($skin, 'size');
+  $padding: map-deep-get($skin, 'padding');
+  $title: map-deep-get($skin, 'title');
+  $background: map-deep-get($skin, 'background');
+  
+  // Get indicator-specific variables.
+  $indicator-size: map-deep-get($skin, 'indicator.size');
+  $indicator-color: map-deep-get($skin, 'indicator.color');
+  
+  // Get border-specific variables.
+  $border-thickness: map-deep-get($skin, 'border.thickness');
+  $border-color: map-deep-get($skin, 'border.color');
+  
+  // Defines the accordion component's base styles.
+  grid-template-rows: $size 1fr;
+  @include border-y( $border-thickness solid $border-color );
+  transition: all $duration $timing;
+  
+  // Defines the accordion switch styles.
+  &-switch { 
+    
+    // Shows content when open (checked).
+    &:checked ~ #{$selector}-content {
+      @include visually-hidden( false );
+      @include padding-y( $padding );
+      opacity: 1;
+    }
+  
+    // Hides content when closed (not checked).
+    &:not(:checked) ~ #{$selector}-content {
+      @include visually-hidden( true );
+      @include padding-y( 0 );
+      opacity: 0;
+    }
+
+    // Rotates the indicator down when open (checked).
+    &:checked ~  #{$selector}-toggle > #{$selector}-indicator .icon {
+      transform: rotate( 180deg );
+    }
+
+    // Rotates the indicator up when closed (not checked).
+    &:not(:checked) ~ #{$selector}-toggle > #{$selector}-indicator .icon {
+      transform: rotate( 0deg );
+    }
+
+    // Add a background color when open (checked).
+    &:checked ~ #{$selector}-toggle,
+    &:checked ~ #{$selector}-content {
+      background-color: $background;
+    }
+
+    // Remove any background colors when closed (not checked).
+    &:not(:checked) ~ #{$selector}-toggle,
+    &:not(:checked) ~ #{$selector}-content {
+      background-color: transparent;
+    }
+    
+  }
+
+  // Defines the accordion toggle styles.
+  &-toggle {
+    grid-template-columns: 1fr minmax(($size / 2), auto);
+    grid-template-rows: $size;
+    transition: all $duration $timing;
+
+    // Defines the accordion title styles.
+    #{$selector}-title {
+      padding: $padding;
+      @include tokens-heading('h4', $title);
+    }
+
+    // Defines the accordion indicator styles.
+    #{$selector}-indicator { 
+      padding: $padding;
+
+      .icon {
+        @include size( $indicator-size );
+        transition: all $duration $timing;
+
+        svg {
+          fill: $indicator-color;
+        }
+
+      }
+
+    }
+    
+  }
+  
+  // Defines the accordion content styles.
+  &-content {
+    @include tokens-text;
+    padding: $padding;
+    transform-origin: top center;
+    transform-style: preserve-3d;
+    position: relative !important;
+    width: 100% !important;
+    transition: all $duration $timing;
+  }
+  
+}

@@ -79,3 +79,8 @@
 .slide {
   @include molecules-slide;
 }
+
+// molecules-accordion.
+.panel {
+  @include molecules-accordion;
+}
