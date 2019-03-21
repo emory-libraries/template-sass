@@ -1,0 +1,26 @@
+////
+/// @group emory-libraries.patterns.molecules.figure
+////
+
+/// Defines the base structure of the figure component.
+///
+/// @since 1.0.0
+%molecules-figure {
+  
+  // Builds the figure structure.
+  display: block;
+  margin: 0;
+  width: 100%;
+  
+  // Builds figure image structure.
+  &-image {
+    display: block;
+  }
+  
+  // Builds figure caption structure.
+  &-caption {
+    display: block;
+    margin: 0;
+  }
+  
+}

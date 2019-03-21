@@ -36,5 +36,6 @@
   "molecules-tile-listing": "review",
   "molecules-tile-utility": "review",
   "molecules-slide": "review",
-  "molecules-accordion": "construction"
+  "molecules-accordion": "review",
+  "molecules-figure": "review"
 }

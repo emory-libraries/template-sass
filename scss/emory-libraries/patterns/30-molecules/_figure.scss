@@ -1,0 +1,47 @@
+////
+/// @group emory-libraries.patterns.molecules.figure
+////
+
+/// Load the figure component's structure and skin.
+@import 'figure/structure';
+@import 'figure/skin';
+
+/// Builds a constructor for the figure component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-figure
+/// @requires {variable} molecules-figure
+/// @requires {mixin} molecules-figure--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our figure component
+///
+/// @status review
+@mixin molecules-figure ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-figure, $custom);
+  
+  // Initialize the figure component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-figure;
+    
+    // Load parts.
+    &-image { 
+      @extend %molecules-figure-image;
+    }
+    &-caption {
+      @extend %molecules-figure-caption;
+    }
+    
+    // Load skins.
+    @include molecules-figure--theme( $skin );
+    
+  }
+  
+}

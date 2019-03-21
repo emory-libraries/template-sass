@@ -84,3 +84,8 @@
 .panel {
   @include molecules-accordion;
 }
+
+// molecules-figure
+.figure {
+  @include molecules-figure;
+}

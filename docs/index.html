@@ -3722,6 +3722,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="molecules">
+                          <a href="#patterns.molecules.figure">figure</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.molecules.figure-mixin">
+                                <a href="#patterns.molecules.figure-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.figure" data-name="molecules-figure" data-type="mixin">
+                                    
+                                    <a href="#patterns.molecules.figure-mixin-molecules-figure">
+                                      
+                                      molecules-figure
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.figure" data-name="molecules-figure--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.molecules.figure-mixin-molecules-figure--theme">
+                                      
+                                      molecules-figure--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.molecules.figure-variable">
+                                <a href="#patterns.molecules.figure-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.figure" data-name="molecules-figure" data-type="variable">
+                                    
+                                    <a href="#patterns.molecules.figure-variable-molecules-figure">
+                                      
+                                      molecules-figure
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.molecules.figure-placeholder">
+                                <a href="#patterns.molecules.figure-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.figure" data-name="molecules-figure" data-type="placeholder">
+                                    
+                                    <a href="#patterns.molecules.figure-placeholder-molecules-figure">
+                                      
+                                      molecules-figure
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="molecules">
                           <a href="#patterns.molecules.flyout-feed-item">flyout-feed-item</a>
                         </p>
                         
@@ -7153,6 +7261,8 @@
                     &#x27;label&#x27;: (&#x27;Open Sans&#x27;, sans-serif),
                     
                     &#x27;data&#x27;: (&#x27;Open Sans&#x27;, sans-serif),
+                    
+                    &#x27;caption&#x27;: (&#x27;Cardo&#x27;, serif)
                   
                   ) !default;</code></pre>
                   
@@ -7841,7 +7951,9 @@
                     
                     &#x27;label&#x27;: .625,      // 10px
                     
-                    &#x27;data&#x27;: .75,        // 12px
+                    &#x27;data&#x27;: .75,        // 12px,
+                    
+                    &#x27;caption&#x27;: 1        // 16px
                     
                   ) !default;</code></pre>
                   
@@ -27148,6 +27260,8 @@
             
             
             
+            
+            
             <section class="main__section main__section--level-2 ">
             
               <h2 class="main__heading" id="patterns.molecules">
@@ -27209,7 +27323,7 @@
                               
                               
                                 
-                                  <span class="item__status item__status--construction">construction</span>
+                                  <span class="item__status item__status--review">review</span>
                                 
                               </h3>
                               
@@ -37353,6 +37467,694 @@
                   
                   <section class="main__section main__section--level-3 main__section--has-content">
                   
+                    <h3 class="main__heading" id="patterns.molecules.figure">
+                      
+                      <div class="container">figure</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.molecules.figure-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.figure-mixin-molecules-figure">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.figure-mixin-molecules-figure">
+                                  molecules-figure
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--review">review</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin molecules-figure($custom) { 
+                                
+                                // Extend the default skin.
+                                $skin: map-extend($molecules-figure, $custom);
+                                
+                                // Initialize the figure component.
+                                &amp; {
+                                  
+                                  // Load structure.
+                                  @extend %molecules-figure;
+                                  
+                                  // Load parts.
+                                  &amp;-image { 
+                                    @extend %molecules-figure-image;
+                                  }
+                                  &amp;-caption {
+                                    @extend %molecules-figure-caption;
+                                  }
+                                  
+                                  // Load skins.
+                                  @include molecules-figure--theme( $skin );
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin molecules-figure($custom) { ... }"><code class="js-autoindent">@mixin molecules-figure($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the figure component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our figure component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.molecules.figure-placeholder-molecules-figure"><code>molecules-figure</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.molecules.figure-variable-molecules-figure"><code>molecules-figure</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.molecules.figure-mixin-molecules-figure--theme"><code>molecules-figure--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.figure-mixin-molecules-figure--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.figure-mixin-molecules-figure--theme">
+                                  molecules-figure--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin molecules-figure--theme($skin) { 
+                                
+                                // Capture themeable variables from skin.
+                                $padding: map-deep-get($skin, &#x27;padding&#x27;);
+                                $margin: map-deep-get($skin, &#x27;margin&#x27;);
+                                
+                                // Get border-specific variables.
+                                $border-thickness: map-deep-get($skin, &#x27;border.thickness&#x27;);
+                                $border-color: map-deep-get($skin, &#x27;border.color&#x27;);
+                                
+                                // Defines the figure component&#x27;s base styles.
+                                border-bottom: $border-thickness solid $border-color;
+                                @include margin-y( $margin );
+                                
+                                // Defines figure image styles.
+                                &amp;-image {
+                                  width: 100%;
+                                }
+                                
+                                // Defines figure caption styles.
+                                &amp;-caption {
+                                  @include padding-y( $padding );
+                                  @include tokens-text( &#x27;caption&#x27; );
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin molecules-figure--theme($skin) { ... }"><code class="js-autoindent">@mixin molecules-figure--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the figure component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The figure component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.text-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.molecules.figure-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.figure-variable-molecules-figure">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.figure-variable-molecules-figure">
+                                  molecules-figure
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$molecules-figure: (
+                                
+                                &#x27;padding&#x27;: 25px,
+                                &#x27;margin&#x27;: $rhythm-y,
+                                &#x27;border&#x27;: (
+                                  &#x27;thickness&#x27;: $border-width-s,
+                                  &#x27;color&#x27;: tint(color(&#x27;blue&#x27;, &#x27;dark&#x27;), 90%)
+                                )
+                                
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the figure component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.molecules.figure-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.figure-placeholder-molecules-figure">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.figure-placeholder-molecules-figure">
+                                  molecules-figure
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%molecules-figure { 
+                                
+                                // Builds the figure structure.
+                                display: block;
+                                margin: 0;
+                                width: 100%;
+                                
+                                // Builds figure image structure.
+                                &amp;-image {
+                                  display: block;
+                                }
+                                
+                                // Builds figure caption structure.
+                                &amp;-caption {
+                                  display: block;
+                                  margin: 0;
+                                }
+                                
+                               }"
+                                      data-collapsed="%molecules-figure { ... }"><code class="js-autoindent">%molecules-figure { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the figure component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
                     <h3 class="main__heading" id="patterns.molecules.flyout-feed-item">
                       
                       <div class="container">flyout-feed-item</div>
@@ -45409,7 +46211,7 @@
                                   &#x27;text-align&#x27;: center
                                 ),
                                 
-                                &#x27;listing&#x27;:     (
+                                &#x27;listing&#x27;: (
                                   &#x27;font-weight&#x27;: normal,
                                   &#x27;font-style&#x27;: normal,
                                   &#x27;line-height&#x27;: 1.6364, // 36px
@@ -45419,7 +46221,7 @@
                                   &#x27;text-align&#x27;: left
                                 ),
                                 
-                                &#x27;accent&#x27;:     (
+                                &#x27;accent&#x27;: (
                                   &#x27;font-weight&#x27;: normal,
                                   &#x27;font-style&#x27;: normal,
                                   &#x27;line-height&#x27;: 1.6111, // 29px
@@ -45429,7 +46231,7 @@
                                   &#x27;text-align&#x27;: left
                                 ),
                                 
-                                &#x27;button&#x27;:     (
+                                &#x27;button&#x27;: (
                                   &#x27;font-weight&#x27;: bold,
                                   &#x27;font-style&#x27;: normal,
                                   &#x27;line-height&#x27;: 1.6364, // 18px
@@ -45439,7 +46241,7 @@
                                   &#x27;text-align&#x27;: left
                                 ),
                                 
-                                &#x27;badge&#x27;:     (
+                                &#x27;badge&#x27;: (
                                   &#x27;font-weight&#x27;: bold,
                                   &#x27;font-style&#x27;: normal,
                                   &#x27;line-height&#x27;: 1.6667, // 20px
@@ -45449,7 +46251,7 @@
                                   &#x27;text-align&#x27;: left
                                 ),
                                 
-                                &#x27;label&#x27;:     (
+                                &#x27;label&#x27;: (
                                   &#x27;font-weight&#x27;: bold,
                                   &#x27;font-style&#x27;: normal,
                                   &#x27;line-height&#x27;: 1.2, // 12px
@@ -45459,11 +46261,20 @@
                                   &#x27;text-align&#x27;: left
                                 ),
                                 
-                                &#x27;data&#x27;:     (
+                                &#x27;data&#x27;: (
                                   &#x27;font-weight&#x27;: normal,
                                   &#x27;font-style&#x27;: normal,
                                   &#x27;line-height&#x27;: 1.6667, // 20px
                                   &#x27;letter-spacing&#x27;: normal,
+                                  &#x27;text-transform&#x27;: none,
+                                  &#x27;color&#x27;: $color-text-dark,
+                                  &#x27;text-align&#x27;: left
+                                ),
+                                
+                                &#x27;caption&#x27;: (
+                                  &#x27;font-weight&#x27;: normal,
+                                  &#x27;font-style&#x27;: italic,
+                                  &#x27;line-height&#x27;: 1.5, // 24px,
                                   &#x27;text-transform&#x27;: none,
                                   &#x27;color&#x27;: $color-text-dark,
                                   &#x27;text-align&#x27;: left
@@ -46310,6 +47121,8 @@
                                   
                               
                               
+                                  
+                                  
                                   
                                   
                                   

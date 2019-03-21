@@ -1,0 +1,55 @@
+////
+/// @group emory-libraries.patterns.molecules.figure
+////
+
+/// Defines the base skin of the figure component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$molecules-figure: (
+  
+  'padding': 25px,
+  'margin': $rhythm-y,
+  'border': (
+    'thickness': $border-width-s,
+    'color': tint(color('blue', 'dark'), 90%)
+  )
+  
+);
+
+/// Defines the figure component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The figure component's themeable properties
+@mixin molecules-figure--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $padding: map-deep-get($skin, 'padding');
+  $margin: map-deep-get($skin, 'margin');
+  
+  // Get border-specific variables.
+  $border-thickness: map-deep-get($skin, 'border.thickness');
+  $border-color: map-deep-get($skin, 'border.color');
+  
+  // Defines the figure component's base styles.
+  border-bottom: $border-thickness solid $border-color;
+  @include margin-y( $margin );
+  
+  // Defines figure image styles.
+  &-image {
+    width: 100%;
+  }
+  
+  // Defines figure caption styles.
+  &-caption {
+    @include padding-y( $padding );
+    @include tokens-text( 'caption' );
+  }
+  
+}
