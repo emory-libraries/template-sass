@@ -121,7 +121,7 @@ $tokens-text: (
 ///
 /// @requires {variable} font-size
 /// @requires {variable} fonts-scale
-/// @requires {function} important
+/// @require {function} Brandy::important <https://laurenhamel.github.io/brandy/docs/#brandy.help-function-important>
 /// @requires {function} Brandy::font <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-font>
 /// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
 ///
@@ -147,8 +147,8 @@ $tokens-text: (
 ///
 /// @since 1.0.0
 ///
-/// @requires {function} default
-/// @requires {function} important
+/// @require {function} Brandy::default <https://laurenhamel.github.io/brandy/docs/#brandy.help-function-default>
+/// @require {function} Brandy::important <https://laurenhamel.github.io/brandy/docs/#brandy.help-function-important>
 /// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
 ///
 /// @param {string} type - The intended text type
