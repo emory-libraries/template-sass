@@ -76,6 +76,8 @@ $fonts: (
   'label': ('Open Sans', sans-serif),
   
   'data': ('Open Sans', sans-serif),
+  
+  'caption': ('Cardo', serif)
 
 ) !default;
 
@@ -165,6 +167,8 @@ $fonts-scale: (
   
   'label': .625,      // 10px
   
-  'data': .75,        // 12px
+  'data': .75,        // 12px,
+  
+  'caption': 1        // 16px
   
 ) !default;

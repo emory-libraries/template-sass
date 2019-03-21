@@ -53,7 +53,7 @@ $tokens-text: (
     'text-align': center
   ),
   
-  'listing':     (
+  'listing': (
     'font-weight': normal,
     'font-style': normal,
     'line-height': 1.6364, // 36px
@@ -63,7 +63,7 @@ $tokens-text: (
     'text-align': left
   ),
   
-  'accent':     (
+  'accent': (
     'font-weight': normal,
     'font-style': normal,
     'line-height': 1.6111, // 29px
@@ -73,7 +73,7 @@ $tokens-text: (
     'text-align': left
   ),
   
-  'button':     (
+  'button': (
     'font-weight': bold,
     'font-style': normal,
     'line-height': 1.6364, // 18px
@@ -83,7 +83,7 @@ $tokens-text: (
     'text-align': left
   ),
   
-  'badge':     (
+  'badge': (
     'font-weight': bold,
     'font-style': normal,
     'line-height': 1.6667, // 20px
@@ -93,7 +93,7 @@ $tokens-text: (
     'text-align': left
   ),
   
-  'label':     (
+  'label': (
     'font-weight': bold,
     'font-style': normal,
     'line-height': 1.2, // 12px
@@ -103,11 +103,20 @@ $tokens-text: (
     'text-align': left
   ),
   
-  'data':     (
+  'data': (
     'font-weight': normal,
     'font-style': normal,
     'line-height': 1.6667, // 20px
     'letter-spacing': normal,
+    'text-transform': none,
+    'color': $color-text-dark,
+    'text-align': left
+  ),
+  
+  'caption': (
+    'font-weight': normal,
+    'font-style': italic,
+    'line-height': 1.5, // 24px,
     'text-transform': none,
     'color': $color-text-dark,
     'text-align': left
