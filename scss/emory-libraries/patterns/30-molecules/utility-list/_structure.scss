@@ -1,0 +1,87 @@
+////
+/// @group emory-libraries.patterns.molecules.utility-list
+////
+
+/// Defines the base structure of the utility-list component.
+///
+/// @since 1.0.0
+%molecules-utility-list {
+  
+  // Captures selector.
+  $selector: &;
+  
+  // Builds the utility-list structure.
+  // ...
+  
+  // Builds the utility list's title structure.
+  &-title {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+  
+  // Builds the utility list's list structure.
+  &-list { 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  
+    // Builds the utility list's list item structure.
+    &-item { 
+      
+      &:not(.has-image):not(.has-context) {
+        display: block;
+      }
+      
+      &:not(.has-image).has-context {
+        display: grid;
+        grid-template-areas: "context"
+                             "title";
+      }
+      
+      &.has-image:not(.has-context) {
+        display: grid;
+        grid-template-areas: "image title";
+      }
+      
+      &.has-image.has-context {
+        display: grid;
+        grid-template-areas: "image context"
+                             "image title";
+      }
+    
+      // Builds the utility list's list item image structure.
+      &-image {
+        grid-area: image;
+        overflow: hidden;
+        width: 100%;
+        height: 0;
+        
+        img {
+          @include absolute-center-within-container;
+          display: block;
+          min-width: 100%;
+          min-height: 100%;
+        }
+        
+      }
+      
+      // Builds the utility list's list item context structure.
+      &-context {
+        grid-area: context;
+      }
+      
+      // Builds the utility list's list item title structure.
+      &-title {
+        grid-area: title;
+        display: flex;
+        align-items: flex-start;
+      }
+      
+    }
+    
+  }
+  
+}

@@ -1,0 +1,136 @@
+////
+/// @group emory-libraries.patterns.molecules.utility-list
+////
+
+/// Defines the base skin of the utility-list component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$molecules-utility-list: (
+  
+  'image': 40%,
+  'icon': 25px,
+  
+  'gap': 10px,
+  'padding': 25px,
+  'spacing': 5px,
+  
+  'context': color('blue'),
+  'title': color('blue'),
+  
+  'background': color('slate', 'light'),
+  
+  'divider': (
+    'thickness': $border-width-s,
+    'color': rgba(color('slate'), .5)
+  ),
+  'border': (
+    'offset': 25px,
+    'thickness': $border-width-s,
+    'color': tint(color('charcoal'), 80%)
+  )
+  
+);
+
+/// Defines the utility-list component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The utility-list component's themeable properties
+@mixin molecules-utility-list--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $image: map-deep-get($skin, 'image');
+  $gap: map-deep-get($skin, 'gap');
+  $padding: map-deep-get($skin, 'padding');
+  $spacing: map-deep-get($skin, 'spacing');
+  $context: map-deep-get($skin, 'context');
+  $title: map-deep-get($skin, 'title');
+  $icon: map-deep-get($skin, 'icon');
+  $background: map-deep-get($skin, 'background');
+  
+  // Get divider-specific variables.
+  $divider-thickness: map-deep-get($skin, 'divider.thickness');
+  $divider-color: map-deep-get($skin, 'divider.color');
+  
+  // Get border-specific variables.
+  $border-thickness: map-deep-get($skin, 'border.thickness');
+  $border-color: map-deep-get($skin, 'border.color');
+  $border-offset: map-deep-get($skin, 'border.offset');
+  
+  // Defines the utility-list component's base styles.
+  padding: $padding;
+  margin: $border-offset;
+  background-color: $background;
+  @include layered-border($border-thickness solid $border-color, $border-offset solid $background);
+  
+  // Defines utility list's title styles.
+  &-title {
+    @include tokens-heading('h4', $title !important);
+    
+    .icon {
+      height: $icon;
+      margin-right: $spacing;
+      
+      svg {
+        fill: $title;
+      }
+      
+    }
+    
+  }
+  
+  // Defines utility list's list styles.
+  &-list { 
+    @include margin-y( $padding );
+  
+    // Defines utility list's list item styles.
+    &-item { 
+      @include padding-y( $padding );
+      border-bottom: $divider-thickness solid $divider-color;
+      
+      &:not(.has-image):not(.has-context) { }
+      
+      &:not(.has-image).has-context {
+        grid-gap: $gap;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, min-content);
+      }
+      
+      &.has-image:not(.has-context) {
+        grid-gap: $gap;
+        grid-template-columns: $image 1fr;
+        grid-template-rows: $image;
+      }
+      
+      &.has-image.has-context {
+        grid-gap: $gap;
+        grid-template-columns: $image 1fr;
+        grid-template-rows: min-content 1fr;
+      }
+    
+      // Defines utility list's list item image styles.
+      &-image {
+        padding-bottom: 90%;
+      }
+      
+      // Defines utility list's list item context styles.
+      &-context {
+        @include tokens-heading('h6', $context);
+      }
+      
+      // Defines utility list's list item title styles.
+      &-title { 
+        font-size: 13px;
+      }
+      
+    }
+    
+  }
+  
+}

@@ -1,0 +1,59 @@
+////
+/// @group emory-libraries.patterns.molecules.utility-list
+////
+
+/// Load the utility-list component's structure and skin.
+@import 'utility-list/structure';
+@import 'utility-list/skin';
+
+/// Builds a constructor for the utility-list component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-utility-list
+/// @requires {variable} molecules-utility-list
+/// @requires {mixin} molecules-utility-list--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our utility-list component
+///
+/// @status review
+@mixin molecules-utility-list ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-utility-list, $custom);
+  
+  // Initialize the utility-list component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-utility-list;
+    
+    // Load parts.
+    &-title { 
+      @extend %molecules-utility-list-title;
+    }
+    &-list {
+      @extend %molecules-utility-list-list;
+      &-item {
+        @extend %molecules-utility-list-list-item;
+        &-image {
+          @extend %molecules-utility-list-list-item-image;
+        }
+        &-context {
+          @extend %molecules-utility-list-list-item-context;
+        }
+        &-title {
+          @extend %molecules-utility-list-list-item-title;
+        }
+      }
+    }
+    
+    // Load skins.
+    @include molecules-utility-list--theme( $skin );
+    
+  }
+  
+}

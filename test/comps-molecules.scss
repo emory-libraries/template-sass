@@ -89,3 +89,8 @@
 .figure {
   @include molecules-figure;
 }
+
+// molecules-utility-list
+.utility-list {
+  @include molecules-utility-list;
+}
