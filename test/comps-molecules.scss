@@ -94,3 +94,8 @@
 .utility-list {
   @include molecules-utility-list;
 }
+
+// molecules-feed-item
+.feed-item {
+  @include molecules-feed-item;
+}

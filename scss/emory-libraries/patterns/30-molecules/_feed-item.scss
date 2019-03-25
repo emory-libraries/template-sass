@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.molecules.feed-item
+////
+
+/// Load the feed-item component's structure and skin.
+@import 'feed-item/structure';
+@import 'feed-item/skin';
+
+/// Builds a constructor for the feed-item component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-feed-item
+/// @requires {variable} molecules-feed-item
+/// @requires {mixin} molecules-feed-item--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our feed-item component
+///
+/// @status review
+@mixin molecules-feed-item ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-feed-item, $custom);
+  
+  // Initialize the feed-item component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-feed-item;
+    
+    // Load parts.
+    &-date {
+      @extend %molecules-feed-item-date;
+    }
+    &-title {
+      @extend %molecules-feed-item-title;
+    }
+    &-action {
+      @extend %molecules-feed-item-action;
+    }
+    
+    // Load skins.
+    @include molecules-feed-item--theme( $skin );
+    
+  }
+  
+}

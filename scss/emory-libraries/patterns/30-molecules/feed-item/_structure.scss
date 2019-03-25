@@ -1,0 +1,59 @@
+////
+/// @group emory-libraries.patterns.molecules.feed-item
+////
+
+/// Defines the base structure of the feed-item component.
+///
+/// @since 1.0.0
+%molecules-feed-item {
+  
+  // Capture selector.
+  $selector: &;
+  
+  // Builds the feed-item structure.
+  display: grid;
+  grid-template-rows: repeat(2, min-content);
+  
+  // Builds the feed item structure without action.
+  &:not(.has-action) {
+    grid-template-areas: "date"
+                         "title";
+    grid-template-columns: 1fr;
+  }
+  
+  // Builds the feed item structure with action.
+  &.has-action {
+    grid-template-areas: "date date"
+                         "title action";
+    grid-template-columns: 1fr max-content;
+  }
+  
+  // Builds feed item date structure.
+  &-date {
+    grid-area: date;
+    margin: 0;
+  }
+  
+  // Builds feed item title structure.
+  &-title {
+    grid-area: title;
+    margin: 0;
+  }
+  
+  // Builds feed item action structure.
+  &-action {
+    grid-area: action;
+    
+    // Modifies structure when action is not present.
+    @include when-descendant-of( '#{$selector}:not(.has-action)' ) {
+      display: none;
+    };
+    
+    // Modifies structure when action is present.
+    @include when-descendant-of( '#{$selector}.has-action' ) {
+      display: flex;
+    };
+    
+  }
+  
+}

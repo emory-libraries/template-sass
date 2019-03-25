@@ -3722,6 +3722,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="molecules">
+                          <a href="#patterns.molecules.feed-item">feed-item</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.molecules.feed-item-mixin">
+                                <a href="#patterns.molecules.feed-item-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.feed-item" data-name="molecules-feed-item" data-type="mixin">
+                                    
+                                    <a href="#patterns.molecules.feed-item-mixin-molecules-feed-item">
+                                      
+                                      molecules-feed-item
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.feed-item" data-name="molecules-feed-item--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.molecules.feed-item-mixin-molecules-feed-item--theme">
+                                      
+                                      molecules-feed-item--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.molecules.feed-item-variable">
+                                <a href="#patterns.molecules.feed-item-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.feed-item" data-name="molecules-feed-item" data-type="variable">
+                                    
+                                    <a href="#patterns.molecules.feed-item-variable-molecules-feed-item">
+                                      
+                                      molecules-feed-item
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.molecules.feed-item-placeholder">
+                                <a href="#patterns.molecules.feed-item-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.molecules.feed-item" data-name="molecules-feed-item" data-type="placeholder">
+                                    
+                                    <a href="#patterns.molecules.feed-item-placeholder-molecules-feed-item">
+                                      
+                                      molecules-feed-item
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="molecules">
                           <a href="#patterns.molecules.figure">figure</a>
                         </p>
                         
@@ -11590,6 +11698,8 @@
                                   
                                   
                                   
+                                  
+                                  
                               
                               
                               
@@ -16499,6 +16609,8 @@
                                   
                               
                               
+                                  
+                                  
                                   
                                   
                                   
@@ -27372,6 +27484,8 @@
             
             
             
+            
+            
             <section class="main__section main__section--level-2 ">
             
               <h2 class="main__heading" id="patterns.molecules">
@@ -37577,6 +37691,783 @@
                   
                   <section class="main__section main__section--level-3 main__section--has-content">
                   
+                    <h3 class="main__heading" id="patterns.molecules.feed-item">
+                      
+                      <div class="container">feed-item</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.molecules.feed-item-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.feed-item-mixin-molecules-feed-item">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.feed-item-mixin-molecules-feed-item">
+                                  molecules-feed-item
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--review">review</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin molecules-feed-item($custom) { 
+                                
+                                // Extend the default skin.
+                                $skin: map-extend($molecules-feed-item, $custom);
+                                
+                                // Initialize the feed-item component.
+                                &amp; {
+                                  
+                                  // Load structure.
+                                  @extend %molecules-feed-item;
+                                  
+                                  // Load parts.
+                                  &amp;-date {
+                                    @extend %molecules-feed-item-date;
+                                  }
+                                  &amp;-title {
+                                    @extend %molecules-feed-item-title;
+                                  }
+                                  &amp;-action {
+                                    @extend %molecules-feed-item-action;
+                                  }
+                                  
+                                  // Load skins.
+                                  @include molecules-feed-item--theme( $skin );
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin molecules-feed-item($custom) { ... }"><code class="js-autoindent">@mixin molecules-feed-item($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the feed-item component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our feed-item component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.molecules.feed-item-placeholder-molecules-feed-item"><code>molecules-feed-item</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.molecules.feed-item-variable-molecules-feed-item"><code>molecules-feed-item</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.molecules.feed-item-mixin-molecules-feed-item--theme"><code>molecules-feed-item--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.feed-item-mixin-molecules-feed-item--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.feed-item-mixin-molecules-feed-item--theme">
+                                  molecules-feed-item--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin molecules-feed-item--theme($skin) { 
+                                
+                                // Capture themeable variables from skin.
+                                $title: map-deep-get($skin, &#x27;title&#x27;);
+                                $date: map-deep-get($skin, &#x27;date&#x27;);
+                                $gap: map-deep-get($skin, &#x27;gap&#x27;);
+                                
+                                // Defines the feed-item component&#x27;s base styles.
+                                grid-gap: $gap;
+                                
+                                // Defines the feed item styles without signup.
+                                &amp;:not(.has-action) { }
+                                
+                                // Defines the feed item styles with signup.
+                                &amp;.has-action { }
+                                
+                                // Defines feed item date styles.
+                                &amp;-date { 
+                                  @include tokens-heading(&#x27;h6&#x27;, $date);
+                                }
+                                
+                                // Defines feed item title styles.
+                                &amp;-title { 
+                                  @include atoms-link((color: $title));
+                                  @include tokens-text(&#x27;listing&#x27;, map-get($title, &#x27;normal&#x27;));
+                                }
+                                
+                                // Defines feed item action styles.
+                                &amp;-action {
+                                  @include atoms-button((
+                                    size: 100%,
+                                    padding: 15px
+                                  ));
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin molecules-feed-item--theme($skin) { ... }"><code class="js-autoindent">@mixin molecules-feed-item--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the feed-item component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The feed-item component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.link-mixin-atoms-link"><code>atoms-link</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.text-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.button-mixin-atoms-button"><code>atoms-button</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.molecules.feed-item-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.feed-item-variable-molecules-feed-item">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.feed-item-variable-molecules-feed-item">
+                                  molecules-feed-item
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$molecules-feed-item: (
+                                
+                                &#x27;title&#x27;: (
+                                  &#x27;normal&#x27;: $color-text-dark,
+                                  &#x27;hover&#x27;: $color-actionable,
+                                  &#x27;active&#x27;: $color-actionable
+                                ),
+                                &#x27;date&#x27;: color(&#x27;blue&#x27;),
+                                &#x27;gap&#x27;: 5px
+                                
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the feed-item component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.molecules.feed-item-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.molecules.feed-item-placeholder-molecules-feed-item">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.molecules.feed-item-placeholder-molecules-feed-item">
+                                  molecules-feed-item
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%molecules-feed-item { 
+                                
+                                // Capture selector.
+                                $selector: &amp;;
+                                
+                                // Builds the feed-item structure.
+                                display: grid;
+                                grid-template-rows: repeat(2, min-content);
+                                
+                                // Builds the feed item structure without action.
+                                &amp;:not(.has-action) {
+                                  grid-template-areas: &quot;date&quot;
+                                                       &quot;title&quot;;
+                                  grid-template-columns: 1fr;
+                                }
+                                
+                                // Builds the feed item structure with action.
+                                &amp;.has-action {
+                                  grid-template-areas: &quot;date date&quot;
+                                                       &quot;title action&quot;;
+                                  grid-template-columns: 1fr max-content;
+                                }
+                                
+                                // Builds feed item date structure.
+                                &amp;-date {
+                                  grid-area: date;
+                                  margin: 0;
+                                }
+                                
+                                // Builds feed item title structure.
+                                &amp;-title {
+                                  grid-area: title;
+                                  margin: 0;
+                                }
+                                
+                                // Builds feed item action structure.
+                                &amp;-action {
+                                  grid-area: action;
+                                  
+                                  // Modifies structure when action is not present.
+                                  @include when-descendant-of( &#x27;#{$selector}:not(.has-action)&#x27; ) {
+                                    display: none;
+                                  };
+                                  
+                                  // Modifies structure when action is present.
+                                  @include when-descendant-of( &#x27;#{$selector}.has-action&#x27; ) {
+                                    display: flex;
+                                  };
+                                  
+                                }
+                                
+                               }"
+                                      data-collapsed="%molecules-feed-item { ... }"><code class="js-autoindent">%molecules-feed-item { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the feed-item component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
                     <h3 class="main__heading" id="patterns.molecules.figure">
                       
                       <div class="container">figure</div>
@@ -44853,6 +45744,8 @@
                                   
                                   
                                   
+                                  
+                                  
                               
                               
                               
@@ -48091,6 +48984,8 @@
                                   
                               
                               
+                                  
+                                  
                                   
                                   
                                   
