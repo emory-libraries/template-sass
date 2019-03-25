@@ -1,0 +1,47 @@
+////
+/// @group emory-libraries.patterns.compounds.utility-list
+////
+
+/// Load the utility-list component's structure and skin.
+@import 'utility-list/structure';
+@import 'utility-list/skin';
+
+/// Builds a constructor for the utility-list component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} compounds-utility-list
+/// @requires {variable} compounds-utility-list
+/// @requires {mixin} compounds-utility-list--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our utility-list component
+///
+/// @status review
+@mixin compounds-utility-list ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($compounds-utility-list, $custom);
+  
+  // Initialize the utility-list component.
+  & {
+    
+    // Load structure.
+    @extend %compounds-utility-list;
+    
+    // Load parts.
+    &-title { 
+      @extend %compounds-utility-list-title;
+    }
+    &-list {
+      @extend %compounds-utility-list-list;
+    }
+    
+    // Load skins.
+    @include compounds-utility-list--theme( $skin );
+    
+  }
+  
+}

@@ -38,6 +38,7 @@
   "molecules-slide": "review",
   "molecules-accordion": "review",
   "molecules-figure": "review",
-  "molecules-utility-list": "review",
-  "molecules-feed-item": "review"
+  "molecules-feed-item": "review",
+  "molecules-utility-list-item": "review",
+  "compounds-utility-list": "review"
 }

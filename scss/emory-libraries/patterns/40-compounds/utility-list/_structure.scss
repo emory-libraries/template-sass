@@ -1,0 +1,32 @@
+////
+/// @group emory-libraries.patterns.compounds.utility-list
+////
+
+/// Defines the base structure of the utility-list component.
+///
+/// @since 1.0.0
+%compounds-utility-list {
+  
+  // Captures selector.
+  $selector: &;
+  
+  // Builds the utility-list structure.
+  // ...
+  
+  // Builds the utility list's title structure.
+  &-title {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+  
+  // Builds the utility list's list structure.
+  &-list { 
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+}

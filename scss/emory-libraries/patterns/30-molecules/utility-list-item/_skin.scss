@@ -1,0 +1,86 @@
+////
+/// @group emory-libraries.patterns.molecules.utility-list-item
+////
+
+/// Defines the base skin of the utility-list-item component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$molecules-utility-list-item: (
+  
+  'padding': 25px,
+  'gap': 10px,
+  
+  'image': 40%,
+  
+  'divider': (
+    'thickness': $border-width-s,
+    'color': rgba(color('slate'), .5)
+  ),
+  
+  'context': color('blue')
+  
+);
+
+/// Defines the utility-list-item component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The utility-list-item component's themeable properties
+@mixin molecules-utility-list-item--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $image: map-deep-get($skin, 'image');
+  $gap: map-deep-get($skin, 'gap');
+  $padding: map-deep-get($skin, 'padding');
+  $context: map-deep-get($skin, 'context');
+  
+  // Get divider-specific variables.
+  $divider-thickness: map-deep-get($skin, 'divider.thickness');
+  $divider-color: map-deep-get($skin, 'divider.color');
+  
+  // Defines the utility-list-item component's base styles.
+  @include padding-y( $padding );
+  border-bottom: $divider-thickness solid $divider-color;
+
+  &:not(.has-image):not(.has-context) { }
+
+  &:not(.has-image).has-context {
+    grid-gap: $gap;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, min-content);
+  }
+
+  &.has-image:not(.has-context) {
+    grid-gap: $gap;
+    grid-template-columns: $image 1fr;
+    grid-template-rows: $image;
+  }
+
+  &.has-image.has-context {
+    grid-gap: $gap;
+    grid-template-columns: $image 1fr;
+    grid-template-rows: min-content 1fr;
+  }
+
+  // Defines utility list's list item image styles.
+  &-image {
+    padding-bottom: 90%;
+  }
+
+  // Defines utility list's list item context styles.
+  &-context {
+    @include tokens-heading('h6', $context);
+  }
+
+  // Defines utility list's list item title styles.
+  &-title { 
+    font-size: 13px;
+  }
+  
+}

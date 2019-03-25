@@ -1,3 +1,6 @@
-@import '../scss/emory-libraries';
+@import 'comps-molecules';
 
-// ...
+// compounds-utility-list
+.utility-list {
+  @include compounds-utility-list;
+}

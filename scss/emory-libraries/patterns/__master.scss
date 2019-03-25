@@ -61,14 +61,15 @@
 @import '30-molecules/slide';
 @import '30-molecules/accordion';
 @import '30-molecules/figure';
-@import '30-molecules/utility-list';
 @import '30-molecules/feed-item';
+@import '30-molecules/utility-list-item';
 /*** INSERT NEW MOLECULES HERE ***/
 
 
 /// Load compounds.
 ///
 /// @since 1.0.0
+@import '40-compounds/utility-list';
 /*** INSERT NEW COMPOUNDS HERE ***/
 
 
