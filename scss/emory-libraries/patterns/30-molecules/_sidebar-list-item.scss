@@ -1,0 +1,47 @@
+////
+/// @group emory-libraries.patterns.molecules.sidebar-list-item
+////
+
+/// Load the sidebar-list-item component's structure and skin.
+@import 'sidebar-list-item/structure';
+@import 'sidebar-list-item/skin';
+
+/// Builds a constructor for the sidebar-list-item component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-sidebar-list-item
+/// @requires {variable} molecules-sidebar-list-item
+/// @requires {mixin} molecules-sidebar-list-item--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our sidebar-list-item component
+///
+/// @status review
+@mixin molecules-sidebar-list-item ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-sidebar-list-item, $custom);
+  
+  // Initialize the sidebar-list-item component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-sidebar-list-item;
+    
+    // Load parts.
+    &-context {
+      @extend %molecules-sidebar-list-item-context;
+    }
+    &-content {
+      @extend %molecules-sidebar-list-item-content;
+    }
+    
+    // Load skins.
+    @include molecules-sidebar-list-item--theme( $skin );
+    
+  }
+  
+}

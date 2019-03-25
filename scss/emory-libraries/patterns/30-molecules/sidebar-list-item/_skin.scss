@@ -1,0 +1,79 @@
+////
+/// @group emory-libraries.patterns.molecules.sidebar-list-item
+////
+
+/// Defines the base skin of the sidebar-list-item component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$molecules-sidebar-list-item: (
+  
+  'context': color('blue'),
+  
+  'margin': 25px,
+  
+  'icon': (
+    'size': 20px,
+    'spacing': 15px
+  )
+  
+);
+
+/// Defines the sidebar-list-item component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The sidebar-list-item component's themeable properties
+@mixin molecules-sidebar-list-item--theme ( $skin ) {
+  
+  // Capture selector.
+  $selector: &;
+  
+  // Capture themeable variables from skin.
+  $context: map-deep-get($skin, 'context');
+  $spacing: map-deep-get($skin, 'spacing');
+  $margin: map-deep-get($skin, 'margin');
+  
+  // Get icon-specific variables.
+  $icon-size: map-deep-get($skin, 'icon.size');
+  $icon-spacing: map-deep-get($skin, 'icon.spacing');
+  
+  // Defines the sidebar-list-item component's base styles.
+  @include margin-y( $margin );
+  
+  // Defines the sidebar list item context styles.
+  &-context { 
+    @include tokens-heading('h6', $context !important);
+    
+    @include when-descendant-of( '#{$selector}.has-icon' ) {
+      
+      .icon {
+        margin-right: $icon-spacing;
+        width: $icon-size;
+
+        svg {
+          fill: $context;
+        }
+
+      }
+      
+    };
+    
+  }
+  
+  // Defines the sidebar list item content styles.
+  &-content {
+    @include tokens-text;
+    
+    @include when-descendant-of( '#{$selector}.has-icon' ) {
+      padding-left: ($icon-size + $icon-spacing);
+    };
+    
+  }
+  
+}

@@ -99,3 +99,8 @@
 .feed-item {
   @include molecules-feed-item;
 }
+
+// molecules-sidebar-list-item
+.sidebar-list-item {
+  @include molecules-sidebar-list-item;
+}

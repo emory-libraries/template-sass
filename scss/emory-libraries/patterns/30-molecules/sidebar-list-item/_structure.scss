@@ -1,0 +1,46 @@
+////
+/// @group emory-libraries.patterns.molecules.sidebar-list-item
+////
+
+/// Defines the base structure of the sidebar-list-item component.
+///
+/// @since 1.0.0
+%molecules-sidebar-list-item {
+  
+  // Captures selector.
+  $selector: &;
+  
+  // Builds the sidebar-list-item structure.
+  // ...
+  
+  // Builds the sidebar list item context structure.
+  &-context {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    
+    @include when-descendant-of( '#{$selector}:not(.has-icon)' ) {
+      
+      .icon {
+        display: none;
+      }
+      
+    };
+    
+    @include when-descendant-of( '#{$selector}.has-icon' ) {
+      
+      .icon {
+        display: block;
+      }
+      
+    };
+    
+  }
+  
+  // Builds the sidebar list item content structure.
+  &-content {
+    display: block;
+    margin: 0;
+  }
+  
+}
