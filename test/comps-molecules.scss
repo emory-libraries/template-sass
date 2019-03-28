@@ -104,3 +104,8 @@
 .sidebar-list-item {
   @include molecules-sidebar-list-item;
 }
+
+// molecules-alert
+.alert {
+  @include molecules-alert;
+}

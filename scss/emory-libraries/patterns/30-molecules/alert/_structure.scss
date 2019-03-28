@@ -1,0 +1,66 @@
+////
+/// @group emory-libraries.patterns.molecules.alert
+////
+
+/// Defines the base structure of the alert component.
+///
+/// @since 1.0.0
+%molecules-alert {
+  
+  // Capture selector.
+  $selector: &;
+  
+  // Builds the alert structure.
+  display: grid;
+  grid-template-areas: "title"
+                       "message";
+  grid-template-columns: 1fr;
+  
+  &:not(.is-dismissible) { }
+  
+  &.is-dismissible { }
+  
+  // Builds the alert title structure.
+  &-title { 
+    margin: 0;
+  }
+  
+  // Builds the alert message structure.
+  &-message {
+    margin: 0;
+  }
+  
+  // Builds the alert dismiss structure.
+  &-dismiss {
+    @include absolute-center-contents;
+    @include absolute( 0 0 null null );
+    box-sizing: content-box;
+    cursor: pointer;
+    
+    @include when-descendant-of( '#{$selector}:not(.is-dismissible)' ) {
+      display: none;
+    };
+    @include when-descendant-of( '#{$selector}.is-dismissible' ) {
+      display: flex;
+    };
+    
+    &,
+    &:hover,
+    &:focus,
+    &:active,
+    &.is-hover,
+    &.is-focus,
+    &.is-active {
+      background: none;
+      border: none;
+    }
+    
+    &[disabled],
+    &.is-disabled {
+      cursor: not-allowed;
+      opacity: .5;
+    }
+    
+  }
+  
+}

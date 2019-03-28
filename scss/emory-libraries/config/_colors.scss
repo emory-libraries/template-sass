@@ -103,22 +103,30 @@ $colors-ui: (
   
   'error': (
     'base': #B82216, // rgb(184, 34, 22)
-    'light': #EABDB9 // rgb(234, 189, 185)
+    'light': #EABDB9, // rgb(234, 189, 185)
+    'mid': #E61D03,
+    'bright': #FA5555
   ),
   
   'success': (
     'base': #257611, // rgb(37, 118, 17)
-    'light': #E0F6DA // rgb(224, 246, 218)
+    'light': #E0F6DA, // rgb(224, 246, 218)
+    'mid': #1DB003,
+    'bright': #6EED57
   ),
   
   'caution': (
     'base': #AB750C, // rgb(171, 117, 12)
-    'light': #F6E4C1 // rgb(246, 228, 193)
+    'light': #F6E4C1, // rgb(246, 228, 193)
+    'mid': #D69A03,
+    'bright': map-deep-get($colors-brand, 'gold.base')
   ),
   
   'info': (
     'base': map-deep-get($colors-brand, 'blue.base'),
-    'light': map-deep-get($colors-brand, 'blue.light')
+    'light': map-deep-get($colors-brand, 'blue.light'),
+    'mid': map-deep-get($colors-brand, 'blue.mid'),
+    'bright': map-deep-get($colors-brand, 'blue.bright.base')
   )
   
 ) !default;

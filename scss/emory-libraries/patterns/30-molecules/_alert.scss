@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.molecules.alert
+////
+
+/// Load the alert component's structure and skin.
+@import 'alert/structure';
+@import 'alert/skin';
+
+/// Builds a constructor for the alert component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} molecules-alert
+/// @requires {variable} molecules-alert
+/// @requires {mixin} molecules-alert--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our alert component
+///
+/// @status review
+@mixin molecules-alert ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-alert, $custom);
+  
+  // Initialize the alert component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-alert;
+    
+    // Load parts.
+    &-title {
+      @extend %molecules-alert-title;
+    }
+    &-message {
+      @extend %molecules-alert-message;
+    }
+    &-dismiss {
+      @extend %molecules-alert-dismiss;
+    }
+    
+    // Load skins.
+    @include molecules-alert--theme( $skin );
+    
+  }
+  
+}
