@@ -1,0 +1,16 @@
+////
+/// @group emory-libraries.state
+////
+
+
+.fade {
+  
+  @include v-transition {
+    opacity: 0;
+  };
+  
+  @include v-transition-active {
+    transition: opacity $transition-duration $transition-timing;
+  };
+  
+}

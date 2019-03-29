@@ -1,0 +1,137 @@
+////
+/// @group emory-libraries.utils.mixins
+////
+
+/// Helps create Vue.js transitions by setting the from state.
+/// 
+/// @since 1.0.0
+///
+/// @content
+@mixin v-transition-from {
+  
+  &-enter,
+  &-leave-to {
+    @content;
+  }
+  
+}
+
+/// Helps create Vue.js transitions by setting the to state.
+/// 
+/// @since 1.0.0
+///
+/// @content
+@mixin v-transition-to {
+  
+  &-enter-to,
+  &-leave {
+    @content;
+  }
+  
+}
+
+/// Helps create Vue.js entrance transitions by setting the starting state.
+/// 
+/// @since 1.0.0
+///
+/// @content
+@mixin v-transition-in-start {
+  
+  &-enter {
+    @content;
+  }
+  
+}
+
+/// Helps create Vue.js entrance transitions by setting the ending state.
+/// 
+/// @since 1.0.0
+///
+/// @content
+@mixin v-transition-in-end {
+  
+  &-enter-to {
+    @content;
+  }
+  
+}
+
+/// Helps create Vue.js entrance transitions by setting the active state.
+/// 
+/// @since 1.0.0
+///
+/// @content
+@mixin v-transition-in-active {
+  
+  &-enter-active {
+    @content;
+  }
+  
+}
+
+/// Helps create Vue.js exit transitions by setting the starting state.
+/// 
+/// @since 1.0.0
+///
+/// @content
+@mixin v-transition-out-start {
+  
+  &-leave {
+    @content;
+  }
+  
+}
+
+/// Helps create Vue.js exit transitions by setting the ending state.
+/// 
+/// @since 1.0.0
+///
+/// @content
+@mixin v-transition-out-end {
+  
+  &-leave-to {
+    @content;
+  }
+  
+}
+
+/// Helps create Vue.js exit transitions by setting the active state.
+/// 
+/// @since 1.0.0
+///
+/// @content
+@mixin v-transition-out-active {
+  
+  &-leave-active {
+    @content;
+  }
+  
+}
+
+/// Helps create Vue.js transitions by setting the start and end state.
+/// 
+/// @since 1.0.0
+///
+/// @content
+@mixin v-transition {
+  
+  &-enter,
+  &-leave-to {
+    @content;
+  }
+  
+}
+
+/// Helps create Vue.js transitions by setting the active state.
+/// 
+/// @since 1.0.0
+///
+/// @content
+@mixin v-transition-active {
+  
+  &-enter-active,
+  &-leave-active {
+    @content;
+  }
+  
+}
