@@ -42,5 +42,6 @@
   "molecules-utility-list-item": "review",
   "molecules-sidebar-list-item": "review",
   "compounds-utility-list": "review",
-  "molecules-alert": "review"
+  "molecules-alert": "review",
+  "molecules-notification": "review"
 }

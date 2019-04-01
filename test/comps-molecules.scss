@@ -109,3 +109,8 @@
 .alert {
   @include molecules-alert;
 }
+
+// molecules-notification
+.notification {
+  @include molecules-notification;
+}

@@ -1,0 +1,250 @@
+////
+/// @group emory-libraries.patterns.molecules.notification
+////
+
+/// Defines the base skin of the notification component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$molecules-notification: (
+  
+  'themes': (
+    
+    'default': (
+      'foreground': color('charcoal'),
+      'background': color('slate', 'light'),
+      'label': color('blue'),
+      'dismiss': (
+        'normal': color('blue'),
+        'hover': color('blue', 'dark'),
+        'active': color('blue', 'dark')
+      )
+    ),
+    
+    'info': (
+      'foreground': color('white'),
+      'background': color('ui', 'info'),
+      'label': color('ui', 'caution', 'bright'),
+      'dismiss': (
+        'normal': color('ui', 'caution', 'bright'),
+        'hover': color('ui', 'caution', 'mid'),
+        'active': color('ui', 'caution', 'mid')
+      )
+    ),
+    
+    'success': (
+      'foreground': color('blue', 'dark'),
+      'background': color('ui', 'success', 'mid'),
+      'label': color('blue'),
+      'dismiss': (
+        'normal': color('blue'),
+        'hover': color('blue', 'dark'),
+        'active': color('blue', 'dark')
+      )
+    ),
+    
+    'caution': (
+      'foreground': color('blue', 'dark'),
+      'background': color('ui', 'caution', 'bright'),
+      'label': color('blue'),
+      'dismiss': (
+        'normal': color('blue'),
+        'hover': color('blue', 'dark'),
+        'active': color('blue', 'dark')
+      )
+    ),
+    
+    'error': (
+      'foreground': color('white'),
+      'background': color('ui', 'error'),
+      'label': color('slate', 'light'),
+      'dismiss': (
+        'normal': color('slate', 'light'),
+        'hover': color('slate'),
+        'active': color('slate')
+      )
+    ),
+    
+    'light': (
+      'foreground': color('charcoal'),
+      'background': color('white'),
+      'label': $color-actionable,
+      'dismiss': (
+        'normal': $color-actionable,
+        'hover': color('blue', 'mid'),
+        'active': color('blue', 'mid')
+      )
+    ),
+    
+    'dark': (
+      'foreground': color('white'),
+      'background': color('blue', 'dark'),
+      'label': color('ui', 'caution', 'bright'),
+      'dismiss': (
+        'normal': color('ui', 'caution', 'bright'),
+        'hover': color('ui', 'caution', 'mid'),
+        'active': color('ui', 'caution', 'mid')
+      )
+    )
+    
+  ),
+  'theme': 'default',
+  
+  'padding': 15px 25px,
+  'gap': 25px,
+  'dismiss': 25px,
+  
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  )
+  
+);
+
+/// Defines the notification component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The notification component's themeable properties
+@mixin molecules-notification--theme ( $skin ) {
+  
+  // Captures selector.
+  $selector: &;
+  
+  // Capture themeable variables from skin.
+  $theme: map-deep-get($skin, 'theme');
+  $themes: map-deep-get($skin, 'themes');
+  $padding: map-deep-get($skin, 'padding');
+  $gap: map-deep-get($skin, 'gap');
+  $duration: map-deep-get($skin, 'transition.duration');
+  $timing: map-deep-get($skin, 'transition.timing');
+  $dismiss: map-deep-get($skin, 'dismiss');
+  
+  // Get theme-specific variables.
+  $theme-foreground: map-deep-get($themes, $theme + '.foreground');
+  $theme-background: map-deep-get($themes, $theme + '.background');
+  $theme-label: map-deep-get($themes, $theme + '.label');
+  $theme-dismiss: map-deep-get($themes, $theme + '.dismiss');
+  
+  // Defines the notification component's base styles.
+  @include tokens-text('body', $theme-foreground);
+  padding: $padding;
+  grid-gap: $gap;
+  background-color: $theme-background;
+  
+  // Defines the notification label styles.
+  &::before {
+    content: attr(data-label) ':';
+    @include tokens-text('label', $theme-label);
+    line-height: rem($base-font-size * 1.9375) !important;
+  }
+  
+  // Defines the notification message styles.
+  &-message {
+    
+  }
+  
+  // Defines the notification dismiss styles.
+  &-dismiss { 
+    
+    $normal: map-get($theme-dismiss, 'normal');
+    $hover: map-get($theme-dismiss, 'hover');
+    $active: map-get($theme-dismiss, 'active');
+    
+    @include size( $dismiss );
+    color: $normal;
+    transition: all $duration $timing;
+    
+    svg {
+      fill: $normal;
+      transition: all $duration $timing;
+    }
+    
+    &:hover,
+    &:focus,
+    &.is-hover,
+    &.is-focus {
+      color: $hover;
+      
+      svg {
+        fill: $hover;
+      }
+      
+    }
+    
+    &:active,
+    &.is-active {
+      color: $active;
+      
+      svg {
+        fill: $active;
+      }
+      
+    }
+    
+  }
+  
+  // Defines theme-based styles.
+  @each $theme, $colors in $themes {
+    
+    // Get theme-specific variables.
+    $theme-foreground: map-deep-get($colors, 'foreground');
+    $theme-background: map-deep-get($colors, 'background');
+    $theme-label: map-deep-get($colors, 'label');
+    $theme-dismiss: map-deep-get($colors, 'dismiss');
+    
+    &.-#{$theme} {
+      background-color: $theme-background;
+      color: $theme-foreground;
+
+    
+      &::before {
+        color: $theme-label;
+      }
+  
+      #{$selector}-dismiss {
+        
+        $normal: map-get($theme-dismiss, 'normal');
+        $hover: map-get($theme-dismiss, 'hover');
+        $active: map-get($theme-dismiss, 'active');
+        
+        color: $normal;
+        
+        svg {
+          fill: $normal;
+        }
+        
+        &:hover,
+        &:focus,
+        &.is-hover,
+        &.is-focus {
+          color: $hover;
+          
+          svg {
+            fill: $hover;
+          }
+          
+        }
+        
+        &:active,
+        &.is-active {
+          color: $active;
+          
+          svg {
+            fill: $active;
+          }
+          
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+}
