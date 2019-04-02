@@ -60,16 +60,18 @@ module.exports = (grunt) => {
       src: ['**']
     },
     environments: {
-      options: {
-        release_root: 'versions',
-        current_symlink: 'current',
-        local_path: 'docs',
-        tag: '<%= pkg.version %>',
-        deploy_path: '<%= secret.production.path %>',
-        host: '<%= secret.production.host %>',
-        username: '<%= secret.production.username %>',
-        password: '<%= secret.production.password %>',
-        port: '<%= secret.production.port %>'
+      production: {
+        options: {
+          release_root: 'versions',
+          current_symlink: 'current',
+          local_path: 'docs',
+          tag: '<%= pkg.version %>',
+          deploy_path: '<%= secret.production.path %>',
+          host: '<%= secret.production.host %>',
+          username: '<%= secret.production.username %>',
+          password: '<%= secret.production.password %>',
+          port: '<%= secret.production.port %>'
+        }
       }
     }
   });
