@@ -2,6 +2,7 @@ module.exports = (grunt) => {
 
   // Configure tasks.
   grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
     'dart-sass': {
       options: {
         sourceMap: false
