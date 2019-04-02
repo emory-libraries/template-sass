@@ -3,6 +3,7 @@ module.exports = (grunt) => {
   // Configure tasks.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    secret: grunt.file.readJSON('secret.json'),
     'dart-sass': {
       options: {
         sourceMap: false
