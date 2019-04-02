@@ -56,6 +56,19 @@ module.exports = (grunt) => {
         base: 'docs'
       },
       src: ['**']
+    },
+    environments: {
+      options: {
+        release_root: 'versions',
+        current_symlink: 'current',
+        local_path: 'docs',
+        tag: '<%= pkg.version %>',
+        deploy_path: '<%= secret.production.path %>',
+        host: '<%= secret.production.host %>',
+        username: '<%= secret.production.username %>',
+        password: '<%= secret.production.password %>',
+        port: '<%= secret.production.port %>'
+      }
     }
   });
   
@@ -79,6 +92,10 @@ module.exports = (grunt) => {
   grunt.registerTask('dist', [
     'build',
     'gh-pages'
+  ]);
+  grunt.registerTask('deploy', [
+    'dist',
+    'ssh_deploy:production'
   ]);
   grunt.registerTask('status', 'Update the status of a pattern', require('./scripts/status.js'));
   
