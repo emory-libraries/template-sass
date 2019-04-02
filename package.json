@@ -1,7 +1,7 @@
 {
   "title": "Emory Libraries Sass",
   "name": "template-sass",
-  "version": "1.0.0",
+  "version": "1.0.0-dev.0",
   "description": "A baseline Sass framework for Emory Libraries",
   "main": "index.js",
   "scripts": {
@@ -38,6 +38,7 @@
     "grunt-gh-pages": "^3.1.0",
     "grunt-plop": "^1.1.1",
     "grunt-sassdoc": "^2.0.3",
+    "grunt-ssh-deploy": "^0.4.1",
     "load-grunt-tasks": "^4.0.0",
     "lodash": "^4.17.11",
     "path": "^0.12.7",
