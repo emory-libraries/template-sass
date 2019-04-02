@@ -27,11 +27,16 @@ if( $icon ) {
   // Allow the icon to be modified.
   foreach( $params as $mod => $args ) {
     
-    // Modify the icon by passing array arguments.
-    if( is_array($args) ) $icon->{$mod}(...array_values($args));
+    // Verify that the modifier exists.
+    if( method_exists($icon, $mod) ) {
     
-    // Otherwise, modify the icon by passing simple arguments.
-    else $icon->{$mod}($args);
+      // Modify the icon by passing array arguments.
+      if( is_array($args) ) call_user_func_array([$icon, $mod], $args);
+
+      // Otherwise, modify the icon by passing simple arguments.
+      else $icon->{$mod}($args);
+      
+    }
     
   }
   
