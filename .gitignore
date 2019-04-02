@@ -1,6 +1,5 @@
 .DS_Store
 node_modules/
-css/
-*.css
-*.css.map
 test/tmp
+secret.json
+.grunt/
