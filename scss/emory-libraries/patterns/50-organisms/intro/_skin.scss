@@ -8,9 +8,7 @@
 ///
 /// @type map
 $organisms-intro: (
-  
-  
-  
+
 );
 
 /// Defines the intro component theme.
@@ -23,11 +21,10 @@ $organisms-intro: (
 ///
 /// @output The intro component's themeable properties
 @mixin organisms-intro--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   // ...
-  
+
   // Defines the intro component's base styles.
   // ...
-  
 }
