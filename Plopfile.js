@@ -15,7 +15,7 @@ module.exports = (plop) => {
         molecule: 30,
         compound: 40,
         organism: 50,
-        templates: 60
+        template: 60
       },
       regex: ( group ) => new RegExp(`^(\\/\\*\\*\\* insert new ${group}s here \\*\\*\\*\\/)$`, 'mi')
     }
