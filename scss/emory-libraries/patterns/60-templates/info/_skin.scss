@@ -1,0 +1,52 @@
+////
+/// @group emory-libraries.patterns.templates.info
+////
+
+/// Defines the base skin of the info component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$templates-info: (
+
+  'layout': (
+    'x': $layout-x,
+    'y': $layout-y
+  ),
+
+);
+
+/// Defines the info component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The info component's themeable properties
+@mixin templates-info--theme ($skin) {
+
+    // Capture themeable variables from skin.
+    $layout: map-deep-get($skin, 'layout');
+    // ...
+
+    &-header {}
+
+    &-main {
+        @include tokens-layout( $layout );
+    }
+
+    &-aside {}
+
+    &-footer {}
+
+    &-header,
+    &-footer {
+        border: $border-width-s solid color('slate')
+    }
+
+    // Defines the info component's base styles.
+    // ...
+
+}

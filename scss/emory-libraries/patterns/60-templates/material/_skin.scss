@@ -1,0 +1,33 @@
+////
+/// @group emory-libraries.patterns.templates.material
+////
+
+/// Defines the base skin of the material component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$templates-material: (
+  
+  
+  
+);
+
+/// Defines the material component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The material component's themeable properties
+@mixin templates-material--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  // ...
+  
+  // Defines the material component's base styles.
+  // ...
+  
+}

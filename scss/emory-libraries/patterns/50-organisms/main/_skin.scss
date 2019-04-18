@@ -1,0 +1,32 @@
+////
+/// @group emory-libraries.patterns.organisms.main
+////
+
+/// Defines the base skin of the main component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$organisms-main: ();
+
+/// Defines the main component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The main component's themeable properties
+@mixin organisms-main--theme ($skin) {
+
+    // Capture themeable variables from skin.
+    // ...
+    &-sidebar {
+        border: $border-width-s solid color('slate')
+    }
+
+    // Defines the main component's base styles.
+    // ...
+
+}

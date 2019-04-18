@@ -1,0 +1,55 @@
+////
+/// @group emory-libraries.patterns.organisms.main
+////
+
+/// Defines the base structure of the main component.
+///
+/// @since 1.0.0-dev.0
+%organisms-main {
+
+  // Builds the main structure.
+  // ...
+
+    $selector: &;
+
+    grid-area: main;
+    display: grid;
+    grid-column-gap: 40px;
+    grid-template-areas: "titles"
+                       "body"
+                       "guides"
+                       "aside";
+
+    @include breakpoint-l() {
+      grid-template-areas: "titles titles"
+                           "body  aside"
+                           "guides guides";
+      grid-template-columns: minmax(auto, 840px) minmax(auto, 340px);
+    }
+
+    &-titles {
+      grid-area: titles;
+    }
+
+    &-body-content {
+      grid-area: body;
+
+      .image.-center {
+          max-width: 100%;
+      }
+    }
+
+    &-sidebar {
+      grid-area: aside;
+      display: flex;
+      justify-content: center;
+
+      &::after {
+          content: 'Sidebar';
+      }
+    }
+
+    &-guides {
+      grid-area: guides;
+    }
+}

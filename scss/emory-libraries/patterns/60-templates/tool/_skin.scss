@@ -1,0 +1,33 @@
+////
+/// @group emory-libraries.patterns.templates.tool
+////
+
+/// Defines the base skin of the tool component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$templates-tool: (
+  
+  
+  
+);
+
+/// Defines the tool component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The tool component's themeable properties
+@mixin templates-tool--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  // ...
+  
+  // Defines the tool component's base styles.
+  // ...
+  
+}
