@@ -1,0 +1,6 @@
+@import 'comps-organisms';
+// ...
+
+.info-page {
+    @include templates-info;
+}

@@ -1,0 +1,6 @@
+@import 'comps-compounds';
+// ...
+
+.main {
+    @include organisms-main;
+}
