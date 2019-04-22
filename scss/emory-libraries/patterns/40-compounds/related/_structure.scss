@@ -1,0 +1,22 @@
+////
+/// @group emory-libraries.patterns.compounds.related
+////
+
+/// Defines the base structure of the related component.
+///
+/// @since 1.0.0
+%compounds-related {
+  
+  // Builds the related structure.
+  // ...
+  
+  // Builds the related title structure.
+  &-title {
+    display: block;
+    margin: 0;
+  }
+  
+  // Builds the related content structure.
+  &-content { }
+  
+}

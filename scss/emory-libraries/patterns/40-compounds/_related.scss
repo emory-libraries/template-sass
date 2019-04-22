@@ -1,0 +1,47 @@
+////
+/// @group emory-libraries.patterns.compounds.related
+////
+
+/// Load the related-cards component's structure and skin.
+@import 'related/structure';
+@import 'related/skin';
+
+/// Builds a constructor for the related component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} compounds-related
+/// @requires {variable} compounds-related
+/// @requires {mixin} compounds-cards--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our related component
+///
+/// @status review
+@mixin compounds-related ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($compounds-related, $custom);
+  
+  // Initialize the related component.
+  & {
+    
+    // Load structure.
+    @extend %compounds-related;
+    
+    // Load parts.
+    &-title {
+      @extend %compounds-related-title;
+    }
+    &-content {
+      @extend %compounds-related-content;
+    }
+    
+    // Load skins.
+    @include compounds-related--theme( $skin );
+    
+  }
+  
+}

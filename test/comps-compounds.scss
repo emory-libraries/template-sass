@@ -14,3 +14,8 @@
 .accordion {
   @include compounds-accordion;
 }
+
+// compounds-related
+.related {
+  @include compounds-related;
+}

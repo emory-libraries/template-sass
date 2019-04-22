@@ -2750,6 +2750,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="compounds">
+                          <a href="#patterns.compounds.related">related</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.compounds.related-mixin">
+                                <a href="#patterns.compounds.related-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.compounds.related" data-name="compounds-related" data-type="mixin">
+                                    
+                                    <a href="#patterns.compounds.related-mixin-compounds-related">
+                                      
+                                      compounds-related
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.compounds.related" data-name="compounds-related--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.compounds.related-mixin-compounds-related--theme">
+                                      
+                                      compounds-related--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.compounds.related-variable">
+                                <a href="#patterns.compounds.related-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.compounds.related" data-name="compounds-related" data-type="variable">
+                                    
+                                    <a href="#patterns.compounds.related-variable-compounds-related">
+                                      
+                                      compounds-related
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.compounds.related-placeholder">
+                                <a href="#patterns.compounds.related-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.compounds.related" data-name="compounds-related" data-type="placeholder">
+                                    
+                                    <a href="#patterns.compounds.related-placeholder-compounds-related">
+                                      
+                                      compounds-related
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="compounds">
                           <a href="#patterns.compounds.utility-list">utility-list</a>
                         </p>
                         
@@ -28273,6 +28381,8 @@
             
             
             
+            
+            
             <section class="main__section main__section--level-2 ">
             
               <h2 class="main__heading" id="patterns.compounds">
@@ -28600,9 +28710,9 @@
                                 $spacing: map-deep-get($skin, &#x27;spacing&#x27;);
                                 $padding: map-deep-get($skin, &#x27;padding&#x27;);
                                 
-                                // Get divider-specific variables.
-                                $divider-color: map-deep-get($skin, &#x27;divider.color&#x27;);
-                                $divider-thickness: map-deep-get($skin, &#x27;divider.thickness&#x27;);
+                                // Get separator-specific variables.
+                                $separator-color: map-deep-get($skin, &#x27;separator.color&#x27;);
+                                $separator-thickness: map-deep-get($skin, &#x27;separator.thickness&#x27;);
                                 
                                 // Defines the accordion component&#x27;s base styles.
                                 @include margin-y($spacing);
@@ -28628,7 +28738,7 @@
                                     line-height: 1 !important;
                                     
                                     &amp; + &amp; {
-                                      border-left: $divider-thickness solid $divider-color;
+                                      border-left: $separator-thickness solid $separator-color;
                                     }
                                     
                                   }
@@ -28860,9 +28970,9 @@
                                   &#x27;hover&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
                                   &#x27;active&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;)
                                 ),
-                                &#x27;divider&#x27;: (
+                                &#x27;separator&#x27;: (
                                   &#x27;color&#x27;: color(&#x27;slate&#x27;),
-                                  &#x27;thickness&#x27;: 1px
+                                  &#x27;thickness&#x27;: $border-width-s
                                 ), 
                                 &#x27;spacing&#x27;: $rhythm-y,
                                 &#x27;padding&#x27;: 15px
@@ -29479,6 +29589,8 @@
                                   
                                   
                                   
+                                  
+                                  
                               
                               
                               
@@ -29667,6 +29779,704 @@
                               
                                     <h3 class="item__sub-heading">Description</h3>
                                     <div class="item__description"><p>Defines the base structure of the cards component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
+                    <h3 class="main__heading" id="patterns.compounds.related">
+                      
+                      <div class="container">related</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.compounds.related-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.compounds.related-mixin-compounds-related">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.compounds.related-mixin-compounds-related">
+                                  compounds-related
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--review">review</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin compounds-related($custom) { 
+                                
+                                // Extend the default skin.
+                                $skin: map-extend($compounds-related, $custom);
+                                
+                                // Initialize the related component.
+                                &amp; {
+                                  
+                                  // Load structure.
+                                  @extend %compounds-related;
+                                  
+                                  // Load parts.
+                                  &amp;-title {
+                                    @extend %compounds-related-title;
+                                  }
+                                  &amp;-content {
+                                    @extend %compounds-related-content;
+                                  }
+                                  
+                                  // Load skins.
+                                  @include compounds-related--theme( $skin );
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin compounds-related($custom) { ... }"><code class="js-autoindent">@mixin compounds-related($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the related component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our related component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.compounds.related-mixin-compounds-related--theme"><code>compounds-related--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.compounds.related-placeholder-compounds-related"><code>compounds-related</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.compounds.related-variable-compounds-related"><code>compounds-related</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.compounds.cards-mixin-compounds-cards--theme"><code>compounds-cards--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.compounds.related-mixin-compounds-related--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.compounds.related-mixin-compounds-related--theme">
+                                  compounds-related--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin compounds-related--theme($skin) { 
+                                
+                                // Capture themeable variables from skin.
+                                $title: map-deep-get($skin, &#x27;title&#x27;);
+                                $spacing: map-deep-get($skin, &#x27;spacing&#x27;);
+                                
+                                // Get divider specific variables.
+                                $divider-thickness: map-deep-get($skin, &#x27;divider.thickness&#x27;);
+                                $divider-color: map-deep-get($skin, &#x27;divider.color&#x27;);
+                                
+                                // Defines the related component&#x27;s base styles.
+                                @include margin-y($spacing / 2);
+                                @include padding-y($spacing / 2);
+                                border-top: $divider-thickness solid $divider-color;
+                              
+                                // Defines the related title styles.
+                                &amp;-title { 
+                                  @include tokens-heading(&#x27;h6&#x27;, $title);
+                                }
+                                
+                                // Defines the related content styles.
+                                &amp;-content { }
+                                
+                               }"
+                                       data-collapsed="@mixin compounds-related--theme($skin) { ... }"><code class="js-autoindent">@mixin compounds-related--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the related component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The related-cards component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.compounds.related-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.compounds.related-variable-compounds-related">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.compounds.related-variable-compounds-related">
+                                  compounds-related
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$compounds-related: (
+                                
+                                &#x27;title&#x27;: color(&#x27;blue&#x27;),
+                                
+                                &#x27;spacing&#x27;: ($rhythm-y * 2),
+                                
+                                &#x27;divider&#x27;: (
+                                  &#x27;thickness&#x27;: $border-width-s,
+                                  &#x27;color&#x27;: rgba(color(&#x27;slate&#x27;, &#x27;light&#x27;), .5)
+                                )
+                                
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the related component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.compounds.related-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.compounds.related-placeholder-compounds-related">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.compounds.related-placeholder-compounds-related">
+                                  compounds-related
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%compounds-related { 
+                                
+                                // Builds the related structure.
+                                // ...
+                                
+                                // Builds the related title structure.
+                                &amp;-title {
+                                  display: block;
+                                  margin: 0;
+                                }
+                                
+                                // Builds the related content structure.
+                                &amp;-content { }
+                                
+                               }"
+                                      data-collapsed="%compounds-related { ... }"><code class="js-autoindent">%compounds-related { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the related component.</p>
                                   </div>
                               
                               
@@ -51402,6 +52212,8 @@
                                   
                               
                               
+                                  
+                                  
                                   
                                   
                                   
