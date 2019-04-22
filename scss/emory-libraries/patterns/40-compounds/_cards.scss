@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.compounds.cards
+////
+
+/// Load the cards component's structure and skin.
+@import 'cards/structure';
+@import 'cards/skin';
+
+/// Builds a constructor for the cards component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} compounds-cards
+/// @requires {variable} compounds-cards
+/// @requires {mixin} compounds-cards--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our cards component
+///
+/// @status review
+@mixin compounds-cards ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($compounds-cards, $custom);
+  
+  // Initialize the cards component.
+  & {
+    
+    // Load structure.
+    @extend %compounds-cards;
+    
+    // Load skins.
+    @include compounds-cards--theme( $skin );
+    
+  }
+  
+}

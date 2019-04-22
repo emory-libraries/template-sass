@@ -1,0 +1,59 @@
+////
+/// @group emory-libraries.patterns.compounds.cards
+////
+
+/// Defines the base skin of the cards component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$compounds-cards: (
+  
+  'gap': (
+    'x': 25px,
+    'y': 25px
+  ),
+  
+  'columns': (
+    's': 1,
+    'm': 2,
+    'l': 3
+  ),
+  
+  'spacing': 25px
+  
+);
+
+/// Defines the cards component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The cards component's themeable properties
+@mixin compounds-cards--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $gap-x: map-deep-get($skin, 'gap.x');
+  $gap-y: map-deep-get($skin, 'gap.y');
+  $columns: map-deep-get($skin, 'columns');
+  $spacing: map-deep-get($skin, 'spacing');
+  
+  // Defines the cards component's base styles.
+  grid-column-gap: $gap-x;
+  grid-row-gap: $gap-y;
+  @include margin-y( $spacing );
+  
+  // Defines the grid size across breakpoints.
+  @each $screen, $size in $columns {
+    --cols-#{$screen}: #{$size};
+    
+    @include breakpoint( screen($screen) ) {
+      grid-template-columns: repeat(var(--cols-#{$screen}), 1fr);
+    }
+    
+  }
+  
+}
