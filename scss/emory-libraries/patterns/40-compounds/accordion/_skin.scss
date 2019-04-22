@@ -15,9 +15,9 @@ $compounds-accordion: (
     'hover': color('blue', 'mid'),
     'active': color('blue', 'mid')
   ),
-  'divider': (
+  'separator': (
     'color': color('slate'),
-    'thickness': 1px
+    'thickness': $border-width-s
   ), 
   'spacing': $rhythm-y,
   'padding': 15px
@@ -44,9 +44,9 @@ $compounds-accordion: (
   $spacing: map-deep-get($skin, 'spacing');
   $padding: map-deep-get($skin, 'padding');
   
-  // Get divider-specific variables.
-  $divider-color: map-deep-get($skin, 'divider.color');
-  $divider-thickness: map-deep-get($skin, 'divider.thickness');
+  // Get separator-specific variables.
+  $separator-color: map-deep-get($skin, 'separator.color');
+  $separator-thickness: map-deep-get($skin, 'separator.thickness');
   
   // Defines the accordion component's base styles.
   @include margin-y($spacing);
@@ -72,7 +72,7 @@ $compounds-accordion: (
       line-height: 1 !important;
       
       & + & {
-        border-left: $divider-thickness solid $divider-color;
+        border-left: $separator-thickness solid $separator-color;
       }
       
     }
