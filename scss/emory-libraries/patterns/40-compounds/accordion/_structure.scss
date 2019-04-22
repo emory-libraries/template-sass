@@ -1,0 +1,42 @@
+////
+/// @group emory-libraries.patterns.compounds.accordion
+////
+
+/// Defines the base structure of the accordion component.
+///
+/// @since 1.0.0-dev.0
+%compounds-accordion {
+  
+  // Builds the accordion structure.
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  
+  // Builds the accordion's title and toggles structure.
+  &-title,
+  &-toggles {
+    display: flex;
+    align-items: center;
+  }
+  
+  // Builds the accordion title structure.
+  &-title { 
+    grid-column: 1;
+    justify-content: flex-start;
+  }
+  
+  // Builds the accordion toggles structure.
+  &-toggles {
+    grid-column: 2;
+    justify-content: flex-end;
+  
+    // Builds the accordion toggle structure.
+    &-toggle { }
+    
+  } 
+  
+  // Modifies the strcuture of accordion panels.
+  &-panel {
+    grid-column: 1 / span 2;
+  }
+  
+}

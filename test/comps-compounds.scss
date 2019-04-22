@@ -9,3 +9,8 @@
 .cards {
   @include compounds-cards;
 }
+
+// compounds-accordion
+.accordion {
+  @include compounds-accordion;
+}

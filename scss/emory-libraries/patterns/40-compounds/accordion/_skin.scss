@@ -1,0 +1,91 @@
+////
+/// @group emory-libraries.patterns.compounds.accordion
+////
+
+/// Defines the base skin of the accordion component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$compounds-accordion: (
+  
+  'title': color('blue', 'mid'),
+  'toggle': (
+    'normal': $color-actionable,
+    'hover': color('blue', 'mid'),
+    'active': color('blue', 'mid')
+  ),
+  'divider': (
+    'color': color('slate'),
+    'thickness': 1px
+  ), 
+  'spacing': $rhythm-y,
+  'padding': 15px
+  
+);
+
+/// Defines the accordion component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The accordion component's themeable properties
+@mixin compounds-accordion--theme ( $skin ) {
+  
+  // Capture selector.
+  $selector: &;
+  
+  // Capture themeable variables from skin.
+  $title: map-deep-get($skin, 'title');
+  $toggle: map-deep-get($skin, 'toggle');
+  $spacing: map-deep-get($skin, 'spacing');
+  $padding: map-deep-get($skin, 'padding');
+  
+  // Get divider-specific variables.
+  $divider-color: map-deep-get($skin, 'divider.color');
+  $divider-thickness: map-deep-get($skin, 'divider.thickness');
+  
+  // Defines the accordion component's base styles.
+  @include margin-y($spacing);
+  
+  // Defines the accordion title and toggle styles.
+  &-title,
+  &-toggles {
+    @include padding-y($padding);
+  }
+  
+  // Defines the accordion title styles.
+  &-title { 
+    @include tokens-heading('h6', $title);
+  }
+  
+  // Defines the accordion toggles styles.
+  &-toggles {
+  
+    // Defines the accordion toggle styles.
+    &-toggle {
+      @include tokens-heading('h6');
+      @include atoms-link(('color': $toggle));
+      line-height: 1 !important;
+      
+      & + & {
+        border-left: $divider-thickness solid $divider-color;
+      }
+      
+    }
+    
+  } 
+  
+  // Defines the accordion panel styles.
+  &-panel {
+    
+    & + & {
+      border-top: none !important;
+    }
+    
+  }
+  
+}

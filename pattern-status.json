@@ -44,5 +44,6 @@
   "compounds-utility-list": "review",
   "molecules-alert": "review",
   "molecules-notification": "review",
-  "compounds-cards": "review"
+  "compounds-cards": "review",
+  "compounds-accordion": "review"
 }
