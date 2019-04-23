@@ -44,10 +44,9 @@
   "compounds-utility-list": "review",
   "molecules-alert": "review",
   "molecules-notification": "review",
-  "organisms-intro": "construction",
-  "templates-info": "construction",
-  "templates-material": "construction",
-  "templates-tool": "construction",
-  "organisms-main": "construction",
-  "templates-materials": "construction"
+  "organisms-intro": "review",
+  "organisms-main": "review",
+  "templates-info": "review",
+  "templates-material": "review",
+  "templates-tool": "review"
 }
