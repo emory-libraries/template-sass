@@ -8,7 +8,7 @@
 
 /// Builds a constructor for the material component.
 ///
-/// @since 1.0.0-dev.0
+/// @since 1.0.0
 ///
 /// @requires {placeholder} templates-material
 /// @requires {variable} templates-material
@@ -31,20 +31,19 @@
     // Load structure.
     @extend %templates-material;
 
+    // Load parts.
     &-header {
-        @extend %templates-material-header;
+      @extend %templates-material-header;
     }
-
     &-main {
-        @extend %templates-material-main;
+      @extend %templates-material-main;
     }
-
     &-footer {
-        @extend %templates-material-footer;
+      @extend %templates-material-footer;
     }
 
     // Load skins.
-    @include templates-material--theme( $skin );
+    @include templates-material--theme($skin);
 
   }
 

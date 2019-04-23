@@ -8,7 +8,7 @@
 
 /// Builds a constructor for the tool component.
 ///
-/// @since 1.0.0-dev.0
+/// @since 1.0.0
 ///
 /// @requires {placeholder} templates-tool
 /// @requires {variable} templates-tool
@@ -31,21 +31,19 @@
     // Load structure.
     @extend %templates-tool;
 
+    // Load parts.
     &-header {
-        @extend %templates-tool-header;
+      @extend %templates-tool-header;
     }
-
     &-main {
-        @extend %templates-tool-main;
+      @extend %templates-tool-main;
     }
-
     &-footer {
-        @extend %templates-tool-footer;
+      @extend %templates-tool-footer;
     }
-
 
     // Load skins.
-    @include templates-tool--theme( $skin );
+    @include templates-tool--theme($skin);
 
   }
 

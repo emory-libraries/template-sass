@@ -1,12 +1,16 @@
 @import 'comps-organisms';
-// ...
 
+// templates-info
 .info-page {
     @include templates-info;
 }
+
+// templates-material
 .material-page {
     @include templates-material;
 }
+
+// templates-tool
 .tool-page {
     @include templates-tool;
 }

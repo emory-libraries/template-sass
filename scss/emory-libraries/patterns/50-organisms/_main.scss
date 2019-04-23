@@ -8,7 +8,7 @@
 
 /// Builds a constructor for the main component.
 ///
-/// @since 1.0.0-dev.0
+/// @since 1.0.0
 ///
 /// @requires {placeholder} organisms-main
 /// @requires {variable} organisms-main
@@ -20,7 +20,7 @@
 /// @output The native structure and skin of our main component
 ///
 /// @status construction
-@mixin organisms-main ( $custom: () ) {
+@mixin organisms-main ($custom: ()) {
 
   // Extend the default skin.
   $skin: map-extend($organisms-main, $custom);
@@ -31,24 +31,25 @@
     // Load structure.
     @extend %organisms-main;
 
+    // Load parts.
     &-title {
-        @extend %organisms-main-title;
+      @extend %organisms-main-title;
     }
-
+    &-subtitle {
+      @extend %organisms-main-subtitle;
+    }
     &-sidebar {
-        @extend %organisms-main-sidebar;
+      @extend %organisms-main-sidebar;
     }
-
-    &-body-content {
-        @extend %organisms-main-body-content;
+    &-body {
+      @extend %organisms-main-body;
     }
-
     &-guides {
-        @extend %organisms-main-guides;
+      @extend %organisms-main-guides;
     }
 
     // Load skins.
-    @include organisms-main--theme( $skin );
+    @include organisms-main--theme($skin);
 
   }
 

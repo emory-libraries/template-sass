@@ -6622,10 +6622,6 @@
                       
                       
                       
-                      
-                      
-                      
-                      
                   
                   
                   
@@ -50094,7 +50090,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -50121,6 +50117,17 @@
                                   
                                   // Load structure.
                                   @extend %organisms-intro;
+                                  
+                                  // Load parts.
+                                  &amp;-context {
+                                    @extend %organisms-intro-context;
+                                  }
+                                   &amp;-title {
+                                    @extend %organisms-intro-title;
+                                  }
+                                   &amp;-subtitle {
+                                    @extend %organisms-intro-subtitle;
+                                  }
                                   
                                   // Load skins.
                                   @include organisms-intro--theme( $skin );
@@ -50312,7 +50319,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -50332,10 +50339,28 @@
                                        data-expanded="@mixin organisms-intro--theme($skin) { 
                               
                                 // Capture themeable variables from skin.
-                                // ...
+                                $context: map-deep-get($skin, &#x27;context&#x27;);
+                                $title: map-deep-get($skin, &#x27;title&#x27;);
+                                $subtitle: map-deep-get($skin, &#x27;subtitle&#x27;);
                               
                                 // Defines the intro component&#x27;s base styles.
                                 // ...
+                                
+                                // Defines the intro context styles.
+                                &amp;-context {
+                                  @include tokens-heading(&#x27;h6&#x27;, $context);
+                                }
+                                
+                                // Defines the intro title styles.
+                                &amp;-title {
+                                  @include tokens-heading(&#x27;h1-alt&#x27;, $title);
+                                }
+                                
+                                // Defines the intro subtitle styles.
+                                &amp;-subtitle {
+                                  @include tokens-text(&#x27;lead&#x27;, $subtitle);
+                                }
+                                
                                }"
                                        data-collapsed="@mixin organisms-intro--theme($skin) { ... }"><code class="js-autoindent">@mixin organisms-intro--theme($skin) { ... }</code></pre>
                               
@@ -50419,6 +50444,48 @@
                                     <ul class="list-unstyled">
                                   
                                   
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.text-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
                                   
                                           <li class="item__description item__description--inline">
                                   
@@ -50494,7 +50561,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -50504,6 +50571,12 @@
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$organisms-intro: (
                               
+                                &#x27;context&#x27;: color(&#x27;blue&#x27;),
+                                
+                                &#x27;title&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
+                                
+                                &#x27;subtitle&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;)
+                                
                               );</code></pre>
                               
                               
@@ -50592,7 +50665,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -50606,6 +50679,15 @@
                                 
                                 // Builds the intro structure.
                                 // ...
+                                
+                                // Builds the intro context structure.
+                                &amp;-context { }
+                                
+                                // Builds the intro title structure.
+                                &amp;-title { }
+                                
+                                // Builds the intro subtitle structure.
+                                &amp;-subtitle { }
                                 
                                }"
                                       data-collapsed="%organisms-intro { ... }"><code class="js-autoindent">%organisms-intro { ... }</code></pre>
@@ -50722,7 +50804,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -50750,24 +50832,25 @@
                                   // Load structure.
                                   @extend %organisms-main;
                               
+                                  // Load parts.
                                   &amp;-title {
-                                      @extend %organisms-main-title;
+                                    @extend %organisms-main-title;
                                   }
-                              
+                                  &amp;-subtitle {
+                                    @extend %organisms-main-subtitle;
+                                  }
                                   &amp;-sidebar {
-                                      @extend %organisms-main-sidebar;
+                                    @extend %organisms-main-sidebar;
                                   }
-                              
-                                  &amp;-body-content {
-                                      @extend %organisms-main-body-content;
+                                  &amp;-body {
+                                    @extend %organisms-main-body;
                                   }
-                              
                                   &amp;-guides {
-                                      @extend %organisms-main-guides;
+                                    @extend %organisms-main-guides;
                                   }
                               
                                   // Load skins.
-                                  @include organisms-main--theme( $skin );
+                                  @include organisms-main--theme($skin);
                               
                                 }
                               
@@ -50956,7 +51039,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -50975,38 +51058,45 @@
                                        data-current-state="collapsed"
                                        data-expanded="@mixin organisms-main--theme($skin) { 
                               
-                                  // Capture themeable variables from skin.
-                                  // ...
+                                // Capture themeable variables from skin.
+                                $gap: map-deep-get($skin, &#x27;gap&#x27;);
                               
-                                  // Defines the main component&#x27;s base styles.
-                                  // ...
-                                  &amp;-sidebar {
-                                      border: $border-width-s solid color(&#x27;slate&#x27;)
+                                // Defines the main component&#x27;s base styles.
+                                grid-column-gap: $gap;
+                                
+                                // Defines the main title styles.
+                                &amp;-title {
+                                  @include tokens-heading(&#x27;h1-alt&#x27;);
+                                }
+                                
+                                // Defines the main subtitle styles.
+                                &amp;-subtitle {
+                                  @include tokens-text(&#x27;lead&#x27;);
+                                }
+                                
+                                // Defines the main body styles.
+                                &amp;-body {
+                                  
+                                  // Modifies heading styles when inside main body.
+                                  // FIXME: If we adjust H2 styles here, we&#x27;ll need to adjust subsequent headings (H3-H6) too.
+                                  .heading {
+                                    
+                                    // Get heading-specific variables.
+                                    $heading: map-deep-get($skin, &#x27;body.heading&#x27;);
+                                    
+                                    &amp;.-h2 {
+                                      @include tokens-heading(&#x27;h5-alt&#x27;, map-deep-get($heading, &#x27;h2.color&#x27;));
+                                    }
+                                    
                                   }
-                              
-                                  &amp;.materials-page-main {
-                                      @include breakpoint-l() {
-                                        grid-template-areas: &quot;title title&quot;
-                                                             &quot;subtitle aside&quot;
-                                                             &quot;body aside&quot;
-                                                             &quot;guides guides&quot;;
-                                        grid-template-columns: minmax(auto, 840px) minmax(auto, 340px);
-                              
-                                      }
-                              
-                                  }
-                              
-                                  &amp;.tool-page-main {
-                                      @include breakpoint-l() {
-                                        grid-template-areas: &quot;title title&quot;
-                                                             &quot;subtitle aside&quot;
-                                                             &quot;body aside&quot;
-                                                             &quot;guides guides&quot;;
-                                        grid-template-columns: minmax(auto, 840px) minmax(auto, 340px);
-                              
-                                      }
-                              
-                                  }
+                                  
+                                }
+                                
+                                // Defines the main sidebar styles.
+                                &amp;-sidebar {
+                                  border: $border-width-s solid color(&#x27;slate&#x27;); // TEMPORARY
+                                }
+                                
                                }"
                                        data-collapsed="@mixin organisms-main--theme($skin) { ... }"><code class="js-autoindent">@mixin organisms-main--theme($skin) { ... }</code></pre>
                               
@@ -51097,7 +51187,7 @@
                                   
                                             <span class="item__cross-type">mixin</span>
                                   
-                                            <a href="#utils.mixins-mixin-breakpoint-l"><code>breakpoint-l</code></a>
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
                                   
                                   
                                           </li>
@@ -51111,7 +51201,21 @@
                                   
                                             <span class="item__cross-type">mixin</span>
                                   
-                                            <a href="#utils.mixins-mixin-breakpoint-l"><code>breakpoint-l</code></a>
+                                            <a href="#patterns.tokens.text-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
                                   
                                   
                                           </li>
@@ -51207,7 +51311,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -51215,7 +51319,19 @@
                               
                                 <div class="item__code-wrapper">
                                   
-                                  <pre class="item__code language-scss"><code class="js-autoindent">$organisms-main: ();</code></pre>
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$organisms-main: (
+                              
+                                &#x27;gap&#x27;: 40px,
+                                
+                                &#x27;body&#x27;: (
+                                  &#x27;heading&#x27;: (
+                                    &#x27;h2&#x27;: (
+                                      &#x27;color&#x27;: color(&#x27;blue&#x27;)
+                                    )
+                                  )
+                                )
+                                
+                              );</code></pre>
                               
                               
                               
@@ -51303,7 +51419,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -51315,74 +51431,98 @@
                                       data-current-state="collapsed"
                                       data-expanded="%organisms-main { 
                               
+                                // Captures selector.
+                                $selector: &amp;;
+                              
                                 // Builds the main structure.
-                                // ...
-                              
-                                  $selector: &amp;;
-                              
-                                  margin: 0 auto;
-                                  max-width: 1236px;
-                                  grid-area: main;
-                                  display: grid;
-                                  grid-column-gap: 40px;
+                                margin: 0 auto;
+                                max-width: 1236px;
+                                display: grid;
+                                grid-area: main;
+                                
+                                // Builds the main structure when used for all pages, including info page.
+                                &amp;,
+                                &amp;.-info-page {
                                   grid-template-areas: &quot;title&quot;
                                                        &quot;subtitle&quot;
                                                        &quot;body&quot;
                                                        &quot;guides&quot;
                                                        &quot;aside&quot;;
                               
-                                  @include breakpoint-l() {
+                                  // Adjusts the main structure across large screens.
+                                  @include breakpoint-l {
                                     grid-template-areas: &quot;title title&quot;
                                                          &quot;subtitle subtitle&quot;
                                                          &quot;body  aside&quot;
                                                          &quot;guides guides&quot;;
                                     grid-template-columns: minmax(auto, 840px) minmax(auto, 340px);
+                                  };
+                                  
+                                }
+                                
+                                // Builds the main structure when used for a material page.
+                                &amp;.-material-page {
+                                  
+                                  // Adjusts the main structure across large screens.
+                                  @include breakpoint-l {
+                                    grid-template-areas: &quot;title title&quot;
+                                                         &quot;subtitle aside&quot;
+                                                         &quot;body aside&quot;
+                                                         &quot;guides guides&quot;;
+                                  };
+                              
+                                }
+                              
+                                // Builds the main structure when used for a tool page.
+                                &amp;.-tool-page {
+                                  
+                                  // Adjusts the main structure across large screens.
+                                  @include breakpoint-l {
+                                    grid-template-areas: &quot;title title&quot;
+                                                         &quot;subtitle aside&quot;
+                                                         &quot;body aside&quot;
+                                                         &quot;guides guides&quot;;
+                                  };
+                              
+                                }
+                              
+                                // Builds the main title structure.
+                                &amp;-title {
+                                  grid-area: title;
+                                }
+                              
+                                // Builds the main subtitle structure.
+                                &amp;-subtitle {
+                                  grid-area: subtitle;
+                                }
+                              
+                                // Builds the main body structure.
+                                &amp;-body {
+                                  grid-area: body;
+                              
+                                  // Adjusts image inside main body.
+                                  .image {
+                                    max-width: 100%;
                                   }
                               
-                                  &amp;-title {
-                                    grid-area: title;
+                                }
                               
+                                // Builds the main sidebar structure.
+                                &amp;-sidebar {
+                                  grid-area: aside;
+                                  display: flex;
+                                  justify-content: center;
+                              
+                                  &amp;::after {
+                                    content: &#x27;Sidebar&#x27;; // TEMPORARY
                                   }
+                                }
                               
-                                  .heading.-h1 {
-                                    font-size: 48px;
-                                    grid-area: title;
-                                  }
-                              
-                                  .text.-lead {
-                                    font-size: 28px;
-                                    line-height: 42px;
-                                    grid-area: subtitle;
-                                  }
-                              
-                                  &amp;-body-content {
-                                    grid-area: body;
-                              
-                                    .heading.-h2 {
-                                      font-family: &quot;Open Sans&quot;, sans-serif;
-                                      font-size: 22px;
-                                      color: color(&#x27;blue&#x27;,&#x27;base&#x27;);
-                                    }
-                              
-                                    .image.-center {
-                                        max-width: 100%;
-                                    }
-                              
-                                  }
-                              
-                                  &amp;-sidebar {
-                                    grid-area: aside;
-                                    display: flex;
-                                    justify-content: center;
-                              
-                                    &amp;::after {
-                                        content: &#x27;Sidebar&#x27;;
-                                    }
-                                  }
-                              
-                                  &amp;-guides {
-                                    grid-area: guides;
-                                  }
+                                // Builds the main guides structure.
+                                &amp;-guides {
+                                  grid-area: guides;
+                                }
+                                
                                }"
                                       data-collapsed="%organisms-main { ... }"><code class="js-autoindent">%organisms-main { ... }</code></pre>
                               
@@ -51401,28 +51541,6 @@
                               
                               
                               
-                                  
-                                    <h3 class="item__sub-heading">Requires</h3>
-                                  
-                                    <ul class="list-unstyled">
-                                  
-                                  
-                                    
-                                          
-                                  
-                                          <li class="item__description  item__description--inline">
-                                  
-                                            <span class="item__cross-type">mixin</span>
-                                  
-                                            <a href="#utils.mixins-mixin-breakpoint-l"><code>breakpoint-l</code></a>
-                                  
-                                  
-                                          </li>
-                                  
-                                  
-                                  
-                                    </ul>
-                                  
                               
                               
                                   
@@ -51546,7 +51664,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -51574,16 +51692,15 @@
                                   // Load structure.
                                   @extend %templates-info;
                               
+                                  // Load parts.
                                   &amp;-header {
-                                      @extend %templates-info-header;
+                                    @extend %templates-info-header;
                                   }
-                              
                                   &amp;-main {
-                                      @extend %templates-info-main;
+                                    @extend %templates-info-main;
                                   }
-                              
                                   &amp;-footer {
-                                      @extend %templates-info-footer;
+                                    @extend %templates-info-footer;
                                   }
                               
                                   // Load skins.
@@ -51776,7 +51893,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -51795,17 +51912,27 @@
                                        data-current-state="collapsed"
                                        data-expanded="@mixin templates-info--theme($skin) { 
                               
-                                  // Capture themeable variables from skin.
-                                  $layout: map-deep-get($skin, &#x27;layout&#x27;);
-                                  // ...
+                                // Capture themeable variables from skin.
+                                $gap: map-deep-get($skin, &#x27;gap&#x27;);
+                                $layout: map-deep-get($skin, &#x27;layout&#x27;);
                               
-                                  &amp;-header,
-                                  &amp;-footer {
-                                      border: $border-width-s solid color(&#x27;slate&#x27;)
-                                  }
-                              
-                                  // Defines the info component&#x27;s base styles.
-                                  // ...
+                                // Defines the info component&#x27;s base styles.
+                                grid-gap: $gap;
+                                
+                                // Defines info header and footer styles.
+                                &amp;-header,
+                                &amp;-footer {
+                                  border: $border-width-s solid color(&#x27;slate&#x27;); // TEMPORARY
+                                }
+                                
+                                // Defines info header styles.
+                                &amp;-header { }
+                                
+                                // Defines info main styles.
+                                &amp;-main { }
+                                
+                                // Defines info footer styles.
+                                &amp;-footer { }
                               
                                }"
                                        data-collapsed="@mixin templates-info--theme($skin) { ... }"><code class="js-autoindent">@mixin templates-info--theme($skin) { ... }</code></pre>
@@ -51979,7 +52106,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -51989,10 +52116,13 @@
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$templates-info: (
                               
-                                  &#x27;layout&#x27;: (
-                                      &#x27;x&#x27;: $layout-x,
-                                      &#x27;y&#x27;: $layout-y
-                                  ),
+                                &#x27;layout&#x27;: (
+                                  &#x27;x&#x27;: $layout-x,
+                                  &#x27;y&#x27;: $layout-y
+                                ),
+                                
+                                &#x27;gap&#x27;: 20px
+                                
                               );</code></pre>
                               
                               
@@ -52081,7 +52211,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -52092,47 +52222,42 @@
                                   <pre class="item__code item__code--togglable language-scss"
                                       data-current-state="collapsed"
                                       data-expanded="%templates-info { 
+                                
+                                // Captures selector.
+                                $selector: &amp;;
                               
-                                  // Builds the info structure.
-                                  // ...
+                                // Builds the info structure.
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-areas: &quot;header&quot;
+                                                     &quot;main&quot;
+                                                     &quot;footer&quot;;
+                                grid-template-rows: 150px 1fr 420px;
+                                grid-template-columns: 1fr;
                               
-                                  $selector: &amp;;
+                                &amp;-header {
+                                  grid-area: header;
+                                  @include absolute-center-contents;
                               
-                                  margin: 0 auto;
-                                  display: grid;
-                                  grid-gap: 20px;
-                                  grid-template-areas: &quot;header&quot;
-                                                       &quot;main&quot;
-                                                       &quot;footer&quot;;
-                                  grid-template-rows: 150px 1fr 420px;
-                                  grid-template-columns: 1fr;
-                              
-                                  &amp;-header {
-                              
-                                      grid-area: header;
-                                      display: flex;
-                                      justify-content: center;
-                                      align-items: center;
-                              
-                                      &amp;::after {
-                                          content: &#x27;Header&#x27;;
-                                      }
+                                  &amp;::after {
+                                    content: &#x27;Header&#x27;; // TEMPORARY
                                   }
+                                  
+                                }
                               
-                                  &amp;-main {
-                                      grid-area: main;
+                                &amp;-main {
+                                  grid-area: main;
+                                }
+                              
+                                &amp;-footer {
+                                  grid-area: footer;
+                                  @include absolute-center-contents;
+                              
+                                  &amp;::after {
+                                    content: &#x27;Footer&#x27;; // TEMPORARY
                                   }
-                              
-                                  &amp;-footer {
-                                      grid-area: footer;
-                                          display: flex;
-                                          justify-content: center;
-                                          align-items: center;
-                              
-                                          &amp;::after {
-                                              content: &#x27;Footer&#x27;;
-                                          }
-                                  }
+                                  
+                                }
                                }"
                                       data-collapsed="%templates-info { ... }"><code class="js-autoindent">%templates-info { ... }</code></pre>
                               
@@ -52248,7 +52373,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -52276,20 +52401,19 @@
                                   // Load structure.
                                   @extend %templates-material;
                               
+                                  // Load parts.
                                   &amp;-header {
-                                      @extend %templates-material-header;
+                                    @extend %templates-material-header;
                                   }
-                              
                                   &amp;-main {
-                                      @extend %templates-material-main;
+                                    @extend %templates-material-main;
                                   }
-                              
                                   &amp;-footer {
-                                      @extend %templates-material-footer;
+                                    @extend %templates-material-footer;
                                   }
                               
                                   // Load skins.
-                                  @include templates-material--theme( $skin );
+                                  @include templates-material--theme($skin);
                               
                                 }
                               
@@ -52478,7 +52602,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -52497,21 +52621,27 @@
                                        data-current-state="collapsed"
                                        data-expanded="@mixin templates-material--theme($skin) { 
                               
-                                  // Capture themeable variables from skin.
-                                  // ...
-                                  $layout: map-deep-get($skin, &#x27;layout&#x27;);
+                                // Capture themeable variables from skin.
+                                $gap: map-deep-get($skin, &#x27;gap&#x27;);
+                                $layout: map-deep-get($skin, &#x27;layout&#x27;);
                               
-                                  // Defines the material component&#x27;s base styles.
-                                  // ...
+                                // Defines the material component&#x27;s base styles.
+                                grid-gap: $gap;
                               
-                                  &amp;-sidebar {
-                                      border: $border-width-s solid color(&#x27;slate&#x27;)
-                                  }
-                              
-                                  &amp;-header,
-                                  &amp;-footer {
-                                      border: $border-width-s solid color(&#x27;slate&#x27;)
-                                  }
+                                // Defines material header and footer styles.
+                                &amp;-header,
+                                &amp;-footer {
+                                  border: $border-width-s solid color(&#x27;slate&#x27;); // TEMPORARY
+                                }
+                                
+                                // Defines material header styles.
+                                &amp;-header { }
+                                
+                                // Defines material main styles.
+                                &amp;-main { }
+                                
+                                // Defines material footer styles.
+                                &amp;-footer { }
                               
                                }"
                                        data-collapsed="@mixin templates-material--theme($skin) { ... }"><code class="js-autoindent">@mixin templates-material--theme($skin) { ... }</code></pre>
@@ -52610,20 +52740,6 @@
                                   
                                   
                                   
-                                    
-                                          
-                                  
-                                          <li class="item__description  item__description--inline">
-                                  
-                                            <span class="item__cross-type">variable</span>
-                                  
-                                            <a href="#config-variable-border-width-s"><code>border-width-s</code></a>
-                                  
-                                  
-                                          </li>
-                                  
-                                  
-                                  
                                   
                                           <li class="item__description item__description--inline">
                                   
@@ -52699,7 +52815,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -52709,10 +52825,12 @@
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$templates-material: (
                                 
-                                  &#x27;layout&#x27;: (
-                                      &#x27;x&#x27;: $layout-x,
-                                      &#x27;y&#x27;: $layout-y
-                                  )
+                                &#x27;layout&#x27;: (
+                                  &#x27;x&#x27;: $layout-x,
+                                  &#x27;y&#x27;: $layout-y
+                                ),
+                              
+                                &#x27;gap&#x27;: 20px
                                 
                               );</code></pre>
                               
@@ -52802,7 +52920,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -52813,45 +52931,42 @@
                                   <pre class="item__code item__code--togglable language-scss"
                                       data-current-state="collapsed"
                                       data-expanded="%templates-material { 
+                                
+                                // Captures selector.
+                                $selector: &amp;;
                               
-                                  // Builds the material structure.
-                                  // ...
-                                  $selector: &amp;;
+                                // Builds the material structure.
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-areas: &quot;header&quot;
+                                                     &quot;main&quot;
+                                                     &quot;footer&quot;;
+                                grid-template-rows: 150px 1fr 420px;
+                                grid-template-columns: 1fr;
                               
-                                  margin: 0 auto;
-                                  display: grid;
-                                  grid-gap: 20px;
-                                  grid-template-areas: &quot;header&quot;
-                                                       &quot;main&quot;
-                                                       &quot;footer&quot;;
-                                  grid-template-rows: 150px 1fr 420px;
-                                  grid-template-columns: 1fr;
+                                &amp;-header {
+                                  grid-area: header;
+                                  @include absolute-center-contents;
                               
-                                  &amp;-header {
-                                      grid-area: header;
-                                      display: flex;
-                                      justify-content: center;
-                                      align-items: center;
-                              
-                                      &amp;::after {
-                                          content: &#x27;Header&#x27;;
-                                      }
+                                  &amp;::after {
+                                    content: &#x27;Header&#x27;; // TEMPORARY
                                   }
+                                  
+                                }
                               
-                                  &amp;-main {
-                                      grid-area: main;
+                                &amp;-main {
+                                  grid-area: main;
+                                }
+                              
+                                &amp;-footer {
+                                  grid-area: footer;
+                                  @include absolute-center-contents;
+                              
+                                  &amp;::after {
+                                    content: &#x27;Footer&#x27;; // TEMPORARY
                                   }
-                              
-                                  &amp;-footer {
-                                      grid-area: footer;
-                                      display: flex;
-                                      justify-content: center;
-                                      align-items: center;
-                              
-                                      &amp;::after {
-                                          content: &#x27;Footer&#x27;;
-                                      }
-                                  }
+                                  
+                                }
                                }"
                                       data-collapsed="%templates-material { ... }"><code class="js-autoindent">%templates-material { ... }</code></pre>
                               
@@ -52966,7 +53081,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -52975,10 +53090,14 @@
                                 <div class="item__code-wrapper">
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$templates-tool: (
-                                  &#x27;layout&#x27;: (
-                                      &#x27;x&#x27;: $layout-x,
-                                      &#x27;y&#x27;: $layout-y
-                                  ),
+                                
+                                &#x27;layout&#x27;: (
+                                  &#x27;x&#x27;: $layout-x,
+                                  &#x27;y&#x27;: $layout-y
+                                ),
+                                
+                                &#x27;gap&#x27;: 20px
+                                
                               );</code></pre>
                               
                               
@@ -53067,7 +53186,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -53087,22 +53206,26 @@
                                        data-expanded="@mixin templates-tool--theme($skin) { 
                               
                                 // Capture themeable variables from skin.
-                                // ...
+                                $gap: map-deep-get($skin, &#x27;gap&#x27;);
                                 $layout: map-deep-get($skin, &#x27;layout&#x27;);
                               
                                 // Defines the tool component&#x27;s base styles.
-                                // ...
+                                grid-gap: $gap;
                               
-                                  &amp;-sidebar {
-                                      border: $border-width-s solid color(&#x27;slate&#x27;)
-                                  }
-                              
-                                  &amp;-footer {}
-                              
-                                  &amp;-header,
-                                  &amp;-footer {
-                                      border: $border-width-s solid color(&#x27;slate&#x27;)
-                                  }
+                                // Defines tool footer and header styles.
+                                &amp;-header,
+                                &amp;-footer {
+                                  border: $border-width-s solid color(&#x27;slate&#x27;); // TEMPORARY
+                                }
+                                
+                                // Defines tool header styles.
+                                &amp;-header { }
+                                
+                                // Defines tool main styles.
+                                &amp;-main { }
+                                
+                                // Defines tool header styles.
+                                &amp;-footer { }
                               
                                }"
                                        data-collapsed="@mixin templates-tool--theme($skin) { ... }"><code class="js-autoindent">@mixin templates-tool--theme($skin) { ... }</code></pre>
@@ -53201,20 +53324,6 @@
                                   
                                   
                                   
-                                    
-                                          
-                                  
-                                          <li class="item__description  item__description--inline">
-                                  
-                                            <span class="item__cross-type">variable</span>
-                                  
-                                            <a href="#config-variable-border-width-s"><code>border-width-s</code></a>
-                                  
-                                  
-                                          </li>
-                                  
-                                  
-                                  
                                   
                                           <li class="item__description item__description--inline">
                                   
@@ -53278,7 +53387,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -53306,21 +53415,19 @@
                                   // Load structure.
                                   @extend %templates-tool;
                               
+                                  // Load parts.
                                   &amp;-header {
-                                      @extend %templates-tool-header;
+                                    @extend %templates-tool-header;
                                   }
-                              
                                   &amp;-main {
-                                      @extend %templates-tool-main;
+                                    @extend %templates-tool-main;
                                   }
-                              
                                   &amp;-footer {
-                                      @extend %templates-tool-footer;
+                                    @extend %templates-tool-footer;
                                   }
-                              
                               
                                   // Load skins.
-                                  @include templates-tool--theme( $skin );
+                                  @include templates-tool--theme($skin);
                               
                                 }
                               
@@ -53522,7 +53629,7 @@
                               
                               
                                 <span class="item__since">
-                                  Since 1.0.0-dev.0
+                                  Since 1.0.0
                                 </span>
                               
                               
@@ -53534,42 +53641,42 @@
                                       data-current-state="collapsed"
                                       data-expanded="%templates-tool { 
                               
-                                  // Builds the tool structure.
-                                  // ...
-                                  margin: 0 auto;
-                                  display: grid;
-                                  grid-gap: 20px;
-                                  grid-template-areas: &quot;header&quot;
-                                                       &quot;main&quot;
-                                                       &quot;footer&quot;;
-                                  grid-template-rows: 150px 1fr 420px;
-                                  grid-template-columns: 1fr;
+                                // Builds the tool structure.
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-areas: &quot;header&quot;
+                                                     &quot;main&quot;
+                                                     &quot;footer&quot;;
+                                grid-template-rows: 150px 1fr 420px;
+                                grid-template-columns: 1fr;
                               
-                                  &amp;-header {
-                                      grid-area: header;
-                                      display: flex;
-                                      justify-content: center;
-                                      align-items: center;
+                                // Builds the tool header structure.
+                                &amp;-header {
+                                  grid-area: header;
+                                  @include absolute-center-contents;
                               
-                                      &amp;::after {
-                                          content: &#x27;Header&#x27;;
-                                      }
+                                  &amp;::after {
+                                    content: &#x27;Header&#x27;; // TEMPORARY
                                   }
+                                  
+                                }
                               
-                                  &amp;-main {
-                                      grid-area: main;
+                                // Builds the tool main structure.
+                                &amp;-main {
+                                  grid-area: main;
+                                }
+                              
+                                // Builds the tool footer structure.
+                                &amp;-footer {
+                                  grid-area: footer;
+                                  @include absolute-center-contents;
+                              
+                                  &amp;::after {
+                                    content: &#x27;Footer&#x27;; // TEMPORARY
                                   }
+                                  
+                                }
                               
-                                  &amp;-footer {
-                                      grid-area: footer;
-                                      display: flex;
-                                      justify-content: center;
-                                      align-items: center;
-                              
-                                      &amp;::after {
-                                          content: &#x27;Footer&#x27;;
-                                      }
-                                  }
                                }"
                                       data-collapsed="%templates-tool { ... }"><code class="js-autoindent">%templates-tool { ... }</code></pre>
                               
@@ -53942,6 +54049,14 @@
                                   
                               
                               
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
                                   
                                   
                                   
@@ -57318,6 +57433,10 @@
                                   
                                   
                                   
+                                  
+                                  
+                                  
+                                  
                               
                               
                               
@@ -58699,12 +58818,6 @@
                             
                         
                         
-                            
-                            
-                            
-                            
-                            
-                            
                             
                             
                             

@@ -76,13 +76,18 @@
 /*** INSERT NEW COMPOUNDS HERE ***/
 
 
-// Loads organisms.
+/// Loads organisms.
 ///
 /// @since 1.0.0
 @import '50-organisms/intro';
 @import '50-organisms/main';
 /*** INSERT NEW ORGANISMS HERE ***/
 
+
+/// Loads templates.
+///
+/// @since 1.0.0
 @import '60-templates/info';
 @import '60-templates/material';
 @import '60-templates/tool';
+/*** INSERT NEW TEMPLATES HERE ***/

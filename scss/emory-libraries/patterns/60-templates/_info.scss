@@ -8,7 +8,7 @@
 
 /// Builds a constructor for the info component.
 ///
-/// @since 1.0.0-dev.0
+/// @since 1.0.0
 ///
 /// @requires {placeholder} templates-info
 /// @requires {variable} templates-info
@@ -31,16 +31,15 @@
     // Load structure.
     @extend %templates-info;
 
+    // Load parts.
     &-header {
-        @extend %templates-info-header;
+      @extend %templates-info-header;
     }
-
     &-main {
-        @extend %templates-info-main;
+      @extend %templates-info-main;
     }
-
     &-footer {
-        @extend %templates-info-footer;
+      @extend %templates-info-footer;
     }
 
     // Load skins.

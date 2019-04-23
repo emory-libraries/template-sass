@@ -4,43 +4,43 @@
 
 /// Defines the base structure of the tool component.
 ///
-/// @since 1.0.0-dev.0
+/// @since 1.0.0
 %templates-tool {
 
-    // Builds the tool structure.
-    // ...
-    margin: 0 auto;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-areas: "header"
-                         "main"
-                         "footer";
-    grid-template-rows: 150px 1fr 420px;
-    grid-template-columns: 1fr;
+  // Builds the tool structure.
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "header"
+                       "main"
+                       "footer";
+  grid-template-rows: 150px 1fr 420px;
+  grid-template-columns: 1fr;
 
-    &-header {
-        grid-area: header;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+  // Builds the tool header structure.
+  &-header {
+    grid-area: header;
+    @include absolute-center-contents;
 
-        &::after {
-            content: 'Header';
-        }
+    &::after {
+      content: 'Header'; // TEMPORARY
     }
+    
+  }
 
-    &-main {
-        grid-area: main;
+  // Builds the tool main structure.
+  &-main {
+    grid-area: main;
+  }
+
+  // Builds the tool footer structure.
+  &-footer {
+    grid-area: footer;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Footer'; // TEMPORARY
     }
+    
+  }
 
-    &-footer {
-        grid-area: footer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        &::after {
-            content: 'Footer';
-        }
-    }
 }

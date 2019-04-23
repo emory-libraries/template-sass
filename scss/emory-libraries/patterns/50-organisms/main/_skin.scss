@@ -4,14 +4,26 @@
 
 /// Defines the base skin of the main component.
 ///
-/// @since 1.0.0-dev.0
+/// @since 1.0.0
 ///
 /// @type map
-$organisms-main: ();
+$organisms-main: (
+
+  'gap': 40px,
+  
+  'body': (
+    'heading': (
+      'h2': (
+        'color': color('blue')
+      )
+    )
+  )
+  
+);
 
 /// Defines the main component theme.
 ///
-/// @since 1.0.0-dev.0
+/// @since 1.0.0
 ///
 /// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
 ///
@@ -20,36 +32,43 @@ $organisms-main: ();
 /// @output The main component's themeable properties
 @mixin organisms-main--theme ($skin) {
 
-    // Capture themeable variables from skin.
-    // ...
+  // Capture themeable variables from skin.
+  $gap: map-deep-get($skin, 'gap');
 
-    // Defines the main component's base styles.
-    // ...
-    &-sidebar {
-        border: $border-width-s solid color('slate')
+  // Defines the main component's base styles.
+  grid-column-gap: $gap;
+  
+  // Defines the main title styles.
+  &-title {
+    @include tokens-heading('h1-alt');
+  }
+  
+  // Defines the main subtitle styles.
+  &-subtitle {
+    @include tokens-text('lead');
+  }
+  
+  // Defines the main body styles.
+  &-body {
+    
+    // Modifies heading styles when inside main body.
+    // FIXME: If we adjust H2 styles here, we'll need to adjust subsequent headings (H3-H6) too.
+    .heading {
+      
+      // Get heading-specific variables.
+      $heading: map-deep-get($skin, 'body.heading');
+      
+      &.-h2 {
+        @include tokens-heading('h5-alt', map-deep-get($heading, 'h2.color'));
+      }
+      
     }
-
-    &.materials-page-main {
-        @include breakpoint-l() {
-          grid-template-areas: "title title"
-                               "subtitle aside"
-                               "body aside"
-                               "guides guides";
-          grid-template-columns: minmax(auto, 840px) minmax(auto, 340px);
-
-        }
-
-    }
-
-    &.tool-page-main {
-        @include breakpoint-l() {
-          grid-template-areas: "title title"
-                               "subtitle aside"
-                               "body aside"
-                               "guides guides";
-          grid-template-columns: minmax(auto, 840px) minmax(auto, 340px);
-
-        }
-
-    }
+    
+  }
+  
+  // Defines the main sidebar styles.
+  &-sidebar {
+    border: $border-width-s solid color('slate'); // TEMPORARY
+  }
+  
 }

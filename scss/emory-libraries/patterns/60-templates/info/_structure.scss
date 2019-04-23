@@ -4,47 +4,42 @@
 
 /// Defines the base structure of the info component.
 ///
-/// @since 1.0.0-dev.0
+/// @since 1.0.0
 %templates-info {
+  
+  // Captures selector.
+  $selector: &;
 
-    // Builds the info structure.
-    // ...
+  // Builds the info structure.
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "header"
+                       "main"
+                       "footer";
+  grid-template-rows: 150px 1fr 420px;
+  grid-template-columns: 1fr;
 
-    $selector: &;
+  &-header {
+    grid-area: header;
+    @include absolute-center-contents;
 
-    margin: 0 auto;
-    display: grid;
-    grid-gap: 20px;
-    grid-template-areas: "header"
-                         "main"
-                         "footer";
-    grid-template-rows: 150px 1fr 420px;
-    grid-template-columns: 1fr;
-
-    &-header {
-
-        grid-area: header;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        &::after {
-            content: 'Header';
-        }
+    &::after {
+      content: 'Header'; // TEMPORARY
     }
+    
+  }
 
-    &-main {
-        grid-area: main;
+  &-main {
+    grid-area: main;
+  }
+
+  &-footer {
+    grid-area: footer;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Footer'; // TEMPORARY
     }
-
-    &-footer {
-        grid-area: footer;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            &::after {
-                content: 'Footer';
-            }
-    }
+    
+  }
 }
