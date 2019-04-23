@@ -2,7 +2,7 @@
 /// Use this section to build user interface components.
 /// A component typically has a consistent structure but
 /// may have one or more variations in terms of its appearance.
-/// In theory, a truce component could be written as a mixin. 
+/// In theory, a truce component could be written as a mixin.
 ///
 /// @group emory-libraries.patterns
 ////
@@ -79,13 +79,17 @@
 /*** INSERT NEW COMPOUNDS HERE ***/
 
 
-// Loads organisms.
+/// Loads organisms.
 ///
 /// @since 1.0.0
+@import '50-organisms/intro';
+@import '50-organisms/main';
 /*** INSERT NEW ORGANISMS HERE ***/
 
 
-// Loads templates.
+/// Loads templates.
 ///
 /// @since 1.0.0
-/*** INSERT NEW TEMPLATES HERE ***/
+@import '60-templates/info';
+@import '60-templates/material';
+@import '60-templates/tool';

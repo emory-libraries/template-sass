@@ -1,0 +1,11 @@
+@import 'comps-compounds';
+
+// organisms-intro
+.intro {
+  @include organisms-intro;
+}
+
+// organisms-main
+.main {
+  @include organisms-main;
+}

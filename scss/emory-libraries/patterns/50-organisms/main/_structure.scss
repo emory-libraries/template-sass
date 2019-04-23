@@ -1,0 +1,102 @@
+////
+/// @group emory-libraries.patterns.organisms.main
+////
+
+/// Defines the base structure of the main component.
+///
+/// @since 1.0.0
+%organisms-main {
+
+  // Captures selector.
+  $selector: &;
+
+  // Builds the main structure.
+  margin: 0 auto;
+  max-width: 1236px;
+  display: grid;
+  grid-area: main;
+  
+  // Builds the main structure when used for all pages, including info page.
+  &,
+  &.-info-page {
+    grid-template-areas: "title"
+                         "subtitle"
+                         "body"
+                         "guides"
+                         "aside";
+
+    // Adjusts the main structure across large screens.
+    @include breakpoint-l {
+      grid-template-areas: "title title"
+                           "subtitle subtitle"
+                           "body  aside"
+                           "guides guides";
+      grid-template-columns: minmax(auto, 840px) minmax(auto, 340px);
+    };
+    
+  }
+  
+  // Builds the main structure when used for a material page.
+  &.-material-page {
+    
+    // Adjusts the main structure across large screens.
+    @include breakpoint-l {
+      grid-template-areas: "title title"
+                           "subtitle aside"
+                           "body aside"
+                           "guides guides";
+    };
+
+  }
+
+  // Builds the main structure when used for a tool page.
+  &.-tool-page {
+    
+    // Adjusts the main structure across large screens.
+    @include breakpoint-l {
+      grid-template-areas: "title title"
+                           "subtitle aside"
+                           "body aside"
+                           "guides guides";
+    };
+
+  }
+
+  // Builds the main title structure.
+  &-title {
+    grid-area: title;
+  }
+
+  // Builds the main subtitle structure.
+  &-subtitle {
+    grid-area: subtitle;
+  }
+
+  // Builds the main body structure.
+  &-body {
+    grid-area: body;
+
+    // Adjusts image inside main body.
+    .image {
+      max-width: 100%;
+    }
+
+  }
+
+  // Builds the main sidebar structure.
+  &-sidebar {
+    grid-area: aside;
+    display: flex;
+    justify-content: center;
+
+    &::after {
+      content: 'Sidebar'; // TEMPORARY
+    }
+  }
+
+  // Builds the main guides structure.
+  &-guides {
+    grid-area: guides;
+  }
+  
+}

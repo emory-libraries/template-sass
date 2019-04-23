@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.material
+////
+
+/// Load the materials component's structure and skin.
+@import 'material/structure';
+@import 'material/skin';
+
+/// Builds a constructor for the material component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} templates-material
+/// @requires {variable} templates-material
+/// @requires {mixin} templates-material--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our material component
+///
+/// @status review
+@mixin templates-material ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($templates-material, $custom);
+
+  // Initialize the material component.
+  & {
+
+    // Load structure.
+    @extend %templates-material;
+
+    // Load parts.
+    &-header {
+      @extend %templates-material-header;
+    }
+    &-main {
+      @extend %templates-material-main;
+    }
+    &-footer {
+      @extend %templates-material-footer;
+    }
+
+    // Load skins.
+    @include templates-material--theme($skin);
+
+  }
+
+}

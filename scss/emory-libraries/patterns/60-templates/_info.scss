@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.info
+////
+
+/// Load the info component's structure and skin.
+@import 'info/structure';
+@import 'info/skin';
+
+/// Builds a constructor for the info component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} templates-info
+/// @requires {variable} templates-info
+/// @requires {mixin} templates-info--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our info component
+///
+/// @status review
+@mixin templates-info ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($templates-info, $custom);
+
+  // Initialize the info component.
+  & {
+
+    // Load structure.
+    @extend %templates-info;
+
+    // Load parts.
+    &-header {
+      @extend %templates-info-header;
+    }
+    &-main {
+      @extend %templates-info-main;
+    }
+    &-footer {
+      @extend %templates-info-footer;
+    }
+
+    // Load skins.
+    @include templates-info--theme( $skin );
+
+  }
+
+}

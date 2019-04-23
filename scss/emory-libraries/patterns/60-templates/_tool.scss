@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.tool
+////
+
+/// Load the tool component's structure and skin.
+@import 'tool/structure';
+@import 'tool/skin';
+
+/// Builds a constructor for the tool component.
+///
+/// @since 1.0.0
+///
+/// @requires {placeholder} templates-tool
+/// @requires {variable} templates-tool
+/// @requires {mixin} templates-tool--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our tool component
+///
+/// @status review
+@mixin templates-tool ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($templates-tool, $custom);
+
+  // Initialize the tool component.
+  & {
+
+    // Load structure.
+    @extend %templates-tool;
+
+    // Load parts.
+    &-header {
+      @extend %templates-tool-header;
+    }
+    &-main {
+      @extend %templates-tool-main;
+    }
+    &-footer {
+      @extend %templates-tool-footer;
+    }
+
+    // Load skins.
+    @include templates-tool--theme($skin);
+
+  }
+
+}

@@ -1,0 +1,54 @@
+////
+/// @group emory-libraries.patterns.templates.material
+////
+
+/// Defines the base skin of the material component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$templates-material: (
+  
+  'layout': (
+    'x': $layout-x,
+    'y': $layout-y
+  ),
+
+  'gap': 20px
+  
+);
+
+/// Defines the material component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The material component's themeable properties
+@mixin templates-material--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $gap: map-deep-get($skin, 'gap');
+  $layout: map-deep-get($skin, 'layout');
+
+  // Defines the material component's base styles.
+  grid-gap: $gap;
+
+  // Defines material header and footer styles.
+  &-header,
+  &-footer {
+    border: $border-width-s solid color('slate'); // TEMPORARY
+  }
+  
+  // Defines material header styles.
+  &-header { }
+  
+  // Defines material main styles.
+  &-main { }
+  
+  // Defines material footer styles.
+  &-footer { }
+
+}

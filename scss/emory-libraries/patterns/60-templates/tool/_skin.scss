@@ -1,0 +1,54 @@
+////
+/// @group emory-libraries.patterns.templates.tool
+////
+
+/// Defines the base skin of the tool component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$templates-tool: (
+  
+  'layout': (
+    'x': $layout-x,
+    'y': $layout-y
+  ),
+  
+  'gap': 20px
+  
+);
+
+/// Defines the tool component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The tool component's themeable properties
+@mixin templates-tool--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $gap: map-deep-get($skin, 'gap');
+  $layout: map-deep-get($skin, 'layout');
+
+  // Defines the tool component's base styles.
+  grid-gap: $gap;
+
+  // Defines tool footer and header styles.
+  &-header,
+  &-footer {
+    border: $border-width-s solid color('slate'); // TEMPORARY
+  }
+  
+  // Defines tool header styles.
+  &-header { }
+  
+  // Defines tool main styles.
+  &-main { }
+  
+  // Defines tool header styles.
+  &-footer { }
+
+}

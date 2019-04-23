@@ -1,0 +1,54 @@
+////
+/// @group emory-libraries.patterns.organisms.intro
+////
+
+/// Defines the base skin of the intro component.
+///
+/// @since 1.0.0
+///
+/// @type map
+$organisms-intro: (
+
+  'context': color('blue'),
+  
+  'title': color('blue', 'dark'),
+  
+  'subtitle': color('blue', 'mid')
+  
+);
+
+/// Defines the intro component theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The intro component's themeable properties
+@mixin organisms-intro--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $context: map-deep-get($skin, 'context');
+  $title: map-deep-get($skin, 'title');
+  $subtitle: map-deep-get($skin, 'subtitle');
+
+  // Defines the intro component's base styles.
+  // ...
+  
+  // Defines the intro context styles.
+  &-context {
+    @include tokens-heading('h6', $context, $important: true);
+  }
+  
+  // Defines the intro title styles.
+  &-title {
+    @include tokens-heading('h1-alt', $title, $important: true);
+  }
+  
+  // Defines the intro subtitle styles.
+  &-subtitle {
+    @include tokens-text('lead', $subtitle, $important: true);
+  }
+  
+}
