@@ -8,7 +8,7 @@
 
 /// Builds a constructor for the intro component.
 ///
-/// @since 1.0.0-dev.0
+/// @since 1.0.0
 ///
 /// @requires {placeholder} organisms-intro
 /// @requires {variable} organisms-intro
@@ -30,6 +30,17 @@
     
     // Load structure.
     @extend %organisms-intro;
+    
+    // Load parts.
+    &-context {
+      @extend %organisms-intro-context;
+    }
+     &-title {
+      @extend %organisms-intro-title;
+    }
+     &-subtitle {
+      @extend %organisms-intro-subtitle;
+    }
     
     // Load skins.
     @include organisms-intro--theme( $skin );

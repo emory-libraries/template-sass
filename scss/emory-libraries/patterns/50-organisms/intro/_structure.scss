@@ -4,10 +4,23 @@
 
 /// Defines the base structure of the intro component.
 ///
-/// @since 1.0.0-dev.0
+/// @since 1.0.0
 %organisms-intro {
   
   // Builds the intro structure.
   // ...
+  
+  // Builds the intro context structure.
+  &-context {
+    display: block;
+  }
+  
+  // Builds the intro title structure.
+  &-title { 
+    margin: 0;
+  }
+  
+  // Builds the intro subtitle structure.
+  &-subtitle { }
   
 }
