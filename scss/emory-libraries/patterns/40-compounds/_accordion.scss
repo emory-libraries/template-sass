@@ -1,0 +1,53 @@
+////
+/// @group emory-libraries.patterns.compounds.accordion
+////
+
+/// Load the accordion component's structure and skin.
+@import 'accordion/structure';
+@import 'accordion/skin';
+
+/// Builds a constructor for the accordion component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} compounds-accordion
+/// @requires {variable} compounds-accordion
+/// @requires {mixin} compounds-accordion--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our accordion component
+///
+/// @status review
+@mixin compounds-accordion ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($compounds-accordion, $custom);
+  
+  // Initialize the accordion component.
+  & {
+    
+    // Load structure.
+    @extend %compounds-accordion;
+    
+    // Load parts.
+    &-title {
+      @extend %compounds-accordion-title;
+    }
+    &-toggles {
+      @extend %compounds-accordion-toggles;
+      &-toggle {
+        @extend %compounds-accordion-toggles-toggle;
+      }
+    }
+    &-panel {
+      @extend %compounds-accordion-panel;
+    }
+    
+    // Load skins.
+    @include compounds-accordion--theme( $skin );
+    
+  }
+  
+}

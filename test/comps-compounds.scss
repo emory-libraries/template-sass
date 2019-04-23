@@ -4,3 +4,18 @@
 .utility-list {
   @include compounds-utility-list;
 }
+
+// compounds-cards
+.cards {
+  @include compounds-cards;
+}
+
+// compounds-accordion
+.accordion {
+  @include compounds-accordion;
+}
+
+// compounds-related
+.related {
+  @include compounds-related;
+}

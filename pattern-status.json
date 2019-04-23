@@ -48,5 +48,8 @@
   "organisms-main": "review",
   "templates-info": "review",
   "templates-material": "review",
-  "templates-tool": "review"
+  "templates-tool": "review",
+  "compounds-cards": "review",
+  "compounds-accordion": "review",
+  "compounds-related": "review"
 }
