@@ -4,8 +4,8 @@
 .info-page {
     @include templates-info;
 }
-.materials-page {
-    @include templates-materials;
+.material-page {
+    @include templates-material;
 }
 .tool-page {
     @include templates-tool;

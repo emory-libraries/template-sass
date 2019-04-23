@@ -7,11 +7,13 @@
 /// @since 1.0.0-dev.0
 ///
 /// @type map
-$templates-materials: (
+$templates-material: (
+  
     'layout': (
         'x': $layout-x,
         'y': $layout-y
-    ),
+    )
+  
 );
 
 /// Defines the material component theme.
@@ -23,7 +25,7 @@ $templates-materials: (
 /// @param {map} skin - The component's skin
 ///
 /// @output The material component's themeable properties
-@mixin templates-materials--theme ($skin) {
+@mixin templates-material--theme ($skin) {
 
     // Capture themeable variables from skin.
     // ...
