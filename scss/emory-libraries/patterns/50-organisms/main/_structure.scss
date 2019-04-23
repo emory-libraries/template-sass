@@ -12,31 +12,54 @@
 
     $selector: &;
 
+    margin: 0 auto;
+    max-width: 1236px;
     grid-area: main;
     display: grid;
     grid-column-gap: 40px;
-    grid-template-areas: "titles"
-                       "body"
-                       "guides"
-                       "aside";
+    grid-template-areas: "title"
+                         "subtitle"
+                         "body"
+                         "guides"
+                         "aside";
 
     @include breakpoint-l() {
-      grid-template-areas: "titles titles"
+      grid-template-areas: "title title"
+                           "subtitle subtitle"
                            "body  aside"
                            "guides guides";
       grid-template-columns: minmax(auto, 840px) minmax(auto, 340px);
     }
 
-    &-titles {
-      grid-area: titles;
+    &-title {
+      grid-area: title;
+
+    }
+
+    .heading.-h1 {
+      font-size: 48px;
+      grid-area: title;
+    }
+
+    .text.-lead {
+      font-size: 28px;
+      line-height: 42px;
+      grid-area: subtitle;
     }
 
     &-body-content {
       grid-area: body;
 
+      .heading.-h2 {
+        font-family: "Open Sans", sans-serif;
+        font-size: 22px;
+        color: color('blue','base');
+      }
+
       .image.-center {
           max-width: 100%;
       }
+
     }
 
     &-sidebar {

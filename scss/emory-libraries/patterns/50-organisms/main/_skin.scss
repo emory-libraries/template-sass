@@ -22,11 +22,34 @@ $organisms-main: ();
 
     // Capture themeable variables from skin.
     // ...
+
+    // Defines the main component's base styles.
+    // ...
     &-sidebar {
         border: $border-width-s solid color('slate')
     }
 
-    // Defines the main component's base styles.
-    // ...
+    &.materials-page-main {
+        @include breakpoint-l() {
+          grid-template-areas: "title title"
+                               "subtitle aside"
+                               "body aside"
+                               "guides guides";
+          grid-template-columns: minmax(auto, 840px) minmax(auto, 340px);
 
+        }
+
+    }
+
+    &.tool-page-main {
+        @include breakpoint-l() {
+          grid-template-areas: "title title"
+                               "subtitle aside"
+                               "body aside"
+                               "guides guides";
+          grid-template-columns: minmax(auto, 840px) minmax(auto, 340px);
+
+        }
+
+    }
 }

@@ -8,9 +8,10 @@
 ///
 /// @type map
 $templates-tool: (
-  
-  
-  
+    'layout': (
+        'x': $layout-x,
+        'y': $layout-y
+    ),
 );
 
 /// Defines the tool component theme.
@@ -23,11 +24,23 @@ $templates-tool: (
 ///
 /// @output The tool component's themeable properties
 @mixin templates-tool--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   // ...
-  
+  $layout: map-deep-get($skin, 'layout');
+
   // Defines the tool component's base styles.
   // ...
-  
+
+    &-sidebar {
+        border: $border-width-s solid color('slate')
+    }
+
+    &-footer {}
+
+    &-header,
+    &-footer {
+        border: $border-width-s solid color('slate')
+    }
+
 }

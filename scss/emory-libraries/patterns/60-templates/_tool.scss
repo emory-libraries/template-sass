@@ -21,19 +21,32 @@
 ///
 /// @status construction
 @mixin templates-tool ( $custom: () ) {
-  
+
   // Extend the default skin.
   $skin: map-extend($templates-tool, $custom);
-  
+
   // Initialize the tool component.
   & {
-    
+
     // Load structure.
     @extend %templates-tool;
-    
+
+    &-header {
+        @extend %templates-tool-header;
+    }
+
+    &-main {
+        @extend %templates-tool-main;
+    }
+
+    &-footer {
+        @extend %templates-tool-footer;
+    }
+
+
     // Load skins.
     @include templates-tool--theme( $skin );
-    
+
   }
-  
+
 }

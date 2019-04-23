@@ -7,10 +7,11 @@
 /// @since 1.0.0-dev.0
 ///
 /// @type map
-$templates-material: (
-  
-  
-  
+$templates-materials: (
+    'layout': (
+        'x': $layout-x,
+        'y': $layout-y
+    ),
 );
 
 /// Defines the material component theme.
@@ -22,12 +23,22 @@ $templates-material: (
 /// @param {map} skin - The component's skin
 ///
 /// @output The material component's themeable properties
-@mixin templates-material--theme ( $skin ) {
-  
-  // Capture themeable variables from skin.
-  // ...
-  
-  // Defines the material component's base styles.
-  // ...
-  
+@mixin templates-materials--theme ($skin) {
+
+    // Capture themeable variables from skin.
+    // ...
+    $layout: map-deep-get($skin, 'layout');
+
+    // Defines the material component's base styles.
+    // ...
+
+    &-sidebar {
+        border: $border-width-s solid color('slate')
+    }
+
+    &-header,
+    &-footer {
+        border: $border-width-s solid color('slate')
+    }
+
 }

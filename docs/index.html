@@ -5497,11 +5497,11 @@
                               <ul class="list-unstyled">
                               
                                 
-                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.material" data-name="templates-material" data-type="mixin">
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.material" data-name="templates-materials" data-type="mixin">
                                     
-                                    <a href="#patterns.templates.material-mixin-templates-material">
+                                    <a href="#patterns.templates.material-mixin-templates-materials">
                                       
-                                      templates-material
+                                      templates-materials
                                       
                                       
                                       
@@ -5510,11 +5510,11 @@
                                   </li>
                                 
                                 
-                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.material" data-name="templates-material--theme" data-type="mixin">
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.material" data-name="templates-materials--theme" data-type="mixin">
                                     
-                                    <a href="#patterns.templates.material-mixin-templates-material--theme">
+                                    <a href="#patterns.templates.material-mixin-templates-materials--theme">
                                       
-                                      templates-material--theme
+                                      templates-materials--theme
                                       
                                       
                                       
@@ -5538,11 +5538,11 @@
                               <ul class="list-unstyled">
                               
                                 
-                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.material" data-name="templates-material" data-type="variable">
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.material" data-name="templates-materials" data-type="variable">
                                     
-                                    <a href="#patterns.templates.material-variable-templates-material">
+                                    <a href="#patterns.templates.material-variable-templates-materials">
                                       
-                                      templates-material
+                                      templates-materials
                                       
                                       
                                       
@@ -5566,11 +5566,11 @@
                               <ul class="list-unstyled">
                               
                                 
-                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.material" data-name="templates-material" data-type="placeholder">
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.material" data-name="templates-materials" data-type="placeholder">
                                     
-                                    <a href="#patterns.templates.material-placeholder-templates-material">
+                                    <a href="#patterns.templates.material-placeholder-templates-materials">
                                       
-                                      templates-material
+                                      templates-materials
                                       
                                       
                                       
@@ -6606,6 +6606,14 @@
                   
                   
                   
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
                       
                       
                       
@@ -50742,8 +50750,8 @@
                                   // Load structure.
                                   @extend %organisms-main;
                               
-                                  &amp;-titles {
-                                      @extend %organisms-main-titles;
+                                  &amp;-title {
+                                      @extend %organisms-main-title;
                                   }
                               
                                   &amp;-sidebar {
@@ -50969,13 +50977,36 @@
                               
                                   // Capture themeable variables from skin.
                                   // ...
+                              
+                                  // Defines the main component&#x27;s base styles.
+                                  // ...
                                   &amp;-sidebar {
                                       border: $border-width-s solid color(&#x27;slate&#x27;)
                                   }
                               
-                                  // Defines the main component&#x27;s base styles.
-                                  // ...
+                                  &amp;.materials-page-main {
+                                      @include breakpoint-l() {
+                                        grid-template-areas: &quot;title title&quot;
+                                                             &quot;subtitle aside&quot;
+                                                             &quot;body aside&quot;
+                                                             &quot;guides guides&quot;;
+                                        grid-template-columns: minmax(auto, 840px) minmax(auto, 340px);
                               
+                                      }
+                              
+                                  }
+                              
+                                  &amp;.tool-page-main {
+                                      @include breakpoint-l() {
+                                        grid-template-areas: &quot;title title&quot;
+                                                             &quot;subtitle aside&quot;
+                                                             &quot;body aside&quot;
+                                                             &quot;guides guides&quot;;
+                                        grid-template-columns: minmax(auto, 840px) minmax(auto, 340px);
+                              
+                                      }
+                              
+                                  }
                                }"
                                        data-collapsed="@mixin organisms-main--theme($skin) { ... }"><code class="js-autoindent">@mixin organisms-main--theme($skin) { ... }</code></pre>
                               
@@ -51057,6 +51088,34 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#utils.mixins-mixin-breakpoint-l"><code>breakpoint-l</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#utils.mixins-mixin-breakpoint-l"><code>breakpoint-l</code></a>
+                                  
+                                  
+                                          </li>
+                                  
                                   
                                   
                                     
@@ -51261,31 +51320,54 @@
                               
                                   $selector: &amp;;
                               
+                                  margin: 0 auto;
+                                  max-width: 1236px;
                                   grid-area: main;
                                   display: grid;
                                   grid-column-gap: 40px;
-                                  grid-template-areas: &quot;titles&quot;
-                                                     &quot;body&quot;
-                                                     &quot;guides&quot;
-                                                     &quot;aside&quot;;
+                                  grid-template-areas: &quot;title&quot;
+                                                       &quot;subtitle&quot;
+                                                       &quot;body&quot;
+                                                       &quot;guides&quot;
+                                                       &quot;aside&quot;;
                               
                                   @include breakpoint-l() {
-                                    grid-template-areas: &quot;titles titles&quot;
+                                    grid-template-areas: &quot;title title&quot;
+                                                         &quot;subtitle subtitle&quot;
                                                          &quot;body  aside&quot;
                                                          &quot;guides guides&quot;;
                                     grid-template-columns: minmax(auto, 840px) minmax(auto, 340px);
                                   }
                               
-                                  &amp;-titles {
-                                    grid-area: titles;
+                                  &amp;-title {
+                                    grid-area: title;
+                              
+                                  }
+                              
+                                  .heading.-h1 {
+                                    font-size: 48px;
+                                    grid-area: title;
+                                  }
+                              
+                                  .text.-lead {
+                                    font-size: 28px;
+                                    line-height: 42px;
+                                    grid-area: subtitle;
                                   }
                               
                                   &amp;-body-content {
                                     grid-area: body;
                               
+                                    .heading.-h2 {
+                                      font-family: &quot;Open Sans&quot;, sans-serif;
+                                      font-size: 22px;
+                                      color: color(&#x27;blue&#x27;,&#x27;base&#x27;);
+                                    }
+                              
                                     .image.-center {
                                         max-width: 100%;
                                     }
+                              
                                   }
                               
                                   &amp;-sidebar {
@@ -51717,16 +51799,6 @@
                                   $layout: map-deep-get($skin, &#x27;layout&#x27;);
                                   // ...
                               
-                                  &amp;-header {}
-                              
-                                  &amp;-main {
-                                      @include tokens-layout( $layout );
-                                  }
-                              
-                                  &amp;-aside {}
-                              
-                                  &amp;-footer {}
-                              
                                   &amp;-header,
                                   &amp;-footer {
                                       border: $border-width-s solid color(&#x27;slate&#x27;)
@@ -51816,20 +51888,6 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
-                                  
-                                  
-                                    
-                                          
-                                  
-                                          <li class="item__description  item__description--inline">
-                                  
-                                            <span class="item__cross-type">mixin</span>
-                                  
-                                            <a href="#patterns.tokens.layout-mixin-tokens-layout"><code>tokens-layout</code></a>
-                                  
-                                  
-                                          </li>
-                                  
                                   
                                   
                                     
@@ -51931,11 +51989,10 @@
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$templates-info: (
                               
-                                &#x27;layout&#x27;: (
-                                  &#x27;x&#x27;: $layout-x,
-                                  &#x27;y&#x27;: $layout-y
-                                ),
-                              
+                                  &#x27;layout&#x27;: (
+                                      &#x27;x&#x27;: $layout-x,
+                                      &#x27;y&#x27;: $layout-y
+                                  ),
                               );</code></pre>
                               
                               
@@ -52051,6 +52108,7 @@
                                   grid-template-columns: 1fr;
                               
                                   &amp;-header {
+                              
                                       grid-area: header;
                                       display: flex;
                                       justify-content: center;
@@ -52173,13 +52231,13 @@
                           
                           
                             <section class="main__item container item"
-                                     id="patterns.templates.material-mixin-templates-material">
+                                     id="patterns.templates.material-mixin-templates-materials">
                             
                               <h3 class="item__heading">
                                 
                               
-                                <a class="item__name" href="#patterns.templates.material-mixin-templates-material">
-                                  templates-material
+                                <a class="item__name" href="#patterns.templates.material-mixin-templates-materials">
+                                  templates-materials
                                 </a>
                               
                               
@@ -52207,24 +52265,36 @@
                                   
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
-                                       data-expanded="@mixin templates-material($custom) { 
-                                
+                                       data-expanded="@mixin templates-materials($custom) { 
+                              
                                 // Extend the default skin.
-                                $skin: map-extend($templates-material, $custom);
-                                
+                                $skin: map-extend($templates-materials, $custom);
+                              
                                 // Initialize the material component.
                                 &amp; {
-                                  
+                              
                                   // Load structure.
-                                  @extend %templates-material;
-                                  
+                                  @extend %templates-materials;
+                              
+                                  &amp;-header {
+                                      @extend %templates-materials-header;
+                                  }
+                              
+                                  &amp;-main {
+                                      @extend %templates-materials-main;
+                                  }
+                              
+                                  &amp;-footer {
+                                      @extend %templates-materials-footer;
+                                  }
+                              
                                   // Load skins.
-                                  @include templates-material--theme( $skin );
-                                  
+                                  @include templates-materials--theme( $skin );
+                              
                                 }
-                                
+                              
                                }"
-                                       data-collapsed="@mixin templates-material($custom) { ... }"><code class="js-autoindent">@mixin templates-material($custom) { ... }</code></pre>
+                                       data-collapsed="@mixin templates-materials($custom) { ... }"><code class="js-autoindent">@mixin templates-materials($custom) { ... }</code></pre>
                               
                                   
                                 </div>
@@ -52235,7 +52305,7 @@
                               
                               
                                     <h3 class="item__sub-heading">Description</h3>
-                                    <div class="item__description"><p>Builds a constructor for the material component.</p>
+                                    <div class="item__description"><p>Builds a constructor for the materials component.</p>
                                   </div>
                               
                               
@@ -52294,7 +52364,7 @@
                               
                               
                                     <h3 class="item__sub-heading">Output</h3>
-                                    <div class="item__description"><p>The native structure and skin of our material component</p>
+                                    <div class="item__description"><p>The native structure and skin of our materials component</p>
                                   </div>
                               
                               
@@ -52313,7 +52383,7 @@
                                   
                                             <span class="item__cross-type">placeholder</span>
                                   
-                                            <a href="#patterns.templates.material-placeholder-templates-material"><code>templates-material</code></a>
+                                            <a href="#patterns.templates.material-placeholder-templates-materials"><code>templates-materials</code></a>
                                   
                                   
                                           </li>
@@ -52327,7 +52397,7 @@
                                   
                                             <span class="item__cross-type">variable</span>
                                   
-                                            <a href="#patterns.templates.material-variable-templates-material"><code>templates-material</code></a>
+                                            <a href="#patterns.templates.material-variable-templates-materials"><code>templates-materials</code></a>
                                   
                                   
                                           </li>
@@ -52341,7 +52411,7 @@
                                   
                                             <span class="item__cross-type">mixin</span>
                                   
-                                            <a href="#patterns.templates.material-mixin-templates-material--theme"><code>templates-material--theme</code></a>
+                                            <a href="#patterns.templates.material-mixin-templates-materials--theme"><code>templates-materials--theme</code></a>
                                   
                                   
                                           </li>
@@ -52392,13 +52462,13 @@
                             </section>  
                           
                             <section class="main__item container item"
-                                     id="patterns.templates.material-mixin-templates-material--theme">
+                                     id="patterns.templates.material-mixin-templates-materials--theme">
                             
                               <h3 class="item__heading">
                                 
                               
-                                <a class="item__name" href="#patterns.templates.material-mixin-templates-material--theme">
-                                  templates-material--theme
+                                <a class="item__name" href="#patterns.templates.material-mixin-templates-materials--theme">
+                                  templates-materials--theme
                                 </a>
                               
                               
@@ -52425,16 +52495,26 @@
                                   
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
-                                       data-expanded="@mixin templates-material--theme($skin) { 
-                                
-                                // Capture themeable variables from skin.
-                                // ...
-                                
-                                // Defines the material component&#x27;s base styles.
-                                // ...
-                                
+                                       data-expanded="@mixin templates-materials--theme($skin) { 
+                              
+                                  // Capture themeable variables from skin.
+                                  // ...
+                                  $layout: map-deep-get($skin, &#x27;layout&#x27;);
+                              
+                                  // Defines the material component&#x27;s base styles.
+                                  // ...
+                              
+                                  &amp;-sidebar {
+                                      border: $border-width-s solid color(&#x27;slate&#x27;)
+                                  }
+                              
+                                  &amp;-header,
+                                  &amp;-footer {
+                                      border: $border-width-s solid color(&#x27;slate&#x27;)
+                                  }
+                              
                                }"
-                                       data-collapsed="@mixin templates-material--theme($skin) { ... }"><code class="js-autoindent">@mixin templates-material--theme($skin) { ... }</code></pre>
+                                       data-collapsed="@mixin templates-materials--theme($skin) { ... }"><code class="js-autoindent">@mixin templates-materials--theme($skin) { ... }</code></pre>
                               
                                   
                                 </div>
@@ -52516,6 +52596,34 @@
                                     <ul class="list-unstyled">
                                   
                                   
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-border-width-s"><code>border-width-s</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-border-width-s"><code>border-width-s</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
                                   
                                           <li class="item__description item__description--inline">
                                   
@@ -52575,13 +52683,13 @@
                           
                           
                             <section class="main__item container item"
-                                     id="patterns.templates.material-variable-templates-material">
+                                     id="patterns.templates.material-variable-templates-materials">
                             
                               <h3 class="item__heading">
                                 
                               
-                                <a class="item__name" href="#patterns.templates.material-variable-templates-material">
-                                  templates-material
+                                <a class="item__name" href="#patterns.templates.material-variable-templates-materials">
+                                  templates-materials
                                 </a>
                               
                               
@@ -52599,10 +52707,11 @@
                               
                                 <div class="item__code-wrapper">
                                   
-                                  <pre class="item__code language-scss"><code class="js-autoindent">$templates-material: (
-                                
-                                
-                                
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$templates-materials: (
+                                  &#x27;layout&#x27;: (
+                                      &#x27;x&#x27;: $layout-x,
+                                      &#x27;y&#x27;: $layout-y
+                                  ),
                               );</code></pre>
                               
                               
@@ -52675,13 +52784,13 @@
                           
                           
                             <section class="main__item container item"
-                                     id="patterns.templates.material-placeholder-templates-material">
+                                     id="patterns.templates.material-placeholder-templates-materials">
                             
                               <h3 class="item__heading">
                                 
                               
-                                <a class="item__name" href="#patterns.templates.material-placeholder-templates-material">
-                                  templates-material
+                                <a class="item__name" href="#patterns.templates.material-placeholder-templates-materials">
+                                  templates-materials
                                 </a>
                               
                               
@@ -52701,13 +52810,48 @@
                               
                                   <pre class="item__code item__code--togglable language-scss"
                                       data-current-state="collapsed"
-                                      data-expanded="%templates-material { 
-                                
-                                // Builds the material structure.
-                                // ...
-                                
+                                      data-expanded="%templates-materials { 
+                              
+                                  // Builds the material structure.
+                                  // ...
+                                  $selector: &amp;;
+                              
+                                  margin: 0 auto;
+                                  display: grid;
+                                  grid-gap: 20px;
+                                  grid-template-areas: &quot;header&quot;
+                                                       &quot;main&quot;
+                                                       &quot;footer&quot;;
+                                  grid-template-rows: 150px 1fr 420px;
+                                  grid-template-columns: 1fr;
+                              
+                                  &amp;-header {
+                                      grid-area: header;
+                                      display: flex;
+                                      justify-content: center;
+                                      align-items: center;
+                              
+                                      &amp;::after {
+                                          content: &#x27;Header&#x27;;
+                                      }
+                                  }
+                              
+                                  &amp;-main {
+                                      grid-area: main;
+                                  }
+                              
+                                  &amp;-footer {
+                                      grid-area: footer;
+                                      display: flex;
+                                      justify-content: center;
+                                      align-items: center;
+                              
+                                      &amp;::after {
+                                          content: &#x27;Footer&#x27;;
+                                      }
+                                  }
                                }"
-                                      data-collapsed="%templates-material { ... }"><code class="js-autoindent">%templates-material { ... }</code></pre>
+                                      data-collapsed="%templates-materials { ... }"><code class="js-autoindent">%templates-materials { ... }</code></pre>
                               
                               
                                 </div>
@@ -52829,9 +52973,10 @@
                                 <div class="item__code-wrapper">
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$templates-tool: (
-                                
-                                
-                                
+                                  &#x27;layout&#x27;: (
+                                      &#x27;x&#x27;: $layout-x,
+                                      &#x27;y&#x27;: $layout-y
+                                  ),
                               );</code></pre>
                               
                               
@@ -52938,13 +53083,25 @@
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
                                        data-expanded="@mixin templates-tool--theme($skin) { 
-                                
+                              
                                 // Capture themeable variables from skin.
                                 // ...
-                                
+                                $layout: map-deep-get($skin, &#x27;layout&#x27;);
+                              
                                 // Defines the tool component&#x27;s base styles.
                                 // ...
-                                
+                              
+                                  &amp;-sidebar {
+                                      border: $border-width-s solid color(&#x27;slate&#x27;)
+                                  }
+                              
+                                  &amp;-footer {}
+                              
+                                  &amp;-header,
+                                  &amp;-footer {
+                                      border: $border-width-s solid color(&#x27;slate&#x27;)
+                                  }
+                              
                                }"
                                        data-collapsed="@mixin templates-tool--theme($skin) { ... }"><code class="js-autoindent">@mixin templates-tool--theme($skin) { ... }</code></pre>
                               
@@ -53028,6 +53185,34 @@
                                     <ul class="list-unstyled">
                                   
                                   
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-border-width-s"><code>border-width-s</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-border-width-s"><code>border-width-s</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
                                   
                                           <li class="item__description item__description--inline">
                                   
@@ -53109,21 +53294,34 @@
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
                                        data-expanded="@mixin templates-tool($custom) { 
-                                
+                              
                                 // Extend the default skin.
                                 $skin: map-extend($templates-tool, $custom);
-                                
+                              
                                 // Initialize the tool component.
                                 &amp; {
-                                  
+                              
                                   // Load structure.
                                   @extend %templates-tool;
-                                  
+                              
+                                  &amp;-header {
+                                      @extend %templates-tool-header;
+                                  }
+                              
+                                  &amp;-main {
+                                      @extend %templates-tool-main;
+                                  }
+                              
+                                  &amp;-footer {
+                                      @extend %templates-tool-footer;
+                                  }
+                              
+                              
                                   // Load skins.
                                   @include templates-tool--theme( $skin );
-                                  
+                              
                                 }
-                                
+                              
                                }"
                                        data-collapsed="@mixin templates-tool($custom) { ... }"><code class="js-autoindent">@mixin templates-tool($custom) { ... }</code></pre>
                               
@@ -53333,10 +53531,43 @@
                                   <pre class="item__code item__code--togglable language-scss"
                                       data-current-state="collapsed"
                                       data-expanded="%templates-tool { 
-                                
-                                // Builds the tool structure.
-                                // ...
-                                
+                              
+                                  // Builds the tool structure.
+                                  // ...
+                                  margin: 0 auto;
+                                  display: grid;
+                                  grid-gap: 20px;
+                                  grid-template-areas: &quot;header&quot;
+                                                       &quot;main&quot;
+                                                       &quot;footer&quot;;
+                                  grid-template-rows: 150px 1fr 420px;
+                                  grid-template-columns: 1fr;
+                              
+                                  &amp;-header {
+                                      grid-area: header;
+                                      display: flex;
+                                      justify-content: center;
+                                      align-items: center;
+                              
+                                      &amp;::after {
+                                          content: &#x27;Header&#x27;;
+                                      }
+                                  }
+                              
+                                  &amp;-main {
+                                      grid-area: main;
+                                  }
+                              
+                                  &amp;-footer {
+                                      grid-area: footer;
+                                      display: flex;
+                                      justify-content: center;
+                                      align-items: center;
+                              
+                                      &amp;::after {
+                                          content: &#x27;Footer&#x27;;
+                                      }
+                                  }
                                }"
                                       data-collapsed="%templates-tool { ... }"><code class="js-autoindent">%templates-tool { ... }</code></pre>
                               
@@ -55560,8 +55791,6 @@
                                   
                               
                               
-                                  
-                                  
                                   
                                   
                                   
@@ -58468,6 +58697,10 @@
                             
                         
                         
+                            
+                            
+                            
+                            
                             
                             
                             

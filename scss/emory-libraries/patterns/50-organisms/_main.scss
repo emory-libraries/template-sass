@@ -31,8 +31,8 @@
     // Load structure.
     @extend %organisms-main;
 
-    &-titles {
-        @extend %organisms-main-titles;
+    &-title {
+        @extend %organisms-main-title;
     }
 
     &-sidebar {

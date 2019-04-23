@@ -9,11 +9,10 @@
 /// @type map
 $templates-info: (
 
-  'layout': (
-    'x': $layout-x,
-    'y': $layout-y
-  ),
-
+    'layout': (
+        'x': $layout-x,
+        'y': $layout-y
+    ),
 );
 
 /// Defines the info component theme.
@@ -30,16 +29,6 @@ $templates-info: (
     // Capture themeable variables from skin.
     $layout: map-deep-get($skin, 'layout');
     // ...
-
-    &-header {}
-
-    &-main {
-        @include tokens-layout( $layout );
-    }
-
-    &-aside {}
-
-    &-footer {}
 
     &-header,
     &-footer {
