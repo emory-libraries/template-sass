@@ -39,14 +39,10 @@ $organisms-main: (
   grid-column-gap: $gap;
   
   // Defines the main title styles.
-  &-title {
-    @include tokens-heading('h1-alt');
-  }
+  &-title { }
   
   // Defines the main subtitle styles.
-  &-subtitle {
-    @include tokens-text('lead');
-  }
+  &-subtitle { }
   
   // Defines the main body styles.
   &-body {

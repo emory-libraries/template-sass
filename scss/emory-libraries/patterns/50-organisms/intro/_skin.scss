@@ -38,17 +38,17 @@ $organisms-intro: (
   
   // Defines the intro context styles.
   &-context {
-    @include tokens-heading('h6', $context);
+    @include tokens-heading('h6', $context, $important: true);
   }
   
   // Defines the intro title styles.
   &-title {
-    @include tokens-heading('h1-alt', $title);
+    @include tokens-heading('h1-alt', $title, $important: true);
   }
   
   // Defines the intro subtitle styles.
   &-subtitle {
-    @include tokens-text('lead', $subtitle);
+    @include tokens-text('lead', $subtitle, $important: true);
   }
   
 }

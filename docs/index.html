@@ -50348,17 +50348,17 @@
                                 
                                 // Defines the intro context styles.
                                 &amp;-context {
-                                  @include tokens-heading(&#x27;h6&#x27;, $context);
+                                  @include tokens-heading(&#x27;h6&#x27;, $context, $important: true);
                                 }
                                 
                                 // Defines the intro title styles.
                                 &amp;-title {
-                                  @include tokens-heading(&#x27;h1-alt&#x27;, $title);
+                                  @include tokens-heading(&#x27;h1-alt&#x27;, $title, $important: true);
                                 }
                                 
                                 // Defines the intro subtitle styles.
                                 &amp;-subtitle {
-                                  @include tokens-text(&#x27;lead&#x27;, $subtitle);
+                                  @include tokens-text(&#x27;lead&#x27;, $subtitle, $important: true);
                                 }
                                 
                                }"
@@ -51069,14 +51069,10 @@
                                 grid-column-gap: $gap;
                                 
                                 // Defines the main title styles.
-                                &amp;-title {
-                                  @include tokens-heading(&#x27;h1-alt&#x27;);
-                                }
+                                &amp;-title { }
                                 
                                 // Defines the main subtitle styles.
-                                &amp;-subtitle {
-                                  @include tokens-text(&#x27;lead&#x27;);
-                                }
+                                &amp;-subtitle { }
                                 
                                 // Defines the main body styles.
                                 &amp;-body {
@@ -51182,34 +51178,6 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
-                                  
-                                  
-                                    
-                                          
-                                  
-                                          <li class="item__description  item__description--inline">
-                                  
-                                            <span class="item__cross-type">mixin</span>
-                                  
-                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
-                                  
-                                  
-                                          </li>
-                                  
-                                  
-                                  
-                                    
-                                          
-                                  
-                                          <li class="item__description  item__description--inline">
-                                  
-                                            <span class="item__cross-type">mixin</span>
-                                  
-                                            <a href="#patterns.tokens.text-mixin-tokens-text"><code>tokens-text</code></a>
-                                  
-                                  
-                                          </li>
-                                  
                                   
                                   
                                     
@@ -54053,8 +54021,6 @@
                                   
                               
                               
-                                  
-                                  
                                   
                                   
                                   
@@ -57371,8 +57337,6 @@
                                   
                               
                               
-                                  
-                                  
                                   
                                   
                                   
