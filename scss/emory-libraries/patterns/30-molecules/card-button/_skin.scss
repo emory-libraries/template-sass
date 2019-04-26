@@ -1,0 +1,90 @@
+////
+/// @group emory-libraries.patterns.molecules.card-button
+////
+
+/// Defines the base skin of the card-button component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$molecules-card-button: (
+  
+  'size': 125px,
+  'padding': 20px,
+  
+  'background': (
+    'normal': color('blue', 'mid'),
+    'hover': color('blue'),
+    'active': color('blue')
+  ),
+  'foreground': (
+    'normal': $color-text-light,
+    'hover': $color-text-light,
+    'active': $color-text-light
+  ),
+  
+  'border': (
+    'offset': 15px,
+    'thickness': $border-width-s,
+    'color': rgba(color('slate', 'light'), .3)
+  ),
+  
+);
+
+/// Defines the card-button component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The card-button component's themeable properties
+@mixin molecules-card-button--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $size: map-deep-get($skin, 'size');
+  $padding: map-deep-get($skin, 'padding');
+  $foreground: map-deep-get($skin, 'foreground');
+  $background: map-deep-get($skin, 'background');
+  
+  // Get border-specific variables.
+  $border-offset: map-deep-get($skin, 'border.offset');
+  $border-thickness: map-deep-get($skin, 'border.thickness');
+  $border-color: map-deep-get($skin, 'border.color');
+  
+  // Defines the card-button component's base styles.
+  @include atoms-button((
+    'background': $background,
+    'foreground': $foreground,
+    'padding': $padding,
+    'size': $size
+  ));
+  @include layered-border(
+    $border-thickness solid $border-color, 
+    $border-offset solid map-get($background, 'normal')
+  );
+  @include tokens-heading('h4', map-get($foreground, 'normal'), $important: true);
+  margin: $border-offset;
+  
+  &:hover,
+  &:focus,
+  &.is-hover,
+  &.is-focus {
+    @include layered-border(
+      $border-thickness solid $border-color, 
+      $border-offset solid map-get($background, 'hover')
+    );
+    @include tokens-heading--color('h4', $tokens-heading, map-get($foreground, 'hover'), true);
+  }
+  
+  &:active,
+  &.is-active {
+    @include layered-border(
+      $border-thickness solid $border-color, 
+      $border-offset solid map-get($background, 'active')
+    );
+    @include tokens-heading--color('h4', $tokens-heading, map-get($foreground, 'active'), true);
+  }
+  
+}

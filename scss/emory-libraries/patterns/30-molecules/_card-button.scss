@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.molecules.card-button
+////
+
+/// Load the card-button component's structure and skin.
+@import 'card-button/structure';
+@import 'card-button/skin';
+
+/// Builds a constructor for the card-button component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} molecules-card-button
+/// @requires {variable} molecules-card-button
+/// @requires {mixin} molecules-card-button--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our card-button component
+///
+/// @status review
+@mixin molecules-card-button ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-card-button, $custom);
+  
+  // Initialize the card-button component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-card-button;
+    
+    // Load skins.
+    @include molecules-card-button--theme( $skin );
+    
+  }
+  
+}

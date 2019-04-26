@@ -1,0 +1,18 @@
+////
+/// @group emory-libraries.patterns.molecules.card-button
+////
+
+/// Defines the base structure of the card-button component.
+///
+/// @since 1.0.0-dev.0
+%molecules-card-button {
+  
+  // Builds the card-button structure.
+  @include absolute-center-contents;
+  
+  // Disable hollow button styles.
+  &.-hollow {
+    display: none;
+  }
+  
+}

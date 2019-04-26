@@ -65,6 +65,11 @@
   @include molecules-card-action;
 }
 
+// molecules-card-button
+.card-button {
+  @include molecules-card-button;
+}
+
 // molecules-tile-listing
 .tile-listing {
   @include molecules-tile-listing;
