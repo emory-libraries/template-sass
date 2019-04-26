@@ -1,0 +1,47 @@
+////
+/// @group emory-libraries.patterns.organisms.section-minor
+////
+
+/// Load the section-minor component's structure and skin.
+@import 'section-minor/structure';
+@import 'section-minor/skin';
+
+/// Builds a constructor for the section-minor component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} organisms-section-minor
+/// @requires {variable} organisms-section-minor
+/// @requires {mixin} organisms-section-minor--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our section-minor component
+///
+/// @status review
+@mixin organisms-section-minor ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($organisms-section-minor, $custom);
+  
+  // Initialize the section-minor component.
+  & {
+    
+    // Load structure.
+    @extend %organisms-section-minor;
+    
+    // Load parts.
+    &-title {
+      @extend %organisms-section-minor-title;
+    }
+    &-body {
+      @extend %organisms-section-minor-body;
+    }
+    
+    // Load skins.
+    @include organisms-section-minor--theme( $skin );
+    
+  }
+  
+}

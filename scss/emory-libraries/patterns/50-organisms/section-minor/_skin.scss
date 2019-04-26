@@ -1,0 +1,134 @@
+////
+/// @group emory-libraries.patterns.organisms.section-minor
+////
+
+/// Defines the base skin of the section-minor component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$organisms-section-minor: (
+  
+  'theme': 'light',
+  'themes': (
+    'light': (
+      'heading': color('blue'),
+      'icon': color('blue'),
+      'foreground': $color-text-dark,
+      'background': color('white')
+    ),
+    'dark': (
+      'heading': $color-text-light,
+      'icon': $color-text-light,
+      'foreground': $color-text-light,
+      'background': color('blue', 'dark')
+    )
+  ),
+  
+  'icon': (
+    'spacing': 15px
+  ),
+  
+  'layout': (
+    'x': $layout-x,
+    'y': layout($layout-y-min, $layout-y-min)
+  )
+  
+);
+
+/// Defines the section-minor component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The section-minor component's themeable properties
+@mixin organisms-section-minor--theme ( $skin ) {
+  
+  // Capture selector.
+  $selector: &;
+  
+  // Capture themeable variables from skin.
+  $theme: map-deep-get($skin, 'theme');
+  $themes: map-deep-get($skin, 'themes');
+  $layout: map-deep-get($skin, 'layout');
+  
+  // Get theme-specific variables.
+  $theme-heading: map-deep-get($themes, $theme + '.heading');
+  $theme-icon: map-deep-get($themes, $theme + '.icon');
+  $theme-foreground: map-deep-get($themes, $theme + '.foreground');
+  $theme-background: map-deep-get($themes, $theme + '.background');
+  
+  // Get icon-specific variables.
+  $icon-spacing: map-deep-get($skin, 'icon.spacing');
+  
+  // Defines the section-minor component's base styles.
+  @include tokens-layout(('layout': $layout));
+  background-color: $theme-background;
+  
+  // Defines the minor title styles.
+  &-title {
+    @include tokens-heading('h4', $theme-heading, $important: true);
+    text-align: left;
+    
+    .icon {
+      color: $theme-icon;
+      margin-right: $icon-spacing;
+      
+      svg {
+        fill: $theme-icon;
+      }
+      
+    }
+    
+    &::after {
+      @include atoms-rule('heading');
+    }
+    
+  }
+  
+  // Defines the minor body styles.
+  &-body {
+    @include tokens-text('body', $theme-foreground);
+  }
+  
+  // Modifies styles based on the theme.
+  @each $name, $theme in $themes {
+    
+    // Get theme-specific variables.
+    $theme-heading: map-deep-get($theme, 'heading');
+    $theme-icon: map-deep-get($theme, 'icon');
+    $theme-foreground: map-deep-get($theme, 'foreground');
+    $theme-background: map-deep-get($theme, 'background');
+    
+    // Modify section styles for the given theme.
+    &.-#{$name} {
+      background-color: $theme-background;
+      
+      // Adjust the title styles.
+      #{$selector}-title {
+        color: $theme-heading !important;
+        
+        .icon {
+          color: $theme-icon;
+
+          svg {
+            fill: $theme-icon;
+          }
+
+        }
+        
+      }
+      
+      // Adjust the body styles.
+      #{$selector}-body {
+        color: $theme-foreground;
+      }
+      
+    }
+    
+  }
+  
+}

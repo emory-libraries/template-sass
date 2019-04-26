@@ -1,0 +1,47 @@
+////
+/// @group emory-libraries.patterns.organisms.section-major
+////
+
+/// Load the section-major component's structure and skin.
+@import 'section-major/structure';
+@import 'section-major/skin';
+
+/// Builds a constructor for the section-major component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} organisms-section-major
+/// @requires {variable} organisms-section-major
+/// @requires {mixin} organisms-section-major--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our section-major component
+///
+/// @status review
+@mixin organisms-section-major ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($organisms-section-major, $custom);
+  
+  // Initialize the section-major component.
+  & {
+    
+    // Load structure.
+    @extend %organisms-section-major;
+    
+    // Load parts.
+    &-title {
+      @extend %organisms-section-major-title;
+    }
+    &-body {
+      @extend %organisms-section-major-body;
+    }
+    
+    // Load skins.
+    @include organisms-section-major--theme( $skin );
+    
+  }
+  
+}

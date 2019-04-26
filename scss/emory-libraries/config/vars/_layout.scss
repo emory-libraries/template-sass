@@ -16,7 +16,7 @@ $layout-y-min: 40px !default;
 /// @since 1.0.0
 ///
 /// @type number
-$layout-y-max: 100px !default;
+$layout-y-max: 70px !default;
 
 
 /// Sets the minimum horizontal layout spacing.
@@ -44,7 +44,7 @@ $layout-x-max: 170px !default;
 /// @requires {variable} screens
 ///
 /// @type list
-$layout-scale-y: numeric-scale($layout-y-min, $layout-y-max, length(map-keys($screens)), true) !default;
+$layout-scale-y: layout-scale($layout-y-min, $layout-y-max) !default;
 
 
 /// Sets horizontal layout scale for resizing layouts across breakpoints.
@@ -56,7 +56,7 @@ $layout-scale-y: numeric-scale($layout-y-min, $layout-y-max, length(map-keys($sc
 /// @requires {variable} screens
 ///
 /// @type list
-$layout-scale-x: numeric-scale($layout-x-min, $layout-x-max, length(map-keys($screens)), true) !default;
+$layout-scale-x: layout-scale($layout-x-min, $layout-x-max) !default;
 
 
 /// Sets layout spacing accross breakpoint.
@@ -67,7 +67,7 @@ $layout-scale-x: numeric-scale($layout-x-min, $layout-x-max, length(map-keys($sc
 /// @requires {variable} screens
 ///
 /// @type map
-$layout-y: map-combine(map-keys($screens), $layout-scale-y) !default;
+$layout-y: layout-breakpoints($layout-scale-y) !default;
 
 
 /// Sets layout spacing accross breakpoint.
@@ -78,4 +78,4 @@ $layout-y: map-combine(map-keys($screens), $layout-scale-y) !default;
 /// @requires {variable} screens
 ///
 /// @type map
-$layout-x: map-combine(map-keys($screens), $layout-scale-x) !default;
+$layout-x: layout-breakpoints($layout-scale-x) !default;

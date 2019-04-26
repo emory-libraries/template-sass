@@ -1,0 +1,53 @@
+/// Creates a new layout scale across `breakpoints` ranging from `min` to `max` layout sizes.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} screens
+/// @requires {function} Brandy::numeric-scale <https://laurenhamel.github.io/brandy/docs/#brandy-numbers-function-numeric-scale>
+///
+/// @param {number} min - The minimum allowed layout size for the smallest breakpoint
+/// @param {number} max - The maximum allowed layout size for the largest breakpoint
+/// @param {list} breakpoints [map-keys($screens)] - The breakpoints that the layout should scale to.
+///
+/// @returns {list} - A list of layout sizes for each breakpoint. 
+@function layout-scale( $min, $max, $breakpoints: map-keys($screens) ) {
+  
+  @return numeric-scale($layout-y-min, $layout-y-max, length($breakpoints), true);
+  
+}
+
+/// Maps a layout `scale` to a list of `breakpoints`.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} screens
+/// @requires {function} Brandy::map-combine <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-combine>
+///
+/// @param {list} scale - A layout scale.
+/// @param {list} breakpoints [map-keys($screens)] - The breakpoints that the layout should scale to.
+///
+/// @returns {map} - A map of layout sizes for each breakpoint. 
+@function layout-breakpoints( $scale, $breakpoints: map-keys($screens) ) {
+  
+  @return map-combine($breakpoints, $scale);
+  
+}
+
+/// Generates a layout map given `min` and `max` layout sizes for a range of `breakpoints`.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} screens
+/// @requires {function} layout-scale
+/// @requires {function} layout-breakpoints
+///
+/// @param {number} min - The minimum allowed layout size for the smallest breakpoint
+/// @param {number} max - The maximum allowed layout size for the largest breakpoint
+/// @param {list} breakpoints [map-keys($screens)] - The breakpoints that the layout should scale to.
+///
+/// @returns {map} - A map of layout sizes for each breakpoint. 
+@function layout( $min, $max, $breakpoints: map-keys($screens) ) {
+  
+  @return layout-breakpoints(layout-scale($min, $max, $breakpoints), $breakpoints);
+  
+}

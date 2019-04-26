@@ -1,0 +1,33 @@
+////
+/// @group emory-libraries.patterns.organisms.section-minor
+////
+
+/// Defines the base structure of the section-minor component.
+///
+/// @since 1.0.0-dev.0
+%organisms-section-minor {
+  
+  // Builds the section-minor structure.
+  // ...
+  
+  // Builds the minor title structure.
+  &-title { 
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 0;
+  
+    .icon {
+      
+      &:not(:first-child) {
+        display: none;
+      }
+      
+    }
+    
+  }
+  
+  // Builds the minor body structure.
+  &-body { }
+  
+}

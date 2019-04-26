@@ -1,0 +1,107 @@
+////
+/// @group emory-libraries.patterns.organisms.section-major
+////
+
+/// Defines the base skin of the section-major component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$organisms-section-major: (
+  
+  'theme': 'light',
+  'themes': (
+    'light': (
+      'heading': $color-text-dark,
+      'foreground': $color-text-dark,
+      'background': color('white')
+    ),
+    'dark': (
+      'heading': $color-text-light,
+      'foreground': $color-text-light,
+      'background': color('blue', 'dark')
+    )
+  ),
+  
+  'layout': (
+    'x': $layout-x,
+    'y': $layout-y
+  )
+  
+);
+
+/// Defines the section-major component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The section-major component's themeable properties
+@mixin organisms-section-major--theme ( $skin ) {
+  
+  // Capture selector.
+  $selector: &;
+  
+  // Capture themeable variables from skin.
+  $theme: map-deep-get($skin, 'theme');
+  $themes: map-deep-get($skin, 'themes');
+  $layout: map-deep-get($skin, 'layout');
+  
+  // Get theme-specific variables.
+  $theme-heading: map-deep-get($themes, $theme + '.heading');
+  $theme-foreground: map-deep-get($themes, $theme + '.foreground');
+  $theme-background: map-deep-get($themes, $theme + '.background');
+  
+  // Defines the section-major component's base styles.
+  @include tokens-layout(('layout': $layout));
+  background-color: $theme-background;
+  
+  // Defines the major title styles.
+  &-title {
+    @include tokens-heading('h5', $theme-heading, $important: true);
+    text-align: center;
+    
+    &::after {
+      @include atoms-rule('heading');
+    }
+    
+    @include breakpoint-m-l {
+      @include tokens-heading--font('h2', $tokens-heading, true);
+    };
+    
+  }
+  
+  // Defines the major body styles.
+  &-body {
+    @include tokens-text('body', $theme-foreground);
+  }
+  
+  // Modifies styles based on the theme.
+  @each $name, $theme in $themes {
+    
+    // Get theme-specific variables.
+    $theme-heading: map-deep-get($theme, 'heading');
+    $theme-foreground: map-deep-get($theme, 'foreground');
+    $theme-background: map-deep-get($theme, 'background');
+    
+    // Modify section styles for the given theme.
+    &.-#{$name} {
+      background-color: $theme-background;
+      
+      // Adjust the title styles.
+      #{$selector}-title {
+        color: $theme-heading !important;
+      }
+      
+      // Adjust the body styles.
+      #{$selector}-body {
+        color: $theme-foreground;
+      }
+      
+    }
+    
+  }
+  
+}

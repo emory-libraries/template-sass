@@ -51,5 +51,7 @@
   "compounds-cards": "review",
   "compounds-accordion": "review",
   "compounds-related": "review",
-  "organisms-section-main": "review"
+  "organisms-section-main": "review",
+  "organisms-section-major": "review",
+  "organisms-section-minor": "review"
 }

@@ -9,3 +9,13 @@
 .section-main {
   @include organisms-section-main;
 }
+
+// organisms-section-major
+.section-major {
+  @include organisms-section-major;
+}
+
+// organisms-section-minor
+.section-minor {
+  @include organisms-section-minor;
+}
