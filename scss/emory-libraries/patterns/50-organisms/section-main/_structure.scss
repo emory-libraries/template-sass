@@ -1,16 +1,16 @@
 ////
-/// @group emory-libraries.patterns.organisms.main
+/// @group emory-libraries.patterns.organisms.section-main
 ////
 
-/// Defines the base structure of the main component.
+/// Defines the base structure of the section-main component.
 ///
 /// @since 1.0.0
-%organisms-main {
+%organisms-section-main {
 
   // Captures selector.
   $selector: &;
 
-  // Builds the main structure.
+  // Builds the section-main structure.
   margin: 0 auto;
   max-width: 1236px;
   display: grid;

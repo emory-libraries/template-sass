@@ -45,11 +45,11 @@
   "molecules-alert": "review",
   "molecules-notification": "review",
   "organisms-intro": "review",
-  "organisms-main": "review",
   "templates-info": "review",
   "templates-material": "review",
   "templates-tool": "review",
   "compounds-cards": "review",
   "compounds-accordion": "review",
-  "compounds-related": "review"
+  "compounds-related": "review",
+  "organisms-section-main": "review"
 }

@@ -1,13 +1,13 @@
 ////
-/// @group emory-libraries.patterns.organisms.main
+/// @group emory-libraries.patterns.organisms.section-main
 ////
 
-/// Defines the base skin of the main component.
+/// Defines the base skin of the section-main component.
 ///
 /// @since 1.0.0
 ///
 /// @type map
-$organisms-main: (
+$organisms-section-main: (
 
   'gap': 40px,
   
@@ -21,7 +21,7 @@ $organisms-main: (
   
 );
 
-/// Defines the main component theme.
+/// Defines the section-main component theme.
 ///
 /// @since 1.0.0
 ///
@@ -30,12 +30,12 @@ $organisms-main: (
 /// @param {map} skin - The component's skin
 ///
 /// @output The main component's themeable properties
-@mixin organisms-main--theme ($skin) {
+@mixin organisms-section-main--theme ($skin) {
 
   // Capture themeable variables from skin.
   $gap: map-deep-get($skin, 'gap');
 
-  // Defines the main component's base styles.
+  // Defines the section-main component's base styles.
   grid-column-gap: $gap;
   
   // Defines the main title styles.
