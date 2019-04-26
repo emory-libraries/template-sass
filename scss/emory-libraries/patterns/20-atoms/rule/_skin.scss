@@ -60,5 +60,7 @@ $atoms-rule: (
   // Defines the rule component's base styles.
   border-top: $border;
   width: $width;
+  background-color: transparent;
+  color: transparent;
   
 }
