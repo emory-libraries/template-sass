@@ -51,37 +51,14 @@ $atoms-rule: (
 /// @param {map} skin - The component's skin
 ///
 /// @output The rule component's themeable properties
-@mixin atoms-rule--theme ( $skin, $width: null ) {
+@mixin atoms-rule--theme ( $style, $skin, $width: null ) {
   
   // Capture themeable variables from skin.
-  $styles: map-deep-get($skin, 'styles');
-  
-  // Get defaults rule styles.
-  $border: map-deep-get($styles, 'default.border');
-  $width: map-deep-get($styles, 'default.width');
+  $border: map-deep-get($skin, 'styles.' + $style + '.border');
+  $width: default($width, map-deep-get($skin, 'styles.' + $style + '.width'));
   
   // Defines the rule component's base styles.
   border-top: $border;
   width: $width;
-  
-  // Apply style variations to rules.
-  @each $style, $settings in $styles {
-    
-    // Ignore defaults.
-    @if( $style != 'default' ) {
-      
-      // Get style-specific variables.
-      $border: map-deep-get($settings, 'border');
-      $width: map-deep-get($settings, 'width');
-      
-      // Modify styles.
-      &.-#{$style} {
-        border-top: $border;
-        width: $width;
-      }
-      
-    }
-    
-  }
   
 }

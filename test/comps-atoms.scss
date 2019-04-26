@@ -95,5 +95,11 @@
 
 // atoms-rule
 .rule {
-  @include atoms-rule;
+  @inlude atoms-rule;
+  &.-light { @include atoms-rule('light'); }
+  &.-dark { @include atoms-rule('dark'); }
+  &.-dotted { @include atoms-rule('dotted'); }
+  &.-thick { @include atoms-rule('thick'); }
+  &.-heading { @include atoms-rule('heading'); }
+  &.-feed { @include atoms-rule('feed'); }
 }

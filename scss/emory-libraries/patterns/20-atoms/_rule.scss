@@ -20,7 +20,7 @@
 /// @output The native structure and skin of our rule component
 ///
 /// @status construction
-@mixin atoms-rule ( $custom: (), $width: null ) {
+@mixin atoms-rule ( $style: 'default', $custom: (), $width: null ) {
   
   // Extend the default skin.
   $skin: map-extend($atoms-rule, $custom);
@@ -32,7 +32,7 @@
     @extend %atoms-rule;
     
     // Load skins.
-    @include atoms-rule--theme( $skin, $width );
+    @include atoms-rule--theme( $style, $skin, $width );
     
   }
   
