@@ -49,6 +49,7 @@ $fonts: (
   'heading': (
     'h1': ('Cardo', serif),
     'h1-alt': ('Cardo', serif),
+    'h1-hero': ('Cardo', serif),
     'h2': ('Cardo', serif),
     'h3': ('Open Sans', sans-serif),
     'h4': ('Cardo', serif),
@@ -141,6 +142,7 @@ $fonts-scale: (
   'heading': (
     'h1': 4.5,        // 72px
     'h1-alt': 3,      // 48px
+    'h1-hero': 3.125, // 50px
     'h2': 3,          // 48px
     'h3': 1.5,        // 24px
     'h4': 1.75,       // 28px
