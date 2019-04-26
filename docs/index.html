@@ -36622,6 +36622,7 @@
                                 );
                                 @include tokens-heading(&#x27;h4&#x27;, map-get($foreground, &#x27;normal&#x27;), $important: true);
                                 margin: $border-offset;
+                                text-align: center;
                                 
                                 &amp;:hover,
                                 &amp;:focus,
@@ -60363,8 +60364,8 @@
                                     @include breakpoint( screen($size) ) {
                                       --gap-cols-#{$size}: #{$gap-cols};
                                       --gap-rows-#{$size}: #{$gap-rows};
-                                      --gap-cols-#{$size}: #{$align-cols};
-                                      --gap-rows-#{$size}: #{$align-rows};
+                                      --align-cols-#{$size}: #{$align-cols};
+                                      --align-rows-#{$size}: #{$align-rows};
                                       --cols-#{$size}: #{$cols};
                                       --rows-#{$size}: #{$rows};
                               

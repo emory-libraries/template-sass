@@ -66,6 +66,7 @@ $molecules-card-button: (
   );
   @include tokens-heading('h4', map-get($foreground, 'normal'), $important: true);
   margin: $border-offset;
+  text-align: center !important;
   
   &:hover,
   &:focus,

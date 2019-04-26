@@ -65,8 +65,8 @@ $tokens-grid: (
       @include breakpoint( screen($size) ) {
         --gap-cols-#{$size}: #{$gap-cols};
         --gap-rows-#{$size}: #{$gap-rows};
-        --gap-cols-#{$size}: #{$align-cols};
-        --gap-rows-#{$size}: #{$align-rows};
+        --align-cols-#{$size}: #{$align-cols};
+        --align-rows-#{$size}: #{$align-rows};
         --cols-#{$size}: #{$cols};
         --rows-#{$size}: #{$rows};
 
