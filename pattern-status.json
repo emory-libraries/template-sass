@@ -55,5 +55,6 @@
   "organisms-section-major": "review",
   "organisms-section-minor": "review",
   "templates-service-directory": "review",
-  "molecules-card-button": "review"
+  "molecules-card-button": "review",
+  "tokens-grid": "review"
 }

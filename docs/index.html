@@ -6466,6 +6466,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="tokens">
+                          <a href="#patterns.tokens.grid">grid</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.tokens.grid-mixin">
+                                <a href="#patterns.tokens.grid-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.grid" data-name="tokens-grid" data-type="mixin">
+                                    
+                                    <a href="#patterns.tokens.grid-mixin-tokens-grid">
+                                      
+                                      tokens-grid
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.grid" data-name="tokens-grid--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.tokens.grid-mixin-tokens-grid--theme">
+                                      
+                                      tokens-grid--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.tokens.grid-variable">
+                                <a href="#patterns.tokens.grid-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.grid" data-name="tokens-grid" data-type="variable">
+                                    
+                                    <a href="#patterns.tokens.grid-variable-tokens-grid">
+                                      
+                                      tokens-grid
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.tokens.grid-placeholder">
+                                <a href="#patterns.tokens.grid-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.tokens.grid" data-name="tokens-grid" data-type="placeholder">
+                                    
+                                    <a href="#patterns.tokens.grid-placeholder-tokens-grid">
+                                      
+                                      tokens-grid
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="tokens">
                           <a href="#patterns.tokens.heading">heading</a>
                         </p>
                         
@@ -11685,6 +11793,8 @@
                   
                   
                   
+                      
+                      
                       
                       
                       
@@ -36245,7 +36355,7 @@
                               
                               
                                 
-                                  <span class="item__status item__status--construction">construction</span>
+                                  <span class="item__status item__status--review">review</span>
                                 
                               </h3>
                               
@@ -59917,6 +60027,8 @@
             
             
             
+            
+            
             <section class="main__section main__section--level-2 ">
             
               <h2 class="main__heading" id="patterns.tokens">
@@ -59924,6 +60036,702 @@
                 <div class="container">Tokens</div>
                 
               </h2>
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
+                    <h3 class="main__heading" id="patterns.tokens.grid">
+                      
+                      <div class="container">grid</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.tokens.grid-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.tokens.grid-mixin-tokens-grid">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.tokens.grid-mixin-tokens-grid">
+                                  tokens-grid
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--review">review</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin tokens-grid($custom) { 
+                                
+                                // Extend the default skin.
+                                $skin: map-extend($tokens-grid, $custom);
+                                
+                                // Initialize the grid component.
+                                &amp; {
+                                  
+                                  // Load structure.
+                                  @extend %tokens-grid;
+                                  
+                                  // Load skins.
+                                  @include tokens-grid--theme( $skin );
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin tokens-grid($custom) { ... }"><code class="js-autoindent">@mixin tokens-grid($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the grid component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our grid component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.tokens.grid-placeholder-tokens-grid"><code>tokens-grid</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.tokens.grid-variable-tokens-grid"><code>tokens-grid</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.grid-mixin-tokens-grid--theme"><code>tokens-grid--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.tokens.grid-mixin-tokens-grid--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.tokens.grid-mixin-tokens-grid--theme">
+                                  tokens-grid--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin tokens-grid--theme($skin) { 
+                                
+                                // Capture themeable variables from skin.
+                                $gap-cols: map-deep-get($skin, &#x27;gap.cols&#x27;);
+                                $gap-rows: map-deep-get($skin, &#x27;gap.rows&#x27;);
+                                $align-cols: map-deep-get($skin, &#x27;align.cols&#x27;);
+                                $align-rows: map-deep-get($skin, &#x27;align.rows&#x27;);
+                                $cols: map-deep-get($skin, &#x27;cols&#x27;);
+                                $rows: map-deep-get($skin, &#x27;rows&#x27;);
+                                
+                                // Set CSS variables.
+                                --gap-cols: #{$gap-cols};
+                                --gap-rows: #{$gap-rows};
+                                --align-cols: #{$align-cols};
+                                --align-rows: #{$align-rows};
+                                --cols: #{$cols};
+                                --rows: #{$rows};
+                                
+                                // Defines the grid component&#x27;s base styles.
+                                grid-column-gap: var(--gap-cols);
+                                grid-row-gap: var(--gap-rows);
+                                grid-template-rows: var(--rows);
+                                grid-template-columns: var(--cols);
+                                justify-content: var(--align-cols);
+                                align-items: var(--align-rows);
+                                
+                                @each $size, $screen in $screens {
+                                  &amp;.-#{$size} {
+                              
+                                    @include breakpoint( screen($size) ) {
+                                      --gap-cols-#{$size}: #{$gap-cols};
+                                      --gap-rows-#{$size}: #{$gap-rows};
+                                      --gap-cols-#{$size}: #{$align-cols};
+                                      --gap-rows-#{$size}: #{$align-rows};
+                                      --cols-#{$size}: #{$cols};
+                                      --rows-#{$size}: #{$rows};
+                              
+                                      grid-column-gap: var(--gap-cols-#{$size});
+                                      grid-row-gap: var(--gap-rows-#{$size});
+                                      grid-template-rows: var(--rows-#{$size});
+                                      grid-template-columns: var(--cols-#{$size});
+                                      justify-content: var(--align-cols-#{$size});
+                                      align-items: var(--align-rows-#{$size});
+                                    };
+                              
+                                  }
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin tokens-grid--theme($skin) { ... }"><code class="js-autoindent">@mixin tokens-grid--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the grid component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The grid component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-screens"><code>screens</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.tokens.grid-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.tokens.grid-variable-tokens-grid">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.tokens.grid-variable-tokens-grid">
+                                  tokens-grid
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$tokens-grid: (
+                                
+                                &#x27;gap&#x27;: (
+                                  &#x27;cols&#x27;: 25px,
+                                  &#x27;rows&#x27;: 25px
+                                ),
+                                
+                                &#x27;cols&#x27;: 1fr,
+                                &#x27;rows&#x27;: auto,
+                                
+                                &#x27;align&#x27;: (
+                                  &#x27;cols&#x27;: start,
+                                  &#x27;rows&#x27;: start
+                                )
+                                
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the grid component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.tokens.grid-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.tokens.grid-placeholder-tokens-grid">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.tokens.grid-placeholder-tokens-grid">
+                                  tokens-grid
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%tokens-grid { 
+                                
+                                // Builds the grid structure.
+                                display: grid;
+                                
+                               }"
+                                      data-collapsed="%tokens-grid { ... }"><code class="js-autoindent">%tokens-grid { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the grid component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
               
               
               

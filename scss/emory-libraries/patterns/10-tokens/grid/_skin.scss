@@ -1,0 +1,84 @@
+////
+/// @group emory-libraries.patterns.tokens.grid
+////
+
+/// Defines the base skin of the grid component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$tokens-grid: (
+  
+  'gap': (
+    'cols': 25px,
+    'rows': 25px
+  ),
+  
+  'cols': 1fr,
+  'rows': auto,
+  
+  'align': (
+    'cols': start,
+    'rows': start
+  )
+  
+);
+
+/// Defines the grid component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The grid component's themeable properties
+@mixin tokens-grid--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $gap-cols: map-deep-get($skin, 'gap.cols');
+  $gap-rows: map-deep-get($skin, 'gap.rows');
+  $align-cols: map-deep-get($skin, 'align.cols');
+  $align-rows: map-deep-get($skin, 'align.rows');
+  $cols: map-deep-get($skin, 'cols');
+  $rows: map-deep-get($skin, 'rows');
+  
+  // Set CSS variables.
+  --gap-cols: #{$gap-cols};
+  --gap-rows: #{$gap-rows};
+  --align-cols: #{$align-cols};
+  --align-rows: #{$align-rows};
+  --cols: #{$cols};
+  --rows: #{$rows};
+  
+  // Defines the grid component's base styles.
+  grid-column-gap: var(--gap-cols);
+  grid-row-gap: var(--gap-rows);
+  grid-template-rows: var(--rows);
+  grid-template-columns: var(--cols);
+  justify-content: var(--align-cols);
+  align-items: var(--align-rows);
+  
+  @each $size, $screen in $screens {
+    &.-#{$size} {
+
+      @include breakpoint( screen($size) ) {
+        --gap-cols-#{$size}: #{$gap-cols};
+        --gap-rows-#{$size}: #{$gap-rows};
+        --gap-cols-#{$size}: #{$align-cols};
+        --gap-rows-#{$size}: #{$align-rows};
+        --cols-#{$size}: #{$cols};
+        --rows-#{$size}: #{$rows};
+
+        grid-column-gap: var(--gap-cols-#{$size});
+        grid-row-gap: var(--gap-rows-#{$size});
+        grid-template-rows: var(--rows-#{$size});
+        grid-template-columns: var(--cols-#{$size});
+        justify-content: var(--align-cols-#{$size});
+        align-items: var(--align-rows-#{$size});
+      };
+
+    }
+  }
+  
+}

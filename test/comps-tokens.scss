@@ -15,6 +15,7 @@
   &.-h6 { @include tokens-heading('h6'); }
 }
 
+// tokens-text
 .text {
   &.-body { @include tokens-text('body'); }
   &.-body-alt { @include tokens-text('body-alt'); }
@@ -28,9 +29,15 @@
   &.-data { @include tokens-text('data'); }
 }
 
+// tokens-icon
 .arrow {
   &.-up { @include tokens-icon('material-arrow_upward'); }
   &.-down { @include tokens-icon('material-arrow_downward'); }
   &.-left { @include tokens-icon('material-arrow_back'); }
   &.-right { @include tokens-icon('material-arrow_forward'); }
+}
+
+// tokens-grid
+.grid {
+  @include tokens-grid;
 }

@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.tokens.grid
+////
+
+/// Load the grid component's structure and skin.
+@import 'grid/structure';
+@import 'grid/skin';
+
+/// Builds a constructor for the grid component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} tokens-grid
+/// @requires {variable} tokens-grid
+/// @requires {mixin} tokens-grid--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our grid component
+///
+/// @status review
+@mixin tokens-grid ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($tokens-grid, $custom);
+  
+  // Initialize the grid component.
+  & {
+    
+    // Load structure.
+    @extend %tokens-grid;
+    
+    // Load skins.
+    @include tokens-grid--theme( $skin );
+    
+  }
+  
+}
