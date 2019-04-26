@@ -6131,6 +6131,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="templates">
+                          <a href="#patterns.templates.service-directory">service-directory</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.templates.service-directory-mixin">
+                                <a href="#patterns.templates.service-directory-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.service-directory" data-name="templates-service-directory" data-type="mixin">
+                                    
+                                    <a href="#patterns.templates.service-directory-mixin-templates-service-directory">
+                                      
+                                      templates-service-directory
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.service-directory" data-name="templates-service-directory--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.templates.service-directory-mixin-templates-service-directory--theme">
+                                      
+                                      templates-service-directory--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.templates.service-directory-variable">
+                                <a href="#patterns.templates.service-directory-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.service-directory" data-name="templates-service-directory" data-type="variable">
+                                    
+                                    <a href="#patterns.templates.service-directory-variable-templates-service-directory">
+                                      
+                                      templates-service-directory
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.templates.service-directory-placeholder">
+                                <a href="#patterns.templates.service-directory-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.service-directory" data-name="templates-service-directory" data-type="placeholder">
+                                    
+                                    <a href="#patterns.templates.service-directory-placeholder-templates-service-directory">
+                                      
+                                      templates-service-directory
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="templates">
                           <a href="#patterns.templates.tool">tool</a>
                         </p>
                         
@@ -7209,6 +7317,8 @@
                   
                   
                   
+                      
+                      
                       
                       
                       
@@ -54275,32 +54385,6 @@
                                   
                                 }
                                 
-                                // Builds the main structure when used for a material page.
-                                &amp;.-material-page {
-                                  
-                                  // Adjusts the main structure across large screens.
-                                  @include breakpoint-l {
-                                    grid-template-areas: &quot;title title&quot;
-                                                         &quot;subtitle aside&quot;
-                                                         &quot;body aside&quot;
-                                                         &quot;guides guides&quot;;
-                                  };
-                              
-                                }
-                              
-                                // Builds the main structure when used for a tool page.
-                                &amp;.-tool-page {
-                                  
-                                  // Adjusts the main structure across large screens.
-                                  @include breakpoint-l {
-                                    grid-template-areas: &quot;title title&quot;
-                                                         &quot;subtitle aside&quot;
-                                                         &quot;body aside&quot;
-                                                         &quot;guides guides&quot;;
-                                  };
-                              
-                                }
-                              
                                 // Builds the main title structure.
                                 &amp;-title {
                                   grid-area: title;
@@ -54331,11 +54415,57 @@
                                   &amp;::after {
                                     content: &#x27;Sidebar&#x27;; // TEMPORARY
                                   }
+                                  
                                 }
                               
                                 // Builds the main guides structure.
                                 &amp;-guides {
                                   grid-area: guides;
+                                }
+                                
+                                // Builds the main structure when used for a material page.
+                                &amp;.-material-page {
+                                  
+                                  // Adjusts the main structure across large screens.
+                                  @include breakpoint-l {
+                                    grid-template-areas: &quot;title title&quot;
+                                                         &quot;subtitle aside&quot;
+                                                         &quot;body aside&quot;
+                                                         &quot;guides guides&quot;;
+                                  };
+                              
+                                }
+                              
+                                // Builds the main structure when used for a tool page.
+                                &amp;.-tool-page {
+                                  
+                                  // Adjusts the main structure across large screens.
+                                  @include breakpoint-l {
+                                    grid-template-areas: &quot;title title&quot;
+                                                         &quot;subtitle aside&quot;
+                                                         &quot;body aside&quot;
+                                                         &quot;guides guides&quot;;
+                                  };
+                              
+                                }
+                                
+                                // Builds the main structure when used for a service directory page.
+                                &amp;.-service-directory-page {
+                                  grid-template-areas: &quot;title&quot;
+                                                       &quot;subtitle&quot;
+                                                       &quot;body&quot;;
+                                  
+                                  @include breakpoint-s-m-l {
+                                    grid-template-columns: 1fr;
+                                  };
+                                  
+                                  // Hides other main grid areas that are not used in the page.
+                                  #{$selector}-subtitle,
+                                  #{$selector}-guides,
+                                  #{$selector}-sidebar {
+                                    display: none;
+                                  }
+                                  
                                 }
                                 
                                }"
@@ -56027,6 +56157,8 @@
             
             
             
+            
+            
             <section class="main__section main__section--level-2 ">
             
               <h2 class="main__heading" id="patterns.templates">
@@ -56665,6 +56797,7 @@
                                 grid-template-rows: 150px 1fr 420px;
                                 grid-template-columns: 1fr;
                               
+                                // Builds the info header structure.
                                 &amp;-header {
                                   grid-area: header;
                                   @include absolute-center-contents;
@@ -56675,10 +56808,12 @@
                                   
                                 }
                               
+                                // Builds the info main structure.
                                 &amp;-main {
                                   grid-area: main;
                                 }
                               
+                                // Builds the info footer structure.
                                 &amp;-footer {
                                   grid-area: footer;
                                   @include absolute-center-contents;
@@ -56688,6 +56823,7 @@
                                   }
                                   
                                 }
+                                
                                }"
                                       data-collapsed="%templates-info { ... }"><code class="js-autoindent">%templates-info { ... }</code></pre>
                               
@@ -57408,6 +57544,716 @@
                               
                                     <h3 class="item__sub-heading">Description</h3>
                                     <div class="item__description"><p>Defines the base structure of the material component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
+                    <h3 class="main__heading" id="patterns.templates.service-directory">
+                      
+                      <div class="container">service-directory</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.templates.service-directory-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.service-directory-mixin-templates-service-directory">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.service-directory-mixin-templates-service-directory">
+                                  templates-service-directory
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--review">review</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin templates-service-directory($custom) { 
+                                
+                                // Extend the default skin.
+                                $skin: map-extend($templates-service-directory, $custom);
+                                
+                                // Initialize the service-directory component.
+                                &amp; {
+                                  
+                                  // Load structure.
+                                  @extend %templates-service-directory;
+                                  
+                                  // Load parts.
+                                  &amp;-header {
+                                    @extend %templates-service-directory-header;
+                                  }
+                                  &amp;-main {
+                                    @extend %templates-service-directory-main;
+                                  }
+                                  &amp;-footer {
+                                    @extend %templates-service-directory-footer;
+                                  }
+                                  
+                                  // Load skins.
+                                  @include templates-service-directory--theme( $skin );
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin templates-service-directory($custom) { ... }"><code class="js-autoindent">@mixin templates-service-directory($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the service-directory component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our service-directory component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.templates.service-directory-placeholder-templates-service-directory"><code>templates-service-directory</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.templates.service-directory-variable-templates-service-directory"><code>templates-service-directory</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.templates.service-directory-mixin-templates-service-directory--theme"><code>templates-service-directory--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.service-directory-mixin-templates-service-directory--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.service-directory-mixin-templates-service-directory--theme">
+                                  templates-service-directory--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin templates-service-directory--theme($skin) { 
+                                
+                                // Capture themeable variables from skin.
+                                $gap: map-deep-get($skin, &#x27;gap&#x27;);
+                                $layout: map-deep-get($skin, &#x27;layout&#x27;);
+                              
+                                // Defines the service-directory component&#x27;s base styles.
+                                grid-gap: $gap;
+                                
+                                // Defines info header and footer styles.
+                                &amp;-header,
+                                &amp;-footer {
+                                  border: $border-width-s solid color(&#x27;slate&#x27;); // TEMPORARY
+                                }
+                                
+                                // Defines info header styles.
+                                &amp;-header { }
+                                
+                                // Defines info main styles.
+                                &amp;-main { }
+                                
+                                // Defines info footer styles.
+                                &amp;-footer { }
+                                
+                               }"
+                                       data-collapsed="@mixin templates-service-directory--theme($skin) { ... }"><code class="js-autoindent">@mixin templates-service-directory--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the service-directory component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The service-directory component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-border-width-s"><code>border-width-s</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.templates.service-directory-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.service-directory-variable-templates-service-directory">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.service-directory-variable-templates-service-directory">
+                                  templates-service-directory
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$templates-service-directory: (
+                                
+                                &#x27;layout&#x27;: (
+                                  &#x27;x&#x27;: $layout-x,
+                                  &#x27;y&#x27;: $layout-y
+                                ),
+                                
+                                &#x27;gap&#x27;: 20px
+                                
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the service-directory component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.templates.service-directory-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.service-directory-placeholder-templates-service-directory">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.service-directory-placeholder-templates-service-directory">
+                                  templates-service-directory
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%templates-service-directory { 
+                                
+                                // Builds the service-directory structure.
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-areas: &quot;header&quot;
+                                                     &quot;main&quot;
+                                                     &quot;footer&quot;;
+                                grid-template-rows: 150px 1fr 420px;
+                                grid-template-columns: 1fr;
+                                
+                                // Builds the info header structure.
+                                &amp;-header {
+                                  grid-area: header;
+                                  @include absolute-center-contents;
+                              
+                                  &amp;::after {
+                                    content: &#x27;Header&#x27;; // TEMPORARY
+                                  }
+                                  
+                                }
+                              
+                                // Builds the info main structure.
+                                &amp;-main {
+                                  grid-area: main;
+                                }
+                              
+                                // Builds the info footer structure.
+                                &amp;-footer {
+                                  grid-area: footer;
+                                  @include absolute-center-contents;
+                              
+                                  &amp;::after {
+                                    content: &#x27;Footer&#x27;; // TEMPORARY
+                                  }
+                                  
+                                }
+                                
+                               }"
+                                      data-collapsed="%templates-service-directory { ... }"><code class="js-autoindent">%templates-service-directory { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the service-directory component.</p>
                                   </div>
                               
                               

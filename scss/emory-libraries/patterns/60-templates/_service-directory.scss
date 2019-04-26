@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.service-directory
+////
+
+/// Load the service-directory component's structure and skin.
+@import 'service-directory/structure';
+@import 'service-directory/skin';
+
+/// Builds a constructor for the service-directory component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} templates-service-directory
+/// @requires {variable} templates-service-directory
+/// @requires {mixin} templates-service-directory--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our service-directory component
+///
+/// @status review
+@mixin templates-service-directory ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($templates-service-directory, $custom);
+  
+  // Initialize the service-directory component.
+  & {
+    
+    // Load structure.
+    @extend %templates-service-directory;
+    
+    // Load parts.
+    &-header {
+      @extend %templates-service-directory-header;
+    }
+    &-main {
+      @extend %templates-service-directory-main;
+    }
+    &-footer {
+      @extend %templates-service-directory-footer;
+    }
+    
+    // Load skins.
+    @include templates-service-directory--theme( $skin );
+    
+  }
+  
+}

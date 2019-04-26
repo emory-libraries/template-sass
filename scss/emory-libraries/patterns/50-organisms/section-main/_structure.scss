@@ -36,32 +36,6 @@
     
   }
   
-  // Builds the main structure when used for a material page.
-  &.-material-page {
-    
-    // Adjusts the main structure across large screens.
-    @include breakpoint-l {
-      grid-template-areas: "title title"
-                           "subtitle aside"
-                           "body aside"
-                           "guides guides";
-    };
-
-  }
-
-  // Builds the main structure when used for a tool page.
-  &.-tool-page {
-    
-    // Adjusts the main structure across large screens.
-    @include breakpoint-l {
-      grid-template-areas: "title title"
-                           "subtitle aside"
-                           "body aside"
-                           "guides guides";
-    };
-
-  }
-
   // Builds the main title structure.
   &-title {
     grid-area: title;
@@ -92,11 +66,56 @@
     &::after {
       content: 'Sidebar'; // TEMPORARY
     }
+    
   }
 
   // Builds the main guides structure.
   &-guides {
     grid-area: guides;
+  }
+  
+  // Builds the main structure when used for a material page.
+  &.-material-page {
+    
+    // Adjusts the main structure across large screens.
+    @include breakpoint-l {
+      grid-template-areas: "title title"
+                           "subtitle aside"
+                           "body aside"
+                           "guides guides";
+    };
+
+  }
+
+  // Builds the main structure when used for a tool page.
+  &.-tool-page {
+    
+    // Adjusts the main structure across large screens.
+    @include breakpoint-l {
+      grid-template-areas: "title title"
+                           "subtitle aside"
+                           "body aside"
+                           "guides guides";
+    };
+
+  }
+  
+  // Builds the main structure when used for a service directory page.
+  &.-service-directory-page {
+    grid-template-areas: "title"
+                         "subtitle"
+                         "body";
+    
+    @include breakpoint-s-m-l {
+      grid-template-columns: 1fr;
+    };
+    
+    // Hides other main grid areas that are not used in the page.
+    #{$selector}-guides,
+    #{$selector}-sidebar {
+      display: none;
+    }
+    
   }
   
 }

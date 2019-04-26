@@ -2,15 +2,20 @@
 
 // templates-info
 .info-page {
-    @include templates-info;
+  @include templates-info;
 }
 
 // templates-material
 .material-page {
-    @include templates-material;
+  @include templates-material;
 }
 
 // templates-tool
 .tool-page {
-    @include templates-tool;
+  @include templates-tool;
+}
+
+// templates-service-directory
+.service-directory-page {
+  @include templates-service-directory;
 }

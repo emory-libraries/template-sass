@@ -1,16 +1,13 @@
 ////
-/// @group emory-libraries.patterns.templates.info
+/// @group emory-libraries.patterns.templates.service-directory
 ////
 
-/// Defines the base structure of the info component.
+/// Defines the base structure of the service-directory component.
 ///
-/// @since 1.0.0
-%templates-info {
+/// @since 1.0.0-dev.0
+%templates-service-directory {
   
-  // Captures selector.
-  $selector: &;
-
-  // Builds the info structure.
+  // Builds the service-directory structure.
   margin: 0 auto;
   display: grid;
   grid-template-areas: "header"
@@ -18,7 +15,7 @@
                        "footer";
   grid-template-rows: 150px 1fr 420px;
   grid-template-columns: 1fr;
-
+  
   // Builds the info header structure.
   &-header {
     grid-area: header;
