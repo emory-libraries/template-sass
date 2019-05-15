@@ -15,7 +15,8 @@
     display: block;
     
     // Modifies structure when used for a heading intro.
-    &.-heading {
+    &.-heading,
+    &.-heading-alt {
       display: none;
     }
     
@@ -24,12 +25,13 @@
   // Builds the intro title structure.
   &-title { 
     
-    &:not(.-heading) {
+    &:not(.-heading):not(.heading-alt) {
       margin: 0;
     }
     
-    // Modifies structure when used for a heading intro.
-    &.-heading {
+    // Modifies structure when used for a heading intro and alternative heading intro.
+    &.-heading,
+    &.-heading-alt {
       margin-top: 0;
     
       &::before,
@@ -37,9 +39,28 @@
         content: '';
         display: block;
         @include absolute( null 0 -.67em 0 );
-        margin: 0 auto;
       }
     
+    }
+    
+    // Modifies structure when used for a heading intro.
+    &.-heading {
+      
+      &::before,
+      &::after {
+        margin: 0 auto;
+      }
+      
+    }
+    
+    // Modifies structure when used for an alternative heading intro.
+    &.-heading-alt {
+      
+      &::before,
+      &::after {
+        margin: 0 auto 0 0;
+      }
+      
     }
     
   }
@@ -48,7 +69,8 @@
   &-subtitle { 
   
     // Modifies structure when used for a heading intro.
-    &.-heading {
+    &.-heading,
+    &.-heading-alt {
       display: none;
     }
   

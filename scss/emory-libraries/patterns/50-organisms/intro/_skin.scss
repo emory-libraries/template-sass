@@ -43,13 +43,16 @@ $organisms-intro: (
     // Modifies styles when used for a heading intro.
     &.-heading { }
     
+    // Modifies styles when used for an alternative heading intro.
+    &.-heading-alt { }
+    
   }
   
   // Defines the intro title styles.
   &-title {
     @include tokens-heading('h1-alt', $title, $important: true);
     
-    // Modifies styles when used for a heading intro.
+    // Modifies styles when used for a heading intro and alternative heading intro.
     &.-heading { 
       @include tokens-heading('h1', $title, $important: true);
       text-align: center;
@@ -63,6 +66,28 @@ $organisms-intro: (
       &::after {
         @include atoms-rule;
       }
+      
+    }
+    
+    // Modifies styles for an alternative heading intro.
+    &.-heading-alt {
+      @include tokens-heading('h2', $title, (
+        'h2': (
+          'font-weight': bold
+        )
+      ), true);
+      text-align: left;
+      
+      // Adds color block to title.
+      &::before {
+        @include atoms-rule('heading');
+      }
+      
+      // Adds separator to title.
+      &::after {
+        @include atoms-rule;
+      }
+      
     }
     
   }
@@ -73,6 +98,9 @@ $organisms-intro: (
     
     // Modifies styles when used for a heading intro.
     &.-heading { }
+    
+    // Modifies styles when used for an alternative heading intro.
+    &.-heading-alt { }
     
   }
   
