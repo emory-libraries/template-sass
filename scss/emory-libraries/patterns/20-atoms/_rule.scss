@@ -19,7 +19,7 @@
 ///
 /// @output The native structure and skin of our rule component
 ///
-/// @status construction
+/// @status review
 @mixin atoms-rule ( $style: 'default', $custom: (), $width: null ) {
   
   // Extend the default skin.
