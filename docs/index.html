@@ -23410,7 +23410,7 @@
                               
                               
                                 
-                                  <span class="item__status item__status--construction">construction</span>
+                                  <span class="item__status item__status--review">review</span>
                                 
                               </h3>
                               
@@ -23590,6 +23590,10 @@
                                   
                               
                               
+                                  
+                                  
+                                  
+                                  
                                   
                                   
                                   
@@ -54208,13 +54212,16 @@
                                   // Modifies styles when used for a heading intro.
                                   &amp;.-heading { }
                                   
+                                  // Modifies styles when used for an alternative heading intro.
+                                  &amp;.-heading-alt { }
+                                  
                                 }
                                 
                                 // Defines the intro title styles.
                                 &amp;-title {
                                   @include tokens-heading(&#x27;h1-alt&#x27;, $title, $important: true);
                                   
-                                  // Modifies styles when used for a heading intro.
+                                  // Modifies styles when used for a heading intro and alternative heading intro.
                                   &amp;.-heading { 
                                     @include tokens-heading(&#x27;h1&#x27;, $title, $important: true);
                                     text-align: center;
@@ -54228,6 +54235,28 @@
                                     &amp;::after {
                                       @include atoms-rule;
                                     }
+                                    
+                                  }
+                                  
+                                  // Modifies styles for an alternative heading intro.
+                                  &amp;.-heading-alt {
+                                    @include tokens-heading(&#x27;h2&#x27;, $title, (
+                                      &#x27;h2&#x27;: (
+                                        &#x27;font-weight&#x27;: bold
+                                      )
+                                    ), true);
+                                    text-align: left;
+                                    
+                                    // Adds color block to title.
+                                    &amp;::before {
+                                      @include atoms-rule(&#x27;heading&#x27;);
+                                    }
+                                    
+                                    // Adds separator to title.
+                                    &amp;::after {
+                                      @include atoms-rule;
+                                    }
+                                    
                                   }
                                   
                                 }
@@ -54238,6 +54267,9 @@
                                   
                                   // Modifies styles when used for a heading intro.
                                   &amp;.-heading { }
+                                  
+                                  // Modifies styles when used for an alternative heading intro.
+                                  &amp;.-heading-alt { }
                                   
                                 }
                                 
@@ -54346,6 +54378,48 @@
                                             <span class="item__cross-type">mixin</span>
                                   
                                             <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.rule-mixin-atoms-rule"><code>atoms-rule</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.rule-mixin-atoms-rule"><code>atoms-rule</code></a>
                                   
                                   
                                           </li>
@@ -54607,7 +54681,8 @@
                                   display: block;
                                   
                                   // Modifies structure when used for a heading intro.
-                                  &amp;.-heading {
+                                  &amp;.-heading,
+                                  &amp;.-heading-alt {
                                     display: none;
                                   }
                                   
@@ -54616,12 +54691,13 @@
                                 // Builds the intro title structure.
                                 &amp;-title { 
                                   
-                                  &amp;:not(.-heading) {
+                                  &amp;:not(.-heading):not(.heading-alt) {
                                     margin: 0;
                                   }
                                   
-                                  // Modifies structure when used for a heading intro.
-                                  &amp;.-heading {
+                                  // Modifies structure when used for a heading intro and alternative heading intro.
+                                  &amp;.-heading,
+                                  &amp;.-heading-alt {
                                     margin-top: 0;
                                   
                                     &amp;::before,
@@ -54629,9 +54705,28 @@
                                       content: &#x27;&#x27;;
                                       display: block;
                                       @include absolute( null 0 -.67em 0 );
-                                      margin: 0 auto;
                                     }
                                   
+                                  }
+                                  
+                                  // Modifies structure when used for a heading intro.
+                                  &amp;.-heading {
+                                    
+                                    &amp;::before,
+                                    &amp;::after {
+                                      margin: 0 auto;
+                                    }
+                                    
+                                  }
+                                  
+                                  // Modifies structure when used for an alternative heading intro.
+                                  &amp;.-heading-alt {
+                                    
+                                    &amp;::before,
+                                    &amp;::after {
+                                      margin: 0 auto 0 0;
+                                    }
+                                    
                                   }
                                   
                                 }
@@ -54640,7 +54735,8 @@
                                 &amp;-subtitle { 
                                 
                                   // Modifies structure when used for a heading intro.
-                                  &amp;.-heading {
+                                  &amp;.-heading,
+                                  &amp;.-heading-alt {
                                     display: none;
                                   }
                                 
@@ -61022,6 +61118,8 @@
                                   
                               
                               
+                                  
+                                  
                                   
                                   
                                   
