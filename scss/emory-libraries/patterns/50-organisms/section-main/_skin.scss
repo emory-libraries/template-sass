@@ -10,7 +10,7 @@
 $organisms-section-main: (
 
   'gap': 40px,
-  
+
   'body': (
     'heading': (
       'h2': (
@@ -18,7 +18,7 @@ $organisms-section-main: (
       )
     )
   )
-  
+
 );
 
 /// Defines the section-main component theme.
@@ -36,35 +36,35 @@ $organisms-section-main: (
   $gap: map-deep-get($skin, 'gap');
 
   // Defines the section-main component's base styles.
-  grid-column-gap: $gap;
-  
+  grid-gap: $gap;
+
   // Defines the main title styles.
   &-title { }
-  
+
   // Defines the main subtitle styles.
   &-subtitle { }
-  
+
   // Defines the main body styles.
   &-body {
-    
+
     // Modifies heading styles when inside main body.
     // FIXME: If we adjust H2 styles here, we'll need to adjust subsequent headings (H3-H6) too.
     .heading {
-      
+
       // Get heading-specific variables.
       $heading: map-deep-get($skin, 'body.heading');
-      
+
       &.-h2 {
         @include tokens-heading('h5-alt', map-deep-get($heading, 'h2.color'));
       }
-      
+
     }
-    
+
   }
-  
+
   // Defines the main sidebar styles.
   &-sidebar {
     border: $border-width-s solid color('slate'); // TEMPORARY
   }
-  
+
 }
