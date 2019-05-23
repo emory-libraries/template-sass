@@ -1,0 +1,56 @@
+////
+/// @group emory-libraries.patterns.templates.research-help
+////
+
+/// Defines the base skin of the research-help component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$templates-research-help: (
+
+  'layout': (
+    'x': $layout-x,
+    'y': $layout-y
+  ),
+
+  'gap': 20px
+
+);
+
+/// Defines the research-help component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The research-help component's themeable properties
+@mixin templates-research-help--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $gap: map-deep-get($skin, 'gap');
+  $layout: map-deep-get($skin, 'layout');
+
+  // Defines the research-help component's base styles.
+  grid-gap: $gap;
+
+  // Defines research-help header and footer styles.
+  &-header,
+  &-footer {
+    border: $border-width-s solid color('slate'); // TEMPORARY
+  }
+
+  // Defines research-help header styles.
+  &-header { }
+
+  // Defines research-help main styles.
+  &-main {
+  }
+
+  // Defines research-help footer styles.
+  &-footer { }
+
+
+}
