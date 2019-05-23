@@ -15,7 +15,7 @@
   max-width: 1236px;
   display: grid;
   grid-area: main;
-  
+
   // Builds the main structure when used for all pages, including info page.
   &,
   &.-info-page {
@@ -33,9 +33,9 @@
                            "guides guides";
       grid-template-columns: minmax(auto, 840px) minmax(auto, 340px);
     };
-    
+
   }
-  
+
   // Builds the main title structure.
   &-title {
     grid-area: title;
@@ -49,12 +49,6 @@
   // Builds the main body structure.
   &-body {
     grid-area: body;
-
-    // Adjusts image inside main body.
-    .image {
-      max-width: 100%;
-    }
-
   }
 
   // Builds the main sidebar structure.
@@ -66,17 +60,17 @@
     &::after {
       content: 'Sidebar'; // TEMPORARY
     }
-    
+
   }
 
   // Builds the main guides structure.
   &-guides {
     grid-area: guides;
   }
-  
+
   // Builds the main structure when used for a material page.
   &.-material-page {
-    
+
     // Adjusts the main structure across large screens.
     @include breakpoint-l {
       grid-template-areas: "title title"
@@ -89,7 +83,7 @@
 
   // Builds the main structure when used for a tool page.
   &.-tool-page {
-    
+
     // Adjusts the main structure across large screens.
     @include breakpoint-l {
       grid-template-areas: "title title"
@@ -99,23 +93,41 @@
     };
 
   }
-  
+
   // Builds the main structure when used for a service directory page.
   &.-service-directory-page {
     grid-template-areas: "title"
                          "subtitle"
                          "body";
-    
+
     @include breakpoint-s-m-l {
       grid-template-columns: 1fr;
     };
-    
+
     // Hides other main grid areas that are not used in the page.
     #{$selector}-guides,
     #{$selector}-sidebar {
       display: none;
     }
-    
+
   }
-  
+
+  // Builds the main structure when used for a research help page.
+  &.-research-help-page {
+    grid-template-areas: "title"
+                         "subtitle"
+                         "body";
+
+    @include breakpoint-s-m-l {
+      grid-template-columns: 1fr;
+    };
+
+    // Hides other main grid areas that are not used in the page.
+    #{$selector}-guides,
+    #{$selector}-sidebar {
+      display: none;
+    }
+
+  }
+
 }

@@ -19,3 +19,7 @@
 .service-directory-page {
   @include templates-service-directory;
 }
+
+.research-help-page {
+  @include templates-research-help;
+}
