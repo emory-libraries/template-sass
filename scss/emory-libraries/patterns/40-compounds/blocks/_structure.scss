@@ -1,0 +1,18 @@
+////
+/// @group emory-libraries.patterns.compounds.blocks
+////
+
+/// Defines the base structure of the blocks component.
+///
+/// @since 1.0.0-dev.0
+%compounds-blocks {
+
+  // Builds the blocks structure.
+  // ...
+
+  // Adjusts image inside main body.
+  .image {
+    max-width: 100%;
+  }
+
+}
