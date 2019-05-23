@@ -10,7 +10,7 @@
   // Builds the card-library-aid structure.
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: min-content repeat(2, min-content);
+  grid-template-rows: repeat(3, min-content);
   justify-content: center;
 
   // Builds the card library aid icon structure.
