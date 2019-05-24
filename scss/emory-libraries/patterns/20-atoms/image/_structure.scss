@@ -6,8 +6,10 @@
 ///
 /// @since 1.0.0
 %atoms-image {
-  
+
   // Builds the image structure.
   display: block;
-  
+  // Adjusts image inside main body.
+  max-width: 100%;
+
 }

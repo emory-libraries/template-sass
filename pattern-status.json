@@ -56,5 +56,7 @@
   "organisms-section-minor": "review",
   "templates-service-directory": "review",
   "molecules-card-button": "review",
-  "tokens-grid": "review"
+  "tokens-grid": "review",
+  "templates-research-help": "construction",
+  "compounds-blocks": "construction"
 }

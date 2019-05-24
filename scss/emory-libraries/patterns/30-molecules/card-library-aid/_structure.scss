@@ -6,39 +6,39 @@
 ///
 /// @since 1.0.0
 %molecules-card-library-aid {
-  
+
   // Builds the card-library-aid structure.
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr repeat(2, min-content);
+  grid-template-rows: repeat(3, min-content);
   justify-content: center;
-  
+
   // Builds the card library aid icon structure.
-  &-icon { 
+  &-icon {
     @include absolute-center-contents;
     overflow: hidden;
     @include margin-x( auto );
-    
+
     .icon {
       @include size( 100% );
       @include absolute-center-contents;
     }
-    
+
     svg {
       width: 100% !important;
     }
-  
+
   }
-  
+
   // Builds the card library aid context structure.
   &-context {
     margin: 0;
     @include absolute-center-contents( true );
   }
-  
+
   // Builds the card library aid title structure.
-  &-title { 
+  &-title {
     margin: 0;
   }
-  
+
 }
