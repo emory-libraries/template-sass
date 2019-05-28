@@ -32,6 +32,9 @@
     @extend %organisms-intro;
     
     // Load parts.
+    &-thumb {
+      @extend %organisms-intro-thumb;
+    }
     &-context {
       @extend %organisms-intro-context;
     }
@@ -40,6 +43,9 @@
     }
      &-subtitle {
       @extend %organisms-intro-subtitle;
+    }
+    &-link {
+      @extend %organisms-intro-link;
     }
     
     // Load skins.

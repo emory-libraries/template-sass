@@ -18991,6 +18991,8 @@
                                   
                                   
                                   
+                                  
+                                  
                               
                               
                               
@@ -40592,41 +40594,41 @@
                                   <pre class="item__code item__code--togglable language-scss"
                                       data-current-state="collapsed"
                                       data-expanded="%molecules-card-library-aid { 
-                                
+                              
                                 // Builds the card-library-aid structure.
                                 display: grid;
                                 grid-template-columns: 1fr;
-                                grid-template-rows: 1fr repeat(2, min-content);
+                                grid-template-rows: repeat(3, min-content);
                                 justify-content: center;
-                                
+                              
                                 // Builds the card library aid icon structure.
-                                &amp;-icon { 
+                                &amp;-icon {
                                   @include absolute-center-contents;
                                   overflow: hidden;
                                   @include margin-x( auto );
-                                  
+                              
                                   .icon {
                                     @include size( 100% );
                                     @include absolute-center-contents;
                                   }
-                                  
+                              
                                   svg {
                                     width: 100% !important;
                                   }
-                                
+                              
                                 }
-                                
+                              
                                 // Builds the card library aid context structure.
                                 &amp;-context {
                                   margin: 0;
                                   @include absolute-center-contents( true );
                                 }
-                                
+                              
                                 // Builds the card library aid title structure.
-                                &amp;-title { 
+                                &amp;-title {
                                   margin: 0;
                                 }
-                                
+                              
                                }"
                                       data-collapsed="%molecules-card-library-aid { ... }"><code class="js-autoindent">%molecules-card-library-aid { ... }</code></pre>
                               
@@ -54831,6 +54833,9 @@
                                   @extend %organisms-intro;
                                   
                                   // Load parts.
+                                  &amp;-thumb {
+                                    @extend %organisms-intro-thumb;
+                                  }
                                   &amp;-context {
                                     @extend %organisms-intro-context;
                                   }
@@ -54839,6 +54844,9 @@
                                   }
                                    &amp;-subtitle {
                                     @extend %organisms-intro-subtitle;
+                                  }
+                                  &amp;-link {
+                                    @extend %organisms-intro-link;
                                   }
                                   
                                   // Load skins.
@@ -55054,20 +55062,23 @@
                                 $context: map-deep-get($skin, &#x27;context&#x27;);
                                 $title: map-deep-get($skin, &#x27;title&#x27;);
                                 $subtitle: map-deep-get($skin, &#x27;subtitle&#x27;);
+                                
+                                // Get thumb-specific variables.
+                                $thumb-size: map-deep-get($skin, &#x27;thumb.size&#x27;);
+                                $thumb-spacing: map-deep-get($skin, &#x27;thumb.spacing&#x27;);
                               
                                 // Defines the intro component&#x27;s base styles.
                                 // ...
                                 
+                                // Defines the intro thumb styles.
+                                &amp;-thumb {
+                                  @include size( $thumb-size );
+                                  margin-right: $thumb-spacing;
+                                }
+                                
                                 // Defines the intro context styles.
                                 &amp;-context {
                                   @include tokens-heading(&#x27;h6&#x27;, $context, $important: true);
-                                  
-                                  // Modifies styles when used for a heading intro.
-                                  &amp;.-heading { }
-                                  
-                                  // Modifies styles when used for an alternative heading intro.
-                                  &amp;.-heading-alt { }
-                                  
                                 }
                                 
                                 // Defines the intro title styles.
@@ -55093,11 +55104,7 @@
                                   
                                   // Modifies styles for an alternative heading intro.
                                   &amp;.-heading-alt {
-                                    @include tokens-heading(&#x27;h2&#x27;, $title, (
-                                      &#x27;h2&#x27;: (
-                                        &#x27;font-weight&#x27;: bold
-                                      )
-                                    ), true);
+                                    @include tokens-heading(&#x27;h1-alt&#x27;, $title, $important: true);
                                     text-align: left;
                                     
                                     // Adds color block to title.
@@ -55112,18 +55119,27 @@
                                     
                                   }
                                   
+                                  // Modifies styles for a bio intro.
+                                  &amp;.-bio {
+                                    @include tokens-heading(&#x27;h1-alt&#x27;, $title, $important: true);
+                                  }
+                                  
                                 }
                                 
                                 // Defines the intro subtitle styles.
                                 &amp;-subtitle {
                                   @include tokens-text(&#x27;lead&#x27;, $subtitle, $important: true);
                                   
-                                  // Modifies styles when used for a heading intro.
-                                  &amp;.-heading { }
+                                  // Modifies styles when used for a bio intro.
+                                  &amp;.-bio {
+                                    @include tokens-heading(&#x27;h5-alt&#x27;, $title, $important: true);
+                                  }
                                   
-                                  // Modifies styles when used for an alternative heading intro.
-                                  &amp;.-heading-alt { }
-                                  
+                                }
+                                
+                                // Defines the intro link styles.
+                                &amp;-link {
+                                  @include atoms-link;
                                 }
                                 
                                }"
@@ -55328,7 +55344,49 @@
                                   
                                             <span class="item__cross-type">mixin</span>
                                   
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
                                             <a href="#patterns.tokens.text-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.link-mixin-atoms-link"><code>atoms-link</code></a>
                                   
                                   
                                           </li>
@@ -55424,7 +55482,12 @@
                                 
                                 &#x27;title&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
                                 
-                                &#x27;subtitle&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;)
+                                &#x27;subtitle&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
+                                
+                                &#x27;thumb&#x27;: (
+                                  &#x27;size&#x27;: 150px,
+                                  &#x27;spacing&#x27;: 35px
+                                )
                                 
                               );</code></pre>
                               
@@ -55526,16 +55589,32 @@
                                       data-current-state="collapsed"
                                       data-expanded="%organisms-intro { 
                                 
+                                // Captures the selector.
+                                $selector: &amp;;
+                                
                                 // Builds the intro structure.
                                 // ...
+                                
+                                // Builds the intro thumb structure.
+                                &amp;-thumb {
+                                  display: block;
+                                  float: left;
+                                  
+                                  // Modifies structure when used for all except bio intros.
+                                  &amp;:not(#{$selector}.-bio) {
+                                    display: none;
+                                  }
+                                  
+                                }
                                 
                                 // Builds the intro context structure.
                                 &amp;-context {
                                   display: block;
                                   
-                                  // Modifies structure when used for a heading intro.
+                                  // Modifies structure when used for a heading and bio intros.
                                   &amp;.-heading,
-                                  &amp;.-heading-alt {
+                                  &amp;.-heading-alt,
+                                  &amp;.-bio {
                                     display: none;
                                   }
                                   
@@ -55543,12 +55622,13 @@
                                 
                                 // Builds the intro title structure.
                                 &amp;-title { 
+                                  display: block;
                                   
                                   &amp;:not(.-heading):not(.heading-alt) {
                                     margin: 0;
                                   }
                                   
-                                  // Modifies structure when used for a heading intro and alternative heading intro.
+                                  // Modifies structure when used for heading intro and alternative heading intro.
                                   &amp;.-heading,
                                   &amp;.-heading-alt {
                                     margin-top: 0;
@@ -55586,13 +55666,31 @@
                                 
                                 // Builds the intro subtitle structure.
                                 &amp;-subtitle { 
+                                  display: block;
                                 
                                   // Modifies structure when used for a heading intro.
                                   &amp;.-heading,
                                   &amp;.-heading-alt {
                                     display: none;
                                   }
+                                  
+                                  // Modifies structure when used for a bio intro.
+                                  &amp;.-bio {
+                                    margin-top: 0;
+                                  }
                                 
+                                }
+                                
+                                // Builds the intro link structure.
+                                &amp;-link {
+                                  display: block;
+                                  @include clearfix;
+                                  
+                                  // Modifies structure when used for all except bio intros.
+                                  &amp;:not(#{$selector}.-bio) {
+                                    display: none;
+                                  }
+                                  
                                 }
                                 
                                }"
@@ -55968,37 +56066,37 @@
                                 $gap: map-deep-get($skin, &#x27;gap&#x27;);
                               
                                 // Defines the section-main component&#x27;s base styles.
-                                grid-column-gap: $gap;
-                                
+                                grid-gap: $gap;
+                              
                                 // Defines the main title styles.
                                 &amp;-title { }
-                                
+                              
                                 // Defines the main subtitle styles.
                                 &amp;-subtitle { }
-                                
+                              
                                 // Defines the main body styles.
                                 &amp;-body {
-                                  
+                              
                                   // Modifies heading styles when inside main body.
                                   // FIXME: If we adjust H2 styles here, we&#x27;ll need to adjust subsequent headings (H3-H6) too.
                                   .heading {
-                                    
+                              
                                     // Get heading-specific variables.
                                     $heading: map-deep-get($skin, &#x27;body.heading&#x27;);
-                                    
+                              
                                     &amp;.-h2 {
                                       @include tokens-heading(&#x27;h5-alt&#x27;, map-deep-get($heading, &#x27;h2.color&#x27;));
                                     }
-                                    
+                              
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Defines the main sidebar styles.
                                 &amp;-sidebar {
                                   border: $border-width-s solid color(&#x27;slate&#x27;); // TEMPORARY
                                 }
-                                
+                              
                                }"
                                        data-collapsed="@mixin organisms-section-main--theme($skin) { ... }"><code class="js-autoindent">@mixin organisms-section-main--theme($skin) { ... }</code></pre>
                               
@@ -56196,7 +56294,7 @@
                                   <pre class="item__code language-scss"><code class="js-autoindent">$organisms-section-main: (
                               
                                 &#x27;gap&#x27;: 40px,
-                                
+                              
                                 &#x27;body&#x27;: (
                                   &#x27;heading&#x27;: (
                                     &#x27;h2&#x27;: (
@@ -56204,7 +56302,7 @@
                                     )
                                   )
                                 )
-                                
+                              
                               );</code></pre>
                               
                               
@@ -62699,6 +62797,10 @@
                                   
                               
                               
+                                  
+                                  
+                                  
+                                  
                                   
                                   
                                   
