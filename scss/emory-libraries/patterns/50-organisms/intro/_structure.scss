@@ -7,16 +7,32 @@
 /// @since 1.0.0
 %organisms-intro {
   
+  // Captures the selector.
+  $selector: &;
+  
   // Builds the intro structure.
   // ...
+  
+  // Builds the intro thumb structure.
+  &-thumb {
+    display: block;
+    float: left;
+    
+    // Modifies structure when used for all except bio intros.
+    &:not(#{$selector}.-bio) {
+      display: none;
+    }
+    
+  }
   
   // Builds the intro context structure.
   &-context {
     display: block;
     
-    // Modifies structure when used for a heading intro.
+    // Modifies structure when used for a heading and bio intros.
     &.-heading,
-    &.-heading-alt {
+    &.-heading-alt,
+    &.-bio {
       display: none;
     }
     
@@ -24,12 +40,13 @@
   
   // Builds the intro title structure.
   &-title { 
+    display: block;
     
     &:not(.-heading):not(.heading-alt) {
       margin: 0;
     }
     
-    // Modifies structure when used for a heading intro and alternative heading intro.
+    // Modifies structure when used for heading intro and alternative heading intro.
     &.-heading,
     &.-heading-alt {
       margin-top: 0;
@@ -67,13 +84,32 @@
   
   // Builds the intro subtitle structure.
   &-subtitle { 
+    display: block;
   
     // Modifies structure when used for a heading intro.
     &.-heading,
     &.-heading-alt {
       display: none;
     }
+    
+    // Modifies structure when used for a bio intro.
+    &.-bio {
+      margin-top: 0;
+      margin-bottom: 1em;
+    }
   
+  }
+  
+  // Builds the intro link structure.
+  &-link {
+    display: block;
+    @include clearfix;
+    
+    // Modifies structure when used for all except bio intros.
+    &:not(#{$selector}.-bio) {
+      display: none;
+    }
+    
   }
   
 }
