@@ -124,6 +124,18 @@ $compounds-sidebar-list: (
   // Defines the sidebar list button styles.
   &-button { 
     @include absolute-center-contents;
+    @include margin-y( $padding );
+    
+    // Remove the top margin from the first button.
+    &:first-of-type { 
+      margin-top: 0;
+    }
+    
+    // Remove the bottom margin from the last button.
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+    
   }
   
 }

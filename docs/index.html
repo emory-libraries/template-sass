@@ -33095,6 +33095,18 @@
                                 // Defines the sidebar list button styles.
                                 &amp;-button { 
                                   @include absolute-center-contents;
+                                  @include margin-y( $padding );
+                                  
+                                  // Remove the top margin from the first button.
+                                  &amp;:first-of-type { 
+                                    margin-top: 0;
+                                  }
+                                  
+                                  // Remove the bottom margin from the last button.
+                                  &amp;:last-of-type {
+                                    margin-bottom: 0;
+                                  }
+                                  
                                 }
                                 
                                }"
