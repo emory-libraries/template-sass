@@ -59,5 +59,6 @@
   "templates-material": "review",
   "templates-tool": "review",
   "templates-service-directory": "review",
-  "templates-research-help": "construction"
+  "templates-research-help": "construction",
+  "templates-subject-librarian-directory": "review"
 }

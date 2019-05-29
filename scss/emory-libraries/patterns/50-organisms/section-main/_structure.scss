@@ -130,4 +130,22 @@
 
   }
 
+// Builds the main structure when used for a subject librarian directory page.
+  &.-subject-librarian-directory-page {
+    grid-template-areas: "title"
+                         "subtitle"
+                         "body";
+
+    @include breakpoint-s-m-l {
+      grid-template-columns: 1fr;
+    };
+
+    // Hides other main grid areas that are not used in the page.
+    #{$selector}-guides,
+    #{$selector}-sidebar {
+      display: none;
+    }
+
+  }
+
 }
