@@ -313,6 +313,14 @@
       'sidebar': false
     ));
     
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-spacer,
+    #{$selector}-content,
+    #{$selector}-section,
+    #{$selector}-sidebar {
+      display: none;
+    }
+    
     &.without-intro {
       @include grid-layout((
         'title': false,
@@ -322,6 +330,13 @@
         'section': false,
         'sidebar': false
       ));
+      
+      // Hide grid areas that are not being used within this page type.
+      #{$selector}-title,
+      #{$selector}-subtitle {
+        display: none;
+      }
+      
     }
     
   }
@@ -333,6 +348,14 @@
       'section': false,
       'sidebar': false
     ));
+    
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-subtitle,
+    #{$selector}-section,
+    #{$selector}-sidebar {
+      display: none;
+    }
+    
   }
 
 }
