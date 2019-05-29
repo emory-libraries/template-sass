@@ -33,13 +33,13 @@
 
     // Load parts.
     &-header {
-      @extend %templates-service-directory-header;
+      @extend %templates-research-help-header;
     }
     &-main {
-      @extend %templates-service-directory-main;
+      @extend %templates-research-help-main;
     }
     &-footer {
-      @extend %templates-service-directory-footer;
+      @extend %templates-research-help-footer;
     }
 
     // Load skins.
