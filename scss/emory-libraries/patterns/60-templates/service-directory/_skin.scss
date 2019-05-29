@@ -36,19 +36,19 @@ $templates-service-directory: (
   // Defines the service-directory component's base styles.
   grid-gap: $gap;
   
-  // Defines info header and footer styles.
+  // Defines service directory header and footer styles.
   &-header,
   &-footer {
     border: $border-width-s solid color('slate'); // TEMPORARY
   }
   
-  // Defines info header styles.
+  // Defines service directory header styles.
   &-header { }
   
-  // Defines info main styles.
+  // Defines service directory main styles.
   &-main { }
   
-  // Defines info footer styles.
+  // Defines service directory footer styles.
   &-footer { }
   
 }
