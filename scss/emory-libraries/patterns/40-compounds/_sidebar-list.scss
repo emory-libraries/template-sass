@@ -1,0 +1,53 @@
+////
+/// @group emory-libraries.patterns.compounds.sidebar-list
+////
+
+/// Load the sidebar-list component's structure and skin.
+@import 'sidebar-list/structure';
+@import 'sidebar-list/skin';
+
+/// Builds a constructor for the sidebar-list component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} compounds-sidebar-list
+/// @requires {variable} compounds-sidebar-list
+/// @requires {mixin} compounds-sidebar-list--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our sidebar-list component
+///
+/// @status review
+@mixin compounds-sidebar-list ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($compounds-sidebar-list, $custom);
+  
+  // Initialize the sidebar-list component.
+  & {
+    
+    // Load structure.
+    @extend %compounds-sidebar-list;
+    
+    // Load parts.
+    &-section {
+      @extend %compounds-sidebar-list-section;
+      &-title { 
+        @extend %compounds-sidebar-list-section-title;
+      }
+      &-content { 
+        @extend %compounds-sidebar-list-section-content;
+      }
+    }
+    &-button { 
+      @extend %compounds-sidebar-list-button;
+    }
+    
+    // Load skins.
+    @include compounds-sidebar-list--theme( $skin );
+    
+  }
+  
+}
