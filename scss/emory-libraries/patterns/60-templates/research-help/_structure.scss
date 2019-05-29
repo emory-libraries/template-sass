@@ -7,13 +7,10 @@
 /// @since 1.0.0-dev.0
 %templates-research-help {
 
-  // Builds the research-help structure.
-  // ...
-
   // Captures selector.
   $selector: &;
 
-  // Builds the material structure.
+  // Builds the research-help structure.
   margin: 0 auto;
   display: grid;
   grid-template-areas: "header"
@@ -22,6 +19,7 @@
   grid-template-rows: 150px 1fr 420px;
   grid-template-columns: 1fr;
 
+  // Builds the research header structure.
   &-header {
     grid-area: header;
     @include absolute-center-contents;
@@ -32,10 +30,12 @@
 
   }
 
+  // Builds the research main structure.
   &-main {
     grid-area: main;
   }
 
+  // Builds the research footer structure.
   &-footer {
     grid-area: footer;
     @include absolute-center-contents;
