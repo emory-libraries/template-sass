@@ -1,0 +1,45 @@
+////
+/// @group emory-libraries.patterns.organisms.intro-fitted-hero
+////
+
+/// Defines the base structure of the intro-fitted-hero component.
+///
+/// @since 1.0.0-dev.0
+%organisms-intro-fitted-hero {
+
+  // Captures the selector.
+  $selector: &;
+
+
+  // Builds the intro-fitted-hero structure.
+  // ...
+  display: grid;
+  grid-template-rows: 6fr repeat(2, min-content) 1fr;
+  grid-template-columns: 1fr minmax(min-content, 800px) 1fr;
+  background-size: cover;
+  height: 437px;
+
+  &-image {
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  &-gradient {
+    grid-row: 1/-1;
+    grid-column: 1/-1;
+  }
+
+  &-title {
+    grid-row: 2/span 1;
+    grid-column: 2/span 1;
+    align-self: center
+  }
+
+  &-subtitle {
+    grid-row: 3/span 1;
+    grid-column: 2/span 1;
+    align-self: center
+  }
+}

@@ -1,0 +1,55 @@
+////
+/// @group emory-libraries.patterns.organisms.intro-fitted-hero
+////
+
+/// Load the intro-fitted-hero component's structure and skin.
+@import 'intro-fitted-hero/structure';
+@import 'intro-fitted-hero/skin';
+
+/// Builds a constructor for the intro-fitted-hero component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} organisms-intro-fitted-hero
+/// @requires {variable} organisms-intro-fitted-hero
+/// @requires {mixin} organisms-intro-fitted-hero--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our intro-fitted-hero component
+///
+/// @status construction
+@mixin organisms-intro-fitted-hero ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($organisms-intro-fitted-hero, $custom);
+
+  // Initialize the intro-fitted-hero component.
+  & {
+
+    // Load structure.
+    @extend %organisms-intro-fitted-hero;
+
+    &-image {
+      @extend %organisms-intro-fitted-hero-image;
+    }
+
+    &-gradient {
+      @extend %organisms-intro-fitted-hero-gradient;
+    }
+
+     &-title {
+      @extend %organisms-intro-fitted-hero-title;
+    }
+
+     &-subtitle {
+      @extend %organisms-intro-fitted-hero-subtitle;
+    }
+
+    // Load skins.
+    @include organisms-intro-fitted-hero--theme( $skin );
+
+  }
+
+}
