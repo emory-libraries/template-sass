@@ -19,3 +19,8 @@
 .related {
   @include compounds-related;
 }
+
+// compounds-sidebar-list
+.sidebar-list {
+  @include compounds-sidebar-list;
+}

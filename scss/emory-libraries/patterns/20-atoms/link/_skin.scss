@@ -118,7 +118,15 @@ $atoms-link: (
     
   }
   
-  // Defines style variations.
+  &::after {
+    @include tokens-text('body', $custom: ( 'body': (
+      'font-style': italic
+    )));
+    font-size: 12px !important;
+    line-height: 1 !important;
+  }
+  
+  // Adds style variation for popular links.
   &.-popular {
     $font: map-deep-get($skin, 'popular.font');
     $normal: map-deep-get($skin, 'popular.color.normal');
