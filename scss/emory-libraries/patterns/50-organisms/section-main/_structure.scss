@@ -238,9 +238,9 @@
   }
   
   // Remove spacing between title and subtitle on most pages.
+  &.-info-page, 
   &.-material-page,
   &.-tool-page,
-  &.-info-page, 
   &.-research-help-page,
   &.-service-directory-page {
     
@@ -251,11 +251,18 @@
   }
 
   // Builds the main structure when used for an info page.
+  &#{selector-excludes( 
+    '.-info-page',
+    '.-material-page',
+    '.-tool-page',
+    '.-research-help-page',
+    '.-service-directory-page'
+  )},
   &.-info-page {
     @include grid-layout;
 
     // Adjust the main structure across large screens.
-     @include breakpoint-l {
+    @include breakpoint-l {
        
       // Adjust the breadcrumb placement within the grid.
       #{$selector}-breadcrumb {
