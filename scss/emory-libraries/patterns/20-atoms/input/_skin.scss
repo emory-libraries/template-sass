@@ -525,16 +525,26 @@ $atoms-input: (
     &.-row {
       --columns: #{$columns};
       --layout: repeat(var(--columns), auto);
+      --flow: column;
+      --auto: min-content;
       --gap: #{$gap};
       grid-template-columns: var(--layout);
+      grid-template-rows: min-content;
+      grid-auto-flow: var(--flow);
+      grid-auto-columns: var(--auto);
       grid-gap: var(--gap);
     }
     
-    &.-columns {
+    &.-column {
       --rows: #{$rows};
       --layout: repeat(var(--rows), auto);
+      --flow: row;
+      --auto: min-content;
       --gap: #{$gap};
+      grid-template-columns: 1fr;
       grid-template-rows: var(--layout);
+      grid-auto-flow: var(--flow);
+      grid-auto-rows: var(--auto);
       grid-gap: var(--gap);
     }
     
@@ -542,11 +552,19 @@ $atoms-input: (
       --columns: #{$columns};
       --rows: #{$rows};
       --gap: #{$gap};
+      --gap-rows: #{$gap};
+      --gap-columns: #{$gap};
       --layout-rows: repeat(var(--rows), auto);
       --layout-columns: repeat(var(--columns), auto);
+      --auto-rows: min-content;
+      --auto-columns: min-content;
       grid-template-columns: var(--layout-columns);
       grid-template-rows: var(--layout-rows);
+      grid-auto-rows: var(--auto-rows);
+      grid-auto-columns: var(--auto-columns);
       grid-gap: var(--gap);
+      grid-row-gap: var(--gap-rows);
+      grid-column-gap: var(--gap-columns);
     }
     
   }
