@@ -8000,6 +8000,8 @@
                       
                       
                       
+                      
+                      
                   
                   
                   
@@ -57785,7 +57787,8 @@
                                 &amp;.-material-page,
                                 &amp;.-tool-page,
                                 &amp;.-research-help-page,
-                                &amp;.-service-directory-page {
+                                &amp;.-service-directory-page,
+                                &amp;.-subject-librarian-directory-page {
                                   
                                   #{$selector}-title {
                                     margin-bottom: 0;
@@ -57799,7 +57802,8 @@
                                   &#x27;.-material-page&#x27;,
                                   &#x27;.-tool-page&#x27;,
                                   &#x27;.-research-help-page&#x27;,
-                                  &#x27;.-service-directory-page&#x27;
+                                  &#x27;.-service-directory-page&#x27;,
+                                  &#x27;.-subject-librarian-directory-page&#x27;
                                 )},
                                 &amp;.-info-page {
                                   @include grid-layout;
@@ -57910,18 +57914,37 @@
                               
                               // Builds the main structure when used for a subject librarian directory page.
                                 &amp;.-subject-librarian-directory-page {
-                                  grid-template-areas: &quot;title&quot;
-                                                       &quot;subtitle&quot;
-                                                       &quot;body&quot;;
-                              
-                                  @include breakpoint-s-m-l {
-                                    grid-template-columns: 1fr;
-                                  };
-                              
-                                  // Hides other main grid areas that are not used in the page.
-                                  #{$selector}-guides,
+                                  @include grid-layout((
+                                    &#x27;spacer&#x27;: false,
+                                    &#x27;content&#x27;: false,
+                                    &#x27;section&#x27;: false,
+                                    &#x27;sidebar&#x27;: false
+                                  ));
+                                  
+                                  // Hide grid areas that are not being used within this page type.
+                                  #{$selector}-spacer,
+                                  #{$selector}-content,
+                                  #{$selector}-section,
                                   #{$selector}-sidebar {
                                     display: none;
+                                  }
+                                  
+                                  &amp;.without-intro {
+                                    @include grid-layout((
+                                      &#x27;title&#x27;: false,
+                                      &#x27;subtitle&#x27;: false,
+                                      &#x27;spacer&#x27;: false,
+                                      &#x27;content&#x27;: false,
+                                      &#x27;section&#x27;: false,
+                                      &#x27;sidebar&#x27;: false
+                                    ));
+                                    
+                                    // Hide grid areas that are not being used within this page type.
+                                    #{$selector}-title,
+                                    #{$selector}-subtitle {
+                                      display: none;
+                                    }
+                                    
                                   }
                               
                                 }
