@@ -5,6 +5,12 @@
   @include templates-info;
 }
 
+// templates-form
+.form-page {
+  @include templates-form;
+}
+
+
 // templates-material
 .material-page {
   @include templates-material;
