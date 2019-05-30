@@ -1,0 +1,23 @@
+////
+/// @group emory-libraries.utils.functions
+////
+
+/// Builds a series of `:not` expressions that can be used to exclude selectors from another.
+/// 
+/// @since 1.0.0
+///
+/// @param {arglist} excludes - One or more expressions to be excluded from the target selector
+///
+/// @return {string} - A `:not` exclusion expression
+@function selector-excludes( $excludes... ) {
+  
+  // Initialize the selector.
+  $selector: '';
+  
+  // Build `:not` expressions.
+  @each $not in $excludes { $selector: $selector + ':not(#{$not})'; }
+  
+  // Return the selector.
+  @return unquote($selector);
+  
+}

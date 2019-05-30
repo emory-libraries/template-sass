@@ -32,6 +32,9 @@
     @extend %organisms-section-main;
 
     // Load parts.
+    &-breadcrumb {
+      @extend %organisms-section-main-breadcrumb;
+    }
     &-title {
       @extend %organisms-section-main-title;
     }
@@ -44,8 +47,14 @@
     &-body {
       @extend %organisms-section-main-body;
     }
-    &-guides {
-      @extend %organisms-section-main-guides;
+    &-spacer {
+      @extend %organisms-section-main-spacer;
+    }
+    &-content {
+      @extend %organisms-section-main-content;
+    }
+    &-section {
+      @extend %organisms-section-main-section;
     }
 
     // Load skins.
