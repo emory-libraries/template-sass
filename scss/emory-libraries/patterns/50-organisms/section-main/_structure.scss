@@ -9,7 +9,7 @@
 
   // Captures selector.
   $selector: &;
-  
+
   // Set the maximum number of auto placement rows allowed.
   $max-rows: (
     'auto': 100,
@@ -22,10 +22,10 @@
   max-width: 1236px;
   display: grid;
   grid-area: main;
-  
+
   // Initializes a helper for building page-specific grid layouts.
   @mixin grid-layout( $overrides: () ) {
-    
+
     // Override any element settings.
     $elements: map-extend((
       'title': true,
@@ -35,77 +35,77 @@
       'section': true,
       'sidebar': true
     ), $overrides);
-    
+
     // Initialize variables to build grid row definitions.
     $rows: ('[breadcrumb-start] min-content');
     $name: ('breadcrumb-end');
-    
+
     // Build definitions for grid rows.
     @each $element, $enabled in $elements {
-      
+
       // Only initialize the row if it's enabled.
       @if( $enabled ) {
-        
+
         // Initialize the row.
         $row: ();
 
         // Build the row definition.
         @if( $element != 'auto' and $element != 'section' ) {
-          
+
           $name: append($name, '#{$element}-start', space);
           $row: append($row, '[#{$name}] min-content', space);
           $name: append((), '#{$element}-end', space);
-        
+
         }
-    
+
         @else {
 
-          @if( length($name) > 0 ) { 
-            $row: append($row, '[#{$name}]', space); 
+          @if( length($name) > 0 ) {
+            $row: append($row, '[#{$name}]', space);
           }
 
           $max: map-get($max-rows, $element);
           $row: append($row, 'repeat(#{$max}, [#{$element}-start] min-content [#{$element}-end])', space);
           $name: ();
-    
+
         }
-      
+
         // Save the row definition.
         $rows: join($rows, $row);
 
       }
-      
+
     }
-    
+
     // Merge any remaining names into the rows.
     @if( length($name) > 0 ) {
-      $rows: append($rows, '[#{$name}]', space); 
+      $rows: append($rows, '[#{$name}]', space);
     }
-    
+
     // Set the default grid layout across all breakpoints.
     @include breakpoint-s-m-l {
-    
+
       // Define a single-column layout as the default.
       grid-template-columns: [main-start] 1fr [main-end];
 
       // Define the grid's default row templates.
       grid-template-rows: #{unstringify($rows)};
-      
+
     };
-    
+
     // If sidebar exists, then also create a two-column layout for large screens.
     @if( map-get($elements, 'sidebar') ) {
-      
+
       // Reset variables.
       $rows: ('[main-start] [breadcrumb-start] min-content');
       $name: ('breadcrumb-end');
-      
+
       // Remove the sidebar from the grid elements.
       $elements: map-remove($elements, 'sidebar');
-      
+
       // Build responsive definitions for grid rows.
       @each $element, $enabled in $elements {
-      
+
         // Only initialize the row if it's enabled.
         @if( $enabled ) {
 
@@ -122,13 +122,13 @@
           }
 
           @else {
-            
+
             @if( $element == 'section' ) {
               $name: append($name, 'main-end', space);
             }
-            
-            @if( length($name) > 0 ) { 
-              $row: append($row, '[#{$name}]', space); 
+
+            @if( length($name) > 0 ) {
+              $row: append($row, '[#{$name}]', space);
             }
 
             $max: map-get($max-rows, $element);
@@ -143,43 +143,43 @@
         }
 
       }
-      
+
       // Close the main grid area if not previously closed.
       @if( not map-get($elements, 'section') ) {
         $name: append($name, 'main-end', space);
       }
 
       // Merge any remaining names into the rows.
-      @if( length($name) > 0 ) { 
-        $rows: append($rows, '[#{$name}]', space); 
+      @if( length($name) > 0 ) {
+        $rows: append($rows, '[#{$name}]', space);
       }
-      
+
       // Override the gird layout for large screens.
       @include breakpoint-l {
-        
+
         // Define a two-column grid layout for large screens.
         grid-template-columns: [main-start] 1fr [main-end sidebar-start] 340px [sidebar-end];
-        
+
         // Define the grid's row templates.
         grid-template-rows: #{unstringify($rows)};
-        
+
       };
-      
+
     }
-    
+
   }
-  
+
   // Builds the main breadcrumb structure.
   &-breadcrumb {
     grid-column: main;
     grid-row: breadcrumb;
     display: flex;
     justify-content: center;
-    
+
     &::after {
       content: 'Breadcrumb'; // TEMPORARY
     }
-    
+
   }
 
   // Builds the main title structure.
@@ -216,59 +216,61 @@
       grid-column: sidebar;
       grid-row: main;
     };
-    
+
   }
-  
+
   // Builds the main spacer structure.
   &-spacer {
     grid-column: main;
     grid-row: auto;
   }
-  
+
   // Builds the main content structure.
   &-content {
     grid-column: main;
     grid-row: auto;
   }
-  
+
   // Builds the main section structure.
   &-section {
     grid-column: main / sidebar;
     grid-row: section;
   }
-  
+
   // Remove spacing between title and subtitle on most pages.
-  &.-info-page, 
+  &.-info-page,
   &.-material-page,
   &.-tool-page,
   &.-research-help-page,
-  &.-service-directory-page {
-    
+  &.-service-directory-page,
+  &.-form-page {
+
     #{$selector}-title {
       margin-bottom: 0;
     }
-    
+
   }
 
   // Builds the main structure when used for an info page.
-  &#{selector-excludes( 
+  &#{selector-excludes(
     '.-info-page',
     '.-material-page',
     '.-tool-page',
     '.-research-help-page',
-    '.-service-directory-page'
+    '.-service-directory-page',
+    '.-form-page'
   )},
   &.-info-page {
     @include grid-layout;
 
     // Adjust the main structure across large screens.
     @include breakpoint-l {
-       
+
       // Adjust the breadcrumb placement within the grid.
       #{$selector}-breadcrumb {
         grid-column: main / sidebar;
       }
-      
+
       // Adjust the title and subtitle placement within the grid.
       #{$selector}-title,
       #{$selector}-subtitle, {
@@ -279,34 +281,34 @@
       #{$selector}-sidebar {
         grid-row: body / main;
       }
-       
+
     };
-    
+
   }
 
   // Builds the main structure when used for a material and tool pages.
-  &.-material-page, 
+  &.-material-page,
   &.-tool-page {
     @include grid-layout;
 
     // Adjusts the main structure across large screens.
     @include breakpoint-l {
-      
+
       // Adjust the breadcrumb placement within the grid.
       #{$selector}-breadcrumb {
         grid-column: main / sidebar;
       }
-      
+
       // Adjusts the title placement within the grid.
       #{$selector}-title {
         grid-column: main / sidebar;
       }
-    
+
       // Adjust the sidebar placement within the grid.
       #{$selector}-sidebar {
         grid-row: subtitle / main;
       }
-    
+
     };
 
   }
@@ -319,7 +321,7 @@
       'section': false,
       'sidebar': false
     ));
-    
+
     // Hide grid areas that are not being used within this page type.
     #{$selector}-spacer,
     #{$selector}-content,
@@ -327,7 +329,7 @@
     #{$selector}-sidebar {
       display: none;
     }
-    
+
     &.without-intro {
       @include grid-layout((
         'title': false,
@@ -337,15 +339,15 @@
         'section': false,
         'sidebar': false
       ));
-      
+
       // Hide grid areas that are not being used within this page type.
       #{$selector}-title,
       #{$selector}-subtitle {
         display: none;
       }
-      
+
     }
-    
+
   }
 
   // Builds the main structure when used for a research help page.
@@ -355,14 +357,29 @@
       'section': false,
       'sidebar': false
     ));
-    
+
     // Hide grid areas that are not being used within this page type.
     #{$selector}-subtitle,
     #{$selector}-section,
     #{$selector}-sidebar {
       display: none;
     }
-    
+
   }
 
+  // Builds the main structure when used for a form page.
+  &.-form-page {
+    @include grid-layout((
+      'subtitle': false,
+      'section': false,
+      'sidebar': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-subtitle,
+    #{$selector}-section,
+    #{$selector}-sidebar {
+      display: none;
+    }
+  }
 }
