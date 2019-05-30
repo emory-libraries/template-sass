@@ -28,8 +28,9 @@
   // Builds the intro context structure.
   &-context {
     display: block;
+    margin-top: 48px;
     
-    // Modifies structure when used for a heading and bio intros.
+    // Modifies structure when used for heading and bio intros.
     &.-heading,
     &.-heading-alt,
     &.-bio {
@@ -42,8 +43,14 @@
   &-title { 
     display: block;
     
+    // Modifies structure for default titles.
     &:not(.-heading):not(.heading-alt) {
-      margin: 0;
+      
+      // Modifies structure when adjacent to a context.
+      @include when-adjacent-sibling-of('#{$selector}-context') {
+        margin-top: 0;
+      }
+      
     }
     
     // Modifies structure when used for heading intro and alternative heading intro.

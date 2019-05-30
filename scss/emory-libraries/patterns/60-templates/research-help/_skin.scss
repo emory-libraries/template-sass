@@ -36,20 +36,19 @@ $templates-research-help: (
   // Defines the research-help component's base styles.
   grid-gap: $gap;
 
-  // Defines research-help header and footer styles.
+  // Defines research help header and footer styles.
   &-header,
   &-footer {
     border: $border-width-s solid color('slate'); // TEMPORARY
   }
 
-  // Defines research-help header styles.
+  // Defines research help header styles.
   &-header { }
 
-  // Defines research-help main styles.
-  &-main {
-  }
+  // Defines research help main styles.
+  &-main { }
 
-  // Defines research-help footer styles.
+  // Defines research help footer styles.
   &-footer { }
 
 
