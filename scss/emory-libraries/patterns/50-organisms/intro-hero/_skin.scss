@@ -1,13 +1,13 @@
 ////
-/// @group emory-libraries.patterns.organisms.intro-fitted-hero
+/// @group emory-libraries.patterns.organisms.intro-hero
 ////
 
-/// Defines the base skin of the intro-fitted-hero component.
+/// Defines the base skin of the intro-hero component.
 ///
 /// @since 1.0.0-dev.0
 ///
 /// @type map
-$organisms-intro-fitted-hero: (
+$organisms-intro-hero: (
 
   'gradient-color': #282828,
 
@@ -17,7 +17,7 @@ $organisms-intro-fitted-hero: (
 
 );
 
-/// Defines the intro-fitted-hero component theme.
+/// Defines the intro-hero component theme.
 ///
 /// @since 1.0.0-dev.0
 ///
@@ -25,8 +25,8 @@ $organisms-intro-fitted-hero: (
 ///
 /// @param {map} skin - The component's skin
 ///
-/// @output The intro-fitted-hero component's themeable properties
-@mixin organisms-intro-fitted-hero--theme ( $skin ) {
+/// @output The intro-hero component's themeable properties
+@mixin organisms-intro-hero--theme ( $skin ) {
 
   // Capture themeable variables from skin.
   // ...
@@ -35,22 +35,22 @@ $organisms-intro-fitted-hero: (
   $subtitle: map-deep-get($skin, 'subtitle-size');
   $gradient-color: map-deep-get($skin, 'gradient-color');
 
-  // Defines the intro-fitted-hero component's base styles.
+  // Defines the intro-hero component's base styles.
   // ...
 
-  // Defines the intro-fitted-hero-gradient styles.
+  // Defines the intro-hero-gradient styles.
   &-gradient {
     @include linear-gradient(0deg, $gradient-color -14.42%, rgba(40, 40, 40, 0) 50%);
   }
 
-  // Defines the intro-fitted-hero-title styles.
+  // Defines the intro-hero-title styles.
   &-title {
     margin: 0;
     @include tokens-heading('h1-hero', $color, $important: true);
     text-align: center;
-
   }
-  // Modifies styles when used for a heading intro-hero-fitted.
+
+  // Modifies styles when used for a heading intro-hero.
   &-subtitle {
       margin: 0;
       color: $color;
