@@ -26,6 +26,12 @@
 // atoms-badge
 .badge {
   @include atoms-badge;
+  &.-white {
+    @include atoms-badge((
+      'background': color('white'),
+      'foreground': color('blue', 'mid')
+    ));
+  }
 }
 
 // atoms-input

@@ -5,6 +5,10 @@
   @include organisms-intro;
 }
 
+.intro-hero {
+  @include organisms-intro-hero;
+}
+
 // organisms-section-main
 .section-main {
   @include organisms-section-main;
