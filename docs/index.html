@@ -7516,6 +7516,19 @@
                             </li>
                           
                           
+                            <li class="sidebar__item sassdoc__item" data-group="utils.functions" data-name="selector-excludes" data-type="function">
+                              
+                              <a href="#utils.functions-function-selector-excludes">
+                                
+                                selector-excludes
+                                
+                                
+                                
+                              </a>
+                              
+                            </li>
+                          
+                          
                         </ul>
                       
                       </div>
@@ -7965,6 +7978,8 @@
                   
                   
                   
+                      
+                      
                       
                       
                       
@@ -57489,6 +57504,7 @@
                                   background-size: cover;
                                   background-position: center center;
                                 }
+
                               
                                 &amp;-gradient {
                                   grid-row: 1/-1;
@@ -57499,6 +57515,71 @@
                                   grid-row: 2/span 1;
                                   grid-column: 2/span 1;
                                   align-self: center
+
+                                
+                                // Builds the intro context structure.
+                                &amp;-context {
+                                  display: block;
+                                  margin-top: 48px;
+                                  
+                                  // Modifies structure when used for heading and bio intros.
+                                  &amp;.-heading,
+                                  &amp;.-heading-alt,
+                                  &amp;.-bio {
+                                    display: none;
+                                  }
+                                  
+                                }
+                                
+                                // Builds the intro title structure.
+                                &amp;-title { 
+                                  display: block;
+                                  
+                                  // Modifies structure for default titles.
+                                  &amp;:not(.-heading):not(.heading-alt) {
+                                    
+                                    // Modifies structure when adjacent to a context.
+                                    @include when-adjacent-sibling-of(&#x27;#{$selector}-context&#x27;) {
+                                      margin-top: 0;
+                                    }
+                                    
+                                  }
+                                  
+                                  // Modifies structure when used for heading intro and alternative heading intro.
+                                  &amp;.-heading,
+                                  &amp;.-heading-alt {
+                                    margin-top: 0;
+                                  
+                                    &amp;::before,
+                                    &amp;::after {
+                                      content: &#x27;&#x27;;
+                                      display: block;
+                                      @include absolute( null 0 -.67em 0 );
+                                    }
+                                  
+                                  }
+                                  
+                                  // Modifies structure when used for a heading intro.
+                                  &amp;.-heading {
+                                    
+                                    &amp;::before,
+                                    &amp;::after {
+                                      margin: 0 auto;
+                                    }
+                                    
+                                  }
+                                  
+                                  // Modifies structure when used for an alternative heading intro.
+                                  &amp;.-heading-alt {
+                                    
+                                    &amp;::before,
+                                    &amp;::after {
+                                      margin: 0 auto 0 0;
+                                    }
+                                    
+                                  }
+                                  
+
                                 }
                               
                                 &amp;-title {
@@ -57656,6 +57737,9 @@
                                   @extend %organisms-section-main;
                               
                                   // Load parts.
+                                  &amp;-breadcrumb {
+                                    @extend %organisms-section-main-breadcrumb;
+                                  }
                                   &amp;-title {
                                     @extend %organisms-section-main-title;
                                   }
@@ -57668,8 +57752,14 @@
                                   &amp;-body {
                                     @extend %organisms-section-main-body;
                                   }
-                                  &amp;-guides {
-                                    @extend %organisms-section-main-guides;
+                                  &amp;-spacer {
+                                    @extend %organisms-section-main-spacer;
+                                  }
+                                  &amp;-content {
+                                    @extend %organisms-section-main-content;
+                                  }
+                                  &amp;-section {
+                                    @extend %organisms-section-main-section;
                                   }
                               
                                   // Load skins.
@@ -57885,7 +57975,12 @@
                                 $gap: map-deep-get($skin, &#x27;gap&#x27;);
                               
                                 // Defines the section-main component&#x27;s base styles.
-                                grid-gap: $gap;
+                                grid-column-gap: $gap;
+                                
+                                // Defines the main breadcrumb styles.
+                                &amp;-breadcrumb {
+                                  border: $border-width-s solid color(&#x27;slate&#x27;); // TEMPORARY
+                                }
                               
                                 // Defines the main title styles.
                                 &amp;-title { }
@@ -57915,6 +58010,17 @@
                                 &amp;-sidebar {
                                   border: $border-width-s solid color(&#x27;slate&#x27;); // TEMPORARY
                                 }
+                                
+                                // Defines the main spacer styles.
+                                &amp;-spacer {
+                                  height: $gap;
+                                }
+                                
+                                // Defines the main content styles.
+                                &amp;-content { }
+                                
+                                // Defines the main section styles.
+                                &amp;-section { }
                               
                                }"
                                        data-collapsed="@mixin organisms-section-main--theme($skin) { ... }"><code class="js-autoindent">@mixin organisms-section-main--theme($skin) { ... }</code></pre>
@@ -58007,6 +58113,20 @@
                                             <span class="item__cross-type">mixin</span>
                                   
                                             <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-border-width-s"><code>border-width-s</code></a>
                                   
                                   
                                           </li>
@@ -58224,51 +58344,201 @@
                               
                                 // Captures selector.
                                 $selector: &amp;;
+                                
+                                // Set the maximum number of auto placement rows allowed.
+                                $max-rows: (
+                                  &#x27;auto&#x27;: 100,
+                                  &#x27;section&#x27;: 10
+                                );
                               
                                 // Builds the section-main structure.
                                 margin: 0 auto;
+                                width: 100%;
                                 max-width: 1236px;
                                 display: grid;
                                 grid-area: main;
+                                
+                                // Initializes a helper for building page-specific grid layouts.
+                                @mixin grid-layout( $overrides: () ) {
+                                  
+                                  // Override any element settings.
+                                  $elements: map-extend((
+                                    &#x27;title&#x27;: true,
+                                    &#x27;subtitle&#x27;: true,
+                                    &#x27;body&#x27;: true,
+                                    &#x27;auto&#x27;: true,
+                                    &#x27;section&#x27;: true,
+                                    &#x27;sidebar&#x27;: true
+                                  ), $overrides);
+                                  
+                                  // Initialize variables to build grid row definitions.
+                                  $rows: (&#x27;[breadcrumb-start] min-content&#x27;);
+                                  $name: (&#x27;breadcrumb-end&#x27;);
+                                  
+                                  // Build definitions for grid rows.
+                                  @each $element, $enabled in $elements {
+                                    
+                                    // Only initialize the row if it&#x27;s enabled.
+                                    @if( $enabled ) {
+                                      
+                                      // Initialize the row.
+                                      $row: ();
                               
-                                // Builds the main structure when used for all pages, including info page.
-                                &amp;,
-                                &amp;.-info-page {
-                                  grid-template-areas: &quot;title&quot;
-                                                       &quot;subtitle&quot;
-                                                       &quot;body&quot;
-                                                       &quot;guides&quot;
-                                                       &quot;aside&quot;;
+                                      // Build the row definition.
+                                      @if( $element !&#x3D; &#x27;auto&#x27; and $element !&#x3D; &#x27;section&#x27; ) {
+                                        
+                                        $name: append($name, &#x27;#{$element}-start&#x27;, space);
+                                        $row: append($row, &#x27;[#{$name}] min-content&#x27;, space);
+                                        $name: append((), &#x27;#{$element}-end&#x27;, space);
+                                      
+                                      }
+                                  
+                                      @else {
                               
-                                  // Adjusts the main structure across large screens.
-                                  @include breakpoint-l {
-                                    grid-template-areas: &quot;title title&quot;
-                                                         &quot;subtitle subtitle&quot;
-                                                         &quot;body  aside&quot;
-                                                         &quot;guides guides&quot;;
-                                    grid-template-columns: minmax(auto, 840px) minmax(auto, 340px);
+                                        @if( length($name) &gt; 0 ) { 
+                                          $row: append($row, &#x27;[#{$name}]&#x27;, space); 
+                                        }
+                              
+                                        $max: map-get($max-rows, $element);
+                                        $row: append($row, &#x27;repeat(#{$max}, [#{$element}-start] min-content [#{$element}-end])&#x27;, space);
+                                        $name: ();
+                                  
+                                      }
+                                    
+                                      // Save the row definition.
+                                      $rows: join($rows, $row);
+                              
+                                    }
+                                    
+                                  }
+                                  
+                                  // Merge any remaining names into the rows.
+                                  @if( length($name) &gt; 0 ) {
+                                    $rows: append($rows, &#x27;[#{$name}]&#x27;, space); 
+                                  }
+                                  
+                                  // Set the default grid layout across all breakpoints.
+                                  @include breakpoint-s-m-l {
+                                  
+                                    // Define a single-column layout as the default.
+                                    grid-template-columns: [main-start] 1fr [main-end];
+                              
+                                    // Define the grid&#x27;s default row templates.
+                                    grid-template-rows: #{unstringify($rows)};
+                                    
                                   };
+                                  
+                                  // If sidebar exists, then also create a two-column layout for large screens.
+                                  @if( map-get($elements, &#x27;sidebar&#x27;) ) {
+                                    
+                                    // Reset variables.
+                                    $rows: (&#x27;[main-start] [breadcrumb-start] min-content&#x27;);
+                                    $name: (&#x27;breadcrumb-end&#x27;);
+                                    
+                                    // Remove the sidebar from the grid elements.
+                                    $elements: map-remove($elements, &#x27;sidebar&#x27;);
+                                    
+                                    // Build responsive definitions for grid rows.
+                                    @each $element, $enabled in $elements {
+                                    
+                                      // Only initialize the row if it&#x27;s enabled.
+                                      @if( $enabled ) {
                               
+                                        // Initialize the row.
+                                        $row: ();
+                              
+                                        // Build the row definition.
+                                        @if( $element !&#x3D; &#x27;auto&#x27; and $element !&#x3D; &#x27;section&#x27; ) {
+                              
+                                          $name: append($name, unquote(&#x27;#{$element}-start&#x27;), space);
+                                          $row: append($row, unquote(&#x27;[#{$name}] min-content&#x27;), space);
+                                          $name: append((), unquote(&#x27;#{$element}-end&#x27;), space);
+                              
+                                        }
+                              
+                                        @else {
+                                          
+                                          @if( $element &#x3D;&#x3D; &#x27;section&#x27; ) {
+                                            $name: append($name, &#x27;main-end&#x27;, space);
+                                          }
+                                          
+                                          @if( length($name) &gt; 0 ) { 
+                                            $row: append($row, &#x27;[#{$name}]&#x27;, space); 
+                                          }
+                              
+                                          $max: map-get($max-rows, $element);
+                                          $row: append($row, &#x27;repeat(#{$max}, [#{$element}-start] min-content [#{$element}-end])&#x27;, space);
+                                          $name: ();
+                              
+                                        }
+                              
+                                        // Save the row definition.
+                                        $rows: join($rows, $row);
+                              
+                                      }
+                              
+                                    }
+                                    
+                                    // Close the main grid area if not previously closed.
+                                    @if( not map-get($elements, &#x27;section&#x27;) ) {
+                                      $name: append($name, &#x27;main-end&#x27;, space);
+                                    }
+                              
+                                    // Merge any remaining names into the rows.
+                                    @if( length($name) &gt; 0 ) { 
+                                      $rows: append($rows, &#x27;[#{$name}]&#x27;, space); 
+                                    }
+                                    
+                                    // Override the gird layout for large screens.
+                                    @include breakpoint-l {
+                                      
+                                      // Define a two-column grid layout for large screens.
+                                      grid-template-columns: [main-start] 1fr [main-end sidebar-start] 340px [sidebar-end];
+                                      
+                                      // Define the grid&#x27;s row templates.
+                                      grid-template-rows: #{unstringify($rows)};
+                                      
+                                    };
+                                    
+                                  }
+                                  
+                                }
+                                
+                                // Builds the main breadcrumb structure.
+                                &amp;-breadcrumb {
+                                  grid-column: main;
+                                  grid-row: breadcrumb;
+                                  display: flex;
+                                  justify-content: center;
+                                  
+                                  &amp;::after {
+                                    content: &#x27;Breadcrumb&#x27;; // TEMPORARY
+                                  }
+                                  
                                 }
                               
                                 // Builds the main title structure.
                                 &amp;-title {
-                                  grid-area: title;
+                                  grid-column: main;
+                                  grid-row: title;
                                 }
                               
                                 // Builds the main subtitle structure.
                                 &amp;-subtitle {
-                                  grid-area: subtitle;
+                                  grid-column: main;
+                                  grid-row: subtitle;
                                 }
                               
                                 // Builds the main body structure.
                                 &amp;-body {
-                                  grid-area: body;
+                                  grid-column: main;
+                                  grid-row: body;
                                 }
                               
                                 // Builds the main sidebar structure.
                                 &amp;-sidebar {
-                                  grid-area: aside;
+                                  grid-column: main;
+                                  grid-row: sidebar;
                                   display: flex;
                                   justify-content: center;
                               
@@ -58276,73 +58546,158 @@
                                     content: &#x27;Sidebar&#x27;; // TEMPORARY
                                   }
                               
-                                }
-                              
-                                // Builds the main guides structure.
-                                &amp;-guides {
-                                  grid-area: guides;
-                                }
-                              
-                                // Builds the main structure when used for a material page.
-                                &amp;.-material-page {
-                              
-                                  // Adjusts the main structure across large screens.
+                                  // Adjust the main sidebar structure across large screens.
                                   @include breakpoint-l {
-                                    grid-template-areas: &quot;title title&quot;
-                                                         &quot;subtitle aside&quot;
-                                                         &quot;body aside&quot;
-                                                         &quot;guides guides&quot;;
+                                    grid-column: sidebar;
+                                    grid-row: main;
                                   };
-                              
+                                  
+                                }
+                                
+                                // Builds the main spacer structure.
+                                &amp;-spacer {
+                                  grid-column: main;
+                                  grid-row: auto;
+                                }
+                                
+                                // Builds the main content structure.
+                                &amp;-content {
+                                  grid-column: main;
+                                  grid-row: auto;
+                                }
+                                
+                                // Builds the main section structure.
+                                &amp;-section {
+                                  grid-column: main / sidebar;
+                                  grid-row: section;
+                                }
+                                
+                                // Remove spacing between title and subtitle on most pages.
+                                &amp;.-info-page, 
+                                &amp;.-material-page,
+                                &amp;.-tool-page,
+                                &amp;.-research-help-page,
+                                &amp;.-service-directory-page {
+                                  
+                                  #{$selector}-title {
+                                    margin-bottom: 0;
+                                  }
+                                  
                                 }
                               
-                                // Builds the main structure when used for a tool page.
+                                // Builds the main structure when used for an info page.
+                                &amp;#{selector-excludes( 
+                                  &#x27;.-info-page&#x27;,
+                                  &#x27;.-material-page&#x27;,
+                                  &#x27;.-tool-page&#x27;,
+                                  &#x27;.-research-help-page&#x27;,
+                                  &#x27;.-service-directory-page&#x27;
+                                )},
+                                &amp;.-info-page {
+                                  @include grid-layout;
+                              
+                                  // Adjust the main structure across large screens.
+                                  @include breakpoint-l {
+                                     
+                                    // Adjust the breadcrumb placement within the grid.
+                                    #{$selector}-breadcrumb {
+                                      grid-column: main / sidebar;
+                                    }
+                                    
+                                    // Adjust the title and subtitle placement within the grid.
+                                    #{$selector}-title,
+                                    #{$selector}-subtitle, {
+                                      grid-column: main / sidebar;
+                                    }
+                              
+                                    // Adjust the sidebar placement within the grid.
+                                    #{$selector}-sidebar {
+                                      grid-row: body / main;
+                                    }
+                                     
+                                  };
+                                  
+                                }
+                              
+                                // Builds the main structure when used for a material and tool pages.
+                                &amp;.-material-page, 
                                 &amp;.-tool-page {
+                                  @include grid-layout;
                               
                                   // Adjusts the main structure across large screens.
                                   @include breakpoint-l {
-                                    grid-template-areas: &quot;title title&quot;
-                                                         &quot;subtitle aside&quot;
-                                                         &quot;body aside&quot;
-                                                         &quot;guides guides&quot;;
+                                    
+                                    // Adjust the breadcrumb placement within the grid.
+                                    #{$selector}-breadcrumb {
+                                      grid-column: main / sidebar;
+                                    }
+                                    
+                                    // Adjusts the title placement within the grid.
+                                    #{$selector}-title {
+                                      grid-column: main / sidebar;
+                                    }
+                                  
+                                    // Adjust the sidebar placement within the grid.
+                                    #{$selector}-sidebar {
+                                      grid-row: subtitle / main;
+                                    }
+                                  
                                   };
                               
                                 }
                               
                                 // Builds the main structure when used for a service directory page.
                                 &amp;.-service-directory-page {
-                                  grid-template-areas: &quot;title&quot;
-                                                       &quot;subtitle&quot;
-                                                       &quot;body&quot;;
-                              
-                                  @include breakpoint-s-m-l {
-                                    grid-template-columns: 1fr;
-                                  };
-                              
-                                  // Hides other main grid areas that are not used in the page.
-                                  #{$selector}-guides,
+                                  @include grid-layout((
+                                    &#x27;spacer&#x27;: false,
+                                    &#x27;content&#x27;: false,
+                                    &#x27;section&#x27;: false,
+                                    &#x27;sidebar&#x27;: false
+                                  ));
+                                  
+                                  // Hide grid areas that are not being used within this page type.
+                                  #{$selector}-spacer,
+                                  #{$selector}-content,
+                                  #{$selector}-section,
                                   #{$selector}-sidebar {
                                     display: none;
                                   }
-                              
+                                  
+                                  &amp;.without-intro {
+                                    @include grid-layout((
+                                      &#x27;title&#x27;: false,
+                                      &#x27;subtitle&#x27;: false,
+                                      &#x27;spacer&#x27;: false,
+                                      &#x27;content&#x27;: false,
+                                      &#x27;section&#x27;: false,
+                                      &#x27;sidebar&#x27;: false
+                                    ));
+                                    
+                                    // Hide grid areas that are not being used within this page type.
+                                    #{$selector}-title,
+                                    #{$selector}-subtitle {
+                                      display: none;
+                                    }
+                                    
+                                  }
+                                  
                                 }
                               
                                 // Builds the main structure when used for a research help page.
                                 &amp;.-research-help-page {
-                                  grid-template-areas: &quot;title&quot;
-                                                       &quot;subtitle&quot;
-                                                       &quot;body&quot;;
-                              
-                                  @include breakpoint-s-m-l {
-                                    grid-template-columns: 1fr;
-                                  };
-                              
-                                  // Hides other main grid areas that are not used in the page.
-                                  #{$selector}-guides,
+                                  @include grid-layout((
+                                    &#x27;subtitle&#x27;: false,
+                                    &#x27;section&#x27;: false,
+                                    &#x27;sidebar&#x27;: false
+                                  ));
+                                  
+                                  // Hide grid areas that are not being used within this page type.
+                                  #{$selector}-subtitle,
+                                  #{$selector}-section,
                                   #{$selector}-sidebar {
                                     display: none;
                                   }
-                              
+                                  
                                 }
                               
                                }"
@@ -58363,6 +58718,28 @@
                               
                               
                               
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">function</span>
+                                  
+                                            <a href="#utils.functions-function-selector-excludes"><code>selector-excludes</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
                               
                               
                                   
@@ -61557,13 +61934,13 @@
                               
                                   // Load parts.
                                   &amp;-header {
-                                    @extend %templates-service-directory-header;
+                                    @extend %templates-research-help-header;
                                   }
                                   &amp;-main {
-                                    @extend %templates-service-directory-main;
+                                    @extend %templates-research-help-main;
                                   }
                                   &amp;-footer {
-                                    @extend %templates-service-directory-footer;
+                                    @extend %templates-research-help-footer;
                                   }
                               
                                   // Load skins.
@@ -61782,20 +62159,19 @@
                                 // Defines the research-help component&#x27;s base styles.
                                 grid-gap: $gap;
                               
-                                // Defines research-help header and footer styles.
+                                // Defines research help header and footer styles.
                                 &amp;-header,
                                 &amp;-footer {
                                   border: $border-width-s solid color(&#x27;slate&#x27;); // TEMPORARY
                                 }
                               
-                                // Defines research-help header styles.
+                                // Defines research help header styles.
                                 &amp;-header { }
                               
-                                // Defines research-help main styles.
-                                &amp;-main {
-                                }
+                                // Defines research help main styles.
+                                &amp;-main { }
                               
-                                // Defines research-help footer styles.
+                                // Defines research help footer styles.
                                 &amp;-footer { }
                               
                               
@@ -62088,13 +62464,10 @@
                                       data-current-state="collapsed"
                                       data-expanded="%templates-research-help { 
                               
-                                // Builds the research-help structure.
-                                // ...
-                              
                                 // Captures selector.
                                 $selector: &amp;;
                               
-                                // Builds the material structure.
+                                // Builds the research-help structure.
                                 margin: 0 auto;
                                 display: grid;
                                 grid-template-areas: &quot;header&quot;
@@ -62103,6 +62476,7 @@
                                 grid-template-rows: 150px 1fr 420px;
                                 grid-template-columns: 1fr;
                               
+                                // Builds the research header structure.
                                 &amp;-header {
                                   grid-area: header;
                                   @include absolute-center-contents;
@@ -62113,10 +62487,12 @@
                               
                                 }
                               
+                                // Builds the research main structure.
                                 &amp;-main {
                                   grid-area: main;
                                 }
                               
+                                // Builds the research footer structure.
                                 &amp;-footer {
                                   grid-area: footer;
                                   @include absolute-center-contents;
@@ -68779,6 +69155,167 @@
                             
                             
                             
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                            
+                            
+                            
+                            
+                            
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                      
+                      </section>  
+                    
+                      <section class="main__item container item"
+                               id="utils.functions-function-selector-excludes">
+                      
+                        <h3 class="item__heading">
+                          
+                        
+                          <a class="item__name" href="#utils.functions-function-selector-excludes">
+                            selector-excludes
+                          </a>
+                        
+                        
+                          
+                          
+                        </h3>
+                        
+                        
+                          <span class="item__since">
+                            Since 1.0.0
+                          </span>
+                        
+                        
+                      
+                        
+                          
+                        
+                            
+                              
+                              
+                        
+                          
+                        
+                          <div class="item__code-wrapper">
+                            
+                            <pre class="item__code  item__code--togglable language-scss"
+                                 data-current-state="collapsed"
+                                 data-expanded="@function selector-excludes($excludes...) { 
+                          
+                          // Initialize the selector.
+                          $selector: &#x27;&#x27;;
+                          
+                          // Build &#x60;:not&#x60; expressions.
+                          @each $not in $excludes { $selector: $selector + &#x27;:not(#{$not})&#x27;; }
+                          
+                          // Return the selector.
+                          @return unquote($selector);
+                          
+                         }"
+                                 data-collapsed="@function selector-excludes($excludes...) { ... }"><code class="js-autoindent">@function selector-excludes($excludes...) { ... }</code></pre>
+                        
+                            
+                          </div>
+                        
+                          
+                        
+                        
+                        
+                        
+                              <h3 class="item__sub-heading">Description</h3>
+                              <div class="item__description"><p>Builds a series of <code>:not</code> expressions that can be used to exclude selectors from another.</p>
+                            </div>
+                        
+                        
+                            <h3 class="item__sub-heading">Parameters</h3>
+                            
+                            
+                              <table class="item__parameters">
+                                
+                                <thead>
+                                  <tr>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Name
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Description
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Type
+                                    </th>
+                                    <th scope="col">
+                                      <span class="visually-hidden">function parameter </span>
+                                      Default value
+                                    </th>
+                                  </tr>
+                                </thead>
+                                
+                                <tbody>
+                                    <tr class="item__parameter">
+                                      <th scope="row" data-label="name">
+                                        <code>$excludes</code>
+                                      </th>
+                                      <td data-label="desc">
+                                        <p>One or more expressions to be excluded from the target selector</p>
+                            
+                                      </td>
+                                      <td data-label="type">
+                                        <code>
+                                            arglist
+                                        </code>
+                                      </td>
+                                      <td data-label="default">
+                                          &mdash;<span class="visually-hidden"> none</span>
+                                      </td>
+                                    </tr>
+                                </tbody>
+                                
+                              </table>
+                            
+                        
+                        
+                            
+                              <h3 class="item__sub-heading">Returns</h3>
+                            
+                              <div class="item__description item__description--inline">
+                                
+                                  <code></code>
+                                
+                                 &mdash; <p>A <code>:not</code> exclusion expression</p>
+                            
+                                
+                              </div>
+                            
+                        
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                             
                             
                             

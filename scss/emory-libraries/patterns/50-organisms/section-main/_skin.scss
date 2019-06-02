@@ -36,7 +36,12 @@ $organisms-section-main: (
   $gap: map-deep-get($skin, 'gap');
 
   // Defines the section-main component's base styles.
-  grid-gap: $gap;
+  grid-column-gap: $gap;
+  
+  // Defines the main breadcrumb styles.
+  &-breadcrumb {
+    border: $border-width-s solid color('slate'); // TEMPORARY
+  }
 
   // Defines the main title styles.
   &-title { }
@@ -66,5 +71,16 @@ $organisms-section-main: (
   &-sidebar {
     border: $border-width-s solid color('slate'); // TEMPORARY
   }
+  
+  // Defines the main spacer styles.
+  &-spacer {
+    height: $gap;
+  }
+  
+  // Defines the main content styles.
+  &-content { }
+  
+  // Defines the main section styles.
+  &-section { }
 
 }
