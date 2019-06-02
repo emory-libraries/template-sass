@@ -49,16 +49,16 @@
   "compounds-cards": "review",
   "compounds-accordion": "review",
   "compounds-related": "review",
+  "compounds-blocks": "construction",
+  "compounds-sidebar-list": "review",
+  "compounds-tiles": "review",
   "organisms-intro": "review",
   "organisms-section-main": "review",
   "organisms-section-major": "review",
   "organisms-section-minor": "review",
-  "compounds-blocks": "construction",
-  "compounds-sidebar-list": "review",
   "templates-info": "review",
   "templates-material": "review",
   "templates-tool": "review",
   "templates-service-directory": "review",
-  "templates-research-help": "construction",
-  "compounds-tiles": "construction"
+  "templates-research-help": "construction"
 }
