@@ -56712,8 +56712,9 @@
                                 // Builds the intro context structure.
                                 &amp;-context {
                                   display: block;
+                                  margin-top: 48px;
                                   
-                                  // Modifies structure when used for a heading and bio intros.
+                                  // Modifies structure when used for heading and bio intros.
                                   &amp;.-heading,
                                   &amp;.-heading-alt,
                                   &amp;.-bio {
@@ -56726,8 +56727,14 @@
                                 &amp;-title { 
                                   display: block;
                                   
+                                  // Modifies structure for default titles.
                                   &amp;:not(.-heading):not(.heading-alt) {
-                                    margin: 0;
+                                    
+                                    // Modifies structure when adjacent to a context.
+                                    @include when-adjacent-sibling-of(&#x27;#{$selector}-context&#x27;) {
+                                      margin-top: 0;
+                                    }
+                                    
                                   }
                                   
                                   // Modifies structure when used for heading intro and alternative heading intro.
@@ -57504,7 +57511,6 @@
                                   background-size: cover;
                                   background-position: center center;
                                 }
-
                               
                                 &amp;-gradient {
                                   grid-row: 1/-1;
@@ -57515,71 +57521,6 @@
                                   grid-row: 2/span 1;
                                   grid-column: 2/span 1;
                                   align-self: center
-
-                                
-                                // Builds the intro context structure.
-                                &amp;-context {
-                                  display: block;
-                                  margin-top: 48px;
-                                  
-                                  // Modifies structure when used for heading and bio intros.
-                                  &amp;.-heading,
-                                  &amp;.-heading-alt,
-                                  &amp;.-bio {
-                                    display: none;
-                                  }
-                                  
-                                }
-                                
-                                // Builds the intro title structure.
-                                &amp;-title { 
-                                  display: block;
-                                  
-                                  // Modifies structure for default titles.
-                                  &amp;:not(.-heading):not(.heading-alt) {
-                                    
-                                    // Modifies structure when adjacent to a context.
-                                    @include when-adjacent-sibling-of(&#x27;#{$selector}-context&#x27;) {
-                                      margin-top: 0;
-                                    }
-                                    
-                                  }
-                                  
-                                  // Modifies structure when used for heading intro and alternative heading intro.
-                                  &amp;.-heading,
-                                  &amp;.-heading-alt {
-                                    margin-top: 0;
-                                  
-                                    &amp;::before,
-                                    &amp;::after {
-                                      content: &#x27;&#x27;;
-                                      display: block;
-                                      @include absolute( null 0 -.67em 0 );
-                                    }
-                                  
-                                  }
-                                  
-                                  // Modifies structure when used for a heading intro.
-                                  &amp;.-heading {
-                                    
-                                    &amp;::before,
-                                    &amp;::after {
-                                      margin: 0 auto;
-                                    }
-                                    
-                                  }
-                                  
-                                  // Modifies structure when used for an alternative heading intro.
-                                  &amp;.-heading-alt {
-                                    
-                                    &amp;::before,
-                                    &amp;::after {
-                                      margin: 0 auto 0 0;
-                                    }
-                                    
-                                  }
-                                  
-
                                 }
                               
                                 &amp;-title {
