@@ -1,28 +1,23 @@
 ////
-/// @group emory-libraries.patterns.molecules.card-librarian
+/// @group emory-libraries.patterns.molecules.card-staff
 ////
 
-/// Defines the base structure of the card-librarian component.
+/// Defines the base structure of the card-staff component.
 ///
-/// @since 1.0.0
-%molecules-card-librarian {
+/// @since 1.0.0-dev.0
+%molecules-card-staff {
   
-  // Builds the card-librarian structure.
+  // Builds the card-staff structure.
   display: grid;
   grid-template-areas: "about";
   grid-template-columns: 1fr;
   
-  @include breakpoint-m {
+  @include breakpoint-m-l {
     grid-template-areas: "about contact";
-    grid-template-columns: repeat(2, 1fr);
-  };
-  @include breakpoint-l {
-    grid-template-areas: "about subjects contact";
-    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-columns: 2fr 1fr;
   };
   
-  // Builds the card's subjects and contact structure.
-  &-subjects,
+  // Builds the card's about and contact structure.
   &-contact {
     
     &::before {
@@ -44,37 +39,6 @@
                          "library";
     grid-template-columns: 1fr;
     grid-template-rows: repeat(4, min-content);
-  }
-  
-  // Builds the card subjects structure.
-  &-subjects {
-    display: none;
-    grid-area: subjects;
-    flex-direction: column;
-  
-    // Builds the card subjects list structure.
-    &-list { 
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      grid-area: list;
-      grid-area: list;
-      display: grid;
-      grid-auto-flow: row;
-      grid-auto-rows: auto;
-    
-      // Builds the card subjects list item structure.
-      &-item { 
-        display: block;
-      }
-      
-    }
-    
-    // Only shows subjects on large screens.
-    @include breakpoint-l {
-      display: flex;
-    };
-  
   }
   
   // Builds the card contact structure.

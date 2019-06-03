@@ -1,0 +1,74 @@
+////
+/// @group emory-libraries.patterns.molecules.card-staff
+////
+
+/// Load the card-staff component's structure and skin.
+@import 'card-staff/structure';
+@import 'card-staff/skin';
+
+/// Builds a constructor for the card-staff component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} molecules-card-staff
+/// @requires {variable} molecules-card-staff
+/// @requires {mixin} molecules-card-staff--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our card-staff component
+///
+/// @status review
+@mixin molecules-card-staff ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-card-staff, $custom);
+  
+  // Initialize the card-staff component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-card-staff;
+    
+    // Load parts.
+    &-about {
+      @extend %molecules-card-staff-about;
+    }
+    &-contact {
+      @extend %molecules-card-staff-contact;
+      &-info {
+        @extend %molecules-card-staff-contact-info;
+        &-item {
+          @extend %molecules-card-staff-contact-info-item;
+        }
+      }
+      &-links {
+        @extend %molecules-card-staff-contact-links;
+        &-item {
+          @extend %molecules-card-staff-contact-links-item;
+        }
+      }
+    }
+    &-image {
+      @extend %molecules-card-staff-image;
+    }
+    &-name {
+      @extend %molecules-card-staff-name;
+    }
+    &-title {
+      @extend %molecules-card-staff-title;
+    }
+    &-library {
+      @extend %molecules-card-staff-library;
+    }
+    &-context {
+      @extend %molecules-card-staff-context;
+    }
+    
+    // Load skins.
+    @include molecules-card-staff--theme( $skin );
+    
+  }
+  
+}

@@ -29,3 +29,8 @@
 .subject-librarian-directory-page {
   @include templates-subject-librarian-directory;
 }
+
+//templates-staff-directory
+.staff-directory-page {
+  @include templates-staff-directory;
+}

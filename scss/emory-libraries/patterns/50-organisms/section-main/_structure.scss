@@ -243,7 +243,8 @@
   &.-tool-page,
   &.-research-help-page,
   &.-service-directory-page,
-  &.-subject-librarian-directory-page {
+  &.-subject-librarian-directory-page,
+  &.-staff-directory-page, {
     
     #{$selector}-title {
       margin-bottom: 0;
@@ -258,7 +259,8 @@
     '.-tool-page',
     '.-research-help-page',
     '.-service-directory-page',
-    '.-subject-librarian-directory-page'
+    '.-subject-librarian-directory-page',
+    '.-staff-directory-page'
   )},
   &.-info-page {
     @include grid-layout;
@@ -367,8 +369,9 @@
     
   }
 
-// Builds the main structure when used for a subject librarian directory page.
-  &.-subject-librarian-directory-page {
+  // Builds the main structure when used for a subject librarian directory and staff directory page.
+  &.-subject-librarian-directory-page,
+  &.-staff-directory-page {
     @include grid-layout((
       'spacer': false,
       'content': false,
