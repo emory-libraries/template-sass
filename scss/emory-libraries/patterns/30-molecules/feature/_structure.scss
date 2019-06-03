@@ -6,10 +6,10 @@
 ///
 /// @since 1.0.0
 %molecules-feature {
-  
+
   // Capture selector.
   $selector: &;
-  
+
   // Builds the feature structure.
   display: grid;
   grid-template-areas: "image"
@@ -17,7 +17,7 @@
                        "heading"
                        "action";
   grid-template-rows: 250px repeat(3, min-content);
-  
+
   // Modifies structure for larger screens.
   @include breakpoint-m-l {
     grid-template-areas: "image context"
@@ -25,7 +25,7 @@
                          "image action";
     grid-template-rows: repeat(2, min-content) 1fr;
   };
-  
+
   // Modifies styles for descriptions.
   &.has-description {
     grid-template-areas: "image"
@@ -33,7 +33,7 @@
                          "heading"
                          "description"
                          "action";
-    
+
     // Modifies styles for descriptions.
     @include breakpoint-m-l {
       grid-template-areas: "image context"
@@ -42,37 +42,38 @@
                            "image action";
       grid-template-rows: repeat(2, min-content) auto 1fr;
     };
-    
+
   }
-  
+
   // Builds feature image structure.
   &-image {
     @include absolute( 0 );
     @include absolute-center-contents;
     grid-area: image;
     overflow: hidden;
-    
+
     img {
       width: 100%;
-      
+      object-fit: cover;
+
       @include breakpoint-m-l {
         height: 100%;
         width: auto;
         min-width: 100%;
       };
-      
+
     }
-    
+
     &::after {
       content: '';
       display: block;
       @include absolute( 0 );
     }
-    
+
     @include breakpoint-m-l {
       align-items: center;
     };
-    
+
     // Modifies structure in terms of image alignment.
     &.-align-x-left {
       justify-content: flex-start;
@@ -92,37 +93,37 @@
     &.-align-y-center {
       align-items: center;
     }
-    
+
   }
-  
+
   // Builds feature context structure.
   &-context {
     grid-area: context;
     margin: 0;
   }
-  
+
   // Builds feature heading structure.
   &-heading {
     grid-area: heading;
     margin: 0;
   }
-  
+
   // Builds feature description structure.
   &-description {
     grid-area: description;
     margin: 0;
     display: none;
-    
+
     // Requires a flag to show descriptions.
     @include when-descendant-of( '#{$selector}.has-description' ) {
       display: block;
     };
-    
+
   }
-  
+
   // Builds feature action structure.
   &-action {
     grid-area: action;
   }
-  
+
 }
