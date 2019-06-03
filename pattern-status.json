@@ -29,6 +29,7 @@
   "molecules-explorer": "review",
   "molecules-card-contact": "review",
   "molecules-card-librarian": "review",
+  "molecules-card-staff": "review",
   "molecules-card-multimedia": "review",
   "molecules-card-library-aid": "review",
   "molecules-card-library-guide": "review",
@@ -63,6 +64,5 @@
   "templates-service-directory": "review",
   "templates-research-help": "construction",
   "templates-subject-librarian-directory": "review",
-  "molecules-card-staff": "construction",
-  "templates-staff-directory": "construction"
+  "templates-staff-directory": "review"
 }
