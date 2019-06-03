@@ -65,11 +65,13 @@
       }
       
       // Modifies button and link styles when inside of content.
-      .button,
-      button,
       .link,
       a {
         display: block;
+      }
+      .button,
+      button {
+        display: flex;
       }
     
     }
