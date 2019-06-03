@@ -56,10 +56,11 @@
   "organisms-section-main": "review",
   "organisms-section-major": "review",
   "organisms-section-minor": "review",
+  "organisms-intro-hero": "review",
   "templates-info": "review",
   "templates-material": "review",
   "templates-tool": "review",
   "templates-service-directory": "review",
   "templates-research-help": "construction",
-  "organisms-intro-hero": "review"
+  "templates-subject-librarian-directory": "review"
 }

@@ -20,6 +20,12 @@
   @include templates-service-directory;
 }
 
+// templates-research-help
 .research-help-page {
   @include templates-research-help;
+}
+
+//templates-subject-librarian-directory
+.subject-librarian-directory-page {
+  @include templates-subject-librarian-directory;
 }

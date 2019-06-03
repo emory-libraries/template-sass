@@ -1,13 +1,13 @@
 ////
-/// @group emory-libraries.patterns.templates.service-directory
+/// @group emory-libraries.patterns.templates.subject-librarian-directory
 ////
 
-/// Defines the base structure of the service-directory component.
+/// Defines the base structure of the subject-librarian-directory component.
 ///
 /// @since 1.0.0-dev.0
-%templates-service-directory {
+%templates-subject-librarian-directory {
   
-  // Builds the service-directory structure.
+  // Builds the subject-librarian-directory structure.
   margin: 0 auto;
   display: grid;
   grid-template-areas: "header"
@@ -16,7 +16,7 @@
   grid-template-rows: 150px 1fr 420px;
   grid-template-columns: 1fr;
   
-  // Builds the service directory header structure.
+  // Builds the subject librarian directory header structure.
   &-header {
     grid-area: header;
     @include absolute-center-contents;
@@ -27,12 +27,12 @@
     
   }
 
-  // Builds the service directory main structure.
+  // Builds the subject librarian directory main structure.
   &-main {
     grid-area: main;
   }
 
-  // Builds the service directory footer structure.
+  // Builds the subject librarian directory footer structure.
   &-footer {
     grid-area: footer;
     @include absolute-center-contents;

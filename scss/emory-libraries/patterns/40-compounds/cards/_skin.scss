@@ -44,6 +44,7 @@ $compounds-cards: (
   // Defines the cards component's base styles.
   grid-column-gap: $gap-x;
   grid-row-gap: $gap-y;
+  grid-auto-rows: 1fr;
   @include margin-y( $spacing );
   
   // Defines the grid size across breakpoints.
