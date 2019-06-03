@@ -20,6 +20,10 @@
   @include compounds-related;
 }
 
+.tiles {
+  @include compounds-tiles;
+}
+
 // compounds-sidebar-list
 .sidebar-list {
   @include compounds-sidebar-list;
