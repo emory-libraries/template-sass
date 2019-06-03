@@ -1,0 +1,210 @@
+////
+/// @group emory-libraries.patterns.molecules.card-staff
+////
+
+/// Defines the base skin of the card-staff component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$molecules-card-staff: (
+  
+  'color': color('blue'),
+  'context': color('blue', 'dark'),
+  'name': (
+    'normal': color('blue', 'dark'),
+    'hover': color('blue', 'bright'),
+    'active': color('blue', 'bright')
+  ),
+  'title': color('blue', 'dark'),
+  'contact': (
+    'normal': color('blue'),
+    'hover': color('blue', 'bright'),
+    'active': color('blue', 'bright')
+  ),
+  
+  'border': (
+    'thickness': $border-width-s,
+    'color': tint(color('slate'), 50%)
+  ),
+  'divider': (
+    'thickness': $border-width-s,
+    'color': tint(color('slate'), 50%),
+    'size': 100%
+  ),
+  'bar': (
+    'thickness': $border-width-m,
+    'color': $color-actionable
+  ),
+  
+  'image': 60px,
+  'icon': (
+    'size': 18px,
+    'color': color('blue'),
+    'spacing': 10px
+  ),
+  'padding': 25px,
+  'gap': (
+    'x': 50px,
+    'y': (15px, 10px)
+  )
+  
+);
+
+/// Defines the card-staff component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The card-staff component's themeable properties
+@mixin molecules-card-staff--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $size: map-deep-get($skin, 'size');
+  $image: map-deep-get($skin, 'image');
+  $padding: map-deep-get($skin, 'padding');
+  $gap-x: map-deep-get($skin, 'gap.x');
+  $gap-y: map-deep-get($skin, 'gap.y');
+  $color: map-deep-get($skin, 'color');
+  $name: map-deep-get($skin, 'name');
+  $title: map-deep-get($skin, 'title');
+  $contact: map-deep-get($skin, 'contact');
+  $context: map-deep-get($skin, 'context');
+  
+  // Get icon-specific variables.
+  $icon-size: map-deep-get($skin, 'icon.size');
+  $icon-color: map-deep-get($skin, 'icon.color');
+  $icon-spacing: map-deep-get($skin, 'icon.spacing');
+  
+  // Get border-specific variables.
+  $border-thickness: map-deep-get($skin, 'border.thickness');
+  $border-color: map-deep-get($skin, 'border.color');
+  
+  // Get bar-specific variables.
+  $bar-thickness: map-deep-get($skin, 'bar.thickness');
+  $bar-color: map-deep-get($skin, 'bar.color');
+  
+  // Get divider-specific variables.
+  $divider-thickness: map-deep-get($skin, 'divider.thickness');
+  $divider-color: map-deep-get($skin, 'divider.color');
+  $divider-size: map-deep-get($skin, 'divider.size');
+  
+  // Defines the card-librarian component's base styles.
+  padding: $padding;
+  grid-gap: $gap-x;
+  @include tokens-text('body-alt', $color);
+  font-size: 12px;
+  border: $border-thickness solid $border-color;
+  border-left: $bar-thickness solid $bar-color;
+  
+  // Defines the card's about and contact styles.
+  &-about,
+  &-contact {
+    
+    // Adds divider between grid columns.
+    &:not(:first-child)::before {
+      left: -($gap-x / 2);
+      height: $divider-size;
+      width: $divider-thickness;
+      background-color: $divider-color;
+      transform: translatex(-50%);
+    }
+    
+  }
+  
+  // Defines the card about styles.
+  &-about {
+    grid-gap: nth($gap-y, 1);
+  }
+  
+  // Defines the card contact styles.
+  &-contact {
+    
+    > *:not(:first-child) {
+      margin-top: nth($gap-y, 1);
+    }
+    
+    > *:last-child {
+      margin-top: auto;
+    }
+  
+    // Defines the card contact info styles.
+    &-info { 
+      grid-gap: nth($gap-y, 2);
+      
+      // Defines the card contact list item styles.
+      &-item { 
+        
+        a,
+        .link {
+          @include atoms-link((
+            color: $contact,
+            weight: normal
+          ));
+        }
+        
+        .icon {
+          @include size( $icon-size );
+          margin-right: $icon-spacing;
+        }
+        
+        svg {
+          fill: $icon-color;
+        }
+        
+      }
+      
+    }
+    
+    // Defines the card contact links styles.
+    &-links { 
+      grid-gap: nth($gap-y, 2);
+    
+      // Defines the card contact list item styles.
+      &-item {
+        
+        a,
+        .link {
+          @include atoms-link;
+        }
+        
+      }
+      
+    }
+    
+  }
+  
+  // Defines the card image styles.
+  &-image { 
+    @include size( $image );
+    border-radius: 100%;
+  }
+  
+  // Defines the card name styles.
+  &-name {
+    @include atoms-link((color: $name));
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  // Defines the card title styles.
+  &-title {
+    @include tokens-text('accent', $title);
+    font-style: italic !important;
+    text-align: center !important;
+  }
+  
+  // Defines the card library styles.
+  &-library {
+    text-align: center;
+  }
+  
+  // Defines the card context styles.
+  &-context {
+    @include tokens-heading('h6', $context);
+  }
+  
+}

@@ -62,5 +62,6 @@
   "templates-tool": "review",
   "templates-service-directory": "review",
   "templates-research-help": "construction",
-  "templates-subject-librarian-directory": "review"
+  "templates-subject-librarian-directory": "review",
+  "molecules-card-staff": "construction"
 }

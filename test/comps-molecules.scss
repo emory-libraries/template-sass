@@ -40,6 +40,11 @@
   @include molecules-card-librarian;
 }
 
+// molecules-card-staff
+.card-staff {
+  @include molecules-card-staff;
+}
+
 // molecules-card-multimedia
 .card-multimedia {
   @include molecules-card-multimedia;
