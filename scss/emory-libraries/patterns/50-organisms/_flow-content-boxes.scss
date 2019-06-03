@@ -1,0 +1,40 @@
+////
+/// @group emory-libraries.patterns.organisms.flow-content-boxes
+////
+
+/// Load the flow-content-boxes component's structure and skin.
+@import 'flow-content-boxes/structure';
+@import 'flow-content-boxes/skin';
+
+/// Builds a constructor for the flow-content-boxes component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} organisms-flow-content-boxes
+/// @requires {variable} organisms-flow-content-boxes
+/// @requires {mixin} organisms-flow-content-boxes--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our flow-content-boxes component
+///
+/// @status construction
+@mixin organisms-flow-content-boxes ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($organisms-flow-content-boxes, $custom);
+
+  // Initialize the flow-content-boxes component.
+  & {
+
+    // Load structure.
+    @extend %organisms-flow-content-boxes;
+
+
+    // Load skins.
+    @include organisms-flow-content-boxes--theme( $skin );
+
+  }
+
+}

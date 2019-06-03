@@ -6012,6 +6012,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="organisms">
+                          <a href="#patterns.organisms.flow-content-boxes">flow-content-boxes</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.organisms.flow-content-boxes-mixin">
+                                <a href="#patterns.organisms.flow-content-boxes-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.organisms.flow-content-boxes" data-name="organisms-flow-content-boxes" data-type="mixin">
+                                    
+                                    <a href="#patterns.organisms.flow-content-boxes-mixin-organisms-flow-content-boxes">
+                                      
+                                      organisms-flow-content-boxes
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.organisms.flow-content-boxes" data-name="organisms-flow-content-boxes--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.organisms.flow-content-boxes-mixin-organisms-flow-content-boxes--theme">
+                                      
+                                      organisms-flow-content-boxes--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.organisms.flow-content-boxes-variable">
+                                <a href="#patterns.organisms.flow-content-boxes-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.organisms.flow-content-boxes" data-name="organisms-flow-content-boxes" data-type="variable">
+                                    
+                                    <a href="#patterns.organisms.flow-content-boxes-variable-organisms-flow-content-boxes">
+                                      
+                                      organisms-flow-content-boxes
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.organisms.flow-content-boxes-placeholder">
+                                <a href="#patterns.organisms.flow-content-boxes-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.organisms.flow-content-boxes" data-name="organisms-flow-content-boxes" data-type="placeholder">
+                                    
+                                    <a href="#patterns.organisms.flow-content-boxes-placeholder-organisms-flow-content-boxes">
+                                      
+                                      organisms-flow-content-boxes
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="organisms">
                           <a href="#patterns.organisms.intro">intro</a>
                         </p>
                         
@@ -45803,7 +45911,7 @@
                               
                               
                                 
-                                  <span class="item__status item__status--construction">construction</span>
+                                  <span class="item__status item__status--review">review</span>
                                 
                               </h3>
                               
@@ -48452,10 +48560,10 @@
                                   <pre class="item__code item__code--togglable language-scss"
                                       data-current-state="collapsed"
                                       data-expanded="%molecules-feature { 
-                                
+                              
                                 // Capture selector.
                                 $selector: &amp;;
-                                
+                              
                                 // Builds the feature structure.
                                 display: grid;
                                 grid-template-areas: &quot;image&quot;
@@ -48463,7 +48571,7 @@
                                                      &quot;heading&quot;
                                                      &quot;action&quot;;
                                 grid-template-rows: 250px repeat(3, min-content);
-                                
+                              
                                 // Modifies structure for larger screens.
                                 @include breakpoint-m-l {
                                   grid-template-areas: &quot;image context&quot;
@@ -48471,7 +48579,7 @@
                                                        &quot;image action&quot;;
                                   grid-template-rows: repeat(2, min-content) 1fr;
                                 };
-                                
+                              
                                 // Modifies styles for descriptions.
                                 &amp;.has-description {
                                   grid-template-areas: &quot;image&quot;
@@ -48479,7 +48587,7 @@
                                                        &quot;heading&quot;
                                                        &quot;description&quot;
                                                        &quot;action&quot;;
-                                  
+                              
                                   // Modifies styles for descriptions.
                                   @include breakpoint-m-l {
                                     grid-template-areas: &quot;image context&quot;
@@ -48488,37 +48596,38 @@
                                                          &quot;image action&quot;;
                                     grid-template-rows: repeat(2, min-content) auto 1fr;
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Builds feature image structure.
                                 &amp;-image {
                                   @include absolute( 0 );
                                   @include absolute-center-contents;
                                   grid-area: image;
                                   overflow: hidden;
-                                  
+                              
                                   img {
                                     width: 100%;
-                                    
+                                    object-fit: cover;
+                              
                                     @include breakpoint-m-l {
                                       height: 100%;
                                       width: auto;
                                       min-width: 100%;
                                     };
-                                    
+                              
                                   }
-                                  
+                              
                                   &amp;::after {
                                     content: &#x27;&#x27;;
                                     display: block;
                                     @include absolute( 0 );
                                   }
-                                  
+                              
                                   @include breakpoint-m-l {
                                     align-items: center;
                                   };
-                                  
+                              
                                   // Modifies structure in terms of image alignment.
                                   &amp;.-align-x-left {
                                     justify-content: flex-start;
@@ -48538,39 +48647,39 @@
                                   &amp;.-align-y-center {
                                     align-items: center;
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Builds feature context structure.
                                 &amp;-context {
                                   grid-area: context;
                                   margin: 0;
                                 }
-                                
+                              
                                 // Builds feature heading structure.
                                 &amp;-heading {
                                   grid-area: heading;
                                   margin: 0;
                                 }
-                                
+                              
                                 // Builds feature description structure.
                                 &amp;-description {
                                   grid-area: description;
                                   margin: 0;
                                   display: none;
-                                  
+                              
                                   // Requires a flag to show descriptions.
                                   @include when-descendant-of( &#x27;#{$selector}.has-description&#x27; ) {
                                     display: block;
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Builds feature action structure.
                                 &amp;-action {
                                   grid-area: action;
                                 }
-                                
+                              
                                }"
                                       data-collapsed="%molecules-feature { ... }"><code class="js-autoindent">%molecules-feature { ... }</code></pre>
                               
@@ -58011,6 +58120,8 @@
             
             
             
+            
+            
             <section class="main__section main__section--level-2 ">
             
               <h2 class="main__heading" id="patterns.organisms">
@@ -58018,6 +58129,677 @@
                 <div class="container">Organisms</div>
                 
               </h2>
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
+                    <h3 class="main__heading" id="patterns.organisms.flow-content-boxes">
+                      
+                      <div class="container">flow-content-boxes</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.organisms.flow-content-boxes-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.organisms.flow-content-boxes-mixin-organisms-flow-content-boxes">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.organisms.flow-content-boxes-mixin-organisms-flow-content-boxes">
+                                  organisms-flow-content-boxes
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--construction">construction</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin organisms-flow-content-boxes($custom) { 
+                              
+                                // Extend the default skin.
+                                $skin: map-extend($organisms-flow-content-boxes, $custom);
+                              
+                                // Initialize the flow-content-boxes component.
+                                &amp; {
+                              
+                                  // Load structure.
+                                  @extend %organisms-flow-content-boxes;
+                              
+                              
+                                  // Load skins.
+                                  @include organisms-flow-content-boxes--theme( $skin );
+                              
+                                }
+                              
+                               }"
+                                       data-collapsed="@mixin organisms-flow-content-boxes($custom) { ... }"><code class="js-autoindent">@mixin organisms-flow-content-boxes($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the flow-content-boxes component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our flow-content-boxes component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.organisms.flow-content-boxes-placeholder-organisms-flow-content-boxes"><code>organisms-flow-content-boxes</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.organisms.flow-content-boxes-variable-organisms-flow-content-boxes"><code>organisms-flow-content-boxes</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.organisms.flow-content-boxes-mixin-organisms-flow-content-boxes--theme"><code>organisms-flow-content-boxes--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.organisms.flow-content-boxes-mixin-organisms-flow-content-boxes--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.organisms.flow-content-boxes-mixin-organisms-flow-content-boxes--theme">
+                                  organisms-flow-content-boxes--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin organisms-flow-content-boxes--theme($skin) { 
+                              
+                                // Capture themeable variables from skin.
+                                $gap: map-deep-get($skin, &#x27;gap&#x27;);
+                              
+                                // Defines the flow-content-boxes component&#x27;s base styles.
+                                grid-column-gap: $gap;
+                              
+                               }"
+                                       data-collapsed="@mixin organisms-flow-content-boxes--theme($skin) { ... }"><code class="js-autoindent">@mixin organisms-flow-content-boxes--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the flow-content-boxes component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The flow-content-explorer component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.organisms.flow-content-boxes-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.organisms.flow-content-boxes-variable-organisms-flow-content-boxes">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.organisms.flow-content-boxes-variable-organisms-flow-content-boxes">
+                                  organisms-flow-content-boxes
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$organisms-flow-content-boxes: (
+                              
+                                &#x27;gap&#x27;: 36px,
+                              
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the flow-content-boxes component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.organisms.flow-content-boxes-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.organisms.flow-content-boxes-placeholder-organisms-flow-content-boxes">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.organisms.flow-content-boxes-placeholder-organisms-flow-content-boxes">
+                                  organisms-flow-content-boxes
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%organisms-flow-content-boxes { 
+                              
+                                // Captures the selector.
+                                $selector: &amp;;
+                              
+                                // Builds the flow-content-boxes structure.
+                                // ...
+                                display: grid;
+                                grid-template-columns: 1fr;
+                                grid-template-rows: minmax(460px, min-content);
+                              
+                                &amp;-feature{
+                                  grid-column: 1/span 1;
+                                }
+                              
+                                &amp;-explorer {
+                                  grid-column: 2/span 1;
+                                }
+                              
+                                @include breakpoint-xl() {
+                                  grid-template-columns: minmax(min-content, 2fr) minmax(min-content, 376px);
+                                }
+                               }"
+                                      data-collapsed="%organisms-flow-content-boxes { ... }"><code class="js-autoindent">%organisms-flow-content-boxes { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the flow-content-boxes component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#utils.mixins-mixin-breakpoint-xl"><code>breakpoint-xl</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
               
               
               
@@ -65785,7 +66567,7 @@
                               
                               
                                 
-                                  <span class="item__status item__status--construction">construction</span>
+                                  <span class="item__status item__status--review">review</span>
                                 
                               </h3>
                               
@@ -73699,6 +74481,8 @@
                             
                         
                         
+                            
+                            
                             
                             
                             

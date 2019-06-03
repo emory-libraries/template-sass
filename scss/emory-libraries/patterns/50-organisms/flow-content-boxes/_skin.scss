@@ -1,0 +1,33 @@
+////
+/// @group emory-libraries.patterns.organisms.flow-content-boxes
+////
+
+/// Defines the base skin of the flow-content-boxes component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$organisms-flow-content-boxes: (
+
+  'gap': 36px,
+
+);
+
+/// Defines the flow-content-boxes component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The flow-content-explorer component's themeable properties
+@mixin organisms-flow-content-boxes--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $gap: map-deep-get($skin, 'gap');
+
+  // Defines the flow-content-boxes component's base styles.
+  grid-column-gap: $gap;
+
+}
