@@ -25,12 +25,17 @@
   @include templates-research-help;
 }
 
-//templates-subject-librarian-directory
+// templates-subject-librarian-directory
 .subject-librarian-directory-page {
   @include templates-subject-librarian-directory;
 }
 
-//templates-staff-directory
+// templates-staff-directory
 .staff-directory-page {
   @include templates-staff-directory;
+}
+
+// templates-bio
+.bio-page {
+  @include templates-bio;
 }

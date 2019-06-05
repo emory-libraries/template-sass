@@ -87,6 +87,11 @@
       
     }
     
+    // Modifies structure when used for a bio heading intro.
+    &.-bio {
+      @include margin-y( 0 );
+    }
+    
   }
   
   // Builds the intro subtitle structure.

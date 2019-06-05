@@ -68,9 +68,7 @@ $organisms-section-main: (
   }
 
   // Defines the main sidebar styles.
-  &-sidebar {
-    border: $border-width-s solid color('slate'); // TEMPORARY
-  }
+  &-sidebar { }
   
   // Defines the main spacer styles.
   &-spacer {

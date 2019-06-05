@@ -97,8 +97,8 @@
     @if( map-get($elements, 'sidebar') ) {
       
       // Reset variables.
-      $rows: ('[main-start] [breadcrumb-start] min-content');
-      $name: ('breadcrumb-end');
+      $rows: ('[breadcrumb-start] min-content');
+      $name: ('breadcrumb-end main-start');
       
       // Remove the sidebar from the grid elements.
       $elements: map-remove($elements, 'sidebar');
@@ -207,10 +207,6 @@
     display: flex;
     justify-content: center;
 
-    &::after {
-      content: 'Sidebar'; // TEMPORARY
-    }
-
     // Adjust the main sidebar structure across large screens.
     @include breakpoint-l {
       grid-column: sidebar;
@@ -241,6 +237,7 @@
   &.-info-page, 
   &.-material-page,
   &.-tool-page,
+  &.-bio-page,
   &.-research-help-page,
   &.-service-directory-page,
   &.-subject-librarian-directory-page,
@@ -257,6 +254,7 @@
     '.-info-page',
     '.-material-page',
     '.-tool-page',
+    '.-bio-page',
     '.-research-help-page',
     '.-service-directory-page',
     '.-subject-librarian-directory-page',
@@ -309,6 +307,38 @@
       // Adjust the sidebar placement within the grid.
       #{$selector}-sidebar {
         grid-row: subtitle / main;
+      }
+    
+    };
+
+  }
+
+  // Builds the main structure when used for a bio page.
+  &.-bio-page {
+    @include grid-layout;
+    
+    // Add a top margin to the title and sidebar to make up for the title acting as a wrapper.
+    #{$selector}-title,
+    #{$selector}-sidebar {
+      margin-top: px( map-deep-get($fonts-scale, 'heading.h1') * $base-font-size * .67 );
+    }
+
+    // Add a margin to the subtitle to make up for the subtitle acting as a wrapper.
+    #{$selector}-subtitle {
+      @include margin-y($rhythm-y / 2);
+    }
+
+    // Adjusts the main structure across large screens.
+    @include breakpoint-l {
+      
+      // Adjust the breadcrumb placement within the grid.
+      #{$selector}-breadcrumb {
+        grid-column: main / sidebar;
+      }
+      
+      // Adjusts the title placement within the grid.
+      #{$selector}-title {
+        grid-column: main;
       }
     
     };
