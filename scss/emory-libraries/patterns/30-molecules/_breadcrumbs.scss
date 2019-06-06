@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.molecules.breadcrumbs
+////
+
+/// Load the breadcrumbs component's structure and skin.
+@import 'breadcrumbs/structure';
+@import 'breadcrumbs/skin';
+
+/// Builds a constructor for the breadcrumbs component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} molecules-breadcrumbs
+/// @requires {variable} molecules-breadcrumbs
+/// @requires {mixin} molecules-breadcrumbs--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our breadcrumbs component
+///
+/// @status construction
+@mixin molecules-breadcrumbs ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-breadcrumbs, $custom);
+  
+  // Initialize the breadcrumbs component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-breadcrumbs;
+    
+    // Load skins.
+    @include molecules-breadcrumbs--theme( $skin );
+    
+  }
+  
+}

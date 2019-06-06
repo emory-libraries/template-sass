@@ -1,0 +1,43 @@
+////
+/// @group emory-libraries.patterns.molecules.breadcrumbs
+////
+
+/// Defines the base skin of the breadcrumbs component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$molecules-breadcrumbs: (
+
+  'color': color('blue', 'bright')
+
+);
+
+/// Defines the breadcrumbs component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The breadcrumbs component's themeable properties
+@mixin molecules-breadcrumbs--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $color: map-deep-get($skin, 'color');
+
+  // Defines the breadcrumbs component's base styles.
+  & li {
+    font-size: .8125em !important;
+    line-height: 1.4 !important;
+
+    &:not(:last-child)::after {
+      margin: 0 .5em;
+      content: '\203a';
+      color: $color;
+      font-weight: bold;
+    }
+
+  }
+}
