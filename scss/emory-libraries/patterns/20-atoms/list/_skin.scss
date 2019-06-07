@@ -8,18 +8,18 @@
 ///
 /// @type map
 $atoms-list: (
-  
+
   'marker': (
     'offset': 25px
   ),
-  
+
   'bulleted': (
     'marker': (
       'style': '■',
       'color': color('blue', 'bright')
     )
   ),
-  
+
   'numbered': (
     'marker': (
       'style': decimal,
@@ -27,15 +27,15 @@ $atoms-list: (
       'color': color('blue', 'bright')
     )
   ),
-  
+
   'topics': (
     'delimiter': ','
   ),
-  
+
   'files': (
     'gap': 10px
   )
-  
+
 );
 
 /// Defines the list component theme.
@@ -48,38 +48,38 @@ $atoms-list: (
 ///
 /// @output The list component's themeable properties
 @mixin atoms-list--theme ( $skin ) {
-  
+
   // Capture selector.
   $selector: &;
-  
+
   // Capture themeable variables from skin.
   // ...
-  
+
   // Get marker-specific variables.
   $marker-offset: map-deep-get($skin, 'marker.offset');
-  
+
   // Defines the list component's base styles.
   // ...
-  
+
   // Defines bulleted list styles.
   &:not(.-numbered):not(.-links):not(.-topics):not(.-files),
-  &.-bulleted { 
+  &.-bulleted {
     padding-left: $marker-offset;
 
     // Add list item styles.
     #{$selector}-item {
-      
+
       // Add markers to list items.
       &::before {
         content: map-deep-get($skin, 'bulleted.marker.style');
         color: map-deep-get($skin, 'bulleted.marker.color');
         left: -$marker-offset;
       }
-      
+
     }
-    
+
   }
-  
+
   // Defines numbered list styles.
   &.-numbered {
     counter-reset: numbered-list-item;
@@ -87,11 +87,11 @@ $atoms-list: (
 
     // Add list item styles.
     #{$selector}-item {
-      
+
       // Add markers to list items.
       &::before {
         $marker: counter(numbered-list-item, map-deep-get($skin, 'numbered.marker.style'));
-        
+
         content: if(map-deep-get($skin, 'numbered.marker.period') == true, $marker '.', $marker);
         counter-increment: numbered-list-item;
         color: map-deep-get($skin, 'numbered.marker.color');
@@ -102,35 +102,32 @@ $atoms-list: (
         font-style: normal;
         line-height: inherit;
       }
-      
+
     }
 
   }
-  
+
   // Defines link list styles.
   &.-links { }
-  
+
   // Defines topic list styles.
-  &.-topics { 
+  &.-topics {
 
     // Add topic list styles.
     #{$selector}-item {
-      
+
       // Add delimiters to list items.
       &:not(:last-child)::after {
         content: map-deep-get($skin, 'topics.delimiter') ' ';
       }
-      
+
     }
-    
+
   }
-  
+
   // Defines file list styles.
-  &.-files { 
-    --rows: 4;
-    
-    grid-template-rows: repeat(var(--rows), auto);
+  &.-files {
     grid-gap: map-deep-get($skin, 'files.gap');
   }
-  
+
 }

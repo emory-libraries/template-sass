@@ -21129,35 +21129,35 @@
                                   <pre class="item__code item__code--togglable language-scss"
                                       data-current-state="collapsed"
                                       data-expanded="%atoms-list { 
-                                
+                              
                                 // Capture the selector.
                                 $selector: &amp;;
-                                
+                              
                                 // Builds the list structure.
                                 @include margin-x( 0 );
                                 @include padding-x( 0 );
                                 list-style-type: none;
-                                
+                              
                                 // Adds structure for list items.
                                 &amp;-item { }
-                                
+                              
                                 // Builds structure for bulleted lists.
                                 &amp;:not(.-numbered):not(.-links):not(.-topics):not(.-files),
                                 &amp;.-bulleted {
-                                  
+                              
                                   // Modifies structure of bulleted list items.
                                   #{$selector}-item {
                                     display: block;
-                                    
+                              
                                     // Modifies structure of bulleted list item markers.
                                     &amp;::before {
                                       position: absolute;
                                       display: block;
                                       top: 0;
                                     }
-                                    
+                              
                                     // Handle structure of descendents.
-                                
+                              
                                     :first-child {
                                       margin-top: 0;
                                     }
@@ -21165,27 +21165,27 @@
                                     :last-child {
                                       margin-bottom: 0;
                                     }
-                                    
+                              
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Builds structure for numbered lists.
-                                &amp;.-numbered { 
+                                &amp;.-numbered {
                               
                                   // Modifies structure of numbered list items.
                                   #{$selector}-item {
                                     display: block;
-                                    
+                              
                                     // Modifies structure of numbered list item markers.
                                     &amp;::before {
                                       position: absolute;
                                       display: block;
                                       top: 0;
                                     }
-                                    
+                              
                                     // Handle structure of descendents.
-                                
+                              
                                     :first-child {
                                       margin-top: 0;
                                     }
@@ -21193,21 +21193,21 @@
                                     :last-child {
                                       margin-bottom: 0;
                                     }
-                                    
+                              
                                   }
                               
                                 }
-                                
+                              
                                 // Builds structure for link lists.
-                                &amp;.-links { 
+                                &amp;.-links {
                               
                                   // Modifies structure of link list items.
                                   #{$selector}-item {
                                     display: block;
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Builds structure for topic lists.
                                 &amp;.-topics {
                               
@@ -21217,20 +21217,21 @@
                                   }
                               
                                 }
-                                
+                              
                                 // Builds structure for file lists.
                                 &amp;.-files {
                                   display: grid;
-                                  grid-auto-flow: column;
-                                  grid-auto-columns: auto;
-                                  
+                                  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
                                   // Modifies structure of file list items.
                                   #{$selector}-item {
                                     display: block;
                                   }
-                                  
+                              
+                                  .link {
+                                    align-items: flex-start;
+                                  }
                                 }
-                                
+                              
                                }"
                                       data-collapsed="%atoms-list { ... }"><code class="js-autoindent">%atoms-list { ... }</code></pre>
                               
@@ -33112,7 +33113,7 @@
                               
                                 &amp;-heading {
                                   color: $color !important;
-                                  font-weight: normal;
+                                  font-weight: normal !important;
                                 }
                               
                                }"
