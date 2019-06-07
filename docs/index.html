@@ -8650,8 +8650,6 @@
                       
                       
                       
-                      
-                      
                   
                   
                   
@@ -39182,7 +39180,7 @@
                               
                                   &amp;:not(:last-child)::after {
                                     margin: 0 .5em;
-                                    content: icon-url( &#x27;material-chevron_right&#x27;, $color );
+                                    content: &#x27;\203a&#x27;;
                                     color: $color;
                                     font-weight: bold;
                                   }
@@ -39269,20 +39267,6 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
-                                  
-                                  
-                                    
-                                          
-                                  
-                                          <li class="item__description  item__description--inline">
-                                  
-                                            <span class="item__cross-type">function</span>
-                                  
-                                            <a href="#utils.functions-function-icon-url"><code>icon-url</code></a>
-                                  
-                                  
-                                          </li>
-                                  
                                   
                                   
                                   
@@ -39475,6 +39459,8 @@
                                 // Builds the breadcrumbs structure.
                                 display: flex;
                                 list-style-type: none;
+                                padding: 0;
+                                margin: 0;
                                }"
                                       data-collapsed="%molecules-breadcrumbs { ... }"><code class="js-autoindent">%molecules-breadcrumbs { ... }</code></pre>
                               
@@ -60973,11 +60959,6 @@
                               
                                 // Defines the section-main component&#x27;s base styles.
                                 grid-column-gap: $gap;
-                                
-                                // Defines the main breadcrumb styles.
-                                &amp;-breadcrumb {
-                                  border: $border-width-s solid color(&#x27;slate&#x27;); // TEMPORARY
-                                }
                               
                                 // Defines the main title styles.
                                 &amp;-title { }
@@ -61005,15 +60986,15 @@
                               
                                 // Defines the main sidebar styles.
                                 &amp;-sidebar { }
-                                
+                              
                                 // Defines the main spacer styles.
                                 &amp;-spacer {
                                   height: $gap;
                                 }
-                                
+                              
                                 // Defines the main content styles.
                                 &amp;-content { }
-                                
+                              
                                 // Defines the main section styles.
                                 &amp;-section { }
                               
@@ -61108,20 +61089,6 @@
                                             <span class="item__cross-type">mixin</span>
                                   
                                             <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
-                                  
-                                  
-                                          </li>
-                                  
-                                  
-                                  
-                                    
-                                          
-                                  
-                                          <li class="item__description  item__description--inline">
-                                  
-                                            <span class="item__cross-type">variable</span>
-                                  
-                                            <a href="#config-variable-border-width-s"><code>border-width-s</code></a>
                                   
                                   
                                           </li>
@@ -61325,7 +61292,7 @@
                               
                                 // Captures selector.
                                 $selector: &amp;;
-                                
+                              
                                 // Set the maximum number of auto placement rows allowed.
                                 $max-rows: (
                                   &#x27;auto&#x27;: 100,
@@ -61338,10 +61305,10 @@
                                 max-width: 1236px;
                                 display: grid;
                                 grid-area: main;
-                                
+                              
                                 // Initializes a helper for building page-specific grid layouts.
                                 @mixin grid-layout( $overrides: () ) {
-                                  
+                              
                                   // Override any element settings.
                                   $elements: map-extend((
                                     &#x27;title&#x27;: true,
@@ -61351,77 +61318,77 @@
                                     &#x27;section&#x27;: true,
                                     &#x27;sidebar&#x27;: true
                                   ), $overrides);
-                                  
+                              
                                   // Initialize variables to build grid row definitions.
                                   $rows: (&#x27;[breadcrumb-start] min-content&#x27;);
                                   $name: (&#x27;breadcrumb-end&#x27;);
-                                  
+                              
                                   // Build definitions for grid rows.
                                   @each $element, $enabled in $elements {
-                                    
+                              
                                     // Only initialize the row if it&#x27;s enabled.
                                     @if( $enabled ) {
-                                      
+                              
                                       // Initialize the row.
                                       $row: ();
                               
                                       // Build the row definition.
                                       @if( $element !&#x3D; &#x27;auto&#x27; and $element !&#x3D; &#x27;section&#x27; ) {
-                                        
+                              
                                         $name: append($name, &#x27;#{$element}-start&#x27;, space);
                                         $row: append($row, &#x27;[#{$name}] min-content&#x27;, space);
                                         $name: append((), &#x27;#{$element}-end&#x27;, space);
-                                      
+                              
                                       }
-                                  
+                              
                                       @else {
                               
-                                        @if( length($name) &gt; 0 ) { 
-                                          $row: append($row, &#x27;[#{$name}]&#x27;, space); 
+                                        @if( length($name) &gt; 0 ) {
+                                          $row: append($row, &#x27;[#{$name}]&#x27;, space);
                                         }
                               
                                         $max: map-get($max-rows, $element);
                                         $row: append($row, &#x27;repeat(#{$max}, [#{$element}-start] min-content [#{$element}-end])&#x27;, space);
                                         $name: ();
-                                  
+                              
                                       }
-                                    
+                              
                                       // Save the row definition.
                                       $rows: join($rows, $row);
                               
                                     }
-                                    
+                              
                                   }
-                                  
+                              
                                   // Merge any remaining names into the rows.
                                   @if( length($name) &gt; 0 ) {
-                                    $rows: append($rows, &#x27;[#{$name}]&#x27;, space); 
+                                    $rows: append($rows, &#x27;[#{$name}]&#x27;, space);
                                   }
-                                  
+                              
                                   // Set the default grid layout across all breakpoints.
                                   @include breakpoint-s-m-l {
-                                  
+                              
                                     // Define a single-column layout as the default.
                                     grid-template-columns: [main-start] 1fr [main-end];
                               
                                     // Define the grid&#x27;s default row templates.
                                     grid-template-rows: #{unstringify($rows)};
-                                    
+                              
                                   };
-                                  
+                              
                                   // If sidebar exists, then also create a two-column layout for large screens.
                                   @if( map-get($elements, &#x27;sidebar&#x27;) ) {
-                                    
+                              
                                     // Reset variables.
                                     $rows: (&#x27;[breadcrumb-start] min-content&#x27;);
                                     $name: (&#x27;breadcrumb-end main-start&#x27;);
-                                    
+                              
                                     // Remove the sidebar from the grid elements.
                                     $elements: map-remove($elements, &#x27;sidebar&#x27;);
-                                    
+                              
                                     // Build responsive definitions for grid rows.
                                     @each $element, $enabled in $elements {
-                                    
+                              
                                       // Only initialize the row if it&#x27;s enabled.
                                       @if( $enabled ) {
                               
@@ -61438,13 +61405,13 @@
                                         }
                               
                                         @else {
-                                          
+                              
                                           @if( $element &#x3D;&#x3D; &#x27;section&#x27; ) {
                                             $name: append($name, &#x27;main-end&#x27;, space);
                                           }
-                                          
-                                          @if( length($name) &gt; 0 ) { 
-                                            $row: append($row, &#x27;[#{$name}]&#x27;, space); 
+                              
+                                          @if( length($name) &gt; 0 ) {
+                                            $row: append($row, &#x27;[#{$name}]&#x27;, space);
                                           }
                               
                                           $max: map-get($max-rows, $element);
@@ -61459,43 +61426,36 @@
                                       }
                               
                                     }
-                                    
+                              
                                     // Close the main grid area if not previously closed.
                                     @if( not map-get($elements, &#x27;section&#x27;) ) {
                                       $name: append($name, &#x27;main-end&#x27;, space);
                                     }
                               
                                     // Merge any remaining names into the rows.
-                                    @if( length($name) &gt; 0 ) { 
-                                      $rows: append($rows, &#x27;[#{$name}]&#x27;, space); 
+                                    @if( length($name) &gt; 0 ) {
+                                      $rows: append($rows, &#x27;[#{$name}]&#x27;, space);
                                     }
-                                    
+                              
                                     // Override the gird layout for large screens.
                                     @include breakpoint-l {
-                                      
+                              
                                       // Define a two-column grid layout for large screens.
                                       grid-template-columns: [main-start] 1fr [main-end sidebar-start] 340px [sidebar-end];
-                                      
+                              
                                       // Define the grid&#x27;s row templates.
                                       grid-template-rows: #{unstringify($rows)};
-                                      
+                              
                                     };
-                                    
+                              
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Builds the main breadcrumb structure.
                                 &amp;-breadcrumb {
                                   grid-column: main;
                                   grid-row: breadcrumb;
-                                  display: flex;
-                                  justify-content: center;
-                                  
-                                  &amp;::after {
-                                    content: &#x27;Breadcrumb&#x27;; // TEMPORARY
-                                  }
-                                  
                                 }
                               
                                 // Builds the main title structure.
@@ -61528,29 +61488,29 @@
                                     grid-column: sidebar;
                                     grid-row: main;
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Builds the main spacer structure.
                                 &amp;-spacer {
                                   grid-column: main;
                                   grid-row: auto;
                                 }
-                                
+                              
                                 // Builds the main content structure.
                                 &amp;-content {
                                   grid-column: main;
                                   grid-row: auto;
                                 }
-                                
+                              
                                 // Builds the main section structure.
                                 &amp;-section {
                                   grid-column: main / sidebar;
                                   grid-row: section;
                                 }
-                                
+                              
                                 // Remove spacing between title and subtitle on most pages.
-                                &amp;.-info-page, 
+                                &amp;.-info-page,
                                 &amp;.-material-page,
                                 &amp;.-tool-page,
                                 &amp;.-bio-page,
@@ -61558,15 +61518,15 @@
                                 &amp;.-service-directory-page,
                                 &amp;.-subject-librarian-directory-page,
                                 &amp;.-staff-directory-page, {
-                                  
+                              
                                   #{$selector}-title {
                                     margin-bottom: 0;
                                   }
-                                  
+                              
                                 }
                               
                                 // Builds the main structure when used for an info page.
-                                &amp;#{selector-excludes( 
+                                &amp;#{selector-excludes(
                                   &#x27;.-info-page&#x27;,
                                   &#x27;.-material-page&#x27;,
                                   &#x27;.-tool-page&#x27;,
@@ -61581,12 +61541,12 @@
                               
                                   // Adjust the main structure across large screens.
                                   @include breakpoint-l {
-                                     
+                              
                                     // Adjust the breadcrumb placement within the grid.
                                     #{$selector}-breadcrumb {
                                       grid-column: main / sidebar;
                                     }
-                                    
+                              
                                     // Adjust the title and subtitle placement within the grid.
                                     #{$selector}-title,
                                     #{$selector}-subtitle, {
@@ -61597,34 +61557,34 @@
                                     #{$selector}-sidebar {
                                       grid-row: body / main;
                                     }
-                                     
+                              
                                   };
-                                  
+                              
                                 }
                               
                                 // Builds the main structure when used for a material and tool pages.
-                                &amp;.-material-page, 
+                                &amp;.-material-page,
                                 &amp;.-tool-page {
                                   @include grid-layout;
                               
                                   // Adjusts the main structure across large screens.
                                   @include breakpoint-l {
-                                    
+                              
                                     // Adjust the breadcrumb placement within the grid.
                                     #{$selector}-breadcrumb {
                                       grid-column: main / sidebar;
                                     }
-                                    
+                              
                                     // Adjusts the title placement within the grid.
                                     #{$selector}-title {
                                       grid-column: main / sidebar;
                                     }
-                                  
+                              
                                     // Adjust the sidebar placement within the grid.
                                     #{$selector}-sidebar {
                                       grid-row: subtitle / main;
                                     }
-                                  
+                              
                                   };
                               
                                 }
@@ -61632,7 +61592,7 @@
                                 // Builds the main structure when used for a bio page.
                                 &amp;.-bio-page {
                                   @include grid-layout;
-                                  
+                              
                                   // Add a top margin to the title and sidebar to make up for the title acting as a wrapper.
                                   #{$selector}-title,
                                   #{$selector}-sidebar {
@@ -61646,17 +61606,17 @@
                               
                                   // Adjusts the main structure across large screens.
                                   @include breakpoint-l {
-                                    
+                              
                                     // Adjust the breadcrumb placement within the grid.
                                     #{$selector}-breadcrumb {
                                       grid-column: main / sidebar;
                                     }
-                                    
+                              
                                     // Adjusts the title placement within the grid.
                                     #{$selector}-title {
                                       grid-column: main;
                                     }
-                                  
+                              
                                   };
                               
                                 }
@@ -61669,7 +61629,7 @@
                                     &#x27;section&#x27;: false,
                                     &#x27;sidebar&#x27;: false
                                   ));
-                                  
+                              
                                   // Hide grid areas that are not being used within this page type.
                                   #{$selector}-spacer,
                                   #{$selector}-content,
@@ -61677,7 +61637,7 @@
                                   #{$selector}-sidebar {
                                     display: none;
                                   }
-                                  
+                              
                                   &amp;.without-intro {
                                     @include grid-layout((
                                       &#x27;title&#x27;: false,
@@ -61687,15 +61647,15 @@
                                       &#x27;section&#x27;: false,
                                       &#x27;sidebar&#x27;: false
                                     ));
-                                    
+                              
                                     // Hide grid areas that are not being used within this page type.
                                     #{$selector}-title,
                                     #{$selector}-subtitle {
                                       display: none;
                                     }
-                                    
+                              
                                   }
-                                  
+                              
                                 }
                               
                                 // Builds the main structure when used for a research help page.
@@ -61705,14 +61665,14 @@
                                     &#x27;section&#x27;: false,
                                     &#x27;sidebar&#x27;: false
                                   ));
-                                  
+                              
                                   // Hide grid areas that are not being used within this page type.
                                   #{$selector}-subtitle,
                                   #{$selector}-section,
                                   #{$selector}-sidebar {
                                     display: none;
                                   }
-                                  
+                              
                                 }
                               
                                 // Builds the main structure when used for a subject librarian directory and staff directory page.
@@ -61724,7 +61684,7 @@
                                     &#x27;section&#x27;: false,
                                     &#x27;sidebar&#x27;: false
                                   ));
-                                  
+                              
                                   // Hide grid areas that are not being used within this page type.
                                   #{$selector}-spacer,
                                   #{$selector}-content,
@@ -61732,7 +61692,7 @@
                                   #{$selector}-sidebar {
                                     display: none;
                                   }
-                                  
+                              
                                   &amp;.without-intro {
                                     @include grid-layout((
                                       &#x27;title&#x27;: false,
@@ -61742,13 +61702,13 @@
                                       &#x27;section&#x27;: false,
                                       &#x27;sidebar&#x27;: false
                                     ));
-                                    
+                              
                                     // Hide grid areas that are not being used within this page type.
                                     #{$selector}-title,
                                     #{$selector}-subtitle {
                                       display: none;
                                     }
-                                    
+                              
                                   }
                               
                                 }
@@ -74353,8 +74313,6 @@
                             
                         
                         
-                            
-                            
                             
                             
                             

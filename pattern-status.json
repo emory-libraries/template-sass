@@ -46,6 +46,7 @@
   "molecules-alert": "review",
   "molecules-notification": "review",
   "molecules-card-button": "review",
+  "molecules-breadcrumbs": "review",
   "compounds-utility-list": "review",
   "compounds-cards": "review",
   "compounds-accordion": "review",
@@ -65,6 +66,5 @@
   "templates-research-help": "construction",
   "templates-subject-librarian-directory": "review",
   "templates-staff-directory": "review",
-  "templates-bio": "review",
-  "molecules-breadcrumbs": "construction"
+  "templates-bio": "review"
 }
