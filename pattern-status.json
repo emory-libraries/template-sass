@@ -53,6 +53,7 @@
   "compounds-blocks": "construction",
   "compounds-sidebar-list": "review",
   "compounds-tiles": "review",
+  "compounds-grouping-files": "review",
   "organisms-intro": "review",
   "organisms-section-main": "review",
   "organisms-section-major": "review",
@@ -65,6 +66,5 @@
   "templates-research-help": "construction",
   "templates-subject-librarian-directory": "review",
   "templates-staff-directory": "review",
-  "templates-bio": "review",
-  "compounds-grouping-files": "construction"
+  "templates-bio": "review"
 }

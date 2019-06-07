@@ -20750,38 +20750,38 @@
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
                                        data-expanded="@mixin atoms-list--theme($skin) { 
-                                
+                              
                                 // Capture selector.
                                 $selector: &amp;;
-                                
+                              
                                 // Capture themeable variables from skin.
                                 // ...
-                                
+                              
                                 // Get marker-specific variables.
                                 $marker-offset: map-deep-get($skin, &#x27;marker.offset&#x27;);
-                                
+                              
                                 // Defines the list component&#x27;s base styles.
                                 // ...
-                                
+                              
                                 // Defines bulleted list styles.
                                 &amp;:not(.-numbered):not(.-links):not(.-topics):not(.-files),
-                                &amp;.-bulleted { 
+                                &amp;.-bulleted {
                                   padding-left: $marker-offset;
                               
                                   // Add list item styles.
                                   #{$selector}-item {
-                                    
+                              
                                     // Add markers to list items.
                                     &amp;::before {
                                       content: map-deep-get($skin, &#x27;bulleted.marker.style&#x27;);
                                       color: map-deep-get($skin, &#x27;bulleted.marker.color&#x27;);
                                       left: -$marker-offset;
                                     }
-                                    
+                              
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Defines numbered list styles.
                                 &amp;.-numbered {
                                   counter-reset: numbered-list-item;
@@ -20789,11 +20789,11 @@
                               
                                   // Add list item styles.
                                   #{$selector}-item {
-                                    
+                              
                                     // Add markers to list items.
                                     &amp;::before {
                                       $marker: counter(numbered-list-item, map-deep-get($skin, &#x27;numbered.marker.style&#x27;));
-                                      
+                              
                                       content: if(map-deep-get($skin, &#x27;numbered.marker.period&#x27;) &#x3D;&#x3D; true, $marker &#x27;.&#x27;, $marker);
                                       counter-increment: numbered-list-item;
                                       color: map-deep-get($skin, &#x27;numbered.marker.color&#x27;);
@@ -20804,37 +20804,34 @@
                                       font-style: normal;
                                       line-height: inherit;
                                     }
-                                    
+                              
                                   }
                               
                                 }
-                                
+                              
                                 // Defines link list styles.
                                 &amp;.-links { }
-                                
+                              
                                 // Defines topic list styles.
-                                &amp;.-topics { 
+                                &amp;.-topics {
                               
                                   // Add topic list styles.
                                   #{$selector}-item {
-                                    
+                              
                                     // Add delimiters to list items.
                                     &amp;:not(:last-child)::after {
                                       content: map-deep-get($skin, &#x27;topics.delimiter&#x27;) &#x27; &#x27;;
                                     }
-                                    
+                              
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Defines file list styles.
-                                &amp;.-files { 
-                                  --rows: 4;
-                                  
-                                  grid-template-rows: repeat(var(--rows), auto);
+                                &amp;.-files {
                                   grid-gap: map-deep-get($skin, &#x27;files.gap&#x27;);
                                 }
-                                
+                              
                                }"
                                        data-collapsed="@mixin atoms-list--theme($skin) { ... }"><code class="js-autoindent">@mixin atoms-list--theme($skin) { ... }</code></pre>
                               
@@ -21002,18 +20999,18 @@
                                 <div class="item__code-wrapper">
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$atoms-list: (
-                                
+                              
                                 &#x27;marker&#x27;: (
                                   &#x27;offset&#x27;: 25px
                                 ),
-                                
+                              
                                 &#x27;bulleted&#x27;: (
                                   &#x27;marker&#x27;: (
                                     &#x27;style&#x27;: &#x27;■&#x27;,
                                     &#x27;color&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;)
                                   )
                                 ),
-                                
+                              
                                 &#x27;numbered&#x27;: (
                                   &#x27;marker&#x27;: (
                                     &#x27;style&#x27;: decimal,
@@ -21021,15 +21018,15 @@
                                     &#x27;color&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;)
                                   )
                                 ),
-                                
+                              
                                 &#x27;topics&#x27;: (
                                   &#x27;delimiter&#x27;: &#x27;,&#x27;
                                 ),
-                                
+                              
                                 &#x27;files&#x27;: (
                                   &#x27;gap&#x27;: 10px
                                 )
-                                
+                              
                               );</code></pre>
                               
                               
