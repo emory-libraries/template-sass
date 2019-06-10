@@ -58435,16 +58435,16 @@
                               
                                 // Capture themeable variables from skin.
                                 $gap-column: map-deep-get($skin, &#x27;gap-column&#x27;);
-                                $gap-row-mobile: map-deep-get($skin, &#x27;gap-row.mobile&#x27;);
-                                $gap-row-large: map-deep-get($skin, &#x27;gap-row.large&#x27;);
+                                $gap-row-s: map-deep-get($skin, &#x27;gap-row.s&#x27;);
+                                $gap-row-xl: map-deep-get($skin, &#x27;gap-row.xl&#x27;);
                               
                               
                                 // Defines the flow-content-boxes component&#x27;s base styles.
-                                grid-row-gap: $gap-row-mobile;
+                                grid-row-gap: $gap-row-s;
                               
                                 @include breakpoint-xl() {
                                   grid-column-gap: $gap-column;
-                                  grid-row-gap: $gap-row-large;
+                                  grid-row-gap: $gap-row-xl;
                                 }
                               
                                 &amp;-feature { }
@@ -58635,9 +58635,9 @@
                               
                                 &#x27;gap-column&#x27;: 36px,
                                 &#x27;gap-row&#x27;: (
-                                  &#x27;mobile&#x27;: 23px,
-                                  &#x27;large&#x27;: 0,
-                                  )
+                                  &#x27;s&#x27;: 23px,
+                                  &#x27;xl&#x27;: 0,
+                                )
                               
                               );</code></pre>
                               
@@ -58748,23 +58748,33 @@
                                 grid-template-columns: 1fr;
                                 grid-template-rows: minmax(460px, min-content);
                               
-                                &amp;-feature{
+                                &amp;-feature {
                                   order: 2;
+                                  
+                                  @include breakpoint-xl {
+                                    order: unset;
+                                  };
+                                  
                                 }
                               
                                 &amp;-explorer {
                                   order: 1;
+                                  
+                                  @include breakpoint-xl {
+                                    order: unset;
+                                  };
+                                  
                                 }
                               
                                 @include breakpoint-xl() {
                                   grid-template-columns: minmax(min-content, 2fr) minmax(min-content, 376px);
                               
                                   &amp;-feature{
-                                    grid-column: 1/span 1;
+                                    grid-column: 1;
                                   }
                               
                                   &amp;-explorer {
-                                    grid-column: 2/span 1;
+                                    grid-column: 2;
                                   }
                               
                                 }
