@@ -58217,12 +58217,18 @@
                                   // Load structure.
                                   @extend %organisms-flow-content-boxes;
                               
-                              
                                   // Load skins.
                                   @include organisms-flow-content-boxes--theme( $skin );
                               
                                 }
                               
+                                &amp;-feature {
+                                  @extend %organisms-flow-content-boxes-feature;
+                                }
+                              
+                                &amp;-explorer {
+                                  @extend %organisms-flow-content-boxes-explorer;
+                                }
                                }"
                                        data-collapsed="@mixin organisms-flow-content-boxes($custom) { ... }"><code class="js-autoindent">@mixin organisms-flow-content-boxes($custom) { ... }</code></pre>
                               
@@ -58428,10 +58434,22 @@
                                        data-expanded="@mixin organisms-flow-content-boxes--theme($skin) { 
                               
                                 // Capture themeable variables from skin.
-                                $gap: map-deep-get($skin, &#x27;gap&#x27;);
+                                $gap-column: map-deep-get($skin, &#x27;gap-column&#x27;);
+                                $gap-row-mobile: map-deep-get($skin, &#x27;gap-row.mobile&#x27;);
+                                $gap-row-large: map-deep-get($skin, &#x27;gap-row.large&#x27;);
+                              
                               
                                 // Defines the flow-content-boxes component&#x27;s base styles.
-                                grid-column-gap: $gap;
+                                grid-row-gap: $gap-row-mobile;
+                              
+                                @include breakpoint-xl() {
+                                  grid-column-gap: $gap-column;
+                                  grid-row-gap: $gap-row-large;
+                                }
+                              
+                                &amp;-feature { }
+                              
+                                &amp;-explorer { }
                               
                                }"
                                        data-collapsed="@mixin organisms-flow-content-boxes--theme($skin) { ... }"><code class="js-autoindent">@mixin organisms-flow-content-boxes--theme($skin) { ... }</code></pre>
@@ -58514,6 +58532,20 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#utils.mixins-mixin-breakpoint-xl"><code>breakpoint-xl</code></a>
+                                  
+                                  
+                                          </li>
+                                  
                                   
                                   
                                   
@@ -58601,7 +58633,11 @@
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$organisms-flow-content-boxes: (
                               
-                                &#x27;gap&#x27;: 36px,
+                                &#x27;gap-column&#x27;: 36px,
+                                &#x27;gap-row&#x27;: (
+                                  &#x27;mobile&#x27;: 23px,
+                                  &#x27;large&#x27;: 0,
+                                  )
                               
                               );</code></pre>
                               
@@ -58713,15 +58749,24 @@
                                 grid-template-rows: minmax(460px, min-content);
                               
                                 &amp;-feature{
-                                  grid-column: 1/span 1;
+                                  order: 2;
                                 }
                               
                                 &amp;-explorer {
-                                  grid-column: 2/span 1;
+                                  order: 1;
                                 }
                               
                                 @include breakpoint-xl() {
                                   grid-template-columns: minmax(min-content, 2fr) minmax(min-content, 376px);
+                              
+                                  &amp;-feature{
+                                    grid-column: 1/span 1;
+                                  }
+                              
+                                  &amp;-explorer {
+                                    grid-column: 2/span 1;
+                                  }
+                              
                                 }
                                }"
                                       data-collapsed="%organisms-flow-content-boxes { ... }"><code class="js-autoindent">%organisms-flow-content-boxes { ... }</code></pre>
@@ -74481,6 +74526,8 @@
                             
                         
                         
+                            
+                            
                             
                             
                             

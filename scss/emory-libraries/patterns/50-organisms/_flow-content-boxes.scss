@@ -31,10 +31,16 @@
     // Load structure.
     @extend %organisms-flow-content-boxes;
 
-
     // Load skins.
     @include organisms-flow-content-boxes--theme( $skin );
 
   }
 
+  &-feature {
+    @extend %organisms-flow-content-boxes-feature;
+  }
+
+  &-explorer {
+    @extend %organisms-flow-content-boxes-explorer;
+  }
 }

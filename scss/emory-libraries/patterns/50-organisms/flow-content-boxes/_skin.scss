@@ -9,7 +9,11 @@
 /// @type map
 $organisms-flow-content-boxes: (
 
-  'gap': 36px,
+  'gap-column': 36px,
+  'gap-row': (
+    'mobile': 23px,
+    'large': 0,
+    )
 
 );
 
@@ -25,9 +29,21 @@ $organisms-flow-content-boxes: (
 @mixin organisms-flow-content-boxes--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
+  $gap-column: map-deep-get($skin, 'gap-column');
+  $gap-row-mobile: map-deep-get($skin, 'gap-row.mobile');
+  $gap-row-large: map-deep-get($skin, 'gap-row.large');
+
 
   // Defines the flow-content-boxes component's base styles.
-  grid-column-gap: $gap;
+  grid-row-gap: $gap-row-mobile;
+
+  @include breakpoint-xl() {
+    grid-column-gap: $gap-column;
+    grid-row-gap: $gap-row-large;
+  }
+
+  &-feature { }
+
+  &-explorer { }
 
 }

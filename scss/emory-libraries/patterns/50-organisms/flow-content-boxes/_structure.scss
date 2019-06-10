@@ -17,14 +17,23 @@
   grid-template-rows: minmax(460px, min-content);
 
   &-feature{
-    grid-column: 1/span 1;
+    order: 2;
   }
 
   &-explorer {
-    grid-column: 2/span 1;
+    order: 1;
   }
 
   @include breakpoint-xl() {
     grid-template-columns: minmax(min-content, 2fr) minmax(min-content, 376px);
+
+    &-feature{
+      grid-column: 1/span 1;
+    }
+
+    &-explorer {
+      grid-column: 2/span 1;
+    }
+
   }
 }
