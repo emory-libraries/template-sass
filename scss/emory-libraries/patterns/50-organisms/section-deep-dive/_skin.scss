@@ -1,0 +1,103 @@
+////
+/// @group emory-libraries.patterns.organisms.section-deep-dive
+////
+
+/// Defines the base skin of the section-deep-dive component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$organisms-section-deep-dive: (
+
+  'heading': $color-text-light,
+  'foreground': $color-text-light,
+  'background': color('blue', 'base'),
+  'layout': (
+    'x': $layout-x,
+    'y': $layout-y
+  )
+
+);
+
+/// Defines the section-deep-dive component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The section-deep-dive component's themeable properties
+@mixin organisms-section-deep-dive--theme ( $skin ) {
+
+  // Capture selector.
+  $selector: &;
+
+  // Capture themeable variables from skin.
+  $layout: map-deep-get($skin, 'layout');
+
+  // Get theme-specific variables.
+  $heading: map-deep-get($skin, 'heading');
+  $foreground: map-deep-get($skin, 'foreground');
+  $background: map-deep-get($skin, 'background');
+
+  // Defines the section-deep-dive component's base styles.
+  @include tokens-layout(('layout': $layout));
+  background-color: $background;
+
+  // Defines the major title styles.
+  &-title {
+    @include tokens-heading('h5', $heading, $important: true);
+    text-align: center;
+
+    &::after {
+      @include atoms-rule('heading');
+    }
+
+    @include breakpoint-m-l {
+      @include tokens-heading--font('h2', $tokens-heading, true);
+    };
+
+  }
+
+  // Defines the major body styles.
+  &-body {
+    @include tokens-text('body', $foreground);
+
+    a {
+      color: $foreground;
+      font-weight: bold;
+    }
+
+    ol {
+      counter-reset: counter;
+      list-style: none;
+    }
+
+    li {
+      counter-increment: counter;
+
+      &::before {
+        content: counter(counter)" - ";
+        color: $foreground;
+      }
+
+    }
+
+  }
+
+  &-column {
+
+    &-heading {
+      @include tokens-heading--font('h6', $tokens-heading, true);
+      color: color('gold') !important;
+      font-weight: normal !important;
+    }
+
+  }
+
+  &-footer {
+
+  }
+
+}
