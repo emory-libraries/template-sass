@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.compounds.grouping-files
+////
+
+/// Load the grouping-files component's structure and skin.
+@import 'grouping-files/structure';
+@import 'grouping-files/skin';
+
+/// Builds a constructor for the grouping-files component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} compounds-grouping-files
+/// @requires {variable} compounds-grouping-files
+/// @requires {mixin} compounds-grouping-files--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our grouping-files component
+///
+/// @status review
+@mixin compounds-grouping-files ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($compounds-grouping-files, $custom);
+  
+  // Initialize the grouping-files component.
+  & {
+    
+    // Load structure.
+    @extend %compounds-grouping-files;
+    
+    // Load skins.
+    @include compounds-grouping-files--theme( $skin );
+    
+  }
+  
+}
