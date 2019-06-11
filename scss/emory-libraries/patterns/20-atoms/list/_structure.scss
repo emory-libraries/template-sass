@@ -6,35 +6,35 @@
 ///
 /// @since 1.0.0
 %atoms-list {
-  
+
   // Capture the selector.
   $selector: &;
-  
+
   // Builds the list structure.
   @include margin-x( 0 );
   @include padding-x( 0 );
   list-style-type: none;
-  
+
   // Adds structure for list items.
   &-item { }
-  
+
   // Builds structure for bulleted lists.
   &:not(.-numbered):not(.-links):not(.-topics):not(.-files),
   &.-bulleted {
-    
+
     // Modifies structure of bulleted list items.
     #{$selector}-item {
       display: block;
-      
+
       // Modifies structure of bulleted list item markers.
       &::before {
         position: absolute;
         display: block;
         top: 0;
       }
-      
+
       // Handle structure of descendents.
-  
+
       :first-child {
         margin-top: 0;
       }
@@ -42,27 +42,27 @@
       :last-child {
         margin-bottom: 0;
       }
-      
+
     }
-    
+
   }
-  
+
   // Builds structure for numbered lists.
-  &.-numbered { 
+  &.-numbered {
 
     // Modifies structure of numbered list items.
     #{$selector}-item {
       display: block;
-      
+
       // Modifies structure of numbered list item markers.
       &::before {
         position: absolute;
         display: block;
         top: 0;
       }
-      
+
       // Handle structure of descendents.
-  
+
       :first-child {
         margin-top: 0;
       }
@@ -70,21 +70,21 @@
       :last-child {
         margin-bottom: 0;
       }
-      
+
     }
 
   }
-  
+
   // Builds structure for link lists.
-  &.-links { 
+  &.-links {
 
     // Modifies structure of link list items.
     #{$selector}-item {
       display: block;
     }
-    
+
   }
-  
+
   // Builds structure for topic lists.
   &.-topics {
 
@@ -94,18 +94,19 @@
     }
 
   }
-  
+
   // Builds structure for file lists.
   &.-files {
     display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: auto;
-    
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     // Modifies structure of file list items.
     #{$selector}-item {
       display: block;
     }
-    
+
+    .link {
+      align-items: flex-start;
+    }
   }
-  
+
 }

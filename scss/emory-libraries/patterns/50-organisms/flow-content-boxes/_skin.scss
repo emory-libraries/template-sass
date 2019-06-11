@@ -1,0 +1,49 @@
+////
+/// @group emory-libraries.patterns.organisms.flow-content-boxes
+////
+
+/// Defines the base skin of the flow-content-boxes component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$organisms-flow-content-boxes: (
+
+  'gap-column': 36px,
+  'gap-row': (
+    's': 23px,
+    'xl': 0,
+  )
+
+);
+
+/// Defines the flow-content-boxes component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The flow-content-explorer component's themeable properties
+@mixin organisms-flow-content-boxes--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $gap-column: map-deep-get($skin, 'gap-column');
+  $gap-row-s: map-deep-get($skin, 'gap-row.s');
+  $gap-row-xl: map-deep-get($skin, 'gap-row.xl');
+
+
+  // Defines the flow-content-boxes component's base styles.
+  grid-row-gap: $gap-row-s;
+
+  @include breakpoint-xl() {
+    grid-column-gap: $gap-column;
+    grid-row-gap: $gap-row-xl;
+  }
+
+  &-feature { }
+
+  &-explorer { }
+
+}

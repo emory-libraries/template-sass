@@ -1,5 +1,10 @@
 @import 'comps-compounds';
 
+//organisms-flow-content-explorer
+.flow-content-boxes {
+  @include organisms-flow-content-boxes;
+}
+
 // organisms-intro
 .intro {
   @include organisms-intro;

@@ -1,0 +1,49 @@
+////
+/// @group emory-libraries.patterns.organisms.flow-content-boxes
+////
+
+/// Defines the base structure of the flow-content-boxes component.
+///
+/// @since 1.0.0-dev.0
+%organisms-flow-content-boxes {
+
+  // Captures the selector.
+  $selector: &;
+
+  // Builds the flow-content-boxes structure.
+  // ...
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(460px, min-content);
+
+  &-feature {
+    order: 2;
+    
+    @include breakpoint-xl {
+      order: unset;
+    };
+    
+  }
+
+  &-explorer {
+    order: 1;
+    
+    @include breakpoint-xl {
+      order: unset;
+    };
+    
+  }
+
+  @include breakpoint-xl() {
+    grid-template-columns: minmax(min-content, 2fr) minmax(min-content, 376px);
+
+    &-feature{
+      grid-column: 1;
+    }
+
+    &-explorer {
+      grid-column: 2;
+    }
+
+  }
+}
