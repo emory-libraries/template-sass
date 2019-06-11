@@ -97,7 +97,16 @@ $organisms-section-deep-dive: (
   }
 
   &-footer {
+    color: $foreground;
+    text-align: center;
+    font-style: italic;
 
+    &::before {
+      @include atoms-rule('light');
+      margin: 0 auto;
+      max-width: 1200px;
+      content: "";
+    }
   }
 
 }

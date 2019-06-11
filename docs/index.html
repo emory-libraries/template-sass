@@ -24770,6 +24770,8 @@
                                   
                                   
                                   
+                                  
+                                  
                               
                               
                               
@@ -60373,7 +60375,16 @@
                                 }
                               
                                 &amp;-footer {
+                                  color: $foreground;
+                                  text-align: center;
+                                  font-style: italic;
                               
+                                  &amp;::before {
+                                    @include atoms-rule(&#x27;light&#x27;);
+                                    margin: 0 auto;
+                                    max-width: 1200px;
+                                    content: &quot;&quot;;
+                                  }
                                 }
                               
                                }"
@@ -60523,6 +60534,20 @@
                                             <span class="item__cross-type">mixin</span>
                                   
                                             <a href="#patterns.tokens.heading-mixin-tokens-heading--font"><code>tokens-heading--font</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.rule-mixin-atoms-rule"><code>atoms-rule</code></a>
                                   
                                   
                                           </li>
@@ -60771,8 +60796,9 @@
                                   display: grid;
                               
                                   @include breakpoint-xl {
-                                    grid-template-columns: repeat( auto-fit, minmax(10%, 1fr) );
+                                    grid-template-columns: repeat( auto-fit, minmax(10%, 330px) );
                                     grid-column-gap: 100px;
+                                    justify-content: center;
                                   }
                                 }
                               
