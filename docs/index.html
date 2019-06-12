@@ -7103,6 +7103,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="templates">
+                          <a href="#patterns.templates.landing">landing</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.templates.landing-mixin">
+                                <a href="#patterns.templates.landing-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.landing" data-name="templates-landing" data-type="mixin">
+                                    
+                                    <a href="#patterns.templates.landing-mixin-templates-landing">
+                                      
+                                      templates-landing
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.landing" data-name="templates-landing--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.templates.landing-mixin-templates-landing--theme">
+                                      
+                                      templates-landing--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.templates.landing-variable">
+                                <a href="#patterns.templates.landing-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.landing" data-name="templates-landing" data-type="variable">
+                                    
+                                    <a href="#patterns.templates.landing-variable-templates-landing">
+                                      
+                                      templates-landing
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.templates.landing-placeholder">
+                                <a href="#patterns.templates.landing-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.landing" data-name="templates-landing" data-type="placeholder">
+                                    
+                                    <a href="#patterns.templates.landing-placeholder-templates-landing">
+                                      
+                                      templates-landing
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="templates">
                           <a href="#patterns.templates.material">material</a>
                         </p>
                         
@@ -8842,6 +8950,8 @@
                   
                   
                   
+                      
+                      
                       
                       
                       
@@ -59790,7 +59900,7 @@
                               
                               
                                 
-                                  <span class="item__status item__status--construction">construction</span>
+                                  <span class="item__status item__status--review">review</span>
                                 
                               </h3>
                               
@@ -62535,6 +62645,7 @@
                               
                                 // Capture themeable variables from skin.
                                 $gap: map-deep-get($skin, &#x27;gap&#x27;);
+                                $background: map-deep-get($skin, &#x27;background&#x27;);
                               
                                 // Defines the section-main component&#x27;s base styles.
                                 grid-column-gap: $gap;
@@ -62576,6 +62687,11 @@
                               
                                 // Defines the main section styles.
                                 &amp;-section { }
+                              
+                                //Defines a dark background variant for the section.
+                                &amp;.-dark {
+                                  background-color: $background;
+                                }
                               
                                }"
                                        data-collapsed="@mixin organisms-section-main--theme($skin) { ... }"><code class="js-autoindent">@mixin organisms-section-main--theme($skin) { ... }</code></pre>
@@ -62767,7 +62883,8 @@
                                       &#x27;color&#x27;: color(&#x27;blue&#x27;)
                                     )
                                   )
-                                )
+                                ),
+                                &#x27;background&#x27;: color(&#x27;blue&#x27;)
                               
                               );</code></pre>
                               
@@ -63113,7 +63230,8 @@
                                   &#x27;.-research-help-page&#x27;,
                                   &#x27;.-service-directory-page&#x27;,
                                   &#x27;.-subject-librarian-directory-page&#x27;,
-                                  &#x27;.-staff-directory-page&#x27;
+                                  &#x27;.-staff-directory-page&#x27;,
+                                  &#x27;.-landing-page&#x27;
                                 )},
                                 &amp;.-info-page {
                                   @include grid-layout;
@@ -63140,6 +63258,35 @@
                                   };
                               
                                 }
+                                // Builds the main structure when used for a landing page.
+                                &amp;.-landing-page {
+                                  max-width: 100%;
+                                  grid-template-rows: 45px min-content 23px min-content 23px;
+                              
+                                    .breadcrumbs {
+                                      grid-row: 1;
+                                      align-items: center;
+                                    }
+                                    .flow-content-boxes {
+                                      grid-row: 2
+                                    }
+                              
+                                    .wayfinder {
+                                      grid-row: 4
+                                    }
+                              
+                                  //Adjusts the main structure across large screens.
+                                  @include breakpoint-l {
+                                    grid-template-columns: 1fr minmax(min-content, 1200px) 1fr;
+                                    grid-template-rows: 90px min-content 40px min-content 70px;
+                              
+                                    .breadcrumbs,
+                                    .flow-content-boxes,
+                                    .wayfinder {
+                                      grid-column: 2 ;
+                                    }
+                                  };
+                                }
                               
                                 // Builds the main structure when used for a material and tool pages.
                                 &amp;.-material-page,
@@ -63158,6 +63305,7 @@
                                     #{$selector}-title {
                                       grid-column: main / sidebar;
                                     }
+                              
                               
                                     // Adjust the sidebar placement within the grid.
                                     #{$selector}-sidebar {
@@ -64121,26 +64269,26 @@
                                   <pre class="item__code item__code--togglable language-scss"
                                       data-current-state="collapsed"
                                       data-expanded="%organisms-section-major { 
-                                
+                              
                                 // Builds the section-major structure.
-                                display: block;
-                                
+                                display: grid;
+                              
                                 // Builds the major title structure.
-                                &amp;-title { 
+                                &amp;-title {
                                   margin-top: 0;
-                                
+                              
                                   &amp;::after {
                                     content: &#x27;&#x27;;
                                     display: block;
                                     @include absolute( null 0 -.83em 0);
                                     margin: 0 auto;
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Builds the major body structure.
                                 &amp;-body { }
-                                
+                              
                                }"
                                       data-collapsed="%organisms-section-major { ... }"><code class="js-autoindent">%organisms-section-major { ... }</code></pre>
                               
@@ -65020,6 +65168,8 @@
         
         
         
+            
+            
             
             
             
@@ -66430,6 +66580,721 @@
                               
                                     <h3 class="item__sub-heading">Description</h3>
                                     <div class="item__description"><p>Defines the base structure of the info component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
+                    <h3 class="main__heading" id="patterns.templates.landing">
+                      
+                      <div class="container">landing</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.templates.landing-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.landing-mixin-templates-landing">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.landing-mixin-templates-landing">
+                                  templates-landing
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--construction">construction</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin templates-landing($custom) { 
+                              
+                                // Extend the default skin.
+                                $skin: map-extend($templates-landing, $custom);
+                              
+                                // Initialize the landing component.
+                                &amp; {
+                              
+                                  // Load structure.
+                                  @extend %templates-landing;
+                              
+                                  &amp;-header {
+                                    @extend %templates-landing-header;
+                                  }
+                              
+                                  &amp;-main {
+                                    @extend %templates-landing-main;
+                                  }
+                              
+                                  &amp;-footer {
+                                    @extend %templates-landing-footer;
+                                  }
+                                  // Load skins.
+                                  @include templates-landing--theme( $skin );
+                              
+                                }
+                              
+                               }"
+                                       data-collapsed="@mixin templates-landing($custom) { ... }"><code class="js-autoindent">@mixin templates-landing($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the landing component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our landing component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.templates.landing-placeholder-templates-landing"><code>templates-landing</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.templates.landing-variable-templates-landing"><code>templates-landing</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.templates.landing-mixin-templates-landing--theme"><code>templates-landing--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.landing-mixin-templates-landing--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.landing-mixin-templates-landing--theme">
+                                  templates-landing--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin templates-landing--theme($skin) { 
+                              
+                                // Capture themeable variables from skin.
+                                $gap: map-deep-get($skin, &#x27;gap&#x27;);
+                                $layout: map-deep-get($skin, &#x27;layout&#x27;);
+                              
+                                // Defines the landing component&#x27;s base styles.
+                                //grid-gap: $gap;
+                              
+                                // Defines landing header and footer styles.
+                                &amp;-header,
+                                &amp;-footer {
+                                  border: $border-width-s solid color(&#x27;slate&#x27;); // TEMPORARY
+                                }
+                              
+                                // Defines landing header styles.
+                                &amp;-header { }
+                              
+                                // Defines landing main styles.
+                                &amp;-main { }
+                              
+                                // Defines landing footer styles.
+                                &amp;-footer { }
+                               }"
+                                       data-collapsed="@mixin templates-landing--theme($skin) { ... }"><code class="js-autoindent">@mixin templates-landing--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the landing component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The landing component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-border-width-s"><code>border-width-s</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.templates.landing-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.landing-variable-templates-landing">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.landing-variable-templates-landing">
+                                  templates-landing
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$templates-landing: (
+                              
+                                &#x27;layout&#x27;: (
+                                  &#x27;x&#x27;: $layout-x,
+                                  &#x27;y&#x27;: $layout-y
+                                ),
+                              
+                                &#x27;gap&#x27;: 40px
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the landing component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.templates.landing-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.landing-placeholder-templates-landing">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.landing-placeholder-templates-landing">
+                                  templates-landing
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%templates-landing { 
+                              
+                                // Builds the landing structure.
+                                // ...
+                              
+                                // Captures selector.
+                                $selector: &amp;;
+                              
+                                // Builds the landing structure.
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-areas: &quot;header&quot;
+                                                     &quot;main&quot;
+                                                     &quot;footer&quot;;
+                                grid-template-rows: 150px 1fr 420px;
+                                grid-template-columns: 1fr;
+                              
+                                &amp;-header {
+                                  grid-area: header;
+                                  @include absolute-center-contents;
+                              
+                                  &amp;::after {
+                                    content: &#x27;Header&#x27;; // TEMPORARY
+                                  }
+                              
+                                }
+                              
+                                &amp;-main {
+                                  grid-area: main;
+                              
+                                  .section-main {
+                                    display: grid;
+                                  }
+                              
+                                }
+                              
+                                &amp;-footer {
+                                  grid-area: footer;
+                                  @include absolute-center-contents;
+                              
+                                  &amp;::after {
+                                    content: &#x27;Footer&#x27;; // TEMPORARY
+                                  }
+                              
+                                }
+                               }"
+                                      data-collapsed="%templates-landing { ... }"><code class="js-autoindent">%templates-landing { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the landing component.</p>
                                   </div>
                               
                               

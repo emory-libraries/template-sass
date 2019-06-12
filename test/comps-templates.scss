@@ -39,3 +39,8 @@
 .bio-page {
   @include templates-bio;
 }
+
+// templates-landing
+.landing-page {
+  @include templates-landing;
+}
