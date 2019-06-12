@@ -251,7 +251,8 @@
     '.-research-help-page',
     '.-service-directory-page',
     '.-subject-librarian-directory-page',
-    '.-staff-directory-page'
+    '.-staff-directory-page',
+    '.-landing-page'
   )},
   &.-info-page {
     @include grid-layout;
@@ -278,6 +279,35 @@
     };
 
   }
+  // Builds the main structure when used for a landing page.
+  &.-landing-page {
+    max-width: 100%;
+    grid-template-rows: 45px min-content 23px min-content 23px;
+
+      .breadcrumbs {
+        grid-row: 1;
+        align-items: center;
+      }
+      .flow-content-boxes {
+        grid-row: 2
+      }
+
+      .wayfinder {
+        grid-row: 4
+      }
+
+    //Adjusts the main structure across large screens.
+    @include breakpoint-l {
+      grid-template-columns: 1fr minmax(min-content, 1200px) 1fr;
+      grid-template-rows: 90px min-content 40px min-content 70px;
+
+      .breadcrumbs,
+      .flow-content-boxes,
+      .wayfinder {
+        grid-column: 2 ;
+      }
+    };
+  }
 
   // Builds the main structure when used for a material and tool pages.
   &.-material-page,
@@ -296,6 +326,7 @@
       #{$selector}-title {
         grid-column: main / sidebar;
       }
+
 
       // Adjust the sidebar placement within the grid.
       #{$selector}-sidebar {
