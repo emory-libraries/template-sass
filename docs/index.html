@@ -62884,7 +62884,7 @@
                                     )
                                   )
                                 ),
-                                &#x27;background&#x27;: color(&#x27;blue&#x27;)
+                                &#x27;background&#x27;: color(&#x27;blue&#x27;,&#x27;dark&#x27;)
                               
                               );</code></pre>
                               
@@ -63001,6 +63001,7 @@
                                 max-width: 1236px;
                                 display: grid;
                                 grid-area: main;
+                                padding: 0 1.25em 1.25em;
                               
                                 // Initializes a helper for building page-specific grid layouts.
                                 @mixin grid-layout( $overrides: () ) {
@@ -63259,33 +63260,34 @@
                               
                                 }
                                 // Builds the main structure when used for a landing page.
+                                // Builds the main structure when used for a landing page.
                                 &amp;.-landing-page {
                                   max-width: 100%;
-                                  grid-template-rows: 45px min-content 23px min-content 23px;
+                                  display: grid;
+                                  //grid-template-rows: 88px min-content 68px;
+                                  //grid-column-gap: 0;
                               
-                                    .breadcrumbs {
-                                      grid-row: 1;
-                                      align-items: center;
-                                    }
-                                    .flow-content-boxes {
-                                      grid-row: 2
-                                    }
-                              
-                                    .wayfinder {
-                                      grid-row: 4
-                                    }
+                                  .breadcrumbs {
+                                    //grid-row: 1;
+                                    //align-items: center;
+                                  }
+                                  .section-main-body {
+                                    //grid-row: 2;
+                                    display: grid;
+                                    grid-row-gap: 40px
+                                  }
                               
                                   //Adjusts the main structure across large screens.
                                   @include breakpoint-l {
-                                    grid-template-columns: 1fr minmax(min-content, 1200px) 1fr;
-                                    grid-template-rows: 90px min-content 40px min-content 70px;
+                                    //grid-template-columns: 1fr minmax(min-content, 1200px) 1fr;
+                                    //grid-template-rows: 90px min-content 70px;
                               
                                     .breadcrumbs,
-                                    .flow-content-boxes,
-                                    .wayfinder {
-                                      grid-column: 2 ;
+                                    .section-main-body {
+                                      //grid-column: 2 ;
                                     }
                                   };
+                              
                                 }
                               
                                 // Builds the main structure when used for a material and tool pages.
@@ -63385,6 +63387,33 @@
                               
                                 }
                               
+                                // Builds the main structure when used for a service directory page.
+                                &amp;.-landing-page {
+                              
+                                  // Hide grid areas that are not being used within this page type.
+                                  #{$selector}-spacer,
+                                  #{$selector}-content,
+                                  #{$selector}-section,
+                                  #{$selector}-sidebar {
+                                    display: none;
+                                  }
+                              
+                                  &amp;.without-intro {
+                                    @include grid-layout((
+                                      &#x27;title&#x27;: false,
+                                      &#x27;subtitle&#x27;: false,
+                                      &#x27;sidebar&#x27;: false
+                                    ));
+                              
+                                    // Hide grid areas that are not being used within this page type.
+                                    #{$selector}-title,
+                                    #{$selector}-subtitle {
+                                      display: none;
+                                    }
+                              
+                                  }
+                              
+                                }
                                 // Builds the main structure when used for a research help page.
                                 &amp;.-research-help-page {
                                   @include grid-layout((
@@ -67269,11 +67298,23 @@
                                 &amp;-main {
                                   grid-area: main;
                               
-                                  .section-main {
-                                    display: grid;
+                                  .section-main-body {
+                                    margin-bottom: 68px;
                                   }
                               
+                                  .section-main-body,
+                                  .section-major-body,
+                                  .breadcrumbs {
+                                    width: 100%;
+                                    max-width: 1200px;
+                                    margin: 0 auto;
+                                  }
                                 }
+                              
+                                  .breadcrumbs {
+                                    height: 88px;
+                                    align-items: center;
+                                  }
                               
                                 &amp;-footer {
                                   grid-area: footer;

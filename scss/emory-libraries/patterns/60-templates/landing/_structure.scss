@@ -35,11 +35,23 @@
   &-main {
     grid-area: main;
 
-    .section-main {
-      display: grid;
+    .section-main-body {
+      margin-bottom: 68px;
     }
 
+    .section-main-body,
+    .section-major-body,
+    .breadcrumbs {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
   }
+
+    .breadcrumbs {
+      height: 88px;
+      align-items: center;
+    }
 
   &-footer {
     grid-area: footer;
