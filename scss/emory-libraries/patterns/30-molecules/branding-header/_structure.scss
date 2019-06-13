@@ -1,0 +1,83 @@
+////
+/// @group emory-libraries.patterns.molecules.branding-header
+////
+
+/// Defines the base structure of the branding-header component.
+///
+/// @since 1.0.0-dev.0
+%molecules-branding-header {
+  
+  // Builds the branding-header structure.
+  display: grid;
+  grid-template-areas: "badge organization"
+                       "badge division"
+                       "badge dropdown";
+  grid-template-columns: repeat(2, min-content);
+  grid-template-rows: repeat(3, min-content);
+  
+  @include breakpoint-m-l {
+    grid-template-areas: "badge organization organization"
+                         "badge division dropdown";
+    grid-template-columns: min-content max-content min-content;
+    grid-template-rows: repeat(2, min-content);
+  };
+  
+  // Builds the branding badge structure.
+  &-badge { 
+    grid-area: badge;
+    
+    .logo { 
+      @include size(100%);
+      @include absolute-center-within-container;
+    }
+    
+    svg {
+      @include absolute-center-within-container;
+      width: 100%;
+      
+      @include breakpoint-m-l {
+        @include absolute-center-within-container-x;
+        top: 0;
+      };
+      
+    }
+    
+  }
+  
+  // Builds the branding organization structure.
+  &-organization {
+    grid-area: organization;
+  }
+  
+  // Builds the branding division structure.
+  &-division {
+    grid-area: division;
+  }
+  
+  // Builds the branding dropdown structure.
+  &-dropdown { 
+    grid-area: dropdown;
+    display: flex;
+    align-items: flex-end;
+  
+    // Builds the branding dropdown menu structure.
+    &-menu { 
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border: none;
+      background: none;
+      
+      option {
+        margin: 0;
+        padding: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+      
+    } 
+  
+  }
+  
+}
