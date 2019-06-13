@@ -39,3 +39,8 @@
 .bio-page {
   @include templates-bio;
 }
+
+// templates-gallary
+.gallery-page {
+  @include templates-gallery;
+}

@@ -1,0 +1,80 @@
+////
+/// @group emory-libraries.patterns.tokens.reveal
+////
+
+/// Defines the base structure of the reveal component.
+///
+/// @since 1.0.0-dev.0
+%tokens-reveal {
+  
+  // Capture the selector.
+  $selector: &;
+  
+  // Builds the reveal structure.
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  
+  // Builds the reveal toggle structure.
+  &-toggle { 
+    display: none;
+  }
+  
+  // Builds the reveal content structure.
+  &-content { 
+    order: 1;
+    overflow: hidden;
+
+    // Hide the content when not checked.
+    @include when-adjacent-sibling-of('#{$selector}-toggle:not(:checked)') {
+      max-height: 0;
+      opacity: 0;
+    };
+    
+    // Show the content when checked.
+    @include when-adjacent-sibling-of('#{$selector}-toggle:checked') {
+      max-height: 1000vh;
+      opacity: 1;
+    };
+  
+  }
+  
+  // Builds the reveal button structure.
+  &-button {
+    order: 2;
+    margin-top: $rhythm-y;
+    
+    // Use prefixes for toggle buttons.
+    &:not(.-once) {
+    
+      // Add a prefix to the button's label.
+      &::before {
+
+        // Use the show prefix when the toggle is not checked.
+        @include when-sibling-of('#{$selector}-toggle:not(:checked)') {
+          content: attr(data-show) "\00a0";
+        };
+
+        // Use the hide prefix when the toggle is checked.
+        @include when-sibling-of('#{$selector}-toggle:checked') {
+          content: attr(data-hide) "\00a0";
+        };
+
+      }
+      
+    }
+    
+    // Hide the button if only one click is allowed.
+    &.-once {
+      
+      // Hide the button after one click.
+      @include when-sibling-of('#{$selector}-toggle:checked') {
+        display: none;
+      };
+      
+    }
+    
+  }
+  
+}

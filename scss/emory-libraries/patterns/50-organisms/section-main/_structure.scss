@@ -173,6 +173,10 @@
   &-breadcrumb {
     grid-column: main;
     grid-row: breadcrumb;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-bottom: $rhythm-y;
   }
 
   // Builds the main title structure.
@@ -234,7 +238,7 @@
   &.-research-help-page,
   &.-service-directory-page,
   &.-subject-librarian-directory-page,
-  &.-staff-directory-page, {
+  &.-staff-directory-page {
 
     #{$selector}-title {
       margin-bottom: 0;
@@ -251,7 +255,8 @@
     '.-research-help-page',
     '.-service-directory-page',
     '.-subject-librarian-directory-page',
-    '.-staff-directory-page'
+    '.-staff-directory-page',
+    '.-gallery-page',
   )},
   &.-info-page {
     @include grid-layout;
@@ -428,6 +433,28 @@
 
     }
 
+  }
+
+  // Builds the main structure when used for a gallery page.
+  &.-gallery-page {
+    @include grid-layout((
+      'subtitle': false,
+      'body': false,
+      'spacer': false,
+      'content': false,
+      'section': false,
+      'sidebar': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-subtitle,
+    #{$selector}-body,
+    #{$selector}-spacer,
+    #{$selector}-content,
+    #{$selector}-section,
+    #{$selector}-sidebar {
+      display: none;
+    }
   }
 
 }

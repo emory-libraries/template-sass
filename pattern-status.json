@@ -4,6 +4,7 @@
   "tokens-text": "review",
   "tokens-layout": "review",
   "tokens-grid": "review",
+  "tokens-reveal": "review",
   "atoms-badge": "review",
   "atoms-button": "review",
   "atoms-callout": "review",
@@ -68,5 +69,6 @@
   "templates-research-help": "construction",
   "templates-subject-librarian-directory": "review",
   "templates-staff-directory": "review",
-  "templates-bio": "review"
+  "templates-bio": "review",
+  "templates-gallery": "review"
 }
