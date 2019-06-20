@@ -10,6 +10,12 @@
   display: grid;
   grid-template-columns: 1fr minmax(min-content, 680px) 1fr;
 
+
+  &-title,
+  &-list {
+    margin: 0;
+  }
+
   &-title {
     grid-column: 2;
   }
