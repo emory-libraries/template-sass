@@ -45,7 +45,11 @@ $templates-landing: (
   &-header { }
 
   // Defines landing main styles.
-  &-main { }
+  &-main {
+    &-subtitle {
+      text-align: center !important;
+    }
+  }
 
   // Defines landing footer styles.
   &-footer { }
