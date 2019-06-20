@@ -33,3 +33,8 @@
 .grouping-files {
   @include compounds-grouping-files;
 }
+
+// compounds-grouping-files
+.nav-menu-utility {
+  @include compounds-nav-menu-utility;
+}

@@ -1,0 +1,32 @@
+////
+/// @group emory-libraries.patterns.compounds.nav-menu-utility
+////
+
+/// Defines the base structure of the nav-menu-utility component.
+///
+/// @since 1.0.0-dev.0
+%compounds-nav-menu-utility {
+
+  // Builds the nav-menu-utility structure.
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .utility-left,
+  .utility-right {
+    display: flex;
+    justify-content: space-between;
+  }
+
+
+  .utility-right {
+    .nav-button.-flyout {
+      text-align: center;
+    }
+  }
+}

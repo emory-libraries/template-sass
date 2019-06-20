@@ -2966,6 +2966,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="compounds">
+                          <a href="#patterns.compounds.nav-menu-utility">nav-menu-utility</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.compounds.nav-menu-utility-mixin">
+                                <a href="#patterns.compounds.nav-menu-utility-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.compounds.nav-menu-utility" data-name="compounds-nav-menu-utility" data-type="mixin">
+                                    
+                                    <a href="#patterns.compounds.nav-menu-utility-mixin-compounds-nav-menu-utility">
+                                      
+                                      compounds-nav-menu-utility
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.compounds.nav-menu-utility" data-name="compounds-nav-menu-utility--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.compounds.nav-menu-utility-mixin-compounds-nav-menu-utility--theme">
+                                      
+                                      compounds-nav-menu-utility--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.compounds.nav-menu-utility-variable">
+                                <a href="#patterns.compounds.nav-menu-utility-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.compounds.nav-menu-utility" data-name="compounds-nav-menu-utility" data-type="variable">
+                                    
+                                    <a href="#patterns.compounds.nav-menu-utility-variable-compounds-nav-menu-utility">
+                                      
+                                      compounds-nav-menu-utility
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.compounds.nav-menu-utility-placeholder">
+                                <a href="#patterns.compounds.nav-menu-utility-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.compounds.nav-menu-utility" data-name="compounds-nav-menu-utility" data-type="placeholder">
+                                    
+                                    <a href="#patterns.compounds.nav-menu-utility-placeholder-compounds-nav-menu-utility">
+                                      
+                                      compounds-nav-menu-utility
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="compounds">
                           <a href="#patterns.compounds.related">related</a>
                         </p>
                         
@@ -23861,49 +23969,49 @@
                                   <pre class="item__code item__code--togglable language-scss"
                                       data-current-state="collapsed"
                                       data-expanded="%atoms-nav-button { 
-                                
+                              
                                 // Builds the nav-button structure.
                                 @extend %atoms-button;
                                 display: flex;
                                 justify-content: flex-start;
                                 width: 100%;
-                                
+                              
                                 // Adds breakpoint-specific structure changes.
                                 @include breakpoint-m-l {
                                   display: inline-flex;
                                   justify-content: center;
                                   width: auto;
                                 };
-                                
+                              
                                 // Apply icon structure.
                                 .icon {
                                   @include absolute-center-contents;
                                 }
-                                
+                              
                                 // Modifies main button structure.
                                 &amp;:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
                                 &amp;.-main {
                                   height: 60px;
-                                  
+                              
                                   @include breakpoint-m-l {
                                     height: 90px;
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Modifies toggle button structure
                                 &amp;.-toggle {
                                   height: 40px;
                                   display: inline-flex;
                                   justify-content: center;
                                   width: auto;
-                                  
+                              
                                   @include breakpoint-m-l {
                                     display: none;
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Sets search button structure.
                                 &amp;.-search {
                                   height: 40px;
@@ -23911,25 +24019,25 @@
                                   justify-content: center;
                                   width: auto;
                                   margin-left: auto;
-                                  
+                              
                                   @include breakpoint-m-l {
                                     margin-left: 0;
                                     height: 90px;
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Sets utility button structure.
                                 &amp;.-utility {
                                   height: 60px;
-                                  
+                              
                                   @include breakpoint-m-l {
                                     height: 40px;
                                     flex-direction: row;
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Sets flyout button structure.
                                 &amp;.-flyout {
                                   height: 70;
@@ -23937,26 +24045,26 @@
                                   flex-direction: column;
                                   justify-content: center;
                                   width: auto;
-                                  
-                                  @include breakpoint-m-l {
+                              
+                                  @include breakpoint-l {
                                     height: 40px;
                                     flex-direction: row;
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                  // Sets librarian button structure.
                                 &amp;.-librarian {
                                   height: 45px;
                                   justify-content: center;
-                                  
+                              
                                   @include breakpoint-m-l {
                                     height: 40px;
                                     flex-direction: row;
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                }"
                                       data-collapsed="%atoms-nav-button { ... }"><code class="js-autoindent">%atoms-nav-button { ... }</code></pre>
                               
@@ -30949,6 +31057,8 @@
             
             
             
+            
+            
             <section class="main__section main__section--level-2 ">
             
               <h2 class="main__heading" id="patterns.compounds">
@@ -33611,6 +33721,680 @@
                               
                                     <h3 class="item__sub-heading">Description</h3>
                                     <div class="item__description"><p>Defines the base structure of the grouping-files component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
+                    <h3 class="main__heading" id="patterns.compounds.nav-menu-utility">
+                      
+                      <div class="container">nav-menu-utility</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.compounds.nav-menu-utility-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.compounds.nav-menu-utility-mixin-compounds-nav-menu-utility">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.compounds.nav-menu-utility-mixin-compounds-nav-menu-utility">
+                                  compounds-nav-menu-utility
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--construction">construction</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin compounds-nav-menu-utility($custom) { 
+                                
+                                // Extend the default skin.
+                                $skin: map-extend($compounds-nav-menu-utility, $custom);
+                                
+                                // Initialize the nav-menu-utility component.
+                                &amp; {
+                                  
+                                  // Load structure.
+                                  @extend %compounds-nav-menu-utility;
+                                  
+                                  // Load skins.
+                                  @include compounds-nav-menu-utility--theme( $skin );
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin compounds-nav-menu-utility($custom) { ... }"><code class="js-autoindent">@mixin compounds-nav-menu-utility($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the nav-menu-utility component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our nav-menu-utility component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.compounds.nav-menu-utility-placeholder-compounds-nav-menu-utility"><code>compounds-nav-menu-utility</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.compounds.nav-menu-utility-variable-compounds-nav-menu-utility"><code>compounds-nav-menu-utility</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.compounds.nav-menu-utility-mixin-compounds-nav-menu-utility--theme"><code>compounds-nav-menu-utility--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.compounds.nav-menu-utility-mixin-compounds-nav-menu-utility--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.compounds.nav-menu-utility-mixin-compounds-nav-menu-utility--theme">
+                                  compounds-nav-menu-utility--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin compounds-nav-menu-utility--theme($skin) { 
+                              
+                                // Capture themeable variables from skin.
+                              
+                                $border-color: map-deep-get($skin, &#x27;border-color&#x27;);
+                              
+                              
+                                // Defines the nav-menu-utility component&#x27;s base styles.
+                              
+                                .utility-right {
+                              
+                                  .nav-button.-flyout {
+                                    &amp;:not(:last-child) {
+                              
+                                      &amp;:after {
+                                        content: &quot;&quot;;
+                                        opacity: 0.1;
+                                        border-left: 1px solid $border-color;
+                              
+                                        @include breakpoint-l {
+                                          border: none;
+                              
+                                        }
+                              
+                                      }
+                              
+                                    }
+                              
+                              
+                                  }
+                              
+                                }
+                              
+                               }"
+                                       data-collapsed="@mixin compounds-nav-menu-utility--theme($skin) { ... }"><code class="js-autoindent">@mixin compounds-nav-menu-utility--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the nav-menu-utility component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The nav-menu-utility component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.compounds.nav-menu-utility-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.compounds.nav-menu-utility-variable-compounds-nav-menu-utility">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.compounds.nav-menu-utility-variable-compounds-nav-menu-utility">
+                                  compounds-nav-menu-utility
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$compounds-nav-menu-utility: (
+                                &#x27;border-color&#x27;: color(&#x27;blue&#x27;,&#x27;dark&#x27;),
+                              
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the nav-menu-utility component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.compounds.nav-menu-utility-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.compounds.nav-menu-utility-placeholder-compounds-nav-menu-utility">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.compounds.nav-menu-utility-placeholder-compounds-nav-menu-utility">
+                                  compounds-nav-menu-utility
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%compounds-nav-menu-utility { 
+                              
+                                // Builds the nav-menu-utility structure.
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-between;
+                              
+                                ul {
+                                  list-style: none;
+                                  padding: 0;
+                                }
+                              
+                                .utility-left,
+                                .utility-right {
+                                  display: flex;
+                                  justify-content: space-between;
+                                }
+                              
+                              
+                                .utility-right {
+                                  .nav-button.-flyout {
+                                    text-align: center;
+                                  }
+                                }
+                               }"
+                                      data-collapsed="%compounds-nav-menu-utility { ... }"><code class="js-autoindent">%compounds-nav-menu-utility { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the nav-menu-utility component.</p>
                                   </div>
                               
                               
@@ -59790,7 +60574,7 @@
                               
                               
                                 
-                                  <span class="item__status item__status--construction">construction</span>
+                                  <span class="item__status item__status--review">review</span>
                                 
                               </h3>
                               
