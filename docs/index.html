@@ -11215,8 +11215,6 @@
                       
                       
                       
-                      
-                      
                   
                   
                   
@@ -40188,6 +40186,7 @@
                                 // Get dropdown-specific variables.
                                 $dropdown-color: map-deep-get($skin, &#x27;dropdown.color&#x27;);
                                 $dropdown-spacing: map-deep-get($skin, &#x27;dropdown.spacing&#x27;);
+                                $dropdown-icon: map-deep-get($skin, &#x27;dropdown.icon&#x27;);
                                 
                                 // Defines the branding-header component&#x27;s base styles.
                                 padding: $padding-y $padding-x;
@@ -40268,14 +40267,16 @@
                                 
                                 // Defines the branding dropdown styles.
                                 &amp;-dropdown { 
+                                  padding-right: $dropdown-icon;
+                                  background-image: icon-url(&#x27;material-chevron_down&#x27;, $dropdown-color, $dropdown-icon);
+                                  background-size: $dropdown-icon;
                                 
                                   // Defines the branding dropdown menu styles.
                                   &amp;-menu {
                                     @include tokens-text(&#x27;button&#x27;, $dropdown-color);
-                                    font-family: insert-nth(map-get($fonts, &#x27;button&#x27;), 2, &#x27;icomoon&#x27;) !important;
                                     
                                     @include breakpoint-m-l {
-                                      @include margin-x($dropdown-spacing);
+                                      margin-left: $dropdown-spacing;
                                     };
                                     
                                   } 
@@ -40412,23 +40413,9 @@
                                   
                                           <li class="item__description  item__description--inline">
                                   
-                                            <span class="item__cross-type">variable</span>
+                                            <span class="item__cross-type">function</span>
                                   
-                                            <a href="#config-variable-transition-duration"><code>transition-duration</code></a>
-                                  
-                                  
-                                          </li>
-                                  
-                                  
-                                  
-                                    
-                                          
-                                  
-                                          <li class="item__description  item__description--inline">
-                                  
-                                            <span class="item__cross-type">variable</span>
-                                  
-                                            <a href="#config-variable-transition-timing"><code>transition-timing</code></a>
+                                            <a href="#utils.functions-function-icon-url"><code>icon-url</code></a>
                                   
                                   
                                           </li>
@@ -40526,7 +40513,21 @@
                                   
                                             <span class="item__cross-type">variable</span>
                                   
-                                            <a href="#config-variable-fonts"><code>fonts</code></a>
+                                            <a href="#config-variable-transition-duration"><code>transition-duration</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-transition-timing"><code>transition-timing</code></a>
                                   
                                   
                                           </li>
@@ -40624,7 +40625,8 @@
                                 
                                 &#x27;dropdown&#x27;: (
                                   &#x27;color&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;),
-                                  &#x27;spacing&#x27;: 1em
+                                  &#x27;spacing&#x27;: 1em,
+                                  &#x27;icon&#x27;: 15px
                                 ),
                                 
                                 &#x27;badge&#x27;: (
@@ -40752,7 +40754,7 @@
                                 grid-template-areas: &quot;badge organization&quot;
                                                      &quot;badge division&quot;
                                                      &quot;badge dropdown&quot;;
-                                grid-template-columns: repeat(2, min-content);
+                                grid-template-columns: min-content max-content;
                                 grid-template-rows: repeat(3, min-content);
                                 
                                 @include breakpoint-m-l {
@@ -40799,7 +40801,10 @@
                                   grid-area: dropdown;
                                   display: flex;
                                   align-items: flex-end;
-                                
+                                  width: min-content;
+                                  background-repeat: no-repeat;
+                                  background-position: right 70%;
+                                  
                                   // Builds the branding dropdown menu structure.
                                   &amp;-menu { 
                                     -webkit-appearance: none;
@@ -40807,6 +40812,7 @@
                                     appearance: none;
                                     border: none;
                                     background: none;
+                                    max-width: 115px;
                                     
                                     option {
                                       margin: 0;
@@ -77050,6 +77056,8 @@
                             
                         
                         
+                            
+                            
                             
                             
                             

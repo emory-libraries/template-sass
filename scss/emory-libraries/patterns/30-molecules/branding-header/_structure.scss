@@ -59,7 +59,10 @@
     grid-area: dropdown;
     display: flex;
     align-items: flex-end;
-  
+    width: min-content;
+    background-repeat: no-repeat;
+    background-position: right 70%;
+    
     // Builds the branding dropdown menu structure.
     &-menu { 
       -webkit-appearance: none;
@@ -67,6 +70,7 @@
       appearance: none;
       border: none;
       background: none;
+      max-width: 115px;
       
       option {
         margin: 0;
