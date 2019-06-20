@@ -39,3 +39,8 @@
 .bio-page {
   @include templates-bio;
 }
+
+// templates-research-help-directory
+.research-help-directory-page {
+  @include templates-research-help-directory;
+}

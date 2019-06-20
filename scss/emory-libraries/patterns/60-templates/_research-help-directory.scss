@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.research-help-directory
+////
+
+/// Load the research-help-directory component's structure and skin.
+@import 'research-help-directory/structure';
+@import 'research-help-directory/skin';
+
+/// Builds a constructor for the research-help-directory component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} templates-research-help-directory
+/// @requires {variable} templates-research-help-directory
+/// @requires {mixin} templates-research-help-directory--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our research-help-directory component
+///
+/// @status review
+@mixin templates-research-help-directory ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($templates-research-help-directory, $custom);
+  
+  // Initialize the research-help-directory component.
+  & {
+    
+    // Load structure.
+    @extend %templates-research-help-directory;
+    
+    // Load parts.
+    &-header {
+      @extend %templates-research-help-directory-header;
+    }
+    &-main {
+      @extend %templates-research-help-directory-main;
+    }
+    &-footer {
+      @extend %templates-research-help-directory-footer;
+    }
+    
+    // Load skins.
+    @include templates-research-help-directory--theme( $skin );
+    
+  }
+  
+}
