@@ -60,8 +60,6 @@
     display: flex;
     align-items: flex-end;
     width: min-content;
-    background-repeat: no-repeat;
-    background-position: right 70%;
     
     // Builds the branding dropdown menu structure.
     &-menu { 
@@ -70,7 +68,9 @@
       appearance: none;
       border: none;
       background: none;
-      max-width: 115px;
+      max-width: 130px;
+      background-repeat: no-repeat;
+      background-position: right 70%;
       
       option {
         margin: 0;
