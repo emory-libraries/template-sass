@@ -38,3 +38,13 @@
 .popular-links-menu {
   @include compounds-popular-links-menu;
 }
+
+// compounds-subnav-menu-main
+.subnav-menu-main {
+  @include compounds-subnav-menu-main;
+}
+
+// compounds-slider
+.slider {
+  @include compounds-slider;
+}

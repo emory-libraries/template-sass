@@ -1,0 +1,77 @@
+////
+/// @group emory-libraries.patterns.compounds.subnav-menu-main
+////
+
+/// Defines the base structure of the subnav-menu-main component.
+///
+/// @since 1.0.0-dev.0
+%compounds-subnav-menu-main {
+  
+  // Builds the subnav-menu-main structure.
+  display: flex;
+  flex-direction: column;
+  
+  // Adjust the subnav menu strcture on large screens.
+  @include breakpoint-l {
+    width: 690px;
+  };
+  
+  // Modifies structure for grouped subnav menus.
+  &.-grouped {
+    display: grid;
+    grid-template-columns: 1fr;
+    
+    // Modifies structure on large screens.
+    @include breakpoint-l {
+      grid-template-columns: $rhythm-x [left-start] 1fr [left-end right-start] 1fr [right-end] $rhythm-x;
+      width: 730px;
+      
+      > *:nth-child(odd) {
+        grid-column: left; 
+      }
+      > *:nth-child(even) {
+        grid-column: right;
+      }
+      
+      &.has-search {
+        > *:nth-child(odd) {
+          grid-column: right; 
+        }
+        > *:nth-child(even) {
+          grid-column: left;
+        }
+      }
+
+      > *.-stretch {
+        grid-column: left / right !important;
+      }
+      > *.-span {
+        grid-column: 1 / span 4 !important;
+      }
+      
+    };
+    
+  }
+  
+  // Modifies structure for categorized subnav menus.
+  &.-categorized {
+    
+    // Modifies structure on large screens.
+    @include breakpoint-l {
+      width: 350px;
+    };
+    
+  }
+  
+  // Builds the subnav menu main heading structure.
+  &-heading {
+    display: block;
+  
+    // Only show the heading when the subnav menu is in mobile mode.
+    @include breakpoint-l {
+      display: none;
+    };
+    
+  }
+  
+}
