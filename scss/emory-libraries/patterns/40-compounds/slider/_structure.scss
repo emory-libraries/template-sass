@@ -1,0 +1,92 @@
+////
+/// @group emory-libraries.patterns.compounds.slider
+////
+
+/// Defines the base structure of the slider component.
+///
+/// @since 1.0.0-dev.0
+%compounds-slider {
+  
+  // Capture the selector.
+  $selector: &;
+  
+  // Builds the slider structure.
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  // Builds the slider slides structure.
+  &-slides {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+    overflow: visible;
+    order: 1;
+    
+    .slide {
+      width: 100%;
+      flex-shrink: 0;
+    }
+    
+  }
+  
+  // Builds the slider indicator structure.
+  &-indicator {
+    margin: 0 auto;
+    transform: translatey(50%);
+    z-index: z('above');
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    background: none;
+    order: 2;
+  }
+  
+  // Builds the slider toggle structure.
+  &-toggle {
+    display: none;
+    
+    @include breakpoint-m-l {
+      display: block;
+      position: absolute;
+      margin: auto 0;
+      top: 50%;
+      z-index: z('above');
+      border: none;
+      background: transparent;
+      line-height: 0;
+      font-size: 0;
+      color: transparent;
+      cursor: pointer;
+      
+      &::after {
+        content: '';
+        display: block;
+        @include absolute-center-within-container;
+      }
+
+      &.-previous {
+        left: 50px; 
+        transform: translatey(-50%) translatex(-50%);
+      }
+
+      &.-next {
+        right: 50px;
+         transform: translatey(-50%) translatex(50%);
+      }
+      
+      &[disabled] {
+        opacity: .5;
+        cursor: not-allowed;
+      }
+      
+    };
+    
+  }
+  
+}
