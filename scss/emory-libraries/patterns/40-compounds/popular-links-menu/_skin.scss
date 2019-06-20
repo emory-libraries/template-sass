@@ -1,0 +1,70 @@
+////
+/// @group emory-libraries.patterns.compounds.popular-links-menu
+////
+
+/// Defines the base skin of the popular-links-menu component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$compounds-popular-links-menu: (
+
+  'color': color('white'),
+  'heading': color('gold'),
+  'fill': color('blue', 'dark'),
+  'border': color('slate','light'),
+
+);
+
+/// Defines the popular-links-menu component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The popular-links-menu component's themeable properties
+@mixin compounds-popular-links-menu--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $color: map-deep-get($skin, 'color');
+  $heading-color: map-deep-get($skin, 'heading');
+  $background: map-deep-get($skin, 'fill');
+  $border-color: map-deep-get($skin, 'border');
+  $border: $border-width-s solid $border-color;
+
+  // Defines the popular-links-menu component's base styles.
+  background-color: $background;
+
+  &-title {
+    @include tokens-heading('h6');
+    color: $heading-color !important;
+  }
+
+  &-list-item {
+
+    &:last-child {
+      flex: 0;
+    }
+
+  }
+
+  &-list-item:not(:last-child) {
+
+    &:after {
+      content: "";
+      border-left: $border;
+      opacity: .2;
+      height: 20px;
+      margin: auto;
+
+      @include breakpoint-s() {
+        border-left: none;
+      }
+
+    }
+
+  }
+
+}
