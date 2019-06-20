@@ -1,0 +1,56 @@
+////
+/// @group emory-libraries.patterns.molecules.branding-header
+////
+
+/// Load the branding-header component's structure and skin.
+@import 'branding-header/structure';
+@import 'branding-header/skin';
+
+/// Builds a constructor for the branding-header component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} molecules-branding-header
+/// @requires {variable} molecules-branding-header
+/// @requires {mixin} molecules-branding-header--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our branding-header component
+///
+/// @status review
+@mixin molecules-branding-header ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-branding-header, $custom);
+  
+  // Initialize the branding-header component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-branding-header;
+    
+    // Load parts.
+    &-badge {
+      @extend %molecules-branding-header-badge;
+    }
+    &-organization {
+      @extend %molecules-branding-header-organization;
+    }
+    &-division {
+      @extend %molecules-branding-header-division;
+    }
+    &-dropdown {
+      @extend %molecules-branding-header-dropdown;
+      &-menu {
+        @extend %molecules-branding-header-dropdown-menu;
+      }
+    }
+    
+    // Load skins.
+    @include molecules-branding-header--theme( $skin );
+    
+  }
+  
+}
