@@ -30,7 +30,7 @@
   &-image {
     grid-area: image;
     overflow: hidden;
-    align-self: center;
+    align-self: flex-start;
     justify-self: center;
     
     img {
