@@ -34,6 +34,11 @@
   @include compounds-grouping-files;
 }
 
+// compounds-subnav-menu-main
+.subnav-menu-main {
+  @include compounds-subnav-menu-main;
+}
+
 // compounds-slider
 .slider {
   @include compounds-slider;
