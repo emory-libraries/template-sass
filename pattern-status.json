@@ -57,7 +57,7 @@
   "compounds-tiles": "review",
   "compounds-grouping-files": "review",
   "compounds-subnav-menu-main": "review",
-  "compounds-slider": "review",
+  "compounds-slider": "construction",
   "organisms-intro": "review",
   "organisms-section-main": "review",
   "organisms-section-major": "review",
@@ -73,5 +73,6 @@
   "templates-staff-directory": "review",
   "templates-bio": "review",
   "compounds-popular-link-menu": "construction",
-  "compounds-popular-links-menu": "construction"
+  "compounds-popular-links-menu": "construction",
+  "organisms-intro-interior-cover": "construction"
 }

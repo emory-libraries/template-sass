@@ -1,0 +1,33 @@
+////
+/// @group emory-libraries.patterns.organisms.intro-interior-cover
+////
+
+/// Defines the base structure of the intro-interior-cover component.
+///
+/// @since 1.0.0-dev.0
+%organisms-intro-interior-cover {
+  
+  // Builds the intro-interior-cover structure.
+  display: grid;
+  grid-template-rows: repeat(2, min-content) 540px;
+
+  &-title {
+    grid-row: 1;
+  }
+
+  &-subtitle {
+    grid-row: 2;
+  }
+
+  &-title,
+  &-subtitle {
+    text-align: center;
+  }
+
+  &-image {
+    grid-row: 3;
+    background-size: cover;
+  }
+
+  
+}

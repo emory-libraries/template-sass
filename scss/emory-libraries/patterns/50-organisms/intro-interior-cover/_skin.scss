@@ -1,0 +1,46 @@
+////
+/// @group emory-libraries.patterns.organisms.intro-interior-cover
+////
+
+/// Defines the base skin of the intro-interior-cover component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$organisms-intro-interior-cover: (
+  
+  'color': color('blue','dark'),
+  
+);
+
+/// Defines the intro-interior-cover component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The intro-interior-cover component's themeable properties
+@mixin organisms-intro-interior-cover--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $color: map-deep-get($skin, 'color');
+  
+  // Defines the intro-interior-cover component's base styles.
+  &-title,
+  &-subtitle {
+    color: $color;
+  }
+
+  &-title {
+    margin: 0;
+  }
+
+  &-subtitle {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  
+}
