@@ -40,6 +40,11 @@
   @include templates-bio;
 }
 
+// templates-gallary
+.gallery-page {
+  @include templates-gallery;
+}
+
 // templates-exhibition
 .exhibition-page {
   @include templates-exhibition;

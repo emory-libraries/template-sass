@@ -1,0 +1,51 @@
+////
+/// @group emory-libraries.patterns.tokens.reveal
+////
+
+/// Defines the base skin of the reveal component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$tokens-reveal: (
+  
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  )
+  
+);
+
+/// Defines the reveal component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The reveal component's themeable properties
+@mixin tokens-reveal--theme ( $skin ) {
+  
+  // Capture the selector.
+  $selector: &;
+  
+  // Capture themeable variables from skin.
+  $duration: map-deep-get($skin, 'transition.duration');
+  $timing: map-deep-get($skin, 'transition.timing');
+  
+  // Defines the reveal component's base styles.
+  // ...
+  
+  // Defines the reveal toggle styles.
+  &-toggle { }
+  
+  // Defines the reveal content styles.
+  &-content {
+    transition: all $duration $timing;
+  }
+  
+  // Defines the reveal button styles.
+  &-button { }
+  
+}

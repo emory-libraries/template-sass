@@ -6,11 +6,11 @@
 ///
 /// @since 1.0.0-dev.0
 %compounds-tiles {
+  
   // Captures selector.
   $selector: &;
 
   // Builds the tiles structure.
-  // ...
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 
