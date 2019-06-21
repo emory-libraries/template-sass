@@ -29,19 +29,20 @@ $compounds-nav-menu-utility: (
 
 
   // Defines the nav-menu-utility component's base styles.
+  &.-mobile {
 
-  .utility-right {
+    .utility-right {
 
-    .nav-button.-flyout {
-      &:not(:last-child) {
+      li {
 
-        &:after {
-          content: "";
-          opacity: 0.1;
-          border-left: 1px solid $border-color;
+        &:not(:last-child) {
 
-          @include breakpoint-l {
-            border: none;
+          &:after {
+            content: "";
+            opacity: 0.1;
+            border-left: 1px solid $border-color;
+            height: 30px;
+            margin: auto;
 
           }
 
@@ -49,7 +50,10 @@ $compounds-nav-menu-utility: (
 
       }
 
+    }
 
+    .nav-button.-librarian {
+      text-decoration: none;
     }
 
   }

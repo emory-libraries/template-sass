@@ -20,13 +20,48 @@
   .utility-left,
   .utility-right {
     display: flex;
-    justify-content: space-between;
+    text-align: center;
   }
 
+  &.-desktop {
 
-  .utility-right {
-    .nav-button.-flyout {
-      text-align: center;
+    @include breakpoint-s-m {
+      display: none;
     }
+
+    .utility-right {
+      justify-content: space-between;
+    }
+
+
   }
+
+  &.-mobile {
+    display: none;
+
+    @include breakpoint-s-m {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .utility-right {
+      padding: 0 1em;
+      margin: 0;
+
+      li {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex: 1 1 auto;
+
+        &:last-child {
+          flex: 0;
+        }
+      }
+
+    }
+
+
+  }
+
 }
