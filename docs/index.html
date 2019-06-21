@@ -20282,7 +20282,7 @@
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
                                        data-expanded="@mixin atoms-link--theme($skin) { 
-                                
+                              
                                 // Capture themeable variables from skin.
                                 $normal: map-deep-get($skin, &#x27;color.normal&#x27;);
                                 $hover: map-deep-get($skin, &#x27;color.hover&#x27;);
@@ -20292,11 +20292,11 @@
                                 $style: map-deep-get($skin, &#x27;style&#x27;);
                                 $duration: map-deep-get($skin, &#x27;transition.duration&#x27;);
                                 $timing: map-deep-get($skin, &#x27;transition.timing&#x27;);
-                                
+                              
                                 // Get icon-specific variables.
                                 $icon-size: map-deep-get($skin, &#x27;icon.size&#x27;);
                                 $icon-spacing: map-deep-get($skin, &#x27;icon.spacing&#x27;);
-                                
+                              
                                 // Defines the link component&#x27;s base styles.
                                 font-weight: $weight;
                                 font-style: $style;
@@ -20304,24 +20304,24 @@
                                 transition: all $duration $timing;
                                 background: none;
                                 border: none;
-                                
+                              
                                 // Adds styles for icons.
                                 .icon {
                                   @include size( $icon-size );
                                   margin-right: $icon-spacing;
-                                  
+                              
                                   svg {
                                     fill: $normal;
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 &amp;:hover,
                                 &amp;.is-hover,
                                 &amp;:focus,
                                 &amp;.is-focus {
                                   color: $hover;
-                                  
+                              
                                   // Adds styles for icons.
                                   .icon {
                               
@@ -20330,13 +20330,13 @@
                                     }
                               
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 &amp;:active,
                                 &amp;.is-active {
                                   color: $active;
-                                  
+                              
                                   // Adds styles for icons.
                                   .icon {
                               
@@ -20345,9 +20345,9 @@
                                     }
                               
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 &amp;::after {
                                   @include tokens-text(&#x27;body&#x27;, $custom: ( &#x27;body&#x27;: (
                                     &#x27;font-style&#x27;: italic
@@ -20355,36 +20355,36 @@
                                   font-size: 12px !important;
                                   line-height: 1 !important;
                                 }
-                                
+                              
                                 // Adds style variation for popular links.
                                 &amp;.-popular {
                                   $font: map-deep-get($skin, &#x27;popular.font&#x27;);
                                   $normal: map-deep-get($skin, &#x27;popular.color.normal&#x27;);
                                   $hover: map-deep-get($skin, &#x27;popular.color.hover&#x27;);
                                   $active: map-deep-get($skin, &#x27;popular.color.active&#x27;);
-                                  
+                              
                                   @include expand-properties($font);
                                   color: $normal;
-                                  
+                              
                                   &amp;:hover,
                                   &amp;.is-hover,
                                   &amp;:focus,
                                   &amp;.is-focus {
                                     color: $hover;
                                   }
-                                  
+                              
                                   &amp;:active,
                                   &amp;.is-active {
                                     color: $active;
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Adds style variation for underlining.
                                 &amp;.-underline {
                                   text-decoration: underline;
                                 }
-                                
+                              
                                }"
                                        data-collapsed="@mixin atoms-link--theme($skin) { ... }"><code class="js-autoindent">@mixin atoms-link--theme($skin) { ... }</code></pre>
                               
@@ -20566,7 +20566,7 @@
                                 <div class="item__code-wrapper">
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$atoms-link: (
-                                
+                              
                                 &#x27;color&#x27;: (
                                   &#x27;normal&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;),
                                   &#x27;hover&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
@@ -20582,7 +20582,7 @@
                                   &#x27;duration&#x27;: $transition-duration,
                                   &#x27;timing&#x27;: $transition-timing
                                 ),
-                                
+                              
                                 &#x27;popular&#x27;: (
                                   &#x27;font&#x27;: (
                                     &#x27;font-family&#x27;: font(&#x27;accent&#x27;),
@@ -20597,7 +20597,7 @@
                                     &#x27;active&#x27;: $color-actionable
                                   )
                                 )
-                                
+                              
                               );</code></pre>
                               
                               
@@ -22572,200 +22572,200 @@
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
                                        data-expanded="@mixin atoms-nav-button--theme($skin) { 
-                                
+                              
                                 // Capture themeable variables from skin.
                                 $duration: map-deep-get($skin, &#x27;transition.duration&#x27;);
                                 $timing: map-deep-get($skin, &#x27;transition.timing&#x27;);
                                 $offset: map-deep-get($skin, &#x27;icon.offset&#x27;);
-                                
+                              
                                 // Capture arrow-specific variables.
                                 $arrow-color: map-deep-get($skin, &#x27;arrow.color&#x27;);
                                 $arrow-size: map-deep-get($skin, &#x27;arrow.size&#x27;);
-                                
+                              
                                 // Defines the component&#x27;s base styles.
                                 appearance: none;
                                 border: none;
                                 background: none;
                                 transition: all $duration $timing;
-                                
+                              
                                 @each $breakpoint, $padding in map-deep-get($skin, &#x27;padding.x&#x27;) {
-                                  
+                              
                                   @if ( is-null($padding) &#x3D;&#x3D; false and $padding !&#x3D; false ) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       @include padding-x( $padding );
                                     };
-                                    
+                              
                                   }
-                                  
+                              
                                 }
                                 @each $breakpoint, $padding in map-deep-get($skin, &#x27;padding.y&#x27;) {
-                                  
+                              
                                   @if ( is-null($padding) &#x3D;&#x3D; false and $padding !&#x3D; false ) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       @include padding-y( $padding );
                                     };
-                                    
+                              
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Defines main button styles.
                                 &amp;:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
                                 &amp;.-main {
                                   font-family: map-deep-get($skin, &#x27;main.font.font-family&#x27;);
                                   font-weight: map-deep-get($skin, &#x27;main.font.font-weight&#x27;);
                                   font-style: map-deep-get($skin, &#x27;main.font.font-style&#x27;);
-                                  
+                              
                                   @each $breakpoint, $size in map-deep-get($skin, &#x27;main.font.font-size&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       font-size: $size;
                                     };
-                                    
+                              
                                   }
                                   @each $breakpoint, $height in map-deep-get($skin, &#x27;main.font.line-height&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       line-height: $height;
                                     };
-                                    
+                              
                                   }
                                   @each $breakpoint, $transform in map-deep-get($skin, &#x27;main.font.text-transform&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       text-transform: $transform;
                                     };
-                                    
+                              
                                   }
                                   @each $breakpoint, $spacing in map-deep-get($skin, &#x27;main.font.letter-spacing&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       letter-spacing: $spacing;
                                     };
-                                    
+                              
                                   }
-                                  
+                              
                                   $foreground: map-deep-get($skin, &#x27;main.foreground&#x27;);
                                   $background: map-deep-get($skin, &#x27;main.background&#x27;);
-                                  
+                              
                                   // Apply foreground styles.
                                   @include private(&#x27;Foreground&#x27;) {
-                                  
+                              
                                     $normal: map-get($foreground, &#x27;normal&#x27;);
                                     $hover: map-get($foreground, &#x27;hover&#x27;);
                                     $active: map-get($foreground, &#x27;active&#x27;);
-                                    
+                              
                                     @each $breakpoint, $color in $normal {
                                       @include breakpoint( screen($breakpoint) ) {
                                         color: $color;
-                                        
+                              
                                         .icon {
-                                      
+                              
                                           svg {
                                             fill: $color;
                                           }
                               
                                         }
-                                        
+                              
                                       };
                                     }
-                                    
+                              
                                     &amp;:hover,
                                     &amp;:focus,
                                     &amp;.is-hover,
                                     &amp;.is-focus {
-                                      
+                              
                                       @each $breakpoint, $color in $hover {
                                         @include breakpoint( screen($breakpoint) ) {
                                           color: $color;
-                                          
+                              
                                           .icon {
-                                      
+                              
                                             svg {
                                               fill: $color;
                                             }
                               
                                           }
-                                          
+                              
                                         };
                                       }
-                                      
+                              
                                     }
-                                    
+                              
                                     &amp;:active,
                                     &amp;.is-active {
-                                      
+                              
                                       @each $breakpoint, $color in $active {
                                         @include breakpoint( screen($breakpoint) ) {
                                           color: $color;
-                                          
+                              
                                           .icon {
-                                      
+                              
                                             svg {
                                               fill: $color;
                                             }
                               
                                           }
-                                          
+                              
                                         };
                                       }
-                                      
+                              
                                     }
-                                    
+                              
                                   };
-                                  
+                              
                                   // Apply background styles.
                                   @include private(&#x27;Background&#x27;) {
-                                  
+                              
                                     $normal: map-get($background, &#x27;normal&#x27;);
                                     $hover: map-get($background, &#x27;hover&#x27;);
                                     $active: map-get($background, &#x27;active&#x27;);
-                                    
+                              
                                     @each $breakpoint, $color in $normal {
                                       @include breakpoint( screen($breakpoint) ) {
                                         background-color: $color;
                                       };
                                     }
-                                    
+                              
                                     &amp;:hover,
                                     &amp;:focus,
                                     &amp;.is-hover,
                                     &amp;.is-focus {
-                                      
+                              
                                       @each $breakpoint, $color in $hover {
                                         @include breakpoint( screen($breakpoint) ) {
                                         background-color: $color;
                                       };
                                       }
-                                      
+                              
                                     }
-                                    
+                              
                                     &amp;:active,
                                     &amp;.is-active {
-                                      
+                              
                                       @each $breakpoint, $color in $active {
                                         @include breakpoint( screen($breakpoint) ) {
                                           background-color: $color;
                                         };
                                       }
-                                      
+                              
                                     }
-                                    
+                              
                                   };
-                                  
+                              
                                   // Don&#x27;t allow icons on main buttons.
                                   .icon {
                                     display: none;
                                   }
-                                  
+                              
                                   // Get padding variable for small screens.
                                   $padding: map-deep-get($skin, &#x27;padding.x.s&#x27;);
-                                  
+                              
                                   // Add arrow to button only on small screens.
                                   padding-right: ($padding * 2) + $arrow-size + $padding;
-                                    
+                              
                                   // Add icon to button.
                                   &amp;::after {
                                     @include tokens-icon(&#x27;material-chevron_right&#x27;, $arrow-color, $arrow-size, $pseudo: true);
@@ -22777,11 +22777,11 @@
                                     color: $arrow-color;
                                     line-height: 1;
                                   }
-                                  
+                              
                                   // Get border-specific variables.
                                   $border-thickness: map-deep-get($skin, &#x27;main.border.thickness&#x27;);
                                   $border-color: map-deep-get($skin, &#x27;main.border.color&#x27;);
-                                  
+                              
                                   // Add border to button.
                                   &amp;::before {
                                     content: &#x27;&#x27;;
@@ -22793,41 +22793,41 @@
                                     opacity: .15;
                                     width: calc(100% - #{$padding * 2});
                                   }
-                                  
+                              
                                   // Remove border from first button.
                                   @include first-child {
-                                    
+                              
                                     // Remove border.
                                     &amp;::before {
                                       content: none;
                                     }
-                                    
+                              
                                   };
-                                  
+                              
                                   // Remove arrow from button on larger screens.
                                   @include breakpoint-m-l {
                                     padding-right: 10px;
-                                    
+                              
                                     // Remove icon from button.
                                     &amp;::after {
                                       content: none;
                                     }
-                                    
+                              
                                     // Remove border from button.
                                     &amp;::before {
                                       content: none;
                                     }
-                                    
+                              
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Defines toggle button styles.
                                 &amp;.-toggle {
-                                  
+                              
                                   // Modifies toggle style.
                                   @each $breakpoint, $padding in map-deep-get($skin, &#x27;toggle.padding.x&#x27;) {
-                                  
+                              
                                     @if ( is-null($padding) &#x3D;&#x3D; false and $padding !&#x3D; false ) {
                               
                                       @include breakpoint( screen($breakpoint) ) {
@@ -22848,85 +22848,85 @@
                                     }
                               
                                   }
-                                  
+                              
                                   $foreground: map-deep-get($skin, &#x27;toggle.foreground&#x27;);
                                   $background: map-deep-get($skin, &#x27;toggle.background&#x27;);
-                                  
+                              
                                   // Apply foreground styles.
                                   @include private(&#x27;Foreground&#x27;) {
-                                    
+                              
                                     $normal: map-get($foreground, &#x27;normal&#x27;);
                                     $hover: map-get($foreground, &#x27;hover&#x27;);
                                     $active: map-get($foreground, &#x27;active&#x27;);
-                                    
+                              
                                     color: $normal;
-                                    
+                              
                                     .icon {
-                                      
+                              
                                       svg {
                                         fill: $normal;
                                       }
                               
                                     }
-                                    
+                              
                                     &amp;:hover,
                                     &amp;:focus,
                                     &amp;.is-hover,
                                     &amp;.is-focus {
                                       color: $hover;
-                                      
+                              
                                       .icon {
-                                      
+                              
                                         svg {
                                           fill: $hover;
                                         }
                               
                                       }
-                                      
+                              
                                     }
-                                    
+                              
                                     &amp;:active,
                                     &amp;.is-active {
                                       color: $active;
                                     }
-                                    
+                              
                                   };
-                                  
+                              
                                   // Apply background styles.
                                   @include private(&#x27;Background&#x27;) {
-                                    
+                              
                                     $normal: map-get($background, &#x27;normal&#x27;);
                                     $hover: map-get($background, &#x27;hover&#x27;);
                                     $active: map-get($background, &#x27;active&#x27;);
-                                    
+                              
                                     background-color: $normal;
-                                    
+                              
                                     &amp;:hover,
                                     &amp;:focus,
                                     &amp;.is-hover,
                                     &amp;.is-focus {
                                       background-color: $hover;
                                     }
-                                    
+                              
                                     &amp;:active,
                                     &amp;.is-active {
                                       background-color: $active;
                                     }
-                                    
+                              
                                   };
-                                  
+                              
                                    // Assign icon styles.
                                   .icon {
-                                    margin-right: $offset / 2;   
+                                    margin-right: $offset / 2;
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Define other style variations for buttons.
                                 @each $class in (&#x27;utility&#x27;, &#x27;flyout&#x27;, &#x27;search&#x27;, &#x27;librarian&#x27;) {
-                                  
+                              
                                   &amp;.-#{$class} {
-                                    
+                              
                                     $foreground: map-deep-get($skin, $class + &#x27;.foreground&#x27;);
                                     $background: map-deep-get($skin, $class + &#x27;.background&#x27;);
                               
@@ -22940,15 +22940,15 @@
                                       @each $breakpoint, $color in $normal {
                                         @include breakpoint( screen($breakpoint) ) {
                                           color: $color;
-                                          
+                              
                                           .icon {
-                                      
+                              
                                             svg {
                                               fill: $color;
                                             }
                               
                                           }
-                                          
+                              
                                         };
                                       }
                               
@@ -22960,20 +22960,20 @@
                                         @each $breakpoint, $color in $hover {
                                           @include breakpoint( screen($breakpoint) ) {
                                             color: $color;
-                                            
+                              
                                             .icon {
-                                      
+                              
                                               svg {
                                                 fill: $color;
                                               }
                               
                                             }
-                                            
+                              
                                           };
                                         }
                               
                                       }
-                                      
+                              
                                       &amp;:active,
                                       &amp;.is-active {
                               
@@ -23021,7 +23021,7 @@
                                         }
                               
                                       }
-                                      
+                              
                                       :active,
                                       &amp;.is-active {
                               
@@ -23034,12 +23034,12 @@
                                       }
                               
                                     };
-                                    
+                              
                                   }
-                                  
+                              
                                 }
                                 @each $class in (&#x27;utility&#x27;, &#x27;flyout&#x27;, &#x27;search&#x27;, &#x27;librarian&#x27;, &#x27;toggle&#x27;) {
-                                  
+                              
                                   &amp;.-#{$class} {
                                     font-family: map-deep-get($skin, $class + &#x27;.font.font-family&#x27;);
                                     font-weight: map-deep-get($skin, $class + &#x27;.font.font-weight&#x27;);
@@ -23073,16 +23073,16 @@
                                       };
                               
                                     }
-                                
+                              
                                   }
-                                  
+                              
                                 }
                                 @each $class in (&#x27;flyout&#x27;, &#x27;search&#x27;, &#x27;librarian&#x27;, &#x27;toggle&#x27;) {
-                                  
+                              
                                   &amp;.-#{$class} {
-                                    
-                                    .icon  {    
-                                      
+                              
+                                    .icon  {
+                              
                                       @each $breakpoint, $size in map-deep-get($skin, $class + &#x27;.icon.size&#x27;) {
                               
                                         @include breakpoint( screen($breakpoint) ) {
@@ -23090,51 +23090,51 @@
                                         };
                               
                                       }
-                                      
+                              
                                     }
-                                    
+                              
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Define search button styles.
                                 &amp;.-search {
                                   font-family: map-deep-get($skin, &#x27;search.font.font-family&#x27;);
                                   font-weight: map-deep-get($skin, &#x27;search.font.font-weight&#x27;);
                                   font-style: map-deep-get($skin, &#x27;search.font.font-style&#x27;);
-                                  
+                              
                                   @each $breakpoint, $size in map-deep-get($skin, &#x27;search.font.font-size&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       font-size: $size;
                                     };
-                                    
+                              
                                   };
                                   @each $breakpoint, $height in map-deep-get($skin, &#x27;search.font.line-height&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       line-height: $height;
                                     };
-                                    
+                              
                                   };
                                   @each $breakpoint, $transform in map-deep-get($skin, &#x27;search.font.text-transform&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       text-transform: $transform;
                                     };
-                                    
+                              
                                   };
                                   @each $breakpoint, $spacing in map-deep-get($skin, &#x27;search.font.letter-spacing&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       letter-spacing: $spacing;
                                     };
-                                    
+                              
                                   };
-                                  
+                              
                                   // Modifies search style.
                                   @each $breakpoint, $padding in map-deep-get($skin, &#x27;search.padding.x&#x27;) {
-                                  
+                              
                                     @if ( is-null($padding) &#x3D;&#x3D; false and $padding !&#x3D; false ) {
                               
                                       @include breakpoint( screen($breakpoint) ) {
@@ -23155,42 +23155,42 @@
                                     }
                               
                                   }
-                                  
+                              
                                   // Assign icon styles.
                                   .icon {
-                                    margin-right: $offset / 2;   
+                                    margin-right: $offset / 2;
                                     @include size( map-deep-get($skin, &#x27;search.size&#x27;) );
-                                    
+                              
                                     @include breakpoint-m-l {
                                       margin-right: 0;
                                       @include size( auto );
                                     };
-                                    
+                              
                                   }
-                                  
+                              
                                   // Apply styles for larger screens.
                                   @include breakpoint-m-l {
-                                    
+                              
                                     // Don&#x27;t show label.
                                     .nav-button-label {
                                       display: none;
                                     }
-                                    
+                              
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Define utility button styles.
                                 &amp;.-utility {
-                                  
+                              
                                   // Don&#x27;t allow icons on utility buttons.
                                   .icon {
                                     display: none;
                                   }
-                                  
+                              
                                   // Add arrow to button only on small screens.
                                   padding-right: (10px * 2) + $arrow-size + 10px;
-                                    
+                              
                                   &amp;::after {
                                     @include tokens-icon(&#x27;material-chevron_right&#x27;, $arrow-color, $arrow-size, $pseudo: true);
                                     @include padding-x( 10px );
@@ -23201,51 +23201,51 @@
                                     color: $arrow-color;
                                     line-height: 1;
                                   }
-                                  
+                              
                                   // Remove arrow from button on larger screens.
                                   @include breakpoint-m-l {
                                     padding-right: 10px;
-                                    
+                              
                                     &amp;::after {
                                       content: none;
                                     }
-                                    
+                              
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Define flyout button styles.
                                 &amp;.-flyout {
-                                  
+                              
                                   // Assign icon styles.
                                   .icon {
-                                    margin-bottom: ($offset / 2);   
-                                    
+                                    margin-bottom: ($offset / 2);
+                              
                                     @include breakpoint-m-l {
                                       margin-right: $offset;
                                       margin-bottom: 0;
                                     };
-                                    
+                              
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Define librarian button styles.
                                 &amp;.-librarian {
-                                  
+                              
                                   // Assign icon styles.
                                   .icon {
-                                    margin-right: $offset;   
+                                    margin-right: $offset;
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Defines disabled button style.
                                 &amp;[disabled],
                                 &amp;.is-disabled {
                                   opacity: .5;
                                 }
-                                
+                              
                                }"
                                        data-collapsed="@mixin atoms-nav-button--theme($skin) { ... }"><code class="js-autoindent">@mixin atoms-nav-button--theme($skin) { ... }</code></pre>
                               
@@ -23441,7 +23441,7 @@
                                 <div class="item__code-wrapper">
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$atoms-nav-button: (
-                                
+                              
                                 &#x27;main&#x27;: (
                                   &#x27;foreground&#x27;: (
                                     &#x27;normal&#x27;: (
@@ -23507,7 +23507,7 @@
                                     &#x27;color&#x27;: color(&#x27;slate&#x27;, &#x27;light&#x27;)
                                   )
                                 ),
-                                
+                              
                                 &#x27;utility&#x27;: (
                                   &#x27;foreground&#x27;: (
                                     &#x27;normal&#x27;: (
@@ -23569,7 +23569,7 @@
                                     )
                                   )
                                 ),
-                                
+                              
                                 &#x27;flyout&#x27;: (
                                   &#x27;foreground&#x27;: (
                                     &#x27;normal&#x27;: (
@@ -23638,7 +23638,7 @@
                                     )
                                   )
                                 ),
-                                
+                              
                                 &#x27;search&#x27;: (
                                   &#x27;foreground&#x27;: (
                                     &#x27;normal&#x27;: (
@@ -23719,39 +23719,39 @@
                                     )
                                   )
                                 ),
-                                
+                              
                                 &#x27;librarian&#x27;: (
                                   &#x27;foreground&#x27;: (
                                     &#x27;normal&#x27;: (
                                       &#x27;s&#x27;: color(&#x27;white&#x27;),
-                                      &#x27;m&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
+                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
                                       &#x27;l&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;)
                                     ),
                                     &#x27;hover&#x27;: (
                                       &#x27;s&#x27;: color(&#x27;white&#x27;),
-                                      &#x27;m&#x27;: $color-actionable,
+                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
                                       &#x27;l&#x27;: $color-actionable
                                     ),
                                     &#x27;active&#x27;: (
                                       &#x27;s&#x27;: color(&#x27;white&#x27;),
-                                      &#x27;m&#x27;: $color-actionable,
+                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
                                       &#x27;l&#x27;: $color-actionable
                                     )
                                   ),
                                   &#x27;background&#x27;: (
                                     &#x27;normal&#x27;: (
                                       &#x27;s&#x27;: $color-actionable,
-                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
+                                      &#x27;m&#x27;: $color-actionable,
                                       &#x27;l&#x27;: color(&#x27;white&#x27;)
                                     ),
                                     &#x27;hover&#x27;: (
                                       &#x27;s&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
-                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
+                                      &#x27;m&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
                                       &#x27;l&#x27;: color(&#x27;white&#x27;)
                                     ),
                                     &#x27;active&#x27;: (
                                       &#x27;s&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
-                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
+                                      &#x27;m&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
                                       &#x27;l&#x27;: color(&#x27;white&#x27;)
                                     )
                                   ),
@@ -23783,12 +23783,12 @@
                                   &#x27;icon&#x27;: (
                                     &#x27;size&#x27;: (
                                       &#x27;s&#x27;: 24px,
-                                      &#x27;m&#x27;: 14px,
+                                      &#x27;m&#x27;: 24px,
                                       &#x27;l&#x27;: 14px
                                     )
                                   )
                                 ),
-                                
+                              
                                 &#x27;toggle&#x27;: (
                                   &#x27;foreground&#x27;: (
                                     &#x27;normal&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
@@ -23869,7 +23869,7 @@
                                     &#x27;l&#x27;: false
                                   )
                                 )
-                                
+                              
                               );</code></pre>
                               
                               
@@ -23977,7 +23977,7 @@
                                 width: 100%;
                               
                                 // Adds breakpoint-specific structure changes.
-                                @include breakpoint-m-l {
+                                @include breakpoint-l {
                                   display: inline-flex;
                                   justify-content: center;
                                   width: auto;
@@ -24040,7 +24040,7 @@
                               
                                 // Sets flyout button structure.
                                 &amp;.-flyout {
-                                  height: 70;
+                                  height: 70px;
                                   display: inline-flex;
                                   flex-direction: column;
                                   justify-content: center;
@@ -34069,18 +34069,20 @@
                               
                                 // Defines the nav-menu-utility component&#x27;s base styles.
                               
-                                .utility-right {
+                                &amp;.-desktop {
                               
-                                  .nav-button.-flyout {
-                                    &amp;:not(:last-child) {
+                                  .utility-left {
                               
-                                      &amp;:after {
-                                        content: &quot;&quot;;
-                                        opacity: 0.1;
-                                        border-left: 1px solid $border-color;
+                                    li {
                               
-                                        @include breakpoint-l {
-                                          border: none;
+                                      &amp;:not(:last-child) {
+                              
+                                        &amp;:after {
+                                          content: &quot;&quot;;
+                                          opacity: 0.1;
+                                          border-left: 1px solid $border-color;
+                                          height: 30px;
+                                          margin: auto;
                               
                                         }
                               
@@ -34088,7 +34090,35 @@
                               
                                     }
                               
+                                  }
                               
+                                }
+                              
+                                &amp;.-mobile {
+                              
+                                  .utility-right {
+                              
+                                    li {
+                              
+                                      &amp;:not(:last-child) {
+                              
+                                        &amp;:after {
+                                          content: &quot;&quot;;
+                                          opacity: 0.1;
+                                          border-left: 1px solid $border-color;
+                                          height: 30px;
+                                          margin: auto;
+                              
+                                        }
+                              
+                                      }
+                              
+                                    }
+                              
+                                  }
+                              
+                                  .nav-button.-librarian {
+                                    text-decoration: none;
                                   }
                               
                                 }
@@ -34375,15 +34405,67 @@
                                 .utility-left,
                                 .utility-right {
                                   display: flex;
-                                  justify-content: space-between;
+                                  text-align: center;
                                 }
                               
+                                &amp;.-desktop {
                               
-                                .utility-right {
-                                  .nav-button.-flyout {
-                                    text-align: center;
+                                  @include breakpoint-s-m {
+                                    display: none;
                                   }
+                              
+                                  .utility-right {
+                                    justify-content: space-between;
+                                  }
+                              
+                                  .utility-left {
+                                    padding: 0 1em;
+                                    margin: 0;
+                                    white-space: nowrap;
+                              
+                                    li {
+                                      display: flex;
+                                      justify-content: flex-start;
+                                      align-items: center;
+                                      flex: 1 0 auto;
+                              
+                                      &amp;:last-child {
+                                        flex: 0;
+                                      }
+                                    }
+                              
+                                  }
+                              
                                 }
+                              
+                                &amp;.-mobile {
+                                  display: none;
+                              
+                                  @include breakpoint-s-m {
+                                    display: flex;
+                                    flex-direction: column;
+                                  }
+                              
+                                  .utility-right {
+                                    padding: 0 1em;
+                                    margin: 0;
+                              
+                                    li {
+                                      display: flex;
+                                      justify-content: flex-start;
+                                      align-items: center;
+                                      flex: 1 1 auto;
+                              
+                                      &amp;:last-child {
+                                        flex: 0;
+                                      }
+                                    }
+                              
+                                  }
+                              
+                              
+                                }
+                              
                                }"
                                       data-collapsed="%compounds-nav-menu-utility { ... }"><code class="js-autoindent">%compounds-nav-menu-utility { ... }</code></pre>
                               
