@@ -197,8 +197,7 @@
   &-sidebar {
     grid-column: main;
     grid-row: sidebar;
-    display: flex;
-    justify-content: center;
+    display: block;
 
     // Adjust the main sidebar structure across large screens.
     @include breakpoint-l {
@@ -251,7 +250,8 @@
     '.-research-help-page',
     '.-service-directory-page',
     '.-subject-librarian-directory-page',
-    '.-staff-directory-page'
+    '.-staff-directory-page',
+    '.-exhibition-page'
   )},
   &.-info-page {
     @include grid-layout;
@@ -342,7 +342,7 @@
   &.-service-directory-page {
     @include grid-layout((
       'spacer': false,
-      'content': false,
+      'auto': false,
       'section': false,
       'sidebar': false
     ));
@@ -397,7 +397,7 @@
   &.-staff-directory-page {
     @include grid-layout((
       'spacer': false,
-      'content': false,
+      'auto': false,
       'section': false,
       'sidebar': false
     ));
@@ -427,6 +427,63 @@
       }
 
     }
+
+  }
+
+  // Builds the main structure when used for an exhibition page.
+  &.-exhibition-page {
+    @include grid-layout((
+      'title': false,
+      'section': false,
+      'spacer': false
+    ));
+    
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-title,
+    #{$selector}-section,
+    #{$selector}-spacer {
+      display: none;
+    }
+
+    // Reorder the content.
+    #{$selector}-content {
+      grid-row: sidebar-end;
+    }
+
+    // Adjust the spacing for sidebar and body within the grid.
+    #{$selector}-body,
+    #{$selector}-sidebar {
+      @include margin-y($rhythm-y);
+    }
+
+    // Adjusts the main structure across large screens.
+    @include breakpoint-l {
+      grid-template-columns: [main-start] 1fr 
+                             [main-end divider-start] .25fr 
+                             [divider-end sidebar-start] 1fr [sidebar-end] !important;
+
+      // Adjust the breadcrumb placement within the grid.
+      #{$selector}-breadcrumb {
+        grid-column: main / sidebar;
+      }
+
+      // Adjusts the subtitle placement within the grid.
+      #{$selector}-subtitle {
+        grid-column: main / sidebar;
+      }
+
+      // Adjust the sidebar placement within the grid.
+      #{$selector}-sidebar {
+        grid-row: body;
+      }
+
+      // Adjust the spacer and content placement within the grid.
+      #{$selector}-spacer,
+      #{$selector}-content {
+        grid-column: main / sidebar;
+      }
+
+    };
 
   }
 

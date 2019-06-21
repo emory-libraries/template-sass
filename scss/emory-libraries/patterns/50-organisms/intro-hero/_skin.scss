@@ -9,11 +9,13 @@
 /// @type map
 $organisms-intro-hero: (
 
-  'gradient-color': #282828,
+  'gradient': #282828,
 
-  'hero-color': color('white'),
+  'color': color('white'),
 
-  'subtitle-size': 16px
+  'subtitle': (
+    'size': 16px
+  )
 
 );
 
@@ -29,19 +31,14 @@ $organisms-intro-hero: (
 @mixin organisms-intro-hero--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  // ...
-
-  $color: map-deep-get($skin, 'hero-color');
-  $subtitle: map-deep-get($skin, 'subtitle-size');
-  $gradient-color: map-deep-get($skin, 'gradient-color');
+  $color: map-deep-get($skin, 'color');
+  $gradient: map-deep-get($skin, 'gradient');
+  
+  // Get subtitle-specific variables.
+  $subtitle-size: map-deep-get($skin, 'subtitle.size');
 
   // Defines the intro-hero component's base styles.
-  // ...
-
-  // Defines the intro-hero-gradient styles.
-  &-gradient {
-    @include linear-gradient(0deg, $gradient-color -14.42%, rgba(40, 40, 40, 0) 50%);
-  }
+  @include linear-gradient-over-image(0deg, $gradient -14.42%, transparent 50%, var(--image));
 
   // Defines the intro-hero-title styles.
   &-title {
@@ -52,10 +49,10 @@ $organisms-intro-hero: (
 
   // Modifies styles when used for a heading intro-hero.
   &-subtitle {
-      margin: 0;
-      color: $color;
-      font-size: $subtitle;
-      text-align: center;
-      line-height: 1.5;
+    @include tokens-text('body', $color, ('body': (
+      'line-height': 1.5,
+      'text-align': center
+    )));
   }
+  
 }
