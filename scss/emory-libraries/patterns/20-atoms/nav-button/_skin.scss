@@ -8,7 +8,7 @@
 ///
 /// @type map
 $atoms-nav-button: (
-  
+
   'main': (
     'foreground': (
       'normal': (
@@ -74,7 +74,7 @@ $atoms-nav-button: (
       'color': color('slate', 'light')
     )
   ),
-  
+
   'utility': (
     'foreground': (
       'normal': (
@@ -136,7 +136,7 @@ $atoms-nav-button: (
       )
     )
   ),
-  
+
   'flyout': (
     'foreground': (
       'normal': (
@@ -205,7 +205,7 @@ $atoms-nav-button: (
       )
     )
   ),
-  
+
   'search': (
     'foreground': (
       'normal': (
@@ -286,39 +286,39 @@ $atoms-nav-button: (
       )
     )
   ),
-  
+
   'librarian': (
     'foreground': (
       'normal': (
         's': color('white'),
-        'm': color('blue', 'mid'),
+        'm': color('white'),
         'l': color('blue', 'mid')
       ),
       'hover': (
         's': color('white'),
-        'm': $color-actionable,
+        'm': color('white'),
         'l': $color-actionable
       ),
       'active': (
         's': color('white'),
-        'm': $color-actionable,
+        'm': color('white'),
         'l': $color-actionable
       )
     ),
     'background': (
       'normal': (
         's': $color-actionable,
-        'm': color('white'),
+        'm': $color-actionable,
         'l': color('white')
       ),
       'hover': (
         's': color('blue', 'mid'),
-        'm': color('white'),
+        'm': color('blue', 'mid'),
         'l': color('white')
       ),
       'active': (
         's': color('blue', 'mid'),
-        'm': color('white'),
+        'm': color('blue', 'mid'),
         'l': color('white')
       )
     ),
@@ -350,12 +350,12 @@ $atoms-nav-button: (
     'icon': (
       'size': (
         's': 24px,
-        'm': 14px,
+        'm': 24px,
         'l': 14px
       )
     )
   ),
-  
+
   'toggle': (
     'foreground': (
       'normal': color('blue', 'dark'),
@@ -436,7 +436,7 @@ $atoms-nav-button: (
       'l': false
     )
   )
-  
+
 );
 
 /// Defines the nav-button component theme.
@@ -449,200 +449,200 @@ $atoms-nav-button: (
 ///
 /// @output The nav-button component's themeable properties
 @mixin atoms-nav-button--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $duration: map-deep-get($skin, 'transition.duration');
   $timing: map-deep-get($skin, 'transition.timing');
   $offset: map-deep-get($skin, 'icon.offset');
-  
+
   // Capture arrow-specific variables.
   $arrow-color: map-deep-get($skin, 'arrow.color');
   $arrow-size: map-deep-get($skin, 'arrow.size');
-  
+
   // Defines the component's base styles.
   appearance: none;
   border: none;
   background: none;
   transition: all $duration $timing;
-  
+
   @each $breakpoint, $padding in map-deep-get($skin, 'padding.x') {
-    
+
     @if ( is-null($padding) == false and $padding != false ) {
-      
+
       @include breakpoint( screen($breakpoint) ) {
         @include padding-x( $padding );
       };
-      
+
     }
-    
+
   }
   @each $breakpoint, $padding in map-deep-get($skin, 'padding.y') {
-    
+
     @if ( is-null($padding) == false and $padding != false ) {
-      
+
       @include breakpoint( screen($breakpoint) ) {
         @include padding-y( $padding );
       };
-      
+
     }
-    
+
   }
-  
+
   // Defines main button styles.
   &:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
   &.-main {
     font-family: map-deep-get($skin, 'main.font.font-family');
     font-weight: map-deep-get($skin, 'main.font.font-weight');
     font-style: map-deep-get($skin, 'main.font.font-style');
-    
+
     @each $breakpoint, $size in map-deep-get($skin, 'main.font.font-size') {
-      
+
       @include breakpoint( screen($breakpoint) ) {
         font-size: $size;
       };
-      
+
     }
     @each $breakpoint, $height in map-deep-get($skin, 'main.font.line-height') {
-      
+
       @include breakpoint( screen($breakpoint) ) {
         line-height: $height;
       };
-      
+
     }
     @each $breakpoint, $transform in map-deep-get($skin, 'main.font.text-transform') {
-      
+
       @include breakpoint( screen($breakpoint) ) {
         text-transform: $transform;
       };
-      
+
     }
     @each $breakpoint, $spacing in map-deep-get($skin, 'main.font.letter-spacing') {
-      
+
       @include breakpoint( screen($breakpoint) ) {
         letter-spacing: $spacing;
       };
-      
+
     }
-    
+
     $foreground: map-deep-get($skin, 'main.foreground');
     $background: map-deep-get($skin, 'main.background');
-    
+
     // Apply foreground styles.
     @include private('Foreground') {
-    
+
       $normal: map-get($foreground, 'normal');
       $hover: map-get($foreground, 'hover');
       $active: map-get($foreground, 'active');
-      
+
       @each $breakpoint, $color in $normal {
         @include breakpoint( screen($breakpoint) ) {
           color: $color;
-          
+
           .icon {
-        
+
             svg {
               fill: $color;
             }
 
           }
-          
+
         };
       }
-      
+
       &:hover,
       &:focus,
       &.is-hover,
       &.is-focus {
-        
+
         @each $breakpoint, $color in $hover {
           @include breakpoint( screen($breakpoint) ) {
             color: $color;
-            
+
             .icon {
-        
+
               svg {
                 fill: $color;
               }
 
             }
-            
+
           };
         }
-        
+
       }
-      
+
       &:active,
       &.is-active {
-        
+
         @each $breakpoint, $color in $active {
           @include breakpoint( screen($breakpoint) ) {
             color: $color;
-            
+
             .icon {
-        
+
               svg {
                 fill: $color;
               }
 
             }
-            
+
           };
         }
-        
+
       }
-      
+
     };
-    
+
     // Apply background styles.
     @include private('Background') {
-    
+
       $normal: map-get($background, 'normal');
       $hover: map-get($background, 'hover');
       $active: map-get($background, 'active');
-      
+
       @each $breakpoint, $color in $normal {
         @include breakpoint( screen($breakpoint) ) {
           background-color: $color;
         };
       }
-      
+
       &:hover,
       &:focus,
       &.is-hover,
       &.is-focus {
-        
+
         @each $breakpoint, $color in $hover {
           @include breakpoint( screen($breakpoint) ) {
           background-color: $color;
         };
         }
-        
+
       }
-      
+
       &:active,
       &.is-active {
-        
+
         @each $breakpoint, $color in $active {
           @include breakpoint( screen($breakpoint) ) {
             background-color: $color;
           };
         }
-        
+
       }
-      
+
     };
-    
+
     // Don't allow icons on main buttons.
     .icon {
       display: none;
     }
-    
+
     // Get padding variable for small screens.
     $padding: map-deep-get($skin, 'padding.x.s');
-    
+
     // Add arrow to button only on small screens.
     padding-right: ($padding * 2) + $arrow-size + $padding;
-      
+
     // Add icon to button.
     &::after {
       @include tokens-icon('material-chevron_right', $arrow-color, $arrow-size, $pseudo: true);
@@ -654,11 +654,11 @@ $atoms-nav-button: (
       color: $arrow-color;
       line-height: 1;
     }
-    
+
     // Get border-specific variables.
     $border-thickness: map-deep-get($skin, 'main.border.thickness');
     $border-color: map-deep-get($skin, 'main.border.color');
-    
+
     // Add border to button.
     &::before {
       content: '';
@@ -670,41 +670,41 @@ $atoms-nav-button: (
       opacity: .15;
       width: calc(100% - #{$padding * 2});
     }
-    
+
     // Remove border from first button.
     @include first-child {
-      
+
       // Remove border.
       &::before {
         content: none;
       }
-      
+
     };
-    
+
     // Remove arrow from button on larger screens.
     @include breakpoint-m-l {
       padding-right: 10px;
-      
+
       // Remove icon from button.
       &::after {
         content: none;
       }
-      
+
       // Remove border from button.
       &::before {
         content: none;
       }
-      
+
     };
-    
+
   }
-  
+
   // Defines toggle button styles.
   &.-toggle {
-    
+
     // Modifies toggle style.
     @each $breakpoint, $padding in map-deep-get($skin, 'toggle.padding.x') {
-    
+
       @if ( is-null($padding) == false and $padding != false ) {
 
         @include breakpoint( screen($breakpoint) ) {
@@ -725,85 +725,85 @@ $atoms-nav-button: (
       }
 
     }
-    
+
     $foreground: map-deep-get($skin, 'toggle.foreground');
     $background: map-deep-get($skin, 'toggle.background');
-    
+
     // Apply foreground styles.
     @include private('Foreground') {
-      
+
       $normal: map-get($foreground, 'normal');
       $hover: map-get($foreground, 'hover');
       $active: map-get($foreground, 'active');
-      
+
       color: $normal;
-      
+
       .icon {
-        
+
         svg {
           fill: $normal;
         }
 
       }
-      
+
       &:hover,
       &:focus,
       &.is-hover,
       &.is-focus {
         color: $hover;
-        
+
         .icon {
-        
+
           svg {
             fill: $hover;
           }
 
         }
-        
+
       }
-      
+
       &:active,
       &.is-active {
         color: $active;
       }
-      
+
     };
-    
+
     // Apply background styles.
     @include private('Background') {
-      
+
       $normal: map-get($background, 'normal');
       $hover: map-get($background, 'hover');
       $active: map-get($background, 'active');
-      
+
       background-color: $normal;
-      
+
       &:hover,
       &:focus,
       &.is-hover,
       &.is-focus {
         background-color: $hover;
       }
-      
+
       &:active,
       &.is-active {
         background-color: $active;
       }
-      
+
     };
-    
+
      // Assign icon styles.
     .icon {
-      margin-right: $offset / 2;   
+      margin-right: $offset / 2;
     }
-    
+
   }
-  
+
   // Define other style variations for buttons.
   @each $class in ('utility', 'flyout', 'search', 'librarian') {
-    
+
     &.-#{$class} {
-      
+
       $foreground: map-deep-get($skin, $class + '.foreground');
       $background: map-deep-get($skin, $class + '.background');
 
@@ -817,15 +817,15 @@ $atoms-nav-button: (
         @each $breakpoint, $color in $normal {
           @include breakpoint( screen($breakpoint) ) {
             color: $color;
-            
+
             .icon {
-        
+
               svg {
                 fill: $color;
               }
 
             }
-            
+
           };
         }
 
@@ -837,20 +837,20 @@ $atoms-nav-button: (
           @each $breakpoint, $color in $hover {
             @include breakpoint( screen($breakpoint) ) {
               color: $color;
-              
+
               .icon {
-        
+
                 svg {
                   fill: $color;
                 }
 
               }
-              
+
             };
           }
 
         }
-        
+
         &:active,
         &.is-active {
 
@@ -898,7 +898,7 @@ $atoms-nav-button: (
           }
 
         }
-        
+
         :active,
         &.is-active {
 
@@ -911,12 +911,12 @@ $atoms-nav-button: (
         }
 
       };
-      
+
     }
-    
+
   }
   @each $class in ('utility', 'flyout', 'search', 'librarian', 'toggle') {
-    
+
     &.-#{$class} {
       font-family: map-deep-get($skin, $class + '.font.font-family');
       font-weight: map-deep-get($skin, $class + '.font.font-weight');
@@ -950,16 +950,16 @@ $atoms-nav-button: (
         };
 
       }
-  
+
     }
-    
+
   }
   @each $class in ('flyout', 'search', 'librarian', 'toggle') {
-    
+
     &.-#{$class} {
-      
-      .icon  {    
-        
+
+      .icon  {
+
         @each $breakpoint, $size in map-deep-get($skin, $class + '.icon.size') {
 
           @include breakpoint( screen($breakpoint) ) {
@@ -967,51 +967,51 @@ $atoms-nav-button: (
           };
 
         }
-        
+
       }
-      
+
     }
-    
+
   }
-  
+
   // Define search button styles.
   &.-search {
     font-family: map-deep-get($skin, 'search.font.font-family');
     font-weight: map-deep-get($skin, 'search.font.font-weight');
     font-style: map-deep-get($skin, 'search.font.font-style');
-    
+
     @each $breakpoint, $size in map-deep-get($skin, 'search.font.font-size') {
-      
+
       @include breakpoint( screen($breakpoint) ) {
         font-size: $size;
       };
-      
+
     };
     @each $breakpoint, $height in map-deep-get($skin, 'search.font.line-height') {
-      
+
       @include breakpoint( screen($breakpoint) ) {
         line-height: $height;
       };
-      
+
     };
     @each $breakpoint, $transform in map-deep-get($skin, 'search.font.text-transform') {
-      
+
       @include breakpoint( screen($breakpoint) ) {
         text-transform: $transform;
       };
-      
+
     };
     @each $breakpoint, $spacing in map-deep-get($skin, 'search.font.letter-spacing') {
-      
+
       @include breakpoint( screen($breakpoint) ) {
         letter-spacing: $spacing;
       };
-      
+
     };
-    
+
     // Modifies search style.
     @each $breakpoint, $padding in map-deep-get($skin, 'search.padding.x') {
-    
+
       @if ( is-null($padding) == false and $padding != false ) {
 
         @include breakpoint( screen($breakpoint) ) {
@@ -1032,42 +1032,42 @@ $atoms-nav-button: (
       }
 
     }
-    
+
     // Assign icon styles.
     .icon {
-      margin-right: $offset / 2;   
+      margin-right: $offset / 2;
       @include size( map-deep-get($skin, 'search.size') );
-      
+
       @include breakpoint-m-l {
         margin-right: 0;
         @include size( auto );
       };
-      
+
     }
-    
+
     // Apply styles for larger screens.
     @include breakpoint-m-l {
-      
+
       // Don't show label.
       .nav-button-label {
         display: none;
       }
-      
+
     };
-    
+
   }
-  
+
   // Define utility button styles.
   &.-utility {
-    
+
     // Don't allow icons on utility buttons.
     .icon {
       display: none;
     }
-    
+
     // Add arrow to button only on small screens.
     padding-right: (10px * 2) + $arrow-size + 10px;
-      
+
     &::after {
       @include tokens-icon('material-chevron_right', $arrow-color, $arrow-size, $pseudo: true);
       @include padding-x( 10px );
@@ -1078,49 +1078,49 @@ $atoms-nav-button: (
       color: $arrow-color;
       line-height: 1;
     }
-    
+
     // Remove arrow from button on larger screens.
     @include breakpoint-m-l {
       padding-right: 10px;
-      
+
       &::after {
         content: none;
       }
-      
+
     };
-    
+
   }
-  
+
   // Define flyout button styles.
   &.-flyout {
-    
+
     // Assign icon styles.
     .icon {
-      margin-bottom: ($offset / 2);   
-      
+      margin-bottom: ($offset / 2);
+
       @include breakpoint-m-l {
         margin-right: $offset;
         margin-bottom: 0;
       };
-      
+
     }
-    
+
   }
-  
+
   // Define librarian button styles.
   &.-librarian {
-    
+
     // Assign icon styles.
     .icon {
-      margin-right: $offset;   
+      margin-right: $offset;
     }
-    
+
   }
-  
+
   // Defines disabled button style.
   &[disabled],
   &.is-disabled {
     opacity: .5;
   }
-  
+
 }
