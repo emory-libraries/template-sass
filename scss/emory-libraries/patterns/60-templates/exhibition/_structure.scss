@@ -107,11 +107,12 @@
     .section-main {
       padding-top: 0 !important;
       
-      // Adjust the main body section.
-      &-body {
+      // Adjust the main body and sidebar section.
+      &-body,
+      &-sidebar {
         
         // Override the first paragraph's top spacing.
-        p:first-of-type { 
+        > *:first-child { 
           margin-top: 0;
         }
         
