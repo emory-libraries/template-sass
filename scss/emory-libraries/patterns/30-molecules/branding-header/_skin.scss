@@ -1,0 +1,174 @@
+////
+/// @group emory-libraries.patterns.molecules.branding-header
+////
+
+/// Defines the base skin of the branding-header component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$molecules-branding-header: (
+  
+  'background': color('white'),
+  'organization': color('blue', 'dark'),
+  'division': color('blue', 'dark'),
+  
+  'dropdown': (
+    'color': color('blue', 'bright'),
+    'spacing': 1em,
+    'icon': 15px
+  ),
+  
+  'badge': (
+    'color': color('blue', 'mid'),
+    'stroke': 10px,
+    'size': (
+      'min': 75px,
+      'max': 100px
+    )
+  ),
+  
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  ),
+  
+  'gap': 5px,
+  'padding': (
+    'x': 30px,
+    'y': 20px
+  )
+  
+);
+
+/// Defines the branding-header component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The branding-header component's themeable properties
+@mixin molecules-branding-header--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $background: map-deep-get($skin, 'background');
+  $organization: map-deep-get($skin, 'organization');
+  $division: map-deep-get($skin, 'division');
+  $gap: map-deep-get($skin, 'gap');
+  $padding-x: map-deep-get($skin, 'padding.x');
+  $padding-y: map-deep-get($skin, 'padding.y');
+  
+  // Get transition-specific variables.
+  $transition-duration: map-deep-get($skin, 'transition.duration');
+  $transition-timing: map-deep-get($skin, 'transition.timing');
+  
+  // Get badge-specific variables.
+  $badge-min: map-deep-get($skin, 'badge.size.min');
+  $badge-max: map-deep-get($skin, 'badge.size.max');
+  $badge-scale: numeric-scale($badge-min, $badge-max, 3, true);
+  $badge-color: map-deep-get($skin, 'badge.color');
+  $badge-stroke: map-deep-get($skin, 'badge.stroke');
+  
+  // Get dropdown-specific variables.
+  $dropdown-color: map-deep-get($skin, 'dropdown.color');
+  $dropdown-spacing: map-deep-get($skin, 'dropdown.spacing');
+  $dropdown-icon: map-deep-get($skin, 'dropdown.icon');
+  
+  // Defines the branding-header component's base styles.
+  padding: $padding-y $padding-x;
+  grid-column-gap: $gap;
+  background-color: $background;
+  
+  // Defines the branding badge styles.
+  &-badge { 
+    display: block;
+    transition: all $transition-duration $transition-timing;
+    width: nth($badge-scale, 1);
+    
+    svg {
+      height: nth($badge-scale, 1) + $badge-stroke;
+    }
+    
+    @include breakpoint-m {
+      width: nth($badge-scale, 2);
+      
+      svg {
+        top: -$padding-y;
+        height: nth($badge-scale, 2) + $badge-stroke;
+      }
+      
+    }
+    
+    @include breakpoint-l {
+      width: nth($badge-scale, 3);
+      
+      svg {
+        top: -$padding-y;
+        height: nth($badge-scale, 3) + $badge-stroke;
+      }
+      
+    }
+    
+    .logo {
+      &:nth-child(1) svg {
+        fill: transparent;
+        stroke-width: $badge-stroke * 2; 
+        stroke: $background;
+      }
+      &:nth-child(2) svg {
+        fill: $badge-color;
+        z-index: z('above');
+      }
+    }
+  
+  }
+  
+  // Defines the branding organization styles.
+  &-organization {
+    @include tokens-text('accent', $organization, ('accent': (
+      'text-transform': uppercase
+    )));
+    font-size: 10px !important;
+    transition: all $transition-duration $transition-timing;
+    
+    @include breakpoint-m-l {
+      font-size: 14px !important;
+    };
+    
+  }
+  
+  // Defines the branding division styles.
+  &-division {
+    @include tokens-heading('h3', $division, ('h3': (
+      'line-height': 1  
+    )));
+    font-size: 18px !important;
+    transition: all $transition-duration $transition-timing;
+    
+    @include breakpoint-m-l {
+      font-size: 24px !important;
+    };
+    
+  }
+  
+  // Defines the branding dropdown styles.
+  &-dropdown { 
+  
+    // Defines the branding dropdown menu styles.
+    &-menu {
+      @include tokens-text('button', $dropdown-color);
+      background-image: icon-url('material-chevron_down', $dropdown-color, $dropdown-icon);
+      background-size: $dropdown-icon;
+      padding-right: $dropdown-icon;
+      
+      @include breakpoint-m-l {
+        margin-left: $dropdown-spacing;
+      };
+      
+    } 
+  
+  }
+  
+}

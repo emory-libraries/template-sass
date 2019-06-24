@@ -42,8 +42,8 @@
   // Modifies view all button structure.
   &.-viewall {
     
-    // Adjusts structure on larger screens.
-    @include breakpoint-m-l {
+    // Adjusts structure on large screens.
+    @include breakpoint-l {
       @include absolute-center-contents;
       min-height: 75px;
     };
@@ -66,8 +66,8 @@
       @include absolute-center-contents;
     }
     
-    // Always hide back buttons on larger screens.
-    @include breakpoint-m-l {
+    // Always hide back buttons on large screens.
+    @include breakpoint-l {
       display: none;
     };
     
@@ -119,6 +119,7 @@
     // Builds structure of group and category headings.
     &-heading {
       min-height: 0;
+      display: block;
     }
     
   }
@@ -130,6 +131,15 @@
     &:not(.-utility),
     &.-main { }
     
+    // Adjust structure of buttons.
+    #{$selector} {
+      
+      @include breakpoint-l {
+        min-height: 35px;
+      };
+      
+    }
+    
   }
   
   // Defines structure of categorized buttons.
@@ -139,15 +149,6 @@
     &:not(.-utility),
     &.-main {
       min-height: 0;
-    }
-    
-    // Adjust structure of buttons.
-    #{$selector} {
-      
-      @include breakpoint-m-l {
-        min-height: 35px;
-      };
-      
     }
     
   }
