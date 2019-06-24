@@ -14,8 +14,6 @@ $templates-exhibition: (
     'y': $layout-y
   ),
   
-  'gap': 20px,
-  
   'divider': (
     'thickness': 1px,
     'color': color('slate', 'light')
@@ -53,7 +51,7 @@ $templates-exhibition: (
   $sidenote-heading: map-deep-get($skin, 'sidenote.heading');
 
   // Defines the exhibition component's base styles.
-  grid-gap: $gap;
+  // ...
   
   // Defines exhibition header and footer styles.
   &-header,
