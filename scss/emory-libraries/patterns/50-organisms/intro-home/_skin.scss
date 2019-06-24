@@ -1,0 +1,48 @@
+////
+/// @group emory-libraries.patterns.organisms.intro-home
+////
+
+/// Defines the base skin of the intro-home component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$organisms-intro-home: (
+  
+  'gradient-color': color('blue','dark'),
+
+  'hero-color': color('white')
+  
+);
+
+/// Defines the intro-home component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The intro-home component's themeable properties
+@mixin organisms-intro-home--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $color: map-deep-get($skin, 'hero-color');
+  $gradient-color: map-deep-get($skin, 'gradient-color');
+
+  // Defines the intro-home component's base styles.
+  &-gradient {
+    @include linear-gradient(0deg, $gradient-color -4.85%, rgba(9, 28, 68, 0) 51.12%);
+  }
+
+  &-title {
+    margin: 0;
+    text-align: center;
+    text-decoration: none;
+    h1 {
+      @include tokens-heading('h2', $color, $important: true);
+
+    }
+  }
+
+}

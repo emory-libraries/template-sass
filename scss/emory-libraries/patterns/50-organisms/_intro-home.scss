@@ -1,0 +1,59 @@
+////
+/// @group emory-libraries.patterns.organisms.intro-home
+////
+
+/// Load the intro-home component's structure and skin.
+@import 'intro-home/structure';
+@import 'intro-home/skin';
+
+/// Builds a constructor for the intro-home component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} organisms-intro-home
+/// @requires {variable} organisms-intro-home
+/// @requires {mixin} organisms-intro-home--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our intro-home component
+///
+/// @status construction
+@mixin organisms-intro-home ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($organisms-intro-home, $custom);
+  
+  // Initialize the intro-home component.
+  & {
+    
+    // Load structure.
+    @extend %organisms-intro-home;
+
+    &-image {
+      @extend %organisms-intro-home-image;
+    }
+
+    &-gradient {
+      @extend %organisms-intro-home-gradient;
+    }
+
+    &-search{
+      @extend %organisms-intro-home-search;
+    }
+
+    &-badge{
+      @extend %organisms-intro-home-badge;
+    }
+
+    &-title {   
+      @extend %organisms-intro-home-title;
+    }
+
+    // Load skins.
+    @include organisms-intro-home--theme( $skin );
+    
+  }
+  
+}
