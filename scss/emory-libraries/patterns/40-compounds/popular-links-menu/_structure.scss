@@ -1,0 +1,44 @@
+////
+/// @group emory-libraries.patterns.compounds.popular-links-menu
+////
+
+/// Defines the base structure of the popular-links-menu component.
+///
+/// @since 1.0.0-dev.0
+%compounds-popular-links-menu {
+  // Builds the popular-links-menu structure.
+  display: grid;
+  grid-template-columns: 1fr minmax(min-content, 680px) 1fr;
+
+
+  &-title,
+  &-list {
+    margin: 0;
+  }
+
+  &-title {
+    grid-column: 2;
+  }
+
+  &-list {
+    grid-column: 2;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+
+    @include breakpoint-s() {
+      flex-direction: column;
+    }
+
+  }
+
+  &-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex: 1 1 auto;
+  }
+
+
+}

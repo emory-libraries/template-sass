@@ -129,3 +129,8 @@
 .breadcrumbs {
   @include molecules-breadcrumbs;
 }
+
+// molecules-branding-header
+.branding-header {
+  @include molecules-branding-header;
+}
