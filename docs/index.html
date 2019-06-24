@@ -2966,6 +2966,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="compounds">
+                          <a href="#patterns.compounds.nav-menu-utility">nav-menu-utility</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.compounds.nav-menu-utility-mixin">
+                                <a href="#patterns.compounds.nav-menu-utility-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.compounds.nav-menu-utility" data-name="compounds-nav-menu-utility" data-type="mixin">
+                                    
+                                    <a href="#patterns.compounds.nav-menu-utility-mixin-compounds-nav-menu-utility">
+                                      
+                                      compounds-nav-menu-utility
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.compounds.nav-menu-utility" data-name="compounds-nav-menu-utility--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.compounds.nav-menu-utility-mixin-compounds-nav-menu-utility--theme">
+                                      
+                                      compounds-nav-menu-utility--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.compounds.nav-menu-utility-variable">
+                                <a href="#patterns.compounds.nav-menu-utility-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.compounds.nav-menu-utility" data-name="compounds-nav-menu-utility" data-type="variable">
+                                    
+                                    <a href="#patterns.compounds.nav-menu-utility-variable-compounds-nav-menu-utility">
+                                      
+                                      compounds-nav-menu-utility
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.compounds.nav-menu-utility-placeholder">
+                                <a href="#patterns.compounds.nav-menu-utility-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.compounds.nav-menu-utility" data-name="compounds-nav-menu-utility" data-type="placeholder">
+                                    
+                                    <a href="#patterns.compounds.nav-menu-utility-placeholder-compounds-nav-menu-utility">
+                                      
+                                      compounds-nav-menu-utility
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="compounds">
                           <a href="#patterns.compounds.popular-links-menu">popular-links-menu</a>
                         </p>
                         
@@ -23151,200 +23259,200 @@
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
                                        data-expanded="@mixin atoms-nav-button--theme($skin) { 
-                                
+                              
                                 // Capture themeable variables from skin.
                                 $duration: map-deep-get($skin, &#x27;transition.duration&#x27;);
                                 $timing: map-deep-get($skin, &#x27;transition.timing&#x27;);
                                 $offset: map-deep-get($skin, &#x27;icon.offset&#x27;);
-                                
+                              
                                 // Capture arrow-specific variables.
                                 $arrow-color: map-deep-get($skin, &#x27;arrow.color&#x27;);
                                 $arrow-size: map-deep-get($skin, &#x27;arrow.size&#x27;);
-                                
+                              
                                 // Defines the component&#x27;s base styles.
                                 appearance: none;
                                 border: none;
                                 background: none;
                                 transition: all $duration $timing;
-                                
+                              
                                 @each $breakpoint, $padding in map-deep-get($skin, &#x27;padding.x&#x27;) {
-                                  
+                              
                                   @if ( is-null($padding) &#x3D;&#x3D; false and $padding !&#x3D; false ) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       @include padding-x( $padding );
                                     };
-                                    
+                              
                                   }
-                                  
+                              
                                 }
                                 @each $breakpoint, $padding in map-deep-get($skin, &#x27;padding.y&#x27;) {
-                                  
+                              
                                   @if ( is-null($padding) &#x3D;&#x3D; false and $padding !&#x3D; false ) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       @include padding-y( $padding );
                                     };
-                                    
+                              
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Defines main button styles.
                                 &amp;:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
                                 &amp;.-main {
                                   font-family: map-deep-get($skin, &#x27;main.font.font-family&#x27;);
                                   font-weight: map-deep-get($skin, &#x27;main.font.font-weight&#x27;);
                                   font-style: map-deep-get($skin, &#x27;main.font.font-style&#x27;);
-                                  
+                              
                                   @each $breakpoint, $size in map-deep-get($skin, &#x27;main.font.font-size&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       font-size: $size;
                                     };
-                                    
+                              
                                   }
                                   @each $breakpoint, $height in map-deep-get($skin, &#x27;main.font.line-height&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       line-height: $height;
                                     };
-                                    
+                              
                                   }
                                   @each $breakpoint, $transform in map-deep-get($skin, &#x27;main.font.text-transform&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       text-transform: $transform;
                                     };
-                                    
+                              
                                   }
                                   @each $breakpoint, $spacing in map-deep-get($skin, &#x27;main.font.letter-spacing&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       letter-spacing: $spacing;
                                     };
-                                    
+                              
                                   }
-                                  
+                              
                                   $foreground: map-deep-get($skin, &#x27;main.foreground&#x27;);
                                   $background: map-deep-get($skin, &#x27;main.background&#x27;);
-                                  
+                              
                                   // Apply foreground styles.
                                   @include private(&#x27;Foreground&#x27;) {
-                                  
+                              
                                     $normal: map-get($foreground, &#x27;normal&#x27;);
                                     $hover: map-get($foreground, &#x27;hover&#x27;);
                                     $active: map-get($foreground, &#x27;active&#x27;);
-                                    
+                              
                                     @each $breakpoint, $color in $normal {
                                       @include breakpoint( screen($breakpoint) ) {
                                         color: $color;
-                                        
+                              
                                         .icon {
-                                      
+                              
                                           svg {
                                             fill: $color;
                                           }
                               
                                         }
-                                        
+                              
                                       };
                                     }
-                                    
+                              
                                     &amp;:hover,
                                     &amp;:focus,
                                     &amp;.is-hover,
                                     &amp;.is-focus {
-                                      
+                              
                                       @each $breakpoint, $color in $hover {
                                         @include breakpoint( screen($breakpoint) ) {
                                           color: $color;
-                                          
+                              
                                           .icon {
-                                      
+                              
                                             svg {
                                               fill: $color;
                                             }
                               
                                           }
-                                          
+                              
                                         };
                                       }
-                                      
+                              
                                     }
-                                    
+                              
                                     &amp;:active,
                                     &amp;.is-active {
-                                      
+                              
                                       @each $breakpoint, $color in $active {
                                         @include breakpoint( screen($breakpoint) ) {
                                           color: $color;
-                                          
+                              
                                           .icon {
-                                      
+                              
                                             svg {
                                               fill: $color;
                                             }
                               
                                           }
-                                          
+                              
                                         };
                                       }
-                                      
+                              
                                     }
-                                    
+                              
                                   };
-                                  
+                              
                                   // Apply background styles.
                                   @include private(&#x27;Background&#x27;) {
-                                  
+                              
                                     $normal: map-get($background, &#x27;normal&#x27;);
                                     $hover: map-get($background, &#x27;hover&#x27;);
                                     $active: map-get($background, &#x27;active&#x27;);
-                                    
+                              
                                     @each $breakpoint, $color in $normal {
                                       @include breakpoint( screen($breakpoint) ) {
                                         background-color: $color;
                                       };
                                     }
-                                    
+                              
                                     &amp;:hover,
                                     &amp;:focus,
                                     &amp;.is-hover,
                                     &amp;.is-focus {
-                                      
+                              
                                       @each $breakpoint, $color in $hover {
                                         @include breakpoint( screen($breakpoint) ) {
                                         background-color: $color;
                                       };
                                       }
-                                      
+                              
                                     }
-                                    
+                              
                                     &amp;:active,
                                     &amp;.is-active {
-                                      
+                              
                                       @each $breakpoint, $color in $active {
                                         @include breakpoint( screen($breakpoint) ) {
                                           background-color: $color;
                                         };
                                       }
-                                      
+                              
                                     }
-                                    
+                              
                                   };
-                                  
+                              
                                   // Don&#x27;t allow icons on main buttons.
                                   .icon {
                                     display: none;
                                   }
-                                  
+                              
                                   // Get padding variable for small screens.
                                   $padding: map-deep-get($skin, &#x27;padding.x.s&#x27;);
-                                  
+                              
                                   // Add arrow to button only on small screens.
                                   padding-right: ($padding * 2) + $arrow-size + $padding;
-                                    
+                              
                                   // Add icon to button.
                                   &amp;::after {
                                     @include tokens-icon(&#x27;material-chevron_right&#x27;, $arrow-color, $arrow-size, $pseudo: true);
@@ -23356,11 +23464,11 @@
                                     color: $arrow-color;
                                     line-height: 1;
                                   }
-                                  
+                              
                                   // Get border-specific variables.
                                   $border-thickness: map-deep-get($skin, &#x27;main.border.thickness&#x27;);
                                   $border-color: map-deep-get($skin, &#x27;main.border.color&#x27;);
-                                  
+                              
                                   // Add border to button.
                                   &amp;::before {
                                     content: &#x27;&#x27;;
@@ -23372,41 +23480,41 @@
                                     opacity: .15;
                                     width: calc(100% - #{$padding * 2});
                                   }
-                                  
+                              
                                   // Remove border from first button.
                                   @include first-child {
-                                    
+                              
                                     // Remove border.
                                     &amp;::before {
                                       content: none;
                                     }
-                                    
+                              
                                   };
-                                  
+                              
                                   // Remove arrow from button on larger screens.
                                   @include breakpoint-m-l {
                                     padding-right: 10px;
-                                    
+                              
                                     // Remove icon from button.
                                     &amp;::after {
                                       content: none;
                                     }
-                                    
+                              
                                     // Remove border from button.
                                     &amp;::before {
                                       content: none;
                                     }
-                                    
+                              
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Defines toggle button styles.
                                 &amp;.-toggle {
-                                  
+                              
                                   // Modifies toggle style.
                                   @each $breakpoint, $padding in map-deep-get($skin, &#x27;toggle.padding.x&#x27;) {
-                                  
+                              
                                     @if ( is-null($padding) &#x3D;&#x3D; false and $padding !&#x3D; false ) {
                               
                                       @include breakpoint( screen($breakpoint) ) {
@@ -23427,85 +23535,85 @@
                                     }
                               
                                   }
-                                  
+                              
                                   $foreground: map-deep-get($skin, &#x27;toggle.foreground&#x27;);
                                   $background: map-deep-get($skin, &#x27;toggle.background&#x27;);
-                                  
+                              
                                   // Apply foreground styles.
                                   @include private(&#x27;Foreground&#x27;) {
-                                    
+                              
                                     $normal: map-get($foreground, &#x27;normal&#x27;);
                                     $hover: map-get($foreground, &#x27;hover&#x27;);
                                     $active: map-get($foreground, &#x27;active&#x27;);
-                                    
+                              
                                     color: $normal;
-                                    
+                              
                                     .icon {
-                                      
+                              
                                       svg {
                                         fill: $normal;
                                       }
                               
                                     }
-                                    
+                              
                                     &amp;:hover,
                                     &amp;:focus,
                                     &amp;.is-hover,
                                     &amp;.is-focus {
                                       color: $hover;
-                                      
+                              
                                       .icon {
-                                      
+                              
                                         svg {
                                           fill: $hover;
                                         }
                               
                                       }
-                                      
+                              
                                     }
-                                    
+                              
                                     &amp;:active,
                                     &amp;.is-active {
                                       color: $active;
                                     }
-                                    
+                              
                                   };
-                                  
+                              
                                   // Apply background styles.
                                   @include private(&#x27;Background&#x27;) {
-                                    
+                              
                                     $normal: map-get($background, &#x27;normal&#x27;);
                                     $hover: map-get($background, &#x27;hover&#x27;);
                                     $active: map-get($background, &#x27;active&#x27;);
-                                    
+                              
                                     background-color: $normal;
-                                    
+                              
                                     &amp;:hover,
                                     &amp;:focus,
                                     &amp;.is-hover,
                                     &amp;.is-focus {
                                       background-color: $hover;
                                     }
-                                    
+                              
                                     &amp;:active,
                                     &amp;.is-active {
                                       background-color: $active;
                                     }
-                                    
+                              
                                   };
-                                  
+                              
                                    // Assign icon styles.
                                   .icon {
-                                    margin-right: $offset / 2;   
+                                    margin-right: $offset / 2;
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Define other style variations for buttons.
                                 @each $class in (&#x27;utility&#x27;, &#x27;flyout&#x27;, &#x27;search&#x27;, &#x27;librarian&#x27;) {
-                                  
+                              
                                   &amp;.-#{$class} {
-                                    
+                              
                                     $foreground: map-deep-get($skin, $class + &#x27;.foreground&#x27;);
                                     $background: map-deep-get($skin, $class + &#x27;.background&#x27;);
                               
@@ -23519,15 +23627,15 @@
                                       @each $breakpoint, $color in $normal {
                                         @include breakpoint( screen($breakpoint) ) {
                                           color: $color;
-                                          
+                              
                                           .icon {
-                                      
+                              
                                             svg {
                                               fill: $color;
                                             }
                               
                                           }
-                                          
+                              
                                         };
                                       }
                               
@@ -23539,20 +23647,20 @@
                                         @each $breakpoint, $color in $hover {
                                           @include breakpoint( screen($breakpoint) ) {
                                             color: $color;
-                                            
+                              
                                             .icon {
-                                      
+                              
                                               svg {
                                                 fill: $color;
                                               }
                               
                                             }
-                                            
+                              
                                           };
                                         }
                               
                                       }
-                                      
+                              
                                       &amp;:active,
                                       &amp;.is-active {
                               
@@ -23600,7 +23708,7 @@
                                         }
                               
                                       }
-                                      
+                              
                                       :active,
                                       &amp;.is-active {
                               
@@ -23613,12 +23721,12 @@
                                       }
                               
                                     };
-                                    
+                              
                                   }
-                                  
+                              
                                 }
                                 @each $class in (&#x27;utility&#x27;, &#x27;flyout&#x27;, &#x27;search&#x27;, &#x27;librarian&#x27;, &#x27;toggle&#x27;) {
-                                  
+                              
                                   &amp;.-#{$class} {
                                     font-family: map-deep-get($skin, $class + &#x27;.font.font-family&#x27;);
                                     font-weight: map-deep-get($skin, $class + &#x27;.font.font-weight&#x27;);
@@ -23652,16 +23760,16 @@
                                       };
                               
                                     }
-                                
+                              
                                   }
-                                  
+                              
                                 }
                                 @each $class in (&#x27;flyout&#x27;, &#x27;search&#x27;, &#x27;librarian&#x27;, &#x27;toggle&#x27;) {
-                                  
+                              
                                   &amp;.-#{$class} {
-                                    
-                                    .icon  {    
-                                      
+                              
+                                    .icon  {
+                              
                                       @each $breakpoint, $size in map-deep-get($skin, $class + &#x27;.icon.size&#x27;) {
                               
                                         @include breakpoint( screen($breakpoint) ) {
@@ -23669,51 +23777,51 @@
                                         };
                               
                                       }
-                                      
+                              
                                     }
-                                    
+                              
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Define search button styles.
                                 &amp;.-search {
                                   font-family: map-deep-get($skin, &#x27;search.font.font-family&#x27;);
                                   font-weight: map-deep-get($skin, &#x27;search.font.font-weight&#x27;);
                                   font-style: map-deep-get($skin, &#x27;search.font.font-style&#x27;);
-                                  
+                              
                                   @each $breakpoint, $size in map-deep-get($skin, &#x27;search.font.font-size&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       font-size: $size;
                                     };
-                                    
+                              
                                   };
                                   @each $breakpoint, $height in map-deep-get($skin, &#x27;search.font.line-height&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       line-height: $height;
                                     };
-                                    
+                              
                                   };
                                   @each $breakpoint, $transform in map-deep-get($skin, &#x27;search.font.text-transform&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       text-transform: $transform;
                                     };
-                                    
+                              
                                   };
                                   @each $breakpoint, $spacing in map-deep-get($skin, &#x27;search.font.letter-spacing&#x27;) {
-                                    
+                              
                                     @include breakpoint( screen($breakpoint) ) {
                                       letter-spacing: $spacing;
                                     };
-                                    
+                              
                                   };
-                                  
+                              
                                   // Modifies search style.
                                   @each $breakpoint, $padding in map-deep-get($skin, &#x27;search.padding.x&#x27;) {
-                                  
+                              
                                     @if ( is-null($padding) &#x3D;&#x3D; false and $padding !&#x3D; false ) {
                               
                                       @include breakpoint( screen($breakpoint) ) {
@@ -23734,42 +23842,37 @@
                                     }
                               
                                   }
-                                  
+                              
                                   // Assign icon styles.
                                   .icon {
-                                    margin-right: $offset / 2;   
+                                    margin-right: $offset / 2;
                                     @include size( map-deep-get($skin, &#x27;search.size&#x27;) );
-                                    
+                              
                                     @include breakpoint-m-l {
                                       margin-right: 0;
                                       @include size( auto );
                                     };
-                                    
+                              
                                   }
-                                  
+                              
                                   // Apply styles for larger screens.
                                   @include breakpoint-m-l {
-                                    
+                              
                                     // Don&#x27;t show label.
                                     .nav-button-label {
                                       display: none;
                                     }
-                                    
+                              
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Define utility button styles.
                                 &amp;.-utility {
-                                  
-                                  // Don&#x27;t allow icons on utility buttons.
-                                  .icon {
-                                    display: none;
-                                  }
-                                  
+                              
                                   // Add arrow to button only on small screens.
                                   padding-right: (10px * 2) + $arrow-size + 10px;
-                                    
+                              
                                   &amp;::after {
                                     @include tokens-icon(&#x27;material-chevron_right&#x27;, $arrow-color, $arrow-size, $pseudo: true);
                                     @include padding-x( 10px );
@@ -23781,50 +23884,49 @@
                                     line-height: 1;
                                   }
                                   
-                                  // Remove arrow from button on larger screens.
-                                  @include breakpoint-m-l {
-                                    padding-right: 10px;
-                                    
-                                    &amp;::after {
-                                      content: none;
-                                    }
-                                    
+                                  @include breakpoint-l {
+                                    @include padding-x(10px);
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Define flyout button styles.
                                 &amp;.-flyout {
-                                  
+                              
                                   // Assign icon styles.
                                   .icon {
-                                    margin-bottom: ($offset / 2);   
-                                    
-                                    @include breakpoint-m-l {
+                                    margin-bottom: ($offset / 2);
+                              
+                                    @include breakpoint-l {
                                       margin-right: $offset;
                                       margin-bottom: 0;
                                     };
-                                    
+                              
                                   }
                                   
+                                  @include breakpoint-l {
+                                    @include padding-x(10px);
+                                  };
+                              
                                 }
-                                
+                              
                                 // Define librarian button styles.
                                 &amp;.-librarian {
-                                  
+                                  text-decoration: none;
+                              
                                   // Assign icon styles.
                                   .icon {
-                                    margin-right: $offset;   
+                                    margin-right: $offset;
                                   }
-                                  
+                              
                                 }
-                                
+                              
                                 // Defines disabled button style.
                                 &amp;[disabled],
                                 &amp;.is-disabled {
                                   opacity: .5;
                                 }
-                                
+                              
                                }"
                                        data-collapsed="@mixin atoms-nav-button--theme($skin) { ... }"><code class="js-autoindent">@mixin atoms-nav-button--theme($skin) { ... }</code></pre>
                               
@@ -24020,7 +24122,7 @@
                                 <div class="item__code-wrapper">
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$atoms-nav-button: (
-                                
+                              
                                 &#x27;main&#x27;: (
                                   &#x27;foreground&#x27;: (
                                     &#x27;normal&#x27;: (
@@ -24086,7 +24188,7 @@
                                     &#x27;color&#x27;: color(&#x27;slate&#x27;, &#x27;light&#x27;)
                                   )
                                 ),
-                                
+                              
                                 &#x27;utility&#x27;: (
                                   &#x27;foreground&#x27;: (
                                     &#x27;normal&#x27;: (
@@ -24148,7 +24250,7 @@
                                     )
                                   )
                                 ),
-                                
+                              
                                 &#x27;flyout&#x27;: (
                                   &#x27;foreground&#x27;: (
                                     &#x27;normal&#x27;: (
@@ -24217,7 +24319,7 @@
                                     )
                                   )
                                 ),
-                                
+                              
                                 &#x27;search&#x27;: (
                                   &#x27;foreground&#x27;: (
                                     &#x27;normal&#x27;: (
@@ -24298,39 +24400,39 @@
                                     )
                                   )
                                 ),
-                                
+                              
                                 &#x27;librarian&#x27;: (
                                   &#x27;foreground&#x27;: (
                                     &#x27;normal&#x27;: (
                                       &#x27;s&#x27;: color(&#x27;white&#x27;),
-                                      &#x27;m&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
+                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
                                       &#x27;l&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;)
                                     ),
                                     &#x27;hover&#x27;: (
                                       &#x27;s&#x27;: color(&#x27;white&#x27;),
-                                      &#x27;m&#x27;: $color-actionable,
+                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
                                       &#x27;l&#x27;: $color-actionable
                                     ),
                                     &#x27;active&#x27;: (
                                       &#x27;s&#x27;: color(&#x27;white&#x27;),
-                                      &#x27;m&#x27;: $color-actionable,
+                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
                                       &#x27;l&#x27;: $color-actionable
                                     )
                                   ),
                                   &#x27;background&#x27;: (
                                     &#x27;normal&#x27;: (
                                       &#x27;s&#x27;: $color-actionable,
-                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
+                                      &#x27;m&#x27;: $color-actionable,
                                       &#x27;l&#x27;: color(&#x27;white&#x27;)
                                     ),
                                     &#x27;hover&#x27;: (
                                       &#x27;s&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
-                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
+                                      &#x27;m&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
                                       &#x27;l&#x27;: color(&#x27;white&#x27;)
                                     ),
                                     &#x27;active&#x27;: (
                                       &#x27;s&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
-                                      &#x27;m&#x27;: color(&#x27;white&#x27;),
+                                      &#x27;m&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
                                       &#x27;l&#x27;: color(&#x27;white&#x27;)
                                     )
                                   ),
@@ -24362,12 +24464,12 @@
                                   &#x27;icon&#x27;: (
                                     &#x27;size&#x27;: (
                                       &#x27;s&#x27;: 24px,
-                                      &#x27;m&#x27;: 14px,
+                                      &#x27;m&#x27;: 24px,
                                       &#x27;l&#x27;: 14px
                                     )
                                   )
                                 ),
-                                
+                              
                                 &#x27;toggle&#x27;: (
                                   &#x27;foreground&#x27;: (
                                     &#x27;normal&#x27;: color(&#x27;blue&#x27;, &#x27;dark&#x27;),
@@ -24448,7 +24550,7 @@
                                     &#x27;l&#x27;: false
                                   )
                                 )
-                                
+                              
                               );</code></pre>
                               
                               
@@ -24548,49 +24650,49 @@
                                   <pre class="item__code item__code--togglable language-scss"
                                       data-current-state="collapsed"
                                       data-expanded="%atoms-nav-button { 
-                                
+                              
                                 // Builds the nav-button structure.
                                 @extend %atoms-button;
                                 display: flex;
                                 justify-content: flex-start;
                                 width: 100%;
-                                
+                              
                                 // Adds breakpoint-specific structure changes.
-                                @include breakpoint-m-l {
+                                @include breakpoint-l {
                                   display: inline-flex;
                                   justify-content: center;
                                   width: auto;
                                 };
-                                
+                              
                                 // Apply icon structure.
                                 .icon {
                                   @include absolute-center-contents;
                                 }
-                                
+                              
                                 // Modifies main button structure.
                                 &amp;:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
                                 &amp;.-main {
                                   height: 60px;
-                                  
+                              
                                   @include breakpoint-m-l {
                                     height: 90px;
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Modifies toggle button structure
                                 &amp;.-toggle {
                                   height: 40px;
                                   display: inline-flex;
                                   justify-content: center;
                                   width: auto;
-                                  
+                              
                                   @include breakpoint-m-l {
                                     display: none;
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Sets search button structure.
                                 &amp;.-search {
                                   height: 40px;
@@ -24598,52 +24700,64 @@
                                   justify-content: center;
                                   width: auto;
                                   margin-left: auto;
-                                  
+                              
                                   @include breakpoint-m-l {
                                     margin-left: 0;
                                     height: 90px;
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Sets utility button structure.
                                 &amp;.-utility {
                                   height: 60px;
                                   
-                                  @include breakpoint-m-l {
+                                  // Don&#x27;t allow icons on utility buttons.
+                                  .icon {
+                                    display: none;
+                                  }
+                              
+                                  @include breakpoint-l {
                                     height: 40px;
                                     flex-direction: row;
+                                    
+                                    &amp;::after {
+                                      content: none !important;
+                                    }
+                                    
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                 // Sets flyout button structure.
                                 &amp;.-flyout {
-                                  height: 70;
+                                  height: 70px;
                                   display: inline-flex;
                                   flex-direction: column;
                                   justify-content: center;
                                   width: auto;
-                                  
-                                  @include breakpoint-m-l {
+                                  flex: 1;
+                              
+                                  @include breakpoint-l {
                                     height: 40px;
                                     flex-direction: row;
+                                    flex: unset;
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                  // Sets librarian button structure.
                                 &amp;.-librarian {
                                   height: 45px;
                                   justify-content: center;
-                                  
+                              
                                   @include breakpoint-m-l {
                                     height: 40px;
                                     flex-direction: row;
                                   };
-                                  
+                              
                                 }
-                                
+                              
                                }"
                                       data-collapsed="%atoms-nav-button { ... }"><code class="js-autoindent">%atoms-nav-button { ... }</code></pre>
                               
@@ -31650,6 +31764,8 @@
             
             
             
+            
+            
             <section class="main__section main__section--level-2 ">
             
               <h2 class="main__heading" id="patterns.compounds">
@@ -34381,6 +34497,768 @@
                   
                   <section class="main__section main__section--level-3 main__section--has-content">
                   
+                    <h3 class="main__heading" id="patterns.compounds.nav-menu-utility">
+                      
+                      <div class="container">nav-menu-utility</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.compounds.nav-menu-utility-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.compounds.nav-menu-utility-mixin-compounds-nav-menu-utility">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.compounds.nav-menu-utility-mixin-compounds-nav-menu-utility">
+                                  compounds-nav-menu-utility
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--review">review</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin compounds-nav-menu-utility($custom) { 
+                                
+                                // Extend the default skin.
+                                $skin: map-extend($compounds-nav-menu-utility, $custom);
+                                
+                                // Initialize the nav-menu-utility component.
+                                &amp; {
+                                  
+                                  // Load structure.
+                                  @extend %compounds-nav-menu-utility;
+                                  
+                                  // Load parts.
+                                  &amp;-left {
+                                    @extend %compounds-nav-menu-utility-left;
+                                  }
+                                  &amp;-right {
+                                    @extend %compounds-nav-menu-utility-right;
+                                  }
+                                  
+                                  // Load skins.
+                                  @include compounds-nav-menu-utility--theme( $skin );
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin compounds-nav-menu-utility($custom) { ... }"><code class="js-autoindent">@mixin compounds-nav-menu-utility($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the nav-menu-utility component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our nav-menu-utility component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.compounds.nav-menu-utility-placeholder-compounds-nav-menu-utility"><code>compounds-nav-menu-utility</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.compounds.nav-menu-utility-variable-compounds-nav-menu-utility"><code>compounds-nav-menu-utility</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.compounds.nav-menu-utility-mixin-compounds-nav-menu-utility--theme"><code>compounds-nav-menu-utility--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.compounds.nav-menu-utility-mixin-compounds-nav-menu-utility--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.compounds.nav-menu-utility-mixin-compounds-nav-menu-utility--theme">
+                                  compounds-nav-menu-utility--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin compounds-nav-menu-utility--theme($skin) { 
+                                
+                                // Capture the selector.
+                                $selector: &amp;;
+                              
+                                // Capture themeable variables from skin.
+                                // ...
+                                
+                                // Capture separator-specific variables.
+                                $separator-color: map-deep-get($skin, &#x27;separator.color&#x27;);
+                                $separator-thickness: map-deep-get($skin, &#x27;separator.thickness&#x27;);
+                              
+                                // Defines the nav-menu-utility component&#x27;s base styles.
+                                // ...
+                                
+                                // Defines the menu&#x27;s desktop styles.
+                                &amp;.-desktop {
+                              
+                                  #{$selector}-left {
+                              
+                                    &gt; * + * {
+                              
+                                      &amp;::before {
+                                        height: 12px;
+                                        width: $separator-thickness;
+                                        background-color: $separator-color;
+                                      }
+                              
+                                    }
+                              
+                                  }
+                              
+                                }
+                              
+                                // Defines the menu&#x27;s mobile styles.
+                                &amp;.-mobile {
+                              
+                                  #{$selector}-right {
+                              
+                                    &gt; * + * {
+                              
+                                      &amp;::before {
+                                        height: 50%;
+                                        width: $separator-thickness;
+                                        background-color: $separator-color;
+                                      }
+                              
+                                    }
+                              
+                                  }
+                              
+                                }
+                              
+                               }"
+                                       data-collapsed="@mixin compounds-nav-menu-utility--theme($skin) { ... }"><code class="js-autoindent">@mixin compounds-nav-menu-utility--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the nav-menu-utility component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The nav-menu-utility component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.compounds.nav-menu-utility-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.compounds.nav-menu-utility-variable-compounds-nav-menu-utility">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.compounds.nav-menu-utility-variable-compounds-nav-menu-utility">
+                                  compounds-nav-menu-utility
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$compounds-nav-menu-utility: (
+                                
+                                &#x27;separator&#x27;: (
+                                  &#x27;color&#x27;: rgba(color(&#x27;blue&#x27;,&#x27;dark&#x27;), .2),
+                                  &#x27;thickness&#x27;: $border-width-s
+                                )
+                              
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the nav-menu-utility component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.compounds.nav-menu-utility-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.compounds.nav-menu-utility-placeholder-compounds-nav-menu-utility">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.compounds.nav-menu-utility-placeholder-compounds-nav-menu-utility">
+                                  compounds-nav-menu-utility
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%compounds-nav-menu-utility { 
+                                
+                                // Capture the selector.
+                                $selector: &amp;;
+                                
+                                // Builds the nav-menu-utility structure.
+                                // ...
+                                
+                                @include breakpoint-l {
+                                  @include padding-x(1em);
+                                };
+                              
+                                // Builds the left and right structure.
+                                &amp;-left,
+                                &amp;-right {
+                                  display: flex;
+                                  margin: 0;
+                                }
+                              
+                                // Adds the desktop menu style.
+                                &amp;.-desktop {
+                                  display: none;
+                                  
+                                  #{$selector}-right {
+                                    justify-content: space-between;
+                                  }
+                              
+                                  #{$selector}-left {
+                                      
+                                    &gt; * + * {
+                              
+                                      &amp;:before {
+                                        content: &#x27;&#x27;;
+                                        display: block;
+                                        margin: auto;
+                                        @include absolute(0 null 0 0);
+                                        transform: translatex(-50%);
+                                      }
+                              
+                                    }
+                              
+                                  }
+                                  
+                                  @include breakpoint-l {
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: space-between;
+                                  };
+                              
+                                }
+                              
+                                // Adds the mobile menu style.
+                                &amp;.-mobile {
+                                  display: flex;
+                                  flex-direction: column;
+                                  justify-content: space-between;
+                                  
+                                  #{$selector}-right {
+                                    justify-content: center;
+                                      
+                                    &gt; * + * {
+                              
+                                      &amp;:before {
+                                        content: &#x27;&#x27;;
+                                        display: block;
+                                        margin: auto;
+                                        @include absolute(0 null 0 0);
+                                        transform: translatex(-50%);
+                                      }
+                              
+                                    }
+                              
+                                  }
+                              
+                                  @include breakpoint-l {
+                                    display: none;
+                                  };
+                              
+                                }
+                              
+                               }"
+                                      data-collapsed="%compounds-nav-menu-utility { ... }"><code class="js-autoindent">%compounds-nav-menu-utility { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the nav-menu-utility component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
                     <h3 class="main__heading" id="patterns.compounds.popular-links-menu">
                       
                       <div class="container">popular-links-menu</div>
@@ -34410,7 +35288,7 @@
                               
                               
                                 
-                                  <span class="item__status item__status--construction">construction</span>
+                                  <span class="item__status item__status--review">review</span>
                                 
                               </h3>
                               
@@ -37235,7 +38113,7 @@
                               
                               
                                 
-                                  <span class="item__status item__status--construction">construction</span>
+                                  <span class="item__status item__status--review">review</span>
                                 
                               </h3>
                               
@@ -73162,7 +74040,7 @@
                               
                               
                                 
-                                  <span class="item__status item__status--construction">construction</span>
+                                  <span class="item__status item__status--review">review</span>
                                 
                               </h3>
                               

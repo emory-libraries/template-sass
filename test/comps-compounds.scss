@@ -20,6 +20,7 @@
   @include compounds-related;
 }
 
+// compounds-tiles
 .tiles {
   @include compounds-tiles;
 }
@@ -32,6 +33,11 @@
 // compounds-grouping-files
 .grouping-files {
   @include compounds-grouping-files;
+}
+
+// compounds-nav-menu-utility
+.nav-menu-utility {
+  @include compounds-nav-menu-utility;
 }
 
 // compounds-popular-links-menu
