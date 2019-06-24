@@ -72,8 +72,11 @@ $organisms-section-deep-dive: (
 
     a,
     .link {
-      @include atoms-link(('color': $link));
-      font-weight: bold;
+      @include atoms-link((
+        'color': $link,
+        'weight': bold
+      ));
+      text-decoration: underline;
     }
 
     ol li::before {
