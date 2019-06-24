@@ -35,9 +35,11 @@ $molecules-slide: (
     'x': 25px,
     'y': 10px
   ),
-  'padding': (
-    'y': 40px,
-    'x': 100px
+  'padding': 40px,
+  'width': (
+    's': 93%,
+    'm': 90%,
+    'l': 80%
   )
   
 );
@@ -60,8 +62,8 @@ $molecules-slide: (
   $button: map-deep-get($skin, 'button');
   $gap-x: map-deep-get($skin, 'gap.x');
   $gap-y: map-deep-get($skin, 'gap.y');
-  $padding-y: map-deep-get($skin, 'padding.y');
-  $padding-x: map-deep-get($skin, 'padding.x');
+  $padding: map-deep-get($skin, 'padding');
+  $width: map-deep-get($skin, 'width');
   
   // Get image-specific variables.
   $image-min: map-deep-get($skin, 'image.min');
@@ -70,19 +72,26 @@ $molecules-slide: (
   $image-size: map-combine(map-keys($screens), $image-scale);
   
   // Defines the slide component's base styles.
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, min-content);
+  @include padding-y($padding);
+  grid-template-columns: min-content 1fr;
+  grid-template-rows: min-content 1fr min-content;
   grid-column-gap: $gap-x;
   grid-row-gap: $gap-y;
   background-color: $background;
   color: $foreground;
-  padding: $padding-y $padding-x;
   
   // Modifies styles for larger screens.
   @include breakpoint-m-l {
     grid-template-columns: min-content 1fr;
     grid-template-rows: repeat(2, min-content) 1fr;
   };
+  
+  // Apply width to the slide using padding.
+  @each $screen, $size in $width {
+    @include breakpoint( screen($screen) ) {
+      @include padding-x(calc(100% - #{$size}));
+    };
+  }
   
   // Defines the slide context styles.
   &-context {
@@ -106,7 +115,12 @@ $molecules-slide: (
   // Defines the slide title styles.
   &-title { 
     @include tokens-heading('h5-alt', $foreground);
-    font-size: 20px;
+    font-size: 15px !important;
+    
+    @include breakpoint-m-l {
+      font-size: 20px !important;
+    };
+    
   }
   
   // Defines the slide action styles.
