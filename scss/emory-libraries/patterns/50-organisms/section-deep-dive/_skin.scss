@@ -9,9 +9,15 @@
 /// @type map
 $organisms-section-deep-dive: (
 
-  'heading': $color-text-light,
+  'title': $color-text-light,
+  'headings': color('gold'),
   'foreground': $color-text-light,
   'background': color('blue', 'base'),
+  'link': (
+    'normal': $color-text-light,
+    'hover': $color-text-light,
+    'active': $color-text-light
+  ),
   'layout': (
     'x': $layout-x,
     'y': $layout-y
@@ -35,19 +41,19 @@ $organisms-section-deep-dive: (
 
   // Capture themeable variables from skin.
   $layout: map-deep-get($skin, 'layout');
-
-  // Get theme-specific variables.
-  $heading: map-deep-get($skin, 'heading');
+  $title: map-deep-get($skin, 'title');
+  $headings: map-deep-get($skin, 'headings');
   $foreground: map-deep-get($skin, 'foreground');
   $background: map-deep-get($skin, 'background');
+  $link: map-deep-get($skin, 'link');
 
   // Defines the section-deep-dive component's base styles.
   @include tokens-layout(('layout': $layout));
   background-color: $background;
 
-  // Defines the major title styles.
+  // Defines the deep dive title styles.
   &-title {
-    @include tokens-heading('h5', $heading, $important: true);
+    @include tokens-heading('h5', $title, $important: true);
     text-align: center;
 
     &::after {
@@ -60,28 +66,18 @@ $organisms-section-deep-dive: (
 
   }
 
-  // Defines the major body styles.
+  // Defines the deep dive body styles.
   &-body {
     @include tokens-text('body', $foreground);
 
-    a {
-      color: $foreground;
+    a,
+    .link {
+      @include atoms-link(('color': $link));
       font-weight: bold;
     }
 
-    ol {
-      counter-reset: counter;
-      list-style: none;
-    }
-
-    li {
-      counter-increment: counter;
-
-      &::before {
-        content: counter(counter)" - ";
-        color: $foreground;
-      }
-
+    ol li::before {
+      color: $foreground;
     }
 
   }
@@ -89,13 +85,14 @@ $organisms-section-deep-dive: (
   &-column {
 
     &-heading {
-      @include tokens-heading--font('h6', $tokens-heading, true);
-      color: color('gold') !important;
-      font-weight: normal !important;
+      @include tokens-heading('h6', $headings, ('h6': (
+        'font-weight': normal
+      )), true);
     }
 
   }
 
+  // Defines the deep dive footer.
   &-footer {
     color: $foreground;
     text-align: center;

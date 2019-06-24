@@ -12668,6 +12668,8 @@
                       
                       
                       
+                      
+                      
                   
                   
                   
@@ -20178,6 +20180,8 @@
                                   
                               
                               
+                                  
+                                  
                                   
                                   
                                   
@@ -62416,17 +62420,20 @@
                                   &amp;-title {
                                     @extend %organisms-section-deep-dive-title;
                                   }
-                              
                                   &amp;-body {
                                     @extend %organisms-section-deep-dive-body;
                                   }
-                              
                                   &amp;-column {
                                     @extend %organisms-section-deep-dive-column;
+                                    &amp;-heading {
+                                      @extend %organisms-section-deep-dive-column-heading;
+                                    }
                                   }
-                              
                                   &amp;-footer {
                                     @extend %organisms-section-deep-dive-footer;
+                                  }
+                                  &amp;-link {
+                                    @extend %organisms-section-deep-dive-link;
                                   }
                               
                                   // Load skins.
@@ -62643,19 +62650,19 @@
                               
                                 // Capture themeable variables from skin.
                                 $layout: map-deep-get($skin, &#x27;layout&#x27;);
-                              
-                                // Get theme-specific variables.
-                                $heading: map-deep-get($skin, &#x27;heading&#x27;);
+                                $title: map-deep-get($skin, &#x27;title&#x27;);
+                                $headings: map-deep-get($skin, &#x27;headings&#x27;);
                                 $foreground: map-deep-get($skin, &#x27;foreground&#x27;);
                                 $background: map-deep-get($skin, &#x27;background&#x27;);
+                                $link: map-deep-get($skin, &#x27;link&#x27;);
                               
                                 // Defines the section-deep-dive component&#x27;s base styles.
                                 @include tokens-layout((&#x27;layout&#x27;: $layout));
                                 background-color: $background;
                               
-                                // Defines the major title styles.
+                                // Defines the deep dive title styles.
                                 &amp;-title {
-                                  @include tokens-heading(&#x27;h5&#x27;, $heading, $important: true);
+                                  @include tokens-heading(&#x27;h5&#x27;, $title, $important: true);
                                   text-align: center;
                               
                                   &amp;::after {
@@ -62668,28 +62675,18 @@
                               
                                 }
                               
-                                // Defines the major body styles.
+                                // Defines the deep dive body styles.
                                 &amp;-body {
                                   @include tokens-text(&#x27;body&#x27;, $foreground);
                               
-                                  a {
-                                    color: $foreground;
+                                  a,
+                                  .link {
+                                    @include atoms-link((&#x27;color&#x27;: $link));
                                     font-weight: bold;
                                   }
                               
-                                  ol {
-                                    counter-reset: counter;
-                                    list-style: none;
-                                  }
-                              
-                                  li {
-                                    counter-increment: counter;
-                              
-                                    &amp;::before {
-                                      content: counter(counter)&quot; - &quot;;
-                                      color: $foreground;
-                                    }
-                              
+                                  ol li::before {
+                                    color: $foreground;
                                   }
                               
                                 }
@@ -62697,13 +62694,14 @@
                                 &amp;-column {
                               
                                   &amp;-heading {
-                                    @include tokens-heading--font(&#x27;h6&#x27;, $tokens-heading, true);
-                                    color: color(&#x27;gold&#x27;) !important;
-                                    font-weight: normal !important;
+                                    @include tokens-heading(&#x27;h6&#x27;, $headings, (&#x27;h6&#x27;: (
+                                      &#x27;font-weight&#x27;: normal
+                                    )), true);
                                   }
                               
                                 }
                               
+                                // Defines the deep dive footer.
                                 &amp;-footer {
                                   color: $foreground;
                                   text-align: center;
@@ -62863,7 +62861,21 @@
                                   
                                             <span class="item__cross-type">mixin</span>
                                   
-                                            <a href="#patterns.tokens.heading-mixin-tokens-heading--font"><code>tokens-heading--font</code></a>
+                                            <a href="#patterns.atoms.link-mixin-atoms-link"><code>atoms-link</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
                                   
                                   
                                           </li>
@@ -62878,20 +62890,6 @@
                                             <span class="item__cross-type">mixin</span>
                                   
                                             <a href="#patterns.atoms.rule-mixin-atoms-rule"><code>atoms-rule</code></a>
-                                  
-                                  
-                                          </li>
-                                  
-                                  
-                                  
-                                    
-                                          
-                                  
-                                          <li class="item__description  item__description--inline">
-                                  
-                                            <span class="item__cross-type">variable</span>
-                                  
-                                            <a href="#patterns.tokens.heading-variable-tokens-heading"><code>tokens-heading</code></a>
                                   
                                   
                                           </li>
@@ -62997,9 +62995,15 @@
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$organisms-section-deep-dive: (
                               
-                                &#x27;heading&#x27;: $color-text-light,
+                                &#x27;title&#x27;: $color-text-light,
+                                &#x27;headings&#x27;: color(&#x27;gold&#x27;),
                                 &#x27;foreground&#x27;: $color-text-light,
                                 &#x27;background&#x27;: color(&#x27;blue&#x27;, &#x27;base&#x27;),
+                                &#x27;link&#x27;: (
+                                  &#x27;normal&#x27;: $color-text-light,
+                                  &#x27;hover&#x27;: $color-text-light,
+                                  &#x27;active&#x27;: $color-text-light
+                                ),
                                 &#x27;layout&#x27;: (
                                   &#x27;x&#x27;: $layout-x,
                                   &#x27;y&#x27;: $layout-y
@@ -63106,9 +63110,10 @@
                                       data-expanded="%organisms-section-deep-dive { 
                               
                                 // Builds the section-deep-dive structure.
-                                display: block;
+                                display: flex;
+                                flex-direction: column;
                               
-                                // Builds the deep-dive title structure.
+                                // Builds the deep dive title structure.
                                 &amp;-title {
                                   margin-top: 0;
                               
@@ -63121,30 +63126,52 @@
                               
                                 }
                               
-                                // Builds the deep-dive body structure.
+                                // Builds the deep dive body structure.
                                 &amp;-body {
                                   display: grid;
+                                  @include margin-y($rhythm-y);
                               
                                   @include breakpoint-xl {
                                     grid-template-columns: repeat( auto-fit, minmax(10%, 330px) );
                                     grid-column-gap: 100px;
                                     justify-content: center;
                                   }
-                                }
-                              
-                              
-                              
-                                &amp;-column {
-                              
-                                  &amp;-heading {
-                              
+                                  
+                                  ol,
+                                  ol.list {
+                                    counter-reset: counter;
+                                    list-style: none;
+                                    
+                                    li {
+                                      counter-increment: counter;
+                                      
+                                      &amp;::before {
+                                        content: counter(counter) &quot; - &quot;;
+                                      }
+                                      
+                                    }
+                                    
                                   }
                               
                                 }
                               
-                                &amp;-footer {
+                                // Builds the deep dive column structure.
+                                &amp;-column {
+                                  
+                                  // Builds the deep dive column heading structure.
+                                  &amp;-heading { }
                               
                                 }
+                              
+                                // Builds the deep dive footer structure.
+                                &amp;-footer { }
+                                
+                                // Builds the deep dive link structure.
+                                &amp;-link {
+                                  @include margin-y(1em);
+                                  display: block;
+                                }
+                                
                                }"
                                       data-collapsed="%organisms-section-deep-dive { ... }"><code class="js-autoindent">%organisms-section-deep-dive { ... }</code></pre>
                               
@@ -63163,6 +63190,28 @@
                               
                               
                               
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-rhythm-y"><code>rhythm-y</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
                               
                               
                                   
@@ -72847,6 +72896,8 @@
                                   
                                   
                                   
+                                  
+                                  
                               
                               
                               
@@ -73083,8 +73134,6 @@
                                   
                               
                               
-                                  
-                                  
                                   
                                   
                                   
@@ -73526,8 +73575,6 @@
                               
                               
                               
-                                  
-                                  
                                   
                                   
                                   

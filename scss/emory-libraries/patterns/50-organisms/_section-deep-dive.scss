@@ -35,17 +35,20 @@
     &-title {
       @extend %organisms-section-deep-dive-title;
     }
-
     &-body {
       @extend %organisms-section-deep-dive-body;
     }
-
     &-column {
       @extend %organisms-section-deep-dive-column;
+      &-heading {
+        @extend %organisms-section-deep-dive-column-heading;
+      }
     }
-
     &-footer {
       @extend %organisms-section-deep-dive-footer;
+    }
+    &-link {
+      @extend %organisms-section-deep-dive-link;
     }
 
     // Load skins.
