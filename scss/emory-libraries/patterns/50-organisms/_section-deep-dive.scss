@@ -1,0 +1,59 @@
+////
+/// @group emory-libraries.patterns.organisms.section-deep-dive
+////
+
+/// Load the section-deep-dive component's structure and skin.
+@import 'section-deep-dive/structure';
+@import 'section-deep-dive/skin';
+
+/// Builds a constructor for the section-deep-dive component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} organisms-section-deep-dive
+/// @requires {variable} organisms-section-deep-dive
+/// @requires {mixin} organisms-section-deep-dive--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our section-deep-dive component
+///
+/// @status review
+@mixin organisms-section-deep-dive ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($organisms-section-deep-dive, $custom);
+
+  // Initialize the section-deep-dive component.
+  & {
+
+    // Load structure.
+    @extend %organisms-section-deep-dive;
+
+    // Load parts.
+    &-title {
+      @extend %organisms-section-deep-dive-title;
+    }
+    &-body {
+      @extend %organisms-section-deep-dive-body;
+    }
+    &-column {
+      @extend %organisms-section-deep-dive-column;
+      &-heading {
+        @extend %organisms-section-deep-dive-column-heading;
+      }
+    }
+    &-footer {
+      @extend %organisms-section-deep-dive-footer;
+    }
+    &-link {
+      @extend %organisms-section-deep-dive-link;
+    }
+
+    // Load skins.
+    @include organisms-section-deep-dive--theme( $skin );
+
+  }
+
+}
