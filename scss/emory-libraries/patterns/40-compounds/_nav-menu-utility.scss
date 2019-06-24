@@ -31,6 +31,14 @@
     // Load structure.
     @extend %compounds-nav-menu-utility;
     
+    // Load parts.
+    &-left {
+      @extend %compounds-nav-menu-utility-left;
+    }
+    &-right {
+      @extend %compounds-nav-menu-utility-right;
+    }
+    
     // Load skins.
     @include compounds-nav-menu-utility--theme( $skin );
     

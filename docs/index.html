@@ -20282,7 +20282,7 @@
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
                                        data-expanded="@mixin atoms-link--theme($skin) { 
-                              
+                                
                                 // Capture themeable variables from skin.
                                 $normal: map-deep-get($skin, &#x27;color.normal&#x27;);
                                 $hover: map-deep-get($skin, &#x27;color.hover&#x27;);
@@ -20292,11 +20292,11 @@
                                 $style: map-deep-get($skin, &#x27;style&#x27;);
                                 $duration: map-deep-get($skin, &#x27;transition.duration&#x27;);
                                 $timing: map-deep-get($skin, &#x27;transition.timing&#x27;);
-                              
+                                
                                 // Get icon-specific variables.
                                 $icon-size: map-deep-get($skin, &#x27;icon.size&#x27;);
                                 $icon-spacing: map-deep-get($skin, &#x27;icon.spacing&#x27;);
-                              
+                                
                                 // Defines the link component&#x27;s base styles.
                                 font-weight: $weight;
                                 font-style: $style;
@@ -20304,24 +20304,24 @@
                                 transition: all $duration $timing;
                                 background: none;
                                 border: none;
-                              
+                                
                                 // Adds styles for icons.
                                 .icon {
                                   @include size( $icon-size );
                                   margin-right: $icon-spacing;
-                              
+                                  
                                   svg {
                                     fill: $normal;
                                   }
-                              
+                                  
                                 }
-                              
+                                
                                 &amp;:hover,
                                 &amp;.is-hover,
                                 &amp;:focus,
                                 &amp;.is-focus {
                                   color: $hover;
-                              
+                                  
                                   // Adds styles for icons.
                                   .icon {
                               
@@ -20330,13 +20330,13 @@
                                     }
                               
                                   }
-                              
+                                  
                                 }
-                              
+                                
                                 &amp;:active,
                                 &amp;.is-active {
                                   color: $active;
-                              
+                                  
                                   // Adds styles for icons.
                                   .icon {
                               
@@ -20345,9 +20345,9 @@
                                     }
                               
                                   }
-                              
+                                  
                                 }
-                              
+                                
                                 &amp;::after {
                                   @include tokens-text(&#x27;body&#x27;, $custom: ( &#x27;body&#x27;: (
                                     &#x27;font-style&#x27;: italic
@@ -20355,36 +20355,36 @@
                                   font-size: 12px !important;
                                   line-height: 1 !important;
                                 }
-                              
+                                
                                 // Adds style variation for popular links.
                                 &amp;.-popular {
                                   $font: map-deep-get($skin, &#x27;popular.font&#x27;);
                                   $normal: map-deep-get($skin, &#x27;popular.color.normal&#x27;);
                                   $hover: map-deep-get($skin, &#x27;popular.color.hover&#x27;);
                                   $active: map-deep-get($skin, &#x27;popular.color.active&#x27;);
-                              
+                                  
                                   @include expand-properties($font);
                                   color: $normal;
-                              
+                                  
                                   &amp;:hover,
                                   &amp;.is-hover,
                                   &amp;:focus,
                                   &amp;.is-focus {
                                     color: $hover;
                                   }
-                              
+                                  
                                   &amp;:active,
                                   &amp;.is-active {
                                     color: $active;
                                   }
-                              
+                                  
                                 }
-                              
+                                
                                 // Adds style variation for underlining.
                                 &amp;.-underline {
                                   text-decoration: underline;
                                 }
-                              
+                                
                                }"
                                        data-collapsed="@mixin atoms-link--theme($skin) { ... }"><code class="js-autoindent">@mixin atoms-link--theme($skin) { ... }</code></pre>
                               
@@ -20566,7 +20566,7 @@
                                 <div class="item__code-wrapper">
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$atoms-link: (
-                              
+                                
                                 &#x27;color&#x27;: (
                                   &#x27;normal&#x27;: color(&#x27;blue&#x27;, &#x27;bright&#x27;),
                                   &#x27;hover&#x27;: color(&#x27;blue&#x27;, &#x27;mid&#x27;),
@@ -20582,7 +20582,7 @@
                                   &#x27;duration&#x27;: $transition-duration,
                                   &#x27;timing&#x27;: $transition-timing
                                 ),
-                              
+                                
                                 &#x27;popular&#x27;: (
                                   &#x27;font&#x27;: (
                                     &#x27;font-family&#x27;: font(&#x27;accent&#x27;),
@@ -20597,7 +20597,7 @@
                                     &#x27;active&#x27;: $color-actionable
                                   )
                                 )
-                              
+                                
                               );</code></pre>
                               
                               
@@ -23183,11 +23183,6 @@
                                 // Define utility button styles.
                                 &amp;.-utility {
                               
-                                  // Don&#x27;t allow icons on utility buttons.
-                                  .icon {
-                                    display: none;
-                                  }
-                              
                                   // Add arrow to button only on small screens.
                                   padding-right: (10px * 2) + $arrow-size + 10px;
                               
@@ -23201,15 +23196,9 @@
                                     color: $arrow-color;
                                     line-height: 1;
                                   }
-                              
-                                  // Remove arrow from button on larger screens.
-                                  @include breakpoint-m-l {
-                                    padding-right: 10px;
-                              
-                                    &amp;::after {
-                                      content: none;
-                                    }
-                              
+                                  
+                                  @include breakpoint-l {
+                                    @include padding-x(10px);
                                   };
                               
                                 }
@@ -23221,17 +23210,22 @@
                                   .icon {
                                     margin-bottom: ($offset / 2);
                               
-                                    @include breakpoint-m-l {
+                                    @include breakpoint-l {
                                       margin-right: $offset;
                                       margin-bottom: 0;
                                     };
                               
                                   }
+                                  
+                                  @include breakpoint-l {
+                                    @include padding-x(10px);
+                                  };
                               
                                 }
                               
                                 // Define librarian button styles.
                                 &amp;.-librarian {
+                                  text-decoration: none;
                               
                                   // Assign icon styles.
                                   .icon {
@@ -24030,10 +24024,20 @@
                                 // Sets utility button structure.
                                 &amp;.-utility {
                                   height: 60px;
+                                  
+                                  // Don&#x27;t allow icons on utility buttons.
+                                  .icon {
+                                    display: none;
+                                  }
                               
-                                  @include breakpoint-m-l {
+                                  @include breakpoint-l {
                                     height: 40px;
                                     flex-direction: row;
+                                    
+                                    &amp;::after {
+                                      content: none !important;
+                                    }
+                                    
                                   };
                               
                                 }
@@ -24045,10 +24049,12 @@
                                   flex-direction: column;
                                   justify-content: center;
                                   width: auto;
+                                  flex: 1;
                               
                                   @include breakpoint-l {
                                     height: 40px;
                                     flex-direction: row;
+                                    flex: unset;
                                   };
                               
                                 }
@@ -33853,6 +33859,14 @@
                                   // Load structure.
                                   @extend %compounds-nav-menu-utility;
                                   
+                                  // Load parts.
+                                  &amp;-left {
+                                    @extend %compounds-nav-menu-utility-left;
+                                  }
+                                  &amp;-right {
+                                    @extend %compounds-nav-menu-utility-right;
+                                  }
+                                  
                                   // Load skins.
                                   @include compounds-nav-menu-utility--theme( $skin );
                                   
@@ -34061,31 +34075,31 @@
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
                                        data-expanded="@mixin compounds-nav-menu-utility--theme($skin) { 
+                                
+                                // Capture the selector.
+                                $selector: &amp;;
                               
                                 // Capture themeable variables from skin.
-                              
-                                $border-color: map-deep-get($skin, &#x27;border-color&#x27;);
-                              
+                                // ...
+                                
+                                // Capture separator-specific variables.
+                                $separator-color: map-deep-get($skin, &#x27;separator.color&#x27;);
+                                $separator-thickness: map-deep-get($skin, &#x27;separator.thickness&#x27;);
                               
                                 // Defines the nav-menu-utility component&#x27;s base styles.
-                              
+                                // ...
+                                
+                                // Defines the menu&#x27;s desktop styles.
                                 &amp;.-desktop {
                               
-                                  .utility-left {
+                                  #{$selector}-left {
                               
-                                    li {
+                                    &gt; * + * {
                               
-                                      &amp;:not(:last-child) {
-                              
-                                        &amp;:after {
-                                          content: &quot;&quot;;
-                                          opacity: 0.1;
-                                          border-left: 1px solid $border-color;
-                                          height: 30px;
-                                          margin: auto;
-                              
-                                        }
-                              
+                                      &amp;::before {
+                                        height: 12px;
+                                        width: $separator-thickness;
+                                        background-color: $separator-color;
                                       }
                               
                                     }
@@ -34094,31 +34108,21 @@
                               
                                 }
                               
+                                // Defines the menu&#x27;s mobile styles.
                                 &amp;.-mobile {
                               
-                                  .utility-right {
+                                  #{$selector}-right {
                               
-                                    li {
+                                    &gt; * + * {
                               
-                                      &amp;:not(:last-child) {
-                              
-                                        &amp;:after {
-                                          content: &quot;&quot;;
-                                          opacity: 0.1;
-                                          border-left: 1px solid $border-color;
-                                          height: 30px;
-                                          margin: auto;
-                              
-                                        }
-                              
+                                      &amp;::before {
+                                        height: 50%;
+                                        width: $separator-thickness;
+                                        background-color: $separator-color;
                                       }
                               
                                     }
                               
-                                  }
-                              
-                                  .nav-button.-librarian {
-                                    text-decoration: none;
                                   }
                               
                                 }
@@ -34290,7 +34294,11 @@
                                 <div class="item__code-wrapper">
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$compounds-nav-menu-utility: (
-                                &#x27;border-color&#x27;: color(&#x27;blue&#x27;,&#x27;dark&#x27;),
+                                
+                                &#x27;separator&#x27;: (
+                                  &#x27;color&#x27;: rgba(color(&#x27;blue&#x27;,&#x27;dark&#x27;), .2),
+                                  &#x27;thickness&#x27;: $border-width-s
+                                )
                               
                               );</code></pre>
                               
@@ -34391,78 +34399,82 @@
                                   <pre class="item__code item__code--togglable language-scss"
                                       data-current-state="collapsed"
                                       data-expanded="%compounds-nav-menu-utility { 
-                              
+                                
+                                // Capture the selector.
+                                $selector: &amp;;
+                                
                                 // Builds the nav-menu-utility structure.
-                                display: flex;
-                                flex-direction: row;
-                                justify-content: space-between;
+                                // ...
+                                
+                                @include breakpoint-l {
+                                  @include padding-x(1em);
+                                };
                               
-                                ul {
-                                  list-style: none;
-                                  padding: 0;
-                                }
-                              
-                                .utility-left,
-                                .utility-right {
+                                // Builds the left and right structure.
+                                &amp;-left,
+                                &amp;-right {
                                   display: flex;
-                                  text-align: center;
+                                  margin: 0;
                                 }
                               
+                                // Adds the desktop menu style.
                                 &amp;.-desktop {
-                              
-                                  @include breakpoint-s-m {
-                                    display: none;
-                                  }
-                              
-                                  .utility-right {
+                                  display: none;
+                                  
+                                  #{$selector}-right {
                                     justify-content: space-between;
                                   }
                               
-                                  .utility-left {
-                                    padding: 0 1em;
-                                    margin: 0;
-                                    white-space: nowrap;
+                                  #{$selector}-left {
+                                      
+                                    &gt; * + * {
                               
-                                    li {
-                                      display: flex;
-                                      justify-content: flex-start;
-                                      align-items: center;
-                                      flex: 1 0 auto;
-                              
-                                      &amp;:last-child {
-                                        flex: 0;
+                                      &amp;:before {
+                                        content: &#x27;&#x27;;
+                                        display: block;
+                                        margin: auto;
+                                        @include absolute(0 null 0 0);
+                                        transform: translatex(-50%);
                                       }
+                              
                                     }
                               
                                   }
+                                  
+                                  @include breakpoint-l {
+                                    display: flex;
+                                    flex-direction: row;
+                                    justify-content: space-between;
+                                  };
                               
                                 }
                               
+                                // Adds the mobile menu style.
                                 &amp;.-mobile {
-                                  display: none;
+                                  display: flex;
+                                  flex-direction: column;
+                                  justify-content: space-between;
+                                  
+                                  #{$selector}-right {
+                                    justify-content: center;
+                                      
+                                    &gt; * + * {
                               
-                                  @include breakpoint-s-m {
-                                    display: flex;
-                                    flex-direction: column;
-                                  }
-                              
-                                  .utility-right {
-                                    padding: 0 1em;
-                                    margin: 0;
-                              
-                                    li {
-                                      display: flex;
-                                      justify-content: flex-start;
-                                      align-items: center;
-                                      flex: 1 1 auto;
-                              
-                                      &amp;:last-child {
-                                        flex: 0;
+                                      &amp;:before {
+                                        content: &#x27;&#x27;;
+                                        display: block;
+                                        margin: auto;
+                                        @include absolute(0 null 0 0);
+                                        transform: translatex(-50%);
                                       }
+                              
                                     }
                               
                                   }
                               
+                                  @include breakpoint-l {
+                                    display: none;
+                                  };
                               
                                 }
                               

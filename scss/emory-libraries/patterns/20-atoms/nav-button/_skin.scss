@@ -1060,11 +1060,6 @@ $atoms-nav-button: (
   // Define utility button styles.
   &.-utility {
 
-    // Don't allow icons on utility buttons.
-    .icon {
-      display: none;
-    }
-
     // Add arrow to button only on small screens.
     padding-right: (10px * 2) + $arrow-size + 10px;
 
@@ -1078,15 +1073,9 @@ $atoms-nav-button: (
       color: $arrow-color;
       line-height: 1;
     }
-
-    // Remove arrow from button on larger screens.
-    @include breakpoint-m-l {
-      padding-right: 10px;
-
-      &::after {
-        content: none;
-      }
-
+    
+    @include breakpoint-l {
+      @include padding-x(10px);
     };
 
   }
@@ -1098,17 +1087,22 @@ $atoms-nav-button: (
     .icon {
       margin-bottom: ($offset / 2);
 
-      @include breakpoint-m-l {
+      @include breakpoint-l {
         margin-right: $offset;
         margin-bottom: 0;
       };
 
     }
+    
+    @include breakpoint-l {
+      @include padding-x(10px);
+    };
 
   }
 
   // Define librarian button styles.
   &.-librarian {
+    text-decoration: none;
 
     // Assign icon styles.
     .icon {

@@ -6,77 +6,82 @@
 ///
 /// @since 1.0.0-dev.0
 %compounds-nav-menu-utility {
-
+  
+  // Capture the selector.
+  $selector: &;
+  
   // Builds the nav-menu-utility structure.
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  // ...
+  
+  @include breakpoint-l {
+    @include padding-x(1em);
+  };
 
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .utility-left,
-  .utility-right {
+  // Builds the left and right structure.
+  &-left,
+  &-right {
     display: flex;
-    text-align: center;
+    margin: 0;
   }
 
+  // Adds the desktop menu style.
   &.-desktop {
-
-    @include breakpoint-s-m {
-      display: none;
-    }
-
-    .utility-right {
+    display: none;
+    
+    #{$selector}-right {
       justify-content: space-between;
     }
 
-    .utility-left {
-      padding: 0 1em;
-      margin: 0;
+    #{$selector}-left {
+        
+      > * + * {
 
-      li {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex: 1 0 auto;
-
-        &:last-child {
-          flex: 0;
+        &:before {
+          content: '';
+          display: block;
+          margin: auto;
+          @include absolute(0 null 0 0);
+          transform: translatex(-50%);
         }
+
       }
 
     }
+    
+    @include breakpoint-l {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    };
 
   }
 
+  // Adds the mobile menu style.
   &.-mobile {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    #{$selector}-right {
+      justify-content: center;
+        
+      > * + * {
 
-    @include breakpoint-s-m {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .utility-right {
-      padding: 0 1em;
-      margin: 0;
-
-      li {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        flex: 1 1 auto;
-
-        &:last-child {
-          flex: 0;
+        &:before {
+          content: '';
+          display: block;
+          margin: auto;
+          @include absolute(0 null 0 0);
+          transform: translatex(-50%);
         }
+
       }
 
     }
 
+    @include breakpoint-l {
+      display: none;
+    };
 
   }
 

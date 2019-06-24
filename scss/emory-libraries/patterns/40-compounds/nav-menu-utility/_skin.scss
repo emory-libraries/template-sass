@@ -8,7 +8,11 @@
 ///
 /// @type map
 $compounds-nav-menu-utility: (
-  'border-color': color('blue','dark'),
+  
+  'separator': (
+    'color': rgba(color('blue','dark'), .2),
+    'thickness': $border-width-s
+  )
 
 );
 
@@ -22,31 +26,31 @@ $compounds-nav-menu-utility: (
 ///
 /// @output The nav-menu-utility component's themeable properties
 @mixin compounds-nav-menu-utility--theme ( $skin ) {
+  
+  // Capture the selector.
+  $selector: &;
 
   // Capture themeable variables from skin.
-
-  $border-color: map-deep-get($skin, 'border-color');
-
+  // ...
+  
+  // Capture separator-specific variables.
+  $separator-color: map-deep-get($skin, 'separator.color');
+  $separator-thickness: map-deep-get($skin, 'separator.thickness');
 
   // Defines the nav-menu-utility component's base styles.
-
+  // ...
+  
+  // Defines the menu's desktop styles.
   &.-desktop {
 
-    .utility-left {
+    #{$selector}-left {
 
-      li {
+      > * + * {
 
-        &:not(:last-child) {
-
-          &:after {
-            content: "";
-            opacity: 0.1;
-            border-left: 1px solid $border-color;
-            height: 30px;
-            margin: auto;
-
-          }
-
+        &::before {
+          height: 12px;
+          width: $separator-thickness;
+          background-color: $separator-color;
         }
 
       }
@@ -55,31 +59,21 @@ $compounds-nav-menu-utility: (
 
   }
 
+  // Defines the menu's mobile styles.
   &.-mobile {
 
-    .utility-right {
+    #{$selector}-right {
 
-      li {
+      > * + * {
 
-        &:not(:last-child) {
-
-          &:after {
-            content: "";
-            opacity: 0.1;
-            border-left: 1px solid $border-color;
-            height: 30px;
-            margin: auto;
-
-          }
-
+        &::before {
+          height: 50%;
+          width: $separator-thickness;
+          background-color: $separator-color;
         }
 
       }
 
-    }
-
-    .nav-button.-librarian {
-      text-decoration: none;
     }
 
   }

@@ -67,10 +67,20 @@
   // Sets utility button structure.
   &.-utility {
     height: 60px;
+    
+    // Don't allow icons on utility buttons.
+    .icon {
+      display: none;
+    }
 
-    @include breakpoint-m-l {
+    @include breakpoint-l {
       height: 40px;
       flex-direction: row;
+      
+      &::after {
+        content: none !important;
+      }
+      
     };
 
   }
@@ -82,10 +92,12 @@
     flex-direction: column;
     justify-content: center;
     width: auto;
+    flex: 1;
 
     @include breakpoint-l {
       height: 40px;
       flex-direction: row;
+      flex: unset;
     };
 
   }
