@@ -61,6 +61,7 @@
   "organisms-section-minor": "review",
   "organisms-intro-hero": "review",
   "organisms-flow-content-boxes": "review",
+  "organisms-section-deep-dive": "review",
   "templates-info": "review",
   "templates-material": "review",
   "templates-tool": "review",
@@ -68,6 +69,5 @@
   "templates-research-help": "construction",
   "templates-subject-librarian-directory": "review",
   "templates-staff-directory": "review",
-  "templates-bio": "review",
-  "organisms-section-deep-dive": "construction"
+  "templates-bio": "review"
 }
