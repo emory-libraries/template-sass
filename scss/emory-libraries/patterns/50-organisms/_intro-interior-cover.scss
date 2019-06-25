@@ -31,14 +31,13 @@
     // Load structure.
     @extend %organisms-intro-interior-cover;
     
+    // Load parts.
     &-title {
       @extend %organisms-intro-interior-cover-title;
     }
-
     &-subtitle {
       @extend %organisms-intro-interior-cover-subtitle;
     }
-
     &-image {
       @extend %organisms-intro-interior-cover-image;
     }

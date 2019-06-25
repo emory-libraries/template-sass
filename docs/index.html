@@ -13103,6 +13103,8 @@
                       
                       
                       
+                      
+                      
                   
                   
                   
@@ -66457,14 +66459,13 @@
                                   // Load structure.
                                   @extend %organisms-intro-interior-cover;
                                   
+                                  // Load parts.
                                   &amp;-title {
                                     @extend %organisms-intro-interior-cover-title;
                                   }
-                              
                                   &amp;-subtitle {
                                     @extend %organisms-intro-interior-cover-subtitle;
                                   }
-                              
                                   &amp;-image {
                                     @extend %organisms-intro-interior-cover-image;
                                   }
@@ -66679,22 +66680,39 @@
                                        data-expanded="@mixin organisms-intro-interior-cover--theme($skin) { 
                                 
                                 // Capture themeable variables from skin.
-                                $color: map-deep-get($skin, &#x27;color&#x27;);
+                                $heading: map-deep-get($skin, &#x27;heading&#x27;);
+                                $subheading: map-deep-get($skin, &#x27;subheading&#x27;);
+                                $image: map-deep-get($skin, &#x27;image&#x27;);
                                 
                                 // Defines the intro-interior-cover component&#x27;s base styles.
+                                // ...
+                                
+                                // Defines the intro interior cover title and subtitle styles.
                                 &amp;-title,
                                 &amp;-subtitle {
-                                  color: $color;
+                                  text-align: center;
                                 }
                               
+                                // Defines the intro interior cover title styles.
                                 &amp;-title {
-                                  margin: 0;
+                                  @include tokens-heading(&#x27;h2&#x27;, $heading);
                                 }
                               
+                                // Defines the intro interior cover subtitle styles.
                                 &amp;-subtitle {
-                                  font-size: 22px;
-                                  font-weight: bold;
-                                  margin-top: 0;
+                                  @include tokens-heading(&#x27;h5-alt&#x27;, $subheading, (&#x27;h5-alt&#x27;: (
+                                    &#x27;font-weight&#x27;: bold
+                                  )));
+                                  
+                                   &amp;.-date {
+                                    @include tokens-heading(&#x27;h6&#x27;, $heading);
+                                  }
+                                  
+                                }
+                                
+                                // Defines the intro interior cover image styles.
+                                &amp;-image {
+                                  height: $image;
                                 }
                                 
                                }"
@@ -66778,6 +66796,48 @@
                                     <h3 class="item__sub-heading">Requires</h3>
                                   
                                     <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
                                   
                                   
                                   
@@ -66865,7 +66925,9 @@
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$organisms-intro-interior-cover: (
                                 
-                                &#x27;color&#x27;: color(&#x27;blue&#x27;,&#x27;dark&#x27;),
+                                &#x27;heading&#x27;: color(&#x27;blue&#x27;,&#x27;dark&#x27;),
+                                &#x27;subheading&#x27;: color(&#x27;blue&#x27;,&#x27;dark&#x27;),
+                                &#x27;image&#x27;: 540px
                                 
                               );</code></pre>
                               
@@ -66968,25 +67030,35 @@
                                       data-expanded="%organisms-intro-interior-cover { 
                                 
                                 // Builds the intro-interior-cover structure.
-                                display: grid;
-                                grid-template-rows: repeat(2, min-content) 540px;
-                              
+                                display: block;
+                                
                                 &amp;-title {
                                   grid-row: 1;
+                                  margin-bottom: 0;
                                 }
                               
                                 &amp;-subtitle {
                                   grid-row: 2;
-                                }
-                              
-                                &amp;-title,
-                                &amp;-subtitle {
-                                  text-align: center;
+                                  
+                                  &amp;:not(.-date) {
+                                    margin-top: 0;
+                                  }
+                                  
                                 }
                               
                                 &amp;-image {
+                                  @include margin-y($rhythm-y);
                                   grid-row: 3;
-                                  background-size: cover;
+                                  overflow: hidden;
+                                  @include absolute-center-contents;
+                                  
+                                  img {
+                                    min-width: 100%;
+                                    min-height: 100%;
+                                    max-width: none;
+                                    flex-shrink: 0;
+                                  }
+                                  
                                 }
                               
                                 
@@ -67008,6 +67080,28 @@
                               
                               
                               
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-rhythm-y"><code>rhythm-y</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
                               
                               
                                   
@@ -76586,6 +76680,12 @@
                                   
                               
                               
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
                                   
                                   
                                   

@@ -8,25 +8,35 @@
 %organisms-intro-interior-cover {
   
   // Builds the intro-interior-cover structure.
-  display: grid;
-  grid-template-rows: repeat(2, min-content) 540px;
-
+  display: block;
+  
   &-title {
     grid-row: 1;
+    margin-bottom: 0;
   }
 
   &-subtitle {
     grid-row: 2;
-  }
-
-  &-title,
-  &-subtitle {
-    text-align: center;
+    
+    &:not(.-date) {
+      margin-top: 0;
+    }
+    
   }
 
   &-image {
+    @include margin-y($rhythm-y);
     grid-row: 3;
-    background-size: cover;
+    overflow: hidden;
+    @include absolute-center-contents;
+    
+    img {
+      min-width: 100%;
+      min-height: 100%;
+      max-width: none;
+      flex-shrink: 0;
+    }
+    
   }
 
   

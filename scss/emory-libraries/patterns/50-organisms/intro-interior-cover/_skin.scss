@@ -9,7 +9,9 @@
 /// @type map
 $organisms-intro-interior-cover: (
   
-  'color': color('blue','dark'),
+  'heading': color('blue','dark'),
+  'subheading': color('blue','dark'),
+  'image': 540px
   
 );
 
@@ -25,22 +27,39 @@ $organisms-intro-interior-cover: (
 @mixin organisms-intro-interior-cover--theme ( $skin ) {
   
   // Capture themeable variables from skin.
-  $color: map-deep-get($skin, 'color');
+  $heading: map-deep-get($skin, 'heading');
+  $subheading: map-deep-get($skin, 'subheading');
+  $image: map-deep-get($skin, 'image');
   
   // Defines the intro-interior-cover component's base styles.
+  // ...
+  
+  // Defines the intro interior cover title and subtitle styles.
   &-title,
   &-subtitle {
-    color: $color;
+    text-align: center;
   }
 
+  // Defines the intro interior cover title styles.
   &-title {
-    margin: 0;
+    @include tokens-heading('h2', $heading);
   }
 
+  // Defines the intro interior cover subtitle styles.
   &-subtitle {
-    font-size: 22px;
-    font-weight: bold;
-    margin-top: 0;
+    @include tokens-heading('h5-alt', $subheading, ('h5-alt': (
+      'font-weight': bold
+    )));
+    
+     &.-date {
+      @include tokens-heading('h6', $heading);
+    }
+    
+  }
+  
+  // Defines the intro interior cover image styles.
+  &-image {
+    height: $image;
   }
   
 }
