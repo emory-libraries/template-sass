@@ -6,49 +6,49 @@
 ///
 /// @since 1.0.0
 %atoms-nav-button {
-  
+
   // Builds the nav-button structure.
   @extend %atoms-button;
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  
+
   // Adds breakpoint-specific structure changes.
-  @include breakpoint-m-l {
+  @include breakpoint-l {
     display: inline-flex;
     justify-content: center;
     width: auto;
   };
-  
+
   // Apply icon structure.
   .icon {
     @include absolute-center-contents;
   }
-  
+
   // Modifies main button structure.
   &:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
   &.-main {
     height: 60px;
-    
+
     @include breakpoint-m-l {
       height: 90px;
     };
-    
+
   }
-  
+
   // Modifies toggle button structure
   &.-toggle {
     height: 40px;
     display: inline-flex;
     justify-content: center;
     width: auto;
-    
+
     @include breakpoint-m-l {
       display: none;
     };
-    
+
   }
-  
+
   // Sets search button structure.
   &.-search {
     height: 40px;
@@ -56,50 +56,62 @@
     justify-content: center;
     width: auto;
     margin-left: auto;
-    
+
     @include breakpoint-m-l {
       margin-left: 0;
       height: 90px;
     };
-    
+
   }
-  
+
   // Sets utility button structure.
   &.-utility {
     height: 60px;
     
-    @include breakpoint-m-l {
+    // Don't allow icons on utility buttons.
+    .icon {
+      display: none;
+    }
+
+    @include breakpoint-l {
       height: 40px;
       flex-direction: row;
+      
+      &::after {
+        content: none !important;
+      }
+      
     };
-    
+
   }
-  
+
   // Sets flyout button structure.
   &.-flyout {
-    height: 70;
+    height: 70px;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
     width: auto;
-    
-    @include breakpoint-m-l {
+    flex: 1;
+
+    @include breakpoint-l {
       height: 40px;
       flex-direction: row;
+      flex: unset;
     };
-    
+
   }
-  
+
    // Sets librarian button structure.
   &.-librarian {
     height: 45px;
     justify-content: center;
-    
+
     @include breakpoint-m-l {
       height: 40px;
       flex-direction: row;
     };
-    
+
   }
-  
+
 }
