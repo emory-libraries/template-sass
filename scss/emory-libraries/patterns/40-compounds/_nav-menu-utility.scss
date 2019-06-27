@@ -1,0 +1,47 @@
+////
+/// @group emory-libraries.patterns.compounds.nav-menu-utility
+////
+
+/// Load the nav-menu-utility component's structure and skin.
+@import 'nav-menu-utility/structure';
+@import 'nav-menu-utility/skin';
+
+/// Builds a constructor for the nav-menu-utility component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} compounds-nav-menu-utility
+/// @requires {variable} compounds-nav-menu-utility
+/// @requires {mixin} compounds-nav-menu-utility--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our nav-menu-utility component
+///
+/// @status review
+@mixin compounds-nav-menu-utility ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($compounds-nav-menu-utility, $custom);
+  
+  // Initialize the nav-menu-utility component.
+  & {
+    
+    // Load structure.
+    @extend %compounds-nav-menu-utility;
+    
+    // Load parts.
+    &-left {
+      @extend %compounds-nav-menu-utility-left;
+    }
+    &-right {
+      @extend %compounds-nav-menu-utility-right;
+    }
+    
+    // Load skins.
+    @include compounds-nav-menu-utility--theme( $skin );
+    
+  }
+  
+}

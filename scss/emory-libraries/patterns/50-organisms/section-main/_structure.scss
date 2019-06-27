@@ -237,7 +237,8 @@
   &.-research-help-page,
   &.-service-directory-page,
   &.-subject-librarian-directory-page,
-  &.-staff-directory-page {
+  &.-staff-directory-page,
+  &.-research-help-directory-page {
 
     #{$selector}-title {
       margin-bottom: 0;
@@ -256,7 +257,8 @@
     '.-subject-librarian-directory-page',
     '.-staff-directory-page',
     '.-gallery-page',
-    '.-exhibition-page'
+    '.-exhibition-page',
+    '.-research-help-directory-page'
   )},
   &.-info-page {
     @include grid-layout;
@@ -397,9 +399,11 @@
 
   }
 
-  // Builds the main structure when used for a subject librarian directory and staff directory page.
+  // Builds the main structure when used for directory pages.
+  &.-service-directory-page,
   &.-subject-librarian-directory-page,
-  &.-staff-directory-page {
+  &.-staff-directory-page,
+  &.-research-help-directory-page {
     @include grid-layout((
       'spacer': false,
       'auto': false,
@@ -465,7 +469,7 @@
       'section': false,
       'spacer': false
     ));
-    
+
     // Hide grid areas that are not being used within this page type.
     #{$selector}-title,
     #{$selector}-section,
@@ -486,8 +490,8 @@
 
     // Adjusts the main structure across large screens.
     @include breakpoint-l {
-      grid-template-columns: [main-start] 1fr 
-                             [main-end divider-start] .25fr 
+      grid-template-columns: [main-start] 1fr
+                             [main-end divider-start] .25fr
                              [divider-end sidebar-start] 1fr [sidebar-end] !important;
 
       // Adjust the breadcrumb placement within the grid.
