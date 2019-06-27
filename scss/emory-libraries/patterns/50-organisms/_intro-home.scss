@@ -39,11 +39,27 @@
       @extend %organisms-intro-home-gradient;
     }
 
-    &-search{
+    &-search {
       @extend %organisms-intro-home-search;
     }
 
-    &-badge{
+    &-search-input {
+      @extend %organisms-intro-home-search-input;
+    }
+
+    &-search-options {
+      @extend %organisms-intro-home-search-options;
+    }
+
+    &-search-options-list {
+      @extend %organisms-intro-home-search-options-list;
+    }
+
+    &-search-options-list-item {
+      @extend %organisms-intro-home-search-options-list-item;
+    }
+
+    &-badge {
       @extend %organisms-intro-home-badge;
     }
 

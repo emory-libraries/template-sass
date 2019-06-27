@@ -9516,6 +9516,8 @@
                       
                       
                       
+                      
+                      
                   
                   
                   
@@ -14214,6 +14216,10 @@
                   
                   
                   
+                      
+                      
+                      
+                      
                       
                       
                       
@@ -66583,11 +66589,27 @@
                                     @extend %organisms-intro-home-gradient;
                                   }
                               
-                                  &amp;-search{
+                                  &amp;-search {
                                     @extend %organisms-intro-home-search;
                                   }
                               
-                                  &amp;-badge{
+                                  &amp;-search-input {
+                                    @extend %organisms-intro-home-search-input;
+                                  }
+                              
+                                  &amp;-search-options {
+                                    @extend %organisms-intro-home-search-options;
+                                  }
+                              
+                                  &amp;-search-options-list {
+                                    @extend %organisms-intro-home-search-options-list;
+                                  }
+                              
+                                  &amp;-search-options-list-item {
+                                    @extend %organisms-intro-home-search-options-list-item;
+                                  }
+                              
+                                  &amp;-badge {
                                     @extend %organisms-intro-home-badge;
                                   }
                               
@@ -66803,10 +66825,18 @@
                                   <pre class="item__code  item__code--togglable language-scss"
                                        data-current-state="collapsed"
                                        data-expanded="@mixin organisms-intro-home--theme($skin) { 
-                                
+                              
+                                // Capture selector.
+                                $selector: &amp;;
+                              
                                 // Capture themeable variables from skin.
                                 $color: map-deep-get($skin, &#x27;hero-color&#x27;);
                                 $gradient-color: map-deep-get($skin, &#x27;gradient-color&#x27;);
+                                $search-background: map-deep-get($skin, &#x27;search.background-color&#x27;);
+                                $border-color: map-deep-get($skin, &#x27;search.border-color&#x27;);
+                                $border: $border-width-s solid $border-color;
+                                $search-options-color: map-deep-get($skin, &#x27;search.option-color&#x27;);
+                                $active-color: map-deep-get($skin, &#x27;search.active-color&#x27;);
                               
                                 // Defines the intro-home component&#x27;s base styles.
                                 &amp;-gradient {
@@ -66817,10 +66847,96 @@
                                   margin: 0;
                                   text-align: center;
                                   text-decoration: none;
+                              
                                   h1 {
                                     @include tokens-heading(&#x27;h2&#x27;, $color, $important: true);
                               
                                   }
+                              
+                                }
+                              
+                                &amp;-search {
+                              
+                                  background: transparent;
+                                  transition: $transition-all;
+                              
+                                  &amp;-options {
+                                    position: absolute;
+                                    left: -10000px;
+                                    border-bottom: $border;
+                              
+                                    &amp;-list-item {
+                                      font-size: 12px;
+                                      font-weight: bold;
+                                      line-height: 1.25;
+                                      letter-spacing: .05em;
+                                      text-transform: uppercase;
+                                      text-align: center;
+                              
+                                      a {
+                                        color: $search-options-color;
+                                        text-decoration: none;
+                              
+                                        &amp;:hover,
+                                        &amp;:active,
+                                        &amp;:focus {
+                                          color: $active-color;
+                              
+                              
+                                          &amp;:after {
+                                            content:&#x27;&#x27;;
+                                            position: absolute;
+                                            top: 100%;
+                                            left: 0;
+                                            right: 0;
+                                            margin: 1em auto;
+                                            width: 0;
+                                            height: 0;
+                                            background-color: $search-background;
+                                            border-top: solid 7px $active-color;
+                                            border-left: solid 7px transparent;
+                                            border-right: solid 7px transparent;
+                                          }
+                              
+                                        }
+                              
+                                      }
+                              
+                                    }
+                              
+                                    &amp;-list-item:not(:last-child) {
+                              
+                                      &amp;:after {
+                                        content: &quot;&quot;;
+                                        border-left: $border;
+                                        height: 12px;
+                                        margin: auto;
+                              
+                                        @include breakpoint-s() {
+                                          border-left: none;
+                                        }
+                                        
+                                      }
+                              
+                                    }
+                              
+                                  }
+                              
+                                  &amp;:focus-within,
+                                  &amp;:focus,
+                                  &amp;:hover,
+                                  &amp;:active {
+                                    background-color: $search-background;
+                                    opacity: .9;
+                                    transition: $transition-all;
+                              
+                                    &amp; .intro-home-search-options {
+                                      position: initial;
+                                      left: initial;
+                                    }
+                              
+                                  }
+                              
                                 }
                               
                                }"
@@ -66920,6 +67036,62 @@
                                   
                                   
                                   
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#utils.mixins-mixin-breakpoint-s"><code>breakpoint-s</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-border-width-s"><code>border-width-s</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-transition-all"><code>transition-all</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-transition-all"><code>transition-all</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
                                   
                                           <li class="item__description item__description--inline">
                                   
@@ -67006,9 +67178,14 @@
                                   <pre class="item__code language-scss"><code class="js-autoindent">$organisms-intro-home: (
                                 
                                 &#x27;gradient-color&#x27;: color(&#x27;blue&#x27;,&#x27;dark&#x27;),
-                              
-                                &#x27;hero-color&#x27;: color(&#x27;white&#x27;)
-                                
+                                &#x27;search&#x27;: (
+                                  &#x27;background-color&#x27;: color(&#x27;blue&#x27;,&#x27;dark&#x27;),
+                                  &#x27;opacity&#x27;: .9,
+                                  &#x27;border-color&#x27;: rgba(231, 234, 241, .2),
+                                  &#x27;option-color&#x27;: color(&#x27;slate&#x27;,&#x27;light&#x27;),
+                                  &#x27;active-color&#x27;: color(&#x27;gold&#x27;)
+                                  ),
+                                &#x27;hero-color&#x27;: color(&#x27;white&#x27;)  
                               );</code></pre>
                               
                               
@@ -67115,7 +67292,7 @@
                                 // Builds the intro-home structure.
                                 // ...
                                 display: grid;
-                                grid-template-rows: 1fr min-content 6fr repeat(2, min-content) 1fr;
+                                grid-template-rows: 180px min-content 6fr repeat(2, min-content) 1fr;
                                 grid-template-columns: 1fr 2fr minmax(min-content, 800px) 2fr 1fr;
                                 background-size: cover;
                                 height: 845px;
@@ -67134,15 +67311,56 @@
                               
                               
                                 &amp;-search {
-                                  grid-row: 2;
-                                  grid-column: 2/span 3;
+                                  grid-row: 1;
+                                  grid-column: 1/-1;
                                   align-self: center;
                                   margin: 0 !important;
+                                  display: grid;
+                                  grid-template-rows: repeat(2, 1fr) 46px;
+                                  grid-template-columns: 1fr minmax(min-content, 1215px) 1fr;
+                                }
                               
-                                  .search.-big {
-                                    margin: 0;
+                                &amp;-search-input {
+                                  grid-column: 2;
+                                  grid-row: 2;
+                                  margin: 0;
+                                }
+                              
+                              
+                                &amp;-search-options {
+                                  display: flex;
+                                  grid-row: 1;
+                                  grid-column: 2;
+                                }
+                              
+                                &amp;-search-options-list {
+                                  list-style: none;
+                                  padding: 0 2em;
+                                  display: flex;
+                                  flex-direction: row;
+                                  justify-content: space-between;
+                                  align-items: flex-end;
+                                  margin: 0 auto;
+                                  width: 100%;
+                              
+                              
+                                  &amp;-item {
+                                    padding: 1em 0;
+                                    display: flex;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    flex: 1 1 auto;
+                              
+                                    @include breakpoint-l() {
+                                      white-space: nowrap;
+                                    }
+                              
+                                    &amp;:last-child {
+                                      flex: 0;
+                                    }
+                              
                                   }
-                                  
+                              
                                 }
                               
                                 &amp;-badge{
@@ -67177,6 +67395,28 @@
                               
                               
                               
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#utils.mixins-mixin-breakpoint-l"><code>breakpoint-l</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
                               
                               
                                   
@@ -82410,6 +82650,8 @@
                             
                             
                             
+                            
+                            
                         
                         
                         
@@ -82692,6 +82934,8 @@
                             
                         
                         
+                            
+                            
                             
                             
                             

@@ -10,9 +10,14 @@
 $organisms-intro-home: (
   
   'gradient-color': color('blue','dark'),
-
-  'hero-color': color('white')
-  
+  'search': (
+    'background-color': color('blue','dark'),
+    'opacity': .9,
+    'border-color': rgba(231, 234, 241, .2),
+    'option-color': color('slate','light'),
+    'active-color': color('gold')
+    ),
+  'hero-color': color('white')  
 );
 
 /// Defines the intro-home component theme.
@@ -25,10 +30,18 @@ $organisms-intro-home: (
 ///
 /// @output The intro-home component's themeable properties
 @mixin organisms-intro-home--theme ( $skin ) {
-  
+
+  // Capture selector.
+  $selector: &;
+
   // Capture themeable variables from skin.
   $color: map-deep-get($skin, 'hero-color');
   $gradient-color: map-deep-get($skin, 'gradient-color');
+  $search-background: map-deep-get($skin, 'search.background-color');
+  $border-color: map-deep-get($skin, 'search.border-color');
+  $border: $border-width-s solid $border-color;
+  $search-options-color: map-deep-get($skin, 'search.option-color');
+  $active-color: map-deep-get($skin, 'search.active-color');
 
   // Defines the intro-home component's base styles.
   &-gradient {
@@ -39,10 +52,96 @@ $organisms-intro-home: (
     margin: 0;
     text-align: center;
     text-decoration: none;
+
     h1 {
       @include tokens-heading('h2', $color, $important: true);
 
     }
+
+  }
+
+  &-search {
+
+    background: transparent;
+    transition: $transition-all;
+
+    &-options {
+      position: absolute;
+      left: -10000px;
+      border-bottom: $border;
+
+      &-list-item {
+        font-size: 12px;
+        font-weight: bold;
+        line-height: 1.25;
+        letter-spacing: .05em;
+        text-transform: uppercase;
+        text-align: center;
+
+        a {
+          color: $search-options-color;
+          text-decoration: none;
+
+          &:hover,
+          &:active,
+          &:focus {
+            color: $active-color;
+
+
+            &:after {
+              content:'';
+              position: absolute;
+              top: 100%;
+              left: 0;
+              right: 0;
+              margin: 1em auto;
+              width: 0;
+              height: 0;
+              background-color: $search-background;
+              border-top: solid 7px $active-color;
+              border-left: solid 7px transparent;
+              border-right: solid 7px transparent;
+            }
+
+          }
+
+        }
+
+      }
+
+      &-list-item:not(:last-child) {
+
+        &:after {
+          content: "";
+          border-left: $border;
+          height: 12px;
+          margin: auto;
+
+          @include breakpoint-s() {
+            border-left: none;
+          }
+          
+        }
+
+      }
+
+    }
+
+    &:focus-within,
+    &:focus,
+    &:hover,
+    &:active {
+      background-color: $search-background;
+      opacity: .9;
+      transition: $transition-all;
+
+      & .intro-home-search-options {
+        position: initial;
+        left: initial;
+      }
+
+    }
+
   }
 
 }

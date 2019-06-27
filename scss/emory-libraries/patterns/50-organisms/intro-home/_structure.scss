@@ -13,7 +13,7 @@
   // Builds the intro-home structure.
   // ...
   display: grid;
-  grid-template-rows: 1fr min-content 6fr repeat(2, min-content) 1fr;
+  grid-template-rows: 180px min-content 6fr repeat(2, min-content) 1fr;
   grid-template-columns: 1fr 2fr minmax(min-content, 800px) 2fr 1fr;
   background-size: cover;
   height: 845px;
@@ -32,15 +32,56 @@
 
 
   &-search {
-    grid-row: 2;
-    grid-column: 2/span 3;
+    grid-row: 1;
+    grid-column: 1/-1;
     align-self: center;
     margin: 0 !important;
+    display: grid;
+    grid-template-rows: repeat(2, 1fr) 46px;
+    grid-template-columns: 1fr minmax(min-content, 1215px) 1fr;
+  }
 
-    .search.-big {
-      margin: 0;
+  &-search-input {
+    grid-column: 2;
+    grid-row: 2;
+    margin: 0;
+  }
+
+
+  &-search-options {
+    display: flex;
+    grid-row: 1;
+    grid-column: 2;
+  }
+
+  &-search-options-list {
+    list-style: none;
+    padding: 0 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 0 auto;
+    width: 100%;
+
+
+    &-item {
+      padding: 1em 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1 1 auto;
+
+      @include breakpoint-l() {
+        white-space: nowrap;
+      }
+
+      &:last-child {
+        flex: 0;
+      }
+
     }
-    
+
   }
 
   &-badge{
