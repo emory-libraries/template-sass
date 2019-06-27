@@ -1,0 +1,65 @@
+////
+/// @group emory-libraries.patterns.organisms.intro-interior-cover
+////
+
+/// Defines the base skin of the intro-interior-cover component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$organisms-intro-interior-cover: (
+  
+  'heading': color('blue','dark'),
+  'subheading': color('blue','dark'),
+  'image': 540px
+  
+);
+
+/// Defines the intro-interior-cover component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The intro-interior-cover component's themeable properties
+@mixin organisms-intro-interior-cover--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $heading: map-deep-get($skin, 'heading');
+  $subheading: map-deep-get($skin, 'subheading');
+  $image: map-deep-get($skin, 'image');
+  
+  // Defines the intro-interior-cover component's base styles.
+  // ...
+  
+  // Defines the intro interior cover title and subtitle styles.
+  &-title,
+  &-subtitle {
+    text-align: center;
+  }
+
+  // Defines the intro interior cover title styles.
+  &-title {
+    @include tokens-heading('h2', $heading);
+  }
+
+  // Defines the intro interior cover subtitle styles.
+  &-subtitle {
+    @include tokens-heading('h5-alt', $subheading, ('h5-alt': (
+      'font-weight': bold
+    )));
+    
+     &.-date {
+      @include tokens-heading('h6', $heading);
+    }
+    
+  }
+  
+  // Defines the intro interior cover image styles.
+  &-image {
+    height: $image;
+  }
+  
+}

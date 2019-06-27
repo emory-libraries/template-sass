@@ -1,0 +1,53 @@
+////
+/// @group emory-libraries.patterns.compounds.slider
+////
+
+/// Load the slider component's structure and skin.
+@import 'slider/structure';
+@import 'slider/skin';
+
+/// Builds a constructor for the slider component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} compounds-slider
+/// @requires {variable} compounds-slider
+/// @requires {mixin} compounds-slider--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our slider component
+///
+/// @status review
+@mixin compounds-slider ( $custom: () ) {
+  
+  // Capture selector.
+  $selector: &;
+  
+  // Extend the default skin.
+  $skin: map-extend($compounds-slider, $custom);
+  
+  // Initialize the slider component.
+  & {
+    
+    // Load structure.
+    @extend %compounds-slider;
+    
+    // Load parts.
+    &-indicator {
+      @extend %compounds-slider-indicator;
+    }
+    &-toggle {
+      @extend %compounds-slider-toggle;
+    }
+    &-slides {
+      @extend %compounds-slider-slides;
+    }
+    
+    // Load skins.
+    @include compounds-slider--theme( $skin );
+    
+  }
+  
+}
