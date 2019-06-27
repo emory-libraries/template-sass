@@ -1,0 +1,73 @@
+////
+/// @group emory-libraries.patterns.organisms.section-deep-dive
+////
+
+/// Defines the base structure of the section-deep-dive component.
+///
+/// @since 1.0.0-dev.0
+%organisms-section-deep-dive {
+
+  // Builds the section-deep-dive structure.
+  display: flex;
+  flex-direction: column;
+
+  // Builds the deep dive title structure.
+  &-title {
+    margin-top: 0;
+
+    &::after {
+      content: '';
+      display: block;
+      @include absolute( null 0 -.83em 0);
+      margin: 0 auto;
+    }
+
+  }
+
+  // Builds the deep dive body structure.
+  &-body {
+    display: grid;
+    @include margin-y($rhythm-y);
+
+    @include breakpoint-xl {
+      grid-template-columns: repeat( auto-fit, minmax(10%, 330px) );
+      grid-column-gap: 100px;
+      justify-content: center;
+    }
+    
+    ol,
+    ol.list {
+      counter-reset: counter;
+      list-style: none;
+      
+      li {
+        counter-increment: counter;
+        
+        &::before {
+          content: counter(counter) " - ";
+        }
+        
+      }
+      
+    }
+
+  }
+
+  // Builds the deep dive column structure.
+  &-column {
+    
+    // Builds the deep dive column heading structure.
+    &-heading { }
+
+  }
+
+  // Builds the deep dive footer structure.
+  &-footer { }
+  
+  // Builds the deep dive link structure.
+  &-link {
+    @include margin-y(1em);
+    display: block;
+  }
+  
+}
