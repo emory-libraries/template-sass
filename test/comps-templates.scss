@@ -40,6 +40,10 @@
   @include templates-bio;
 }
 
+// templates-gallary
+.gallery-page {
+  @include templates-gallery;
+
 // templates-research-help-directory
 .research-help-directory-page {
   @include templates-research-help-directory;

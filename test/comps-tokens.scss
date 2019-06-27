@@ -41,3 +41,8 @@
 .grid {
   @include tokens-grid;
 }
+
+// tokens-reveal
+.big-reveal {
+  @include tokens-reveal;
+}

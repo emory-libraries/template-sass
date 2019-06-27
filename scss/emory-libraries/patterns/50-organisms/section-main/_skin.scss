@@ -37,6 +37,11 @@ $organisms-section-main: (
 
   // Defines the section-main component's base styles.
   grid-column-gap: $gap;
+  
+  // Defines the breadcrumb styles.
+  &-breadcrumb {
+    min-height: $gap;
+  }
 
   // Defines the main title styles.
   &-title { }

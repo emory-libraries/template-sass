@@ -1,0 +1,54 @@
+////
+/// @group emory-libraries.patterns.templates.gallery
+////
+
+/// Defines the base skin of the gallery component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$templates-gallery: (
+  
+  'layout': (
+    'x': $layout-x,
+    'y': $layout-y
+  ),
+  
+  'gap': 20px
+  
+);
+
+/// Defines the gallery component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The gallery component's themeable properties
+@mixin templates-gallery--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $gap: map-deep-get($skin, 'gap');
+  $layout: map-deep-get($skin, 'layout');
+
+  // Defines the gallery component's base styles.
+  grid-gap: $gap;
+  
+  // Defines gallery header and footer styles.
+  &-header,
+  &-footer {
+    border: $border-width-s solid color('slate'); // TEMPORARY
+  }
+  
+  // Defines gallery header styles.
+  &-header { }
+  
+  // Defines gallery main styles.
+  &-main { }
+  
+  // Defines gallery footer styles.
+  &-footer { }
+  
+}
