@@ -10,14 +10,8 @@
 $organisms-section-main: (
 
   'gap': 40px,
-
-  'body': (
-    'heading': (
-      'h2': (
-        'color': color('blue')
-      )
-    )
-  )
+  
+  'heading': color('blue')
 
 );
 
@@ -34,6 +28,7 @@ $organisms-section-main: (
 
   // Capture themeable variables from skin.
   $gap: map-deep-get($skin, 'gap');
+  $heading: map-deep-get($skin, 'heading');
 
   // Defines the section-main component's base styles.
   grid-column-gap: $gap;
@@ -56,11 +51,8 @@ $organisms-section-main: (
     // FIXME: If we adjust H2 styles here, we'll need to adjust subsequent headings (H3-H6) too.
     .heading {
 
-      // Get heading-specific variables.
-      $heading: map-deep-get($skin, 'body.heading');
-
       &.-h2 {
-        @include tokens-heading('h5-alt', map-deep-get($heading, 'h2.color'));
+        @include tokens-heading('h5-alt', $heading);
       }
 
     }

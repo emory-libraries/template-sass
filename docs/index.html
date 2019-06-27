@@ -7751,6 +7751,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="templates">
+                          <a href="#patterns.templates.exhibition">exhibition</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.templates.exhibition-mixin">
+                                <a href="#patterns.templates.exhibition-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.exhibition" data-name="templates-exhibition" data-type="mixin">
+                                    
+                                    <a href="#patterns.templates.exhibition-mixin-templates-exhibition">
+                                      
+                                      templates-exhibition
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.exhibition" data-name="templates-exhibition--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.templates.exhibition-mixin-templates-exhibition--theme">
+                                      
+                                      templates-exhibition--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.templates.exhibition-variable">
+                                <a href="#patterns.templates.exhibition-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.exhibition" data-name="templates-exhibition" data-type="variable">
+                                    
+                                    <a href="#patterns.templates.exhibition-variable-templates-exhibition">
+                                      
+                                      templates-exhibition
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.templates.exhibition-placeholder">
+                                <a href="#patterns.templates.exhibition-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.exhibition" data-name="templates-exhibition" data-type="placeholder">
+                                    
+                                    <a href="#patterns.templates.exhibition-placeholder-templates-exhibition">
+                                      
+                                      templates-exhibition
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="templates">
                           <a href="#patterns.templates.gallery">gallery</a>
                         </p>
                         
@@ -9922,6 +10030,8 @@
                   
                   
                   
+                      
+                      
                       
                       
                       
@@ -13631,6 +13741,18 @@
                   
                   
                   
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
                       
                       
                       
@@ -21199,6 +21321,8 @@
                                   
                               
                               
+                                  
+                                  
                                   
                                   
                                   
@@ -51178,14 +51302,27 @@
                                 // Defines card listing styles when horizontal.
                                 &amp;:not(.-vertical) {
                                   
-                                  @include breakpoint-m-l {
-                                    grid-template-columns: 1fr $image-width;
+                                  @include breakpoint-l {
+                                    grid-template-columns: 1fr nth($image-width, 1);
                                     
                                     #{$selector}-date {
                                       margin-top: 0;
                                     }
+                                  
+                                  }
+                                  
+                                  @if ( nth($image-width, 2) ) {
                                     
-                                  };
+                                    @include breakpoint-xl {
+                                      grid-template-columns: 1fr nth($image-width, 2);
+                                      
+                                      #{$selector}-date {
+                                        margin-top: 0;
+                                      }
+                                      
+                                    };
+                                    
+                                  }
                                   
                                 }
                                 
@@ -51340,7 +51477,7 @@
                                   
                                   @include when-descendant-of( &#x27;#{$selector}:not(.-vertical)&#x27; ) {
                                     
-                                    @include breakpoint-m-l {
+                                    @include breakpoint-l {
                                       left: 0;
                                       right: -$padding-right - $border-offset;
                                       bottom: -$padding-bottom - $border-offset;
@@ -51715,7 +51852,7 @@
                                 ),
                                 
                                 &#x27;image&#x27;: (
-                                  &#x27;width&#x27;: 40%,
+                                  &#x27;width&#x27;: (50%, 55%),
                                   &#x27;height&#x27;: 375px
                                 )
                                 
@@ -51878,7 +52015,7 @@
                                   // Sets structure when not explicity vertical.
                                   &amp;:not(.-vertical) {
                                     
-                                    @include breakpoint-m-l {
+                                    @include breakpoint-l {
                                       grid-template-areas: &quot;date image&quot;
                                                            &quot;title image&quot;
                                                            &quot;description image&quot;
@@ -51964,7 +52101,7 @@
                                     
                                   }
                                   
-                                  @include breakpoint-m-l {
+                                  @include breakpoint-l {
                                     align-items: center;
                                   };
                                   
@@ -51976,13 +52113,6 @@
                                       height: auto;
                                       min-width: auto;
                                       min-height: auto;
-                                      
-                                      @include breakpoint-m {
-                                        width: auto;
-                                        height: auto;
-                                        min-width: auto;
-                                        min-height: 100%;
-                                      };
                                       
                                       @include breakpoint-l {
                                         width: 100%;
@@ -52001,13 +52131,6 @@
                                       height: 100%;
                                       min-width: auto;
                                       min-height: auto;
-                                      
-                                      @include breakpoint-m {
-                                        width: auto;
-                                        height: auto;
-                                        min-width: auto;
-                                        min-height: 100%;
-                                      };
                                       
                                       @include breakpoint-l {
                                         width: 100%;
@@ -67058,14 +67181,6 @@
                                   // Load structure.
                                   @extend %organisms-intro-hero;
                               
-                                  &amp;-image {
-                                    @extend %organisms-intro-hero-image;
-                                  }
-                              
-                                  &amp;-gradient {
-                                    @extend %organisms-intro-hero-gradient;
-                                  }
-                              
                                   &amp;-badge {
                                     @extend %organisms-intro-hero-badge;
                                   }
@@ -67288,19 +67403,14 @@
                                        data-expanded="@mixin organisms-intro-hero--theme($skin) { 
                               
                                 // Capture themeable variables from skin.
-                                // ...
-                              
-                                $color: map-deep-get($skin, &#x27;hero-color&#x27;);
-                                $subtitle: map-deep-get($skin, &#x27;subtitle-size&#x27;);
-                                $gradient-color: map-deep-get($skin, &#x27;gradient-color&#x27;);
+                                $color: map-deep-get($skin, &#x27;color&#x27;);
+                                $gradient: map-deep-get($skin, &#x27;gradient&#x27;);
+                                
+                                // Get subtitle-specific variables.
+                                $subtitle-size: map-deep-get($skin, &#x27;subtitle.size&#x27;);
                               
                                 // Defines the intro-hero component&#x27;s base styles.
-                                // ...
-                              
-                                // Defines the intro-hero-gradient styles.
-                                &amp;-gradient {
-                                  @include linear-gradient(0deg, $gradient-color -14.42%, rgba(40, 40, 40, 0) 50%);
-                                }
+                                @include linear-gradient-over-image(0deg, $gradient -14.42%, transparent 50%, var(--image));
                               
                                 // Defines the intro-hero-title styles.
                                 &amp;-title {
@@ -67311,12 +67421,12 @@
                               
                                 // Modifies styles when used for a heading intro-hero.
                                 &amp;-subtitle {
-                                    margin: 0;
-                                    color: $color;
-                                    font-size: $subtitle;
-                                    text-align: center;
-                                    line-height: 1.5;
+                                  @include tokens-text(&#x27;body&#x27;, $color, (&#x27;body&#x27;: (
+                                    &#x27;line-height&#x27;: 1.5,
+                                    &#x27;text-align&#x27;: center
+                                  )));
                                 }
+                                
                                }"
                                        data-collapsed="@mixin organisms-intro-hero--theme($skin) { ... }"><code class="js-autoindent">@mixin organisms-intro-hero--theme($skin) { ... }</code></pre>
                               
@@ -67414,6 +67524,20 @@
                                   
                                   
                                   
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.text-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
                                   
                                           <li class="item__description item__description--inline">
                                   
@@ -67499,11 +67623,13 @@
                                   
                                   <pre class="item__code language-scss"><code class="js-autoindent">$organisms-intro-hero: (
                               
-                                &#x27;gradient-color&#x27;: #282828,
+                                &#x27;gradient&#x27;: #282828,
                               
-                                &#x27;hero-color&#x27;: color(&#x27;white&#x27;),
+                                &#x27;color&#x27;: color(&#x27;white&#x27;),
                               
-                                &#x27;subtitle-size&#x27;: 16px
+                                &#x27;subtitle&#x27;: (
+                                  &#x27;size&#x27;: 16px
+                                )
                               
                               );</code></pre>
                               
@@ -67608,43 +67734,31 @@
                                 // Captures the selector.
                                 $selector: &amp;;
                               
-                              
                                 // Builds the intro-hero structure.
-                                // ...
                                 display: grid;
                                 grid-template-rows: 5fr repeat(3, min-content) 1fr;
                                 grid-template-columns: 1fr minmax(min-content, 800px) 1fr;
                                 background-size: cover;
+                                background-position: center center;
                                 height: 437px;
-                              
-                                &amp;-image {
-                                  grid-row: 1/-1;
-                                  grid-column: 1/-1;
-                                  background-size: cover;
-                                  background-position: center center;
-                                }
-                              
-                                &amp;-gradient {
-                                  grid-row: 1/-1;
-                                  grid-column: 1/-1;
-                                }
                               
                                 &amp;-badge{
                                   grid-row: 2/span 1;
                                   grid-column: 2/span 1;
-                                  align-self: center
+                                  align-self: center;
                                 }
                               
                                 &amp;-title {
                                   grid-row: 3/span 1;
                                   grid-column: 2/span 1;
-                                  align-self: center
+                                  align-self: center;
                                 }
                               
                                 &amp;-subtitle {
                                   grid-row: 4/span 1;
                                   grid-column: 2/span 1;
-                                  align-self: center
+                                  align-self: center;
+                                  margin: 0;
                                 }
                                }"
                                       data-collapsed="%organisms-intro-hero { ... }"><code class="js-autoindent">%organisms-intro-hero { ... }</code></pre>
@@ -68822,8 +68936,11 @@
                               
                                   a,
                                   .link {
-                                    @include atoms-link((&#x27;color&#x27;: $link));
-                                    font-weight: bold;
+                                    @include atoms-link((
+                                      &#x27;color&#x27;: $link,
+                                      &#x27;weight&#x27;: bold
+                                    ));
+                                    text-decoration: underline;
                                   }
                               
                                   ol li::before {
@@ -69715,6 +69832,7 @@
                               
                                 // Capture themeable variables from skin.
                                 $gap: map-deep-get($skin, &#x27;gap&#x27;);
+                                $heading: map-deep-get($skin, &#x27;heading&#x27;);
                               
                                 // Defines the section-main component&#x27;s base styles.
                                 grid-column-gap: $gap;
@@ -69737,11 +69855,8 @@
                                   // FIXME: If we adjust H2 styles here, we&#x27;ll need to adjust subsequent headings (H3-H6) too.
                                   .heading {
                               
-                                    // Get heading-specific variables.
-                                    $heading: map-deep-get($skin, &#x27;body.heading&#x27;);
-                              
                                     &amp;.-h2 {
-                                      @include tokens-heading(&#x27;h5-alt&#x27;, map-deep-get($heading, &#x27;h2.color&#x27;));
+                                      @include tokens-heading(&#x27;h5-alt&#x27;, $heading);
                                     }
                               
                                   }
@@ -69945,14 +70060,8 @@
                                   <pre class="item__code language-scss"><code class="js-autoindent">$organisms-section-main: (
                               
                                 &#x27;gap&#x27;: 40px,
-                              
-                                &#x27;body&#x27;: (
-                                  &#x27;heading&#x27;: (
-                                    &#x27;h2&#x27;: (
-                                      &#x27;color&#x27;: color(&#x27;blue&#x27;)
-                                    )
-                                  )
-                                )
+                                
+                                &#x27;heading&#x27;: color(&#x27;blue&#x27;)
                               
                               );</code></pre>
                               
@@ -70248,8 +70357,7 @@
                                 &amp;-sidebar {
                                   grid-column: main;
                                   grid-row: sidebar;
-                                  display: flex;
-                                  justify-content: center;
+                                  display: block;
                               
                                   // Adjust the main sidebar structure across large screens.
                                   @include breakpoint-l {
@@ -70305,7 +70413,11 @@
                                   &#x27;.-subject-librarian-directory-page&#x27;,
                                   &#x27;.-staff-directory-page&#x27;,
                                   &#x27;.-gallery-page&#x27;,
+                              &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+                                  &#x27;.-exhibition-page&#x27;
+                              &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
                                   &#x27;.-research-help-directory-page&#x27;
+                              &gt;&gt;&gt;&gt;&gt;&gt;&gt; dev
                                 )},
                                 &amp;.-info-page {
                                   @include grid-layout;
@@ -70392,6 +70504,46 @@
                               
                                 }
                               
+                              &lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+                                // Builds the main structure when used for a service directory page.
+                                &amp;.-service-directory-page {
+                                  @include grid-layout((
+                                    &#x27;spacer&#x27;: false,
+                                    &#x27;auto&#x27;: false,
+                                    &#x27;section&#x27;: false,
+                                    &#x27;sidebar&#x27;: false
+                                  ));
+                              
+                                  // Hide grid areas that are not being used within this page type.
+                                  #{$selector}-spacer,
+                                  #{$selector}-content,
+                                  #{$selector}-section,
+                                  #{$selector}-sidebar {
+                                    display: none;
+                                  }
+                              
+                                  &amp;.without-intro {
+                                    @include grid-layout((
+                                      &#x27;title&#x27;: false,
+                                      &#x27;subtitle&#x27;: false,
+                                      &#x27;spacer&#x27;: false,
+                                      &#x27;content&#x27;: false,
+                                      &#x27;section&#x27;: false,
+                                      &#x27;sidebar&#x27;: false
+                                    ));
+                              
+                                    // Hide grid areas that are not being used within this page type.
+                                    #{$selector}-title,
+                                    #{$selector}-subtitle {
+                                      display: none;
+                                    }
+                              
+                                  }
+                              
+                                }
+                              
+                              &#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;
+                              &gt;&gt;&gt;&gt;&gt;&gt;&gt; dev
                                 // Builds the main structure when used for a research help page.
                                 &amp;.-research-help-page {
                                   @include grid-layout((
@@ -70416,7 +70568,7 @@
                                 &amp;.-research-help-directory-page {
                                   @include grid-layout((
                                     &#x27;spacer&#x27;: false,
-                                    &#x27;content&#x27;: false,
+                                    &#x27;auto&#x27;: false,
                                     &#x27;section&#x27;: false,
                                     &#x27;sidebar&#x27;: false
                                   ));
@@ -70469,6 +70621,64 @@
                                   #{$selector}-sidebar {
                                     display: none;
                                   }
+                              
+                                }
+                              
+                                // Builds the main structure when used for an exhibition page.
+                                &amp;.-exhibition-page {
+                                  @include grid-layout((
+                                    &#x27;title&#x27;: false,
+                                    &#x27;section&#x27;: false,
+                                    &#x27;spacer&#x27;: false
+                                  ));
+                                  
+                                  // Hide grid areas that are not being used within this page type.
+                                  #{$selector}-title,
+                                  #{$selector}-section,
+                                  #{$selector}-spacer {
+                                    display: none;
+                                  }
+                              
+                                  // Reorder the content.
+                                  #{$selector}-content {
+                                    grid-row: sidebar-end;
+                                  }
+                              
+                                  // Adjust the spacing for sidebar and body within the grid.
+                                  #{$selector}-body,
+                                  #{$selector}-sidebar {
+                                    @include margin-y($rhythm-y);
+                                  }
+                              
+                                  // Adjusts the main structure across large screens.
+                                  @include breakpoint-l {
+                                    grid-template-columns: [main-start] 1fr 
+                                                           [main-end divider-start] .25fr 
+                                                           [divider-end sidebar-start] 1fr [sidebar-end] !important;
+                              
+                                    // Adjust the breadcrumb placement within the grid.
+                                    #{$selector}-breadcrumb {
+                                      grid-column: main / sidebar;
+                                    }
+                              
+                                    // Adjusts the subtitle placement within the grid.
+                                    #{$selector}-subtitle {
+                                      grid-column: main / sidebar;
+                                    }
+                              
+                                    // Adjust the sidebar placement within the grid.
+                                    #{$selector}-sidebar {
+                                      grid-row: body;
+                                    }
+                              
+                                    // Adjust the spacer and content placement within the grid.
+                                    #{$selector}-spacer,
+                                    #{$selector}-content {
+                                      grid-column: main / sidebar;
+                                    }
+                              
+                                  };
+                              
                                 }
                               
                                }"
@@ -70531,6 +70741,20 @@
                                             <span class="item__cross-type">variable</span>
                                   
                                             <a href="#config-variable-fonts-scale"><code>fonts-scale</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-rhythm-y"><code>rhythm-y</code></a>
                                   
                                   
                                           </li>
@@ -72262,6 +72486,8 @@
             
             
             
+            
+            
             <section class="main__section main__section--level-2 ">
             
               <h2 class="main__heading" id="patterns.templates">
@@ -72945,6 +73171,1063 @@
                               
                               
                               
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
+                    <h3 class="main__heading" id="patterns.templates.exhibition">
+                      
+                      <div class="container">exhibition</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.templates.exhibition-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.exhibition-mixin-templates-exhibition">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.exhibition-mixin-templates-exhibition">
+                                  templates-exhibition
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--review">review</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin templates-exhibition($custom) { 
+                                
+                                // Extend the default skin.
+                                $skin: map-extend($templates-exhibition, $custom);
+                                
+                                // Initialize the exhibition component.
+                                &amp; {
+                                  
+                                  // Load structure.
+                                  @extend %templates-exhibition;
+                                  
+                                  // Load parts.
+                                  &amp;-header {
+                                    @extend %templates-exhibition-header;
+                                  }
+                                  &amp;-main {
+                                    @extend %templates-exhibition-main;
+                                    &amp;-context {
+                                      @extend %templates-exhibition-main-context;
+                                    }
+                                    &amp;-quote {
+                                      @extend %templates-exhibition-main-quote;
+                                    }
+                                    &amp;-date {
+                                      @extend %templates-exhibition-main-date;
+                                    }
+                                    &amp;-sidenote {
+                                      @extend %templates-exhibition-main-sidenote;
+                                      &amp;-heading {
+                                        @extend %templates-exhibition-main-sidenote-heading;
+                                      }
+                                      &amp;-content {
+                                        @extend %templates-exhibition-main-sidenote-content;
+                                      }
+                                      &amp;-link {
+                                        @extend %templates-exhibition-main-sidenote-link;
+                                      }
+                                    }
+                                    &amp;-divider {
+                                      @extend %templates-exhibition-main-divider;
+                                    }
+                                  }
+                                  &amp;-footer {
+                                    @extend %templates-exhibition-footer;
+                                  }
+                                  
+                                  // Load skins.
+                                  @include templates-exhibition--theme( $skin );
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin templates-exhibition($custom) { ... }"><code class="js-autoindent">@mixin templates-exhibition($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the exhibition component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our exhibition component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.templates.exhibition-placeholder-templates-exhibition"><code>templates-exhibition</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.templates.exhibition-variable-templates-exhibition"><code>templates-exhibition</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.templates.exhibition-mixin-templates-exhibition--theme"><code>templates-exhibition--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.exhibition-mixin-templates-exhibition--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.exhibition-mixin-templates-exhibition--theme">
+                                  templates-exhibition--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin templates-exhibition--theme($skin) { 
+                                
+                                // Capture themeable variables from skin.
+                                $gap: map-deep-get($skin, &#x27;gap&#x27;);
+                                $layout: map-deep-get($skin, &#x27;layout&#x27;);
+                                $date: map-deep-get($skin, &#x27;date&#x27;);
+                                
+                                // Get divider-specific variables.
+                                $divider-thickness: map-deep-get($skin, &#x27;divider.thickness&#x27;);
+                                $divider-color: map-deep-get($skin, &#x27;divider.color&#x27;);
+                                
+                                // Get sidenote-specific variables.
+                                $sidenote-heading: map-deep-get($skin, &#x27;sidenote.heading&#x27;);
+                              
+                                // Defines the exhibition component&#x27;s base styles.
+                                // ...
+                                
+                                // Defines exhibition header and footer styles.
+                                &amp;-header,
+                                &amp;-footer {
+                                  border: $border-width-s solid color(&#x27;slate&#x27;); // TEMPORARY
+                                }
+                                
+                                // Defines exhibition header styles.
+                                &amp;-header { }
+                                
+                                // Defines exhibition main styles.
+                                &amp;-main {
+                                
+                                  // Defines styles for main context.
+                                  &amp;-context {
+                                    @include tokens-heading(&#x27;h6&#x27;, $custom: (&#x27;h6&#x27;: (
+                                      &#x27;font-size&#x27;: 12px
+                                    )));
+                                    text-align: center;
+                                  }
+                                  
+                                  // Defines styles for main quote.
+                                  &amp;-quote {
+                                    @include tokens-text(&#x27;blockquote&#x27;);
+                                  }
+                                  
+                                  // Defines styles for main date.
+                                  &amp;-date {
+                                    @include tokens-heading(&#x27;h4&#x27;, $date);
+                                  }
+                                  
+                                  // Defines styles for main sidenote.
+                                  &amp;-sidenote { 
+                                  
+                                    // Add heading styles.
+                                    &amp;-heading {
+                                      @include tokens-heading(&#x27;h6&#x27;, $sidenote-heading);
+                                    }
+                                    
+                                    // Add content styles.
+                                    &amp;-content { }
+                                    
+                                    // Add link styles.
+                                    &amp;-link {
+                                      @include atoms-link;
+                                    }
+                                  
+                                  }
+                                  
+                                  // Defines styles for main divider.
+                                  &amp;-divider {
+                                  
+                                    &amp;::after {
+                                      width: $divider-thickness;
+                                      background-color: $divider-color;
+                                    }
+                                    
+                                  }
+                                  
+                                  // Apply the layout to the main and deep dive sections.
+                                  .section-main,
+                                  .section-deep-dive {
+                                    @include tokens-layout($layout);
+                                  }
+                                
+                                }
+                                
+                                // Defines exhibition footer styles.
+                                &amp;-footer { }
+                                
+                               }"
+                                       data-collapsed="@mixin templates-exhibition--theme($skin) { ... }"><code class="js-autoindent">@mixin templates-exhibition--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the exhibition component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The exhibition component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.text-mixin-tokens-text"><code>tokens-text</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.heading-mixin-tokens-heading"><code>tokens-heading</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.atoms.link-mixin-atoms-link"><code>atoms-link</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.tokens.layout-mixin-tokens-layout"><code>tokens-layout</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-border-width-s"><code>border-width-s</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.templates.exhibition-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.exhibition-variable-templates-exhibition">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.exhibition-variable-templates-exhibition">
+                                  templates-exhibition
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$templates-exhibition: (
+                                
+                                &#x27;layout&#x27;: (
+                                  &#x27;x&#x27;: $layout-x,
+                                  &#x27;y&#x27;: $layout-y
+                                ),
+                                
+                                &#x27;divider&#x27;: (
+                                  &#x27;thickness&#x27;: 1px,
+                                  &#x27;color&#x27;: color(&#x27;slate&#x27;, &#x27;light&#x27;)
+                                ),
+                                
+                                &#x27;date&#x27;: color(&#x27;blue&#x27;),
+                                
+                                &#x27;sidenote&#x27;: (
+                                  &#x27;heading&#x27;: color(&#x27;blue&#x27;)
+                                )
+                                
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the exhibition component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.templates.exhibition-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.exhibition-placeholder-templates-exhibition">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.exhibition-placeholder-templates-exhibition">
+                                  templates-exhibition
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%templates-exhibition { 
+                                
+                                // Captures selector.
+                                $selector: &amp;;
+                              
+                                // Builds the exhibition structure.
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-areas: &quot;header&quot;
+                                                     &quot;main&quot;
+                                                     &quot;footer&quot;;
+                                grid-template-rows: 150px 1fr 420px;
+                                grid-template-columns: 1fr;
+                              
+                                // Builds the exhibition header structure.
+                                &amp;-header {
+                                  grid-area: header;
+                                  @include absolute-center-contents;
+                              
+                                  &amp;::after {
+                                    content: &#x27;Header&#x27;; // TEMPORARY
+                                  }
+                                  
+                                }
+                              
+                                // Builds the exhibition main structure.
+                                &amp;-main {
+                                  grid-area: main;
+                                  
+                                  // Builds the structure for main parts.
+                                  &amp;-context,
+                                  &amp;-quote,
+                                  &amp;-date,
+                                  &amp;-sidenote {
+                                    display: block;
+                                  }
+                                  
+                                  // Builds the structure for main context.
+                                  &amp;-context {
+                                    margin-top: ($rhythm-y * 2);
+                                    margin-bottom: $rhythm-y;
+                                  }
+                                  
+                                  // Builds the structure for main quote.
+                                  &amp;-quote {
+                                    margin-top: 0;
+                                  }
+                                  
+                                  // Builds the structure for main date.
+                                  &amp;-date { }
+                                  
+                                  // Builds the structure for main sidenote.
+                                  &amp;-sidenote {
+                                    display: block;
+                                    @include margin-y($rhythm-y);
+                                    
+                                    // Set heading, content, and link structure.
+                                    &amp;-heading,
+                                    &amp;-content,
+                                    &amp;-link {
+                                      display: block;
+                                    }
+                                    
+                                    // Set heading structure.
+                                    &amp;-heading {
+                                      margin-top: 0;
+                                      margin-bottom: $rhythm-y / 2;
+                                    }
+                                    
+                                    // Set content structure.
+                                    &amp;-content {
+                                      margin: 0;
+                                    }
+                                    
+                                    // Set link structure.
+                                    &amp;-link { }
+                                    
+                                  }
+                                  
+                                  // Builds the structure for main divider.
+                                  &amp;-divider {
+                                    display: none;
+                                    
+                                    @include breakpoint-l {
+                                      @include absolute-center-contents;
+                                      grid-column: divider;
+                                      grid-row: body;
+                              
+                                      &amp;::after {
+                                        content: &#x27;&#x27;;
+                                        display: block;
+                                        height: calc(100% - #{$rhythm-y * 2});
+                                      }
+                                      
+                                    };
+                                    
+                                  }
+                                  
+                                  // Override some main section structure.
+                                  .section-main {
+                                    padding-top: 0 !important;
+                                    
+                                    // Adjust the main body and sidebar section.
+                                    &amp;-body,
+                                    &amp;-sidebar {
+                                      
+                                      // Override the first paragraph&#x27;s top spacing.
+                                      &gt; *:first-child { 
+                                        margin-top: 0;
+                                      }
+                                      
+                                    }
+                                    
+                                  }
+                                  
+                                }
+                              
+                                // Builds the exhibition footer structure.
+                                &amp;-footer {
+                                  grid-area: footer;
+                                  @include absolute-center-contents;
+                              
+                                  &amp;::after {
+                                    content: &#x27;Footer&#x27;; // TEMPORARY
+                                  }
+                                  
+                                }
+                                
+                               }"
+                                      data-collapsed="%templates-exhibition { ... }"><code class="js-autoindent">%templates-exhibition { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the exhibition component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-rhythm-y"><code>rhythm-y</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-rhythm-y"><code>rhythm-y</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-rhythm-y"><code>rhythm-y</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-rhythm-y"><code>rhythm-y</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-rhythm-y"><code>rhythm-y</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
                               
                               
                                   
@@ -80514,6 +81797,12 @@
                                   
                                   
                                   
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
                               
                               
                               
@@ -82313,6 +83602,8 @@
                                   
                               
                               
+                                  
+                                  
                                   
                                   
                                   
@@ -84527,6 +85818,10 @@
                                   
                               
                               
+                                  
+                                  
+                                  
+                                  
                                   
                                   
                                   

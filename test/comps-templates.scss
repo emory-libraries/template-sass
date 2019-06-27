@@ -43,8 +43,9 @@
 // templates-gallary
 .gallery-page {
   @include templates-gallery;
+}
 
-// templates-research-help-directory
-.research-help-directory-page {
-  @include templates-research-help-directory;
+// templates-exhibition
+.exhibition-page {
+  @include templates-exhibition;
 }
