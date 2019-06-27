@@ -8075,6 +8075,114 @@
                       <div class="sidebar__group sidebar__group--level-3">
                         
                         <p class="sidebar__item sidebar__item--heading" data-slug="templates">
+                          <a href="#patterns.templates.research-help-directory">research-help-directory</a>
+                        </p>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.templates.research-help-directory-mixin">
+                                <a href="#patterns.templates.research-help-directory-mixin">mixin</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.research-help-directory" data-name="templates-research-help-directory" data-type="mixin">
+                                    
+                                    <a href="#patterns.templates.research-help-directory-mixin-templates-research-help-directory">
+                                      
+                                      templates-research-help-directory
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.research-help-directory" data-name="templates-research-help-directory--theme" data-type="mixin">
+                                    
+                                    <a href="#patterns.templates.research-help-directory-mixin-templates-research-help-directory--theme">
+                                      
+                                      templates-research-help-directory--theme
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.templates.research-help-directory-variable">
+                                <a href="#patterns.templates.research-help-directory-variable">variable</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.research-help-directory" data-name="templates-research-help-directory" data-type="variable">
+                                    
+                                    <a href="#patterns.templates.research-help-directory-variable-templates-research-help-directory">
+                                      
+                                      templates-research-help-directory
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      
+                            <div>
+                            
+                              <p class="sidebar__item sidebar__item--sub-heading" data-slug="patterns.templates.research-help-directory-placeholder">
+                                <a href="#patterns.templates.research-help-directory-placeholder">placeholder</a>
+                              </p>
+                              
+                              <ul class="list-unstyled">
+                              
+                                
+                                  <li class="sidebar__item sassdoc__item" data-group="patterns.templates.research-help-directory" data-name="templates-research-help-directory" data-type="placeholder">
+                                    
+                                    <a href="#patterns.templates.research-help-directory-placeholder-templates-research-help-directory">
+                                      
+                                      templates-research-help-directory
+                                      
+                                      
+                                      
+                                    </a>
+                                    
+                                  </li>
+                                
+                                
+                              </ul>
+                            
+                            </div>
+                        
+                        
+                      </div>
+                  
+                  
+                
+                      <div class="sidebar__group sidebar__group--level-3">
+                        
+                        <p class="sidebar__item sidebar__item--heading" data-slug="templates">
                           <a href="#patterns.templates.service-directory">service-directory</a>
                         </p>
                         
@@ -69942,7 +70050,8 @@
                                 &amp;.-research-help-page,
                                 &amp;.-service-directory-page,
                                 &amp;.-subject-librarian-directory-page,
-                                &amp;.-staff-directory-page, {
+                                &amp;.-staff-directory-page, 
+                                &amp;.-research-help-directory-page {
                               
                                   #{$selector}-title {
                                     margin-bottom: 0;
@@ -69959,7 +70068,8 @@
                                   &#x27;.-research-help-page&#x27;,
                                   &#x27;.-service-directory-page&#x27;,
                                   &#x27;.-subject-librarian-directory-page&#x27;,
-                                  &#x27;.-staff-directory-page&#x27;
+                                  &#x27;.-staff-directory-page&#x27;,
+                                  &#x27;.-research-help-directory-page&#x27;,
                                 )},
                                 &amp;.-info-page {
                                   @include grid-layout;
@@ -70046,43 +70156,6 @@
                               
                                 }
                               
-                                // Builds the main structure when used for a service directory page.
-                                &amp;.-service-directory-page {
-                                  @include grid-layout((
-                                    &#x27;spacer&#x27;: false,
-                                    &#x27;content&#x27;: false,
-                                    &#x27;section&#x27;: false,
-                                    &#x27;sidebar&#x27;: false
-                                  ));
-                              
-                                  // Hide grid areas that are not being used within this page type.
-                                  #{$selector}-spacer,
-                                  #{$selector}-content,
-                                  #{$selector}-section,
-                                  #{$selector}-sidebar {
-                                    display: none;
-                                  }
-                              
-                                  &amp;.without-intro {
-                                    @include grid-layout((
-                                      &#x27;title&#x27;: false,
-                                      &#x27;subtitle&#x27;: false,
-                                      &#x27;spacer&#x27;: false,
-                                      &#x27;content&#x27;: false,
-                                      &#x27;section&#x27;: false,
-                                      &#x27;sidebar&#x27;: false
-                                    ));
-                              
-                                    // Hide grid areas that are not being used within this page type.
-                                    #{$selector}-title,
-                                    #{$selector}-subtitle {
-                                      display: none;
-                                    }
-                              
-                                  }
-                              
-                                }
-                              
                                 // Builds the main structure when used for a research help page.
                                 &amp;.-research-help-page {
                                   @include grid-layout((
@@ -70100,9 +70173,11 @@
                               
                                 }
                               
-                                // Builds the main structure when used for a subject librarian directory and staff directory page.
+                                // Builds the main structure when used for directory pages.
+                                &amp;.-service-directory-page,
                                 &amp;.-subject-librarian-directory-page,
-                                &amp;.-staff-directory-page {
+                                &amp;.-staff-directory-page,
+                                &amp;.-research-help-directory-page {
                                   @include grid-layout((
                                     &#x27;spacer&#x27;: false,
                                     &#x27;content&#x27;: false,
@@ -71866,6 +71941,8 @@
         
         
         
+            
+            
             
             
             
@@ -74083,7 +74160,7 @@
                               
                               
                                 
-                                  <span class="item__status item__status--review">review</span>
+                                  <span class="item__status item__status--construction">construction</span>
                                 
                               </h3>
                               
@@ -74698,6 +74775,716 @@
                               
                                     <h3 class="item__sub-heading">Description</h3>
                                     <div class="item__description"><p>Defines the base structure of the research-help component.</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                  
+                  </section>
+                  
+              
+              
+              
+              
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                      
+                  
+                  
+                  
+                  
+                  
+                  <section class="main__section main__section--level-3 main__section--has-content">
+                  
+                    <h3 class="main__heading" id="patterns.templates.research-help-directory">
+                      
+                      <div class="container">research-help-directory</div>
+                      
+                    </h3>
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.templates.research-help-directory-mixin">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">mixins</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.research-help-directory-mixin-templates-research-help-directory">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.research-help-directory-mixin-templates-research-help-directory">
+                                  templates-research-help-directory
+                                </a>
+                              
+                              
+                                
+                                  <span class="item__status item__status--review">review</span>
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin templates-research-help-directory($custom) { 
+                                
+                                // Extend the default skin.
+                                $skin: map-extend($templates-research-help-directory, $custom);
+                                
+                                // Initialize the research-help-directory component.
+                                &amp; {
+                                  
+                                  // Load structure.
+                                  @extend %templates-research-help-directory;
+                                  
+                                  // Load parts.
+                                  &amp;-header {
+                                    @extend %templates-research-help-directory-header;
+                                  }
+                                  &amp;-main {
+                                    @extend %templates-research-help-directory-main;
+                                  }
+                                  &amp;-footer {
+                                    @extend %templates-research-help-directory-footer;
+                                  }
+                                  
+                                  // Load skins.
+                                  @include templates-research-help-directory--theme( $skin );
+                                  
+                                }
+                                
+                               }"
+                                       data-collapsed="@mixin templates-research-help-directory($custom) { ... }"><code class="js-autoindent">@mixin templates-research-help-directory($custom) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Builds a constructor for the research-help-directory component.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$custom</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>A custom skin for the component</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The native structure and skin of our research-help-directory component</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">placeholder</span>
+                                  
+                                            <a href="#patterns.templates.research-help-directory-placeholder-templates-research-help-directory"><code>templates-research-help-directory</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#patterns.templates.research-help-directory-variable-templates-research-help-directory"><code>templates-research-help-directory</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">mixin</span>
+                                  
+                                            <a href="#patterns.templates.research-help-directory-mixin-templates-research-help-directory--theme"><code>templates-research-help-directory--theme</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend"><code>Brandy::map-extend</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.research-help-directory-mixin-templates-research-help-directory--theme">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.research-help-directory-mixin-templates-research-help-directory--theme">
+                                  templates-research-help-directory--theme
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                
+                              
+                                  
+                                    
+                              
+                                
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code  item__code--togglable language-scss"
+                                       data-current-state="collapsed"
+                                       data-expanded="@mixin templates-research-help-directory--theme($skin) { 
+                                
+                                // Capture themeable variables from skin.
+                                $gap: map-deep-get($skin, &#x27;gap&#x27;);
+                                $layout: map-deep-get($skin, &#x27;layout&#x27;);
+                              
+                                // Defines the research-help-directory component&#x27;s base styles.
+                                grid-gap: $gap;
+                                
+                                // Defines research help directory header and footer styles.
+                                &amp;-header,
+                                &amp;-footer {
+                                  border: $border-width-s solid color(&#x27;slate&#x27;); // TEMPORARY
+                                }
+                                
+                                // Defines research help directory header styles.
+                                &amp;-header { }
+                                
+                                // Defines research help directory main styles.
+                                &amp;-main { }
+                                
+                                // Defines research help directory footer styles.
+                                &amp;-footer { }
+                                
+                               }"
+                                       data-collapsed="@mixin templates-research-help-directory--theme($skin) { ... }"><code class="js-autoindent">@mixin templates-research-help-directory--theme($skin) { ... }</code></pre>
+                              
+                                  
+                                </div>
+                              
+                                
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the research-help-directory component theme.</p>
+                                  </div>
+                              
+                              
+                                  <h3 class="item__sub-heading">Parameters</h3>
+                                  
+                                  
+                                    <table class="item__parameters">
+                                      
+                                      <thead>
+                                        <tr>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Name
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Description
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Type
+                                          </th>
+                                          <th scope="col">
+                                            <span class="visually-hidden">mixin parameter </span>
+                                            Default value
+                                          </th>
+                                        </tr>
+                                      </thead>
+                                      
+                                      <tbody>
+                                          <tr class="item__parameter">
+                                            <th scope="row" data-label="name">
+                                              <code>$skin</code>
+                                            </th>
+                                            <td data-label="desc">
+                                              <p>The component&#39;s skin</p>
+                                  
+                                            </td>
+                                            <td data-label="type">
+                                              <code>
+                                                  map
+                                              </code>
+                                            </td>
+                                            <td data-label="default">
+                                                &mdash;<span class="visually-hidden"> none</span>
+                                            </td>
+                                          </tr>
+                                      </tbody>
+                                      
+                                    </table>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Output</h3>
+                                    <div class="item__description"><p>The research-help-directory component&#39;s themeable properties</p>
+                                  </div>
+                              
+                              
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Requires</h3>
+                                  
+                                    <ul class="list-unstyled">
+                                  
+                                  
+                                    
+                                          
+                                  
+                                          <li class="item__description  item__description--inline">
+                                  
+                                            <span class="item__cross-type">variable</span>
+                                  
+                                            <a href="#config-variable-border-width-s"><code>border-width-s</code></a>
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                  
+                                          <li class="item__description item__description--inline">
+                                  
+                                            <span class="item__cross-type">external</span>
+                                  
+                                              <a href="https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get"><code>Brandy::map-deep-get</code></a> 
+                                  
+                                  
+                                          </li>
+                                  
+                                  
+                                  
+                                    </ul>
+                                  
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.templates.research-help-directory-variable">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">variables</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.research-help-directory-variable-templates-research-help-directory">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.research-help-directory-variable-templates-research-help-directory">
+                                  templates-research-help-directory
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                                  
+                                  <pre class="item__code language-scss"><code class="js-autoindent">$templates-research-help-directory: (
+                                
+                                &#x27;layout&#x27;: (
+                                  &#x27;x&#x27;: $layout-x,
+                                  &#x27;y&#x27;: $layout-y
+                                ),
+                                
+                                &#x27;gap&#x27;: 20px
+                                
+                              );</code></pre>
+                              
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base skin of the research-help-directory component.</p>
+                                  </div>
+                              
+                              
+                                  
+                                    <h3 class="item__sub-heading">Type</h3>
+                                  
+                                    <p>
+                                        <code>variable</code>
+                                    </p>
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                                  
+                                  
+                                  
+                                  
+                                  
+                                  
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                              
+                            
+                            </section>  
+                          
+                        </section>  
+                    
+                    
+                    
+                        <section class="main__sub-section" id="patterns.templates.research-help-directory-placeholder">
+                          
+                          <h4 class="main__heading--secondary">
+                            
+                            <div class="container">placeholders</div>
+                            
+                          </h4>
+                          
+                          
+                            <section class="main__item container item"
+                                     id="patterns.templates.research-help-directory-placeholder-templates-research-help-directory">
+                            
+                              <h3 class="item__heading">
+                                
+                              
+                                <a class="item__name" href="#patterns.templates.research-help-directory-placeholder-templates-research-help-directory">
+                                  templates-research-help-directory
+                                </a>
+                              
+                              
+                                
+                                
+                              </h3>
+                              
+                              
+                                <span class="item__since">
+                                  Since 1.0.0-dev.0
+                                </span>
+                              
+                              
+                            
+                              
+                                <div class="item__code-wrapper">
+                              
+                                  <pre class="item__code item__code--togglable language-scss"
+                                      data-current-state="collapsed"
+                                      data-expanded="%templates-research-help-directory { 
+                                
+                                // Builds the research-help-directory structure.
+                                margin: 0 auto;
+                                display: grid;
+                                grid-template-areas: &quot;header&quot;
+                                                     &quot;main&quot;
+                                                     &quot;footer&quot;;
+                                grid-template-rows: 150px 1fr 420px;
+                                grid-template-columns: 1fr;
+                                
+                                // Builds the research help directory header structure.
+                                &amp;-header {
+                                  grid-area: header;
+                                  @include absolute-center-contents;
+                              
+                                  &amp;::after {
+                                    content: &#x27;Header&#x27;; // TEMPORARY
+                                  }
+                                  
+                                }
+                              
+                                // Builds the research help directory main structure.
+                                &amp;-main {
+                                  grid-area: main;
+                                }
+                              
+                                // Builds the research help directory footer structure.
+                                &amp;-footer {
+                                  grid-area: footer;
+                                  @include absolute-center-contents;
+                              
+                                  &amp;::after {
+                                    content: &#x27;Footer&#x27;; // TEMPORARY
+                                  }
+                                  
+                                }
+                                
+                               }"
+                                      data-collapsed="%templates-research-help-directory { ... }"><code class="js-autoindent">%templates-research-help-directory { ... }</code></pre>
+                              
+                              
+                                </div>
+                              
+                              
+                              
+                              
+                                    <h3 class="item__sub-heading">Description</h3>
+                                    <div class="item__description"><p>Defines the base structure of the research-help-directory component.</p>
                                   </div>
                               
                               
