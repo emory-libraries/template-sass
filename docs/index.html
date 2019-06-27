@@ -67068,8 +67068,11 @@
                               
                                   a,
                                   .link {
-                                    @include atoms-link((&#x27;color&#x27;: $link));
-                                    font-weight: bold;
+                                    @include atoms-link((
+                                      &#x27;color&#x27;: $link,
+                                      &#x27;weight&#x27;: bold
+                                    ));
+                                    text-decoration: underline;
                                   }
                               
                                   ol li::before {
