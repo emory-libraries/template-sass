@@ -78,5 +78,7 @@
   "templates-staff-directory": "review",
   "templates-bio": "review",
   "templates-gallery": "review",
-  "templates-research-help-directory": "review"
+  "templates-research-help-directory": "review",
+  "templates-landing": "construction",
+  "templates-exhibition": "review"
 }

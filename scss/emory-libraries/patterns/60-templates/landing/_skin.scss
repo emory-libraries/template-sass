@@ -1,0 +1,66 @@
+////
+/// @group emory-libraries.patterns.templates.landing
+////
+
+/// Defines the base skin of the landing component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$templates-landing: (
+
+  'layout': (
+    'x': $layout-x,
+    'y': $layout-y
+  ),
+
+  'gap': 40px
+
+);
+
+/// Defines the landing component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The landing component's themeable properties
+@mixin templates-landing--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $gap: map-deep-get($skin, 'gap');
+  $layout: map-deep-get($skin, 'layout');
+
+  // Defines the landing component's base styles.
+  // ...
+
+  // Defines landing header and footer styles.
+  &-header,
+  &-footer {
+    border: $border-width-s solid color('slate'); // TEMPORARY
+  }
+
+  // Defines landing header styles.
+  &-header { }
+
+  // Defines landing main styles.
+  &-main {
+
+    // Adjust the main section styles.
+    .section-main {
+      @include tokens-layout((
+      'x': map-get($layout, 'x'),
+      'y': layout(0, 0)
+      ));
+      padding-top: $rhythm-y !important;
+      padding-bottom: ($rhythm-y * 2) !important;
+    }
+
+  }
+
+  // Defines landing footer styles.
+  &-footer { }
+
+}

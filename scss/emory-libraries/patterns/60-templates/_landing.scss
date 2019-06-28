@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.landing
+////
+
+/// Load the landing component's structure and skin.
+@import 'landing/structure';
+@import 'landing/skin';
+
+/// Builds a constructor for the landing component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} templates-landing
+/// @requires {variable} templates-landing
+/// @requires {mixin} templates-landing--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our landing component
+///
+/// @status construction
+@mixin templates-landing ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($templates-landing, $custom);
+
+  // Initialize the landing component.
+  & {
+
+    // Load structure.
+    @extend %templates-landing;
+
+    // Load parts.
+    &-header {
+      @extend %templates-landing-header;
+    }
+    &-main {
+      @extend %templates-landing-main;
+    }
+    &-footer {
+      @extend %templates-landing-footer;
+    }
+    
+    // Load skins.
+    @include templates-landing--theme( $skin );
+
+  }
+
+}

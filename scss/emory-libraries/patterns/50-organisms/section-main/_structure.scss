@@ -19,9 +19,9 @@
   // Builds the section-main structure.
   margin: 0 auto;
   width: 100%;
-  max-width: 1236px;
   display: grid;
   grid-area: main;
+  padding: 0 1.25em 1.25em;
 
   // Initializes a helper for building page-specific grid layouts.
   @mixin grid-layout( $overrides: () ) {
@@ -229,6 +229,13 @@
     grid-row: section;
   }
 
+  // Impose a maximum width on most pages.
+  &#{selector-excludes(
+    '.-landing-page'
+  )} {
+    max-width: 1236px;
+  }
+
   // Remove spacing between title and subtitle on most pages.
   &.-info-page,
   &.-material-page,
@@ -256,6 +263,7 @@
     '.-service-directory-page',
     '.-subject-librarian-directory-page',
     '.-staff-directory-page',
+    '.-landing-page',
     '.-gallery-page',
     '.-exhibition-page',
     '.-research-help-directory-page'
@@ -286,6 +294,43 @@
 
   }
 
+  // Builds the main structure when used for a landing page.
+  &.-landing-page {
+    @include grid-layout((
+      'spacer': false,
+      'content': false,
+      'section': false,
+      'sidebar': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-spacer,
+    #{$selector}-content,
+    #{$selector}-section,
+    #{$selector}-sidebar {
+      display: none;
+    }
+
+    &.without-intro {
+      @include grid-layout((
+        'title': false,
+        'subtitle': false,
+        'spacer': false,
+        'content': false,
+        'section': false,
+        'sidebar': false
+      ));
+
+      // Hide grid areas that are not being used within this page type.
+      #{$selector}-title,
+      #{$selector}-subtitle {
+        display: none;
+      }
+
+    }
+
+  }
+
   // Builds the main structure when used for a material and tool pages.
   &.-material-page,
   &.-tool-page {
@@ -303,6 +348,7 @@
       #{$selector}-title {
         grid-column: main / sidebar;
       }
+
 
       // Adjust the sidebar placement within the grid.
       #{$selector}-sidebar {

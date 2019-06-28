@@ -7,9 +7,27 @@
 /// @since 1.0.0-dev.0
 %molecules-breadcrumbs {
 
+  // Capture the selector.
+  $selector: &;
+
   // Builds the breadcrumbs structure.
   display: flex;
   list-style-type: none;
   padding: 0;
   margin: 0;
+
+  // Defines the breadcrumbs crumb styles.
+  &-crumb {
+
+    + #{$selector}-crumb {
+
+      &::before {
+        content: '\203a';
+        @include margin-x($rhythm-x / 2);
+      }
+
+    }
+
+  }
+
 }
