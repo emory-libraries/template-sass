@@ -87,7 +87,14 @@ $organisms-section-main: (
   }
 
   // Defines the main title styles.
-  &-title { }
+  &-title {
+
+    // Adjust color of intro titles.
+    &.intro-title {
+      color: $theme-heading !important;
+    }
+
+  }
 
   // Defines the main subtitle styles.
   &-subtitle { }
@@ -152,7 +159,16 @@ $organisms-section-main: (
 
       }
 
-      // Adjust heading color.
+      // Adjust color of intro titles.
+      #{$selector}-title {
+
+        &.intro-title {
+          color: $theme-heading !important;
+        }
+
+      }
+
+      // Adjust heading colors.
       #{$selector}-body {
 
         .heading {

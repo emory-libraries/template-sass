@@ -39,6 +39,16 @@
     // Apply overrides to main section.
     .section-main {
 
+      &:not(.without-intro) {
+        display: flex;
+        flex-direction: column;
+
+        .section-main-body {
+          padding-top: $rhythm-y;
+        }
+
+      }
+
       .section-main-body {
         display: grid;
         grid-template-columns: 1fr;
