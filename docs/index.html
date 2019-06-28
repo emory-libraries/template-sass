@@ -66978,7 +66978,11 @@
                                 &amp;-header { }
                               
                                 // Defines landing main styles.
-                                &amp;-main { }
+                                &amp;-main {
+                                  &amp;-subtitle {
+                                    text-align: center !important;
+                                  }
+                                }
                               
                                 // Defines landing footer styles.
                                 &amp;-footer { }
@@ -67298,23 +67302,33 @@
                                 &amp;-main {
                                   grid-area: main;
                               
-                                  .section-main-body {
-                                    margin-bottom: 68px;
+                                  // Override some main section structure.
+                                  .section-main {
+                              
+                                    // Adjust the main body section.
+                                    &amp;-body {
+                                      margin-bottom: 68px;
+                                    }
+                              
                                   }
                               
-                                  .section-main-body,
+                                  /*.section-main-body,
                                   .section-major-body,
                                   .breadcrumbs {
                                     width: 100%;
                                     max-width: 1200px;
                                     margin: 0 auto;
-                                  }
+                                  }*/
+                              
                                 }
                               
-                                  .breadcrumbs {
+                              
+                              
+                                  /*.breadcrumbs {
                                     height: 88px;
                                     align-items: center;
-                                  }
+                                  }*/
+                              
                               
                                 &amp;-footer {
                                   grid-area: footer;
@@ -67325,6 +67339,7 @@
                                   }
                               
                                 }
+                              
                                }"
                                       data-collapsed="%templates-landing { ... }"><code class="js-autoindent">%templates-landing { ... }</code></pre>
                               

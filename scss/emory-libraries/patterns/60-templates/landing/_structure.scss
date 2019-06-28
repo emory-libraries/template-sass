@@ -35,23 +35,33 @@
   &-main {
     grid-area: main;
 
-    .section-main-body {
-      margin-bottom: 68px;
+    // Override some main section structure.
+    .section-main {
+
+      // Adjust the main body section.
+      &-body {
+        margin-bottom: 68px;
+      }
+
     }
 
-    .section-main-body,
+    /*.section-main-body,
     .section-major-body,
     .breadcrumbs {
       width: 100%;
       max-width: 1200px;
       margin: 0 auto;
-    }
+    }*/
+
   }
 
-    .breadcrumbs {
+
+
+    /*.breadcrumbs {
       height: 88px;
       align-items: center;
-    }
+    }*/
+
 
   &-footer {
     grid-area: footer;
@@ -62,4 +72,5 @@
     }
 
   }
+
 }
