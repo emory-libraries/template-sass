@@ -8,7 +8,7 @@
 ///
 /// @type map
 $molecules-card-listing: (
-  
+
   'theme': 'light',
   'themes': (
     'light': (
@@ -24,25 +24,25 @@ $molecules-card-listing: (
       'description': $color-text-dark
     )
   ),
-  
+
   'padding': 50px 25px 25px,
   'gap': (
     'x': 25px,
     'y': 5px
   ),
   'size': 375px,
-  
+
   'border': (
     'offset': 15px,
     'thickness': $border-width-s,
     'color': rgba(color('charcoal'), .2)
   ),
-  
+
   'image': (
     'width': (50%, 55%),
     'height': 375px
   )
-  
+
 );
 
 /// Defines the card-listing component theme.
@@ -55,10 +55,10 @@ $molecules-card-listing: (
 ///
 /// @output The card-listing component's themeable properties
 @mixin molecules-card-listing--theme ( $skin ) {
-  
+
   // Capture selector.
   $selector: &;
-  
+
   // Capture themeable variables from skin.
   $theme: map-deep-get($skin, 'theme');
   $themes: map-deep-get($skin, 'themes');
@@ -66,28 +66,28 @@ $molecules-card-listing: (
   $gap-x: map-deep-get($skin, 'gap.x');
   $gap-y: map-deep-get($skin, 'gap.y');
   $size: map-deep-get($skin, 'size');
-  
+
   // Get image-specific variables.
   $image-width: map-deep-get($skin, 'image.width');
   $image-height: map-deep-get($skin, 'image.height');
-  
+
   // Get theme-specific variables.
   $theme-background: map-deep-get($skin, 'themes.' + $theme + '.background');
   $theme-date: map-deep-get($skin, 'themes.' + $theme + '.date');
   $theme-title: map-deep-get($skin, 'themes.' + $theme + '.title');
   $theme-description: map-deep-get($skin, 'themes.' + $theme + '.description');
-  
+
   // Get border-specific variables.
   $border-offset: map-deep-get($skin, 'border.offset');
   $border-thickness: map-deep-get($skin, 'border.thickness');
   $border-color: map-deep-get($skin, 'border.color');
-  
+
   // Get padding-specific values.
   $padding-top: positional-value($padding, top);
   $padding-right: positional-value($padding, right);
   $padding-bottom: positional-value($padding, bottom);
   $padding-left: positional-value($padding, left);
-  
+
   // Defines the card-listing component's base styles.
   grid-row-gap: $gap-y;
   grid-column-gap: $gap-x;
@@ -96,61 +96,61 @@ $molecules-card-listing: (
   background-color: $theme-background;
   margin: $border-offset;
   @include layered-border($border-thickness solid $border-color, $border-offset solid $theme-background);
-  
+
   // Defines card listing styles when vertical.
   &,
   &.-vertical {
     grid-template-rows: $image-height repeat(2, min-content) 1fr;
-    
+
     #{$selector}-date {
       margin-top: $padding-top;
     }
-    
+
   }
-  
+
   // Defines card listing styles when horizontal.
   &:not(.-vertical) {
-    
+
     @include breakpoint-l {
       grid-template-columns: 1fr nth($image-width, 1);
-      
+
       #{$selector}-date {
         margin-top: 0;
       }
-    
+
     }
-    
+
     @if ( nth($image-width, 2) ) {
-      
+
       @include breakpoint-xl {
         grid-template-columns: 1fr nth($image-width, 2);
-        
+
         #{$selector}-date {
           margin-top: 0;
         }
-        
+
       };
-      
+
     }
-    
+
   }
-  
+
   // Defines card listing styles with badges.
   &.has-badge {
-    
+
     // Moves badge according to border offset.
     .badge {
       left: -$border-offset;
       top: -$border-offset;
     }
-    
+
   }
-  
+
   // Defines card listing date styles.
   &-date {
     @include tokens-heading('h6', $theme-date);
   }
-  
+
   // Defines card listing title styles.
   &-title {
     @include tokens-heading('h4', $theme-title);
@@ -160,69 +160,69 @@ $molecules-card-listing: (
   &-description {
     @include tokens-text('body-alt', $theme-description);
   }
-  
+
   // Defines card listing action styles.
   &-action {
-  
+
     .button {
-      
+
       // Get link style variation variables.
       $link-foreground: map-deep-get($atoms-link, 'color');
       $link-background: transparent;
-      
+
       // Get button style variation variables.
       $button-foreground: map-deep-get($atoms-button, 'foreground');
       $button-background: map-deep-get($atoms-button, 'background');
       $button-border: map-deep-get($atoms-button, 'border');
       $button-padding: map-deep-get($atoms-button, 'padding');
       $button-fade: map-deep-get($atoms-button, 'fade');
-      
+
       @include when-descendant-of( '#{$selector}' ) {
         @include padding-x( 0 );
         background-color: $link-background;
         color: map-get($link-foreground, 'normal');
         border: none;
-        
+
         &:hover,
         &:focus,
         &.is-hover,
         &.is-focus {
           color: map-get($link-foreground, 'hover');
         }
-        
+
         &:active,
         &.is-active {
           color: map-get($link-foreground, 'active');
         }
-        
+
       };
       @include when-descendant-of( '#{$selector}.-vertical' ) {
         @include padding-x( 0 );
         background-color: $link-background;
         color: map-get($link-foreground, 'normal');
         border: none;
-        
+
         &:hover,
         &:focus,
         &.is-hover,
         &.is-focus {
           color: map-get($link-foreground, 'hover');
         }
-        
+
         &:active,
         &.is-active {
           color: map-get($link-foreground, 'active');
         }
-        
+
       };
       @include when-descendant-of( '#{$selector}:not(.-vertical)' ) {
-        
+
         @include breakpoint-m-l { 
           @include padding-x( $button-padding );
           background-color: map-get($button-background, 'normal');
           color: map-get($button-foreground, 'normal');
           border: $button-border solid map-get($button-background, 'normal');
-          
+
           &:hover,
           &:focus,
           &.is-hover,
@@ -230,18 +230,18 @@ $molecules-card-listing: (
             background-color: map-get($button-background, 'hover');
             color: map-get($button-foreground, 'hover');
           }
-          
+
           &:active,
           &.is-active {
             background-color: map-get($button-background, 'active');
             color: map-get($button-foreground, 'active');
           }
-        
+
           &.-hollow {
             background-color: transparent;
             color: map-get($button-background, 'normal');
             border-color: map-get($button-background, 'normal');
-            
+
             &:hover,
             &:focus,
             &.is-hover,
@@ -250,24 +250,24 @@ $molecules-card-listing: (
               color: map-get($button-background, 'normal');
               border-color: map-get($button-background, 'normal');
             }
-            
+
             &:active,
             &.is-active {
               background-color: map-get($button-background, 'hollow');
               color: rgba(map-get($button-background, 'normal'), $button-fade);
               border-color: map-get($button-background, 'normal');
             }
-            
+
           }
-          
+
         };
-        
+
       };
-      
+
     }
-    
+
   }
-  
+
   // Defines card listing image styles.
   &-image {
     left: -$padding-left - $border-offset;
@@ -283,15 +283,15 @@ $molecules-card-listing: (
       border: $border-thickness solid $border-color;
       border-bottom: none;
     }
-    
+
     @include when-descendant-of( '#{$selector}:not(.-vertical)' ) {
-      
+
       @include breakpoint-l {
         left: 0;
         right: -$padding-right - $border-offset;
         bottom: -$padding-bottom - $border-offset;
         top: -$padding-top - $border-offset;
-        
+
         &::after {
           left: 0;
           right: $border-offset - $border-thickness;
@@ -300,13 +300,13 @@ $molecules-card-listing: (
           border: $border-thickness solid $border-color;
           border-left: none;
         }
-        
+
       };
-      
+
     };
-    
+
   }
-  
+
   // Applies theme specific styles.
   @each $name, $theme in $themes {
 
@@ -315,26 +315,26 @@ $molecules-card-listing: (
     $theme-date: map-deep-get($theme, 'date');
     $theme-title: map-deep-get($theme, 'title');
     $theme-description: map-deep-get($theme, 'description');
-    
+
     // Modify styles based on theme.
     &.-#{$name} {
       background-color: $theme-background;
       @include layered-border($border-thickness solid $border-color, $border-offset solid $theme-background);
-      
+
       &-date {
         color: $theme-date;
       }
-      
+
       &-title {
         color: $theme-title;
       }
-      
+
       &-description {
         color: $theme-description;
       }
-      
+
     }
-    
+
   }
 
 }

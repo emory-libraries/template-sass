@@ -21,19 +21,24 @@
 ///
 /// @status review
 @mixin molecules-breadcrumbs ( $custom: () ) {
-  
+
   // Extend the default skin.
   $skin: map-extend($molecules-breadcrumbs, $custom);
-  
+
   // Initialize the breadcrumbs component.
   & {
-    
+
     // Load structure.
     @extend %molecules-breadcrumbs;
-    
+
+    // Load parts.
+    &-crumb {
+      @extend %molecules-breadcrumbs-crumb;
+    }
+
     // Load skins.
     @include molecules-breadcrumbs--theme( $skin );
-    
+
   }
-  
+
 }

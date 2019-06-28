@@ -8,7 +8,7 @@
 ///
 /// @type map
 $molecules-feature: (
-  
+
   'theme': 'light',
   'themes': (
     'light': (
@@ -24,27 +24,27 @@ $molecules-feature: (
       'description': $color-text-dark
     )
   ),
-  
+
   'padding': 25px,
   'gap': (
     'x': 25px,
     'y': 5px
   ),
   'size': 400px,
-  
+
   'border': (
     'offset': 15px,
     'thickness': $border-width-s,
     'color': rgba(color('charcoal'), .2)
   ),
-  
+
   'spacing': (
     'description': 10px,
     'action': 20px
   ),
-  
+
   'image': 275px
-  
+
 );
 
 /// Defines the feature component theme.
@@ -57,10 +57,10 @@ $molecules-feature: (
 ///
 /// @output The feature component's themeable properties
 @mixin molecules-feature--theme ( $skin ) {
-  
+
   // Capture selector.
   $selector: &;
-  
+
   // Capture themeable variables from skin.
   $theme: map-deep-get($skin, 'theme');
   $themes: map-deep-get($skin, 'themes');
@@ -69,18 +69,18 @@ $molecules-feature: (
   $gap-x: map-deep-get($skin, 'gap.x');
   $gap-y: map-deep-get($skin, 'gap.y');
   $image: map-deep-get($skin, 'image');
-  
+
   // Get theme-specific variables.
   $theme-background: map-deep-get($skin, 'themes.' + $theme + '.background');
   $theme-context: map-deep-get($skin, 'themes.' + $theme + '.context');
   $theme-heading: map-deep-get($skin, 'themes.' + $theme + '.heading');
   $theme-description: map-deep-get($skin, 'themes.' + $theme + '.description');
-  
+
   // Get border-specific variables.
   $border-offset: map-deep-get($skin, 'border.offset');
   $border-thickness: map-deep-get($skin, 'border.thickness');
   $border-color: map-deep-get($skin, 'border.color');
-  
+
   // Get spacing-specific variables.
   $spacing-description: map-deep-get($skin, 'spacing.description');
   $spacing-action: map-deep-get($skin, 'spacing.action');
@@ -93,73 +93,73 @@ $molecules-feature: (
   background-color: $theme-background;
   min-height: ($size - ($border-offset * 2));
   @include layered-border($border-thickness solid $border-color, $border-offset solid $theme-background);
-  
+
   // Modifies feature styles for larger screens.
-  @include breakpoint-m-l {
+  @include breakpoint-l {
     grid-column-gap: $gap-x;
     grid-row-gap: $gap-y;
     grid-template-columns: $image 1fr;
   };
-  
+
   // Defines feature image styles.
-  &-image { 
+  &-image {
     margin-bottom: $gap-x;
-    top: (-$padding - $border-offset - $border-thickness);
-    left: (-$padding - $border-offset - $border-thickness);
-    right: (-$padding - $border-offset - $border-thickness);
-    
+    top: (-$padding - $border-offset);
+    left: (-$padding - $border-offset);
+    right: (-$padding - $border-offset);
+
     // Modifies feature styles for larger screens.
-    @include breakpoint-m-l {
+    @include breakpoint-l {
       margin-bottom: 0;
       right: 0;
-      bottom: (-$padding - $border-offset - $border-thickness);
+      bottom: (-$padding - $border-offset);
     };
-    
+
     // Modifies border style for images.
     &::after {
-      top: $border-offset;
-      left: $border-offset;
-      right: $border-offset;
+      top: ($border-offset - $border-thickness);
+      left: ($border-offset - $border-thickness);
+      right: ($border-offset - $border-thickness);
       border-left: $border-thickness solid $border-color;
       border-top: $border-thickness solid $border-color;
       border-right: $border-thickness solid $border-color;
-      
+
       // Modifies border styles for larger screens.
-      @include breakpoint-m-l {
+      @include breakpoint-l {
         right: 0;
-        bottom: $border-offset;
+        bottom: ($border-offset - $border-thickness);
         border-right: none;
         border-bottom: $border-thickness solid $border-color;
       };
-      
+
     }
-    
+
   }
-  
+
   // Defines feature context styles.
-  &-context { 
+  &-context {
     @include tokens-heading('h6', $theme-context);
   }
-  
+
   // Defines feature heading styles.
   &-heading {
     @include tokens-heading('h5', $theme-heading);
   }
-  
+
   // Defines feature description styles.
   &-description {
     @include tokens-text('body-alt', $theme-description);
     @include margin-y( $spacing-description );
   }
-  
+
   // Defines feature action styles.
-  &-action { 
+  &-action {
     margin-top: $spacing-action;
   }
-  
+
   // Applies themes to feature.
-  @each $theme, $colors in $themes { 
-    
+  @each $theme, $colors in $themes {
+
     // Get theme-specific variables.
     $theme-background: map-deep-get($colors, 'background');
     $theme-context: map-deep-get($colors, 'context');
@@ -170,24 +170,24 @@ $molecules-feature: (
     &.-#{$theme} {
       background-color: $theme-background;
       @include layered-border($border-thickness solid $border-color, $border-offset solid $theme-background);
-      
+
       // Modify context styles.
       #{$selector}-context {
         color: $theme-context;
       }
-      
+
       // Modify heading styles.
       #{$selector}-heading {
         color: $theme-heading;
       }
-      
+
       // Modify description styles.
       #{$selector}-description {
         color: $theme-description;
       }
-      
+
     }
-    
+
   }
-  
+
 }

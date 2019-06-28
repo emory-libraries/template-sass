@@ -16,12 +16,22 @@ $organisms-section-main: (
     'light': (
       'foreground': $color-text-dark,
       'background': color('white'),
-      'heading': color('blue')
+      'heading': color('blue'),
+      'link': (
+        'normal': color('blue', 'bright'),
+        'hover': color('blue', 'mid'),
+        'active': color('blue', 'mid')
+      )
     ),
     'dark': (
       'foreground': $color-text-light,
       'background': color('blue', 'dark'),
-      'heading': $color-text-light
+      'heading': $color-text-light,
+      'link': (
+        'normal': color('blue', 'bright'),
+        'hover': color('gold'),
+        'active': color('gold')
+      )
     )
   )
 
@@ -38,6 +48,9 @@ $organisms-section-main: (
 /// @output The main component's themeable properties
 @mixin organisms-section-main--theme ($skin) {
 
+  // Capture selector.
+  $selector: &;
+
   // Capture themeable variables from skin.
   $gap: map-deep-get($skin, 'gap');
   $theme: map-deep-get($skin, 'theme');
@@ -47,6 +60,7 @@ $organisms-section-main: (
   $theme-foreground: map-deep-get($themes, $theme + '.foreground');
   $theme-background: map-deep-get($themes, $theme + '.background');
   $theme-heading: map-deep-get($themes, $theme + '.heading');
+  $theme-link: map-deep-get($themes, $theme + '.link');
 
   // Defines the section-main component's base styles.
   background-color: $theme-background;
@@ -56,6 +70,20 @@ $organisms-section-main: (
   // Defines the breadcrumb styles.
   &-breadcrumb {
     min-height: $gap;
+
+    // Adjust breadcrumbs color.
+    .breadcrumbs {
+
+      .breadcrumbs-crumb {
+
+        a {
+          @include atoms-link(('color': $theme-link));
+        }
+
+      }
+
+    }
+
   }
 
   // Defines the main title styles.
@@ -100,17 +128,39 @@ $organisms-section-main: (
     $theme-foreground: map-deep-get($theme, 'foreground');
     $theme-background: map-deep-get($theme, 'background');
     $theme-heading: map-deep-get($theme, 'heading');
+    $theme-link: map-deep-get($theme, 'link');
 
     // Create themed style variation.
     &.-#{$name} {
       background-color: $theme-background;
       color: $theme-foreground;
 
-      // Adjust heading color.
-      .heading {
+      // Adjust breadcrumb link color.
+      #{$selector}-breadcrumb {
 
-        &.-h2 {
-          color: $theme-heading;
+        .breadcrumbs {
+
+          .breadcrumbs-crumb {
+
+            a {
+              @include atoms-link(('color': $theme-link));
+            }
+
+          }
+
+        }
+
+      }
+
+      // Adjust heading color.
+      #{$selector}-body {
+
+        .heading {
+
+          &.-h2 {
+            color: $theme-heading;
+          }
+
         }
 
       }

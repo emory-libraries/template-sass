@@ -15,6 +15,7 @@ $templates-landing: (
   ),
 
   'gap': 40px
+
 );
 
 /// Defines the landing component theme.
@@ -33,7 +34,7 @@ $templates-landing: (
   $layout: map-deep-get($skin, 'layout');
 
   // Defines the landing component's base styles.
-  //grid-gap: $gap;
+  // ...
 
   // Defines landing header and footer styles.
   &-header,
@@ -46,11 +47,20 @@ $templates-landing: (
 
   // Defines landing main styles.
   &-main {
-    &-subtitle {
-      text-align: center !important;
+
+    // Adjust the main section styles.
+    .section-main {
+      @include tokens-layout((
+      'x': map-get($layout, 'x'),
+      'y': layout(0, 0)
+      ));
+      padding-top: $rhythm-y !important;
+      padding-bottom: ($rhythm-y * 2) !important;
     }
+
   }
 
   // Defines landing footer styles.
   &-footer { }
+
 }

@@ -31,17 +31,17 @@
     // Load structure.
     @extend %templates-landing;
 
+    // Load parts.
     &-header {
       @extend %templates-landing-header;
     }
-
     &-main {
       @extend %templates-landing-main;
     }
-
     &-footer {
       @extend %templates-landing-footer;
     }
+    
     // Load skins.
     @include templates-landing--theme( $skin );
 
