@@ -11,14 +11,19 @@ $organisms-section-main: (
 
   'gap': 40px,
 
-  'body': (
-    'heading': (
-      'h2': (
-        'color': color('blue')
-      )
+  'theme': 'light',
+  'themes': (
+    'light': (
+      'foreground': $color-text-dark,
+      'background': color('white'),
+      'heading': color('blue')
+    ),
+    'dark': (
+      'foreground': $color-text-light,
+      'background': color('blue', 'dark'),
+      'heading': $color-text-light
     )
-  ),
-  'background': color('blue','dark')
+  )
 
 );
 
@@ -35,10 +40,23 @@ $organisms-section-main: (
 
   // Capture themeable variables from skin.
   $gap: map-deep-get($skin, 'gap');
-  $background: map-deep-get($skin, 'background');
+  $theme: map-deep-get($skin, 'theme');
+  $themes: map-deep-get($skin, 'themes');
+
+  // Get theme-specific variables.
+  $theme-foreground: map-deep-get($themes, $theme + '.foreground');
+  $theme-background: map-deep-get($themes, $theme + '.background');
+  $theme-heading: map-deep-get($themes, $theme + '.heading');
 
   // Defines the section-main component's base styles.
+  background-color: $theme-background;
+  color: $theme-foreground;
   grid-column-gap: $gap;
+
+  // Defines the breadcrumb styles.
+  &-breadcrumb {
+    min-height: $gap;
+  }
 
   // Defines the main title styles.
   &-title { }
@@ -53,11 +71,8 @@ $organisms-section-main: (
     // FIXME: If we adjust H2 styles here, we'll need to adjust subsequent headings (H3-H6) too.
     .heading {
 
-      // Get heading-specific variables.
-      $heading: map-deep-get($skin, 'body.heading');
-
       &.-h2 {
-        @include tokens-heading('h5-alt', map-deep-get($heading, 'h2.color'));
+        @include tokens-heading('h5-alt', $theme-heading);
       }
 
     }
@@ -78,9 +93,30 @@ $organisms-section-main: (
   // Defines the main section styles.
   &-section { }
 
-  //Defines a dark background variant for the section.
-  &.-dark {
-    background-color: $background;
+  // Defines theme-based variations for the section.
+  @each $name, $theme in $themes {
+
+    // Get theme-specific variables.
+    $theme-foreground: map-deep-get($theme, 'foreground');
+    $theme-background: map-deep-get($theme, 'background');
+    $theme-heading: map-deep-get($theme, 'heading');
+
+    // Create themed style variation.
+    &.-#{$name} {
+      background-color: $theme-background;
+      color: $theme-foreground;
+
+      // Adjust heading color.
+      .heading {
+
+        &.-h2 {
+          color: $theme-heading;
+        }
+
+      }
+
+    }
+
   }
 
 }

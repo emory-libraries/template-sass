@@ -24,6 +24,8 @@
   }
 
   // Builds the major body structure.
-  &-body { }
+  &-body {
+    padding-top: $rhythm-y;
+  }
 
 }

@@ -1,0 +1,112 @@
+////
+/// @group emory-libraries.patterns.organisms.section-deep-dive
+////
+
+/// Defines the base skin of the section-deep-dive component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$organisms-section-deep-dive: (
+
+  'title': $color-text-light,
+  'headings': color('gold'),
+  'foreground': $color-text-light,
+  'background': color('blue', 'base'),
+  'link': (
+    'normal': $color-text-light,
+    'hover': $color-text-light,
+    'active': $color-text-light
+  ),
+  'layout': (
+    'x': $layout-x,
+    'y': $layout-y
+  )
+
+);
+
+/// Defines the section-deep-dive component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The section-deep-dive component's themeable properties
+@mixin organisms-section-deep-dive--theme ( $skin ) {
+
+  // Capture selector.
+  $selector: &;
+
+  // Capture themeable variables from skin.
+  $layout: map-deep-get($skin, 'layout');
+  $title: map-deep-get($skin, 'title');
+  $headings: map-deep-get($skin, 'headings');
+  $foreground: map-deep-get($skin, 'foreground');
+  $background: map-deep-get($skin, 'background');
+  $link: map-deep-get($skin, 'link');
+
+  // Defines the section-deep-dive component's base styles.
+  @include tokens-layout(('layout': $layout));
+  background-color: $background;
+
+  // Defines the deep dive title styles.
+  &-title {
+    @include tokens-heading('h5', $title, $important: true);
+    text-align: center;
+
+    &::after {
+      @include atoms-rule('heading');
+    }
+
+    @include breakpoint-m-l {
+      @include tokens-heading--font('h2', $tokens-heading, true);
+    };
+
+  }
+
+  // Defines the deep dive body styles.
+  &-body {
+    @include tokens-text('body', $foreground);
+
+    a,
+    .link {
+      @include atoms-link((
+        'color': $link,
+        'weight': bold
+      ));
+      text-decoration: underline;
+    }
+
+    ol li::before {
+      color: $foreground;
+    }
+
+  }
+
+  &-column {
+
+    &-heading {
+      @include tokens-heading('h6', $headings, ('h6': (
+        'font-weight': normal
+      )), true);
+    }
+
+  }
+
+  // Defines the deep dive footer.
+  &-footer {
+    color: $foreground;
+    text-align: center;
+    font-style: italic;
+
+    &::before {
+      @include atoms-rule('light');
+      margin: 0 auto;
+      max-width: 1200px;
+      content: "";
+    }
+  }
+
+}

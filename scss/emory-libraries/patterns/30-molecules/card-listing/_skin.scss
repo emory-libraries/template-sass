@@ -39,7 +39,7 @@ $molecules-card-listing: (
   ),
   
   'image': (
-    'width': 40%,
+    'width': (50%, 55%),
     'height': 375px
   )
   
@@ -111,14 +111,27 @@ $molecules-card-listing: (
   // Defines card listing styles when horizontal.
   &:not(.-vertical) {
     
-    @include breakpoint-m-l {
-      grid-template-columns: 1fr $image-width;
+    @include breakpoint-l {
+      grid-template-columns: 1fr nth($image-width, 1);
       
       #{$selector}-date {
         margin-top: 0;
       }
+    
+    }
+    
+    @if ( nth($image-width, 2) ) {
       
-    };
+      @include breakpoint-xl {
+        grid-template-columns: 1fr nth($image-width, 2);
+        
+        #{$selector}-date {
+          margin-top: 0;
+        }
+        
+      };
+      
+    }
     
   }
   
@@ -273,7 +286,7 @@ $molecules-card-listing: (
     
     @include when-descendant-of( '#{$selector}:not(.-vertical)' ) {
       
-      @include breakpoint-m-l {
+      @include breakpoint-l {
         left: 0;
         right: -$padding-right - $border-offset;
         bottom: -$padding-bottom - $border-offset;
