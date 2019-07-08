@@ -14226,6 +14226,8 @@
                       
                       
                       
+                      
+                      
                   
                   
                   
@@ -29239,7 +29241,7 @@
                                   // Displays indicator when active.
                                   &amp;::after {
                                     @include tokens-icon(&#x27;material-arrow_drop_down&#x27;, $active, $indicator-size, $pseudo: true);
-                                    @include size( $indicator-size );
+                                    //@include size( $indicator-size );
                                   }
                               
                                 }
@@ -66601,13 +66603,13 @@
                                     @extend %organisms-intro-home-search-options;
                                   }
                               
-                                  &amp;-search-options-list {
+                                  /*&amp;-search-options-list {
                                     @extend %organisms-intro-home-search-options-list;
                                   }
                               
                                   &amp;-search-options-list-item {
                                     @extend %organisms-intro-home-search-options-list-item;
-                                  }
+                                  }*/
                               
                                   &amp;-badge {
                                     @extend %organisms-intro-home-badge;
@@ -66864,58 +66866,38 @@
                                     position: absolute;
                                     left: -10000px;
                                     border-bottom: $border;
+                                    margin-bottom: 0;
+                                    transition: $transition-all;
                               
-                                    &amp;-list-item {
-                                      font-size: 12px;
-                                      font-weight: bold;
-                                      line-height: 1.25;
-                                      letter-spacing: .05em;
-                                      text-transform: uppercase;
-                                      text-align: center;
-                              
-                                      a {
-                                        color: $search-options-color;
-                                        text-decoration: none;
-                              
-                                        &amp;:hover,
-                                        &amp;:active,
-                                        &amp;:focus {
-                                          color: $active-color;
-                              
-                              
-                                          &amp;:after {
-                                            content:&#x27;&#x27;;
-                                            position: absolute;
-                                            top: 100%;
-                                            left: 0;
-                                            right: 0;
-                                            margin: 1em auto;
-                                            width: 0;
-                                            height: 0;
-                                            background-color: $search-background;
-                                            border-top: solid 7px $active-color;
-                                            border-left: solid 7px transparent;
-                                            border-right: solid 7px transparent;
-                                          }
-                              
-                                        }
-                              
-                                      }
-                              
+                                    &amp;.tab-menu {
+                                      padding: 0;
                                     }
                               
-                                    &amp;-list-item:not(:last-child) {
+                                    .tab {
+                                      &amp;:hover,
+                                      &amp;:active,
+                                      &amp;:focus,
+                                      &amp;.is-hover,
+                                      &amp;.is-focus {
+                                        //color: $active-color;
                               
-                                      &amp;:after {
-                                        content: &quot;&quot;;
-                                        border-left: $border;
-                                        height: 12px;
-                                        margin: auto;
                               
-                                        @include breakpoint-s() {
-                                          border-left: none;
+                                        &amp;:after {
+                                          /*content:&#x27;&#x27;;
+                                          position: absolute;
+                                          top: 100%;
+                                          left: 0;
+                                          right: 0;
+                                          margin: .25em 50%;
+                                          width: 0;
+                                          height: 0;
+                                          background-color: $search-background;*/
+                                          margin-top: .25em;
+                                          border-top: solid 7px $active-color;
+                                          border-left: solid 7px transparent;
+                                          border-right: solid 7px transparent;
                                         }
-                                        
+                              
                                       }
                               
                                     }
@@ -67041,9 +67023,9 @@
                                   
                                           <li class="item__description  item__description--inline">
                                   
-                                            <span class="item__cross-type">mixin</span>
+                                            <span class="item__cross-type">variable</span>
                                   
-                                            <a href="#utils.mixins-mixin-breakpoint-s"><code>breakpoint-s</code></a>
+                                            <a href="#config-variable-border-width-s"><code>border-width-s</code></a>
                                   
                                   
                                           </li>
@@ -67057,7 +67039,7 @@
                                   
                                             <span class="item__cross-type">variable</span>
                                   
-                                            <a href="#config-variable-border-width-s"><code>border-width-s</code></a>
+                                            <a href="#config-variable-transition-all"><code>transition-all</code></a>
                                   
                                   
                                           </li>
@@ -67333,7 +67315,7 @@
                                   grid-column: 2;
                                 }
                               
-                                &amp;-search-options-list {
+                              /*  &amp;-search-options-list {
                                   list-style: none;
                                   padding: 0 2em;
                                   display: flex;
@@ -67361,7 +67343,7 @@
                               
                                   }
                               
-                                }
+                                }*/
                               
                                 &amp;-badge{
                                   grid-row: 4;
@@ -82640,8 +82622,6 @@
                             
                         
                         
-                            
-                            
                             
                             
                             
