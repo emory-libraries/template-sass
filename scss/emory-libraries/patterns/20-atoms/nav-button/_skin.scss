@@ -13,34 +13,34 @@ $atoms-nav-button: (
     'foreground': (
       'normal': (
         's': color('white'),
-        'm': color('blue', 'dark'),
+        'm': color('white'),
         'l': color('blue', 'dark')
       ),
       'hover': (
         's': color('white'),
-        'm': $color-actionable,
+        'm': color('white'),
         'l': $color-actionable
       ),
       'active': (
         's': color('white'),
-        'm': $color-actionable,
+        'm': color('white'),
         'l': $color-actionable
       )
     ),
     'background': (
       'normal': (
         's': color('blue', 'dark'),
-        'm': color('white'),
+        'm': color('blue', 'dark'),
         'l': color('white')
       ),
       'hover': (
         's': color('blue'),
-        'm': color('white'),
+        'm': color('blue'),
         'l': color('white')
       ),
       'active': (
         's': color('blue'),
-        'm': color('white'),
+        'm': color('blue'),
         'l': color('white')
       )
     ),
@@ -50,12 +50,12 @@ $atoms-nav-button: (
       'font-style': normal,
       'font-size': (
         's': $font-size,
-        'm': 14px,
+        'm': $font-size,
         'l': 14px
       ),
       'line-height': (
         's': 2.0625,
-        'm': 1.5,
+        'm': 2.0625,
         'l': 1.5
       ),
       'text-transform': (
@@ -72,6 +72,14 @@ $atoms-nav-button: (
     'border': (
       'thickness': $border-width-s,
       'color': color('slate', 'light')
+    ),
+    'indicator': (
+      'size': 8px,
+      'color': color('gold'),
+      'border': (
+        'thickness': $border-width-l,
+        'color': color('blue', 'dark')
+      )
     )
   ),
 
@@ -79,34 +87,34 @@ $atoms-nav-button: (
     'foreground': (
       'normal': (
         's': color('white'),
-        'm': color('blue', 'mid'),
+        'm': color('white'),
         'l': color('blue', 'mid')
       ),
       'hover': (
         's': color('white'),
-        'm': $color-actionable,
+        'm': color('white'),
         'l': $color-actionable
       ),
       'active': (
         's': color('white'),
-        'm': $color-actionable,
+        'm': color('white'),
         'l': $color-actionable
       )
     ),
     'background': (
       'normal': (
         's': color('blue', 'dark'),
-        'm': color('white'),
+        'm': color('blue', 'dark'),
         'l': color('white')
       ),
       'hover': (
         's': color('blue'),
-        'm': color('white'),
+        'm': color('blue'),
         'l': color('white')
       ),
       'active': (
         's': color('blue'),
-        'm': color('white'),
+        'm': color('blue'),
         'l': color('white')
       )
     ),
@@ -116,22 +124,22 @@ $atoms-nav-button: (
       'font-style': normal,
       'font-size': (
         's': $font-size,
-        'm': 11px,
+        'm': $font-size,
         'l': 11px
       ),
       'line-height': (
         's': 2.0625,
-        'm': 1.6364,
+        'm': 2.0625,
         'l': 1.6364
       ),
       'text-transform': (
         's': normal,
-        'm': uppercase,
+        'm': normal,
         'l': uppercase
       ),
       'letter-spacing': (
         's': none,
-        'm': 0.05em,
+        'm': none,
         'l': 0.05em
       )
     )
@@ -373,29 +381,29 @@ $atoms-nav-button: (
       'font-style': normal,
       'font-size': (
         's': 11px,
-        'm': 0,
+        'm': 11px,
         'l': 0
       ),
       'line-height': (
         's': 1.6364,
-        'm': 0,
+        'm': 1.6364,
         'l': 0
       ),
       'text-transform': (
         's': uppercase,
-        'm': none,
+        'm': uppercase,
         'l': none
       ),
       'letter-spacing': (
-        's': 0.05em,
-        'm': normal,
+        's': .05em,
+        'm': .05em,
         'l': normal
       )
     ),
     'icon': (
       'size': (
         's': 24px,
-        'm': 0,
+        'm': 24px,
         'l': 0
       )
     ),
@@ -407,7 +415,7 @@ $atoms-nav-button: (
       ),
       'y': (
         's': 10px,
-        'm': false,
+        'm': 10px,
         'l': false
       )
     )
@@ -427,7 +435,7 @@ $atoms-nav-button: (
   'padding': (
     'x': (
       's': 10px,
-      'm': 25px,
+      'm': 10px,
       'l': 25px
     ),
     'y': (
@@ -549,6 +557,7 @@ $atoms-nav-button: (
         };
       }
 
+      .input.-toggle:checked + &,
       &:hover,
       &:focus,
       &.is-hover,
@@ -606,6 +615,7 @@ $atoms-nav-button: (
         };
       }
 
+      .input.-toggle:checked + &,
       &:hover,
       &:focus,
       &.is-hover,
@@ -641,15 +651,13 @@ $atoms-nav-button: (
     $padding: map-deep-get($skin, 'padding.x.s');
 
     // Add arrow to button only on small screens.
-    padding-right: ($padding * 2) + $arrow-size + $padding;
+    @include breakpoint-s {
+      padding-right: ($padding * 2) + $arrow-size + $padding;
+    };
 
     // Add icon to button.
     &::after {
       @include tokens-icon('material-chevron_right', $arrow-color, $arrow-size, $pseudo: true);
-      @include padding-x( 10px );
-      @include absolute( 0 0 0 null );
-      @include absolute-center-within-container-y;
-      @include absolute-center-contents;
       @include size( $arrow-size );
       color: $arrow-color;
       line-height: 1;
@@ -661,12 +669,8 @@ $atoms-nav-button: (
 
     // Add border to button.
     &::before {
-      content: '';
-      display: block;
-      @include absolute(0 0 null 0);
       height: $border-thickness;
       background-color: $border-color;
-      @include margin-x( auto );
       opacity: .15;
       width: calc(100% - #{$padding * 2});
     }
@@ -683,16 +687,22 @@ $atoms-nav-button: (
 
     // Remove arrow from button on larger screens.
     @include breakpoint-m-l {
-      padding-right: 10px;
 
-      // Remove icon from button.
-      &::after {
-        content: none;
-      }
+      // Get indicator-specific variables.
+      $indicator-size: map-deep-get($skin, 'main.indicator.size');
+      $indicator-color: map-deep-get($skin, 'main.indicator.color');
+      $indicator-border-thickness: map-deep-get($skin, 'main.indicator.border.thickness');
+      $indicator-border-color: map-deep-get($skin, 'main.indicator.border.color');
+      $indicator-border: $indicator-border-thickness solid $indicator-border-color;
 
-      // Remove border from button.
-      &::before {
-        content: none;
+      // Add indicator to button.
+      .input.-toggle:checked + &::after,
+      &:focus::after,
+      &.is-focus::after {
+        @include size($indicator-size);
+        border: $indicator-border;
+        background-color: $indicator-color;
+        transform: rotate(45deg) translatey(calc(50% + #{$indicator-border-thickness} + 1px));
       }
 
     };
@@ -746,6 +756,7 @@ $atoms-nav-button: (
 
       }
 
+      //.input.-toggle:checked ~ .nav-menu-main-toggles &,
       &:hover,
       &:focus,
       &.is-hover,
@@ -778,6 +789,7 @@ $atoms-nav-button: (
 
       background-color: $normal;
 
+      //.input.-toggle:checked ~ .nav-menu-main-toggles &,
       &:hover,
       &:focus,
       &.is-hover,
@@ -1073,7 +1085,7 @@ $atoms-nav-button: (
       color: $arrow-color;
       line-height: 1;
     }
-    
+
     @include breakpoint-l {
       @include padding-x(10px);
     };
@@ -1093,7 +1105,7 @@ $atoms-nav-button: (
       };
 
     }
-    
+
     @include breakpoint-l {
       @include padding-x(10px);
     };

@@ -1,0 +1,289 @@
+////
+/// @group emory-libraries.patterns.compounds.nav-menu-main
+////
+
+/// Defines the base structure of the nav-menu-main component.
+///
+/// @since 1.0.0-dev.0
+%compounds-nav-menu-main {
+
+  // Capture selector.
+  $selector: &;
+
+  // Define a maximum number of menu items that are allowed.
+  $max-items: 10;
+
+  // Builds the nav-menu-main structure.
+  flex-wrap: nowrap;
+
+  // Group buttons and subnavigation menus together.
+  &-group {
+    display: block;
+  }
+
+  // Override the structure of subnavigation menus.
+  .subnav-menu-main {
+    position: absolute;
+    z-index: z('above');
+  }
+
+  // Always hide subnavigation menu toggles.
+  .input.-toggle {
+    display: none;
+  }
+
+  // Configure mobile navigation menu structure.
+  &.-mobile {
+
+    // Enable mobile navigation on smaller screens.
+    @include breakpoint-s-m {
+
+      // Initialize toggle group structure.
+      #{$selector}-toggles {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        z-index: (z('above') + 1);
+      }
+
+      // Build the mobile navigation menu structure.
+      #{$selector}-menu {
+        display: flex;
+        flex-direction: column;
+        @include absolute(0);
+        width: 100vw;
+        height: 0;
+        padding-top: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: scaley(0);
+        transform-origin: top center;
+
+        // Build main mobile navigation menu area.
+        &-area {
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+
+          // Set the default state for subnavigation menus.
+          .subnav-menu-main {
+            @include absolute(0 0 0 100vw);
+            z-index: z('above');
+            overflow: auto;
+          }
+
+          // Register the allowed number of menu items.
+          @for $i from 1 through $max-items {
+
+            // Enable toggling of subnavigation menus.
+            .input.-toggle:nth-of-type(#{$i}) {
+
+              // Show subnavigation menus when toggled.
+              &:checked ~  .subnav-menu-main:nth-of-type(#{$i}) {
+                left: 0;
+              }
+
+              // Hide subnavigation menus when not toggled.
+              &:not(:checked) ~ .subnav-menu-main:nth-of-type(#{$i}) {
+                left: 100vw;
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+      // Enable toggling of the mobile navigation menu.
+      > .input.-toggle {
+
+        // Configure mobile navigation menu structure when toggled.
+        &:checked {
+
+          // Show the mobile navigation menu when toggled.
+          ~ #{$selector}-menu {
+            height: 100vh;
+            padding-top: 40px;
+            opacity: 1;
+            overflow: visible;
+            transform: scaley(1);
+          }
+
+          // Configure the mobile navigation menu toggles.
+          ~ #{$selector}-toggles .nav-button.-toggle {
+
+            // Hide the open button.
+            &.-open {
+              display: none;
+            }
+
+            // Show the close button.
+            &.-close {
+              display: flex;
+            }
+
+          }
+
+        }
+
+        // Configure mobile navigation menu structure when not toggled.
+        &:not(:checked) {
+
+          // Hide the mobile navigation menu when not toggled.
+          ~ #{$selector}-menu {
+            height: 0;
+            padding-top: 0;
+            opacity: 0;
+            overflow: hidden;
+            transform: scaley(0);
+          }
+
+          // Configure the mobile navigation menu toggles.
+          ~ #{$selector}-toggles .nav-button.-toggle {
+
+            // Show the open button.
+            &.-open {
+              display: flex;
+            }
+
+            // Hide the close button.
+            &.-close {
+              display: none;
+            }
+
+          }
+
+        }
+
+      }
+
+    };
+
+    // Disable mobile navigation on larger screens.
+    @include breakpoint-l-xl {
+      display: none;
+    };
+
+  }
+
+  // Configure tablet navigation menu structure.
+  &.-tablet {
+
+    // Disable tablet navitation on smaller screens.
+    @include breakpoint-s-m {
+      display: none;
+    };
+
+    // Enable tablet navigation on larger screens.
+    @include breakpoint-l {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      width: max-content;
+      margin-left: auto;
+
+      // Set the default state for subnavigation menus.
+      .subnav-menu-main {
+        top: 100%;
+        right: 0;
+        opacity: 0;
+        max-height: 0;
+        transform: scaley(0);
+        overflow: hidden;
+        transform-origin: top right;
+      }
+
+      // Register the allowed number of menu items.
+      @for $i from 1 through $max-items {
+
+        // Enable toggling of subnavigation menus.
+        .input.-toggle:nth-of-type(#{$i}) {
+
+          // Show subnavigation menus when toggled.
+          &:checked ~ .subnav-menu-main:nth-of-type(#{$i}) {
+            overflow: visible;
+            opacity: 1;
+            max-height: 5000px;
+            transform: scaley(1);
+          }
+
+          // Hide subnavigation menus when not toggled.
+          &:not(:checked) ~ .subnav-menu-main:nth-of-type(#{$i}) {
+            overflow: hidden;
+            opacity: 0;
+            max-height: 0;
+            transform: scaley(0);
+          }
+
+        }
+
+      }
+
+    };
+
+    // Disable tablet navigation on huge screens.
+    @include breakpoint-xl {
+      display: none;
+    };
+
+  }
+
+  // Configure desktop navigation menu structure.
+  &.-desktop {
+
+    // Disable desktop navigation on smaller screens.
+    @include breakpoint-s-m-l {
+      display: none;
+    };
+
+    // Enable desktop navigation on huge screens.
+    @include breakpoint-xl {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      width: max-content;
+      margin-left: auto;
+
+      // Set the default state for subnavigation menus.
+      .subnav-menu-main {
+        top: 100%;
+        right: 0;
+        opacity: 0;
+        max-height: 0;
+        transform: scaley(0);
+        overflow: hidden;
+        transform-origin: top right;
+      }
+
+      // Enable toggling of subnavigation menus.
+      .input.-toggle {
+
+        // Show subnavigation menus when toggled.
+        &:checked ~ .subnav-menu-main {
+          overflow: visible;
+          opacity: 1;
+          max-height: 5000px;
+          transform: scaley(1);
+        }
+
+        // Hide subnavigation menus when not toggled.
+        &:not(:checked) ~ .subnav-menu-main {
+          overflow: hidden;
+          opacity: 0;
+          max-height: 0;
+          transform: scaley(0);
+        }
+
+      }
+
+    };
+
+  }
+
+}

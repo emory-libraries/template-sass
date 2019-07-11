@@ -12,6 +12,7 @@
   display: flex;
   justify-content: flex-start;
   width: 100%;
+  overflow: hidden;
 
   // Adds breakpoint-specific structure changes.
   @include breakpoint-l {
@@ -30,8 +31,41 @@
   &.-main {
     height: 60px;
 
-    @include breakpoint-m-l {
+    &::before {
+      content: '';
+      display: block;
+      @include absolute(0 0 null 0);
+      @include margin-x(auto);
+    }
+
+    &::after {
+      content: '';
+      @include padding-x(10px);
+      @include absolute(0 0 0 null);
+      @include absolute-center-within-container-y;
+      @include absolute-center-contents;
+    }
+
+    @include breakpoint-l {
       height: 90px;
+
+      &::before {
+        content: none !important;
+      }
+
+      &::after {
+        content: none !important;
+      }
+
+      .input.-toggle:checked + &::after,
+      &:focus::after,
+      &.is-focus::after {
+        content: '' !important;
+        display: block;
+        @include absolute(unset 0 0 50%);
+        @include padding-x(0);
+      }
+
     };
 
   }
@@ -43,7 +77,7 @@
     justify-content: center;
     width: auto;
 
-    @include breakpoint-m-l {
+    @include breakpoint-l {
       display: none;
     };
 
@@ -67,7 +101,7 @@
   // Sets utility button structure.
   &.-utility {
     height: 60px;
-    
+
     // Don't allow icons on utility buttons.
     .icon {
       display: none;
@@ -76,11 +110,11 @@
     @include breakpoint-l {
       height: 40px;
       flex-direction: row;
-      
+
       &::after {
         content: none !important;
       }
-      
+
     };
 
   }
