@@ -102,16 +102,21 @@
           }
 
           // Configure the mobile navigation menu toggles.
-          ~ #{$selector-navigation}-toggles #{$selector-mobile-toggle} {
+          ~ #{$selector-navigation}-toggles {
 
-            // Hide the open button.
-            &.-open {
-              display: none;
-            }
+            // Manipulate mobile menu toggles.
+            #{$selector-mobile-toggle} {
 
-            // Show the close button.
-            &.-close {
-              display: flex;
+              // Hide the open button.
+              &.-open {
+                display: none;
+              }
+
+              // Show the close button.
+              &.-close {
+                display: flex;
+              }
+
             }
 
           }
@@ -131,16 +136,21 @@
           }
 
           // Configure the mobile navigation menu toggles.
-          ~ #{$selector-navigation}-toggles #{$selector-mobile-toggle} {
+          ~ #{$selector-navigation}-toggles {
 
-            // Show the open button.
-            &.-open {
-              display: flex;
-            }
+            // Manipulate mobile menu toggles.
+            #{$selector-mobile-toggle} {
 
-            // Hide the close button.
-            &.-close {
-              display: none;
+              // Show the open button.
+              &.-open {
+                display: flex;
+              }
+
+              // Hide the close button.
+              &.-close {
+                display: none;
+              }
+
             }
 
           }

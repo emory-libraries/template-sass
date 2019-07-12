@@ -88,6 +88,7 @@
       @include absolute(0 0 0 null);
       @include absolute-center-within-container-y;
       @include absolute-center-contents;
+      box-sizing: content-box;
     }
 
     @include breakpoint-l {
@@ -178,7 +179,7 @@
     height: 45px;
     justify-content: center;
 
-    @include breakpoint-m-l {
+    @include breakpoint-l {
       height: 40px;
       flex-direction: row;
     };

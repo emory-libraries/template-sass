@@ -1071,7 +1071,7 @@ $atoms-nav-button: (
 
         // Apply indicator styles.
         &::after {
-          @include breakpoint-m-l {
+          @include breakpoint-l {
             @include size($indicator-size);
             border: $indicator-border;
             background-color: $indicator-color;
@@ -1130,7 +1130,7 @@ $atoms-nav-button: (
 
       // Apply indicator styles.
       &::after {
-        @include breakpoint-m-l {
+        @include breakpoint-l {
           @include size($indicator-size);
           border: $indicator-border;
           background-color: $indicator-color;
