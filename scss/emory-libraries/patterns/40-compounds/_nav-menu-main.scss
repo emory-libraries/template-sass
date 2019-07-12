@@ -32,16 +32,19 @@
     @extend %compounds-nav-menu-main;
 
     // Load parts.
-    &-group {
-      @extend %compounds-nav-menu-main-group;
-    }
-    &-toggles {
-      @extend %compounds-nav-menu-main-toggles;
-    }
-    &-menu {
-      @extend %compounds-nav-menu-main-menu;
-      &-area {
-        @extend %compounds-nav-menu-main-menu-area;
+    &-nav {
+      @extend %compounds-nav-menu-main-nav;
+      &-group {
+        @extend %compounds-nav-menu-main-nav-group;
+      }
+      &-toggles {
+        @extend %compounds-nav-menu-main-nav-toggles;
+      }
+      &-menu {
+        @extend %compounds-nav-menu-main-nav-menu;
+        &-area {
+          @extend %compounds-nav-menu-main-nav-menu-area;
+        }
       }
     }
 
