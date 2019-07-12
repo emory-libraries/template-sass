@@ -124,7 +124,8 @@ $atoms-tab: (
   
   // Build tab menu styles.
   &-menu {
-    
+    margin: 0;
+
     // Build horizontal rule styles.
     &::after {
       height: $thickness;
@@ -174,6 +175,11 @@ $atoms-tab: (
               transparent $indicator-stop
             );
           }
+          /*margin-top: .5em;
+          border-top: solid 7px $active-color;
+          border-left: solid 7px transparent;
+          border-right: solid 7px transparent;
+          @include size(1px);*/
           
         }
         
