@@ -1,0 +1,81 @@
+////
+/// @group emory-libraries.patterns.organisms.search-menu
+////
+
+/// Defines the base structure of the search-menu component.
+///
+/// @since 1.0.0-dev.0
+%organisms-search-menu {
+  // Capture selector.
+  $selector: &;
+  
+  // Builds the search-menu structure.
+  padding: 0 2em;
+  display: grid;
+  grid-template-rows: auto 90px;
+
+  .search-row {
+    display: grid;
+    grid-template-columns: 8fr 1fr 3fr 150px;
+    align-items: center;
+    margin: 0;
+
+    .search.-form {
+      grid-column: 1;
+      height: auto;
+    }
+    .-form.search .search-button {
+      display: flex;
+      text-decoration: none;
+    }
+    .search-clear {
+      grid-column: 2;
+      margin: 0 1em;
+      justify-self: center;
+    }
+
+    .-toggle {
+      grid-column: 4;
+      max-height: 40px;
+      font-size: .75em;
+      padding-left: 8px;
+      padding-right: 16px;
+    }
+    .button .icon.-left {
+        margin-right: 0;
+    }
+
+    .search {
+      margin: 0;
+    }
+
+  }
+
+
+/*  .search-form {
+    display: grid;
+    align-items: center;
+
+    @include breakpoint-l() {
+      grid-template-columns: 10fr 1fr 6fr;
+
+      .search {
+        grid-column: 1;
+      }
+
+      .subnav-button {
+        grid-column: 2/span 1;
+      }
+
+      .button {
+        grid-column: -1;
+      }
+    }
+
+    &.-home .search-input {
+      grid-column: 1/-1;
+    }
+
+  }*/
+
+}
