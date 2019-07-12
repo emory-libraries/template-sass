@@ -50,6 +50,11 @@
   @include compounds-subnav-menu-main;
 }
 
+// compounds-tab-menu
+.tab-menu {
+  @include compounds-tab-menu;
+}
+
 // compounds-slider
 .slider {
   @include compounds-slider;

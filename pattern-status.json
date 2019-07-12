@@ -80,5 +80,7 @@
   "templates-gallery": "review",
   "templates-research-help-directory": "review",
   "templates-landing": "construction",
-  "templates-exhibition": "review"
+  "templates-exhibition": "review",
+  "compounds-tab-menu": "construction",
+  "organisms-search-menu": "construction"
 }
