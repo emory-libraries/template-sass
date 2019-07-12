@@ -532,115 +532,10 @@ $atoms-nav-button: (
 
     }
 
-    $foreground: map-deep-get($skin, 'main.foreground');
-    $background: map-deep-get($skin, 'main.background');
-
-    // Apply foreground styles.
-    @include private('Foreground') {
-
-      $normal: map-get($foreground, 'normal');
-      $hover: map-get($foreground, 'hover');
-      $active: map-get($foreground, 'active');
-
-      @each $breakpoint, $color in $normal {
-        @include breakpoint( screen($breakpoint) ) {
-          color: $color;
-
-          .icon {
-
-            svg {
-              fill: $color;
-            }
-
-          }
-
-        };
-      }
-
-      .input.-toggle:checked + &,
-      &:hover,
-      &:focus,
-      &.is-hover,
-      &.is-focus {
-
-        @each $breakpoint, $color in $hover {
-          @include breakpoint( screen($breakpoint) ) {
-            color: $color;
-
-            .icon {
-
-              svg {
-                fill: $color;
-              }
-
-            }
-
-          };
-        }
-
-      }
-
-      &:active,
-      &.is-active {
-
-        @each $breakpoint, $color in $active {
-          @include breakpoint( screen($breakpoint) ) {
-            color: $color;
-
-            .icon {
-
-              svg {
-                fill: $color;
-              }
-
-            }
-
-          };
-        }
-
-      }
-
-    };
-
-    // Apply background styles.
-    @include private('Background') {
-
-      $normal: map-get($background, 'normal');
-      $hover: map-get($background, 'hover');
-      $active: map-get($background, 'active');
-
-      @each $breakpoint, $color in $normal {
-        @include breakpoint( screen($breakpoint) ) {
-          background-color: $color;
-        };
-      }
-
-      .input.-toggle:checked + &,
-      &:hover,
-      &:focus,
-      &.is-hover,
-      &.is-focus {
-
-        @each $breakpoint, $color in $hover {
-          @include breakpoint( screen($breakpoint) ) {
-          background-color: $color;
-        };
-        }
-
-      }
-
-      &:active,
-      &.is-active {
-
-        @each $breakpoint, $color in $active {
-          @include breakpoint( screen($breakpoint) ) {
-            background-color: $color;
-          };
-        }
-
-      }
-
-    };
+    @include atoms-nav-button--state('normal', $skin);
+    @include atoms-nav-button--state('hover', $skin);
+    @include atoms-nav-button--state('focus', $skin);
+    @include atoms-nav-button--state('active', $skin);
 
     // Don't allow icons on main buttons.
     .icon {
@@ -681,28 +576,6 @@ $atoms-nav-button: (
       // Remove border.
       &::before {
         content: none;
-      }
-
-    };
-
-    // Remove arrow from button on larger screens.
-    @include breakpoint-m-l {
-
-      // Get indicator-specific variables.
-      $indicator-size: map-deep-get($skin, 'main.indicator.size');
-      $indicator-color: map-deep-get($skin, 'main.indicator.color');
-      $indicator-border-thickness: map-deep-get($skin, 'main.indicator.border.thickness');
-      $indicator-border-color: map-deep-get($skin, 'main.indicator.border.color');
-      $indicator-border: $indicator-border-thickness solid $indicator-border-color;
-
-      // Add indicator to button.
-      .input.-toggle:checked + &::after,
-      &:focus::after,
-      &.is-focus::after {
-        @include size($indicator-size);
-        border: $indicator-border;
-        background-color: $indicator-color;
-        transform: rotate(45deg) translatey(calc(50% + #{$indicator-border-thickness} + 1px));
       }
 
     };
@@ -1127,6 +1000,146 @@ $atoms-nav-button: (
   &[disabled],
   &.is-disabled {
     opacity: .5;
+  }
+
+}
+
+/// Defines the nav-button component state.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {string} state - The component's state to be styled
+/// @param {map} skin - The component's skin
+///
+/// @output The nav-button component's themeable properties
+@mixin atoms-nav-button--state( $state, $skin: $atoms-nav-button, $selector: true ) {
+
+  // For focus states, use the hover state.
+  $target: if($state == 'focus', 'hover', $state);
+
+  // Get variables for focus state.
+  $foreground: map-deep-get($skin, 'main.foreground.' + $target);
+  $background: map-deep-get($skin, 'main.background.' + $target);
+
+  @if( $selector and $state != 'normal' ) {
+
+    &:#{$state},
+    &.is-#{$state} {
+
+      // Apply foreground styles.
+      @include private('Foreground') {
+
+        @each $breakpoint, $color in $foreground {
+          @include breakpoint( screen($breakpoint) ) {
+            color: $color;
+
+            .icon {
+
+              svg {
+                fill: $color;
+              }
+
+            }
+
+          };
+        }
+
+      };
+
+      // Apply background styles.
+      @include private('Background') {
+
+        @each $breakpoint, $color in $background {
+          @include breakpoint( screen($breakpoint) ) {
+            background-color: $color;
+          };
+        }
+
+      };
+
+      // Add indicators to focus state.
+      @if( $state == 'focus' ) {
+
+        // Get indicator-specific variables.
+        $indicator-size: map-deep-get($skin, 'main.indicator.size');
+        $indicator-color: map-deep-get($skin, 'main.indicator.color');
+        $indicator-border-thickness: map-deep-get($skin, 'main.indicator.border.thickness');
+        $indicator-border-color: map-deep-get($skin, 'main.indicator.border.color');
+        $indicator-border: $indicator-border-thickness solid $indicator-border-color;
+
+        // Apply indicator styles.
+        &::after {
+          @include breakpoint-m-l {
+            @include size($indicator-size);
+            border: $indicator-border;
+            background-color: $indicator-color;
+            transform: rotate(45deg) translatey(calc(50% + #{$indicator-border-thickness} + 1px));
+          };
+        }
+
+      }
+
+    }
+
+  }
+
+  @else {
+
+    // Apply foreground styles.
+    @include private('Foreground') {
+
+      @each $breakpoint, $color in $foreground {
+        @include breakpoint( screen($breakpoint) ) {
+          color: $color;
+
+          .icon {
+
+            svg {
+              fill: $color;
+            }
+
+          }
+
+        };
+      }
+
+    };
+
+    // Apply background styles.
+    @include private('Background') {
+
+      @each $breakpoint, $color in $background {
+        @include breakpoint( screen($breakpoint) ) {
+          background-color: $color;
+        };
+      }
+
+    };
+
+    // Add indicators to focus state.
+    @if( $state == 'focus' ) {
+
+      // Get indicator-specific variables.
+      $indicator-size: map-deep-get($skin, 'main.indicator.size');
+      $indicator-color: map-deep-get($skin, 'main.indicator.color');
+      $indicator-border-thickness: map-deep-get($skin, 'main.indicator.border.thickness');
+      $indicator-border-color: map-deep-get($skin, 'main.indicator.border.color');
+      $indicator-border: $indicator-border-thickness solid $indicator-border-color;
+
+      // Apply indicator styles.
+      &::after {
+        @include breakpoint-m-l {
+          @include size($indicator-size);
+          border: $indicator-border;
+          background-color: $indicator-color;
+          transform: rotate(45deg) translatey(calc(50% + #{$indicator-border-thickness} + 1px));
+        };
+      }
+
+    }
+
   }
 
 }

@@ -231,12 +231,17 @@
       // Configure toggles based on their index.
       &:nth-of-type(#{$i}) {
 
-        // Identify navigation and subnavigation selectors.
+        // Identify necessary selectors.
         $selector-navigation: unquote('#{$selector}-nav');
         $selector-subnavigation: (
           'desktop': unquote('#{$selector-navigation}-group:nth-of-type(#{$i}) .subnav-menu-main'),
           'tablet': unquote('.subnav-menu-main:nth-of-type(#{$i})'),
           'mobile': unquote('#{$selector-navigation}-menu #{$selector-navigation}-menu-area .subnav-menu-main:nth-of-type(#{$i})')
+        );
+        $selector-button: (
+          'desktop': unquote('#{$selector-navigation}-group:nth-of-type(#{$i}) .nav-button'),
+          'tablet': unquote('.nav-button:nth-of-type(#{$i})'),
+          'mobile': unquote('#{$selector-navigation}-menu #{$selector-navigation}-menu-area .nav-button:nth-of-type(#{$i})')
         );
 
         // Show subnavigation menus when toggled.
@@ -256,6 +261,12 @@
                 transform: scaley(1);
               }
 
+              // Add toggled styles to the navigation button.
+              #{map-get($selector-button, 'desktop')} {
+                @include atoms-nav-button--state--structure('focus', $selector: false);
+                @include atoms-nav-button--state('focus', $selector: false);
+              }
+
             }
 
             // Configure tablet navigation toggles.
@@ -267,6 +278,12 @@
                 opacity: 1;
                 max-height: 5000px;
                 transform: scaley(1);
+              }
+
+              // Add toggled styles to the navigation button.
+              #{map-get($selector-button, 'tablet')} {
+                @include atoms-nav-button--state--structure('focus', $selector: false);
+                @include atoms-nav-button--state('focus', $selector: false);
               }
 
             }

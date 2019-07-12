@@ -2,6 +2,50 @@
 /// @group emory-libraries.patterns.atoms.nav-button
 ////
 
+/// Defines the nav-button component state structure.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {string} state - The component's state to be structure
+///
+/// @output The nav-button component's themeable properties
+@mixin atoms-nav-button--state--structure( $state, $selector: true ) {
+
+  @if( $selector and $state != 'normal' ) {
+
+    &:#{$state},
+    &.is-#{$state} {
+
+      @if( $state == 'focus' ) {
+        &::after {
+          content: '' !important;
+          display: block;
+          @include absolute(unset 0 0 50%);
+          @include padding-x(0);
+        }
+      }
+
+    }
+
+  }
+
+  @else {
+
+    @if( $state == 'focus' ) {
+      &::after {
+        content: '' !important;
+        display: block;
+        @include absolute(unset 0 0 50%);
+        @include padding-x(0);
+      }
+    }
+
+  }
+
+}
+
 /// Defines the base structure of the nav-button component.
 ///
 /// @since 1.0.0
@@ -57,14 +101,7 @@
         content: none !important;
       }
 
-      .input.-toggle:checked + &::after,
-      &:focus::after,
-      &.is-focus::after {
-        content: '' !important;
-        display: block;
-        @include absolute(unset 0 0 50%);
-        @include padding-x(0);
-      }
+      @include atoms-nav-button--state--structure('focus');
 
     };
 
