@@ -3,7 +3,7 @@
 ////
 
 /// Build multiple media queries for multiple breakpoints at the same time.
-/// 
+///
 /// @since 1.0.0
 ///
 /// @requires {mixin} Breakpoint::breakpoint <http://breakpoint-sass.com/>
@@ -12,149 +12,166 @@
 ///
 /// @content
 @mixin breakpoints( $breakpoints... ) {
-  
+
   @each $breakpoint in $breakpoints {
-    
-    @include breakpoint($breakpoint) { 
+
+    @include breakpoint($breakpoint) {
       @content;
     };
-    
+
   }
-  
+
 }
 
 /// A breakpoint shorthand to create a media query for small screens.
-/// 
+///
 /// @since 1.0.0
 ///
-/// @requires {variable} screens 
+/// @requires {variable} screens
 /// @requires {mixin} Breakpoint::breakpoint <http://breakpoint-sass.com/>
 /// @requires {function} Brandy::screen <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-screen>
 ///
 /// @content
 @mixin breakpoint-s {
-    
-  @include breakpoint(screen('s')) { 
+
+  @include breakpoint(screen('s')) {
     @content;
   };
-  
+
 }
 
 /// A breakpoint shorthand to create a media query for medium screens.
-/// 
+///
 /// @since 1.0.0
 ///
-/// @requires {variable} screens 
+/// @requires {variable} screens
 /// @requires {mixin} Breakpoint::breakpoint <http://breakpoint-sass.com/>
 /// @requires {function} Brandy::screen <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-screen>
 ///
 /// @content
 @mixin breakpoint-m {
-    
-  @include breakpoint(screen('m')) { 
+
+  @include breakpoint(screen('m')) {
     @content;
   };
-  
+
 }
 
 /// A breakpoint shorthand to create a media query for large screens.
-/// 
+///
 /// @since 1.0.0
 ///
-/// @requires {variable} screens 
+/// @requires {variable} screens
 /// @requires {mixin} Breakpoint::breakpoint <http://breakpoint-sass.com/>
 /// @requires {function} Brandy::screen <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-screen>
 ///
 /// @content
 @mixin breakpoint-l {
-    
-  @include breakpoint(screen('l')) { 
+
+  @include breakpoint(screen('l')) {
     @content;
   };
-  
+
 }
 
 /// A breakpoint shorthand to create a media query for extra-large screens.
-/// 
+///
 /// @since 1.0.0
 ///
-/// @requires {variable} screens 
+/// @requires {variable} screens
 /// @requires {mixin} Breakpoint::breakpoint <http://breakpoint-sass.com/>
 /// @requires {function} Brandy::screen <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-screen>
 ///
 /// @content
 @mixin breakpoint-xl {
-    
-  @include breakpoint(screen('xl')) { 
+
+  @include breakpoint(screen('xl')) {
     @content;
   };
-  
+
 }
 
 /// A breakpoint shorthand to create a media query for small and medium screens.
-/// 
+///
 /// @since 1.0.0
 ///
-/// @requires {variable} screens 
+/// @requires {variable} screens
 /// @requires {mixin} breakpoints
 /// @requires {function} Brandy::screen <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-screen>
 ///
 /// @content
 @mixin breakpoint-s-m {
-    
-  @include breakpoints(screen('s'), screen('m')) { 
+
+  @include breakpoints(screen('s'), screen('m')) {
     @content;
   };
-  
+
 }
 
 /// A breakpoint shorthand to create a media query for small, medium, and large screens.
-/// 
+///
 /// @since 1.0.0
 ///
-/// @requires {variable} screens 
+/// @requires {variable} screens
 /// @requires {mixin} breakpoints
 /// @requires {function} Brandy::screen <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-screen>
 ///
 /// @content
 @mixin breakpoint-s-m-l {
-    
-  @include breakpoints(screen('s'), screen('m'), screen('l')) { 
+
+  @include breakpoints(screen('s'), screen('m'), screen('l')) {
     @content;
   };
-  
+
 }
 
 /// A breakpoint shorthand to create a media query for medium and large screens.
-/// 
+///
 /// @since 1.0.0
 ///
-/// @requires {variable} screens 
+/// @requires {variable} screens
 /// @requires {mixin} breakpoints
 /// @requires {function} Brandy::screen <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-screen>
 ///
 /// @content
 @mixin breakpoint-m-l {
-    
-  @include breakpoints(screen('m'), screen('l')) { 
+
+  @include breakpoints(screen('m'), screen('l')) {
     @content;
   };
-  
+
 }
 
 /// A breakpoint shorthand to create a media query for medium, large, and extra-large screens.
-/// 
+///
 /// @since 1.0.0
 ///
-/// @requires {variable} screens 
+/// @requires {variable} screens
 /// @requires {mixin} breakpoints
 /// @requires {function} Brandy::screen <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-screen>
 ///
 /// @content
 @mixin breakpoint-m-l-xl {
-    
-  @include breakpoints(screen('m'), screen('l'), screen('xl')) { 
+
+  @include breakpoints(screen('m'), screen('l'), screen('xl')) {
     @content;
   };
-  
+
+}
+
+/// A breakpoint shorthand to create a media query for large and extra large screens.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} screens
+/// @requires {mixin} breakpoints
+/// @requires {function} Brandy::screen <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-screen>
+///
+/// @content
+@mixin breakpoint-l-xl {
+
+  @include breakpoints(screen('l'), screen('xl')) {
+    @content;
+  };
+
 }
