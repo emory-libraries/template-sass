@@ -7,12 +7,16 @@
 /// @since 1.0.0-dev.0
 %compounds-subnav-menu-main {
 
+  // Set menu padding.
+  $padding: 25px;
+
   // Builds the subnav-menu-main structure.
   display: flex;
   flex-direction: column;
 
   // Adjust the subnav menu structure on large screens.
   @include breakpoint-l {
+    @include padding-y($padding);
     width: 100vw;
   };
 
@@ -56,6 +60,11 @@
       }
       > *.-span {
         grid-column: 1 / span 4 !important;
+
+        &:last-child {
+          margin-bottom: -$padding;
+        }
+
       }
 
     };
@@ -68,7 +77,13 @@
   }
 
   // Modifies structure for categorized subnav menus.
-  &.-categorized {}
+  &.-categorized {
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
+  }
 
   // Builds the subnav menu main heading structure.
   &-heading {
