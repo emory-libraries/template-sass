@@ -1,0 +1,33 @@
+////
+/// @group emory-libraries.patterns.organisms.nav-bar-main
+////
+
+/// Defines the base skin of the nav-bar-main component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$organisms-nav-bar-main: (
+  
+  
+  
+);
+
+/// Defines the nav-bar-main component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The nav-bar-main component's themeable properties
+@mixin organisms-nav-bar-main--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  // ...
+  
+  // Defines the nav-bar-main component's base styles.
+  // ...
+  
+}
