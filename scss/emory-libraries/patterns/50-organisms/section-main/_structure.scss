@@ -266,7 +266,8 @@
     '.-landing-page',
     '.-gallery-page',
     '.-exhibition-page',
-    '.-research-help-directory-page'
+    '.-research-help-directory-page',
+    '.-index-page'
   )},
   &.-info-page {
     @include grid-layout;
@@ -563,6 +564,24 @@
 
     };
 
+  }
+
+  // Builds the main structure when used for an index page.
+  &.-index-page {
+    @include grid-layout((
+      'spacer': false,
+      'auto': false,
+      'section': false,
+      'sidebar': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-spacer,
+    #{$selector}-content,
+    #{$selector}-section,
+    #{$selector}-sidebar {
+      display: none;
+    }
   }
 
 }
