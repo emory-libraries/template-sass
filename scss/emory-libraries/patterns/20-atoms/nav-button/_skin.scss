@@ -573,7 +573,7 @@ $atoms-nav-button: (
     }
 
     // Remove border from first button.
-    @include first-child {
+    &:first-child {
 
       // Remove border.
       &::before {
