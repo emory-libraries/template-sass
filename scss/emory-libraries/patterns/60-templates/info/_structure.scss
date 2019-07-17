@@ -6,7 +6,7 @@
 ///
 /// @since 1.0.0
 %templates-info {
-  
+
   // Captures selector.
   $selector: &;
 
@@ -27,12 +27,43 @@
     &::after {
       content: 'Header'; // TEMPORARY
     }
-    
+
   }
 
   // Builds the info main structure.
   &-main {
     grid-area: main;
+
+    // Override some main section structure.
+    .section-main {
+      padding-top: 0 !important;
+
+      // Adjust the main body and sidebar section.
+      &-body,
+      &-sidebar {
+        margin-top: ($rhythm-y * 2);
+      }
+
+      // Adjust the main body section.
+      &-body {
+
+        > *:first-child {
+          margin-top: 0;
+        }
+
+      }
+
+      // Adjust the main sidebar section.
+      &-sidebar {
+
+        > * + * {
+          margin-top: $rhythm-y;
+        }
+
+      }
+
+    }
+
   }
 
   // Builds the info footer structure.
@@ -43,7 +74,7 @@
     &::after {
       content: 'Footer'; // TEMPORARY
     }
-    
+
   }
-  
+
 }
