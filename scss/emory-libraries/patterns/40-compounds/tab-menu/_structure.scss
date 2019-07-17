@@ -11,5 +11,47 @@
   $selector: &;
 
   // Builds the tab-menu structure.
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  // Builds the tab menu default structure.
+  &:not(.-dropdown) {
+    display: none;
+
+    // Only enable the tabbed view on larger screens.
+    @include breakpoint-l {
+      display: flex;
+    };
+
+  }
+
+  // Builds the tab menu dropdown structure.
+  &.-dropdown {
+    width: max-content;
+    padding: 0;
+
+    // Add an underline to the dropdown menu.
+    &::after {
+      content: '';
+      display: block;
+      @include absolute(unset 0 0 0);
+    }
+
+    // Override select box styles.
+    select {
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      border: none;
+      background-color: transparent;
+    }
+
+    // Disable dropdown view on larger screens.
+    @include breakpoint-l {
+      display: none;
+    };
+
+  }
 
 }

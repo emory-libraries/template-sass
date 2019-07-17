@@ -21,21 +21,19 @@
 ///
 /// @status construction
 @mixin compounds-tab-menu ( $custom: () ) {
-  
+
   // Extend the default skin.
   $skin: map-extend($compounds-tab-menu, $custom);
-  
+
   // Initialize the tab-menu component.
   & {
-    
+
     // Load structure.
     @extend %compounds-tab-menu;
 
-
-
     // Load skins.
     @include compounds-tab-menu--theme( $skin );
-    
+
   }
-  
+
 }
