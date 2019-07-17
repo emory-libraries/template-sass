@@ -37,3 +37,8 @@
 .section-deep-dive {
   @include organisms-section-deep-dive;
 }
+
+// organisms-nav-bar-main
+.nav-bar-main {
+  @include organisms-nav-bar-main;
+}

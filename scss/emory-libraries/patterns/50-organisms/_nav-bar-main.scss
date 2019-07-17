@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.organisms.nav-bar-main
+////
+
+/// Load the nav-bar-main component's structure and skin.
+@import 'nav-bar-main/structure';
+@import 'nav-bar-main/skin';
+
+/// Builds a constructor for the nav-bar-main component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} organisms-nav-bar-main
+/// @requires {variable} organisms-nav-bar-main
+/// @requires {mixin} organisms-nav-bar-main--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our nav-bar-main component
+///
+/// @status construction
+@mixin organisms-nav-bar-main ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($organisms-nav-bar-main, $custom);
+  
+  // Initialize the nav-bar-main component.
+  & {
+    
+    // Load structure.
+    @extend %organisms-nav-bar-main;
+    
+    // Load skins.
+    @include organisms-nav-bar-main--theme( $skin );
+    
+  }
+  
+}
