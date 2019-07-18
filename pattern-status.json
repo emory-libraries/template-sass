@@ -53,7 +53,7 @@
   "compounds-cards": "review",
   "compounds-accordion": "review",
   "compounds-related": "review",
-  "compounds-blocks": "construction",
+  "compounds-blocks": "review",
   "compounds-sidebar-list": "review",
   "compounds-tiles": "review",
   "compounds-grouping-files": "review",
@@ -61,7 +61,7 @@
   "compounds-slider": "review",
   "compounds-nav-menu-utility": "review",
   "compounds-popular-links-menu": "review",
-  "compounds-nav-menu-main": "construction",
+  "compounds-nav-menu-main": "review",
   "organisms-intro-interior-cover": "review",
   "organisms-intro": "review",
   "organisms-section-main": "review",
@@ -70,7 +70,7 @@
   "organisms-intro-hero": "review",
   "organisms-flow-content-boxes": "review",
   "organisms-section-deep-dive": "review",
-  "organisms-nav-bar-main": "construction",
+  "organisms-nav-bar-main": "review",
   "templates-info": "review",
   "templates-material": "review",
   "templates-tool": "review",
@@ -81,7 +81,7 @@
   "templates-bio": "review",
   "templates-gallery": "review",
   "templates-research-help-directory": "review",
-  "templates-landing": "construction",
+  "templates-landing": "review",
   "templates-exhibition": "review",
-  "templates-index": "construction"
+  "templates-index": "review"
 }
