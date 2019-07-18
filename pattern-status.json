@@ -79,6 +79,7 @@
   "templates-subject-librarian-directory": "review",
   "templates-staff-directory": "review",
   "templates-bio": "review",
+<<<<<<< Updated upstream
   "templates-gallery": "review",
   "templates-research-help-directory": "review",
   "templates-landing": "review",
@@ -86,3 +87,7 @@
   "templates-index": "review",
   "templates-periodicals": "construction"
 }
+=======
+  "templates-periodicals": "construction"
+}
+>>>>>>> Stashed changes
