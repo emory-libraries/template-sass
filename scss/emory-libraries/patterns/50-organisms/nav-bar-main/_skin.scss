@@ -1,0 +1,103 @@
+////
+/// @group emory-libraries.patterns.organisms.nav-bar-main
+////
+
+/// Defines the base skin of the nav-bar-main component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$organisms-nav-bar-main: (
+
+  'background': color('white'),
+  'padding': (
+    's': 10px,
+    'm': 10px,
+    'l': 20px,
+    'xl': 30px
+  ),
+  'spacing': 25px
+
+);
+
+/// Defines the nav-bar-main component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The nav-bar-main component's themeable properties
+@mixin organisms-nav-bar-main--theme ( $skin ) {
+
+  // Identify selectors.
+  $selector-branding: unquote('.branding-header');
+  $selector-navigation: unquote('.nav-menu-main');
+
+  // Capture themeable variables from skin.
+  $background: map-deep-get($skin, 'background');
+  $padding: map-deep-get($skin, 'padding');
+  $spacing: map-deep-get($skin, 'spacing');
+
+  // Apply padding to navigation bars across various screen sizes.
+  @each $breakpoint, $pad in $padding {
+    @include breakpoint( screen($breakpoint) ) {
+      @include padding-x($pad);
+    };
+  }
+
+  // Defines the nav-bar-main component's base styles.
+  grid-column-gap: $spacing;
+  background-color: $background;
+
+  // Override navigation styles.
+  #{$selector-navigation} {
+
+    // Identify selectors.
+    $selector-navigation-container: unquote('#{$selector-navigation}-nav');
+    $selector-navigation-subnavigation: unquote('.subnav-menu-main');
+
+    // Adjust the navigation menu container's structure.
+    #{$selector-navigation-container} {
+
+      // Fix the placement of subnavigation menus for mobile navigation.
+      &.-mobile {
+
+        // Adjust the navigation menu.
+        #{$selector-navigation-container}-menu {
+
+          // Fix alignment of the navigation menus.
+          @each $breakpoint, $pad in $padding {
+            @include breakpoint( screen($breakpoint) ) {
+              right: -$pad;
+              left: -$pad;
+            };
+          }
+
+        }
+
+      }
+
+      // Fix the placement of subnavigation menus for tablet navigation.
+      &.-tablet {
+
+        // Adjust the subnavigation menu.
+        #{$selector-navigation-subnavigation} {
+
+          // Fix right-alignment of subnavigation menus.
+          @each $breakpoint, $pad in $padding {
+            @include breakpoint( screen($breakpoint) ) {
+              right: -$pad;
+            };
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

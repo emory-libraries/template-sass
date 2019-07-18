@@ -54,3 +54,8 @@
 .exhibition-page {
   @include templates-exhibition;
 }
+
+// templates-index
+.index-page {
+  @include templates-index;
+}

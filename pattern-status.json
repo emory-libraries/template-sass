@@ -61,6 +61,7 @@
   "compounds-slider": "review",
   "compounds-nav-menu-utility": "review",
   "compounds-popular-links-menu": "review",
+  "compounds-nav-menu-main": "construction",
   "organisms-intro-interior-cover": "review",
   "organisms-intro": "review",
   "organisms-section-main": "review",
@@ -69,6 +70,7 @@
   "organisms-intro-hero": "review",
   "organisms-flow-content-boxes": "review",
   "organisms-section-deep-dive": "review",
+  "organisms-nav-bar-main": "construction",
   "templates-info": "review",
   "templates-material": "review",
   "templates-tool": "review",
@@ -80,5 +82,6 @@
   "templates-gallery": "review",
   "templates-research-help-directory": "review",
   "templates-landing": "construction",
-  "templates-exhibition": "review"
+  "templates-exhibition": "review",
+  "templates-index": "construction"
 }
