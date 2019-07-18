@@ -17,7 +17,7 @@
   overflow: hidden;
 
   // Builds the tile utility structure without descriptions.
-  &:not(.has-description):not(.has-image) {
+  &:not(.has-description) {
     grid-template-areas: "title";
 
     #{$selector}-description {
@@ -43,7 +43,7 @@
     #{$selector}-image {
       display: none;
     }
-    
+
   }
 
   // Builds the tile utility image structure.
