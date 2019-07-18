@@ -434,13 +434,17 @@
     @include grid-layout((
       'subtitle': false,
       'section': false,
+      'content': false,
+      'spacer': false,
       'sidebar': false
     ));
 
     // Hide grid areas that are not being used within this page type.
     #{$selector}-subtitle,
     #{$selector}-section,
-    #{$selector}-sidebar {
+    #{$selector}-sidebar
+    #{$selector}-content
+    #{$selector}-spacer {
       display: none;
     }
 
