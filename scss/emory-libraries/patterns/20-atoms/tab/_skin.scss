@@ -262,7 +262,7 @@ $atoms-tab: (
   &-switch {
 
     // Show the tab's active state when the switch is enabled.
-    &:checked ~ #{$selector} {
+    &:checked + #{$selector} {
       color: $active;
 
       // Displays indicator when active.
@@ -274,7 +274,7 @@ $atoms-tab: (
     }
 
     // Hide the tab's active state when the switch is disabled.
-    &:not(:checked) ~ #{$selector} {
+    &:not(:checked) + #{$selector} {
       color: $default;
 
       &::after {
