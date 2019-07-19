@@ -1,0 +1,130 @@
+////
+/// @group emory-libraries.patterns.compounds.tab-menu
+////
+
+/// Defines the base skin of the tab-menu component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$compounds-tab-menu: (
+
+  'theme': 'light',
+  'themes': (
+    'light': (
+      'dropdown': $color-actionable
+    ),
+    'dark': (
+      'dropdown': color('gold')
+    )
+  ),
+
+  'dropdown': (
+    'padding': (
+      'x': 10px,
+      'y': 5px
+    ),
+    'spacing': 5px,
+    'icon': 20px,
+    'underline': $border-width-s
+  )
+
+);
+
+/// Defines the tab-menu component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The tab-menu component's themeable properties
+@mixin compounds-tab-menu--theme ( $skin ) {
+
+  // Capture selector.
+  $selector: &;
+
+  // Capture themeable variables from skin.
+  $theme: map-deep-get($skin, 'theme');
+  $themes: map-deep-get($skin, 'themes');
+
+  // Get theme-specific variables.
+  $theme-dropdown: map-deep-get($themes, $theme + '.dropdown');
+
+  // Get dropdown-specific variables.
+  $dropdown-icon: map-deep-get($skin, 'dropdown.icon');
+  $dropdown-spacing: map-deep-get($skin, 'dropdown.spacing');
+  $dropdown-padding-x: map-deep-get($skin, 'dropdown.padding.x');
+  $dropdown-padding-y: map-deep-get($skin, 'dropdown.padding.y');
+  $dropdown-underline: map-deep-get($skin, 'dropdown.underline');
+
+  // Defines the tab-menu component's base styles.
+  // ...
+
+  // Defines tab menu dropdown styles.
+  &.-dropdown {
+    @include tokens-text('body', $theme-dropdown, ('body': (
+      'font-weight': bold,
+      'text-transform': uppercase
+    )));
+    font-size: 18px !important;
+    padding: $dropdown-spacing;
+
+    &::after {
+      width: calc(100% - #{$dropdown-padding-x + $dropdown-icon + $dropdown-spacing});
+      height: $dropdown-underline;
+      background-color: $theme-dropdown;
+      bottom: $dropdown-spacing;
+    }
+
+    select {
+      @include padding-x($dropdown-padding-x);
+      @include padding-y($dropdown-padding-y);
+      padding-right: ($dropdown-padding-x + $dropdown-icon + $dropdown-spacing);
+      background-image: icon-url('material-chevron_down', $theme-dropdown, $dropdown-icon);
+      background-size: $dropdown-icon auto;
+      background-repeat: no-repeat;
+      background-position: center right;
+      color: inherit;
+      font: inherit;
+      text-transform: inherit;
+
+      option {
+        color: $color-text-dark;
+        font: initial;
+        font-family: sans-serif;
+      }
+
+    }
+
+  }
+
+  // Set theme-specific styles.
+  @each $theme, $settings in $themes {
+
+    // Get theme-specific variables.
+    $theme-dropdown: map-deep-get($settings, 'dropdown');
+
+    // Apply theme-specific style overrides.
+    &.-#{$theme} {
+
+      // Override dropdown styles.
+      &.-dropdown {
+        color: $theme-dropdown;
+
+        &::after {
+          background-color: $theme-dropdown;
+        }
+
+        select {
+          background-image: icon-url('material-chevron_down', $theme-dropdown, $dropdown-icon);
+        }
+
+      }
+
+    }
+
+  }
+
+}

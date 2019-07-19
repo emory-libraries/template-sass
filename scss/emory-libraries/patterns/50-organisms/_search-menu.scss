@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.organisms.search-menu
+////
+
+/// Load the search-menu component's structure and skin.
+@import 'search-menu/structure';
+@import 'search-menu/skin';
+
+/// Builds a constructor for the search-menu component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} organisms-search-menu
+/// @requires {variable} organisms-search-menu
+/// @requires {mixin} organisms-search-menu--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our search-menu component
+///
+/// @status construction
+@mixin organisms-search-menu ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($organisms-search-menu, $custom);
+  
+  // Initialize the search-menu component.
+  & {
+    
+    // Load structure.
+    @extend %organisms-search-menu;
+    
+    // Load skins.
+    @include organisms-search-menu--theme( $skin );
+    
+  }
+  
+}

@@ -1,0 +1,53 @@
+////
+/// @group emory-libraries.patterns.templates.form
+////
+
+/// Defines the base skin of the form component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$templates-form: (
+
+  'layout': (
+    'x': $layout-x,
+    'y': $layout-y
+  ),
+
+  'gap': 20px
+
+);
+
+/// Defines the form component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The form component's themeable properties
+@mixin templates-form--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $gap: map-deep-get($skin, 'gap');
+  $layout: map-deep-get($skin, 'layout');
+
+  // Defines the form component's base styles.
+  grid-gap: $gap;
+
+  // Defines form header and footer styles.
+  &-header,
+  &-footer {
+    border: $border-width-s solid color('slate'); // TEMPORARY
+  }
+
+  // Defines form header styles.
+  &-header { }
+
+  // Defines form main styles.
+  &-main { }
+
+  // Defines form footer styles.
+  &-footer { }
+}

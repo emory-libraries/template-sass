@@ -8,7 +8,7 @@
 ///
 /// @type map
 $atoms-tab: (
-  
+
   'thickness': $border-width-s,
   'transition': (
     'duration': $transition-duration,
@@ -49,7 +49,7 @@ $atoms-tab: (
       'border': rgba(color('slate', 'light'), .25)
     )
   )
-  
+
 );
 
 
@@ -67,10 +67,10 @@ $atoms-tab: (
 ///
 /// @output The tab component's themeable properties
 @mixin atoms-tab--theme ( $skin ) {
-  
-  // Capture the class name.
-  $class: &;
-  
+
+  // Capture the selector.
+  $selector: &;
+
   // Captures themeable variables.
   $thickness: map-deep-get($skin, 'thickness');
   $duration: map-deep-get($skin, 'transition.duration');
@@ -79,28 +79,28 @@ $atoms-tab: (
   $hover: map-deep-get($skin, 'color.hover');
   $active: map-deep-get($skin, 'color.active');
   $border: map-deep-get($skin, 'border');
-  
+
   // Build tab component styles.
   @include tokens-heading('h6', $default);
   transition: all $duration $timing;
-  
+
   // Capture tab-specific variables.
   $divider-size: map-deep-get($skin, 'divider.size');
   $indicator-size: map-deep-get($skin, 'indicator.size');
   $indicator-start: map-deep-get($skin, 'indicator.start');
   $indicator-stop: map-deep-get($skin, 'indicator.stop');
-  
+
   // Builds styles between subsequent tabs.
   &::before {
     width: $thickness;
     height: $divider-size;
   }
-  
+
   // Add left border to subsequent tabs.
   & + &::before {
     background-color: $border;
   }
-  
+
   // Builds styles for hovered/focused tabs.
   &:hover,
   &:focus,
@@ -108,7 +108,7 @@ $atoms-tab: (
   &.is-focus {
     color: $hover;
   }
-  
+
   // Builds styles for active tabs.
   &:active,
   &.is-active {
@@ -121,127 +121,168 @@ $atoms-tab: (
     }
 
   }
-  
+
   // Build tab menu styles.
   &-menu {
-    
+    margin: 0;
+
     // Build horizontal rule styles.
     &::after {
       height: $thickness;
     }
-    
+
     // Build light theme menu styles.
     &,
     &.-light {
-      $background: map-deep-get($skin, 'theme.light.background');
-      $border: map-deep-get($skin, 'theme.light.border');
-      $default: map-deep-get($skin, 'theme.light.foreground.default');
-      $hover: map-deep-get($skin, 'theme.light.foreground.hover');
-      $active: map-deep-get($skin, 'theme.light.foreground.active');
-      
-      background-color: $background;
-      
-      // Styles the horizontal rule under the menu.
-      &::after {
-        background-color: $border;
-      }
-      
-      // Styles tabs when inside a light-themed menu.
-      #{$class} {
-        color: $default;
-        
-        // Styles the tab's hover/focus state.
-        &:hover,
-        &:focus,
-        &.is-hover,
-        &.is-focus {
-          color: $hover;
+      $theme-background: map-deep-get($skin, 'theme.light.background');
+      $theme-border: map-deep-get($skin, 'theme.light.border');
+      $theme-default: map-deep-get($skin, 'theme.light.foreground.default');
+      $theme-hover: map-deep-get($skin, 'theme.light.foreground.hover');
+      $theme-active: map-deep-get($skin, 'theme.light.foreground.active');
+
+      &:not(.-dropdown) {
+        background-color: $theme-background;
+
+        // Styles the horizontal rule under the menu.
+        &::after {
+          background-color: $theme-border;
         }
-    
-        // Styles the tab's active state.
-        &:active,
-        &.is-active {
-          color: $active;
-          
-          // Displays indicator when active.
-          &::after {
-            @include tokens-icon('material-arrow_drop_down', $active, $indicator-size, $pseudo: true);
-            @include linear-gradient(
-              to bottom, 
-              transparent $indicator-start, 
-              $background $indicator-start,
-              $background $indicator-stop,
-              transparent $indicator-stop
-            );
+
+        // Styles tabs when inside a light-themed menu.
+        #{$selector} {
+          color: $theme-default;
+
+          // Styles the tab's hover/focus state.
+          &:hover,
+          &:focus,
+          &.is-hover,
+          &.is-focus {
+            color: $theme-hover;
           }
-          
+
+          // Styles the tab's active state.
+          &:active,
+          &.is-active {
+            color: $theme-active;
+
+            // Displays indicator when active.
+            &::after {
+              @include tokens-icon('material-arrow_drop_down', $theme-active, $indicator-size, $pseudo: true);
+              @include linear-gradient(
+                to bottom,
+                transparent $indicator-start,
+                $theme-background $indicator-start,
+                $theme-background $indicator-stop,
+                transparent $indicator-stop
+              );
+            }
+
+          }
+
+          // Add left border to subsequent tabs.
+          + #{$selector}::before {
+            background-color: $theme-border;
+          }
+
         }
-        
-        // Add left border to subsequent tabs.
-        + #{$class}::before {
-          background-color: $border;
-        }
-        
+
       }
-      
+
+      &.-dropdown {
+        background-color: $theme-background;
+      }
+
     }
-  
+
     // Build dark theme menu styles.
     &.-dark {
-      $background: map-deep-get($skin, 'theme.dark.background');
-      $border: map-deep-get($skin, 'theme.dark.border');
-      $default: map-deep-get($skin, 'theme.dark.foreground.default');
-      $hover: map-deep-get($skin, 'theme.dark.foreground.hover');
-      $active: map-deep-get($skin, 'theme.dark.foreground.active');
-      
-      background-color: $background;
-      
-      // Styles the horizontal rule under the menu.
-      &::after {
-        background-color: $border;
-      }
-      
-      // Styles tabs when inside a dark-themed menu.
-      #{$class} {
-        color: $default;
-        
-        // Styles the tab's hover/focus state.
-        &:hover,
-        &:focus,
-        &.is-hover,
-        &.is-focus {
-          color: $hover;
+      $theme-background: map-deep-get($skin, 'theme.dark.background');
+      $theme-border: map-deep-get($skin, 'theme.dark.border');
+      $theme-default: map-deep-get($skin, 'theme.dark.foreground.default');
+      $theme-hover: map-deep-get($skin, 'theme.dark.foreground.hover');
+      $theme-active: map-deep-get($skin, 'theme.dark.foreground.active');
+
+      &:not(.-dropdown) {
+        background-color: $theme-background;
+
+        // Styles the horizontal rule under the menu.
+        &::after {
+          background-color: $theme-border;
         }
-    
-        // Styles the tab's active state.
-        &:active,
-        &.is-active {
-          color: $active;
-          
-          // Displays indicator when active.
-          &::after {
-            @include tokens-icon('material-arrow_drop_down', $active, $indicator-size, $pseudo: true);
-            @include linear-gradient(
-              to bottom, 
-              transparent $indicator-start, 
-              $background $indicator-start,
-              $background $indicator-stop,
-              transparent $indicator-stop
-            );
+
+        // Styles tabs when inside a dark-themed menu.
+        #{$selector} {
+          color: $theme-default;
+
+          // Styles the tab's hover/focus state.
+          &:hover,
+          &:focus,
+          &.is-hover,
+          &.is-focus {
+            color: $theme-hover;
           }
-          
+
+          // Styles the tab's active state.
+          &:active,
+          &.is-active {
+            color: $theme-active;
+
+            // Displays indicator when active.
+            &::after {
+              @include tokens-icon('material-arrow_drop_down', $theme-active, $indicator-size, $pseudo: true);
+              @include linear-gradient(
+                to bottom,
+                transparent $indicator-start,
+                $theme-background $indicator-start,
+                $theme-background $indicator-stop,
+                transparent $indicator-stop
+              );
+            }
+
+          }
+
+          // Add left border to subsequent tabs.
+          + #{$selector}::before {
+            background-color: $theme-border;
+          }
+
         }
-        
-        // Add left border to subsequent tabs.
-        + #{$class}::before {
-          background-color: $border;
-        }
-        
+
       }
-      
+
+      &.-dropdown {
+        background-color: $theme-background;
+      }
+
     }
-    
+
   }
-  
-  
+
+  // Build tab switch styles.
+  &-switch {
+
+    // Show the tab's active state when the switch is enabled.
+    &:checked + #{$selector} {
+      color: $active;
+
+      // Displays indicator when active.
+      &::after {
+        @include tokens-icon('material-arrow_drop_down', $active, $indicator-size, $pseudo: true);
+        @include size( $indicator-size );
+      }
+
+    }
+
+    // Hide the tab's active state when the switch is disabled.
+    &:not(:checked) + #{$selector} {
+      color: $default;
+
+      &::after {
+        content: none;
+      }
+
+    }
+
+  }
+
 }
