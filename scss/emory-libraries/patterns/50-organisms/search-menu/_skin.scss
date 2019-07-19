@@ -1,0 +1,73 @@
+////
+/// @group emory-libraries.patterns.organisms.search-menu
+////
+
+/// Defines the base skin of the search-menu component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$organisms-search-menu: (
+  
+  'background-color': color('blue','dark')
+  
+);
+
+/// Defines the search-menu component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The search-menu component's themeable properties
+@mixin organisms-search-menu--theme ( $skin ) {
+
+  // Capture the selector
+    // Capture the class name.
+  $selector: &;
+
+  // Capture themeable variables from skin.
+  $search-background: map-deep-get($skin, 'background-color');
+ 
+  // Defines the search-menu component's base styles.
+  background-color: $search-background;
+
+  .search-clear {
+    color: #fff;
+    font-size: .9em;
+  }
+
+  &.-home {
+    background: transparent;
+    transition: $transition-all;
+
+    .tab-menu {
+      position: absolute;
+      left: -10000px;
+      margin-bottom: 0;
+      background: transparent;
+      transition: $transition-all;
+      padding: 0;
+    }
+
+    &:focus,
+    &:focus-within,
+    &:hover,
+    &:active {
+      background-color: $search-background;
+      opacity: .9;
+      transition: $transition-all;
+
+      .tab-menu {
+        position: initial;
+        left: initial;
+        transition: $transition-all;
+      }
+
+    }
+
+  }
+
+}

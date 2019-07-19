@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.compounds.tab-menu
+////
+
+/// Load the tab-menu component's structure and skin.
+@import 'tab-menu/structure';
+@import 'tab-menu/skin';
+
+/// Builds a constructor for the tab-menu component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} compounds-tab-menu
+/// @requires {variable} compounds-tab-menu
+/// @requires {mixin} compounds-tab-menu--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our tab-menu component
+///
+/// @status construction
+@mixin compounds-tab-menu ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($compounds-tab-menu, $custom);
+
+  // Initialize the tab-menu component.
+  & {
+
+    // Load structure.
+    @extend %compounds-tab-menu;
+
+    // Load skins.
+    @include compounds-tab-menu--theme( $skin );
+
+  }
+
+}
