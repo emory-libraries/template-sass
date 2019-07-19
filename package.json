@@ -1,7 +1,7 @@
 {
   "title": "Emory Libraries Sass",
   "name": "template-sass",
-  "version": "1.0.0-dev.0",
+  "version": "1.0.0-dev.3",
   "description": "A baseline Sass framework for Emory Libraries",
   "main": "index.js",
   "scripts": {

@@ -5,6 +5,12 @@
   @include templates-info;
 }
 
+// templates-form
+.form-page {
+  @include templates-form;
+}
+
+
 // templates-material
 .material-page {
   @include templates-material;
@@ -53,4 +59,9 @@
 // templates-exhibition
 .exhibition-page {
   @include templates-exhibition;
+}
+
+// templates-index
+.index-page {
+  @include templates-index;
 }
