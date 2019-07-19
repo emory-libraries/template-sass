@@ -21,10 +21,7 @@
   width: 100%;
   display: grid;
   grid-area: main;
-<<<<<<< HEAD
-=======
   padding: 0 1.25em 1.25em;
->>>>>>> dev
 
   // Initializes a helper for building page-specific grid layouts.
   @mixin grid-layout( $overrides: () ) {
