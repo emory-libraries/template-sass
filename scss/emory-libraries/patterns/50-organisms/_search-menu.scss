@@ -21,19 +21,33 @@
 ///
 /// @status construction
 @mixin organisms-search-menu ( $custom: () ) {
-  
+
   // Extend the default skin.
   $skin: map-extend($organisms-search-menu, $custom);
-  
+
   // Initialize the search-menu component.
   & {
-    
+
     // Load structure.
     @extend %organisms-search-menu;
-    
+
+    // Load parts.
+    &-context {
+      @extend %organisms-search-menu-context;
+    }
+    &-tabs {
+      @extend %organisms-search-menu-tabs;
+    }
+    &-search {
+      @extend %organisms-search-menu-search;
+    }
+    &-back {
+      @extend %organisms-search-menu-back;
+    }
+
     // Load skins.
     @include organisms-search-menu--theme( $skin );
-    
+
   }
-  
+
 }
