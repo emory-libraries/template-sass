@@ -9,10 +9,10 @@
 /// @param {number} max - The maximum allowed layout size for the largest breakpoint
 /// @param {list} breakpoints [map-keys($screens)] - The breakpoints that the layout should scale to.
 ///
-/// @returns {list} - A list of layout sizes for each breakpoint. 
+/// @returns {list} - A list of layout sizes for each breakpoint.
 @function layout-scale( $min, $max, $breakpoints: map-keys($screens) ) {
-  
-  @return numeric-scale($layout-y-min, $layout-y-max, length($breakpoints), true);
+
+  @return numeric-scale($min, $max, length($breakpoints), true);
   
 }
 
@@ -26,11 +26,11 @@
 /// @param {list} scale - A layout scale.
 /// @param {list} breakpoints [map-keys($screens)] - The breakpoints that the layout should scale to.
 ///
-/// @returns {map} - A map of layout sizes for each breakpoint. 
+/// @returns {map} - A map of layout sizes for each breakpoint.
 @function layout-breakpoints( $scale, $breakpoints: map-keys($screens) ) {
-  
+
   @return map-combine($breakpoints, $scale);
-  
+
 }
 
 /// Generates a layout map given `min` and `max` layout sizes for a range of `breakpoints`.
@@ -45,9 +45,9 @@
 /// @param {number} max - The maximum allowed layout size for the largest breakpoint
 /// @param {list} breakpoints [map-keys($screens)] - The breakpoints that the layout should scale to.
 ///
-/// @returns {map} - A map of layout sizes for each breakpoint. 
+/// @returns {map} - A map of layout sizes for each breakpoint.
 @function layout( $min, $max, $breakpoints: map-keys($screens) ) {
-  
+
   @return layout-breakpoints(layout-scale($min, $max, $breakpoints), $breakpoints);
-  
+
 }

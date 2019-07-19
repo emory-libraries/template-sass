@@ -1,0 +1,54 @@
+////
+/// @group emory-libraries.patterns.templates.staff-directory
+////
+
+/// Defines the base skin of the staff-directory component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$templates-staff-directory: (
+  
+  'layout': (
+    'x': $layout-x,
+    'y': $layout-y
+  ),
+  
+  'gap': 20px
+  
+);
+
+/// Defines the staff-directory component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The staff-directory component's themeable properties
+@mixin templates-staff-directory--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $gap: map-deep-get($skin, 'gap');
+  $layout: map-deep-get($skin, 'layout');
+
+  // Defines the staff-directory component's base styles.
+  grid-gap: $gap;
+  
+  // Defines staff directory header and footer styles.
+  &-header,
+  &-footer {
+    border: $border-width-s solid color('slate'); // TEMPORARY
+  }
+  
+  // Defines staff directory header styles.
+  &-header { }
+  
+  // Defines staff directory main styles.
+  &-main { }
+  
+  // Defines staff directory footer styles.
+  &-footer { }
+  
+}

@@ -6,24 +6,26 @@
 ///
 /// @since 1.0.0-dev.0
 %organisms-section-major {
-  
+
   // Builds the section-major structure.
-  display: block;
-  
+  display: grid;
+
   // Builds the major title structure.
-  &-title { 
+  &-title {
     margin-top: 0;
-  
+
     &::after {
       content: '';
       display: block;
       @include absolute( null 0 -.83em 0);
       margin: 0 auto;
     }
-    
+
   }
-  
+
   // Builds the major body structure.
-  &-body { }
-  
+  &-body {
+    padding-top: $rhythm-y;
+  }
+
 }

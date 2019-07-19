@@ -1,0 +1,52 @@
+////
+/// @group emory-libraries.patterns.compounds.popular-links-menu
+////
+
+/// Load the popular-links-menu component's structure and skin.
+@import 'popular-links-menu/structure';
+@import 'popular-links-menu/skin';
+
+/// Builds a constructor for the popular-links-menu component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} compounds-popular-links-menu
+/// @requires {variable} compounds-popular-links-menu
+/// @requires {mixin} compounds-popular-links-menu--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our popular-links-menu component
+///
+/// @status review
+@mixin compounds-popular-links-menu ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($compounds-popular-links-menu, $custom);
+
+  // Initialize the popular-links-menu component.
+  & {
+
+    // Load structure.
+    @extend %compounds-popular-links-menu;
+
+    // Load parts
+    &-title {
+      @extend %compounds-popular-links-menu-title;
+    }
+
+    &-list {
+      @extend %compounds-popular-links-menu-list;
+    }
+
+    &-list-item {
+      @extend %compounds-popular-links-menu-list-item;
+    }
+
+    // Load skins.
+    @include compounds-popular-links-menu--theme( $skin );
+
+  }
+
+}

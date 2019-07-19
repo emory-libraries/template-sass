@@ -6,10 +6,10 @@
 ///
 /// @since 1.0.0
 %atoms-subnav-button {
-  
+
   // Capture selector.
   $selector: &;
-  
+
   // Builds the subnav-button structure.
   @extend %atoms-button;
   display: flex;
@@ -19,60 +19,67 @@
   min-height: 55px;
   height: auto;
   width: 100%;
-  
+
   // Modify styles on larger screens.
   @include breakpoint-m-l {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
   };
-  
+
   // Apply icon structure.
   .icon {
     @include absolute-center-contents;
   }
-  
+
   // Modifies main button structure.
   &:not(.-utility):not(.-viewall):not(.-back):not(.-resource),
   &.-main { }
-  
+
   // Modifies utility button structure.
   &.-utility { }
-  
+
   // Modifies view all button structure.
   &.-viewall {
-    
-    // Adjusts structure on larger screens.
-    @include breakpoint-m-l {
+    position: sticky;
+    bottom: 0;
+
+    // Adjusts structure on large screens.
+    @include breakpoint-l {
       @include absolute-center-contents;
       min-height: 75px;
+      position: relative;
+      bottom: unset;
     };
-    
+
     // Make the button dismissable.
     &.is-dismissed {
       display: none;
     }
-    
+
   }
-  
+
   // Modifies back button structure.
-  &.-back { 
+  &.-back {
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    
+    position: sticky;
+    top: 0;
+    z-index: z('above');
+
     // Adds icon structure.
     &::before {
       @include absolute-center-contents;
     }
-    
-    // Always hide back buttons on larger screens.
-    @include breakpoint-m-l {
+
+    // Always hide back buttons on large screens.
+    @include breakpoint-l {
       display: none;
     };
-    
+
   }
-  
+
   // Modifies resource button structure.
   &.-resource {
 
@@ -80,81 +87,82 @@
     #{$selector}-options {
       display: flex;
       @include absolute(0 0 0);
-      
+
       // Builds toggle structure.
       &-toggle {
         display: none;
       }
-      
+
     }
-    
+
     // Builds option structure.
-    #{$selector}-option { 
+    #{$selector}-option {
       @include absolute-center-contents;
       align-self: stretch;
     }
-    
+
   }
-  
+
   /* COMPONENT PARTS */
-  
+
   // Defines structure of button aliases.
   &-alias {
     display: flex;
     justify-content: flex-start;
-    
+
     // Adjusts structure on larger screens.
     @include breakpoint-m-l {
       @include size( auto );
     };
-    
+
   }
-  
+
   /* COMPONENT ACCESSORIES */
-  
+
   // Defines structure of grouped and categorized buttons.
   &-group,
   &-category {
-    
+
     // Builds structure of group and category headings.
     &-heading {
       min-height: 0;
+      display: block;
     }
-    
+
   }
-  
+
   // Defines structure of grouped buttons.
   &-group {
-    
+
     // Modifies grouped button structure.
     &:not(.-utility),
     &.-main { }
-    
+
+    // Adjust structure of buttons.
+    #{$selector} {
+
+      @include breakpoint-l {
+        min-height: 35px;
+      };
+
+    }
+
   }
-  
+
   // Defines structure of categorized buttons.
   &-category {
-    
+
     // Modifies categorized button structure.
     &:not(.-utility),
     &.-main {
       min-height: 0;
     }
-    
-    // Adjust structure of buttons.
-    #{$selector} {
-      
-      @include breakpoint-m-l {
-        min-height: 35px;
-      };
-      
-    }
-    
+
   }
 
   // Defines structure of overflow.
   &-overflow {
-    
+
     // Builds toggle structure.
     &-toggle {
       display: none;
@@ -169,5 +177,5 @@
   &.is-disabled {
     opacity: .5;
   }
-  
+
 }

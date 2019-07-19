@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.staff-directory
+////
+
+/// Load the staff-directory component's structure and skin.
+@import 'staff-directory/structure';
+@import 'staff-directory/skin';
+
+/// Builds a constructor for the staff-directory component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} templates-staff-directory
+/// @requires {variable} templates-staff-directory
+/// @requires {mixin} templates-staff-directory--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our staff-directory component
+///
+/// @status review
+@mixin templates-staff-directory ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($templates-staff-directory, $custom);
+  
+  // Initialize the staff-directory component.
+  & {
+    
+    // Load structure.
+    @extend %templates-staff-directory;
+    
+    // Load parts.
+    &-header {
+      @extend %templates-staff-directory-header;
+    }
+    &-main {
+      @extend %templates-staff-directory-main;
+    }
+    &-footer {
+      @extend %templates-staff-directory-footer;
+    }
+    
+    // Load skins.
+    @include templates-staff-directory--theme( $skin );
+    
+  }
+  
+}

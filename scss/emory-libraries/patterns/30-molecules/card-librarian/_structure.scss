@@ -21,7 +21,7 @@
     grid-template-columns: 1fr 2fr 1fr;
   };
   
-  // Builds the card's about, subjects, and contact structure.
+  // Builds the card's subjects and contact structure.
   &-subjects,
   &-contact {
     
@@ -43,7 +43,7 @@
                          "title"
                          "library";
     grid-template-columns: 1fr;
-    grid-template-rows: 1fr min-content auto min-content;
+    grid-template-rows: repeat(4, min-content);
   }
   
   // Builds the card subjects structure.

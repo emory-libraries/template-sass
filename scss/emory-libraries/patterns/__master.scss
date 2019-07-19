@@ -16,6 +16,7 @@
 @import '10-tokens/icon';
 @import '10-tokens/layout';
 @import '10-tokens/grid';
+@import '10-tokens/reveal';
 /*** INSERT NEW TOKENS HERE ***/
 
 /// Load atoms.
@@ -68,6 +69,9 @@
 @import '30-molecules/alert';
 @import '30-molecules/notification';
 @import '30-molecules/card-button';
+@import '30-molecules/card-staff';
+@import '30-molecules/breadcrumbs';
+@import '30-molecules/branding-header';
 /*** INSERT NEW MOLECULES HERE ***/
 
 
@@ -80,6 +84,13 @@
 @import '40-compounds/related';
 @import '40-compounds/blocks';
 @import '40-compounds/sidebar-list';
+@import '40-compounds/tiles';
+@import '40-compounds/grouping-files';
+@import '40-compounds/nav-menu-utility';
+@import '40-compounds/popular-links-menu';
+@import '40-compounds/subnav-menu-main';
+@import '40-compounds/slider';
+@import '40-compounds/nav-menu-main';
 /*** INSERT NEW COMPOUNDS HERE ***/
 
 
@@ -90,6 +101,11 @@
 @import '50-organisms/section-main';
 @import '50-organisms/section-major';
 @import '50-organisms/section-minor';
+@import '50-organisms/intro-hero';
+@import '50-organisms/section-deep-dive';
+@import '50-organisms/flow-content-boxes';
+@import '50-organisms/intro-interior-cover';
+@import '50-organisms/nav-bar-main';
 /*** INSERT NEW ORGANISMS HERE ***/
 
 
@@ -101,5 +117,16 @@
 @import '60-templates/tool';
 @import '60-templates/service-directory';
 @import '60-templates/research-help';
+<<<<<<< HEAD
 @import '60-templates/form';
+=======
+@import '60-templates/subject-librarian-directory';
+@import '60-templates/staff-directory';
+@import '60-templates/bio';
+@import '60-templates/landing';
+@import '60-templates/gallery';
+@import '60-templates/exhibition';
+@import '60-templates/research-help-directory';
+@import '60-templates/index';
+>>>>>>> dev
 /*** INSERT NEW TEMPLATES HERE ***/

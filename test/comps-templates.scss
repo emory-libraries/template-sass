@@ -26,6 +26,42 @@
   @include templates-service-directory;
 }
 
+// templates-research-help
 .research-help-page {
   @include templates-research-help;
+}
+
+// templates-subject-librarian-directory
+.subject-librarian-directory-page {
+  @include templates-subject-librarian-directory;
+}
+
+// templates-staff-directory
+.staff-directory-page {
+  @include templates-staff-directory;
+}
+
+// templates-bio
+.bio-page {
+  @include templates-bio;
+}
+
+// templates-landing
+.landing-page {
+  @include templates-landing;
+}
+
+// templates-gallary
+.gallery-page {
+  @include templates-gallery;
+}
+
+// templates-exhibition
+.exhibition-page {
+  @include templates-exhibition;
+}
+
+// templates-index
+.index-page {
+  @include templates-index;
 }

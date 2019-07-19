@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.bio
+////
+
+/// Load the bio component's structure and skin.
+@import 'bio/structure';
+@import 'bio/skin';
+
+/// Builds a constructor for the bio component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} templates-bio
+/// @requires {variable} templates-bio
+/// @requires {mixin} templates-bio--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our bio component
+///
+/// @status review
+@mixin templates-bio ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($templates-bio, $custom);
+  
+  // Initialize the bio component.
+  & {
+    
+    // Load structure.
+    @extend %templates-bio;
+    
+    // Load parts.
+    &-header {
+      @extend %templates-bio-header;
+    }
+    &-main {
+      @extend %templates-bio-main;
+    }
+    &-footer {
+      @extend %templates-bio-footer;
+    }
+    
+    // Load skins.
+    @include templates-bio--theme( $skin );
+    
+  }
+  
+}

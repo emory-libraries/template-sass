@@ -1,0 +1,46 @@
+////
+/// @group emory-libraries.patterns.templates.gallery
+////
+
+/// Defines the base structure of the gallery component.
+///
+/// @since 1.0.0-dev.0
+%templates-gallery {
+  
+  // Builds the gallery structure.
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "header"
+                       "main"
+                       "footer";
+  grid-template-rows: 150px 1fr 420px;
+  grid-template-columns: 1fr;
+  
+  // Builds the gallery header structure.
+  &-header {
+    grid-area: header;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Header'; // TEMPORARY
+    }
+    
+  }
+
+  // Builds the gallery main structure.
+  &-main {
+    grid-area: main;
+  }
+
+  // Builds the gallery footer structure.
+  &-footer {
+    grid-area: footer;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Footer'; // TEMPORARY
+    }
+    
+  }
+  
+}
