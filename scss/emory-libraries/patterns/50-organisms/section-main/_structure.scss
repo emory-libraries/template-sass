@@ -434,12 +434,14 @@
   &.-periodicals-page {
     @include grid-layout((
       'subtitle': false,
-      'sidebar': false
+      'sidebar': false,
+      'section': false
     ));
 
     // Hide grid areas that are not being used within this page type.
     #{$selector}-subtitle,
-    #{$selector}-sidebar {
+    #{$selector}-sidebar,
+    #{$selector}-section {
       display: none;
     }
 
