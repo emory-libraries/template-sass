@@ -269,7 +269,8 @@
     '.-gallery-page',
     '.-exhibition-page',
     '.-research-help-directory-page',
-    '.-index-page'
+    '.-index-page',
+    '.-periodicals-page'
   )},
   &.-info-page {
     @include grid-layout;
@@ -426,6 +427,23 @@
         display: none;
       }
 
+    }
+
+  }
+
+  // Builds the main structure when used for a periodicals page.
+  &.-periodicals-page {
+    @include grid-layout((
+      'subtitle': false,
+      'sidebar': false,
+      'section': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-subtitle,
+    #{$selector}-sidebar,
+    #{$selector}-section {
+      display: none;
     }
 
   }
