@@ -6,36 +6,49 @@
 ///
 /// @since 1.0.0-dev.0
 %compounds-subnav-menu-main {
-  
+
+  // Set menu padding.
+  $padding: 25px;
+
   // Builds the subnav-menu-main structure.
   display: flex;
   flex-direction: column;
-  
-  // Adjust the subnav menu strcture on large screens.
+
+  // Adjust the subnav menu structure on large screens.
   @include breakpoint-l {
-    width: 690px;
+    @include padding-y($padding);
+    width: 100vw;
   };
-  
+
+  // Adjust the subnav menu structure on extra large screens.
+  @include breakpoint-xl {
+    width: 350px;
+
+    &.has-resources {
+      width: 690px;
+    }
+
+  };
+
   // Modifies structure for grouped subnav menus.
   &.-grouped {
     display: grid;
     grid-template-columns: 1fr;
-    
+
     // Modifies structure on large screens.
     @include breakpoint-l {
       grid-template-columns: $rhythm-x [left-start] 1fr [left-end right-start] 1fr [right-end] $rhythm-x;
-      width: 730px;
-      
+
       > *:nth-child(odd) {
-        grid-column: left; 
+        grid-column: left;
       }
       > *:nth-child(even) {
         grid-column: right;
       }
-      
+
       &.has-search {
         > *:nth-child(odd) {
-          grid-column: right; 
+          grid-column: right;
         }
         > *:nth-child(even) {
           grid-column: left;
@@ -47,31 +60,40 @@
       }
       > *.-span {
         grid-column: 1 / span 4 !important;
+
+        &:last-child {
+          margin-bottom: -$padding;
+        }
+
       }
-      
+
     };
-    
+
+    // Modifies structure on extra large screens.
+    @include breakpoint-xl {
+      width: 730px;
+    };
+
   }
-  
+
   // Modifies structure for categorized subnav menus.
   &.-categorized {
-    
-    // Modifies structure on large screens.
-    @include breakpoint-l {
-      width: 350px;
-    };
-    
+
+    > *:last-child {
+      margin-bottom: 0;
+    }
+
   }
-  
+
   // Builds the subnav menu main heading structure.
   &-heading {
     display: block;
-  
+
     // Only show the heading when the subnav menu is in mobile mode.
     @include breakpoint-l {
       display: none;
     };
-    
+
   }
-  
+
 }

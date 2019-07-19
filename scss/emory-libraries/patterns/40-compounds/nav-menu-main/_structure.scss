@@ -1,0 +1,367 @@
+////
+/// @group emory-libraries.patterns.compounds.nav-menu-main
+////
+
+/// Defines the base structure of the nav-menu-main component.
+///
+/// @since 1.0.0-dev.0
+%compounds-nav-menu-main {
+
+  // Capture selectors.
+  $selector: &;
+  $selector-toggle: unquote('.input.-toggle');
+  $selector-subnavigation: unquote('.subnav-menu-main');
+
+  // Set the maximum number of items allowed within the main navigation menu.
+  $max-items: 10;
+
+  // Builds the nav-menu-main structure.
+  flex-wrap: nowrap;
+
+  // Override the structure of subnavigation menus.
+  #{$selector-subnavigation} {
+    position: absolute;
+    z-index: z('above');
+  }
+
+  // Always hide subnavigation menu toggles.
+  #{$selector-toggle} {
+    display: none;
+  }
+
+  // Builds the navigation structure.
+  &-nav {
+
+    // Identify navigation selector.
+    $selector-navigation: &;
+
+    // Group buttons and subnavigation menus together.
+    &-group {
+      display: block;
+    }
+
+    // Configure mobile navigation menu structure.
+    &.-mobile {
+
+      // Identify selector for mobile navigation toggles.
+      $selector-mobile-toggle: unquote('.nav-button.-toggle');
+
+      // Initialize toggle group structure.
+      #{$selector-navigation}-toggles {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        z-index: (z('above') + 1);
+      }
+
+      // Build the mobile navigation menu structure.
+      #{$selector-navigation}-menu {
+        display: flex;
+        flex-direction: column;
+        @include absolute(0);
+        width: 100vw;
+        height: 0;
+        padding-top: 0;
+        opacity: 0;
+        overflow: hidden;
+        transform: scaley(0);
+        transform-origin: top center;
+
+        // Build main mobile navigation menu area.
+        &-area {
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+
+          // Set the default state for subnavigation menus.
+          #{$selector-subnavigation} {
+            @include absolute(0 0 0 100vw);
+            z-index: z('above');
+            overflow: auto;
+          }
+
+        }
+
+      }
+
+      // Enable toggling of the mobile navigation menu.
+      > #{$selector-toggle} {
+
+        // Configure mobile navigation menu structure when toggled.
+        &:checked {
+
+          // Show the mobile navigation menu when toggled.
+          ~ #{$selector-navigation}-menu {
+            height: 100vh;
+            margin-top: 40px;
+            opacity: 1;
+            overflow: visible;
+            transform: scaley(1);
+          }
+
+          // Configure the mobile navigation menu toggles.
+          ~ #{$selector-navigation}-toggles {
+
+            // Manipulate mobile menu toggles.
+            #{$selector-mobile-toggle} {
+
+              // Hide the open button.
+              &.-open {
+                display: none;
+              }
+
+              // Show the close button.
+              &.-close {
+                display: flex;
+              }
+
+            }
+
+          }
+
+        }
+
+        // Configure mobile navigation menu structure when not toggled.
+        &:not(:checked) {
+
+          // Hide the mobile navigation menu when not toggled.
+          ~ #{$selector-navigation}-menu {
+            height: 0;
+            margin-top: 0;
+            opacity: 0;
+            overflow: hidden;
+            transform: scaley(0);
+          }
+
+          // Configure the mobile navigation menu toggles.
+          ~ #{$selector-navigation}-toggles {
+
+            // Manipulate mobile menu toggles.
+            #{$selector-mobile-toggle} {
+
+              // Show the open button.
+              &.-open {
+                display: flex;
+              }
+
+              // Hide the close button.
+              &.-close {
+                display: none;
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+      // Disable mobile navigation on larger screens.
+      @include breakpoint-l-xl {
+        display: none;
+      };
+
+    }
+
+    // Configure tablet navigation menu structure.
+    &.-tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      width: max-content;
+      margin-left: auto;
+
+      // Set the default state for subnavigation menus.
+      #{$selector-subnavigation} {
+        top: 100%;
+        right: 0;
+        opacity: 0;
+        max-height: 0;
+        transform: scaley(0);
+        overflow: hidden;
+        transform-origin: top right;
+      }
+
+      // Disable tablet navitation on smaller screens.
+      @include breakpoint-s-m {
+        display: none;
+      };
+
+      // Disable tablet navigation on huge screens.
+      @include breakpoint-xl {
+        display: none;
+      };
+
+    }
+
+    // Configure desktop navigation menu structure.
+    &.-desktop {
+
+      // Disable desktop navigation on smaller screens.
+      @include breakpoint-s-m-l {
+        display: none;
+      };
+
+      // Enable desktop navigation on huge screens.
+      @include breakpoint-xl {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        width: max-content;
+        margin-left: auto;
+
+        // Set the default state for subnavigation menus.
+        #{$selector-subnavigation} {
+          top: 100%;
+          right: 0;
+          opacity: 0;
+          max-height: 0;
+          transform: scaley(0);
+          overflow: hidden;
+          transform-origin: top right;
+        }
+
+      };
+
+    }
+
+  }
+
+  // Configure navigation menu toggles.
+  > #{$selector-toggle} {
+
+    // Only configure up to the maximum number of items allowed within the navigation menu.
+    @for $i from 1 through $max-items {
+
+      // Configure toggles based on their index.
+      &:nth-of-type(#{$i}) {
+
+        // Identify necessary selectors.
+        $selector-navigation: unquote('#{$selector}-nav');
+        $selector-subnavigation: (
+          'desktop': unquote('#{$selector-navigation}-group:nth-of-type(#{$i}) .subnav-menu-main'),
+          'tablet': unquote('.subnav-menu-main:nth-of-type(#{$i})'),
+          'mobile': unquote('#{$selector-navigation}-menu #{$selector-navigation}-menu-area .subnav-menu-main:nth-of-type(#{$i})')
+        );
+        $selector-button: (
+          'desktop': unquote('#{$selector-navigation}-group:nth-of-type(#{$i}) .nav-button'),
+          'tablet': unquote('.nav-button:nth-of-type(#{$i})'),
+          'mobile': unquote('#{$selector-navigation}-menu #{$selector-navigation}-menu-area .nav-button:nth-of-type(#{$i})')
+        );
+
+        // Show subnavigation menus when toggled.
+        &:checked {
+
+          // Manipulate all navigation menus at the same time.
+          ~ #{$selector-navigation} {
+
+            // Configure desktop navigation toggles.
+            &.-desktop {
+
+              // Toggle the subnavigation menu.
+              #{map-get($selector-subnavigation, 'desktop')} {
+                overflow: visible;
+                opacity: 1;
+                max-height: 5000px;
+                transform: scaley(1);
+              }
+
+              // Add toggled styles to the navigation button.
+              #{map-get($selector-button, 'desktop')} {
+                @include atoms-nav-button--state--structure('focus', $selector: false);
+                @include atoms-nav-button--state('focus', $selector: false);
+              }
+
+            }
+
+            // Configure tablet navigation toggles.
+            &.-tablet {
+
+              // Toggle the subnavigation menu.
+              #{map-get($selector-subnavigation, 'tablet')} {
+                overflow: visible;
+                opacity: 1;
+                max-height: 5000px;
+                transform: scaley(1);
+              }
+
+              // Add toggled styles to the navigation button.
+              #{map-get($selector-button, 'tablet')} {
+                @include atoms-nav-button--state--structure('focus', $selector: false);
+                @include atoms-nav-button--state('focus', $selector: false);
+              }
+
+            }
+
+            // Configure mobile navigation toggles.
+            &.-mobile {
+
+              // Toggle the subnavigation menu.
+              #{map-get($selector-subnavigation, 'mobile')} {
+                left: 0;
+              }
+
+            }
+
+          }
+
+        }
+
+        // Hide subnavigation menus when not toggled.
+        &:not(:checked) {
+
+          // Manipulate all navigation menus at the same time.
+          ~ #{$selector-navigation} {
+
+            // Configure desktop navigation toggles.
+            &.-desktop {
+
+              // Toggle the subnavigation menu.
+              #{map-get($selector-subnavigation, 'desktop')} {
+                overflow: hidden;
+                opacity: 0;
+                max-height: 0;
+                transform: scaley(0);
+              }
+
+            }
+
+            // Configure tablet navigation toggles.
+            &.-tablet {
+
+              // Toggle the subnavigation menu.
+              #{map-get($selector-subnavigation, 'tablet')} {
+                overflow: hidden;
+                opacity: 0;
+                max-height: 0;
+                transform: scaley(0);
+              }
+
+            }
+
+            // Configure mobile navigation toggles.
+            &.-mobile {
+
+              // Toggle the subnavigation menu.
+              #{map-get($selector-subnavigation, 'mobile')} {
+                left: 100vw;
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+  }
+
+}

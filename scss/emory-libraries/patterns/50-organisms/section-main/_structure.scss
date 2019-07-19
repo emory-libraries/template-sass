@@ -243,6 +243,7 @@
   &.-bio-page,
   &.-research-help-page,
   &.-service-directory-page,
+  &.-form-page,
   &.-subject-librarian-directory-page,
   &.-staff-directory-page,
   &.-research-help-directory-page {
@@ -261,12 +262,14 @@
     '.-bio-page',
     '.-research-help-page',
     '.-service-directory-page',
+    '.-form-page',
     '.-subject-librarian-directory-page',
     '.-staff-directory-page',
     '.-landing-page',
     '.-gallery-page',
     '.-exhibition-page',
-    '.-research-help-directory-page'
+    '.-research-help-directory-page',
+    '.-index-page'
   )},
   &.-info-page {
     @include grid-layout;
@@ -348,7 +351,6 @@
       #{$selector}-title {
         grid-column: main / sidebar;
       }
-
 
       // Adjust the sidebar placement within the grid.
       #{$selector}-sidebar {
@@ -433,13 +435,17 @@
     @include grid-layout((
       'subtitle': false,
       'section': false,
+      'content': false,
+      'spacer': false,
       'sidebar': false
     ));
 
     // Hide grid areas that are not being used within this page type.
     #{$selector}-subtitle,
     #{$selector}-section,
-    #{$selector}-sidebar {
+    #{$selector}-sidebar
+    #{$selector}-content
+    #{$selector}-spacer {
       display: none;
     }
 
@@ -565,4 +571,38 @@
 
   }
 
+  // Builds the main structure when used for an index page.
+  &.-index-page {
+    @include grid-layout((
+      'spacer': false,
+      'auto': false,
+      'section': false,
+      'sidebar': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-spacer,
+    #{$selector}-content,
+    #{$selector}-section,
+    #{$selector}-sidebar {
+      display: none;
+    }
+
+  }
+
+  // Builds the main structure when used for a form page.
+  &.-form-page {
+    @include grid-layout((
+      'subtitle': false,
+      'section': false,
+      'sidebar': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-subtitle,
+    #{$selector}-section,
+    #{$selector}-sidebar {
+      display: none;
+    }
+  }
 }

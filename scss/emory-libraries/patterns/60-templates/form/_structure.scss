@@ -1,0 +1,49 @@
+////
+/// @group emory-libraries.patterns.templates.form
+////
+
+/// Defines the base structure of the form component.
+///
+/// @since 1.0.0-dev.0
+%templates-form {
+
+  // Captures selector.
+  $selector: &;
+
+  // Builds the form structure.
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "header"
+                       "main"
+                       "footer";
+  grid-template-rows: 150px 1fr 420px;
+  grid-template-columns: 1fr;
+
+  // Builds the form header structure.
+  &-header {
+    grid-area: header;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Header'; // TEMPORARY
+    }
+
+  }
+
+  // Builds the form main structure.
+  &-main {
+    grid-area: main;
+  }
+
+  // Builds the form footer structure.
+  &-footer {
+    grid-area: footer;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Footer'; // TEMPORARY
+    }
+
+  }
+
+}

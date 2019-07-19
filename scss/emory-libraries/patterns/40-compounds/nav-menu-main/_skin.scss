@@ -1,0 +1,83 @@
+////
+/// @group emory-libraries.patterns.compounds.nav-menu-main
+////
+
+/// Defines the base skin of the nav-menu-main component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$compounds-nav-menu-main: (
+
+  'background': color('white'),
+  'menu': color('blue', 'dark'),
+
+  'separator': (
+    'thickness': $border-width-s,
+    'color': rgba(color('blue', 'dark'), .1)
+  ),
+
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  )
+
+);
+
+/// Defines the nav-menu-main component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The nav-menu-main component's themeable properties
+@mixin compounds-nav-menu-main--theme ( $skin ) {
+
+  // Capture selectors.
+  $selector: &;
+  $selector-toggle: unquote('.input.-toggle');
+  $selector-subnavigation: unquote('.subnav-menu-main');
+
+  // Capture themeable variables from skin.
+  $background: map-deep-get($skin, 'background');
+  $menu: map-deep-get($skin, 'menu');
+
+  // Get transition-specific variables.
+  $transition-duration: map-deep-get($skin, 'transition.duration');
+  $transition-timing: map-deep-get($skin, 'transition.timing');
+
+  // Get separator-specific variables.
+  $separator-thickness: map-deep-get($skin, 'separator.thickness');
+  $separator-color: map-deep-get($skin, 'separator.color');
+
+  // Defines the nav-menu-main component's base styles.
+  background-color: $background;
+
+  // Override styles for subnavigation menus.
+  #{$selector-subnavigation} {
+    transition: all $transition-duration $transition-timing;
+  }
+
+  // Define styles for the main navigation menu's navigation.
+  &-nav {
+
+    // Identify navigation selector.
+    $selector-navigation: &;
+
+    // Define styles for the main navigation menu's navigation toggles.
+    &-toggles {
+      background-color: $background;
+      border-bottom: $separator-thickness solid $separator-color;
+    }
+
+    // Define styles for the main navigation menu's navigation menu.
+    &-menu {
+      transition: all $transition-duration $transition-timing;
+      background-color: $menu;
+    }
+
+  }
+
+}

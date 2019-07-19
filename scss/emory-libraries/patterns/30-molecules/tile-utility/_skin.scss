@@ -8,24 +8,24 @@
 ///
 /// @type map
 $molecules-tile-utility: (
-  
+
   'padding': 25px,
   'gap': 10px,
   'image': 55%,
-  
+
   'description': $color-text-dark,
   'title': (
     'normal': color('blue'),
     'hover': $color-actionable,
     'active': $color-actionable
   ),
-  
+
   'border': (
     'thickness': $border-width-s,
     'color': tint(color('slate'), 50%)
   ),
   'radius': 5px
-  
+
 );
 
 /// Defines the tile-utility component theme.
@@ -38,10 +38,10 @@ $molecules-tile-utility: (
 ///
 /// @output The tile-utility component's themeable properties
 @mixin molecules-tile-utility--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $selector: &;
-  
+
   // Capture themeable variables from skin.
   $padding: map-deep-get($skin, 'padding');
   $gap: map-deep-get($skin, 'gap');
@@ -49,35 +49,39 @@ $molecules-tile-utility: (
   $title: map-deep-get($skin, 'title');
   $description: map-deep-get($skin, 'description');
   $radius: map-deep-get($skin, 'radius');
-  
+
   // Get positional padding values.
   $padding-top: positional-value($padding, 'top');
   $padding-right: positional-value($padding, 'right');
   $padding-bottom: positional-value($padding, 'bottom');
   $padding-left: positional-value($padding, 'left');
-  
+
   // Get border-specific variables.
   $border-thickness: map-deep-get($skin, 'border.thickness');
   $border-color: map-deep-get($skin, 'border.color');
-  
+
   // Defines the tile-utility component's base styles.
   padding: $padding;
-  padding-top: calc(#{$image} + #{$padding-top});
   grid-gap: $gap;
   border-radius: $radius;
-  border: $border-thickness solid $border-color; 
-  
+  border: $border-thickness solid $border-color;
+
   // Defines the tile utility styles without descriptions.
   &:not(.has-description) { }
-  
+
   // Defines the tile utility styles with descriptions.
   &.has-description { }
-  
+
+  // Defines the title utility styles with images.
+  &.has-image {
+    padding-top: calc(#{$image} + #{$padding-top});
+  }
+
   // Defines the tile utility image styles.
   &-image {
     padding-top: $image;
   }
-  
+
   // Defines the tile utility title styles.
   &-title {
     @include tokens-heading('h5');
@@ -86,10 +90,10 @@ $molecules-tile-utility: (
       weight: normal
     ));
   }
-  
+
   // Defines the tile utility description styles.
   &-description {
     @include tokens-text('body-alt', $description);
   }
-  
+
 }
