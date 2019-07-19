@@ -75,6 +75,11 @@
   "templates-material": "review",
   "templates-tool": "review",
   "templates-service-directory": "review",
+<<<<<<< HEAD
+  "templates-research-help": "construction",
+  "templates-form": "construction"
+}
+=======
   "templates-research-help": "review",
   "templates-subject-librarian-directory": "review",
   "templates-staff-directory": "review",
@@ -85,3 +90,4 @@
   "templates-exhibition": "review",
   "templates-index": "review"
 }
+>>>>>>> dev

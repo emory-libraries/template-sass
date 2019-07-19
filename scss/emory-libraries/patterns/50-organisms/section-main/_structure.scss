@@ -243,6 +243,7 @@
   &.-bio-page,
   &.-research-help-page,
   &.-service-directory-page,
+  &.-form-page,
   &.-subject-librarian-directory-page,
   &.-staff-directory-page,
   &.-research-help-directory-page {
@@ -261,6 +262,7 @@
     '.-bio-page',
     '.-research-help-page',
     '.-service-directory-page',
+    '.-form-page',
     '.-subject-librarian-directory-page',
     '.-staff-directory-page',
     '.-landing-page',
@@ -349,7 +351,6 @@
       #{$selector}-title {
         grid-column: main / sidebar;
       }
-
 
       // Adjust the sidebar placement within the grid.
       #{$selector}-sidebar {
@@ -586,6 +587,22 @@
     #{$selector}-sidebar {
       display: none;
     }
+
   }
 
+  // Builds the main structure when used for a form page.
+  &.-form-page {
+    @include grid-layout((
+      'subtitle': false,
+      'section': false,
+      'sidebar': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-subtitle,
+    #{$selector}-section,
+    #{$selector}-sidebar {
+      display: none;
+    }
+  }
 }
