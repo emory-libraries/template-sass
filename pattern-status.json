@@ -62,7 +62,7 @@
   "compounds-nav-menu-utility": "review",
   "compounds-popular-links-menu": "review",
   "compounds-nav-menu-main": "review",
-  "compounds-tab-menu": "review",
+  "compounds-tab-menu": "construction",
   "organisms-intro-interior-cover": "review",
   "organisms-intro": "review",
   "organisms-section-main": "review",
@@ -78,8 +78,7 @@
   "templates-tool": "review",
   "templates-service-directory": "review",
   "templates-research-help": "review",
-  "templates-form": "review"
-  "templates-research-help": "review",
+  "templates-form": "construction",
   "templates-subject-librarian-directory": "review",
   "templates-staff-directory": "review",
   "templates-bio": "review",
