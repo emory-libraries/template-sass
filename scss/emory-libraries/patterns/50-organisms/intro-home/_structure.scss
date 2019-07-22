@@ -6,30 +6,16 @@
 ///
 /// @since 1.0.0-dev.0
 %organisms-intro-home {
-  
+
   // Captures the selector.
   $selector: &;
 
   // Builds the intro-home structure.
-  // ...
   display: grid;
   grid-template-rows: 180px min-content 6fr repeat(2, min-content) 1fr;
   grid-template-columns: 1fr 2fr minmax(min-content, 800px) 2fr 1fr;
   background-size: cover;
   height: 845px;
-
-  &-image {
-    grid-row: 1/-1;
-    grid-column: 1/-1;
-    background-size: cover;
-    background-position: center center;
-  }
-
-  &-gradient {
-    grid-row: 1/-1;
-    grid-column: 1/-1;
-  }
-
 
   &-search {
     grid-row: 1;
@@ -40,7 +26,7 @@
     padding-left: 6em;
     padding-right: 6em;
 
-    .search-menu.-home {
+    .search-menu {
       padding-top: 0;
     }
 
@@ -59,5 +45,5 @@
     align-self: center;
     margin: 0 auto !important;
   }
- 
+
 }

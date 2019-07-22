@@ -8,16 +8,31 @@
 ///
 /// @type map
 $organisms-intro-home: (
-  
-  'gradient-color': color('blue','dark'),
+
+  'gradient': color('blue','dark'),
+
   'search': (
-    'background-color': color('blue','dark'),
+    'background': color('blue','dark'),
     'opacity': .9,
-    'border-color': rgba(231, 234, 241, .2),
-    'option-color': color('slate','light'),
-    'active-color': color('gold')
+    'border': (
+      'color': rgba(231, 234, 241, .2),
+      'thickness': $border-width-s
     ),
-  'hero-color': color('white')  
+    'color': (
+      'normal': color('slate', 'light'),
+      'active': color('gold')
+    ),
+    'option': color('slate','light'),
+    'active': color('gold')
+  ),
+
+  'hero': color('white'),
+
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  )
+
 );
 
 /// Defines the intro-home component theme.
@@ -35,58 +50,77 @@ $organisms-intro-home: (
   $selector: &;
 
   // Capture themeable variables from skin.
-  $color: map-deep-get($skin, 'hero-color');
-  $gradient-color: map-deep-get($skin, 'gradient-color');
-  $search-background: map-deep-get($skin, 'search.background-color');
-  $border-color: map-deep-get($skin, 'search.border-color');
-  $border: $border-width-s solid $border-color;
+  $hero: map-deep-get($skin, 'hero');
+  $gradient: map-deep-get($skin, 'gradient');
+  $background: map-deep-get($skin, 'search.background');
+  $opacity: map-deep-get($skin, 'search.opacity');
+
   $search-options-color: map-deep-get($skin, 'search.option-color');
   $active-color: map-deep-get($skin, 'search.active-color');
 
+  // Get border-specific variables.
+  $border-color: map-deep-get($skin, 'search.border.color');
+  $border-thickness: map-deep-get($skin, 'search.border.thickness');
+  $border: $border-thickness solid $border-color;
+
+  // Get transition-specific variables.
+  $transition-duration: map-deep-get($skin, 'transition.duration');
+  $transition-timing: map-deep-get($skin, 'transition.timing');
+
   // Defines the intro-home component's base styles.
-  &-gradient {
-    @include linear-gradient(0deg, $gradient-color -4.85%, rgba(9, 28, 68, 0) 51.12%);
-  }
+  @include linear-gradient-over-image(0deg, $gradient -14.42%, transparent 51.12%, var(--image));
 
   &-title {
-    margin: 0;
     text-align: center;
     text-decoration: none;
 
-    h1 {
-      @include tokens-heading('h2', $color, $important: true);
-
+    #{$all-headings},
+    .heading {
+      @include tokens-heading('h2', $hero, $important: true);
     }
-
+    
   }
 
   &-search {
-
-    background: transparent;
-    transition: $transition-all;
+    background-color: transparent;
+    transition: background-color $transition-duration $transition-timing;
 
     &:focus-within,
     &:focus,
     &:hover,
-    &:active {
-      background-color: $search-background;
-      opacity: .9;
-      transition: $transition-all;
+    &:active,
+    &.is-hover,
+    &.is-focus {
+      background-color: rgba($background, $opacity);
     }
 
-    .search-menu.-dark.-home {
+    // Override search menu background.
+    .search-menu {
 
+      &,
       &:hover,
       &:focus,
       &.is-hover,
+      &.is-focus,
+      &.is-hover,
       &.is-focus {
-        background: transparent;
+        background-color: transparent !important;
       }
 
     }
 
-    .tab-menu.-dark:not(.-dropdown) {
-      background: transparent;
+    // Overrides tab indicator background.
+    .tab {
+
+      &:active,
+      &.is-active {
+
+        &::after {
+          background-image: none !important;
+        }
+
+      }
+
     }
 
   }

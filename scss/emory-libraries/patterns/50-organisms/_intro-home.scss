@@ -21,39 +21,30 @@
 ///
 /// @status construction
 @mixin organisms-intro-home ( $custom: () ) {
-  
+
   // Extend the default skin.
   $skin: map-extend($organisms-intro-home, $custom);
-  
+
   // Initialize the intro-home component.
   & {
-    
+
     // Load structure.
     @extend %organisms-intro-home;
 
-    &-image {
-      @extend %organisms-intro-home-image;
-    }
-
-    &-gradient {
-      @extend %organisms-intro-home-gradient;
-    }
-
+    // Load parts.
     &-search {
       @extend %organisms-intro-home-search;
     }
-
     &-badge {
       @extend %organisms-intro-home-badge;
     }
-
-    &-title {   
+    &-title {
       @extend %organisms-intro-home-title;
     }
 
     // Load skins.
     @include organisms-intro-home--theme( $skin );
-    
+
   }
-  
+
 }
