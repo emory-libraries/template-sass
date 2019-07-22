@@ -1,0 +1,101 @@
+////
+/// @group emory-libraries.patterns.organisms.search-menu
+////
+
+/// Defines the base structure of the search-menu component.
+///
+/// @since 1.0.0-dev.0
+%organisms-search-menu {
+
+  // Capture selector.
+  $selector: &;
+
+  // Builds the search-menu structure.
+  display: grid;
+  grid-template-areas: "context"
+                       "tabs"
+                       "search";
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, min-content);
+
+  // Modify the search menu structure when not used for the home page.
+  &:not(.-home) {
+
+    // Adjust the search menu layout on larger screens.
+    @include breakpoint-l {
+      grid-template-areas: "tabs tabs"
+                           "search back";
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: repeat(2, min-content);
+    };
+
+  }
+
+  // Builds the search menu context structure.
+  &-context {
+    grid-area: context;
+
+    // Always hide the context on larger screens.
+    @include breakpoint-l {
+      display: none;
+    };
+
+  }
+
+  // Builds the search menu tabs structure.
+  &-tabs {
+    grid-area: tabs;
+  }
+
+  // Builds the search menu search structure.
+  &-search {
+    grid-area: search;
+    display: flex;
+    align-items: center;
+
+    // Always force search to be full-width of its container.
+    .search {
+      width: 100%;
+    }
+
+    // Adjust the layout of search boxes when not used in the home page.
+    @include when-descendant-of('#{$selector}:not(.-home)') {
+
+      // Override search box structure.
+      .search {
+
+        // Allow height to flow naturally on smaller screens.
+        @include breakpoint-s {
+          grid-template-areas: "box box"
+                               "button cancel" !important;
+          grid-template-columns: 1fr min-content !important;
+          grid-row-gap: ($rhythm-y / 2) !important;
+          height: auto !important;
+        };
+
+      }
+
+    };
+
+  }
+
+  // Builds the search menu back structure.
+  &-back {
+    grid-area: back;
+    display: none;
+
+    // Only show the back button on larger screens.
+    @include breakpoint-l {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    };
+
+    // Hide the search menu back container for home variants.
+    @include when-descendant-of('#{$selector}.-home') {
+      display: none;
+    };
+
+  }
+
+}

@@ -4,14 +4,41 @@
   <link rel="stylesheet" href="tmp/comps-compounds.css">
 
 </head>
-<body>
-  
+<body style="padding-bottom: 1000px;">
+
+  <!-- compounds-tab-menu-->
+  <div>
+
+    <!-- default -->
+    <div class="tab-menu -dark">
+      <button class="tab">Library Catalog</button>
+      <button class="tab">Databases</button>
+      <button class="tab">eJournals</button>
+      <button class="tab">Research &amp; Course Guides</button>
+      <button class="tab">Finding Aids</button>
+      <button class="tab">This Site</button>
+    </div>
+
+    <!-- dropdown -->
+    <div class="tab-menu -dark -dropdown">
+      <select>
+        <option selected>Library Catalog</option>
+        <option>Databases</option>
+        <option>eJournals</option>
+        <option>Research &amp; Course Guides</option>
+        <option>Finding Aids</option>
+        <option>This Site</option>
+      </select>
+    </div>
+
+  </div>
+
   <!-- compounds-nav-menu-utility -->
   <div>
-    
+
     <!-- desktop -->
     <nav class="nav-menu-utility -desktop">
-      
+
       <!-- left -->
       <div class="nav-menu-utility-left">
 
@@ -22,9 +49,9 @@
         <label id="utility-nav--for-faculty" for="utility-nav--for-faculty" tabindex="0" class="nav-button -utility">
           <span class="nav-button-label">For Faculty</span>
         </label>
-        
+
       </div>
-      
+
       <!-- right -->
       <div class="nav-menu-utility-right">
 
@@ -34,7 +61,7 @@
               <path fill="none" d="M0 0h24v24H0V0z"></path>
               <path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"></path>
             </svg>
-          </span> 
+          </span>
           <span class="nav-button-label">Ask a Librarian</span>
         </label>
 
@@ -44,7 +71,7 @@
               <path fill="none" d="M0 0h24v24H0V0z"></path>
               <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"></path>
             </svg>
-          </span> 
+          </span>
           <span class="nav-button-label">Events</span>
         </label>
 
@@ -54,7 +81,7 @@
               <path fill="none" d="M0 0h24v24H0V0z"></path>
               <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM10 5.47l4 1.4v11.66l-4-1.4V5.47zm-5 .99l3-1.01v11.7l-3 1.16V6.46zm14 11.08l-3 1.01V6.86l3-1.16v11.84z"></path>
             </svg>
-          </span> 
+          </span>
           <span class="nav-button-label">Maps</span>
         </label>
 
@@ -64,7 +91,7 @@
               <path fill="none" d="M0 0h24v24H0V0z"></path>
               <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
             </svg>
-          </span> 
+          </span>
         <span class="nav-button-label">Hours</span></label>
 
         <label id="utility-nav--news" for="utility-navu--news" tabindex="0" class="nav-button -flyout">
@@ -72,7 +99,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <path d="M20,11H4V8H20M20,15H13V13H20M20,19H13V17H20M11,19H4V13H11M20.33,4.67L18.67,3L17,4.67L15.33,3L13.67,4.67L12,3L10.33,4.67L8.67,3L7,4.67L5.33,3L3.67,4.67L2,3V19A2,2 0 0,0 4,21H20A2,2 0 0,0 22,19V3L20.33,4.67Z"></path>
             </svg>
-          </span> 
+          </span>
           <span class="nav-button-label">News</span>
         </label>
 
@@ -82,17 +109,17 @@
               <path fill="none" d="M0 0h24v24H0V0z"></path>
               <path d="M15 4v7H5.17l-.59.59-.58.58V4h11m1-2H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm5 4h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z"></path>
             </svg>
-          </span> 
+          </span>
           <span class="nav-button-label">Contact</span>
         </label>
-   
+
       </div>
-      
+
     </nav>
 
     <!-- mobile -->
     <nav class="nav-menu-utility -mobile">
-      
+
       <!-- left -->
       <!--
       <ul class="utility-left">
@@ -108,17 +135,17 @@
         </li>
       </ul>
       -->
-      
+
       <!-- right -->
       <div class="nav-menu-utility-right">
-        
+
         <label id="nav-button--events-&amp;-exhibits" for="nav-menu--events-&amp;-exhibits" tabindex="0" class="nav-button -flyout">
           <span aria-hidden="true" data-icon="material-event" class="icon">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <path fill="none" d="M0 0h24v24H0V0z"></path>
               <path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"></path>
             </svg>
-          </span> 
+          </span>
           <span class="nav-button-label">Events</span>
         </label>
 
@@ -128,7 +155,7 @@
               <path fill="none" d="M0 0h24v24H0V0z"></path>
               <path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM10 5.47l4 1.4v11.66l-4-1.4V5.47zm-5 .99l3-1.01v11.7l-3 1.16V6.46zm14 11.08l-3 1.01V6.86l3-1.16v11.84z"></path>
             </svg>
-          </span> 
+          </span>
           <span class="nav-button-label">Maps</span>
         </label>
 
@@ -138,7 +165,7 @@
               <path fill="none" d="M0 0h24v24H0V0z"></path>
               <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
             </svg>
-          </span> 
+          </span>
           <span class="nav-button-label">Hours</span>
         </label>
 
@@ -147,7 +174,7 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
               <path d="M20,11H4V8H20M20,15H13V13H20M20,19H13V17H20M11,19H4V13H11M20.33,4.67L18.67,3L17,4.67L15.33,3L13.67,4.67L12,3L10.33,4.67L8.67,3L7,4.67L5.33,3L3.67,4.67L2,3V19A2,2 0 0,0 4,21H20A2,2 0 0,0 22,19V3L20.33,4.67Z"></path>
             </svg>
-          </span> 
+          </span>
           <span class="nav-button-label">News</span>
         </label>
 
@@ -157,12 +184,12 @@
               <path fill="none" d="M0 0h24v24H0V0z"></path>
               <path d="M15 4v7H5.17l-.59.59-.58.58V4h11m1-2H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm5 4h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z"></path>
             </svg>
-          </span> 
+          </span>
           <span class="nav-button-label">Contact</span>
         </label>
 
       </div>
-      
+
       <a href="" class="nav-button -librarian">
         <span aria-hidden="true" data-icon="material-help_outline" class="icon">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -172,9 +199,8 @@
         <span class="nav-button-label">Ask a librarian</span>
       </a>
     </nav>
-    
+
   </div>
-    
 
   <!-- conmpounds-popular-links -->
   <div class="popular-links-menu">
@@ -191,6 +217,9 @@
   <div class="grouping-files">
     <h2 class="grouping-files-heading">A List of Files</h2>
     <ul class="list -files">
+      <li class="list-item"><a href="" target="_self" class="link"><span aria-hidden="true" data-icon="material-import_contacts" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path>
         <li class="list-item"><a href="" target="_self" class="link"><span aria-hidden="true" data-icon="material-import_contacts" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path fill="none" d="M0 0h24v24H0z"></path>
                         <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path>
@@ -261,15 +290,81 @@
                         <path fill="none" d="M0 0h24v24H0z"></path>
                         <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path>
                   </svg></span>
-              Spring 2012
+              Spring 2001
           </a></li>
+      <li class="list-item"><a href="" target="_self" class="link"><span aria-hidden="true" data-icon="material-import_contacts" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path>
+                  </svg></span>
+              Spring 2002
+          </a></li>
+      <li class="list-item"><a href="" target="_self" class="link"><span aria-hidden="true" data-icon="material-import_contacts" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path>
+                  </svg></span>
+              Spring 2003
+          </a></li>
+      <li class="list-item"><a href="" target="_self" class="link"><span aria-hidden="true" data-icon="material-import_contacts" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path>
+                  </svg></span>
+              Spring 2004
+          </a></li>
+      <li class="list-item"><a href="" target="_self" class="link"><span aria-hidden="true" data-icon="material-import_contacts" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path>
+                  </svg></span>
+              Spring 2005
+          </a></li>
+      <li class="list-item"><a href="" target="_self" class="link"><span aria-hidden="true" data-icon="material-import_contacts" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path>
+                  </svg></span>
+              Spring 2006
+          </a></li>
+      <li class="list-item"><a href="" target="_self" class="link"><span aria-hidden="true" data-icon="material-import_contacts" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path>
+            </svg></span>
+        Spring 2007
+      </a></li>
+      <li class="list-item"><a href="" target="_self" class="link"><span aria-hidden="true" data-icon="material-import_contacts" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path>
+              </svg></span>
+          Spring 2008
+        </a></li>
+      <li class="list-item"><a href="" target="_self" class="link"><span aria-hidden="true" data-icon="material-import_contacts" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path>
+              </svg></span>
+          Spring 2009
+        </a></li>
+      <li class="list-item"><a href="" target="_self" class="link"><span aria-hidden="true" data-icon="material-import_contacts" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0z"></path>
+                <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path>
+            </svg></span>
+        Spring 2010
+      </a></li>
+      <li class="list-item"><a href="" target="_self" class="link"><span aria-hidden="true" data-icon="material-import_contacts" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path>
+              </svg></span>
+          Spring 2011
+        </a></li>
+      <li class="list-item"><a href="" target="_self" class="link"><span aria-hidden="true" data-icon="material-import_contacts" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                      <path fill="none" d="M0 0h24v24H0z"></path>
+                      <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path>
+                </svg></span>
+            Spring 2012
+      </a></li>
       <li class="list-item"><a href="" target="_self" class="link"><span aria-hidden="true" data-icon="material-import_contacts" class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                       <path fill="none" d="M0 0h24v24H0z"></path>
                       <path d="M21 5c-1.11-.35-2.33-.5-3.5-.5-1.95 0-4.05.4-5.5 1.5-1.45-1.1-3.55-1.5-5.5-1.5S2.45 4.9 1 6v14.65c0 .25.25.5.5.5.1 0 .15-.05.25-.05C3.1 20.45 5.05 20 6.5 20c1.95 0 4.05.4 5.5 1.5 1.35-.85 3.8-1.5 5.5-1.5 1.65 0 3.35.3 4.75 1.05.1.05.15.05.25.05.25 0 .5-.25.5-.5V6c-.6-.45-1.25-.75-2-1zm0 13.5c-1.1-.35-2.3-.5-3.5-.5-1.7 0-4.15.65-5.5 1.5V8c1.35-.85 3.8-1.5 5.5-1.5 1.2 0 2.4.15 3.5.5v11.5z"></path>
                   </svg></span>
               Spring 2013
           </a></li>
-  </ul>
+    </ul>
   </div>
 
   <!-- compounds-tiles -->
@@ -314,7 +409,7 @@
 
       <p class="tile-utility-description">This section covers the &quot;Woodruff Library Collection Management Policy&quot;, as well as departmental, or subject, policies; which outline our efforts in building collections to support more than 30 academic programs. View policies by subject area in this section.</p>
     </div>
- </div>
+  </div>
 
   <!-- compounds-utility-list -->
   <div style="display: flex; flex-direction: column;">
@@ -800,7 +895,7 @@
   <div>
 
     <!-- default -->
-    <nav class="subnav-menu-main" style="margin: 25px 0;">
+    <nav class="subnav-menu-main has-resources" style="margin: 25px 0;">
 
       <button class="subnav-button -back">Back to Main Menu</button>
 
@@ -1029,9 +1124,9 @@
       <button class="subnav-button -viewall -span">View All Services</button>
 
     </nav>
-    
+
   </div>
-  
+
   <!-- compounds-slider -->
   <div class="slider">
 
@@ -1091,6 +1186,974 @@
         </div>
       </div>
     </div>
+
+  </div>
+
+  <!-- compounds-nav-menu-main -->
+  <div>
+
+    <nav class="nav-menu-main">
+
+      <input type="checkbox" class="input -toggle" id="nav-menu--materials">
+      <input type="checkbox" class="input -toggle" id="nav-menu--tools">
+      <input type="checkbox" class="input -toggle" id="nav-menu--services">
+      <input type="checkbox" class="input -toggle" id="nav-menu--research">
+      <input type="checkbox" class="input -toggle" id="nav-menu--using-the-library">
+      <input type="checkbox" class="input -toggle" id="nav-menu--initiatives">
+      <input type="checkbox" class="input -toggle" id="nav-menu--faculty-support">
+
+      <!-- desktop -->
+      <nav class="nav-menu-main-nav -desktop">
+
+        <div class="nav-menu-main-nav-group">
+          <label class="nav-button" for="nav-menu--materials">Materials</label>
+          <nav class="subnav-menu-main">
+
+            <label class="subnav-button -back" for="nav-menu--materials">Back to Main Menu</label>
+
+            <span class="subnav-menu-main-heading">Materials</span>
+
+            <button class="subnav-button">Books</button>
+            <button class="subnav-button">Films and Videos</button>
+            <button class="subnav-button">Music and Scores</button>
+            <button class="subnav-button">Journals</button>
+            <button class="subnav-button">Databases</button>
+            <button class="subnav-button">Course Reserves</button>
+            <button class="subnav-button">eBooks and Audiobooks</button>
+            <button class="subnav-button">Research and Library Guides</button>
+            <button class="subnav-button">Theses and Dissertations</button>
+            <button class="subnav-button">Archival and Manuscripts</button>
+            <button class="subnav-button">Faculty Works</button>
+            <button class="subnav-button">Images and Maps</button>
+            <button class="subnav-button">Equipment and Gadgets</button>
+
+          </nav>
+        </div>
+
+        <div class="nav-menu-main-nav-group">
+          <label class="nav-button" for="nav-menu--tools">Tools</label>
+          <nav class="subnav-menu-main has-resources">
+
+            <label class="subnav-button -back" for="nav-menu--tools">Back to Main Menu</label>
+
+            <span class="subnav-menu-main-heading">Tools</span>
+
+            <label class="subnav-button -resource">
+              DiscoverE <span class="subnav-button-alias">(Books, eBooks, Journals, Videos)</span>
+              <input type="checkbox" class="subnav-button-options-toggle">
+              <span class="subnav-button-options">
+                <a href="" class="subnav-button-option">
+                  About
+                </a>
+                <a href="" class="subnav-button-option">
+                  Access <span class="icon">&#x2192;</span>
+                </a>
+              </span>
+            </label>
+            <label class="subnav-button -resource">
+              eJournals <span class="subnav-button-alias">(Academic Journals)</span>
+              <input type="checkbox" class="subnav-button-options-toggle">
+              <span class="subnav-button-options">
+                <a href="" class="subnav-button-option">
+                  About
+                </a>
+                <a href="" class="subnav-button-option">
+                  Access <span class="icon">&#x2192;</span>
+                </a>
+              </span>
+            </label>
+            <label class="subnav-button -resource">
+              ILLiad <span class="subnav-button-alias">(Inter-Library Loans)</span>
+              <input type="checkbox" class="subnav-button-options-toggle">
+              <span class="subnav-button-options">
+                <a href="" class="subnav-button-option">
+                  About
+                </a>
+                <a href="" class="subnav-button-option">
+                  Access <span class="icon">&#x2192;</span>
+                </a>
+              </span>
+            </label>
+            <label class="subnav-button -resource">
+              Databases @ Emory <span class="subnav-button-alias">(Databases)</span>
+              <input type="checkbox" class="subnav-button-options-toggle">
+              <span class="subnav-button-options">
+                <a href="" class="subnav-button-option">
+                  About
+                </a>
+                <a href="" class="subnav-button-option">
+                  Access <span class="icon">&#x2192;</span>
+                </a>
+              </span>
+            </label>
+            <label class="subnav-button -resource">
+              Emory Finding Aids <span class="subnav-button-alias">(Archival and Manuscripts)</span>
+              <input type="checkbox" class="subnav-button-options-toggle">
+              <span class="subnav-button-options">
+                <a href="" class="subnav-button-option">
+                  About
+                </a>
+                <a href="" class="subnav-button-option">
+                  Access <span class="icon">&#x2192;</span>
+                </a>
+              </span>
+            </label>
+            <label class="subnav-button -resource">
+              Emory Center for Digital Scholarship
+              <input type="checkbox" class="subnav-button-options-toggle">
+              <span class="subnav-button-options">
+                <a href="" class="subnav-button-option">
+                  About
+                </a>
+                <a href="" class="subnav-button-option">
+                  Access <span class="icon">&#x2192;</span>
+                </a>
+              </span>
+            </label>
+            <label class="subnav-button -resource">
+              ETD <span class="subnav-button-alias">(Theses and Dissertations)</span>
+              <input type="checkbox" class="subnav-button-options-toggle">
+              <span class="subnav-button-options">
+                <a href="" class="subnav-button-option">
+                  About
+                </a>
+                <a href="" class="subnav-button-option">
+                  Access <span class="icon">&#x2192;</span>
+                </a>
+              </span>
+            </label>
+            <label class="subnav-button -resource">
+              OpenEmory <span class="subnav-button-alias">(Faculty Works)</span>
+              <input type="checkbox" class="subnav-button-options-toggle">
+              <span class="subnav-button-options">
+                <a href="" class="subnav-button-option">
+                  About
+                </a>
+                <a href="" class="subnav-button-option">
+                  Access <span class="icon">&#x2192;</span>
+                </a>
+              </span>
+            </label>
+            <label class="subnav-button -resource">
+              Overdrive <span class="subnav-button-alias">(eBooks, Audiobooks)</span>
+              <input type="checkbox" class="subnav-button-options-toggle">
+              <span class="subnav-button-options">
+                <a href="" class="subnav-button-option">
+                  About
+                </a>
+                <a href="" class="subnav-button-option">
+                  Access <span class="icon">&#x2192;</span>
+                </a>
+              </span>
+            </label>
+            <label class="subnav-button -resource">
+              Ares <span class="subnav-button-alias">(Course Reserves)</span>
+              <input type="checkbox" class="subnav-button-options-toggle">
+              <span class="subnav-button-options">
+                <a href="" class="subnav-button-option">
+                  About
+                </a>
+                <a href="" class="subnav-button-option">
+                  Access <span class="icon">&#x2192;</span>
+                </a>
+              </span>
+            </label>
+            <label class="subnav-button -resource">
+              LibGuides <span class="subnav-button-alias">(Research and Library Guides)</span>
+              <input type="checkbox" class="subnav-button-options-toggle">
+              <span class="subnav-button-options">
+                <a href="" class="subnav-button-option">
+                  About
+                </a>
+                <a href="" class="subnav-button-option">
+                  Access <span class="icon">&#x2192;</span>
+                </a>
+              </span>
+            </label>
+
+          </nav>
+        </div>
+
+        <div class="nav-menu-main-nav-group">
+          <label class="nav-button" for="nav-menu--services">Services</label>
+          <nav class="subnav-menu-main -grouped">
+
+            <label class="subnav-button -back" for="nav-menu--services">Back to Main Menu</label>
+
+            <span class="subnav-menu-main-heading">Services</span>
+
+            <div class="subnav-button-group">
+
+              <span class="subnav-button-group-heading">Around the Library</span>
+
+              <button class="subnav-button">Reserve a Study or Presentation Room</button>
+              <button class="subnav-button">Find a Quiet Study Area</button>
+              <button class="subnav-button">Find a Workstation or Application</button>
+              <button class="subnav-button">Print, Copy, and Scan</button>
+
+            </div>
+
+            <div class="subnav-button-group">
+
+              <span class="subnav-button-group-heading">Get Assistance</span>
+
+              <button class="subnav-button">Borrow Equipment and Gadgets</button>
+              <button class="subnav-button">Research and Writing Assistance</button>
+              <button class="subnav-button">Access Course Reserves</button>
+              <button class="subnav-button">Request or Recall Materials</button>
+
+            </div>
+
+            <div class="subnav-button-group">
+
+              <span class="subnav-button-group-heading">Technology Assistance</span>
+
+              <button class="subnav-button">Connect Off-Campus (VPNs and Proxies)</button>
+              <button class="subnav-button">Connect to the Internet (On-Campus)</button>
+              <button class="subnav-button">Get Hardware or Software Support</button>
+              <button class="subnav-button">Repair Your Device or Computer</button>
+
+            </div>
+
+            <div class="subnav-button-group">
+
+              <span class="subnav-button-group-heading">Make a Request</span>
+
+              <button class="subnav-button">Submit an ILL Request (ILLiad)</button>
+              <button class="subnav-button">Request a Purchase</button>
+              <button class="subnav-button">Submit Ask eJournals</button>
+              <button class="subnav-button">Apply for an Individual Study Room</button>
+
+            </div>
+
+            <button class="subnav-button -viewall -span">View All Services</button>
+
+          </nav>
+        </div>
+
+        <div class="nav-menu-main-nav-group">
+          <label class="nav-button" for="nav-menu--research">Research</label>
+          <nav class="subnav-menu-main -categorized">
+
+            <label class="subnav-button -back" for="nav-menu--research">Back to Main Menu</label>
+
+            <span class="subnav-menu-main-heading">Research</span>
+
+            <button class="subnav-button">Subject Librarians Directory</button>
+            <button class="subnav-button">Research Data</button>
+            <button class="subnav-button">Award and Research Programs</button>
+
+            <div class="subnav-button-category">
+
+              <span class="subnav-button-category-heading">Help With Research</span>
+
+              <button class="subnav-button">Selecting Research Topics</button>
+              <button class="subnav-button">Finding Source Materials</button>
+              <button class="subnav-button">Evaluating Sources</button>
+              <button class="subnav-button">Citing and Using Sources</button>
+
+            </div>
+
+          </nav>
+        </div>
+
+        <div class="nav-menu-main-nav-group">
+          <label class="nav-button" for="nav-menu--using-the-library">Using the Library</label>
+          <nav class="subnav-menu-main -categorized">
+
+            <label class="subnav-button -back" for="nav-menu--using-the-library">Back to Main Menu</label>
+
+            <span class="subnav-menu-main-heading">Using the Library</span>
+
+            <button class="subnav-button">Borrowing Privileges</button>
+            <button class="subnav-button">InterLibrary Lending (ILL)</button>
+            <button class="subnav-button">Library Maps and Spaces</button>
+            <button class="subnav-button">Course Reserves</button>
+            <button class="subnav-button">Guest Access</button>
+
+            <div class="subnav-button-category">
+
+              <span class="subnav-button-category-heading">Help Using the Library</span>
+
+              <button class="subnav-button">Search for Specific Items</button>
+              <button class="subnav-button">Questions About Articles</button>
+              <button class="subnav-button">Questions About Books</button>
+              <button class="subnav-button">Printing, Logging In, and Access</button>
+
+            </div>
+
+          </nav>
+        </div>
+
+      </nav>
+
+      <!-- tablet -->
+      <nav class="nav-menu-main-nav -tablet">
+
+        <label class="nav-button" for="nav-menu--materials">Materials</label>
+        <nav class="subnav-menu-main">
+
+          <label class="subnav-button -back" for="nav-menu--materials">Back to Main Menu</label>
+
+          <span class="subnav-menu-main-heading">Materials</span>
+
+          <button class="subnav-button">Books</button>
+          <button class="subnav-button">Films and Videos</button>
+          <button class="subnav-button">Music and Scores</button>
+          <button class="subnav-button">Journals</button>
+          <button class="subnav-button">Databases</button>
+          <button class="subnav-button">Course Reserves</button>
+          <button class="subnav-button">eBooks and Audiobooks</button>
+          <button class="subnav-button">Research and Library Guides</button>
+          <button class="subnav-button">Theses and Dissertations</button>
+          <button class="subnav-button">Archival and Manuscripts</button>
+          <button class="subnav-button">Faculty Works</button>
+          <button class="subnav-button">Images and Maps</button>
+          <button class="subnav-button">Equipment and Gadgets</button>
+
+        </nav>
+
+        <label class="nav-button" for="nav-menu--tools">Tools</label>
+        <nav class="subnav-menu-main has-resources">
+
+          <label class="subnav-button -back" for="nav-menu--tools">Back to Main Menu</label>
+
+          <span class="subnav-menu-main-heading">Tools</span>
+
+          <label class="subnav-button -resource">
+            DiscoverE <span class="subnav-button-alias">(Books, eBooks, Journals, Videos)</span>
+            <input type="checkbox" class="subnav-button-options-toggle">
+            <span class="subnav-button-options">
+              <a href="" class="subnav-button-option">
+                About
+              </a>
+              <a href="" class="subnav-button-option">
+                Access <span class="icon">&#x2192;</span>
+              </a>
+            </span>
+          </label>
+          <label class="subnav-button -resource">
+            eJournals <span class="subnav-button-alias">(Academic Journals)</span>
+            <input type="checkbox" class="subnav-button-options-toggle">
+            <span class="subnav-button-options">
+              <a href="" class="subnav-button-option">
+                About
+              </a>
+              <a href="" class="subnav-button-option">
+                Access <span class="icon">&#x2192;</span>
+              </a>
+            </span>
+          </label>
+          <label class="subnav-button -resource">
+            ILLiad <span class="subnav-button-alias">(Inter-Library Loans)</span>
+            <input type="checkbox" class="subnav-button-options-toggle">
+            <span class="subnav-button-options">
+              <a href="" class="subnav-button-option">
+                About
+              </a>
+              <a href="" class="subnav-button-option">
+                Access <span class="icon">&#x2192;</span>
+              </a>
+            </span>
+          </label>
+          <label class="subnav-button -resource">
+            Databases @ Emory <span class="subnav-button-alias">(Databases)</span>
+            <input type="checkbox" class="subnav-button-options-toggle">
+            <span class="subnav-button-options">
+              <a href="" class="subnav-button-option">
+                About
+              </a>
+              <a href="" class="subnav-button-option">
+                Access <span class="icon">&#x2192;</span>
+              </a>
+            </span>
+          </label>
+          <label class="subnav-button -resource">
+            Emory Finding Aids <span class="subnav-button-alias">(Archival and Manuscripts)</span>
+            <input type="checkbox" class="subnav-button-options-toggle">
+            <span class="subnav-button-options">
+              <a href="" class="subnav-button-option">
+                About
+              </a>
+              <a href="" class="subnav-button-option">
+                Access <span class="icon">&#x2192;</span>
+              </a>
+            </span>
+          </label>
+          <label class="subnav-button -resource">
+            Emory Center for Digital Scholarship
+            <input type="checkbox" class="subnav-button-options-toggle">
+            <span class="subnav-button-options">
+              <a href="" class="subnav-button-option">
+                About
+              </a>
+              <a href="" class="subnav-button-option">
+                Access <span class="icon">&#x2192;</span>
+              </a>
+            </span>
+          </label>
+          <label class="subnav-button -resource">
+            ETD <span class="subnav-button-alias">(Theses and Dissertations)</span>
+            <input type="checkbox" class="subnav-button-options-toggle">
+            <span class="subnav-button-options">
+              <a href="" class="subnav-button-option">
+                About
+              </a>
+              <a href="" class="subnav-button-option">
+                Access <span class="icon">&#x2192;</span>
+              </a>
+            </span>
+          </label>
+          <label class="subnav-button -resource">
+            OpenEmory <span class="subnav-button-alias">(Faculty Works)</span>
+            <input type="checkbox" class="subnav-button-options-toggle">
+            <span class="subnav-button-options">
+              <a href="" class="subnav-button-option">
+                About
+              </a>
+              <a href="" class="subnav-button-option">
+                Access <span class="icon">&#x2192;</span>
+              </a>
+            </span>
+          </label>
+          <label class="subnav-button -resource">
+            Overdrive <span class="subnav-button-alias">(eBooks, Audiobooks)</span>
+            <input type="checkbox" class="subnav-button-options-toggle">
+            <span class="subnav-button-options">
+              <a href="" class="subnav-button-option">
+                About
+              </a>
+              <a href="" class="subnav-button-option">
+                Access <span class="icon">&#x2192;</span>
+              </a>
+            </span>
+          </label>
+          <label class="subnav-button -resource">
+            Ares <span class="subnav-button-alias">(Course Reserves)</span>
+            <input type="checkbox" class="subnav-button-options-toggle">
+            <span class="subnav-button-options">
+              <a href="" class="subnav-button-option">
+                About
+              </a>
+              <a href="" class="subnav-button-option">
+                Access <span class="icon">&#x2192;</span>
+              </a>
+            </span>
+          </label>
+          <label class="subnav-button -resource">
+            LibGuides <span class="subnav-button-alias">(Research and Library Guides)</span>
+            <input type="checkbox" class="subnav-button-options-toggle">
+            <span class="subnav-button-options">
+              <a href="" class="subnav-button-option">
+                About
+              </a>
+              <a href="" class="subnav-button-option">
+                Access <span class="icon">&#x2192;</span>
+              </a>
+            </span>
+          </label>
+
+        </nav>
+
+        <label class="nav-button" for="nav-menu--services">Services</label>
+        <nav class="subnav-menu-main -grouped">
+
+          <label class="subnav-button -back" for="nav-menu--services">Back to Main Menu</label>
+
+          <span class="subnav-menu-main-heading">Services</span>
+
+          <div class="subnav-button-group">
+
+            <span class="subnav-button-group-heading">Around the Library</span>
+
+            <button class="subnav-button">Reserve a Study or Presentation Room</button>
+            <button class="subnav-button">Find a Quiet Study Area</button>
+            <button class="subnav-button">Find a Workstation or Application</button>
+            <button class="subnav-button">Print, Copy, and Scan</button>
+
+          </div>
+
+          <div class="subnav-button-group">
+
+            <span class="subnav-button-group-heading">Get Assistance</span>
+
+            <button class="subnav-button">Borrow Equipment and Gadgets</button>
+            <button class="subnav-button">Research and Writing Assistance</button>
+            <button class="subnav-button">Access Course Reserves</button>
+            <button class="subnav-button">Request or Recall Materials</button>
+
+          </div>
+
+          <div class="subnav-button-group">
+
+            <span class="subnav-button-group-heading">Technology Assistance</span>
+
+            <button class="subnav-button">Connect Off-Campus (VPNs and Proxies)</button>
+            <button class="subnav-button">Connect to the Internet (On-Campus)</button>
+            <button class="subnav-button">Get Hardware or Software Support</button>
+            <button class="subnav-button">Repair Your Device or Computer</button>
+
+          </div>
+
+          <div class="subnav-button-group">
+
+            <span class="subnav-button-group-heading">Make a Request</span>
+
+            <button class="subnav-button">Submit an ILL Request (ILLiad)</button>
+            <button class="subnav-button">Request a Purchase</button>
+            <button class="subnav-button">Submit Ask eJournals</button>
+            <button class="subnav-button">Apply for an Individual Study Room</button>
+
+          </div>
+
+          <button class="subnav-button -viewall -span">View All Services</button>
+
+        </nav>
+
+        <label class="nav-button" for="nav-menu--research">Research</label>
+        <nav class="subnav-menu-main -categorized">
+
+          <!-- <label class="subnav-button -back" for="nav-menu-tablet--research">Back to Main Menu</label> -->
+          <label class="subnav-button -back" for="nav-menu--research">Back to Main Menu</label>
+
+          <span class="subnav-menu-main-heading">Research</span>
+
+          <button class="subnav-button">Subject Librarians Directory</button>
+          <button class="subnav-button">Research Data</button>
+          <button class="subnav-button">Award and Research Programs</button>
+
+          <div class="subnav-button-category">
+
+            <span class="subnav-button-category-heading">Help With Research</span>
+
+            <button class="subnav-button">Selecting Research Topics</button>
+            <button class="subnav-button">Finding Source Materials</button>
+            <button class="subnav-button">Evaluating Sources</button>
+            <button class="subnav-button">Citing and Using Sources</button>
+
+          </div>
+
+        </nav>
+
+        <label class="nav-button" for="nav-menu--using-the-library">Using the Library</label>
+        <nav class="subnav-menu-main -categorized">
+
+          <label class="subnav-button -back" for="nav-menu--using-the-library">Back to Main Menu</label>
+
+          <span class="subnav-menu-main-heading">Using the Library</span>
+
+          <button class="subnav-button">Borrowing Privileges</button>
+          <button class="subnav-button">InterLibrary Lending (ILL)</button>
+          <button class="subnav-button">Library Maps and Spaces</button>
+          <button class="subnav-button">Course Reserves</button>
+          <button class="subnav-button">Guest Access</button>
+
+          <div class="subnav-button-category">
+
+            <span class="subnav-button-category-heading">Help Using the Library</span>
+
+            <button class="subnav-button">Search for Specific Items</button>
+            <button class="subnav-button">Questions About Articles</button>
+            <button class="subnav-button">Questions About Books</button>
+            <button class="subnav-button">Printing, Logging In, and Access</button>
+
+          </div>
+
+        </nav>
+
+      </nav>
+
+      <!-- mobile -->
+      <nav class="nav-menu-main-nav -mobile">
+
+        <input type="checkbox" class="input -toggle" id="nav-menu-mobile--toggle">
+
+        <div class="nav-menu-main-nav-toggles">
+
+          <label class="nav-button -toggle -open" for="nav-menu-mobile--toggle">
+            <span class="icon" aria-hidden="true" data-icon="material-menu">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+            </span>
+            Menu
+          </label>
+
+          <label class="nav-button -toggle -close" for="nav-menu-mobile--toggle">
+            <span class="icon" aria-hidden="true" data-icon="material-menu">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" /></svg>
+            </span>
+            Close
+          </label>
+
+        </div>
+
+        <nav class="nav-menu-main-nav-menu">
+
+          <nav class="nav-menu-utility -mobile">
+
+            <div class="nav-menu-utility-right">
+
+              <label id="nav-button--events-exhibits" for="nav-menu--events-exhibits" class="nav-button -flyout">
+                <span aria-hidden="true" data-icon="material-event" class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="none" d="M0 0h24v24H0V0z"></path><path d="M19 4h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2zm-7 5h5v5h-5z"></path>
+                  </svg>
+                </span>
+                Events
+              </label>
+              <label id="nav-button--maps" for="nav-menu--maps" class="nav-button -flyout">
+                <span aria-hidden="true" data-icon="material-map" class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="none" d="M0 0h24v24H0V0z"></path><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM10 5.47l4 1.4v11.66l-4-1.4V5.47zm-5 .99l3-1.01v11.7l-3 1.16V6.46zm14 11.08l-3 1.01V6.86l3-1.16v11.84z"></path>
+                  </svg>
+                </span>
+                Maps
+              </label>
+              <label id="nav-button--hours" for="nav-menu--hours" class="nav-button -flyout">
+                <span aria-hidden="true" data-icon="material-access_time" class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="none" d="M0 0h24v24H0V0z"></path><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"></path>
+                  </svg>
+                </span>
+                Hours
+              </label>
+              <label id="nav-button--news" for="nav-menu--news" class="nav-button -flyout">
+                <span aria-hidden="true" data-icon="material-newspaper" class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path d="M20,11H4V8H20M20,15H13V13H20M20,19H13V17H20M11,19H4V13H11M20.33,4.67L18.67,3L17,4.67L15.33,3L13.67,4.67L12,3L10.33,4.67L8.67,3L7,4.67L5.33,3L3.67,4.67L2,3V19A2,2 0 0,0 4,21H20A2,2 0 0,0 22,19V3L20.33,4.67Z"></path>
+                  </svg>
+                </span>
+                News
+              </label>
+              <label id="nav-button--contact" for="nav-menu--contact" class="nav-button -flyout">
+                <span aria-hidden="true" data-icon="material-question_answer" class="icon">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                    <path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15 4v7H5.17l-.59.59-.58.58V4h11m1-2H3c-.55 0-1 .45-1 1v14l4-4h10c.55 0 1-.45 1-1V3c0-.55-.45-1-1-1zm5 4h-2v9H6v2c0 .55.45 1 1 1h11l4 4V7c0-.55-.45-1-1-1z"></path>
+                  </svg>
+                </span>
+                Contact
+              </label>
+
+            </div>
+
+          </nav>
+
+          <div class="nav-menu-main-nav-menu-area">
+
+            <label class="nav-button" for="nav-menu--materials">Materials</label>
+            <nav class="subnav-menu-main">
+
+              <label class="subnav-button -back" for="nav-menu--materials">Back to Main Menu</label>
+
+              <span class="subnav-menu-main-heading">Materials</span>
+
+              <button class="subnav-button">Books</button>
+              <button class="subnav-button">Films and Videos</button>
+              <button class="subnav-button">Music and Scores</button>
+              <button class="subnav-button">Journals</button>
+              <button class="subnav-button">Databases</button>
+              <button class="subnav-button">Course Reserves</button>
+              <button class="subnav-button">eBooks and Audiobooks</button>
+              <button class="subnav-button">Research and Library Guides</button>
+              <button class="subnav-button">Theses and Dissertations</button>
+              <button class="subnav-button">Archival and Manuscripts</button>
+              <button class="subnav-button">Faculty Works</button>
+              <button class="subnav-button">Images and Maps</button>
+              <button class="subnav-button">Equipment and Gadgets</button>
+
+            </nav>
+
+            <label class="nav-button" for="nav-menu--tools">Tools</label>
+            <nav class="subnav-menu-main has-resources">
+
+              <label class="subnav-button -back" for="nav-menu--tools">Back to Main Menu</label>
+
+              <span class="subnav-menu-main-heading">Tools</span>
+
+              <label class="subnav-button -resource">
+                DiscoverE <span class="subnav-button-alias">(Books, eBooks, Journals, Videos)</span>
+                <input type="checkbox" class="subnav-button-options-toggle">
+                <span class="subnav-button-options">
+                  <a href="" class="subnav-button-option">
+                    About
+                  </a>
+                  <a href="" class="subnav-button-option">
+                    Access <span class="icon">&#x2192;</span>
+                  </a>
+                </span>
+              </label>
+              <label class="subnav-button -resource">
+                eJournals <span class="subnav-button-alias">(Academic Journals)</span>
+                <input type="checkbox" class="subnav-button-options-toggle">
+                <span class="subnav-button-options">
+                  <a href="" class="subnav-button-option">
+                    About
+                  </a>
+                  <a href="" class="subnav-button-option">
+                    Access <span class="icon">&#x2192;</span>
+                  </a>
+                </span>
+              </label>
+              <label class="subnav-button -resource">
+                ILLiad <span class="subnav-button-alias">(Inter-Library Loans)</span>
+                <input type="checkbox" class="subnav-button-options-toggle">
+                <span class="subnav-button-options">
+                  <a href="" class="subnav-button-option">
+                    About
+                  </a>
+                  <a href="" class="subnav-button-option">
+                    Access <span class="icon">&#x2192;</span>
+                  </a>
+                </span>
+              </label>
+              <label class="subnav-button -resource">
+                Databases @ Emory <span class="subnav-button-alias">(Databases)</span>
+                <input type="checkbox" class="subnav-button-options-toggle">
+                <span class="subnav-button-options">
+                  <a href="" class="subnav-button-option">
+                    About
+                  </a>
+                  <a href="" class="subnav-button-option">
+                    Access <span class="icon">&#x2192;</span>
+                  </a>
+                </span>
+              </label>
+              <label class="subnav-button -resource">
+                Emory Finding Aids <span class="subnav-button-alias">(Archival and Manuscripts)</span>
+                <input type="checkbox" class="subnav-button-options-toggle">
+                <span class="subnav-button-options">
+                  <a href="" class="subnav-button-option">
+                    About
+                  </a>
+                  <a href="" class="subnav-button-option">
+                    Access <span class="icon">&#x2192;</span>
+                  </a>
+                </span>
+              </label>
+              <label class="subnav-button -resource">
+                Emory Center for Digital Scholarship
+                <input type="checkbox" class="subnav-button-options-toggle">
+                <span class="subnav-button-options">
+                  <a href="" class="subnav-button-option">
+                    About
+                  </a>
+                  <a href="" class="subnav-button-option">
+                    Access <span class="icon">&#x2192;</span>
+                  </a>
+                </span>
+              </label>
+              <label class="subnav-button -resource">
+                ETD <span class="subnav-button-alias">(Theses and Dissertations)</span>
+                <input type="checkbox" class="subnav-button-options-toggle">
+                <span class="subnav-button-options">
+                  <a href="" class="subnav-button-option">
+                    About
+                  </a>
+                  <a href="" class="subnav-button-option">
+                    Access <span class="icon">&#x2192;</span>
+                  </a>
+                </span>
+              </label>
+              <label class="subnav-button -resource">
+                OpenEmory <span class="subnav-button-alias">(Faculty Works)</span>
+                <input type="checkbox" class="subnav-button-options-toggle">
+                <span class="subnav-button-options">
+                  <a href="" class="subnav-button-option">
+                    About
+                  </a>
+                  <a href="" class="subnav-button-option">
+                    Access <span class="icon">&#x2192;</span>
+                  </a>
+                </span>
+              </label>
+              <label class="subnav-button -resource">
+                Overdrive <span class="subnav-button-alias">(eBooks, Audiobooks)</span>
+                <input type="checkbox" class="subnav-button-options-toggle">
+                <span class="subnav-button-options">
+                  <a href="" class="subnav-button-option">
+                    About
+                  </a>
+                  <a href="" class="subnav-button-option">
+                    Access <span class="icon">&#x2192;</span>
+                  </a>
+                </span>
+              </label>
+              <label class="subnav-button -resource">
+                Ares <span class="subnav-button-alias">(Course Reserves)</span>
+                <input type="checkbox" class="subnav-button-options-toggle">
+                <span class="subnav-button-options">
+                  <a href="" class="subnav-button-option">
+                    About
+                  </a>
+                  <a href="" class="subnav-button-option">
+                    Access <span class="icon">&#x2192;</span>
+                  </a>
+                </span>
+              </label>
+              <label class="subnav-button -resource">
+                LibGuides <span class="subnav-button-alias">(Research and Library Guides)</span>
+                <input type="checkbox" class="subnav-button-options-toggle">
+                <span class="subnav-button-options">
+                  <a href="" class="subnav-button-option">
+                    About
+                  </a>
+                  <a href="" class="subnav-button-option">
+                    Access <span class="icon">&#x2192;</span>
+                  </a>
+                </span>
+              </label>
+
+            </nav>
+
+            <label class="nav-button" for="nav-menu--services">Services</label>
+            <nav class="subnav-menu-main -grouped">
+
+              <label class="subnav-button -back" for="nav-menu--services">Back to Main Menu</label>
+
+              <span class="subnav-menu-main-heading">Services</span>
+
+              <div class="subnav-button-group">
+
+                <span class="subnav-button-group-heading">Around the Library</span>
+
+                <button class="subnav-button">Reserve a Study or Presentation Room</button>
+                <button class="subnav-button">Find a Quiet Study Area</button>
+                <button class="subnav-button">Find a Workstation or Application</button>
+                <button class="subnav-button">Print, Copy, and Scan</button>
+
+              </div>
+
+              <div class="subnav-button-group">
+
+                <span class="subnav-button-group-heading">Get Assistance</span>
+
+                <button class="subnav-button">Borrow Equipment and Gadgets</button>
+                <button class="subnav-button">Research and Writing Assistance</button>
+                <button class="subnav-button">Access Course Reserves</button>
+                <button class="subnav-button">Request or Recall Materials</button>
+
+              </div>
+
+              <div class="subnav-button-group">
+
+                <span class="subnav-button-group-heading">Technology Assistance</span>
+
+                <button class="subnav-button">Connect Off-Campus (VPNs and Proxies)</button>
+                <button class="subnav-button">Connect to the Internet (On-Campus)</button>
+                <button class="subnav-button">Get Hardware or Software Support</button>
+                <button class="subnav-button">Repair Your Device or Computer</button>
+
+              </div>
+
+              <div class="subnav-button-group">
+
+                <span class="subnav-button-group-heading">Make a Request</span>
+
+                <button class="subnav-button">Submit an ILL Request (ILLiad)</button>
+                <button class="subnav-button">Request a Purchase</button>
+                <button class="subnav-button">Submit Ask eJournals</button>
+                <button class="subnav-button">Apply for an Individual Study Room</button>
+
+              </div>
+
+              <button class="subnav-button -viewall -span">View All Services</button>
+
+            </nav>
+
+            <label class="nav-button" for="nav-menu--research">Research</label>
+            <nav class="subnav-menu-main -categorized">
+
+              <label class="subnav-button -back" for="nav-menu--research">Back to Main Menu</label>
+
+              <span class="subnav-menu-main-heading">Research</span>
+
+              <button class="subnav-button">Subject Librarians Directory</button>
+              <button class="subnav-button">Research Data</button>
+              <button class="subnav-button">Award and Research Programs</button>
+
+              <div class="subnav-button-category">
+
+                <span class="subnav-button-category-heading">Help With Research</span>
+
+                <button class="subnav-button">Selecting Research Topics</button>
+                <button class="subnav-button">Finding Source Materials</button>
+                <button class="subnav-button">Evaluating Sources</button>
+                <button class="subnav-button">Citing and Using Sources</button>
+
+              </div>
+
+            </nav>
+
+            <label class="nav-button" for="nav-menu--using-the-library">Using the Library</label>
+            <nav class="subnav-menu-main -categorized">
+
+              <!--label class="subnav-button -back" for="nav-menu-mobile--using-the-library">Back to Main Menu</label-->
+              <label class="subnav-button -back" for="nav-menu--using-the-library">Back to Main Menu</label>
+
+              <span class="subnav-menu-main-heading">Using the Library</span>
+
+              <button class="subnav-button">Borrowing Privileges</button>
+              <button class="subnav-button">InterLibrary Lending (ILL)</button>
+              <button class="subnav-button">Library Maps and Spaces</button>
+              <button class="subnav-button">Course Reserves</button>
+              <button class="subnav-button">Guest Access</button>
+
+              <div class="subnav-button-category">
+
+                <span class="subnav-button-category-heading">Help Using the Library</span>
+
+                <button class="subnav-button">Search for Specific Items</button>
+                <button class="subnav-button">Questions About Articles</button>
+                <button class="subnav-button">Questions About Books</button>
+                <button class="subnav-button">Printing, Logging In, and Access</button>
+
+              </div>
+
+            </nav>
+
+            <label class="nav-button" for="nav-menu--initiatives">Initiatives</label>
+            <nav class="subnav-menu-main">
+
+              <label class="subnav-button -back" for="nav-menu--initiatives">Back to Main Menu</label>
+
+              <span class="subnav-menu-main-heading">Initiatives</span>
+
+              <button class="subnav-button">Offices, Labs, and Departments</button>
+              <button class="subnav-button">Organizational Framework</button>
+              <button class="subnav-button">Collection Policies</button>
+              <button class="subnav-button">Digitization Program</button>
+              <button class="subnav-button">Digital Library Program</button>
+
+            </nav>
+
+            <label class="nav-button" for="nav-menu--faculty-support">Faculty Support</label>
+            <nav class="subnav-menu-main">
+
+              <label class="subnav-button -back" for="nav-menu--faculty-support">Back to Main Menu</label>
+
+              <span class="subnav-menu-main-heading">Faculty Support</span>
+
+              <button class="subnav-button">Emory Libraries Information Literacy Program</button>
+              <button class="subnav-button">Instructional Services for Faculty and TAs</button>
+              <button class="subnav-button">Creating Effective Research Assignments</button>
+              <button class="subnav-button">Media Booking Services for Instructors</button>
+              <button class="subnav-button">Request a Research Instruction Session</button>
+
+            </nav>
+
+          </div>
+
+          <a href="" class="nav-button -librarian">
+            <span aria-hidden="true" data-icon="material-help_outline" class="icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M11 18h2v-2h-2v2zm1-16C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm0-14c-2.21 0-4 1.79-4 4h2c0-1.1.9-2 2-2s2 .9 2 2c0 2-3 1.75-3 5h2c0-2.25 3-2.5 3-5 0-2.21-1.79-4-4-4z"></path></svg>
+            </span>
+            Ask a librarian
+          </a>
+
+        </nav>
+
+      </nav>
+
+    </nav>
 
   </div>
 

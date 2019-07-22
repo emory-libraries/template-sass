@@ -31,14 +31,6 @@
     // Load structure.
     @extend %organisms-intro-hero;
 
-    &-image {
-      @extend %organisms-intro-hero-image;
-    }
-
-    &-gradient {
-      @extend %organisms-intro-hero-gradient;
-    }
-
     &-badge {
       @extend %organisms-intro-hero-badge;
     }

@@ -17,7 +17,8 @@ $compounds-tiles: (
   'columns': (
     's': 1,
     'm': 2,
-    'l': 3
+    'l': 3,
+    'xl': 3
   ),
 
   'spacing': 25px
@@ -35,14 +36,12 @@ $compounds-tiles: (
 @mixin compounds-tiles--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  // ...
   $gap-x: map-deep-get($skin, 'gap.x');
   $gap-y: map-deep-get($skin, 'gap.y');
   $columns: map-deep-get($skin, 'columns');
   $spacing: map-deep-get($skin, 'spacing');
 
   // Defines the tiles component's base styles.
-  // ...
   grid-column-gap: $gap-x;
   grid-row-gap: $gap-y;
   @include margin-y( $spacing );

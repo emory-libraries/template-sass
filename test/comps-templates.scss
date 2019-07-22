@@ -5,6 +5,12 @@
   @include templates-info;
 }
 
+// templates-form
+.form-page {
+  @include templates-form;
+}
+
+
 // templates-material
 .material-page {
   @include templates-material;
@@ -38,4 +44,28 @@
 // templates-bio
 .bio-page {
   @include templates-bio;
+}
+
+// templates-landing
+.landing-page {
+  @include templates-landing;
+}
+
+// templates-gallary
+.gallery-page {
+  @include templates-gallery;
+}
+
+// templates-exhibition
+.exhibition-page {
+  @include templates-exhibition;
+}
+
+// templates-index
+.index-page {
+  @include templates-index;
+}
+// templates-periodicals
+.periodicals-page {
+  @include templates-periodicals;
 }

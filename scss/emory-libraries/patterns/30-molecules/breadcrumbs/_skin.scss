@@ -24,20 +24,33 @@ $molecules-breadcrumbs: (
 /// @output The breadcrumbs component's themeable properties
 @mixin molecules-breadcrumbs--theme ( $skin ) {
 
+  // Capture selector.
+  $selector: &;
+
   // Capture themeable variables from skin.
   $color: map-deep-get($skin, 'color');
 
   // Defines the breadcrumbs component's base styles.
-  & li {
+  // ...
+
+  // Defines the breadcrumbs crumb styles.
+  &-crumb {
     font-size: .8125em !important;
     line-height: 1.4 !important;
 
-    &:not(:last-child)::after {
-      margin: 0 .5em;
-      content: '\203a';
-      color: $color;
-      font-weight: bold;
+    + #{$selector}-crumb {
+
+      &::before {
+        color: $color;
+        font-weight: bold;
+      }
+
+    }
+
+    a {
+      @include atoms-link;
     }
 
   }
+
 }

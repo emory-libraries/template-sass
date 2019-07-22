@@ -1,0 +1,75 @@
+////
+/// @group emory-libraries.patterns.organisms.nav-bar-main
+////
+
+/// Defines the base structure of the nav-bar-main component.
+///
+/// @since 1.0.0-dev.0
+%organisms-nav-bar-main {
+
+  // Identify selectors.
+  $selector-branding: unquote('.branding-header');
+  $selector-navigation: unquote('.nav-menu-main');
+
+  // Builds the nav-bar-main structure.
+  display: grid;
+  grid-template-areas: "navigation"
+                       "branding";
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, min-content);
+
+  // Adjust navigation bar structure on larger screens.
+  @include breakpoint-l-xl {
+    grid-template-areas: "branding navigation";
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: min-content;
+  };
+
+  // Override branding and navigation structure.
+  #{$selector-branding},
+  #{$selector-navigation} {
+    @include padding-x(0);
+    @include margin-x(0);
+  }
+
+  // Override branding structure.
+  #{$selector-branding} {
+    grid-area: branding;
+
+    @include breakpoint-l {
+      z-index: z('above') + 1;
+    };
+
+  }
+
+  // Override navigation structure.
+  #{$selector-navigation} {
+    grid-area: navigation;
+
+    @include breakpoint-s {
+      z-index: z('above') + 1;
+    };
+
+    // Identify selectors.
+    $selector-navigation-container: unquote('#{$selector-navigation}-nav');
+    $selector-navigation-button: unquote('.nav-button');
+
+    // Adjust the navigation menu's structure.
+    #{$selector-navigation-container} {
+      height: 100% !important;
+
+      // Adjust the tablet navigation menu structure.
+      &.-tablet {
+
+        // Force navigation button's to be full-height.
+        #{$selector-navigation-button} {
+          height: 100% !important;
+        }
+
+      }
+
+    }
+
+  }
+
+}

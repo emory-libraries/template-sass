@@ -1,0 +1,48 @@
+////
+/// @group emory-libraries.patterns.templates.form
+////
+
+/// Load the form component's structure and skin.
+@import 'form/structure';
+@import 'form/skin';
+
+/// Builds a constructor for the form component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} templates-form
+/// @requires {variable} templates-form
+/// @requires {mixin} templates-form--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our form component
+///
+/// @status review
+@mixin templates-form ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($templates-form, $custom);
+
+  // Initialize the form component.
+  & {
+
+    // Load structure.
+    @extend %templates-form;
+
+    &-header {
+      @extend %templates-form-header;
+    }
+    &-main {
+      @extend %templates-form-main;
+    }
+    &-footer {
+      @extend %templates-form-footer;
+    }
+    // Load skins.
+    @include templates-form--theme( $skin );
+
+  }
+
+}

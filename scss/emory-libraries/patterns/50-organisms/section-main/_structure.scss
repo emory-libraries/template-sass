@@ -19,9 +19,9 @@
   // Builds the section-main structure.
   margin: 0 auto;
   width: 100%;
-  max-width: 1236px;
   display: grid;
   grid-area: main;
+  padding: 0 1.25em 1.25em;
 
   // Initializes a helper for building page-specific grid layouts.
   @mixin grid-layout( $overrides: () ) {
@@ -173,6 +173,10 @@
   &-breadcrumb {
     grid-column: main;
     grid-row: breadcrumb;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    margin-bottom: $rhythm-y;
   }
 
   // Builds the main title structure.
@@ -197,8 +201,7 @@
   &-sidebar {
     grid-column: main;
     grid-row: sidebar;
-    display: flex;
-    justify-content: center;
+    display: block;
 
     // Adjust the main sidebar structure across large screens.
     @include breakpoint-l {
@@ -226,6 +229,13 @@
     grid-row: section;
   }
 
+  // Impose a maximum width on most pages.
+  &#{selector-excludes(
+    '.-landing-page'
+  )} {
+    max-width: 1236px;
+  }
+
   // Remove spacing between title and subtitle on most pages.
   &.-info-page,
   &.-material-page,
@@ -233,8 +243,10 @@
   &.-bio-page,
   &.-research-help-page,
   &.-service-directory-page,
+  &.-form-page,
   &.-subject-librarian-directory-page,
-  &.-staff-directory-page, {
+  &.-staff-directory-page,
+  &.-research-help-directory-page {
 
     #{$selector}-title {
       margin-bottom: 0;
@@ -250,8 +262,15 @@
     '.-bio-page',
     '.-research-help-page',
     '.-service-directory-page',
+    '.-form-page',
     '.-subject-librarian-directory-page',
-    '.-staff-directory-page'
+    '.-staff-directory-page',
+    '.-landing-page',
+    '.-gallery-page',
+    '.-exhibition-page',
+    '.-research-help-directory-page',
+    '.-index-page',
+    '.-periodicals-page'
   )},
   &.-info-page {
     @include grid-layout;
@@ -276,6 +295,43 @@
       }
 
     };
+
+  }
+
+  // Builds the main structure when used for a landing page.
+  &.-landing-page {
+    @include grid-layout((
+      'spacer': false,
+      'content': false,
+      'section': false,
+      'sidebar': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-spacer,
+    #{$selector}-content,
+    #{$selector}-section,
+    #{$selector}-sidebar {
+      display: none;
+    }
+
+    &.without-intro {
+      @include grid-layout((
+        'title': false,
+        'subtitle': false,
+        'spacer': false,
+        'content': false,
+        'section': false,
+        'sidebar': false
+      ));
+
+      // Hide grid areas that are not being used within this page type.
+      #{$selector}-title,
+      #{$selector}-subtitle {
+        display: none;
+      }
+
+    }
 
   }
 
@@ -342,7 +398,7 @@
   &.-service-directory-page {
     @include grid-layout((
       'spacer': false,
-      'content': false,
+      'auto': false,
       'section': false,
       'sidebar': false
     ));
@@ -375,8 +431,185 @@
 
   }
 
+  // Builds the main structure when used for a periodicals page.
+  &.-periodicals-page {
+    @include grid-layout((
+      'subtitle': false,
+      'sidebar': false,
+      'section': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-subtitle,
+    #{$selector}-sidebar,
+    #{$selector}-section {
+      display: none;
+    }
+
+  }
+
   // Builds the main structure when used for a research help page.
   &.-research-help-page {
+    @include grid-layout((
+      'subtitle': false,
+      'section': false,
+      'content': false,
+      'spacer': false,
+      'sidebar': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-subtitle,
+    #{$selector}-section,
+    #{$selector}-sidebar
+    #{$selector}-content
+    #{$selector}-spacer {
+      display: none;
+    }
+
+  }
+
+  // Builds the main structure when used for directory pages.
+  &.-service-directory-page,
+  &.-subject-librarian-directory-page,
+  &.-staff-directory-page,
+  &.-research-help-directory-page {
+    @include grid-layout((
+      'spacer': false,
+      'auto': false,
+      'section': false,
+      'sidebar': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-spacer,
+    #{$selector}-content,
+    #{$selector}-section,
+    #{$selector}-sidebar {
+      display: none;
+    }
+
+    &.without-intro {
+      @include grid-layout((
+        'title': false,
+        'subtitle': false,
+        'spacer': false,
+        'content': false,
+        'section': false,
+        'sidebar': false
+      ));
+
+      // Hide grid areas that are not being used within this page type.
+      #{$selector}-title,
+      #{$selector}-subtitle {
+        display: none;
+      }
+
+    }
+
+  }
+
+  // Builds the main structure when used for a gallery page.
+  &.-gallery-page {
+    @include grid-layout((
+      'subtitle': false,
+      'body': false,
+      'spacer': false,
+      'content': false,
+      'section': false,
+      'sidebar': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-subtitle,
+    #{$selector}-body,
+    #{$selector}-spacer,
+    #{$selector}-content,
+    #{$selector}-section,
+    #{$selector}-sidebar {
+      display: none;
+    }
+
+  }
+
+  // Builds the main structure when used for an exhibition page.
+  &.-exhibition-page {
+    @include grid-layout((
+      'title': false,
+      'section': false,
+      'spacer': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-title,
+    #{$selector}-section,
+    #{$selector}-spacer {
+      display: none;
+    }
+
+    // Reorder the content.
+    #{$selector}-content {
+      grid-row: sidebar-end;
+    }
+
+    // Adjust the spacing for sidebar and body within the grid.
+    #{$selector}-body,
+    #{$selector}-sidebar {
+      @include margin-y($rhythm-y);
+    }
+
+    // Adjusts the main structure across large screens.
+    @include breakpoint-l {
+      grid-template-columns: [main-start] 1fr
+                             [main-end divider-start] .25fr
+                             [divider-end sidebar-start] 1fr [sidebar-end] !important;
+
+      // Adjust the breadcrumb placement within the grid.
+      #{$selector}-breadcrumb {
+        grid-column: main / sidebar;
+      }
+
+      // Adjusts the subtitle placement within the grid.
+      #{$selector}-subtitle {
+        grid-column: main / sidebar;
+      }
+
+      // Adjust the sidebar placement within the grid.
+      #{$selector}-sidebar {
+        grid-row: body;
+      }
+
+      // Adjust the spacer and content placement within the grid.
+      #{$selector}-spacer,
+      #{$selector}-content {
+        grid-column: main / sidebar;
+      }
+
+    };
+
+  }
+
+  // Builds the main structure when used for an index page.
+  &.-index-page {
+    @include grid-layout((
+      'spacer': false,
+      'auto': false,
+      'section': false,
+      'sidebar': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-spacer,
+    #{$selector}-content,
+    #{$selector}-section,
+    #{$selector}-sidebar {
+      display: none;
+    }
+
+  }
+
+  // Builds the main structure when used for a form page.
+  &.-form-page {
     @include grid-layout((
       'subtitle': false,
       'section': false,
@@ -389,45 +622,5 @@
     #{$selector}-sidebar {
       display: none;
     }
-
   }
-
-  // Builds the main structure when used for a subject librarian directory and staff directory page.
-  &.-subject-librarian-directory-page,
-  &.-staff-directory-page {
-    @include grid-layout((
-      'spacer': false,
-      'content': false,
-      'section': false,
-      'sidebar': false
-    ));
-
-    // Hide grid areas that are not being used within this page type.
-    #{$selector}-spacer,
-    #{$selector}-content,
-    #{$selector}-section,
-    #{$selector}-sidebar {
-      display: none;
-    }
-
-    &.without-intro {
-      @include grid-layout((
-        'title': false,
-        'subtitle': false,
-        'spacer': false,
-        'content': false,
-        'section': false,
-        'sidebar': false
-      ));
-
-      // Hide grid areas that are not being used within this page type.
-      #{$selector}-title,
-      #{$selector}-subtitle {
-        display: none;
-      }
-
-    }
-
-  }
-
 }

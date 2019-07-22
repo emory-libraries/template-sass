@@ -1,0 +1,52 @@
+////
+/// @group emory-libraries.patterns.templates.periodicals
+////
+
+/// Load the periodicals component's structure and skin.
+@import 'periodicals/structure';
+@import 'periodicals/skin';
+
+/// Builds a constructor for the periodicals component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} templates-periodicals
+/// @requires {variable} templates-periodicals
+/// @requires {mixin} templates-periodicals--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our periodicals component
+///
+/// @status review
+@mixin templates-periodicals ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($templates-periodicals, $custom);
+  
+  // Initialize the periodicals component.
+  & {
+    
+    // Load structure.
+    @extend %templates-periodicals;
+    
+    }
+
+    &-header {
+      @extend %templates-periodicals-header;
+    }
+
+    &-main {
+      @extend %templates-periodicals-main;
+    }
+
+    &-footer {
+      @extend %templates-periodicals-footer;
+    }
+
+    // Load skins.
+    @include templates-periodicals--theme( $skin );
+    
+
+}

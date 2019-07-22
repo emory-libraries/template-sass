@@ -1,0 +1,74 @@
+////
+/// @group emory-libraries.patterns.templates.exhibition
+////
+
+/// Load the exhibition component's structure and skin.
+@import 'exhibition/structure';
+@import 'exhibition/skin';
+
+/// Builds a constructor for the exhibition component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} templates-exhibition
+/// @requires {variable} templates-exhibition
+/// @requires {mixin} templates-exhibition--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our exhibition component
+///
+/// @status review
+@mixin templates-exhibition ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($templates-exhibition, $custom);
+  
+  // Initialize the exhibition component.
+  & {
+    
+    // Load structure.
+    @extend %templates-exhibition;
+    
+    // Load parts.
+    &-header {
+      @extend %templates-exhibition-header;
+    }
+    &-main {
+      @extend %templates-exhibition-main;
+      &-context {
+        @extend %templates-exhibition-main-context;
+      }
+      &-quote {
+        @extend %templates-exhibition-main-quote;
+      }
+      &-date {
+        @extend %templates-exhibition-main-date;
+      }
+      &-sidenote {
+        @extend %templates-exhibition-main-sidenote;
+        &-heading {
+          @extend %templates-exhibition-main-sidenote-heading;
+        }
+        &-content {
+          @extend %templates-exhibition-main-sidenote-content;
+        }
+        &-link {
+          @extend %templates-exhibition-main-sidenote-link;
+        }
+      }
+      &-divider {
+        @extend %templates-exhibition-main-divider;
+      }
+    }
+    &-footer {
+      @extend %templates-exhibition-footer;
+    }
+    
+    // Load skins.
+    @include templates-exhibition--theme( $skin );
+    
+  }
+  
+}

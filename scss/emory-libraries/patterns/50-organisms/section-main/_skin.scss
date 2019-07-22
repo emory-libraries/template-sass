@@ -11,10 +11,26 @@ $organisms-section-main: (
 
   'gap': 40px,
 
-  'body': (
-    'heading': (
-      'h2': (
-        'color': color('blue')
+  'theme': 'light',
+  'themes': (
+    'light': (
+      'foreground': $color-text-dark,
+      'background': color('white'),
+      'heading': color('blue'),
+      'link': (
+        'normal': color('blue', 'bright'),
+        'hover': color('blue', 'mid'),
+        'active': color('blue', 'mid')
+      )
+    ),
+    'dark': (
+      'foreground': $color-text-light,
+      'background': color('blue', 'dark'),
+      'heading': $color-text-light,
+      'link': (
+        'normal': color('blue', 'bright'),
+        'hover': color('gold'),
+        'active': color('gold')
       )
     )
   )
@@ -32,14 +48,53 @@ $organisms-section-main: (
 /// @output The main component's themeable properties
 @mixin organisms-section-main--theme ($skin) {
 
+  // Capture selector.
+  $selector: &;
+
   // Capture themeable variables from skin.
   $gap: map-deep-get($skin, 'gap');
+  $theme: map-deep-get($skin, 'theme');
+  $themes: map-deep-get($skin, 'themes');
+
+  // Get theme-specific variables.
+  $theme-foreground: map-deep-get($themes, $theme + '.foreground');
+  $theme-background: map-deep-get($themes, $theme + '.background');
+  $theme-heading: map-deep-get($themes, $theme + '.heading');
+  $theme-link: map-deep-get($themes, $theme + '.link');
 
   // Defines the section-main component's base styles.
+  background-color: $theme-background;
+  color: $theme-foreground;
   grid-column-gap: $gap;
 
+  // Defines the breadcrumb styles.
+  &-breadcrumb {
+    min-height: $gap;
+
+    // Adjust breadcrumbs color.
+    .breadcrumbs {
+
+      .breadcrumbs-crumb {
+
+        a {
+          @include atoms-link(('color': $theme-link));
+        }
+
+      }
+
+    }
+
+  }
+
   // Defines the main title styles.
-  &-title { }
+  &-title {
+
+    // Adjust color of intro titles.
+    &.intro-title {
+      color: $theme-heading !important;
+    }
+
+  }
 
   // Defines the main subtitle styles.
   &-subtitle { }
@@ -51,11 +106,8 @@ $organisms-section-main: (
     // FIXME: If we adjust H2 styles here, we'll need to adjust subsequent headings (H3-H6) too.
     .heading {
 
-      // Get heading-specific variables.
-      $heading: map-deep-get($skin, 'body.heading');
-
       &.-h2 {
-        @include tokens-heading('h5-alt', map-deep-get($heading, 'h2.color'));
+        @include tokens-heading('h5-alt', $theme-heading);
       }
 
     }
@@ -75,5 +127,62 @@ $organisms-section-main: (
 
   // Defines the main section styles.
   &-section { }
+
+  // Defines theme-based variations for the section.
+  @each $name, $theme in $themes {
+
+    // Get theme-specific variables.
+    $theme-foreground: map-deep-get($theme, 'foreground');
+    $theme-background: map-deep-get($theme, 'background');
+    $theme-heading: map-deep-get($theme, 'heading');
+    $theme-link: map-deep-get($theme, 'link');
+
+    // Create themed style variation.
+    &.-#{$name} {
+      background-color: $theme-background;
+      color: $theme-foreground;
+
+      // Adjust breadcrumb link color.
+      #{$selector}-breadcrumb {
+
+        .breadcrumbs {
+
+          .breadcrumbs-crumb {
+
+            a {
+              @include atoms-link(('color': $theme-link));
+            }
+
+          }
+
+        }
+
+      }
+
+      // Adjust color of intro titles.
+      #{$selector}-title {
+
+        &.intro-title {
+          color: $theme-heading !important;
+        }
+
+      }
+
+      // Adjust heading colors.
+      #{$selector}-body {
+
+        .heading {
+
+          &.-h2 {
+            color: $theme-heading;
+          }
+
+        }
+
+      }
+
+    }
+
+  }
 
 }

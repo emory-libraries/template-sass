@@ -1,0 +1,49 @@
+////
+/// @group emory-libraries.patterns.templates.periodicals
+////
+
+/// Defines the base structure of the periodicals component.
+///
+/// @since 1.0.0-dev.0
+%templates-periodicals {
+  
+  // Captures selector.
+  $selector: &;
+
+  // Builds the periodicals structure.
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "header"
+                       "main"
+                       "footer";
+  grid-template-rows: 150px 1fr 420px;
+  grid-template-columns: 1fr;
+
+  &-header {
+    grid-area: header;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Header'; // TEMPORARY
+    }
+    
+  }
+
+  &-main {
+    grid-area: main;
+
+    .intro-subtitle {
+      display: none;
+    }
+  }
+
+  &-footer {
+    grid-area: footer;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Footer'; // TEMPORARY
+    }
+    
+  }  
+}

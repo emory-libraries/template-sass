@@ -1,0 +1,211 @@
+////
+/// @group emory-libraries.patterns.organisms.search-menu
+////
+
+/// Defines the base skin of the search-menu component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$organisms-search-menu: (
+
+  'theme': 'light',
+  'themes': (
+    'light': (
+      'context': $color-text-dark,
+      'background': color('white'),
+      'cancel': (
+        'normal': color('blue', 'bright'),
+        'hover': color('blue', 'mid'),
+        'active': color('blue', 'mid')
+      )
+    ),
+    'dark': (
+      'context': $color-text-light,
+      'background': color('blue','dark'),
+      'cancel': (
+        'normal': $color-text-light,
+        'hover': color('blue', 'bright'),
+        'active': color('blue', 'bright')
+      )
+    )
+  ),
+
+  'padding': (
+    'x': 25px,
+    'y': 10px
+  ),
+
+  'transition': (
+    'duration': .5s,
+    'timing': $transition-timing
+  )
+
+);
+
+/// Defines the search-menu component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The search-menu component's themeable properties
+@mixin organisms-search-menu--theme ( $skin ) {
+
+  // Capture the selector
+  $selector: &;
+
+  // Capture themeable variables from skin.
+  $theme: map-deep-get($skin, 'theme');
+  $themes: map-deep-get($skin, 'themes');
+  $padding-x: map-deep-get($skin, 'padding.x');
+  $padding-y: map-deep-get($skin, 'padding.y');
+
+  // Get transition-specific variables.
+  $transition-duration: map-deep-get($skin, 'transition.duration');
+  $transition-timing: map-deep-get($skin, 'transition.timing');
+
+  // Get theme-specific variables.
+  $theme-background: map-deep-get($themes, $theme + '.background');
+  $theme-context: map-deep-get($themes, $theme + '.context');
+  $theme-cancel: map-deep-get($themes, $theme + '.cancel');
+
+  // Defines the search-menu component's base styles.
+  @include padding-x($padding-x);
+  @include padding-y($padding-y);
+  background-color: $theme-background;
+
+  // Defines search menu context styles.
+  &-context {
+    @include tokens-heading('h6', $theme-context);
+  }
+
+  // Defines search menu search styles.
+  &-search {
+
+    // Override search button styles.
+    .search {
+
+      // Set cancel button states.
+      &-cancel {
+        @include atoms-link(('color': $theme-cancel));
+      }
+
+    }
+
+  }
+
+  // Defines search menu styles when used in the home page.
+  &.-home {
+    background-color: transparent;
+    transition: background-color $transition-duration $transition-timing;
+
+    #{$selector}-context,
+    #{$selector}-tabs {
+      transition: opacity $transition-duration $transition-timing;
+      opacity: 0;
+    }
+
+    &:hover,
+    &:focus,
+    &.is-hover,
+    &.is-focus {
+      background-color: $theme-background;
+
+      #{$selector}-context,
+      #{$selector}-tabs {
+        opacity: 1;
+      }
+
+    }
+
+  }
+
+  // Add theme-specific style variations.
+  @each $theme, $settings in $themes {
+
+    // Get theme-specific variables.
+    $theme-background: map-deep-get($settings, 'background');
+    $theme-context: map-deep-get($settings, 'context');
+    $theme-cancel: map-deep-get($settings, 'cancel');
+
+    // Apply theme.
+    &.-#{$theme} {
+      background-color: $theme-background;
+
+      // Adjust search menu context styles.
+      #{$selector}-context {
+        color: $theme-context;
+      }
+
+      // Adjust search menu search styles.
+      #{$selector}-search {
+
+        // Override search button styles.
+        .search {
+
+          // Set cancel button states.
+          &-cancel {
+            @include atoms-link(('color': $theme-cancel));
+          }
+
+        }
+
+      }
+
+      // For home search menus, hide the menu until hovered/focused.
+      &.-home {
+        background-color: transparent;
+
+        &:hover,
+        &:focus,
+        &.is-hover,
+        &.is-focus {
+          background-color: $theme-background;
+        }
+
+      }
+
+    }
+
+  }
+
+  // .search-clear {
+  //   color: #fff;
+  //   font-size: .9em;
+  // }
+  //
+  // &.-home {
+  //   background: transparent;
+  //   transition: $transition-all;
+  //
+  //   .tab-menu {
+  //     position: absolute;
+  //     left: -10000px;
+  //     margin-bottom: 0;
+  //     background: transparent;
+  //     transition: $transition-all;
+  //     padding: 0;
+  //   }
+  //
+  //   &:focus,
+  //   &:focus-within,
+  //   &:hover,
+  //   &:active {
+  //     background-color: $search-background;
+  //     opacity: .9;
+  //     transition: $transition-all;
+  //
+  //     .tab-menu {
+  //       position: initial;
+  //       left: initial;
+  //       transition: $transition-all;
+  //     }
+  //
+  //   }
+  //
+  // }
+
+}

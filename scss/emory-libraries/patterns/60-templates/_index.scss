@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.index
+////
+
+/// Load the index component's structure and skin.
+@import 'index/structure';
+@import 'index/skin';
+
+/// Builds a constructor for the index component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} templates-index
+/// @requires {variable} templates-index
+/// @requires {mixin} templates-index--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our index component
+///
+/// @status review
+@mixin templates-index ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($templates-index, $custom);
+
+  // Initialize the index component.
+  & {
+
+    // Load structure.
+    @extend %templates-index;
+
+    // Load parts.
+    &-header {
+      @extend %templates-index-header;
+    }
+    &-main {
+      @extend %templates-index-main;
+    }
+    &-footer {
+      @extend %templates-index-footer;
+    }
+
+    // Load skins.
+    @include templates-index--theme( $skin );
+
+  }
+
+}

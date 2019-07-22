@@ -18,23 +18,23 @@
 
   &-feature {
     order: 2;
-    
+
     @include breakpoint-xl {
       order: unset;
     };
-    
+
   }
 
   &-explorer {
     order: 1;
-    
+
     @include breakpoint-xl {
       order: unset;
     };
-    
+
   }
 
-  @include breakpoint-xl() {
+  @include breakpoint-xl {
     grid-template-columns: minmax(min-content, 2fr) minmax(min-content, 376px);
 
     &-feature{

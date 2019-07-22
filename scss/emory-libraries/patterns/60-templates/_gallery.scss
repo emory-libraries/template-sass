@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.gallery
+////
+
+/// Load the gallery component's structure and skin.
+@import 'gallery/structure';
+@import 'gallery/skin';
+
+/// Builds a constructor for the gallery component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} templates-gallery
+/// @requires {variable} templates-gallery
+/// @requires {mixin} templates-gallery--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our gallery component
+///
+/// @status review
+@mixin templates-gallery ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($templates-gallery, $custom);
+  
+  // Initialize the gallery component.
+  & {
+    
+    // Load structure.
+    @extend %templates-gallery;
+    
+    // Load parts.
+    &-header {
+      @extend %templates-service-directory-header;
+    }
+    &-main {
+      @extend %templates-service-directory-main;
+    }
+    &-footer {
+      @extend %templates-service-directory-footer;
+    }
+    
+    // Load skins.
+    @include templates-gallery--theme( $skin );
+    
+  }
+  
+}

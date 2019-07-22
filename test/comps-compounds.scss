@@ -50,7 +50,17 @@
   @include compounds-subnav-menu-main;
 }
 
+// compounds-tab-menu
+.tab-menu {
+  @include compounds-tab-menu;
+}
+
 // compounds-slider
 .slider {
   @include compounds-slider;
+}
+
+// compounds-nav-menu-main
+.nav-menu-main {
+  @include compounds-nav-menu-main;
 }
