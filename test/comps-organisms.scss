@@ -14,6 +14,10 @@
   @include organisms-intro-hero;
 }
 
+.intro-home {
+  @include organisms-intro-home;
+}
+
 .intro-interior-cover {
   @include organisms-intro-interior-cover;
 }

@@ -1,0 +1,128 @@
+////
+/// @group emory-libraries.patterns.organisms.intro-home
+////
+
+/// Defines the base skin of the intro-home component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$organisms-intro-home: (
+
+  'gradient': color('blue','dark'),
+
+  'search': (
+    'background': color('blue','dark'),
+    'opacity': .9,
+    'border': (
+      'color': rgba(231, 234, 241, .2),
+      'thickness': $border-width-s
+    ),
+    'color': (
+      'normal': color('slate', 'light'),
+      'active': color('gold')
+    ),
+    'option': color('slate','light'),
+    'active': color('gold')
+  ),
+
+  'hero': color('white'),
+
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  )
+
+);
+
+/// Defines the intro-home component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The intro-home component's themeable properties
+@mixin organisms-intro-home--theme ( $skin ) {
+
+  // Capture selector.
+  $selector: &;
+
+  // Capture themeable variables from skin.
+  $hero: map-deep-get($skin, 'hero');
+  $gradient: map-deep-get($skin, 'gradient');
+  $background: map-deep-get($skin, 'search.background');
+  $opacity: map-deep-get($skin, 'search.opacity');
+
+  $search-options-color: map-deep-get($skin, 'search.option-color');
+  $active-color: map-deep-get($skin, 'search.active-color');
+
+  // Get border-specific variables.
+  $border-color: map-deep-get($skin, 'search.border.color');
+  $border-thickness: map-deep-get($skin, 'search.border.thickness');
+  $border: $border-thickness solid $border-color;
+
+  // Get transition-specific variables.
+  $transition-duration: map-deep-get($skin, 'transition.duration');
+  $transition-timing: map-deep-get($skin, 'transition.timing');
+
+  // Defines the intro-home component's base styles.
+  @include linear-gradient-over-image(0deg, $gradient -14.42%, transparent 51.12%, var(--image));
+
+  &-title {
+    text-align: center;
+    text-decoration: none;
+
+    #{$all-headings},
+    .heading {
+      @include tokens-heading('h2', $hero, $important: true);
+    }
+    
+  }
+
+  &-search {
+    background-color: transparent;
+    transition: background-color $transition-duration $transition-timing;
+
+    &:focus-within,
+    &:focus,
+    &:hover,
+    &:active,
+    &.is-hover,
+    &.is-focus {
+      background-color: rgba($background, $opacity);
+    }
+
+    // Override search menu background.
+    .search-menu {
+
+      &,
+      &:hover,
+      &:focus,
+      &.is-hover,
+      &.is-focus,
+      &.is-hover,
+      &.is-focus {
+        background-color: transparent !important;
+      }
+
+    }
+
+    // Overrides tab indicator background.
+    .tab {
+
+      &:active,
+      &.is-active {
+
+        &::after {
+          background-image: none !important;
+        }
+
+      }
+
+    }
+
+  }
+
+}

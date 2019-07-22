@@ -31,6 +31,8 @@ $organisms-search-menu: (
     )
   ),
 
+  'opacity': .9,
+
   'padding': (
     'x': 25px,
     'y': 10px
@@ -62,6 +64,7 @@ $organisms-search-menu: (
   $themes: map-deep-get($skin, 'themes');
   $padding-x: map-deep-get($skin, 'padding.x');
   $padding-y: map-deep-get($skin, 'padding.y');
+  $opacity: map-deep-get($skin, 'opacity');
 
   // Get transition-specific variables.
   $transition-duration: map-deep-get($skin, 'transition.duration');
@@ -110,15 +113,37 @@ $organisms-search-menu: (
 
     &:hover,
     &:focus,
+    &:focus-within,
     &.is-hover,
     &.is-focus {
       background-color: $theme-background;
 
       #{$selector}-context,
       #{$selector}-tabs {
-        opacity: 1;
+        opacity: $opacity;
       }
 
+    }
+
+    // Override search menu background.
+    .search-menu {
+
+      &,
+      &:hover,
+      &:focus,
+      &:focus-within,
+      &.is-hover,
+      &.is-focus {
+        background-color: transparent !important;
+        transition: none !important;
+      }
+
+    }
+
+    // Override tab menu background.
+    .tab-menu {
+      background-color: transparent !important;
+      transition: none !important;
     }
 
   }
@@ -161,6 +186,7 @@ $organisms-search-menu: (
 
         &:hover,
         &:focus,
+        &:focus-within,
         &.is-hover,
         &.is-focus {
           background-color: $theme-background;
@@ -171,41 +197,5 @@ $organisms-search-menu: (
     }
 
   }
-
-  // .search-clear {
-  //   color: #fff;
-  //   font-size: .9em;
-  // }
-  //
-  // &.-home {
-  //   background: transparent;
-  //   transition: $transition-all;
-  //
-  //   .tab-menu {
-  //     position: absolute;
-  //     left: -10000px;
-  //     margin-bottom: 0;
-  //     background: transparent;
-  //     transition: $transition-all;
-  //     padding: 0;
-  //   }
-  //
-  //   &:focus,
-  //   &:focus-within,
-  //   &:hover,
-  //   &:active {
-  //     background-color: $search-background;
-  //     opacity: .9;
-  //     transition: $transition-all;
-  //
-  //     .tab-menu {
-  //       position: initial;
-  //       left: initial;
-  //       transition: $transition-all;
-  //     }
-  //
-  //   }
-  //
-  // }
 
 }
