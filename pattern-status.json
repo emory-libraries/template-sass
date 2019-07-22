@@ -83,12 +83,9 @@
   "templates-subject-librarian-directory": "review",
   "templates-staff-directory": "review",
   "templates-bio": "review",
-<<<<<<< HEAD
-  "compounds-popular-link-menu": "construction",
+  "compounds-popular-link-menu": "review",
   "compounds-popular-links-menu": "construction",
-  "organisms-intro-home": "construction"
-}
-=======
+  "organisms-intro-home": "construction",
   "templates-gallery": "review",
   "templates-research-help-directory": "review",
   "templates-landing": "review",
@@ -96,4 +93,3 @@
   "templates-index": "review",
   "templates-periodicals": "review"
 }
->>>>>>> dev
