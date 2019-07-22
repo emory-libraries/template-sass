@@ -20,10 +20,7 @@ $compounds-tab-menu: (
   ),
 
   'dropdown': (
-    'padding': (
-      'x': 10px,
-      'y': 5px
-    ),
+    'padding': 5px,
     'spacing': 5px,
     'icon': 20px,
     'underline': $border-width-s
@@ -55,8 +52,7 @@ $compounds-tab-menu: (
   // Get dropdown-specific variables.
   $dropdown-icon: map-deep-get($skin, 'dropdown.icon');
   $dropdown-spacing: map-deep-get($skin, 'dropdown.spacing');
-  $dropdown-padding-x: map-deep-get($skin, 'dropdown.padding.x');
-  $dropdown-padding-y: map-deep-get($skin, 'dropdown.padding.y');
+  $dropdown-padding: map-deep-get($skin, 'dropdown.padding');
   $dropdown-underline: map-deep-get($skin, 'dropdown.underline');
 
   // Defines the tab-menu component's base styles.
@@ -64,24 +60,23 @@ $compounds-tab-menu: (
 
   // Defines tab menu dropdown styles.
   &.-dropdown {
+    @include padding-y($dropdown-spacing);
     @include tokens-text('body', $theme-dropdown, ('body': (
       'font-weight': bold,
       'text-transform': uppercase
     )));
     font-size: 18px !important;
-    padding: $dropdown-spacing;
 
     &::after {
-      width: calc(100% - #{$dropdown-padding-x + $dropdown-icon + $dropdown-spacing});
+      width: calc(100% - #{$dropdown-icon});
       height: $dropdown-underline;
       background-color: $theme-dropdown;
       bottom: $dropdown-spacing;
     }
 
     select {
-      @include padding-x($dropdown-padding-x);
-      @include padding-y($dropdown-padding-y);
-      padding-right: ($dropdown-padding-x + $dropdown-icon + $dropdown-spacing);
+      @include padding-y($dropdown-padding);
+      padding-right: ($dropdown-icon);
       background-image: icon-url('material-chevron_down', $theme-dropdown, $dropdown-icon);
       background-size: $dropdown-icon auto;
       background-repeat: no-repeat;
