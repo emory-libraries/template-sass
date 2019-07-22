@@ -22,13 +22,15 @@
     grid-column: 1/-1;
     align-self: stretch;
     margin: 0 !important;
-    padding-top: .5em;
-    padding-left: 6em;
-    padding-right: 6em;
 
     .search-menu {
       padding-top: 0;
     }
+
+    @include breakpoint-l {
+      @include padding-x(6em);
+      padding-top: .5em;
+    };
 
   }
 
