@@ -65,68 +65,6 @@ $organisms-intro-home: (
     background: transparent;
     transition: $transition-all;
 
-    &-options {
-      position: absolute;
-      left: -10000px;
-      border-bottom: $border;
-
-      &-list-item {
-        font-size: 12px;
-        font-weight: bold;
-        line-height: 1.25;
-        letter-spacing: .05em;
-        text-transform: uppercase;
-        text-align: center;
-
-        a {
-          color: $search-options-color;
-          text-decoration: none;
-
-          &:hover,
-          &:active,
-          &:focus {
-            color: $active-color;
-
-
-            &:after {
-              content:'';
-              position: absolute;
-              top: 100%;
-              left: 0;
-              right: 0;
-              margin: 1em auto;
-              width: 0;
-              height: 0;
-              background-color: $search-background;
-              border-top: solid 7px $active-color;
-              border-left: solid 7px transparent;
-              border-right: solid 7px transparent;
-            }
-
-          }
-
-        }
-
-      }
-
-      &-list-item:not(:last-child) {
-
-        &:after {
-          content: "";
-          border-left: $border;
-          height: 12px;
-          margin: auto;
-
-          @include breakpoint-s() {
-            border-left: none;
-          }
-          
-        }
-
-      }
-
-    }
-
     &:focus-within,
     &:focus,
     &:hover,
@@ -134,12 +72,21 @@ $organisms-intro-home: (
       background-color: $search-background;
       opacity: .9;
       transition: $transition-all;
+    }
 
-      & .intro-home-search-options {
-        position: initial;
-        left: initial;
+    .search-menu.-dark.-home {
+
+      &:hover,
+      &:focus,
+      &.is-hover,
+      &.is-focus {
+        background: transparent;
       }
 
+    }
+
+    .tab-menu.-dark:not(.-dropdown) {
+      background: transparent;
     }
 
   }
