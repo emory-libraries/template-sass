@@ -8,33 +8,181 @@
 
 <body>
 
+  <!-- organisms-intro-home -->
+  <header class="intro-home" style="--image: url(//source.unsplash.com/1450x440);">
+    <div class="intro-home-search">
+      <div data-uid="" class="search-menu -dark -home">
+        <span class="search-menu-context">Searching:</span>
+        <div class="search-menu-tabs">
+          <div data-uid="tab-menu--ipqgyrljyeknbu4" class="tab-menu -dark">
+            <button data-uid="tab--library-catalog" class="tab">Library Catalog</button>
+            <button data-uid="tab--databases" class="tab">Databases</button>
+            <button data-uid="tab--ejournals" class="tab">eJournals</button>
+            <button data-uid="tab--research-course-guides" class="tab is-active">Research &amp; Course Guides</button>
+            <button data-uid="tab--finding-aids" class="tab">Finding Aids</button>
+            <button data-uid="tab--this-site" class="tab">This Site</button>
+          </div>
+          <div data-uid="tab-menu--ipqgyrljyeknbu4" class="tab-menu -dropdown -dark">
+            <select>
+              <option data-uid="tab--library-catalog" value="[object Object]">Library Catalog</option>
+              <option data-uid="tab--databases" value="[object Object]">Databases</option>
+              <option data-uid="tab--ejournals" value="[object Object]">eJournals</option>
+              <option data-uid="tab--research-course-guides" value="[object Object]">Research &amp; Course Guides</option>
+              <option data-uid="tab--finding-aids" value="[object Object]">Finding Aids</option>
+              <option data-uid="tab--this-site" value="[object Object]">This Site</option>
+            </select>
+          </div>
+        </div>
+        <div class="search-menu-search">
+          <div class="search -big -contained">
+            <input type="search" autocomplete="off" placeholder="Search Research &amp; Course Guides" class="input -search -big search-box">
+            <a href="http://guides.main.library.emory.edu/srch.php?q=&amp;libsearch=woodruff" target="_self" tabindex="0" class="button search-button is-disabled" disabled="disabled"></a>
+          </div>
+        </div>
+        <div class="search-menu-back">
+          <label for="" class="button search-menu-back">
+            <span aria-hidden="true" data-icon="material-chevron_right" class="icon -left">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path fill="none" d="M0 0h24v24H0V0z"></path>
+                <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"></path>
+              </svg>
+            </span>
+            Back to Menu
+          </label>
+        </div>
+      </div>
+    </div>
+    <div class="badge -square -white intro-home-badge">Featured</div>
+    <a href="" target="_self" class="intro-home-title">
+      <h1 class="heading -h1">Emory's African American collections celebrated in new exhibit</h1>
+    </a>
+  </header>
+
   <!-- organisms-search-menu -->
+  <div>
 
-<div class="search-menu"><div class="tab-menu-row"><div class="tab-menu -dark"><button class="tab">
-              Library Catalog
-            </button> <button class="tab">
-              Databases
-            </button> <button class="tab">
-              eJournals
-            </button> <button class="tab">
-              Research &amp; Course Guides
-            </button> <button class="tab">
-              Finding Aids
-            </button> <button class="tab">
-              This Site
-            </button></div></div> <div class="search-row"><div class="search -form"><div class="search -small"><input type="search" autocomplete="off" placeholder="Search the Emory Library Catalog" class="input -search -small search-box"> <a href="http://discovere.emory.edu/primo_library/libweb/action/dlSearch.do?institution=EMORY&amp;vid=discovere&amp;query=any,contains,&amp;libsearch=woodruff" target="_self" disabled="disabled" class="button search-button is-disabled"><span aria-hidden="true" data-icon="material-search" class="icon -left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path></svg></span>
-      
-              Search
-          </a></div> <noscript><div class="search -form"><input type="radio" name="search" id="search-catalog" checked="checked" class="search-toggle"> <form action="/php/example-search.php" method="GET" autocomplete="off" class="search-form is-default"><input type="hidden" name="param" value=":query"> <input type="hidden" name="service[label]" value="Library Catalog"> <input type="hidden" name="service[placeholder]" value="Search the Emory Library Catalog"> <input type="hidden" name="service[id]" value="catalog"> <input type="hidden" name="service[src]" value="http://discovere.emory.edu/primo_library/libweb/action/dlSearch.do?institution&amp;#x3D;EMORY&amp;vid&amp;#x3D;discovere&amp;query&amp;#x3D;any,contains,:query&amp;libsearch&amp;#x3D;woodruff"> <input type="hidden" name="service[default]" value="true"> <input type="search" name="query" placeholder="Search the Emory Library Catalog" class="input -search -small search-box"> <input type="submit" value="Search" class="button search-button"></form> <input type="radio" name="search" id="search-databases" class="search-toggle"> <form action="/php/example-search.php" method="GET" autocomplete="off" class="search-form"><input type="hidden" name="param" value=":query"> <input type="hidden" name="service[label]" value="Databases"> <input type="hidden" name="service[placeholder]" value="Search for a Database"> <input type="hidden" name="service[id]" value="databases"> <input type="hidden" name="service[src]" value="https://guides.main.library.emory.edu/az.php?q&amp;#x3D;:query"> <input type="search" name="query" placeholder="Search for a Database" class="input -search -small search-box"> <input type="submit" value="Search" class="button search-button"></form> <input type="radio" name="search" id="search-ejournals" class="search-toggle"> <form action="/php/example-search.php" method="GET" autocomplete="off" class="search-form"><input type="hidden" name="param" value=":query"> <input type="hidden" name="service[label]" value="eJournals"> <input type="hidden" name="service[placeholder]" value="Search Journal Titles"> <input type="hidden" name="service[id]" value="ejournals"> <input type="hidden" name="service[src]" value="http://emory-primoprod.hosted.exlibrisgroup.com/primo_library/libweb/action/dlSearch.do?institution&amp;#x3D;01EMORY&amp;vid&amp;#x3D;discovere&amp;loc&amp;#x3D;local%2Cscope%3A%28AZ01EMORY%29&amp;fn&amp;#x3D;goAlmaAz&amp;almaAzSearch&amp;#x3D;true&amp;vl(freeText0)&amp;#x3D;:query&amp;libsearch&amp;#x3D;woodruff"> <input type="search" name="query" placeholder="Search Journal Titles" class="input -search -small search-box"> <input type="submit" value="Search" class="button search-button"></form> <input type="radio" name="search" id="search-guides" class="search-toggle"> <form action="/php/example-search.php" method="GET" autocomplete="off" class="search-form"><input type="hidden" name="param" value=":query"> <input type="hidden" name="service[label]" value="Research &amp; Course Guides"> <input type="hidden" name="service[placeholder]" value="Search Research &amp; Course Guides"> <input type="hidden" name="service[id]" value="guides"> <input type="hidden" name="service[src]" value="http://guides.main.library.emory.edu/srch.php?q&amp;#x3D;:query&amp;libsearch&amp;#x3D;woodruff"> <input type="search" name="query" placeholder="Search Research &amp; Course Guides" class="input -search -small search-box"> <input type="submit" value="Search" class="button search-button"></form> <input type="radio" name="search" id="search-aids" class="search-toggle"> <form action="/php/example-search.php" method="GET" autocomplete="off" class="search-form"><input type="hidden" name="param" value=":query"> <input type="hidden" name="service[label]" value="Finding Aids"> <input type="hidden" name="service[placeholder]" value="Search Manuscript and Archival Collections"> <input type="hidden" name="service[id]" value="aids"> <input type="hidden" name="service[src]" value="https://findingaids.library.emory.edu/search/?Submit&amp;#x3D;Search&amp;keywords&amp;#x3D;:query&amp;libsearch&amp;#x3D;woodruff"> <input type="search" name="query" placeholder="Search Manuscript and Archival Collections" class="input -search -small search-box"> <input type="submit" value="Search" class="button search-button"></form> <input type="radio" name="search" id="search-site" class="search-toggle"> <form action="/php/example-search.php" method="GET" autocomplete="off" class="search-form"><input type="hidden" name="param" value=":query"> <input type="hidden" name="service[label]" value="This Site"> <input type="hidden" name="service[placeholder]" value="Search this site on Google"> <input type="hidden" name="service[id]" value="site"> <input type="hidden" name="service[src]" value="https://www.google.com/search?q&amp;#x3D;:query%20site:web.library.emory.edu"> <input type="search" name="query" placeholder="Search this site on Google" class="input -search -small search-box"> <input type="submit" value="Search" class="button search-button"></form></div></noscript></div> <a href="" target="_self" class="link search-clear -underline">
-      
-      Cancel
-    </a> <label id="button-toggle--material-chevron_right" for="" class="button -toggle"><span aria-hidden="true" data-icon="material-chevron_right" class="icon -left"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"></path><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6-6-6z"></path></svg></span>
-    
-      Back to Menu
-      
-    </label></div></div>
+    <!-- header search -->
+    <div class="search-menu -dark">
 
+      <!-- context -->
+      <span class="search-menu-context">Searching:</span>
 
+      <!-- tabs -->
+      <div class="search-menu-tabs">
+
+        <!-- default -->
+        <div class="tab-menu -dark">
+          <button class="tab">Library Catalog</button>
+          <button class="tab">Databases</button>
+          <button class="tab">eJournals</button>
+          <button class="tab">Research &amp; Course Guides</button>
+          <button class="tab">Finding Aids</button>
+          <button class="tab">This Site</button>
+        </div>
+
+        <!-- dropdown -->
+        <div class="tab-menu -dark -dropdown">
+          <select>
+            <option selected>Library Catalog</option>
+            <option>Databases</option>
+            <option>eJournals</option>
+            <option>Research &amp; Course Guides</option>
+            <option>Finding Aids</option>
+            <option>This Site</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- search -->
+      <div class="search-menu-search">
+
+        <div class="search -small">
+
+          <input type="search" class="input -search -small search-box">
+
+          <a class="button search-button">
+            <span class="icon">
+              <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path d="M9.5,3A6.5,6.5 0 0,1 16,9.5C16,11.11 15.41,12.59 14.44,13.73L14.71,14H15.5L20.5,19L19,20.5L14,15.5V14.71L13.73,14.44C12.59,15.41 11.11,16 9.5,16A6.5,6.5 0 0,1 3,9.5A6.5,6.5 0 0,1 9.5,3M9.5,5C7,5 5,7 5,9.5C5,12 7,14 9.5,14C12,14 14,12 14,9.5C14,7 12,5 9.5,5Z" />
+              </svg>
+            </span>
+            Search
+          </a>
+
+          <button class="link search-cancel">Cancel</button>
+
+        </div>
+
+      </div>
+
+      <!-- back -->
+      <div class="search-menu-back">
+
+        <button class="button">
+          <span class="icon">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+              <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+            </svg>
+          </span>
+          Back to Menu
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- home search -->
+    <div class="search-menu -dark -home">
+
+      <!-- context -->
+      <span class="search-menu-context">Searching:</span>
+
+      <!-- tabs -->
+      <div class="search-menu-tabs">
+
+        <!-- default -->
+        <div class="tab-menu -dark">
+          <button class="tab">Library Catalog</button>
+          <button class="tab">Databases</button>
+          <button class="tab">eJournals</button>
+          <button class="tab">Research &amp; Course Guides</button>
+          <button class="tab">Finding Aids</button>
+          <button class="tab">This Site</button>
+        </div>
+
+        <!-- dropdown -->
+        <div class="tab-menu -dark -dropdown">
+          <select>
+            <option selected>Library Catalog</option>
+            <option>Databases</option>
+            <option>eJournals</option>
+            <option>Research &amp; Course Guides</option>
+            <option>Finding Aids</option>
+            <option>This Site</option>
+          </select>
+        </div>
+
+      </div>
+
+      <!-- search -->
+      <div class="search-menu-search">
+
+        <div class="search -big -contained">
+
+          <input type="search" class="input -search -small search-box">
+
+          <a class="button search-button">Search</a>
+
+          <button class="link search-cancel">Cancel</button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
 
   <!-- orgnaisms-intro-interior-cover -->
   <header class="intro-interior-cover">

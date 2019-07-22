@@ -6,52 +6,52 @@
 ///
 /// @since 1.0.0
 %atoms-search {
-  
+
   // Get selector.
   $selector: &;
-  
+
   // Builds the search structure.
   // ...
-  
+
   // Builds structure for search box.
   &-box {
     margin: 0 !important;
     grid-area: box;
-    
+
     &[disabled],
     &.is-disabled {
       cursor: not-allowed;
     }
-    
+
   }
-  
+
   // Builds structure for search button.
   &-button {
     grid-area: button;
-    
+
     &[disabled],
     &.is-disabled {
       cursor: not-allowed;
     }
-    
+
   }
-  
+
   // Builds structure for search cancel button.
   &-cancel {
     grid-area: cancel;
-    
+
     &[disabled],
     &.is-disabled {
       cursor: not-allowed;
     }
-    
+
   }
-  
+
   // Builds structure for form.
   &-form {
     @include absolute( 0 );
     margin: 0;
-      
+
     // Builds structure for search box.
     #{$selector}-box { }
 
@@ -67,13 +67,13 @@
     &.is-default {
       display: block;
     }
-      
+
   }
 
   // Builds structure for search toggles.
   &-toggle {
     display: none;
-    
+
     // Hide the form when not checked.
     &:not(:checked) + #{$selector}-form {
       display: none;
@@ -83,7 +83,7 @@
     &:checked + #{$selector}-form {
       display: grid;
     }
-    
+
   }
 
 // Builds default search structure.
@@ -94,9 +94,9 @@
     grid-template-columns: 1fr auto;
     align-items: center;
   }
-  
+
   // Builds the structure for form search boxes.
-  &.-form { 
+  &.-form {
 
     // Modifies structure for search box.
     #{$selector}-box {
@@ -106,10 +106,10 @@
 
     // Modifies structure for search button.
     #{$selector}-button {
-      display: block;
+      display: flex;
       grid-area: button;
     }
-    
+
   }
 
   // Builds the structure for contained search boxes inside a form.
@@ -127,15 +127,15 @@
       display: block;
       grid-area: none;
     }
-    
+
   }
 
   // Builds the structure for contained search boxes.
-  &.-contained { 
+  &.-contained {
     display: grid;
     grid-template-areas: "box cancel";
     grid-template-columns: 1fr auto;
-    
+
     // Modifies structure for search box.
     #{$selector}-box {
       display: block;
@@ -149,27 +149,27 @@
       display: block;
       grid-area: box;
       @include absolute( 0 0 0 null );
-      
+
       // Add separator.
       &::before {
         content: '';
         @include absolute-center-within-container-y;
         left: 0;
       }
-      
+
     }
 
     // Modifies structure for search cancel button.
     #{$selector}-cancel {
       grid-area: cancel;
     }
-    
+
   }
 
   // Builds the structure for big mode.
   &.-big { }
-  
+
   // Builds the structure for small mode.
   &.-small { }
-  
+
 }

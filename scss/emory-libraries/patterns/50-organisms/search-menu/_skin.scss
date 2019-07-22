@@ -8,9 +8,41 @@
 ///
 /// @type map
 $organisms-search-menu: (
-  
-  'background-color': color('blue','dark')
-  
+
+  'theme': 'light',
+  'themes': (
+    'light': (
+      'context': $color-text-dark,
+      'background': color('white'),
+      'cancel': (
+        'normal': color('blue', 'bright'),
+        'hover': color('blue', 'mid'),
+        'active': color('blue', 'mid')
+      )
+    ),
+    'dark': (
+      'context': $color-text-light,
+      'background': color('blue','dark'),
+      'cancel': (
+        'normal': $color-text-light,
+        'hover': color('blue', 'bright'),
+        'active': color('blue', 'bright')
+      )
+    )
+  ),
+
+  'opacity': .9,
+
+  'padding': (
+    'x': 25px,
+    'y': 10px
+  ),
+
+  'transition': (
+    'duration': .5s,
+    'timing': $transition-timing
+  )
+
 );
 
 /// Defines the search-menu component theme.
@@ -25,45 +57,141 @@ $organisms-search-menu: (
 @mixin organisms-search-menu--theme ( $skin ) {
 
   // Capture the selector
-    // Capture the class name.
   $selector: &;
 
   // Capture themeable variables from skin.
-  $search-background: map-deep-get($skin, 'background-color');
- 
-  // Defines the search-menu component's base styles.
-  background-color: $search-background;
+  $theme: map-deep-get($skin, 'theme');
+  $themes: map-deep-get($skin, 'themes');
+  $padding-x: map-deep-get($skin, 'padding.x');
+  $padding-y: map-deep-get($skin, 'padding.y');
+  $opacity: map-deep-get($skin, 'opacity');
 
-  .search-clear {
-    color: #fff;
-    font-size: .9em;
+  // Get transition-specific variables.
+  $transition-duration: map-deep-get($skin, 'transition.duration');
+  $transition-timing: map-deep-get($skin, 'transition.timing');
+
+  // Get theme-specific variables.
+  $theme-background: map-deep-get($themes, $theme + '.background');
+  $theme-context: map-deep-get($themes, $theme + '.context');
+  $theme-cancel: map-deep-get($themes, $theme + '.cancel');
+
+  // Defines the search-menu component's base styles.
+  @include padding-x($padding-x);
+  @include padding-y($padding-y);
+  background-color: $theme-background;
+
+  // Defines search menu context styles.
+  &-context {
+    @include tokens-heading('h6', $theme-context);
   }
 
-  &.-home {
-    background: transparent;
-    transition: $transition-all;
+  // Defines search menu search styles.
+  &-search {
 
-    .tab-menu {
-      position: absolute;
-      left: -10000px;
-      margin-bottom: 0;
-      background: transparent;
-      transition: $transition-all;
-      padding: 0;
+    // Override search button styles.
+    .search {
+
+      // Set cancel button states.
+      &-cancel {
+        @include atoms-link(('color': $theme-cancel));
+      }
+
     }
 
+  }
+
+  // Defines search menu styles when used in the home page.
+  &.-home {
+    background-color: transparent;
+    transition: background-color $transition-duration $transition-timing;
+
+    #{$selector}-context,
+    #{$selector}-tabs {
+      transition: opacity $transition-duration $transition-timing;
+      opacity: 0;
+    }
+
+    &:hover,
     &:focus,
     &:focus-within,
-    &:hover,
-    &:active {
-      background-color: $search-background;
-      opacity: .9;
-      transition: $transition-all;
+    &.is-hover,
+    &.is-focus {
+      background-color: $theme-background;
 
-      .tab-menu {
-        position: initial;
-        left: initial;
-        transition: $transition-all;
+      #{$selector}-context,
+      #{$selector}-tabs {
+        opacity: $opacity;
+      }
+
+    }
+
+    // Override search menu background.
+    .search-menu {
+
+      &,
+      &:hover,
+      &:focus,
+      &:focus-within,
+      &.is-hover,
+      &.is-focus {
+        background-color: transparent !important;
+        transition: none !important;
+      }
+
+    }
+
+    // Override tab menu background.
+    .tab-menu {
+      background-color: transparent !important;
+      transition: none !important;
+    }
+
+  }
+
+  // Add theme-specific style variations.
+  @each $theme, $settings in $themes {
+
+    // Get theme-specific variables.
+    $theme-background: map-deep-get($settings, 'background');
+    $theme-context: map-deep-get($settings, 'context');
+    $theme-cancel: map-deep-get($settings, 'cancel');
+
+    // Apply theme.
+    &.-#{$theme} {
+      background-color: $theme-background;
+
+      // Adjust search menu context styles.
+      #{$selector}-context {
+        color: $theme-context;
+      }
+
+      // Adjust search menu search styles.
+      #{$selector}-search {
+
+        // Override search button styles.
+        .search {
+
+          // Set cancel button states.
+          &-cancel {
+            @include atoms-link(('color': $theme-cancel));
+          }
+
+        }
+
+      }
+
+      // For home search menus, hide the menu until hovered/focused.
+      &.-home {
+        background-color: transparent;
+
+        &:hover,
+        &:focus,
+        &:focus-within,
+        &.is-hover,
+        &.is-focus {
+          background-color: $theme-background;
+        }
+
       }
 
     }
