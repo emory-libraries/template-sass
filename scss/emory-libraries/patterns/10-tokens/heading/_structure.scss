@@ -9,5 +9,22 @@
   
   // Builds the heading structure.
   // ...
-  
+      &.anchor {
+      display: inline-flex;
+      align-items: center;
+
+      .icon {
+        visibility: hidden;
+      }
+
+      &:hover {
+
+        .icon {
+           visibility: visible;
+         }
+
+      }
+
+    }
+
 }
