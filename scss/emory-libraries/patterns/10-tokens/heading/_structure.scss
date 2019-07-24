@@ -9,9 +9,8 @@
   
   // Builds the heading structure.
   // ...
-      &.anchor {
-      display: inline-flex;
-      align-items: center;
+    &.anchor {
+      display: flex;
 
       .icon {
         visibility: hidden;
