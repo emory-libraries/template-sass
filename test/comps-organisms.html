@@ -182,6 +182,170 @@
 
     </div>
 
+    <!-- noscript search -->
+    <div class="search-menu -dark">
+
+      <!-- toggles -->
+      <input class="search-menu-toggle" type="radio" name="search-menu--noscript" id="search-menu--library-catalog" checked>
+      <input class="search-menu-toggle" type="radio" name="search-menu--noscript" id="search-menu--databases">
+      <input class="search-menu-toggle" type="radio" name="search-menu--noscript" id="search-menu--ejournals">
+      <input class="search-menu-toggle" type="radio" name="search-menu--noscript" id="search-menu--research-course-guides">
+      <input class="search-menu-toggle" type="radio" name="search-menu--noscript" id="search-menu--finding-aids">
+      <input class="search-menu-toggle" type="radio" name="search-menu--noscript" id="search-menu--this-site">
+
+      <!-- context -->
+      <span class="search-menu-context">Searching:</span>
+
+      <!-- tabs -->
+      <div class="search-menu-tabs">
+
+        <!-- noscript -->
+        <div class="tab-menu -dark -noscript">
+
+          <label for="search-menu--library-catalog" class="tab">Library Catalog</label>
+          <label for="search-menu--databases" class="tab">Databases</label>
+          <label for="search-menu--ejournals" class="tab">eJournals</label>
+          <label for="search-menu--reseach-course-guides" class="tab">Research &amp; Course Guides</label>
+          <label for="search-menu--finding-aids" class="tab">Finding Aids</label>
+          <label for="search-menu--this-site" class="tab">This Site</label>
+
+        </div>
+
+      </div>
+
+      <!-- search -->
+      <div class="search-menu-search">
+
+        <div class="search -form">
+
+          <!-- library-catalog -->
+          <form class="search-form is-default" action="" method="GET">
+
+            <input type="hidden" name="param" value=":query">
+
+            <input type="hidden" name="service[label]" value="Library Catalog">
+            <input type="hidden" name="service[placeholder]" value="Search the Library Catalog">
+            <input type="hidden" name="service[id]" value="library-catalog">
+            <input type="hidden" name="service[src]" value="https://example.com/library-catalog?q=:query">
+            <input type="hidden" name="service[default]" value="true">
+
+            <input type="search" name="query" class="input -search -small search-box">
+
+            <input type="submit" value="Search" class="button search-button">
+            <input type="reset" value="Cancel" class="link search-cancel">
+
+          </form>
+
+          <!-- databases -->
+          <form class="search-form" action="" method="GET">
+
+            <input type="hidden" name="param" value=":query">
+
+            <input type="hidden" name="service[label]" value="Databases">
+            <input type="hidden" name="service[placeholder]" value="Search Databases">
+            <input type="hidden" name="service[id]" value="databases">
+            <input type="hidden" name="service[src]" value="https://example.com/databases?q=:query">
+            <input type="hidden" name="service[default]" value="true">
+
+            <input type="search" name="query" class="input -search -small search-box">
+
+            <input type="submit" value="Search" class="button search-button">
+            <input type="reset" value="Cancel" class="link search-cancel">
+
+          </form>
+
+          <!-- ejournals -->
+          <form class="search-form" action="" method="GET">
+
+            <input type="hidden" name="param" value=":query">
+
+            <input type="hidden" name="service[label]" value="eJournals">
+            <input type="hidden" name="service[placeholder]" value="Search eJournals">
+            <input type="hidden" name="service[id]" value="ejournals">
+            <input type="hidden" name="service[src]" value="https://example.com/ejournals?q=:query">
+            <input type="hidden" name="service[default]" value="true">
+
+            <input type="search" name="query" class="input -search -small search-box">
+
+            <input type="submit" value="Search" class="button search-button">
+            <input type="reset" value="Cancel" class="link search-cancel">
+
+          </form>
+
+          <!-- research-course-guides -->
+          <form class="search-form" action="" method="GET">
+
+            <input type="hidden" name="param" value=":query">
+
+            <input type="hidden" name="service[label]" value="Research &amp; Course Guides">
+            <input type="hidden" name="service[placeholder]" value="Search Research &amp; Course Guides">
+            <input type="hidden" name="service[id]" value="research-course-guides">
+            <input type="hidden" name="service[src]" value="https://example.com/research-course-guides?q=:query">
+            <input type="hidden" name="service[default]" value="true">
+
+            <input type="search" name="query" class="input -search -small search-box">
+
+            <input type="submit" value="Search" class="button search-button">
+            <input type="reset" value="Cancel" class="link search-cancel">
+
+          </form>
+
+          <!-- finding-aids -->
+          <form class="search-form" action="" method="GET">
+
+            <input type="hidden" name="param" value=":query">
+
+            <input type="hidden" name="service[label]" value="Finding Aids">
+            <input type="hidden" name="service[placeholder]" value="Search Finding Aids">
+            <input type="hidden" name="service[id]" value="finding-aids">
+            <input type="hidden" name="service[src]" value="https://example.com/finding-aids?q=:query">
+            <input type="hidden" name="service[default]" value="true">
+
+            <input type="search" name="query" class="input -search -small search-box">
+
+            <input type="submit" value="Search" class="button search-button">
+            <input type="reset" value="Cancel" class="link search-cancel">
+
+          </form>
+
+          <!-- this-site -->
+          <form class="search-form" action="" method="GET">
+
+            <input type="hidden" name="param" value=":query">
+
+            <input type="hidden" name="service[label]" value="This Site">
+            <input type="hidden" name="service[placeholder]" value="Search this site on Google">
+            <input type="hidden" name="service[id]" value="this-site">
+            <input type="hidden" name="service[src]" value="https://example.com/this-site?q=:query">
+            <input type="hidden" name="service[default]" value="true">
+
+            <input type="search" name="query" class="input -search -small search-box">
+
+            <input type="submit" value="Search" class="button search-button">
+            <input type="reset" value="Cancel" class="link search-cancel">
+
+          </form>
+
+        </div>
+
+      </div>
+
+      <!-- back -->
+      <div class="search-menu-back">
+
+        <button class="button">
+          <span class="icon">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+              <path d="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z" />
+            </svg>
+          </span>
+          Back to Menu
+        </button>
+
+      </div>
+
+    </div>
+
   </div>
 
   <!-- orgnaisms-intro-interior-cover -->
