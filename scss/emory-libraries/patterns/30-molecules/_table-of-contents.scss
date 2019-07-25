@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.molecules.table-of-contents
+////
+
+/// Load the table-of-contents component's structure and skin.
+@import 'table-of-contents/structure';
+@import 'table-of-contents/skin';
+
+/// Builds a constructor for the table-of-contents component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {placeholder} molecules-table-of-contents
+/// @requires {variable} molecules-table-of-contents
+/// @requires {mixin} molecules-table-of-contents--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our table-of-contents component
+///
+/// @status construction
+@mixin molecules-table-of-contents ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($molecules-table-of-contents, $custom);
+  
+  // Initialize the table-of-contents component.
+  & {
+    
+    // Load structure.
+    @extend %molecules-table-of-contents;
+    
+    // Load skins.
+    @include molecules-table-of-contents--theme( $skin );
+    
+  }
+  
+}

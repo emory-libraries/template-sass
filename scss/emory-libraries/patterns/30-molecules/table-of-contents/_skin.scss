@@ -1,0 +1,41 @@
+////
+/// @group emory-libraries.patterns.molecules.table-of-contents
+////
+
+/// Defines the base skin of the table-of-contents component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @type map
+$molecules-table-of-contents: (
+  
+  
+  
+);
+
+/// Defines the table-of-contents component theme.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The table-of-contents component's themeable properties
+@mixin molecules-table-of-contents--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  // ...
+  
+  // Defines the table-of-contents component's base styles.
+  padding-left: 0;
+
+  &, ol {
+    list-style-type: none;
+  }
+
+  ol {
+    padding-left: 1.5em;
+  }
+
+}
