@@ -323,6 +323,12 @@ $atoms-search: (
     @include atoms-link;
     margin-left: $spacing;
     text-decoration: underline !important;
+
+    &[disabled],
+    &.is-disabled {
+      opacity: $alpha;
+    }
+
   }
 
   // Defines contained search styles.
@@ -351,8 +357,6 @@ $atoms-search: (
   }
 
   // Defines form search styles.
-  &.-form {
-
-  }
+  &.-form {}
 
 }
