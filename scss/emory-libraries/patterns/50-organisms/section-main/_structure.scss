@@ -611,13 +611,11 @@
   // Builds the main structure when used for a form page.
   &.-form-page {
     @include grid-layout((
-      'subtitle': false,
       'section': false,
       'sidebar': false
     ));
 
     // Hide grid areas that are not being used within this page type.
-    #{$selector}-subtitle,
     #{$selector}-section,
     #{$selector}-sidebar {
       display: none;
