@@ -56,7 +56,6 @@
 
   // Builds the tab menu noscript structure.
   &.-noscript {
-    display: flex;
     flex-direction: column;
 
     // Allow tabs to use their native layout on larger screens.

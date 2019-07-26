@@ -10,6 +10,9 @@
   // Capture selector.
   $selector: &;
 
+  // Set a maximum number of toggles that can be configured.
+  $max-toggles: 10;
+
   // Builds the search-menu structure.
   display: grid;
   grid-template-areas: "context"
