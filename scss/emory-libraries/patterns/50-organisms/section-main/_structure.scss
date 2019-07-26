@@ -612,11 +612,15 @@
   &.-form-page {
     @include grid-layout((
       'section': false,
+      'content': false,
+      'spacer': false,
       'sidebar': false
     ));
 
     // Hide grid areas that are not being used within this page type.
     #{$selector}-section,
+    #{$selector}-content,
+    #{$selector}-spacer,
     #{$selector}-sidebar {
       display: none;
     }
