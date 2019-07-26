@@ -69,3 +69,7 @@
 .periodicals-page {
   @include templates-periodicals;
 }
+// templates-periodicals
+.home-page {
+  @include templates-home;
+}

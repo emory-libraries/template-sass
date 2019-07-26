@@ -231,7 +231,8 @@
 
   // Impose a maximum width on most pages.
   &#{selector-excludes(
-    '.-landing-page'
+    '.-landing-page',
+    '.-home-page'
   )} {
     max-width: 1236px;
   }
@@ -270,7 +271,8 @@
     '.-exhibition-page',
     '.-research-help-directory-page',
     '.-index-page',
-    '.-periodicals-page'
+    '.-periodicals-page',
+    '.-home-page'
   )},
   &.-info-page {
     @include grid-layout;
@@ -295,6 +297,31 @@
       }
 
     };
+
+  }
+
+  // Builds the main structure when used for a home page.
+  &.-home-page {
+    @include grid-layout((
+      'breadcrumb':false,
+      'title':false,
+      'subtitle':false,
+      'spacer': false,
+      'content': false,
+      'section': false,
+      'sidebar': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-breadcrumb,
+    #{$selector}-title,
+    #{$selector}-subtitle,
+    #{$selector}-spacer,
+    #{$selector}-content,
+    #{$selector}-section,
+    #{$selector}-sidebar {
+      display: none;
+    }
 
   }
 

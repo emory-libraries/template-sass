@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.home
+////
+
+/// Load the home component's structure and skin.
+@import 'home/structure';
+@import 'home/skin';
+
+/// Builds a constructor for the home component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {placeholder} templates-home
+/// @requires {variable} templates-home
+/// @requires {mixin} templates-home--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our home component
+///
+/// @status construction
+@mixin templates-home ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($templates-home, $custom);
+  
+  // Initialize the home component.
+  & {
+    
+    // Load structure.
+    @extend %templates-home;
+
+    // Load parts.
+    &-header {
+      @extend %templates-home-header;
+    }
+    &-main {
+      @extend %templates-home-main;
+    }
+    &-footer {
+      @extend %templates-home-footer;
+    }
+
+    // Load skins.
+    @include templates-home--theme( $skin );
+    
+  }
+  
+}

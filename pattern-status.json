@@ -89,5 +89,6 @@
   "templates-landing": "review",
   "templates-exhibition": "review",
   "templates-index": "review",
-  "templates-periodicals": "review"
+  "templates-periodicals": "review",
+  "templates-home": "construction"
 }
