@@ -10,7 +10,6 @@
   @include templates-form;
 }
 
-
 // templates-material
 .material-page {
   @include templates-material;
@@ -65,6 +64,7 @@
 .index-page {
   @include templates-index;
 }
+
 // templates-periodicals
 .periodicals-page {
   @include templates-periodicals;
