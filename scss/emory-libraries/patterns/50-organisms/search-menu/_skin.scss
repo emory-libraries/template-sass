@@ -158,6 +158,10 @@ $organisms-search-menu: (
   // Configure search menu toggles to activate tabs and search boxes.
   &-toggle {
 
+    // Capture tab themes.
+    $atoms-tab-theme-default: map-deep-get($atoms-tab, 'theme');
+    $atoms-tab-themes: map-deep-get($atoms-tab, 'themes');
+
     // Hook toggles to tabs and search boxes.
     @for $n from 1 through $toggles-max {
 
@@ -167,10 +171,19 @@ $organisms-search-menu: (
         // Toggle tabs and search boxes when checked.
         &:checked {
 
-          @each $theme in map-keys(map-get($atoms-tab, 'themes')) {
+          @each $theme in map-keys($atoms-tab-themes) {
+
+            @if( $theme == $atoms-tab-theme-default ) {
+              ~ #{$selector}-tabs .tab-menu .tab:nth-of-type(#{$n}),
+              ~ #{$selector}-tabs noscript .tab-menu .tab:nth-of-type(#{$n}) {
+                @include atoms-tab--state--structure('active', false);
+                @include atoms-tab--state('active', $selector: false);
+              }
+            }
 
             // Hide the nth tab's active state.
-            ~ #{$selector}-tabs .tab-menu.-#{$theme} .tab:nth-of-type(#{$n}) {
+            ~ #{$selector}-tabs .tab-menu.-#{$theme} .tab:nth-of-type(#{$n}),
+            ~ #{$selector}-tabs noscript .tab-menu.-#{$theme} .tab:nth-of-type(#{$n}) {
               @include atoms-tab--state--structure('active', false);
               @include atoms-tab--state('active', map-extend($atoms-tab, (
                 'theme': $theme
@@ -180,7 +193,8 @@ $organisms-search-menu: (
           }
 
           // Show the nth search box.
-          ~ #{$selector}-search .search .search-form:nth-of-type(#{$n}) {
+          ~ #{$selector}-search .search .search-form:nth-of-type(#{$n}),
+          ~ #{$selector}-search noscript .search .search-form:nth-of-type(#{$n}) {
             display: grid;
           }
 
@@ -189,10 +203,19 @@ $organisms-search-menu: (
         // Toggle tabs and search boxes when not checked.
         &:not(:checked) {
 
-          @each $theme in map-keys(map-get($atoms-tab, 'themes')) {
+          @each $theme in map-keys($atoms-tab-themes) {
+
+            @if( $theme == $atoms-tab-theme-default ) {
+              ~ #{$selector}-tabs .tab-menu .tab:nth-of-type(#{$n}),
+              ~ #{$selector}-tabs noscript .tab-menu .tab:nth-of-type(#{$n}) {
+                @include atoms-tab--state--structure('normal', false);
+                @include atoms-tab--state('normal', $selector: false);
+              }
+            }
 
             // Hide the nth tab's active state.
-            ~ #{$selector}-tabs .tab-menu.-#{$theme} .tab:nth-of-type(#{$n}) {
+            ~ #{$selector}-tabs .tab-menu.-#{$theme} .tab:nth-of-type(#{$n}),
+            ~ #{$selector}-tabs noscript .tab-menu.-#{$theme} .tab:nth-of-type(#{$n}) {
               @include atoms-tab--state--structure('normal', false);
               @include atoms-tab--state('normal', map-extend($atoms-tab, (
                 'theme': $theme
@@ -202,7 +225,8 @@ $organisms-search-menu: (
           }
 
           // Hide the nth search box.
-          ~ #{$selector}-search .search .search-form:nth-of-type(#{$n}) {
+          ~ #{$selector}-search .search .search-form:nth-of-type(#{$n}),
+          ~ #{$selector}-search noscript .search .search-form:nth-of-type(#{$n}) {
             display: none;
           }
 

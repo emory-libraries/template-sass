@@ -37,6 +37,7 @@
   // Builds the search menu context structure.
   &-context {
     grid-area: context;
+    @include margin-y($rhythm-y / 2);
 
     // Always hide the context on larger screens.
     @include breakpoint-l {
@@ -51,10 +52,12 @@
   }
 
   // Builds the search menu search structure.
-  &-search {
+  &-search,
+  &-search noscript {
     grid-area: search;
     display: flex;
     align-items: center;
+    width: 100%;
 
     // Always force search to be full-width of its container.
     .search {
@@ -96,7 +99,7 @@
 
     // Hide the search menu back container for home variants.
     @include when-descendant-of('#{$selector}.-home') {
-      display: none;
+      display: none !important;
     };
 
   }

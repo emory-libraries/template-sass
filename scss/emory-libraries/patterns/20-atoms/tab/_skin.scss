@@ -222,10 +222,14 @@ $atoms-tab: (
         '&:#{$state}',
         '&.is-#{$state}',
         '#{$selector-class}-menu:not(.-dropdown).-#{$theme} &:#{$state}',
-        '#{$selector-class}-menu:not(.-dropdown).-#{$theme} &.is-#{$state}'
+        '#{$selector-class}-menu:not(.-dropdown).-#{$theme} &.is-#{$state}',
+        'noscript #{$selector-class}-menu:not(.-dropdown).-#{$theme} &:#{$state}',
+        'noscript #{$selector-class}-menu:not(.-dropdown).-#{$theme} &.is-#{$state}'
       ), ', '), glue((
         '#{$selector-class}-menu:not(.-dropdown).-#{$theme} &:#{$state}',
-        '#{$selector-class}-menu:not(.-dropdown).-#{$theme} &.is-#{$state}'
+        '#{$selector-class}-menu:not(.-dropdown).-#{$theme} &.is-#{$state}',
+        'noscript #{$selector-class}-menu:not(.-dropdown).-#{$theme} &:#{$state}',
+        'noscript #{$selector-class}-menu:not(.-dropdown).-#{$theme} &.is-#{$state}'
       ), ', ')));
 
       // Apply all state-specific styles for the given theme.
@@ -355,10 +359,75 @@ $atoms-tab: (
 
       }
 
-      @if( $selector != false ) {
+      @if( $selector == true ) {
 
         // Also, add state-specific styles within its themed menu.
-        @at-root #{$selector}-menu:not(.-dropdown).-#{$theme} & {
+        @at-root &-menu:not(.-dropdown).-#{$theme} &,
+        noscript &-menu:not(.-dropdown).-#{$theme} & {
+          color: $state-foreground;
+
+          // Add an indicator when active.
+          @if( $state == 'active' ) {
+
+            // For smaller screens, add indicators at the left of the tab.
+            @include breakpoint-s-m {
+
+              &::before {
+                content: icon-url('material-arrow_right', $state-foreground, $indicator);
+              };
+
+            };
+
+            // For larger screens, add indicators below the tab.
+            @include breakpoint-l {
+
+              &::after {
+                content: icon-url('material-arrow_drop_down', $state-foreground, $indicator);
+                @include linear-gradient(
+                  to bottom,
+                  transparent 45%,
+                  $theme-background 45%,
+                  $theme-background 55%,
+                  transparent 55%
+                );
+              }
+
+            };
+
+          }
+
+          // Otherwise, remove indicators when not active.
+          @else {
+
+            // For smaller screens, remove indicators at the left of the tab.
+            @include breakpoint-s-m {
+
+              &::before {
+                content: none;
+              };
+
+            };
+
+            // For larger screens, remove indicators below the tab.
+            @include breakpoint-l {
+
+              &::after {
+                content: none;
+              }
+
+            };
+
+          }
+
+        }
+
+      }
+
+      @else if( $selector != false ) {
+
+        // Also, add state-specific styles within its themed menu.
+        @at-root #{$selector}-menu:not(.-dropdown).-#{$theme} &,
+        noscript #{$selector}-menu:not(.-dropdown).-#{$theme} & {
           color: $state-foreground;
 
           // Add an indicator when active.
