@@ -64,3 +64,8 @@
 .nav-menu-main {
   @include compounds-nav-menu-main;
 }
+
+// compounds-alert
+.alerts {
+  @include compounds-alert;
+}
