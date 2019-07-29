@@ -48,6 +48,13 @@
   &-button {
     grid-row: 3;
     @include margin-y($rhythm-y);
+    width: 100%;
+
+    // Adjust size on larger screens.
+    @include breakpoint-m-l {
+      width: max-content;
+    };
+
   }
 
 }
