@@ -63,6 +63,7 @@
   "compounds-popular-links-menu": "review",
   "compounds-nav-menu-main": "review",
   "compounds-tab-menu": "review",
+  "compounds-feed": "review",
   "organisms-intro-interior-cover": "review",
   "organisms-intro": "review",
   "organisms-section-main": "review",
@@ -83,12 +84,10 @@
   "templates-subject-librarian-directory": "review",
   "templates-staff-directory": "review",
   "templates-bio": "review",
-  "compounds-popular-link-menu": "review",
   "templates-gallery": "review",
   "templates-research-help-directory": "review",
   "templates-landing": "review",
   "templates-exhibition": "review",
   "templates-index": "review",
-  "templates-periodicals": "review",
-  "compounds-feed": "construction"
+  "templates-periodicals": "review"
 }
