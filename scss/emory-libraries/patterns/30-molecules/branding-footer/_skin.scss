@@ -1,0 +1,115 @@
+////
+/// @group emory-libraries.patterns.molecules.branding-footer
+////
+
+/// Defines the base skin of the branding-footer component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @type map
+$molecules-branding-footer: (
+
+  'background': color('blue', 'dark'),
+  'division': $color-text-light,
+
+  'dropdown': (
+    'color': color('gold'),
+    'spacing': 1em,
+    'icon': 15px
+  ),
+
+  'logo': (
+    'color': $color-text-light,
+    'overflow': 40px
+  ),
+
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  ),
+
+  'gap': 5px
+
+);
+
+/// Defines the branding-footer component theme.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The branding-footer component's themeable properties
+@mixin molecules-branding-footer--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $background: map-deep-get($skin, 'background');
+  $division: map-deep-get($skin, 'division');
+  $gap: map-deep-get($skin, 'gap');
+
+  // Get transition-specific variables.
+  $transition-duration: map-deep-get($skin, 'transition.duration');
+  $transition-timing: map-deep-get($skin, 'transition.timing');
+
+  // Get logo-specific variables.
+  $logo-color: map-deep-get($skin, 'logo.color');
+  $logo-overflow: map-deep-get($skin, 'logo.overflow');
+
+  // Get dropdown-specific variables.
+  $dropdown-color: map-deep-get($skin, 'dropdown.color');
+  $dropdown-spacing: map-deep-get($skin, 'dropdown.spacing');
+  $dropdown-icon: map-deep-get($skin, 'dropdown.icon');
+
+  // Defines the branding-footer component's base styles.
+  grid-column-gap: $gap;
+  background-color: $background;
+
+  // Defines the branding logo styles.
+  &-logo {
+    transition: all $transition-duration $transition-timing;
+    margin-top: -$logo-overflow;
+
+    .logo {
+
+      svg {
+        fill: $logo-color;
+
+        #badge-bg {
+          opacity: 1 !important;
+          fill: $background;
+        }
+
+      }
+
+    }
+
+  }
+
+  // Defines the branding dropdown styles.
+  &-dropdown {
+
+    // Defines the branding dropdown menu styles.
+    &-menu {
+      @include tokens-text('button', $dropdown-color);
+      background-image: icon-url('material-chevron_down', $dropdown-color, $dropdown-icon);
+      background-size: $dropdown-icon;
+      padding-right: $dropdown-icon;
+      font: inherit;
+
+      option {
+        margin: 0;
+        padding: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        font: initial;
+        font-family: sans-serif;
+        color: #605858;
+      }
+
+    }
+
+  }
+
+}
