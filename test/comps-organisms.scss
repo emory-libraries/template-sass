@@ -1,6 +1,6 @@
 @import 'comps-compounds';
 
-//organisms-flow-content-explorer
+// organisms-flow-content-explorer
 .flow-content-boxes {
   @include organisms-flow-content-boxes;
 }
@@ -10,10 +10,12 @@
   @include organisms-intro;
 }
 
+// organisms-intro-hero
 .intro-hero {
   @include organisms-intro-hero;
 }
 
+// organisms-intro-home
 .intro-home {
   @include organisms-intro-home;
 }
@@ -50,4 +52,9 @@
 // organisms-nav-bar-main
 .nav-bar-main {
   @include organisms-nav-bar-main;
+}
+
+// organisms-flow-feed-preview
+.flow-feed-preview {
+  @include organisms-flow-feed-preview;
 }
