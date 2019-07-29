@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.compounds.blocks
+////
+
+/// Load the blocks component's structure and skin.
+@import 'blocks/structure';
+@import 'blocks/skin';
+
+/// Builds a constructor for the blocks component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} compounds-blocks
+/// @requires {variable} compounds-blocks
+/// @requires {mixin} compounds-blocks--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our blocks component
+///
+/// @status review
+@mixin compounds-blocks ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($compounds-blocks, $custom);
+  
+  // Initialize the blocks component.
+  & {
+    
+    // Load structure.
+    @extend %compounds-blocks;
+    
+    // Load skins.
+    @include compounds-blocks--theme( $skin );
+    
+  }
+  
+}

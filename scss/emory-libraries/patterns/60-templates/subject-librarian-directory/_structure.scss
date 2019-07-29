@@ -1,0 +1,46 @@
+////
+/// @group emory-libraries.patterns.templates.subject-librarian-directory
+////
+
+/// Defines the base structure of the subject-librarian-directory component.
+///
+/// @since 1.0.0-dev.0
+%templates-subject-librarian-directory {
+  
+  // Builds the subject-librarian-directory structure.
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "header"
+                       "main"
+                       "footer";
+  grid-template-rows: 150px 1fr 420px;
+  grid-template-columns: 1fr;
+  
+  // Builds the subject librarian directory header structure.
+  &-header {
+    grid-area: header;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Header'; // TEMPORARY
+    }
+    
+  }
+
+  // Builds the subject librarian directory main structure.
+  &-main {
+    grid-area: main;
+  }
+
+  // Builds the subject librarian directory footer structure.
+  &-footer {
+    grid-area: footer;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Footer'; // TEMPORARY
+    }
+    
+  }
+  
+}

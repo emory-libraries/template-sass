@@ -1,0 +1,88 @@
+////
+/// @group emory-libraries.patterns.compounds.sidebar-list
+////
+
+/// Defines the base structure of the sidebar-list component.
+///
+/// @since 1.0.0-dev.0
+%compounds-sidebar-list {
+  
+  // Capture the selector.
+  $selector: &;
+  
+  // Builds the sidebar-list structure.
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  
+  // Builds the sidebar section structure.
+  &-section {
+    
+    // Builds the sidebar section title structure.
+    &-title { 
+      display: flex;
+      align-items: center;
+      
+      // Hide icons by default.
+      .icon {
+        display: none;
+      }
+      
+      // Modify styles when an icon is present.
+      &.has-icon {
+        
+        // Show icon.
+        .icon {
+          display: flex;
+        }
+        
+      }
+      
+    }
+  
+    // Builds the sidebar section content structure.
+    &-content {
+    
+      // Modifies list styles when inside of content.
+      .list,
+      ul,
+      ol {
+        list-style-type: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+
+        .list-item,
+        li {
+          list-style-type: none !important;
+          padding: 0 !important;
+        
+          &::before {
+            content: none !important;
+          }
+          
+        }
+        
+      }
+      
+      // Modifies button and link styles when inside of content.
+      .link,
+      a {
+        display: block;
+      }
+      .button,
+      button {
+        display: flex;
+      }
+    
+    }
+    
+  }
+  
+  // Builds the sidebar button structure.
+  &-button { 
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+}

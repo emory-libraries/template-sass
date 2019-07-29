@@ -13,19 +13,20 @@
 /// @requires {mixin} Brandy::margin-y <https://laurenhamel.github.io/brandy/docs/#brandy-layout-mixin-margin-y>
 /// @requires {function} Brandy::z <https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-z>
 %atoms-tab {
-  
+
   // Capture class name.
   $class: &;
-  
+
   // Defines the structure of the tab component.
   appearance: none;
   -webkit-appearance: none;
-  border: 0;
-  background: transparent;
+  -moz-appearance: none;
+  background: none !important;
+  border: none !important;
   padding: ($rhythm-y / 4) ($rhythm-x * 2);
   @include absolute-center-contents( true );
   cursor: pointer;
-  
+
   // Initiailzes a divider for each tab.
   &::before {
     content: "";
@@ -33,7 +34,7 @@
     position: absolute;
     left: 0;
   }
-  
+
   // Initializes an indicator for each tab.
   &::after {
     content: "";
@@ -42,14 +43,14 @@
     transform: translatey(-50%) translatex(-50%);
     z-index: z('above');
   }
-  
+
   // Defines the structure of tab menus.
   &-menu {
     display: flex;
     @include margin-y( $rhythm-y );
     padding-top: ($rhythm-y / 4);
     padding-bottom: ($rhythm-y / 2);
-    
+
     // Defines structure of menu horizontal rule.
     &::after {
       content: "";
@@ -59,15 +60,20 @@
       left: 0;
       right: 0;
     }
-    
+
     // Defines structure of tabs within a menu.
     #{$class} {
-      
+
       // Defines structure of tabs when active.
       &.is-active { }
-      
+
     }
-    
+
   }
-  
+
+  // Defines the structure of tab switch.
+  &-switch {
+    display: none;
+  }
+
 }

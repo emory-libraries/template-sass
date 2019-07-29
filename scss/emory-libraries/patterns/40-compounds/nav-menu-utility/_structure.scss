@@ -1,0 +1,88 @@
+////
+/// @group emory-libraries.patterns.compounds.nav-menu-utility
+////
+
+/// Defines the base structure of the nav-menu-utility component.
+///
+/// @since 1.0.0-dev.0
+%compounds-nav-menu-utility {
+  
+  // Capture the selector.
+  $selector: &;
+  
+  // Builds the nav-menu-utility structure.
+  // ...
+  
+  @include breakpoint-l {
+    @include padding-x(1em);
+  };
+
+  // Builds the left and right structure.
+  &-left,
+  &-right {
+    display: flex;
+    margin: 0;
+  }
+
+  // Adds the desktop menu style.
+  &.-desktop {
+    display: none;
+    
+    #{$selector}-right {
+      justify-content: space-between;
+    }
+
+    #{$selector}-left {
+        
+      > * + * {
+
+        &:before {
+          content: '';
+          display: block;
+          margin: auto;
+          @include absolute(0 null 0 0);
+          transform: translatex(-50%);
+        }
+
+      }
+
+    }
+    
+    @include breakpoint-l {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    };
+
+  }
+
+  // Adds the mobile menu style.
+  &.-mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    #{$selector}-right {
+      justify-content: center;
+        
+      > * + * {
+
+        &:before {
+          content: '';
+          display: block;
+          margin: auto;
+          @include absolute(0 null 0 0);
+          transform: translatex(-50%);
+        }
+
+      }
+
+    }
+
+    @include breakpoint-l {
+      display: none;
+    };
+
+  }
+
+}

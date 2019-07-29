@@ -1,0 +1,37 @@
+// Sets the class prefix for the icons.
+$icomoon-prefix: 'ico';
+
+// Sets the font path.
+$icomoon-path: '../fonts/icomoon';
+
+// Sets the icon names and their escape sequences.
+$icomoon-icons: (
+  'arrow-down-circle':    '\e900',
+  'arrow-left-circle':    '\e904',
+  'arrow-right-circle':   '\e906',
+  'arrow-up-circle':      '\e908',
+  'arrow-down-left':      '\e901',
+  'arrow-down-right':     '\e902',
+  'arrow-up-right':       '\e90a',
+  'arrow-up-left':        '\e909',
+  'arrow-down':           '\e903',
+  'arrow-left':           '\e905',
+  'arrow-right':          '\e907',
+  'arrow-up':             '\e90b',
+  'chevron-down':         '\e90c',
+  'chevron-left':         '\e90d',
+  'chevron-right':        '\e90e',
+  'chevron-up':           '\e90f',
+  'chevrons-down':        '\e910',
+  'chevrons-left':        '\e911',
+  'chevrons-right':       '\e912',
+  'chevrons-up':          '\e913',
+  'corner-down-left':     '\e914',
+  'corner-down-right':    '\e915',
+  'corner-left-down':     '\e916',
+  'corner-left-up':       '\e917',
+  'corner-right-down':    '\e918',
+  'corner-right-up':      '\e919',
+  'corner-up-left':       '\e91a',
+  'corner-up-right':      '\e91b'
+);

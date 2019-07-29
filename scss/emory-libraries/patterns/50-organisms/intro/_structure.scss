@@ -7,15 +7,33 @@
 /// @since 1.0.0
 %organisms-intro {
   
+  // Captures the selector.
+  $selector: &;
+  
   // Builds the intro structure.
   // ...
+  
+  // Builds the intro thumb structure.
+  &-thumb {
+    display: block;
+    float: left;
+    
+    // Modifies structure when used for all except bio intros.
+    &:not(#{$selector}.-bio) {
+      display: none;
+    }
+    
+  }
   
   // Builds the intro context structure.
   &-context {
     display: block;
+    margin-top: 48px;
     
-    // Modifies structure when used for a heading intro.
-    &.-heading {
+    // Modifies structure when used for heading and bio intros.
+    &.-heading,
+    &.-heading-alt,
+    &.-bio {
       display: none;
     }
     
@@ -23,13 +41,21 @@
   
   // Builds the intro title structure.
   &-title { 
+    display: block;
     
-    &:not(.-heading) {
-      margin: 0;
+    // Modifies structure for default titles.
+    &:not(.-heading):not(.heading-alt) {
+      
+      // Modifies structure when adjacent to a context.
+      @include when-adjacent-sibling-of('#{$selector}-context') {
+        margin-top: 0;
+      }
+      
     }
     
-    // Modifies structure when used for a heading intro.
-    &.-heading {
+    // Modifies structure when used for heading intro and alternative heading intro.
+    &.-heading,
+    &.-heading-alt {
       margin-top: 0;
     
       &::before,
@@ -37,21 +63,65 @@
         content: '';
         display: block;
         @include absolute( null 0 -.67em 0 );
-        margin: 0 auto;
       }
     
+    }
+    
+    // Modifies structure when used for a heading intro.
+    &.-heading {
+      
+      &::before,
+      &::after {
+        margin: 0 auto;
+      }
+      
+    }
+    
+    // Modifies structure when used for an alternative heading intro.
+    &.-heading-alt {
+      
+      &::before,
+      &::after {
+        margin: 0 auto 0 0;
+      }
+      
+    }
+    
+    // Modifies structure when used for a bio heading intro.
+    &.-bio {
+      @include margin-y( 0 );
     }
     
   }
   
   // Builds the intro subtitle structure.
   &-subtitle { 
+    display: block;
   
     // Modifies structure when used for a heading intro.
-    &.-heading {
+    &.-heading,
+    &.-heading-alt {
       display: none;
     }
+    
+    // Modifies structure when used for a bio intro.
+    &.-bio {
+      margin-top: 0;
+      margin-bottom: 1em;
+    }
   
+  }
+  
+  // Builds the intro link structure.
+  &-link {
+    display: block;
+    @include clearfix;
+    
+    // Modifies structure when used for all except bio intros.
+    &:not(#{$selector}.-bio) {
+      display: none;
+    }
+    
   }
   
 }

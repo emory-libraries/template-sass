@@ -1,0 +1,73 @@
+////
+/// @group emory-libraries.patterns.templates.landing
+////
+
+/// Defines the base structure of the landing component.
+///
+/// @since 1.0.0-dev.0
+%templates-landing {
+
+  // Captures selector.
+  $selector: &;
+
+  // Builds the landing structure.
+  // ...
+
+  // Builds the landing structure.
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "header"
+                       "main"
+                       "footer";
+  grid-template-rows: 150px 1fr 420px;
+  grid-template-columns: 1fr;
+
+  &-header {
+    grid-area: header;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Header'; // TEMPORARY
+    }
+
+  }
+
+  // Builds the landing main structure.
+  &-main {
+    grid-area: main;
+
+    // Apply overrides to main section.
+    .section-main {
+
+      &:not(.without-intro) {
+        display: flex;
+        flex-direction: column;
+
+        .section-main-body {
+          padding-top: $rhythm-y;
+        }
+
+      }
+
+      .section-main-body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: $rhythm-y;
+      }
+
+    }
+
+  }
+
+  // Builds the landing footer structure.
+  &-footer {
+    grid-area: footer;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Footer'; // TEMPORARY
+    }
+
+  }
+
+}

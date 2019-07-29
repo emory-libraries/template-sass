@@ -13,6 +13,11 @@
   text-decoration: none;
   cursor: pointer;
   
+  &::after {
+    content: attr(data-subtext);
+    display: block;
+  }
+  
   // Builds structure for link icons.
   .icon {
     @include absolute-center-contents(true);

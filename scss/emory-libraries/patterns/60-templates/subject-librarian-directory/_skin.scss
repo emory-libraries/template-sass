@@ -1,0 +1,54 @@
+////
+/// @group emory-libraries.patterns.templates.subject-librarian-directory
+////
+
+/// Defines the base skin of the subject-librarian-directory component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$templates-subject-librarian-directory: (
+  
+  'layout': (
+    'x': $layout-x,
+    'y': $layout-y
+  ),
+  
+  'gap': 20px
+  
+);
+
+/// Defines the subject-librarian-directory component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The subject-librarian-directory component's themeable properties
+@mixin templates-subject-librarian-directory--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  $gap: map-deep-get($skin, 'gap');
+  $layout: map-deep-get($skin, 'layout');
+
+  // Defines the subject-librarian-directory component's base styles.
+  grid-gap: $gap;
+  
+  // Defines subject librarian directory header and footer styles.
+  &-header,
+  &-footer {
+    border: $border-width-s solid color('slate'); // TEMPORARY
+  }
+  
+  // Defines subject librarian directory header styles.
+  &-header { }
+  
+  // Defines subject librarian directory main styles.
+  &-main { }
+  
+  // Defines subject librarian directory footer styles.
+  &-footer { }
+  
+}

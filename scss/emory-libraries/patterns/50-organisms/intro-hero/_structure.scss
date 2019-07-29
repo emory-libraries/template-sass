@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.organisms.intro-hero
+////
+
+/// Defines the base structure of the intro-hero component.
+///
+/// @since 1.0.0-dev.0
+%organisms-intro-hero {
+
+  // Captures the selector.
+  $selector: &;
+
+  // Builds the intro-hero structure.
+  display: grid;
+  grid-template-rows: 5fr repeat(3, min-content) 1fr;
+  grid-template-columns: 1fr minmax(min-content, 800px) 1fr;
+  background-size: cover;
+  background-position: center center;
+  height: 437px;
+
+  &-badge{
+    grid-row: 2/span 1;
+    grid-column: 2/span 1;
+    align-self: center;
+  }
+
+  &-title {
+    grid-row: 3/span 1;
+    grid-column: 2/span 1;
+    align-self: center;
+  }
+
+  &-subtitle {
+    grid-row: 4/span 1;
+    grid-column: 2/span 1;
+    align-self: center;
+    margin: 0;
+  }
+}

@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.research-help
+////
+
+/// Load the research-help component's structure and skin.
+@import 'research-help/structure';
+@import 'research-help/skin';
+
+/// Builds a constructor for the research-help component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} templates-research-help
+/// @requires {variable} templates-research-help
+/// @requires {mixin} templates-research-help--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our research-help component
+///
+/// @status review
+@mixin templates-research-help ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($templates-research-help, $custom);
+
+  // Initialize the research-help component.
+  & {
+
+    // Load structure.
+    @extend %templates-research-help;
+
+    // Load parts.
+    &-header {
+      @extend %templates-research-help-header;
+    }
+    &-main {
+      @extend %templates-research-help-main;
+    }
+    &-footer {
+      @extend %templates-research-help-footer;
+    }
+
+    // Load skins.
+    @include templates-research-help--theme( $skin );
+
+  }
+
+}

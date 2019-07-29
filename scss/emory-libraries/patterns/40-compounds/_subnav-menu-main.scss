@@ -1,0 +1,44 @@
+////
+/// @group emory-libraries.patterns.compounds.subnav-menu-main
+////
+
+/// Load the subnav-menu-main component's structure and skin.
+@import 'subnav-menu-main/structure';
+@import 'subnav-menu-main/skin';
+
+/// Builds a constructor for the subnav-menu-main component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} compounds-subnav-menu-main
+/// @requires {variable} compounds-subnav-menu-main
+/// @requires {mixin} compounds-subnav-menu-main--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our subnav-menu-main component
+///
+/// @status review
+@mixin compounds-subnav-menu-main ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($compounds-subnav-menu-main, $custom);
+  
+  // Initialize the subnav-menu-main component.
+  & {
+    
+    // Load structure.
+    @extend %compounds-subnav-menu-main;
+    
+    // Load parts.
+    &-heading {
+      @extend %compounds-subnav-menu-main-heading;
+    }
+    
+    // Load skins.
+    @include compounds-subnav-menu-main--theme( $skin );
+    
+  }
+  
+}

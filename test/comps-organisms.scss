@@ -1,8 +1,25 @@
 @import 'comps-compounds';
 
+//organisms-flow-content-explorer
+.flow-content-boxes {
+  @include organisms-flow-content-boxes;
+}
+
 // organisms-intro
 .intro {
   @include organisms-intro;
+}
+
+.intro-hero {
+  @include organisms-intro-hero;
+}
+
+.intro-home {
+  @include organisms-intro-home;
+}
+
+.intro-interior-cover {
+  @include organisms-intro-interior-cover;
 }
 
 // organisms-section-main
@@ -18,4 +35,19 @@
 // organisms-section-minor
 .section-minor {
   @include organisms-section-minor;
+}
+
+// organisms-section-deep-dive
+.section-deep-dive {
+  @include organisms-section-deep-dive;
+}
+
+// organisms-search-menu
+.search-menu {
+  @include organisms-search-menu;
+}
+
+// organisms-nav-bar-main
+.nav-bar-main {
+  @include organisms-nav-bar-main;
 }

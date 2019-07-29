@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.subject-librarian-directory
+////
+
+/// Load the subject-librarian-directory component's structure and skin.
+@import 'subject-librarian-directory/structure';
+@import 'subject-librarian-directory/skin';
+
+/// Builds a constructor for the subject-librarian-directory component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} templates-subject-librarian-directory
+/// @requires {variable} templates-subject-librarian-directory
+/// @requires {mixin} templates-subject-librarian-directory--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our subject-librarian-directory component
+///
+/// @status review
+@mixin templates-subject-librarian-directory ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($templates-subject-librarian-directory, $custom);
+  
+  // Initialize the subject-librarian-directory component.
+  & {
+    
+    // Load structure.
+    @extend %templates-subject-librarian-directory;
+    
+    // Load parts.
+    &-header {
+      @extend %templates-subject-librarian-directory-header;
+    }
+    &-main {
+      @extend %templates-subject-librarian-directory-main;
+    }
+    &-footer {
+      @extend %templates-subject-librarian-directory-footer;
+    }
+    
+    // Load skins.
+    @include templates-subject-librarian-directory--theme( $skin );
+    
+  }
+  
+}

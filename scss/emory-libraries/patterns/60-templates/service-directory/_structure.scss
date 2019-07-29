@@ -16,7 +16,7 @@
   grid-template-rows: 150px 1fr 420px;
   grid-template-columns: 1fr;
   
-  // Builds the info header structure.
+  // Builds the service directory header structure.
   &-header {
     grid-area: header;
     @include absolute-center-contents;
@@ -27,12 +27,12 @@
     
   }
 
-  // Builds the info main structure.
+  // Builds the service directory main structure.
   &-main {
     grid-area: main;
   }
 
-  // Builds the info footer structure.
+  // Builds the service directory footer structure.
   &-footer {
     grid-area: footer;
     @include absolute-center-contents;

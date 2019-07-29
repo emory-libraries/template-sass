@@ -17,7 +17,8 @@ $compounds-cards: (
   'columns': (
     's': 1,
     'm': 2,
-    'l': 3
+    'l': 3,
+    'xl': 3
   ),
   
   'spacing': 25px
@@ -44,6 +45,7 @@ $compounds-cards: (
   // Defines the cards component's base styles.
   grid-column-gap: $gap-x;
   grid-row-gap: $gap-y;
+  grid-auto-rows: 1fr;
   @include margin-y( $spacing );
   
   // Defines the grid size across breakpoints.

@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.compounds.tiles
+////
+
+/// Load the tiles component's structure and skin.
+@import 'tiles/structure';
+@import 'tiles/skin';
+
+/// Builds a constructor for the tiles component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} compounds-tiles
+/// @requires {variable} compounds-tiles
+/// @requires {mixin} compounds-tiles--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our tiles component
+///
+/// @status review
+@mixin compounds-tiles ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($compounds-tiles, $custom);
+
+  // Initialize the tiles component.
+  & {
+
+    // Load structure.
+    @extend %compounds-tiles;
+
+    // Load skins.
+    @include compounds-tiles--theme( $skin );
+
+  }
+
+}

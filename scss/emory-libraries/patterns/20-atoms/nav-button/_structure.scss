@@ -2,53 +2,125 @@
 /// @group emory-libraries.patterns.atoms.nav-button
 ////
 
+/// Defines the nav-button component state structure.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {string} state - The component's state to be structure
+///
+/// @output The nav-button component's themeable properties
+@mixin atoms-nav-button--state--structure( $state, $selector: true ) {
+
+  @if( $selector and $state != 'normal' ) {
+
+    &:#{$state},
+    &.is-#{$state} {
+
+      @if( $state == 'focus' ) {
+        &::after {
+          content: '' !important;
+          display: block;
+          @include absolute(unset 0 0 50%);
+          @include padding-x(0);
+        }
+      }
+
+    }
+
+  }
+
+  @else {
+
+    @if( $state == 'focus' ) {
+      &::after {
+        content: '' !important;
+        display: block;
+        @include absolute(unset 0 0 50%);
+        @include padding-x(0);
+      }
+    }
+
+  }
+
+}
+
 /// Defines the base structure of the nav-button component.
 ///
 /// @since 1.0.0
 %atoms-nav-button {
-  
+
   // Builds the nav-button structure.
   @extend %atoms-button;
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  
+  overflow: hidden;
+
   // Adds breakpoint-specific structure changes.
-  @include breakpoint-m-l {
+  @include breakpoint-l {
     display: inline-flex;
     justify-content: center;
     width: auto;
   };
-  
+
   // Apply icon structure.
   .icon {
     @include absolute-center-contents;
   }
-  
+
   // Modifies main button structure.
   &:not(.-utility):not(.-flyout):not(.-search):not(.-toggle):not(.-librarian),
   &.-main {
     height: 60px;
-    
-    @include breakpoint-m-l {
+
+    &::before {
+      content: '';
+      display: block;
+      @include absolute(0 0 null 0);
+      @include margin-x(auto);
+    }
+
+    &::after {
+      content: '';
+      @include padding-x(10px);
+      @include absolute(0 0 0 null);
+      @include absolute-center-within-container-y;
+      @include absolute-center-contents;
+      box-sizing: content-box;
+    }
+
+    @include breakpoint-l {
       height: 90px;
+
+      &::before {
+        content: none !important;
+      }
+
+      &::after {
+        content: none !important;
+      }
+
+      @include atoms-nav-button--state--structure('focus');
+
     };
-    
+
   }
-  
+
   // Modifies toggle button structure
   &.-toggle {
     height: 40px;
     display: inline-flex;
     justify-content: center;
     width: auto;
-    
-    @include breakpoint-m-l {
+
+    @include breakpoint-l {
       display: none;
     };
-    
+
   }
-  
+
   // Sets search button structure.
   &.-search {
     height: 40px;
@@ -56,50 +128,62 @@
     justify-content: center;
     width: auto;
     margin-left: auto;
-    
+
     @include breakpoint-m-l {
       margin-left: 0;
       height: 90px;
     };
-    
+
   }
-  
+
   // Sets utility button structure.
   &.-utility {
     height: 60px;
-    
-    @include breakpoint-m-l {
+
+    // Don't allow icons on utility buttons.
+    .icon {
+      display: none;
+    }
+
+    @include breakpoint-l {
       height: 40px;
       flex-direction: row;
+
+      &::after {
+        content: none !important;
+      }
+
     };
-    
+
   }
-  
+
   // Sets flyout button structure.
   &.-flyout {
-    height: 70;
+    height: 70px;
     display: inline-flex;
     flex-direction: column;
     justify-content: center;
     width: auto;
-    
-    @include breakpoint-m-l {
+    flex: 1;
+
+    @include breakpoint-l {
       height: 40px;
       flex-direction: row;
+      flex: unset;
     };
-    
+
   }
-  
+
    // Sets librarian button structure.
   &.-librarian {
     height: 45px;
     justify-content: center;
-    
-    @include breakpoint-m-l {
+
+    @include breakpoint-l {
       height: 40px;
       flex-direction: row;
     };
-    
+
   }
-  
+
 }

@@ -1,0 +1,36 @@
+////
+/// @group emory-libraries.patterns.compounds.grouping-files
+////
+
+/// Defines the base skin of the grouping-files component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @type map
+$compounds-grouping-files: (
+
+  'color': color('blue','base'),
+
+);
+
+/// Defines the grouping-files component theme.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The grouping-files component's themeable properties
+@mixin compounds-grouping-files--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $color: map-deep-get($skin,'color');
+  // Defines the grouping-files component's base styles.
+
+  &-heading {
+    color: $color !important;
+    font-weight: normal !important;
+  }
+
+}

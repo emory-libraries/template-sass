@@ -22,24 +22,27 @@
 ///
 /// @status review
 @mixin atoms-tab ( $custom: () ) {
-  
+
   // Extend the default skin.
   $skin: map-extend($atoms-tab, $custom);
-  
+
   // Initialize the tab component.
   & {
-    
+
     // Load structure.
     @extend %atoms-tab;
-    
-    // Loads accessories.
+
+    // Loads parts.
     &-menu {
       @extend %atoms-tab-menu;
     }
-    
+    &-switch {
+      @extend %atoms-tab-switch;
+    }
+
     // Load skins.
     @include atoms-tab--theme( $skin );
-    
+
   }
-  
+
 }
