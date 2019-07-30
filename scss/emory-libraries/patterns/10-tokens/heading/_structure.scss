@@ -6,24 +6,23 @@
 ///
 /// @since 1.0.0
 %tokens-heading {
-  
+
+  // Capture selector.
+  $selector: &;
+
   // Builds the heading structure.
   // ...
-    &.anchor {
-      display: flex;
 
-      .icon {
-        visibility: hidden;
-      }
+  // Builds the heading anchor structure.
+  .anchor {
+    display: inline-flex;
+    align-items: center;
 
-      &:hover {
+    // Hide the anchor unless explicitly declared.
+    @include when-descendant-of('#{$selector}:not(.is-anchored)') {
+      display: none;
+    };
 
-        .icon {
-           visibility: visible;
-         }
-
-      }
-
-    }
+  }
 
 }
