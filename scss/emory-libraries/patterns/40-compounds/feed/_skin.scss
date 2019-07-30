@@ -1,0 +1,68 @@
+////
+/// @group emory-libraries.patterns.compounds.feed
+////
+
+/// Defines the base skin of the feed component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @type map
+$compounds-feed: (
+
+  'heading': color('blue', 'mid'),
+
+  'border': (
+    'thickness': $border-width-s,
+    'color': color('slate', 'light')
+  ),
+
+  'padding': $rhythm-y
+
+);
+
+/// Defines the feed component theme.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The feed component's themeable properties
+@mixin compounds-feed--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $heading: map-deep-get($skin, 'heading');
+  $padding: map-deep-get($skin, 'padding');
+
+  // Get border-specific variables.
+  $border-thickness: map-deep-get($skin, 'border.thickness');
+  $border-color: map-deep-get($skin, 'border.color');
+  $border: $border-thickness solid $border-color;
+
+  // Defines the feed component's base styles.
+  // ...
+
+  // Defines feed heading styles.
+  &-heading {
+    @include tokens-heading('h3', $heading, $important: true);
+
+    // Add a rule underneath the feed's heading.
+    &::after {
+      @include atoms-rule('feed');
+    }
+
+    // Recolor the icon.
+    svg {
+      fill: $heading;
+    }
+
+  }
+
+  // Add spacing around feed items.
+  .feed-item {
+    @include padding-y($padding);
+    border-bottom: $border;
+  }
+
+}
