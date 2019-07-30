@@ -44,13 +44,14 @@
     &.-mobile {
 
       // Identify selector for mobile navigation toggles.
-      $selector-mobile-toggle: unquote('.nav-button.-toggle');
+      $selector-mobile-menu-toggle: unquote('.nav-button.-toggle.for-menu');
+      $selector-mobile-search-toggle: unquote('.nav-button.-toggle.for-search');
 
       // Initialize toggle group structure.
       #{$selector-navigation}-toggles {
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
+        justify-content: space-between;
         align-items: center;
         width: 100%;
         z-index: (z('above') + 1);
@@ -87,15 +88,13 @@
       }
 
       // Enable toggling of the mobile navigation menu.
-      > #{$selector-toggle} {
+      > #{$selector-toggle}.for-menu {
 
         // Configure mobile navigation menu structure when toggled.
         &:checked {
 
           // Show the mobile navigation menu when toggled.
-          ~ #{$selector-navigation}-menu {
-            height: 100vh;
-            margin-top: 40px;
+          ~ #{$selector-navigation}-menu.is-menu {
             opacity: 1;
             overflow: visible;
             transform: scaley(1);
@@ -105,7 +104,7 @@
           ~ #{$selector-navigation}-toggles {
 
             // Manipulate mobile menu toggles.
-            #{$selector-mobile-toggle} {
+            #{$selector-mobile-menu-toggle} {
 
               // Hide the open button.
               &.-open {
@@ -127,9 +126,7 @@
         &:not(:checked) {
 
           // Hide the mobile navigation menu when not toggled.
-          ~ #{$selector-navigation}-menu {
-            height: 0;
-            margin-top: 0;
+          ~ #{$selector-navigation}-menu.is-menu {
             opacity: 0;
             overflow: hidden;
             transform: scaley(0);
@@ -139,7 +136,76 @@
           ~ #{$selector-navigation}-toggles {
 
             // Manipulate mobile menu toggles.
-            #{$selector-mobile-toggle} {
+            #{$selector-mobile-menu-toggle} {
+
+              // Show the open button.
+              &.-open {
+                display: flex;
+              }
+
+              // Hide the close button.
+              &.-close {
+                display: none;
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+      // Enable toggling of the mobile search menu.
+      > #{$selector-toggle}.for-search {
+
+        // Configure mobile navigation menu structure when toggled.
+        &:checked {
+
+          // Show the mobile navigation menu when toggled.
+          ~ #{$selector-navigation}-menu.is-search {
+            opacity: 1;
+            overflow: visible;
+            transform: scaley(1);
+          }
+
+          // Configure the mobile search menu toggles.
+          ~ #{$selector-navigation}-toggles {
+
+            // Manipulate mobile search toggles.
+            #{$selector-mobile-search-toggle} {
+
+              // Hide the open button.
+              &.-open {
+                display: none;
+              }
+
+              // Show the close button.
+              &.-close {
+                display: flex;
+              }
+
+            }
+
+          }
+
+        }
+
+        // Configure mobile navigation menu structure when not toggled.
+        &:not(:checked) {
+
+          // Hide the mobile search menu when not toggled.
+          ~ #{$selector-navigation}-menu.is-search {
+            opacity: 0;
+            overflow: hidden;
+            transform: scaley(0);
+          }
+
+          // Configure the mobile search menu toggles.
+          ~ #{$selector-navigation}-toggles {
+
+            // Manipulate mobile search toggles.
+            #{$selector-mobile-search-toggle} {
 
               // Show the open button.
               &.-open {
