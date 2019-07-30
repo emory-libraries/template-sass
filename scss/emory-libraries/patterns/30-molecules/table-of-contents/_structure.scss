@@ -11,7 +11,17 @@
   $selector: &;
 
   // Builds the table-of-contents structure.
-  padding: 0;
-  list-style-type: none;
+  display: block;
+
+  // Builds the table of contents heading structure.
+  &-heading {
+    margin-top: 0;
+  }
+
+  // Builds the table of contents list structure.
+  &-list {
+    padding: 0;
+    list-style-type: none;
+  }
 
 }

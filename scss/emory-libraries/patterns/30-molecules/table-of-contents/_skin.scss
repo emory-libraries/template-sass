@@ -9,7 +9,8 @@
 /// @type map
 $molecules-table-of-contents: (
 
-  'indent': 1.5em
+  'indent': 1.5em,
+  'spacing': $rhythm-y
 
 );
 
@@ -26,12 +27,18 @@ $molecules-table-of-contents: (
 
   // Capture themeable variables from skin.
   $indent: map-deep-get($skin, 'indent');
+  $spacing: map-deep-get($skin, 'spacing');
 
   // Defines the table-of-contents component's base styles.
-  // ...
+  @include margin-y($spacing);
 
-  // Defines nested table of contents styles.
-  & & {
+  // Remove the spacing from the top if the first child within a main section.
+  .section-main-body > &:first-child {
+    margin-top: 0;
+  }
+
+  // Defines nested table of contents list styles.
+  &-list &-list {
     padding-left: $indent;
   }
 

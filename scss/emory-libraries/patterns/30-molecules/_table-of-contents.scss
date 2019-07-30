@@ -21,19 +21,27 @@
 ///
 /// @status construction
 @mixin molecules-table-of-contents ( $custom: () ) {
-  
+
   // Extend the default skin.
   $skin: map-extend($molecules-table-of-contents, $custom);
-  
+
   // Initialize the table-of-contents component.
   & {
-    
+
     // Load structure.
     @extend %molecules-table-of-contents;
-    
+
+    // Load parts.
+    &-heading {
+      @extend %molecules-table-of-contents-heading;
+    }
+    &-list {
+      @extend %molecules-table-of-contents-list;
+    }
+
     // Load skins.
     @include molecules-table-of-contents--theme( $skin );
-    
+
   }
-  
+
 }
