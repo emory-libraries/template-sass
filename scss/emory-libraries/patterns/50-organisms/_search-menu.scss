@@ -44,6 +44,9 @@
     &-back {
       @extend %organisms-search-menu-back;
     }
+    &-toggle {
+      @extend %organisms-search-menu-toggle;
+    }
 
     // Load skins.
     @include organisms-search-menu--theme( $skin );

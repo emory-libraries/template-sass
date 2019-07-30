@@ -1,0 +1,46 @@
+////
+/// @group emory-libraries.patterns.organisms.flow-feed-preview
+////
+
+/// Defines the base skin of the flow-feed-preview component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @type map
+$organisms-flow-feed-preview: (
+
+  'spacing': (
+    'x': 80px,
+    'y': 40px
+  )
+
+);
+
+/// Defines the flow-feed-preview component theme.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The flow-feed-preview component's themeable properties
+@mixin organisms-flow-feed-preview--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $spacing-x: map-deep-get($skin, 'spacing.x');
+  $spacing-y: map-deep-get($skin, 'spacing.y');
+
+  // Defines the flow-feed-preview component's base styles.
+  grid-row-gap: $spacing-y;
+
+  // Defines the flow feed preview feature styles.
+  &-feature { }
+
+  // Defines the flow feed preview feeds styles.
+  &-feeds {
+    grid-column-gap: $spacing-x;
+    grid-row-gap: $spacing-y;
+  }
+
+}

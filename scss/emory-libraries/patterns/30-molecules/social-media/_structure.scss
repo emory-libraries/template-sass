@@ -1,0 +1,36 @@
+////
+/// @group emory-libraries.patterns.molecules.social-media
+////
+
+/// Defines the base structure of the social-media component.
+///
+/// @since 1.0.0-dev.3
+%molecules-social-media {
+
+  // Builds the social-media structure.
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  max-width: 800px;
+  @include margin-x(auto);
+
+  &-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+
+    .icon {
+      @include size(20px);
+    }
+
+    // Adjust link structure on smaller screeens.
+    @include breakpoint-s {
+      @include padding-x(0 !important);
+    };
+
+  }
+
+}

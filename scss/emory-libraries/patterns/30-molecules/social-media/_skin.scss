@@ -1,0 +1,54 @@
+////
+/// @group emory-libraries.patterns.molecules.social-media
+////
+
+/// Defines the base skin of the social-media component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @type map
+$molecules-social-media: (
+
+  'background': color('blue', 'dark'),
+  'color': (
+    'normal': color('gold'),
+    'hover': color('blue', 'bright'),
+    'active': color('blue', 'bright')
+  ),
+  'size': 75px
+
+);
+
+/// Defines the social-media component theme.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The social-media component's themeable properties
+@mixin molecules-social-media--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $background: map-deep-get($skin, 'background');
+  $color: map-deep-get($skin, 'color');
+  $size: map-deep-get($skin, 'size');
+
+  // Defines the social-media component's base styles.
+  // ...
+
+  // Defines the social media link styles.
+  &-link {
+    @include atoms-button((
+      'foreground': $color,
+      'background': (
+        'normal': $background,
+        'hover': $background,
+        'active': $background
+      ),
+      'size': $size
+    ));
+  }
+
+}
