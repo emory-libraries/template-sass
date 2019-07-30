@@ -18,6 +18,10 @@
     display: inline-flex;
     align-items: center;
 
+    .icon {
+      margin: 0 !important;
+    }
+
     // Hide the anchor unless explicitly declared.
     @include when-descendant-of('#{$selector}:not(.is-anchored)') {
       display: none;
