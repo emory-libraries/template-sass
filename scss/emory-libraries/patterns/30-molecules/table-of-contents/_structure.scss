@@ -1,0 +1,27 @@
+////
+/// @group emory-libraries.patterns.molecules.table-of-contents
+////
+
+/// Defines the base structure of the table-of-contents component.
+///
+/// @since 1.0.0-dev.3
+%molecules-table-of-contents {
+
+  // Capture selector.
+  $selector: &;
+
+  // Builds the table-of-contents structure.
+  display: block;
+
+  // Builds the table of contents heading structure.
+  &-heading {
+    margin-top: 0;
+  }
+
+  // Builds the table of contents list structure.
+  &-list {
+    padding: 0;
+    list-style-type: none;
+  }
+
+}
