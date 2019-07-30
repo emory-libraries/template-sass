@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.compounds.feed
+////
+
+/// Load the feed component's structure and skin.
+@import 'feed/structure';
+@import 'feed/skin';
+
+/// Builds a constructor for the feed component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {placeholder} compounds-feed
+/// @requires {variable} compounds-feed
+/// @requires {mixin} compounds-feed--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our feed component
+///
+/// @status review
+@mixin compounds-feed ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($compounds-feed, $custom);
+
+  // Initialize the feed component.
+  & {
+
+    // Load structure.
+    @extend %compounds-feed;
+
+    // Load parts.
+    &-heading {
+      @extend %compounds-feed-heading;
+    }
+    &-content {
+      @extend %compounds-feed-content;
+    }
+    &-button {
+      @extend %compounds-feed-button;
+    }
+
+    // Load skins.
+    @include compounds-feed--theme( $skin );
+
+  }
+
+}

@@ -16,7 +16,7 @@
   flex-wrap: nowrap;
 
   // Builds the tab menu default structure.
-  &:not(.-dropdown) {
+  &:not(.-dropdown):not(.-noscript) {
     display: none;
 
     // Only enable the tabbed view on larger screens.
@@ -50,6 +50,17 @@
     // Disable dropdown view on larger screens.
     @include breakpoint-l {
       display: none;
+    };
+
+  }
+
+  // Builds the tab menu noscript structure.
+  &.-noscript {
+    flex-direction: column;
+
+    // Allow tabs to use their native layout on larger screens.
+    @include breakpoint-l {
+      flex-direction: row;
     };
 
   }

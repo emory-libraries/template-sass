@@ -6,21 +6,21 @@
 ///
 /// @since 1.0.0
 %molecules-card-listing {
-  
+
   // Capture selector.
   $selector: &;
-  
+
   // Builds the card-listing structure.
   display: grid;
-  
+
   // Sets structure when not explicitly vertical.
   &:not(.-vertical) {
-    
+
   }
-  
+
   // Builds card listing structure without descriptions.
   &:not(.has-description) {
-    
+
     // Sets default structure.
     &,
     &.-vertical {
@@ -30,28 +30,28 @@
                            "action";
       grid-template-columns: 1fr;
     }
-    
+
     // Sets structure when not explicity vertical.
     &:not(.-vertical) {
-      
-      @include breakpoint-m-l {
+
+      @include breakpoint-l {
         grid-template-areas: "date image"
                              "title image"
                              "action image";
         grid-template-rows: repeat(2, min-content) 1fr;
       };
-      
+
     };
-    
+
     #{$selector}-description {
       display: none;
     }
-    
+
   }
 
   // Builds card listing strucutre with descriptions.
   &.has-description {
-    
+
      // Sets default structure.
     &,
     &.-vertical {
@@ -62,10 +62,10 @@
                            "action";
       grid-template-columns: 1fr;
     }
-    
+
     // Sets structure when not explicity vertical.
     &:not(.-vertical) {
-      
+
       @include breakpoint-l {
         grid-template-areas: "date image"
                              "title image"
@@ -73,53 +73,53 @@
                              "action image";
         grid-template-rows: repeat(2, min-content) 1fr;
       };
-      
+
     };
-    
+
     #{$selector}-description {
       display: block;
     }
-    
+
   }
-  
+
   // Builds card listing structure without badges.
   &:not(.has-badge) {
-    
+
     .badge {
       display: none;
     }
-    
+
   }
-  
+
   // Builds card listing structure with badges.
   &.has-badge {
-    
+
     // Builds badge structure.
     .badge {
       @include absolute( 0 null null 0 );
       margin: 0;
       z-index: z('above');
     }
-    
+
   }
-  
+
   // Builds card listing date structure.
   &-date {
     margin: 0;
     grid-area: date;
   }
-  
+
   // Builds card listing title structure.
-  &-title { 
+  &-title {
     margin: 0;
     grid-area: title;
   }
-  
+
   // Builds card listing description structure.
   &-description {
     grid-area: description;
   }
-  
+
   // Builds card listing action structure.
   &-action {
     margin: 0;
@@ -128,72 +128,72 @@
     flex-wrap: wrap;
     align-items: flex-end;
   }
-  
+
   // Builds card listing image structure.
   &-image {
     grid-area: image;
     @include absolute( 0 );
     @include absolute-center-contents;
     overflow: hidden;
-    
+
     &::after {
       content: '';
       display: block;
       @include absolute( 0 );
     }
-    
+
     img {
       min-height: 100%;
-      
+
       @include breakpoint-l {
         width: 100%;
         height: auto;
       };
-      
+
     }
-    
+
     @include breakpoint-l {
       align-items: center;
     };
-    
+
     // Adjusts structure when orientation is given.
     &.-portrait {
-      
+
       img {
         width: 100%;
         height: auto;
         min-width: auto;
         min-height: auto;
-        
+
         @include breakpoint-l {
           width: 100%;
           height: auto;
           min-width: auto;
           min-height: auto;
         };
-        
+
       }
-      
+
     }
     &.-landscape {
-      
+
       img {
         width: auto;
         height: 100%;
         min-width: auto;
         min-height: auto;
-        
+
         @include breakpoint-l {
           width: 100%;
           height: auto;
           min-width: auto;
           min-height: 100%;
         };
-        
+
       }
-      
+
     }
-    
+
     // Modifies structure in terms of image alignment.
     &.-align-x-left {
       justify-content: flex-start;
@@ -213,7 +213,7 @@
     &.-align-y-center {
       align-items: center;
     }
-    
+
   }
-  
+
 }

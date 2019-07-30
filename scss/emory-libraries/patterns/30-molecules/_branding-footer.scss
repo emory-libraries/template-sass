@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.molecules.branding-footer
+////
+
+/// Load the branding-footer component's structure and skin.
+@import 'branding-footer/structure';
+@import 'branding-footer/skin';
+
+/// Builds a constructor for the branding-footer component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {placeholder} molecules-branding-footer
+/// @requires {variable} molecules-branding-footer
+/// @requires {mixin} molecules-branding-footer--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our branding-footer component
+///
+/// @status review
+@mixin molecules-branding-footer ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($molecules-branding-footer, $custom);
+
+  // Initialize the branding-footer component.
+  & {
+
+    // Load structure.
+    @extend %molecules-branding-footer;
+
+    // Load parts.
+    &-logo {
+      @extend %molecules-branding-footer-logo;
+    }
+    &-dropdown {
+      @extend %molecules-branding-footer-dropdown;
+      &-menu {
+        @extend %molecules-branding-footer-dropdown-menu;
+      }
+    }
+
+    // Load skins.
+    @include molecules-branding-footer--theme( $skin );
+
+  }
+
+}

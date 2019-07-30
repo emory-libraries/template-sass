@@ -1,0 +1,48 @@
+////
+/// @group emory-libraries.patterns.organisms.flow-feed-preview
+////
+
+/// Defines the base structure of the flow-feed-preview component.
+///
+/// @since 1.0.0-dev.3
+%organisms-flow-feed-preview {
+
+  // Capture selector.
+  $selector: &;
+
+  // Builds the flow-feed-preview structure.
+  display: grid;
+  grid-template-areas: "feeds";
+  grid-template-columns: 1fr;
+
+  // Modifies structure when a feature is present.
+  &.has-feature {
+    grid-template-areas: "feature"
+                         "feeds";
+  }
+
+  // Builds the flow feed preview's feature structure.
+  &-feature {
+    grid-area: feature;
+
+    // Only show features when explicitly requested.
+    @include when-descendant-of('#{$selector}:not(.has-feature)') {
+      display: none;
+    };
+    
+  }
+
+  // Builds the flow feed preview's feeds structure.
+  &-feeds {
+    display: grid;
+    grid-area: feeds;
+    grid-template-columns: 1fr;
+
+    // Adjust feeds layout on larger screens.
+    @include breakpoint-l {
+      grid-template-columns: repeat(2, 1fr);
+    };
+
+  }
+
+}
