@@ -51,6 +51,7 @@
   "molecules-branding-header": "review",
   "molecules-branding-footer": "review",
   "molecules-social-media": "review",
+  "molecules-table-of-contents": "review",
   "compounds-utility-list": "review",
   "compounds-cards": "review",
   "compounds-accordion": "review",
@@ -92,6 +93,5 @@
   "templates-landing": "review",
   "templates-exhibition": "review",
   "templates-index": "review",
-  "templates-periodicals": "review",
-  "molecules-table-of-contents": "construction"
+  "templates-periodicals": "review"
 }
