@@ -6,10 +6,12 @@
 ///
 /// @since 1.0.0-dev.3
 %molecules-table-of-contents {
+
   // Capture selector.
   $selector: &;
-  
+
   // Builds the table-of-contents structure.
-  // ...
-  
+  padding: 0;
+  list-style-type: none;
+
 }

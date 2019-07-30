@@ -134,3 +134,8 @@
 .branding-header {
   @include molecules-branding-header;
 }
+
+// molecules-table-of-contents
+.table-of-contents {
+  @include molecules-table-of-contents;
+}
