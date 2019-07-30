@@ -64,3 +64,8 @@
 .nav-menu-main {
   @include compounds-nav-menu-main;
 }
+
+// compounds-feed
+.feed {
+  @include compounds-feed;
+}

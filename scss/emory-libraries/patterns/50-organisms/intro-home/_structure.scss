@@ -1,0 +1,52 @@
+////
+/// @group emory-libraries.patterns.organisms.intro-home
+////
+
+/// Defines the base structure of the intro-home component.
+///
+/// @since 1.0.0-dev.0
+%organisms-intro-home {
+
+  // Captures the selector.
+  $selector: &;
+
+  // Builds the intro-home structure.
+  display: grid;
+  grid-template-rows: minmax(180px, min-content) min-content 6fr repeat(2, min-content) 1fr;
+  grid-template-columns: 1fr 2fr minmax(min-content, 800px) 2fr 1fr;
+  background-size: cover;
+  background-position: center;
+  height: 845px;
+
+  &-search {
+    grid-row: 1;
+    grid-column: 1/-1;
+    align-self: stretch;
+    margin: 0 !important;
+
+    .search-menu {
+      padding-top: 0;
+    }
+
+    @include breakpoint-l {
+      @include padding-x(6em);
+      padding-top: .5em;
+    };
+
+  }
+
+  &-badge{
+    grid-row: 4;
+    grid-column: 3;
+    align-self: center;
+    margin: 0 auto !important;
+  }
+
+  &-title {
+    grid-row: 5;
+    grid-column: 3;
+    align-self: center;
+    margin: 0 auto !important;
+  }
+
+}

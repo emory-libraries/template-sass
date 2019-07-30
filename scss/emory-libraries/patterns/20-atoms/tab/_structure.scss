@@ -2,6 +2,120 @@
 /// @group emory-libraries.patterns.atoms.tab
 ////
 
+/// Defines the tab component state structure.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {string} state - The component's state to be structure
+///
+/// @output The tab component's themeable properties
+@mixin atoms-tab--state--structure( $state, $selector: true ) {
+
+  @if( $selector and $state != 'normal' ) {
+
+    @if( $state == 'active' ) {
+
+      &:#{$state},
+      &.is-#{$state} {
+
+        @include breakpoint-s-m {
+
+          &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: 0;
+            @include absolute-center-within-container-y;
+          }
+
+        };
+
+        @include breakpoint-l {
+
+          &::after {
+            content: "";
+            display: block;
+            @include absolute( 100% null null 50% );
+            transform: translatey(-50%) translatex(-50%);
+            z-index: z('above');
+          }
+
+        };
+
+      }
+
+      @if( $selector != true ) {
+
+        @at-root #{$selector}-switch:checked + #{$selector} {
+
+          @include breakpoint-s-m {
+
+            &::before {
+              content: "";
+              display: block;
+              position: absolute;
+              left: 0;
+              @include absolute-center-within-container-y;
+            }
+
+          };
+
+          @include breakpoint-l {
+
+            &::after {
+              content: "";
+              display: block;
+              @include absolute( 100% null null 50% );
+              transform: translatey(-50%) translatex(-50%);
+              z-index: z('above');
+            }
+
+          };
+
+        }
+
+      }
+
+    }
+
+  }
+
+  @else {
+
+    @if( $state == 'active' ) {
+
+      @include breakpoint-s-m {
+
+        &::before {
+          content: "";
+          display: block;
+          position: absolute;
+          left: 0;
+          @include absolute-center-within-container-y;
+        }
+
+      };
+
+      @include breakpoint-l {
+
+        &::after {
+          content: "";
+          display: block;
+          @include absolute( 100% null null 50% );
+          transform: translatey(-50%) translatex(-50%);
+          z-index: z('above');
+        }
+
+      };
+
+    }
+
+  }
+
+}
+
 /// Defines the base structure of the tab component.
 ///
 /// @since 1.0.0
@@ -15,7 +129,7 @@
 %atoms-tab {
 
   // Capture class name.
-  $class: &;
+  $selector: &;
 
   // Defines the structure of the tab component.
   appearance: none;
@@ -24,50 +138,50 @@
   background: none !important;
   border: none !important;
   padding: ($rhythm-y / 4) ($rhythm-x * 2);
-  @include absolute-center-contents( true );
+  @include absolute-center-contents-y( true );
   cursor: pointer;
 
-  // Initiailzes a divider for each tab.
-  &::before {
-    content: "";
-    display: block;
-    position: absolute;
-    left: 0;
-  }
+  // Define tab structure on larger screens.
+  @include breakpoint-l {
+    @include absolute-center-contents( true );
 
-  // Initializes an indicator for each tab.
-  &::after {
-    content: "";
-    display: block;
-    @include absolute( 100% null null 50% );
-    transform: translatey(-50%) translatex(-50%);
-    z-index: z('above');
-  }
+    // Initiailzes a divider for each tab.
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+    }
+
+  };
+
+  @include atoms-tab--state--structure('active', $selector);
 
   // Defines the structure of tab menus.
   &-menu {
     display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     @include margin-y( $rhythm-y );
     padding-top: ($rhythm-y / 4);
     padding-bottom: ($rhythm-y / 2);
+    margin: 0;
 
-    // Defines structure of menu horizontal rule.
-    &::after {
-      content: "";
-      width: 100%;
-      position: absolute;
-      bottom: ($rhythm-y / 2);
-      left: 0;
-      right: 0;
-    }
+    // Modifies tab menu styles on larger screens.
+    @include breakpoint-l {
+      flex-direction: row;
 
-    // Defines structure of tabs within a menu.
-    #{$class} {
+      // Defines structure of menu horizontal rule.
+      &::after {
+        content: "";
+        width: 100%;
+        position: absolute;
+        bottom: ($rhythm-y / 2);
+        left: 0;
+        right: 0;
+      }
 
-      // Defines structure of tabs when active.
-      &.is-active { }
-
-    }
+    };
 
   }
 
