@@ -9,44 +9,38 @@
 /// @type map
 $atoms-tab: (
 
-  'thickness': $border-width-s,
   'transition': (
     'duration': $transition-duration,
     'timing': $transition-timing
   ),
-  'divider': (
-    'size': 1em
-  ),
-  'indicator': (
-    'size': 30px,
-    'start': 45%,
-    'stop': 55%
-  ),
-  'color': (
-    'default': $color-text-dark,
-    'hover': $color-actionable,
-    'active': color('blue')
-  ),
-  'border': rgba(color('charcoal'), .25),
+  'divider': 1em,
+  'indicator': 30px,
 
-  'theme': (
+  'theme': "light",
+  "themes": (
     'light': (
       'background': color('white'),
       'foreground': (
-        'default': color('blue', 'mid'),
+        'normal': color('blue', 'mid'),
         'hover': $color-actionable,
         'active': $color-actionable
       ),
-      'border': rgba(color('slate'), .5)
+      'border': (
+        'color': rgba(color('slate'), .5),
+        'thickness': $border-width-s
+      )
     ),
     'dark': (
       'background': color('blue', 'dark'),
       'foreground': (
-        'default': color('white'),
+        'normal': color('white'),
         'hover': color('slate'),
         'active': color('gold')
       ),
-      'border': rgba(color('slate', 'light'), .25)
+      'border': (
+        'color': rgba(color('slate', 'light'), .25),
+        'thickness': $border-width-s
+      )
     )
   )
 
@@ -72,188 +66,64 @@ $atoms-tab: (
   $selector: &;
 
   // Captures themeable variables.
-  $thickness: map-deep-get($skin, 'thickness');
-  $duration: map-deep-get($skin, 'transition.duration');
-  $timing: map-deep-get($skin, 'transition.timing');
-  $default: map-deep-get($skin, 'color.default');
-  $hover: map-deep-get($skin, 'color.hover');
-  $active: map-deep-get($skin, 'color.active');
-  $border: map-deep-get($skin, 'border');
+  $theme: map-deep-get($skin, 'theme');
+  $themes: map-deep-get($skin, 'themes');
+  $divider: map-deep-get($skin, 'divider');
+  $indicator: map-deep-get($skin, 'indicator');
+
+  // Get transition-specific variables.
+  $transition-duration: map-deep-get($skin, 'transition.duration');
+  $transition-timing: map-deep-get($skin, 'transition.timing');
+
+  // Get theme-specific variables.
+  $theme-foreground: map-deep-get($themes, $theme + '.foreground.normal');
+  $theme-background: map-deep-get($themes, $theme + '.background');
+  $theme-border-color: map-deep-get($themes, $theme + '.border.color');
+  $theme-border-thickness: map-deep-get($themes, $theme + '.border.thickness');
 
   // Build tab component styles.
-  @include tokens-heading('h6', $default);
-  transition: all $duration $timing;
+  @include tokens-heading('h6', $theme-foreground);
+  transition: all $transition-duration $transition-timing;
 
-  // Capture tab-specific variables.
-  $divider-size: map-deep-get($skin, 'divider.size');
-  $indicator-size: map-deep-get($skin, 'indicator.size');
-  $indicator-start: map-deep-get($skin, 'indicator.start');
-  $indicator-stop: map-deep-get($skin, 'indicator.stop');
+  // Builds styles for smaller screens.
+  @include breakpoint-s-m {
+    padding-left: $indicator;
+    font-weight: normal;
+    text-transform: none;
 
-  // Builds styles between subsequent tabs.
-  &::before {
-    width: $thickness;
-    height: $divider-size;
-  }
-
-  // Add left border to subsequent tabs.
-  & + &::before {
-    background-color: $border;
-  }
-
-  // Builds styles for hovered/focused tabs.
-  &:hover,
-  &:focus,
-  &.is-hover,
-  &.is-focus {
-    color: $hover;
-  }
-
-  // Builds styles for active tabs.
-  &:active,
-  &.is-active {
-    color: $active;
-
-    // Displays indicator when active.
-    &::after {
-      @include tokens-icon('material-arrow_drop_down', $active, $indicator-size, $pseudo: true);
-      @include size( $indicator-size );
+    &::before {
+      @include size($indicator);
     }
 
-  }
+  };
+
+  // Builds styles for larger screens.
+  @include breakpoint-l {
+    text-align: center;
+
+    // Add divider between subsequent tabs.
+    & + &::before {
+      height: $divider;
+      width: $theme-border-thickness;
+      background-color: $theme-border-color;
+    }
+
+  };
+
+  // Add tab states.
+  @include atoms-tab--state('normal', $skin);
+  @include atoms-tab--state('hover', $skin);
+  @include atoms-tab--state('focus', $skin);
+  @include atoms-tab--state('active', $skin);
 
   // Build tab menu styles.
   &-menu {
-    margin: 0;
+    background-color: $theme-background;
 
-    // Build horizontal rule styles.
+    // Add a horizontal rule to the tab menu.
     &::after {
-      height: $thickness;
-    }
-
-    // Build light theme menu styles.
-    &,
-    &.-light {
-      $theme-background: map-deep-get($skin, 'theme.light.background');
-      $theme-border: map-deep-get($skin, 'theme.light.border');
-      $theme-default: map-deep-get($skin, 'theme.light.foreground.default');
-      $theme-hover: map-deep-get($skin, 'theme.light.foreground.hover');
-      $theme-active: map-deep-get($skin, 'theme.light.foreground.active');
-
-      &:not(.-dropdown) {
-        background-color: $theme-background;
-
-        // Styles the horizontal rule under the menu.
-        &::after {
-          background-color: $theme-border;
-        }
-
-        // Styles tabs when inside a light-themed menu.
-        #{$selector} {
-          color: $theme-default;
-
-          // Styles the tab's hover/focus state.
-          &:hover,
-          &:focus,
-          &.is-hover,
-          &.is-focus {
-            color: $theme-hover;
-          }
-
-          // Styles the tab's active state.
-          &:active,
-          &.is-active {
-            color: $theme-active;
-
-            // Displays indicator when active.
-            &::after {
-              @include tokens-icon('material-arrow_drop_down', $theme-active, $indicator-size, $pseudo: true);
-              @include linear-gradient(
-                to bottom,
-                transparent $indicator-start,
-                $theme-background $indicator-start,
-                $theme-background $indicator-stop,
-                transparent $indicator-stop
-              );
-            }
-
-          }
-
-          // Add left border to subsequent tabs.
-          + #{$selector}::before {
-            background-color: $theme-border;
-          }
-
-        }
-
-      }
-
-      &.-dropdown {
-        background-color: $theme-background;
-      }
-
-    }
-
-    // Build dark theme menu styles.
-    &.-dark {
-      $theme-background: map-deep-get($skin, 'theme.dark.background');
-      $theme-border: map-deep-get($skin, 'theme.dark.border');
-      $theme-default: map-deep-get($skin, 'theme.dark.foreground.default');
-      $theme-hover: map-deep-get($skin, 'theme.dark.foreground.hover');
-      $theme-active: map-deep-get($skin, 'theme.dark.foreground.active');
-
-      &:not(.-dropdown) {
-        background-color: $theme-background;
-
-        // Styles the horizontal rule under the menu.
-        &::after {
-          background-color: $theme-border;
-        }
-
-        // Styles tabs when inside a dark-themed menu.
-        #{$selector} {
-          color: $theme-default;
-
-          // Styles the tab's hover/focus state.
-          &:hover,
-          &:focus,
-          &.is-hover,
-          &.is-focus {
-            color: $theme-hover;
-          }
-
-          // Styles the tab's active state.
-          &:active,
-          &.is-active {
-            color: $theme-active;
-
-            // Displays indicator when active.
-            &::after {
-              @include tokens-icon('material-arrow_drop_down', $theme-active, $indicator-size, $pseudo: true);
-              @include linear-gradient(
-                to bottom,
-                transparent $indicator-start,
-                $theme-background $indicator-start,
-                $theme-background $indicator-stop,
-                transparent $indicator-stop
-              );
-            }
-
-          }
-
-          // Add left border to subsequent tabs.
-          + #{$selector}::before {
-            background-color: $theme-border;
-          }
-
-        }
-
-      }
-
-      &.-dropdown {
-        background-color: $theme-background;
-      }
-
+      height: $theme-border-thickness;
+      background-color: $theme-border-color;
     }
 
   }
@@ -263,22 +133,358 @@ $atoms-tab: (
 
     // Show the tab's active state when the switch is enabled.
     &:checked + #{$selector} {
-      color: $active;
-
-      // Displays indicator when active.
-      &::after {
-        @include tokens-icon('material-arrow_drop_down', $active, $indicator-size, $pseudo: true);
-        @include size( $indicator-size );
-      }
-
+      @include atoms-tab--state('active', $skin, $selector);
     }
 
     // Hide the tab's active state when the switch is disabled.
     &:not(:checked) + #{$selector} {
-      color: $default;
+      @include atoms-tab--state('normal', $skin, $selector);
+    }
 
+  }
+
+  // Apply theme-specific styles for the component.
+  @each $theme, $settings in $themes {
+
+    // Get theme-specific variables.
+    $theme-foreground: map-deep-get($settings, 'foreground.normal');
+    $theme-background: map-deep-get($settings, 'background');
+    $theme-border-color: map-deep-get($settings, 'border.color');
+    $theme-border-thickness: map-deep-get($settings, 'border.thickness');
+
+    // Apply theme-specific styles.
+    &-menu.-#{$theme} {
+      background-color: $theme-background;
+
+      // Modifies horizontal rule of the tab menu.
       &::after {
-        content: none;
+        height: $theme-border-thickness;
+        background-color: $theme-border-color;
+      }
+
+      // Override tab styles.
+      #{$selector} {
+        color: $theme-foreground;
+
+        // Modifies divider between to subsequent tabs.
+        & + &::before {
+          background-color: $theme-border-color;
+          width: $theme-border-thickness;
+        }
+
+      }
+
+    }
+
+  }
+
+}
+
+/// Defines the tab component state.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {string} state - The component's state to be styled
+/// @param {map} skin - The component's skin
+///
+/// @output The tab component's themeable properties
+@mixin atoms-tab--state( $state, $skin: $atoms-tab, $selector: true ) {
+
+  // For focus states, use the hover state styles.
+  $target: if($state == 'focus', 'hover', if($state == 'inactive', 'active', $state));
+
+  // Get theme-specific variables.
+  $theme-default: map-deep-get($skin, 'theme');
+  $themes: map-deep-get($skin, 'themes');
+
+  // Get skinable variables.
+  $indicator: map-deep-get($skin, 'indicator');
+
+  // Capture the selector class.
+  $selector-class: &;
+
+  @if( $selector == true and $state != 'normal' ) {
+
+    // Add theme-specific states.
+    @each $theme, $settings in $themes {
+
+      // Get theme-specific variables.
+      $theme-foreground: map-get($settings, 'foreground');
+      $theme-background: map-get($settings, 'background');
+
+      // Get state-specific variables based on theme-specific variables.
+      $state-foreground: map-deep-get($theme-foreground, $target);
+
+      // Build the targeted state selector.
+      $selector-state: unquote(if($theme == $theme-default, glue((
+        '&:#{$state}',
+        '&.is-#{$state}',
+        '#{$selector-class}-menu:not(.-dropdown).-#{$theme} &:#{$state}',
+        '#{$selector-class}-menu:not(.-dropdown).-#{$theme} &.is-#{$state}',
+        'noscript #{$selector-class}-menu:not(.-dropdown).-#{$theme} &:#{$state}',
+        'noscript #{$selector-class}-menu:not(.-dropdown).-#{$theme} &.is-#{$state}'
+      ), ', '), glue((
+        '#{$selector-class}-menu:not(.-dropdown).-#{$theme} &:#{$state}',
+        '#{$selector-class}-menu:not(.-dropdown).-#{$theme} &.is-#{$state}',
+        'noscript #{$selector-class}-menu:not(.-dropdown).-#{$theme} &:#{$state}',
+        'noscript #{$selector-class}-menu:not(.-dropdown).-#{$theme} &.is-#{$state}'
+      ), ', ')));
+
+      // Apply all state-specific styles for the given theme.
+      #{$selector-state} {
+        color: $state-foreground;
+
+        // Add an indicator when active.
+        @if( $state == 'active' ) {
+
+          // For smaller screens, add indicators at the left of the tab.
+          @include breakpoint-s-m {
+
+            &::before {
+              content: icon-url('material-arrow_right', $state-foreground, $indicator);
+            };
+
+          };
+
+          // For larger screens, add indicators below the tab.
+          @include breakpoint-l {
+
+            &::after {
+              content: icon-url('material-arrow_drop_down', $state-foreground, $indicator);
+            }
+
+          };
+
+        }
+
+        // Otherwise, remove indicators when not active.
+        @else {
+
+          // For smaller screens, remove indicators at the left of the tab.
+          @include breakpoint-s-m {
+
+            &::before {
+              content: none;
+            };
+
+          };
+
+          // For larger screens, remove indicators below the tab.
+          @include breakpoint-l {
+
+            &::after {
+              content: none;
+            }
+
+          };
+
+        }
+
+      }
+
+    }
+
+  }
+
+  @else {
+
+    // Add theme-specific states.
+    @each $theme, $settings in $themes {
+
+      // Get theme-specific variables.
+      $theme-foreground: map-get($settings, 'foreground');
+      $theme-background: map-get($settings, 'background');
+
+      // Get state-specific variables based on theme-specific variables.
+      $state-foreground: map-deep-get($theme-foreground, $target);
+
+      // Apply all state-specific styles for the given theme.
+      @if( $theme == $theme-default ) {
+        color: $state-foreground;
+
+        // Add an indicator when active.
+        @if( $state == 'active' ) {
+
+          // For smaller screens, add indicators at the left of the tab.
+          @include breakpoint-s-m {
+
+            &::before {
+              content: icon-url('material-arrow_right', $state-foreground, $indicator);
+            };
+
+          };
+
+          // For larger screens, add indicators below the tab.
+          @include breakpoint-l {
+
+            &::after {
+              content: icon-url('material-arrow_drop_down', $state-foreground, $indicator);
+              @include linear-gradient(
+                to bottom,
+                transparent 45%,
+                $theme-background 45%,
+                $theme-background 55%,
+                transparent 55%
+              );
+            }
+
+          };
+
+        }
+
+        // Otherwise, remove indicators when not active.
+        @else {
+
+          // For smaller screens, remove indicators at the left of the tab.
+          @include breakpoint-s-m {
+
+            &::before {
+              content: none;
+            };
+
+          };
+
+          // For larger screens, remove indicators below the tab.
+          @include breakpoint-l {
+
+            &::after {
+              content: none;
+            }
+
+          };
+
+        }
+
+      }
+
+      @if( $selector == true ) {
+
+        // Also, add state-specific styles within its themed menu.
+        @at-root &-menu:not(.-dropdown).-#{$theme} &,
+        noscript &-menu:not(.-dropdown).-#{$theme} & {
+          color: $state-foreground;
+
+          // Add an indicator when active.
+          @if( $state == 'active' ) {
+
+            // For smaller screens, add indicators at the left of the tab.
+            @include breakpoint-s-m {
+
+              &::before {
+                content: icon-url('material-arrow_right', $state-foreground, $indicator);
+              };
+
+            };
+
+            // For larger screens, add indicators below the tab.
+            @include breakpoint-l {
+
+              &::after {
+                content: icon-url('material-arrow_drop_down', $state-foreground, $indicator);
+                @include linear-gradient(
+                  to bottom,
+                  transparent 45%,
+                  $theme-background 45%,
+                  $theme-background 55%,
+                  transparent 55%
+                );
+              }
+
+            };
+
+          }
+
+          // Otherwise, remove indicators when not active.
+          @else {
+
+            // For smaller screens, remove indicators at the left of the tab.
+            @include breakpoint-s-m {
+
+              &::before {
+                content: none;
+              };
+
+            };
+
+            // For larger screens, remove indicators below the tab.
+            @include breakpoint-l {
+
+              &::after {
+                content: none;
+              }
+
+            };
+
+          }
+
+        }
+
+      }
+
+      @else if( $selector != false ) {
+
+        // Also, add state-specific styles within its themed menu.
+        @at-root #{$selector}-menu:not(.-dropdown).-#{$theme} &,
+        noscript #{$selector}-menu:not(.-dropdown).-#{$theme} & {
+          color: $state-foreground;
+
+          // Add an indicator when active.
+          @if( $state == 'active' ) {
+
+            // For smaller screens, add indicators at the left of the tab.
+            @include breakpoint-s-m {
+
+              &::before {
+                content: icon-url('material-arrow_right', $state-foreground, $indicator);
+              };
+
+            };
+
+            // For larger screens, add indicators below the tab.
+            @include breakpoint-l {
+
+              &::after {
+                content: icon-url('material-arrow_drop_down', $state-foreground, $indicator);
+                @include linear-gradient(
+                  to bottom,
+                  transparent 45%,
+                  $theme-background 45%,
+                  $theme-background 55%,
+                  transparent 55%
+                );
+              }
+
+            };
+
+          }
+
+          // Otherwise, remove indicators when not active.
+          @else {
+
+            // For smaller screens, remove indicators at the left of the tab.
+            @include breakpoint-s-m {
+
+              &::before {
+                content: none;
+              };
+
+            };
+
+            // For larger screens, remove indicators below the tab.
+            @include breakpoint-l {
+
+              &::after {
+                content: none;
+              }
+
+            };
+
+          }
+
+        }
+
       }
 
     }
