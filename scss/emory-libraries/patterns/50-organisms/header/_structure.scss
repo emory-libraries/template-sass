@@ -20,6 +20,12 @@
   grid-template-rows: repeat(2, min-content);
   z-index: z('docked');
 
+  // When the header is inside of a vue, then use position fixed instead of sticky.
+  #eul-vue & {
+    @include fixed(0 0 null 0);
+    width: 100%;
+  }
+
   // Builds the header notifications structure.
   &-notifications {
     grid-area: notifications;
