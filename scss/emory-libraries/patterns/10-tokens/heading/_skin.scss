@@ -11,7 +11,7 @@
 ///
 /// @type map
 $tokens-heading: (
-  
+
   'h1': (
     'font-weight': bold,
     'font-style': normal,
@@ -83,9 +83,72 @@ $tokens-heading: (
     'letter-spacing': 0.05em,
     'text-transform': uppercase,
     'color': $color-text-dark
+  ),
+
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  ),
+
+  'anchor': (
+    'size': 25px,
+    'spacing': 20px
   )
-  
+
 );
+
+/// Defines the heading token's theme.
+///
+/// @since 1.0.0
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The token's skin
+///
+/// @output The heading component's themeable properties
+@mixin tokens-heading--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  // ...
+
+  // Capture transition-specific variables.
+  $transition-duration: map-deep-get($skin, 'transition.duration');
+  $transition-timing: map-deep-get($skin, 'transition.timing');
+
+  // Capture anchor-specific variables.
+  $anchor-size: map-deep-get($skin, 'anchor.size');
+  $anchor-spacing: map-deep-get($skin, 'anchor.spacing');
+
+  // Defines the heading component's base styles.
+  // ...
+
+  // For anchored headings, toggle the anchor accordingly.
+  &.is-anchored {
+
+    &:hover,
+    &.is-hover,
+    &:focus,
+    &.is-focus {
+
+      .anchor {
+        visibility: visible;
+        opacity: 1;
+      }
+
+    }
+
+  }
+
+  // Defines the heading anchor styles.
+  .anchor {
+    transition: visibility 0s, opacity $transition-duration $transition-timing;
+    margin-left: $anchor-spacing;
+    @include size($anchor-size);
+    opacity: 0;
+    visibility: hidden;
+  }
+
+}
 
 /// Defines the heading token's font properties.
 ///
@@ -102,7 +165,7 @@ $tokens-heading: (
 ///
 /// @output The heading component's font property
 @mixin tokens-heading--font ( $level, $skin, $important: false ) {
-  
+
   // Defines the heading token's font styles.
   font-family: important(font('heading.' + $level), $important);
   font-size: important(($font-size * map-deep-get($fonts-scale, 'heading.' + $level)), $important);
@@ -111,7 +174,7 @@ $tokens-heading: (
   line-height: important(map-deep-get($skin, $level + '.line-height'), $important);
   letter-spacing: important(map-deep-get($skin, $level + '.letter-spacing'), $important);
   text-transform: important(map-deep-get($skin, $level + '.text-transform'), $important);
-  
+
 }
 
 /// Defines the heading token's color properties.
@@ -128,8 +191,8 @@ $tokens-heading: (
 ///
 /// @output The heading component's font property
 @mixin tokens-heading--color ( $level, $skin, $color: null, $important: false ) {
-  
+
   // Defines the heading token's color styles.
   color: important(default($color, map-deep-get($skin, $level + '.color')), $important);
-  
+
 }

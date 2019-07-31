@@ -100,19 +100,7 @@ $organisms-section-main: (
   &-subtitle { }
 
   // Defines the main body styles.
-  &-body {
-
-    // Modifies heading styles when inside main body.
-    // FIXME: If we adjust H2 styles here, we'll need to adjust subsequent headings (H3-H6) too.
-    .heading {
-
-      &.-h2 {
-        @include tokens-heading('h5-alt', $theme-heading);
-      }
-
-    }
-
-  }
+  &-body { }
 
   // Defines the main sidebar styles.
   &-sidebar { }
