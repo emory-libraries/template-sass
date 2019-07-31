@@ -6,37 +6,28 @@
 ///
 /// @since 1.0.0
 %atoms-copyright {
-  
+
   // Get the selector.
   $selector: &;
-  
-  // Set breakpoints.
-  $breakpoint-m: 774px 601px;
-  $breakpoint-l: min-width 775px;
-  
+
   // Builds the copyright structure.
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  
-  // Modifies structure for medium screens.
-  @include breakpoint( $breakpoint-m ) {
+  width: 100%;
+
+  // Modifies structure for larger screens.
+  @include breakpoint-l-xl {
     flex-direction: row;
     flex-wrap: wrap;
   };
-  
-  // Modifies structure for large screens.
-  @include breakpoint( $breakpoint-l ) {
-    flex-direction: row;
-    flex-wrap: nowrap;
-  };
-  
+
   // Builds copyright container structure.
   &-notice,
   &-address,
   &-phone {
-    
+
     // Add a divider between copyright containers.
     + #{$selector}-notice::before,
     + #{$selector}-address::before,
@@ -45,40 +36,40 @@
       @include absolute-center-within-container-y;
       left: 0;
     }
-    
+
   }
-  
+
   // Builds copyright notice structure.
   &-notice {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
-  
+
     // Modifies structure for medium screens.
-    @include breakpoint( $breakpoint-m ) {
+    @include breakpoint-l {
       flex-basis: 100%;
     };
 
     // Modifies structure for large screens.
-    @include breakpoint( $breakpoint-l ) {
+    @include breakpoint( min-width 1265px ) {
       flex-basis: unset;
     };
-    
+
     // Modifies structure for medium and large screens.
-    @include breakpoints( $breakpoint-m, $breakpoint-l ) {
+    @include breakpoint-l-xl {
       display: block;
     };
-    
+
     // Builds copyright notice containers structure.
     #{$selector}-signature {
       flex-basis: 100%;
-      
+
       // Modifies structure for medium and large screens.
-      @include breakpoints( $breakpoint-m, $breakpoint-l ) {
+      @include breakpoint-l-xl {
         flex-basis: unset;
       };
-      
+
       // Builds copyright year structure.
       #{$selector}-year {}
 
@@ -89,34 +80,34 @@
 
     // Builds copyright rights structure.
     #{$selector}-rights {
-      
+
       // Modifies strcture for medium and large screens.
-      @include breakpoints( $breakpoint-m, $breakpoint-l ) {
+      @include breakpoint-l-xl {
         &::before {
           content: " - ";
         }
       };
-      
+
     }
-    
+
     // Builds copyright policies structure.
     #{$selector}-policies {
-      
+
       // Builds copyright policy structure.
       #{$selector}-policy {}
 
     }
-    
+
   }
-  
+
   // Builds copyright address structure.
   &-address {
     grid-area: address;
   }
-  
+
   // Builds copyright phone structure.
   &-phone {
     grid-area: phone;
   }
-  
+
 }

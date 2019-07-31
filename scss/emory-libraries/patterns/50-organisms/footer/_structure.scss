@@ -1,0 +1,84 @@
+////
+/// @group emory-libraries.patterns.organisms.footer
+////
+
+/// Defines the base structure of the footer component.
+///
+/// @since 1.0.0-dev.3
+%organisms-footer {
+
+  // Builds the footer structure.
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  margin-top: 80px;
+
+  // Adjusts the footer grid on larger screens.
+  @include breakpoint-l {
+    grid-template-columns: repeat(2, 1fr) min-content repeat(2, 1fr);
+  };
+
+  // Builds the footer branding structure.
+  &-branding {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+
+    // Adjust footer branding grid position on larger screens.
+    @include breakpoint-l {
+      grid-column: 3;
+    };
+
+  }
+
+  // Builds the footer list structure.
+  &-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    // Adjust footer list grid position on larger screens.
+    @include breakpoint-l {
+      grid-row: 1;
+    };
+
+  }
+
+  // Builds the footer divider structure.
+  &-divider {
+    grid-row: 3;
+    grid-column: 1 / span 2;
+
+    // Only show the divider on smaller screens.
+    @include breakpoint-l {
+      display: none !important;
+    };
+
+  }
+
+  // Builds the footer socials structure.
+  &-socials {
+    grid-row: 5;
+    grid-column: 1 / span 2;
+
+    // Adjust footer socials grid position on larger screens.
+    @include breakpoint-l {
+      grid-row: 2;
+      grid-column: 1 / span 5;
+    };
+
+  }
+
+  // Builds the footer copyright structure.
+  &-copyright {
+    grid-row: 6;
+    grid-column: 1 / span 2;
+
+    // Adjust footer socials grid position on larger screens.
+    @include breakpoint-l {
+      grid-row: 3;
+      grid-column: 1 / span 5;
+    };
+
+  }
+
+}
