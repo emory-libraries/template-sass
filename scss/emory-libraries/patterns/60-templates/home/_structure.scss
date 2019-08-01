@@ -10,12 +10,12 @@
 
   // Builds the home structure.
   margin: 0 auto;
-  display: grid;
+  /*display: grid;
   grid-template-areas: "header"
                        "main"
                        "footer";
   grid-template-rows: 150px 1fr 420px;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr;*/
 
   // Builds the home header structure.
   &-header {
@@ -31,6 +31,121 @@
   // Builds the home main structure.
   &-main {
     grid-area: main;
+
+    .section-main {
+      display: block;
+      padding: 0;
+
+    }
+
+    .section-major {
+
+      .section-major-body {
+        display: grid;
+        grid-row-gap: 2em;
+        max-width: 1440px;
+        margin: 0 auto;
+      }
+
+    }
+
+    .popular-row {
+      padding-top: $rhythm-y / 2 !important;
+      padding-bottom: ($rhythm-y / 4) !important;
+      display: grid;
+      grid-gap: 10px;
+      padding: 0 .5em;
+
+      @include breakpoint-s-m-l() {
+        grid-template-columns: auto max-content;
+        grid-template-rows: repeat(2, max-content);
+      }
+
+      @include breakpoint-xl() {
+        grid-gap: 40px;
+        grid-template-columns: auto max-content;
+        grid-template-rows: max-content;
+      }
+
+    }
+
+    .popular-links-menu {
+      grid-row: 1;
+      grid-column: 1;
+      grid-template-columns: 1fr;
+    }
+
+    .popular-links-menu-title,
+    .popular-links-menu-list {
+      grid-column: 1;
+    }
+
+    @include breakpoint-m-l-xl(){
+
+      .popular-links-menu,
+      .access-links-menu {
+        grid-template-rows: 20px 40px;
+        align-items: center;
+      }
+
+    }
+
+    .access-links-menu {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-column-gap: 1em;
+
+      @include breakpoint-s-m() {
+        grid-column: 1;
+        grid-row: 2;
+        align-items: center;
+        grid-template-areas:  "heading"
+                              "hours"
+                              "links";       
+      }
+
+      @include breakpoint-l() {
+        grid-column: 1;
+        grid-row: 2;
+      }
+
+      @include breakpoint-xl() {
+        grid-column: 2;
+        grid-row: 1;
+      }
+
+      @include breakpoint-m-l-xl() {
+        grid-template-columns: max-content 1fr;
+        grid-template-areas:  "heading heading"
+                              "hours links";       
+
+      }
+
+      .popular-links-menu-title {
+        grid-area: heading;
+      }
+
+      .access-hours {
+        grid-area: hours;
+        margin-block-start: .5em;
+        margin-block-end: .5em;
+      }
+
+      .access-links-list {
+        grid-area: links;
+        padding: 0;
+        display: grid;
+        grid-template-rows: repeat(3,auto);
+
+        @include breakpoint-m-l-xl() {
+          grid-template-columns: repeat(2, max-content);
+          grid-column-gap: 2em;
+          grid-template-rows: auto
+        }
+      }
+
+    }
+
   }
 
   // Builds the home footer structure.

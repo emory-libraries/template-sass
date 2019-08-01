@@ -14,7 +14,8 @@ $templates-home: (
     'y': $layout-y
   ),
 
-  'gap': 0
+  'gap': 2em,
+  'background-color': color('blue','dark')
   
 );
 
@@ -32,6 +33,7 @@ $templates-home: (
   // Capture themeable variables from skin.
   $gap: map-deep-get($skin, 'gap');
   $layout: map-deep-get($skin, 'layout');
+  $background-color: map-deep-get($skin,'background-color');
 
   // Defines the home component's base styles.
   grid-gap: $gap;
@@ -46,9 +48,27 @@ $templates-home: (
   &-header { }
 
   // Defines home main styles.
-  &-main { }
+  &-main {
+
+    .popular-row {
+      background-color: $background-color;
+    }
+
+    .access-hours {
+      color: #fff;
+      font-size: 20px;
+    }
+
+    .access-links-list {
+      list-style: none;
+      font-size: 11px;
+    }
+
+
+
+  }
 
   // Defines home footer styles.
   &-footer { }
-  
+    
 }
