@@ -54,13 +54,13 @@ $compounds-popular-links-menu: (
 
     &:after {
       content: "";
-      border-left: $border;
       opacity: .2;
       height: 20px;
       margin: auto;
+      border-left: none;
 
-      @include breakpoint-s() {
-        border-left: none;
+      @include breakpoint-m-l-xl() {
+        border-left: $border;
       }
 
     }

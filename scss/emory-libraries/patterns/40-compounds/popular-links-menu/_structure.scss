@@ -23,12 +23,13 @@
   &-list {
     grid-column: 2;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     list-style: none;
     padding: 0;
 
-    @include breakpoint-s() {
-      flex-direction: column;
+    @include breakpoint-m-l-xl() {
+      flex-direction: row;
     }
 
   }
