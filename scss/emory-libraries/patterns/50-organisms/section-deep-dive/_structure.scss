@@ -30,32 +30,32 @@
     @include margin-y($rhythm-y);
 
     @include breakpoint-xl {
-      grid-template-columns: repeat( auto-fit, minmax(10%, 330px) );
+      grid-template-columns: repeat(3, minmax(10%, calc((#{$layout-max-width} - (100px * 3)) / 3)));
       grid-column-gap: 100px;
       justify-content: center;
-    }
-    
+    };
+
     ol,
     ol.list {
       counter-reset: counter;
       list-style: none;
-      
+
       li {
         counter-increment: counter;
-        
+
         &::before {
           content: counter(counter) " - ";
         }
-        
+
       }
-      
+
     }
 
   }
 
   // Builds the deep dive column structure.
   &-column {
-    
+
     // Builds the deep dive column heading structure.
     &-heading { }
 
@@ -63,11 +63,11 @@
 
   // Builds the deep dive footer structure.
   &-footer { }
-  
+
   // Builds the deep dive link structure.
   &-link {
     @include margin-y(1em);
     display: block;
   }
-  
+
 }

@@ -1,0 +1,49 @@
+////
+/// @group emory-libraries.patterns.templates.cover
+////
+
+/// Defines the base skin of the cover component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @type map
+$templates-cover: (
+
+  'gap': 40px
+
+
+);
+
+/// Defines the cover component theme.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The cover component's themeable properties
+@mixin templates-cover--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $gap: map-deep-get($skin, 'gap');
+
+  // Defines the cover component's base styles.
+  // ...
+
+  // Defines cover header and footer styles.
+  &-header,
+  &-footer {
+    border: $border-width-s solid color('slate'); // TEMPORARY
+  }
+
+  // Defines cover header styles.
+  &-header { }
+
+  // Defines cover main styles.
+  &-main { }
+
+  // Defines cover footer styles.
+  &-footer { }
+
+}
