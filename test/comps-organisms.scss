@@ -58,3 +58,8 @@
 .flow-feed-preview {
   @include organisms-flow-feed-preview;
 }
+
+// organisms-header
+.header {
+  @include organisms-header;
+}

@@ -1,0 +1,147 @@
+////
+/// @group emory-libraries.patterns.organisms.header
+////
+
+/// Defines the base skin of the header component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @type map
+$organisms-header: (
+
+  'padding': map-get($organisms-nav-bar-main, 'padding'),
+
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  ),
+
+  'search': (
+    'min': 60px,
+    'max': 75px
+  ),
+
+  'background': color('white'),
+
+  'classes': (
+    'subnav-menu-main': '.subnav-menu-main',
+    'tab-menu': '.tab-menu'
+  )
+
+);
+
+/// Defines the header component theme.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The header component's themeable properties
+@mixin organisms-header--theme ( $skin ) {
+
+  // Capture the selector.
+  $selector: &;
+
+  // Capture themeable variables from skin.
+  $padding: map-deep-get($skin, 'padding');
+  $background: map-deep-get($skin, 'background');
+
+  // Get transition-specific variables.
+  $transition-duration: map-deep-get($skin, 'transition.duration');
+  $transition-timing: map-deep-get($skin, 'transition.timing');
+
+  // Get class-specific variables.
+  $class-subnav-menu-main: map-deep-get($skin, 'classes.subnav-menu-main');
+  $class-tab-menu: map-deep-get($skin, 'classes.tab-menu');
+
+  // Get search-specific variables.
+  $search-min: map-deep-get($skin, 'search.min');
+  $search-max: map-deep-get($skin, 'search.max');
+
+  // Apply padding to the header.
+  @each $screen, $pad in $padding {
+
+    // Adjust the header's padding.
+    @include breakpoint( screen($screen) ) {
+
+      // Adjust header main styles.
+      &-main {
+        @include padding-x($pad);
+
+        // Adjust header main overlay styles.
+        &-overlay {
+          @include margin-x(-$pad);
+        }
+
+      }
+
+      // Adjust subnavigation styles.
+      @if( contains(('l', 'xl'), $screen) == true ) {
+
+        #{$class-subnav-menu-main} {
+          right: -(px($pad) + px(if($screen == 'xl', $search-max, $search-min))) !important;
+        }
+
+      }
+
+    };
+
+  }
+
+  // Defines the header component's base styles.
+  // ...
+
+  // Defines the header main styles.
+  &-main {
+    background-color: $background;
+
+    // Capture the main selector.
+    $selector-main: &;
+
+    // Defines the header main search styles.
+    &-search {
+      width: $search-min !important;
+      height: 100% !important;
+
+      // Adjust search size on larger screens.
+      @include breakpoint-xl {
+        width: $search-max !important;
+      };
+
+    }
+
+    // Defines the header main overlay styles.
+    &-overlay {
+      height: 150px;
+
+      // Show the search menu overlay when toggled.
+      @include when-sibling-of('#{$selector-main}-toggle:checked') {
+        right: 0;
+        opacity: 1;
+        z-index: z('docked') + 1;
+        top: 0;
+        transition: right 0s linear,
+                    z-index 0s linear,
+                    opacity $transition-duration $transition-timing,
+                    top $transition-duration $transition-timing;
+      };
+
+      // Hide the search menu overlay when not toggled.
+      @include when-sibling-of('#{$selector-main}-toggle:not(:checked)') {
+        right: 100%;
+        opacity: 0;
+        z-index: z('below');
+        top: -100%;
+        transition: opacity $transition-duration $transition-timing,
+                    top $transition-duration $transition-timing,
+                    z-index 0s linear $transition-duration,
+                    right 0s linear $transition-duration;
+      };
+
+    }
+
+  }
+
+}
