@@ -65,6 +65,10 @@
   @include compounds-nav-menu-main;
 }
 
+// compounds-notification
+.notifications {
+  @include compounds-notification;
+
 // compounds-feed
 .feed {
   @include compounds-feed;

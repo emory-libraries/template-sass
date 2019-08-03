@@ -1,0 +1,14 @@
+////
+/// @group emory-libraries.patterns.compounds.notification
+////
+
+/// Defines the base structure of the notification component.
+///
+/// @since 1.0.0-dev.3
+%compounds-notification {
+
+  // Builds the notification structure.
+  display: flex;
+  flex-direction: column;
+
+}
