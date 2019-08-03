@@ -65,6 +65,11 @@
   @include compounds-nav-menu-main;
 }
 
+// compounds-alert
+.alerts {
+  @include compounds-alert;
+}
+
 // compounds-notification
 .notifications {
   @include compounds-notification;
