@@ -1,0 +1,62 @@
+////
+/// @group emory-libraries.patterns.organisms.header
+////
+
+/// Load the header component's structure and skin.
+@import 'header/structure';
+@import 'header/skin';
+
+/// Builds a constructor for the header component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {placeholder} organisms-header
+/// @requires {variable} organisms-header
+/// @requires {mixin} organisms-header--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our header component
+///
+/// @status review
+@mixin organisms-header ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($organisms-header, $custom);
+
+  // Initialize the header component.
+  & {
+
+    // Load structure.
+    @extend %organisms-header;
+
+    // Load parts.
+    &-notifications {
+      @extend %organisms-header-notifications;
+    }
+    &-main {
+      @extend %organisms-header-main;
+      &-utility {
+        @extend %organisms-header-main-utility;
+      }
+      &-main {
+        @extend %organisms-header-main-main;
+      }
+      &-toggle {
+        @extend %organisms-header-main-toggle;
+      }
+      &-search {
+        @extend %organisms-header-main-search;
+      }
+      &-overlay {
+        @extend %organisms-header-main-overlay;
+      }
+    }
+
+    // Load skins.
+    @include organisms-header--theme( $skin );
+
+  }
+
+}

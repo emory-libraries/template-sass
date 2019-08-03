@@ -78,6 +78,73 @@ $compounds-nav-menu-main: (
       background-color: $menu;
     }
 
+    // Defines mobile-only styles for the main navigation menu.
+    &.-mobile {
+
+      // Identify selector for mobile navigation toggles.
+      $selector-mobile-menu-toggle: unquote('.nav-button.-toggle.for-menu');
+      $selector-mobile-search-toggle: unquote('.nav-button.-toggle.for-search');
+
+      // Set the toggles bar size.
+      $toggles-height: 40px;
+
+      // Set the mobile navigation menu position.
+      #{$selector-navigation}-menu {
+        margin-top: calc(#{$toggles-height} + #{$separator-thickness});
+      }
+
+      // Enable toggling of the mobile navigation menu.
+      > #{$selector-toggle}.for-menu {
+
+        // Configure mobile navigation menu structure when toggled.
+        &:checked {
+
+          // Show the mobile navigation menu when toggled.
+          ~ #{$selector-navigation}-menu.is-menu {
+            height: calc(100vh - #{$toggles-height} - #{$separator-thickness});
+          }
+
+        }
+
+        // Configure mobile navigation menu structure when not toggled.
+        &:not(:checked) {
+
+          // Hide the mobile navigation menu when not toggled.
+          ~ #{$selector-navigation}-menu.is-menu {
+            height: 0;
+          }
+
+        }
+
+      }
+
+      // Enable toggling of the mobile search menu.
+      > #{$selector-toggle}.for-search {
+
+        // Configure mobile search menu structure when toggled.
+        &:checked {
+
+          // Show the mobile search menu when toggled.
+          ~ #{$selector-navigation}-menu.is-search {
+            height: calc(100vh - #{$toggles-height} - #{$separator-thickness});
+          }
+
+        }
+
+        // Configure mobile search menu structure when not toggled.
+        &:not(:checked) {
+
+          // Hide the mobile search menu when not toggled.
+          ~ #{$selector-navigation}-menu.is-search {
+            height: 0;
+          }
+
+        }
+
+      }
+
+    }
+
   }
 
 }
