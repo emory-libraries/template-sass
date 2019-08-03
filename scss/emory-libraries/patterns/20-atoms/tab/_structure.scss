@@ -137,12 +137,13 @@
   -moz-appearance: none;
   background: none !important;
   border: none !important;
-  padding: ($rhythm-y / 4) ($rhythm-x * 2);
+  padding: ($rhythm-y / 4) ($rhythm-x * 1.5);
   @include absolute-center-contents-y( true );
   cursor: pointer;
 
   // Define tab structure on larger screens.
   @include breakpoint-l {
+    padding: ($rhythm-y / 4) ($rhythm-x * 2);
     @include absolute-center-contents( true );
 
     // Initiailzes a divider for each tab.
