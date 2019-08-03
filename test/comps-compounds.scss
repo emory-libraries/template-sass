@@ -69,3 +69,12 @@
 .alerts {
   @include compounds-alert;
 }
+
+// compounds-notification
+.notifications {
+  @include compounds-notification;
+
+// compounds-feed
+.feed {
+  @include compounds-feed;
+}

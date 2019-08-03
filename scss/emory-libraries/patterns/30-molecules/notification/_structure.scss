@@ -6,36 +6,55 @@
 ///
 /// @since 1.0.0
 %molecules-notification {
-  
+
   // Captures selector.
   $selector: &;
-  
+
   // Builds the notification structure.
   display: grid;
-  
+
   // Modifiy notification structure when dismiss is present.
   &.is-dismissible {
-    grid-template-areas: "label message dismiss";
-    grid-template-columns: min-content 1fr min-content;
+    grid-template-areas: "label dismiss"
+                         "message message";
+    grid-template-columns: 1fr min-content;
   }
-  
+
   // Modify notification structure when dismiss is not present.
   &:not(.is-dismissible) {
-    grid-template-areas: "label message";
-    grid-template-columns: min-content 1fr;
+    grid-template-areas: "label"
+                         "message";
+    grid-template-columns: 1fr;
   }
-  
+
+  // Modify notication structure on larger screens.
+  @include breakpoint-l {
+
+    // Modifiy notification structure when dismiss is present.
+    &.is-dismissible {
+      grid-template-areas: "label message dismiss";
+      grid-template-columns: min-content 1fr min-content;
+    }
+
+    // Modify notification structure when dismiss is not present.
+    &:not(.is-dismissible) {
+      grid-template-areas: "label message";
+      grid-template-columns: min-content 1fr;
+    }
+
+  };
+
   // Builds the notification label structure.
   &::before {
     grid-area: label;
   }
-  
+
   // Builds the notification message structure.
-  &-message { 
+  &-message {
     grid-area: message;
     margin: 0;
   }
-  
+
   // Builds the notification dismiss structure.
   &-dismiss {
     grid-area: dismiss;
@@ -43,14 +62,14 @@
     box-sizing: content-box;
     cursor: pointer;
     padding: 0;
-    
+
     @include when-descendant-of( '#{$selector}:not(.is-dismissible)' ) {
       display: none;
     };
     @include when-descendant-of( '#{$selector}.is-dismissible' ) {
       display: flex;
     };
-    
+
     &,
     &:hover,
     &:focus,
@@ -61,13 +80,13 @@
       background: none;
       border: none;
     }
-    
+
     &[disabled],
     &.is-disabled {
       cursor: not-allowed;
       opacity: .5;
     }
-    
+
   }
-  
+
 }

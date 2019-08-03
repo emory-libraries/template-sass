@@ -1,0 +1,44 @@
+////
+/// @group emory-libraries.patterns.molecules.social-media
+////
+
+/// Load the social-media component's structure and skin.
+@import 'social-media/structure';
+@import 'social-media/skin';
+
+/// Builds a constructor for the social-media component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {placeholder} molecules-social-media
+/// @requires {variable} molecules-social-media
+/// @requires {mixin} molecules-social-media--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our social-media component
+///
+/// @status review
+@mixin molecules-social-media ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($molecules-social-media, $custom);
+
+  // Initialize the social-media component.
+  & {
+
+    // Load structure.
+    @extend %molecules-social-media;
+
+    // Load parts.
+    &-link {
+      @extend %molecules-social-media-link;
+    }
+
+    // Load skins.
+    @include molecules-social-media--theme( $skin );
+
+  }
+
+}

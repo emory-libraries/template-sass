@@ -72,6 +72,9 @@
 @import '30-molecules/card-staff';
 @import '30-molecules/breadcrumbs';
 @import '30-molecules/branding-header';
+@import '30-molecules/branding-footer';
+@import '30-molecules/social-media';
+@import '30-molecules/table-of-contents';
 /*** INSERT NEW MOLECULES HERE ***/
 
 
@@ -93,6 +96,8 @@
 @import '40-compounds/tab-menu';
 @import '40-compounds/nav-menu-main';
 @import '40-compounds/alert';
+@import '40-compounds/notification';
+@import '40-compounds/feed';
 /*** INSERT NEW COMPOUNDS HERE ***/
 
 
@@ -110,6 +115,7 @@
 @import '50-organisms/intro-interior-cover';
 @import '50-organisms/search-menu';
 @import '50-organisms/nav-bar-main';
+@import '50-organisms/flow-feed-preview';
 /*** INSERT NEW ORGANISMS HERE ***/
 
 
