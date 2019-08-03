@@ -1,0 +1,174 @@
+////
+/// @group emory-libraries.patterns.organisms.footer
+////
+
+/// Defines the base skin of the footer component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @type map
+$organisms-footer: (
+
+  'color': (
+    'normal': color('blue', 'light'),
+    'hover': color('blue', 'bright'),
+    'active': color('blue', 'bright')
+  ),
+  'background': color('blue', 'dark'),
+
+  'font': (
+    'font-family': font('body'),
+    'font-style': normal,
+    'font-weight': normal,
+    'line-height': 1.7692
+  ),
+  'size': (
+    'min': 12px,
+    'max': 13px
+  ),
+
+  'list': (
+    'spacing': 10px,
+    'offset': 50px
+  ),
+
+  'gap': (
+    'x': 30px,
+    'y': 15px
+  ),
+
+  'layout': (
+    'x': $layout-x,
+    'y': layout(0, 0)
+  ),
+
+  'branding': (
+    'spacing': 50px
+  )
+
+);
+
+/// Defines the footer component theme.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The footer component's themeable properties
+@mixin organisms-footer--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $background: map-deep-get($skin, 'background');
+  $font: map-deep-get($skin, 'font');
+  $size: map-deep-get($skin, 'size');
+  $color: map-deep-get($skin, 'color');
+  $normal: map-deep-get($color, 'normal');
+  $hover: map-deep-get($color, 'hover');
+  $active: map-deep-get($color, 'active');
+  $gap-x: map-deep-get($skin, 'gap.x');
+  $gap-y: map-deep-get($skin, 'gap.y');
+  $layout-x: map-deep-get($skin, 'layout.x');
+  $layout-y: map-deep-get($skin, 'layout.y');
+
+  // Get the font size scale.
+  $scale: numeric-scale(map-get($size, 'min'), map-get($size, 'max'), 3, true);
+
+  // Get list-specific variables.
+  $list-spacing: map-deep-get($skin, 'list.spacing');
+  $list-offset: map-deep-get($skin, 'list.offset');
+
+  // Get branding-specific variables.
+  $branding-spacing: map-deep-get($skin, 'branding.spacing');
+
+  // Defines the footer component's base styles.
+  @include tokens-text('body', $normal, ('body': $font));
+  @include tokens-layout(('x': $layout-x, 'y': $layout-y));
+  background-color: $background;
+  font-size: nth($scale, 1);
+  grid-row-gap: $gap-y;
+  grid-column-gap: $gap-x;
+
+  // Set font size for larger screens.
+  @include breakpoint-l {
+    font-size: nth($scale, 2);
+  };
+  @include breakpoint-xl {
+    font-size: nth($scale, 3);
+  };
+
+  // Defines the footer branding styles.
+  &-branding {
+
+    // Only apply spacing around branding on larger screens.
+    @include breakpoint( min-width 1080px ) {
+      @include margin-x($branding-spacing);
+    };
+
+  }
+
+  // Defines the footer list styles.
+  &-list {
+
+    // Right-align the text of the first and second to last lists.
+    &:nth-of-type(1),
+    &:nth-last-of-type(2) {
+      text-align: right;
+      justify-self: end;
+    }
+
+    // Then, left-align the text of the second and last lists.
+    &:nth-of-type(2),
+    &:nth-last-of-type(1) {
+      text-align: left;
+      justify-self: start;
+    }
+
+    // Adjust footer lists on larger screens.
+    @include breakpoint-l {
+      margin-top: $list-offset;
+
+      // Right-align the text of the first two lists.
+      &:nth-of-type(-n+2) {
+        text-align: right;
+        justify-self: unset;
+      }
+
+      // Then, left-align the text of the last two lists.
+      &:nth-last-of-type(-n+2) {
+        text-align: left;
+        justify-self: unset;
+      }
+
+    };
+
+    // Add styles for links.
+    .link,
+    a {
+      @include atoms-link((
+        'color': $color,
+        'weight': normal
+      ));
+    }
+
+    // Adjust the spacing between list items.
+    li {
+      @include margin-y($list-spacing);
+    }
+
+  }
+
+  // Defines the footer divider styles.
+  &-divider {}
+
+  // Defines the footer socials styles.
+  &-socials {}
+
+  // Defines the footer list styles.
+  &-list {}
+
+  // Defines the footer copyright styles.
+  &-copyright {}
+
+}
