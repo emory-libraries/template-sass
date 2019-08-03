@@ -1,0 +1,60 @@
+////
+/// @group emory-libraries.patterns.compounds.feed
+////
+
+/// Defines the base structure of the feed component.
+///
+/// @since 1.0.0-dev.3
+%compounds-feed {
+
+  // Capture the selector.
+  $selector: &;
+
+  // Builds the feed structure.
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 75px 1fr;
+  grid-auto-rows: min-content;
+
+  // Builds the feed heading structure.
+  &-heading {
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+
+    &::after {
+      content: '';
+      display: block;
+      @include absolute(null null 0 0);
+      transform: translatey(50%);
+    }
+
+    .icon {
+      margin-right: 20px;
+    }
+
+  }
+
+  // Builds the feed content structure.
+  &-content {
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+  }
+
+  // Builds the feed button structure.
+  &-button {
+    grid-row: 3;
+    @include margin-y($rhythm-y);
+    width: 100%;
+
+    // Adjust size on larger screens.
+    @include breakpoint-m-l {
+      width: max-content;
+    };
+
+  }
+
+}

@@ -41,6 +41,10 @@ $organisms-search-menu: (
   'transition': (
     'duration': .5s,
     'timing': $transition-timing
+  ),
+
+  'toggles': (
+    'max': 10
   )
 
 );
@@ -74,6 +78,9 @@ $organisms-search-menu: (
   $theme-background: map-deep-get($themes, $theme + '.background');
   $theme-context: map-deep-get($themes, $theme + '.context');
   $theme-cancel: map-deep-get($themes, $theme + '.cancel');
+
+  // Get toggle-specific variables.
+  $toggles-max: map-deep-get($skin, 'toggles.max');
 
   // Defines the search-menu component's base styles.
   @include padding-x($padding-x);
@@ -144,6 +151,89 @@ $organisms-search-menu: (
     .tab-menu {
       background-color: transparent !important;
       transition: none !important;
+    }
+
+  }
+
+  // Configure search menu toggles to activate tabs and search boxes.
+  &-toggle {
+
+    // Capture tab themes.
+    $atoms-tab-theme-default: map-deep-get($atoms-tab, 'theme');
+    $atoms-tab-themes: map-deep-get($atoms-tab, 'themes');
+
+    // Hook toggles to tabs and search boxes.
+    @for $n from 1 through $toggles-max {
+
+      // Configure the nth toggle.
+      &:nth-of-type(#{$n}) {
+
+        // Toggle tabs and search boxes when checked.
+        &:checked {
+
+          @each $theme in map-keys($atoms-tab-themes) {
+
+            @if( $theme == $atoms-tab-theme-default ) {
+              ~ #{$selector}-tabs .tab-menu .tab:nth-of-type(#{$n}),
+              ~ #{$selector}-tabs noscript .tab-menu .tab:nth-of-type(#{$n}) {
+                @include atoms-tab--state--structure('active', false);
+                @include atoms-tab--state('active', $selector: false);
+              }
+            }
+
+            // Hide the nth tab's active state.
+            ~ #{$selector}-tabs .tab-menu.-#{$theme} .tab:nth-of-type(#{$n}),
+            ~ #{$selector}-tabs noscript .tab-menu.-#{$theme} .tab:nth-of-type(#{$n}) {
+              @include atoms-tab--state--structure('active', false);
+              @include atoms-tab--state('active', map-extend($atoms-tab, (
+                'theme': $theme
+              )), false);
+            }
+
+          }
+
+          // Show the nth search box.
+          ~ #{$selector}-search .search .search-form:nth-of-type(#{$n}),
+          ~ #{$selector}-search noscript .search .search-form:nth-of-type(#{$n}) {
+            display: grid;
+          }
+
+        }
+
+        // Toggle tabs and search boxes when not checked.
+        &:not(:checked) {
+
+          @each $theme in map-keys($atoms-tab-themes) {
+
+            @if( $theme == $atoms-tab-theme-default ) {
+              ~ #{$selector}-tabs .tab-menu .tab:nth-of-type(#{$n}),
+              ~ #{$selector}-tabs noscript .tab-menu .tab:nth-of-type(#{$n}) {
+                @include atoms-tab--state--structure('normal', false);
+                @include atoms-tab--state('normal', $selector: false);
+              }
+            }
+
+            // Hide the nth tab's active state.
+            ~ #{$selector}-tabs .tab-menu.-#{$theme} .tab:nth-of-type(#{$n}),
+            ~ #{$selector}-tabs noscript .tab-menu.-#{$theme} .tab:nth-of-type(#{$n}) {
+              @include atoms-tab--state--structure('normal', false);
+              @include atoms-tab--state('normal', map-extend($atoms-tab, (
+                'theme': $theme
+              )), false);
+            }
+
+          }
+
+          // Hide the nth search box.
+          ~ #{$selector}-search .search .search-form:nth-of-type(#{$n}),
+          ~ #{$selector}-search noscript .search .search-form:nth-of-type(#{$n}) {
+            display: none;
+          }
+
+        }
+
+      }
+
     }
 
   }
