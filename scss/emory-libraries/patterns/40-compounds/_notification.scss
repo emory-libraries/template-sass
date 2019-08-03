@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.compounds.notification
+////
+
+/// Load the notification component's structure and skin.
+@import 'notification/structure';
+@import 'notification/skin';
+
+/// Builds a constructor for the notification component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {placeholder} compounds-notification
+/// @requires {variable} compounds-notification
+/// @requires {mixin} compounds-notification--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our notification component
+///
+/// @status review
+@mixin compounds-notification ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($compounds-notification, $custom);
+  
+  // Initialize the notification component.
+  & {
+    
+    // Load structure.
+    @extend %compounds-notification;
+    
+    // Load skins.
+    @include compounds-notification--theme( $skin );
+    
+  }
+  
+}
