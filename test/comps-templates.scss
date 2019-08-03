@@ -69,3 +69,8 @@
 .periodicals-page {
   @include templates-periodicals;
 }
+
+// templates-cover
+.cover-page {
+  @include templates-cover;
+}
