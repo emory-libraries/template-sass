@@ -19,15 +19,15 @@
 ///
 /// @output The native structure and skin of our home component
 ///
-/// @status construction
+/// @status review
 @mixin templates-home ( $custom: () ) {
-  
+
   // Extend the default skin.
   $skin: map-extend($templates-home, $custom);
-  
+
   // Initialize the home component.
   & {
-    
+
     // Load structure.
     @extend %templates-home;
 
@@ -37,6 +37,15 @@
     }
     &-main {
       @extend %templates-home-main;
+      &-cards {
+        @extend %templates-home-main-cards;
+      }
+      &-boxes {
+        @extend %templates-home-main-boxes;
+      }
+      &-feeds {
+        @extend %templates-home-main-feeds;
+      }
     }
     &-footer {
       @extend %templates-home-footer;
@@ -44,7 +53,7 @@
 
     // Load skins.
     @include templates-home--theme( $skin );
-    
+
   }
-  
+
 }

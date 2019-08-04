@@ -8,7 +8,7 @@
 ///
 /// @type map
 $templates-home: (
-  
+
   'layout': (
     'x': $layout-x,
     'y': $layout-y
@@ -16,7 +16,7 @@ $templates-home: (
 
   'gap': 2em,
   'background-color': color('blue','dark')
-  
+
 );
 
 /// Defines the home component theme.
@@ -29,7 +29,7 @@ $templates-home: (
 ///
 /// @output The home component's themeable properties
 @mixin templates-home--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $gap: map-deep-get($skin, 'gap');
   $layout: map-deep-get($skin, 'layout');
@@ -48,27 +48,9 @@ $templates-home: (
   &-header { }
 
   // Defines home main styles.
-  &-main {
-
-    .popular-row {
-      background-color: $background-color;
-    }
-
-    .access-hours {
-      color: #fff;
-      font-size: 20px;
-    }
-
-    .access-links-list {
-      list-style: none;
-      font-size: 11px;
-    }
-
-
-
-  }
+  &-main { }
 
   // Defines home footer styles.
   &-footer { }
-    
+
 }

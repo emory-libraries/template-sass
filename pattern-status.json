@@ -79,6 +79,7 @@
   "organisms-search-menu": "review",
   "organisms-intro-home": "review",
   "organisms-flow-feed-preview": "review",
+  "organisms-section-popular": "review",
   "templates-info": "review",
   "templates-material": "review",
   "templates-tool": "review",
@@ -95,5 +96,5 @@
   "templates-index": "review",
   "templates-periodicals": "review",
   "templates-cover": "review",
-  "templates-home": "construction"
+  "templates-home": "review"
 }

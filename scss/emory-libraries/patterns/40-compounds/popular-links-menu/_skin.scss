@@ -78,6 +78,17 @@ $compounds-popular-links-menu: (
 
       };
 
+      // Increase spacing between items on even larger screens.
+      @include breakpoint-xl {
+        margin-right: $spacing * 1.5;
+
+        // Move separators accordingly.
+        &:not(:last-child)::after {
+          right: -(($spacing * 1.5) / 2);
+        }
+
+      };
+
     }
 
   }
@@ -98,7 +109,11 @@ $compounds-popular-links-menu: (
         // Force links to use default text styles.
         .link,
         a {
-          @include tokens-text;
+          @include tokens-text('body', $custom: ('body': (
+            'text-transform': uppercase
+          )));
+          font-size: 11px !important;
+          text-decoration: underline !important;
           @include atoms-link(('color': (
             'hover': $color-actionable,
             'active': $color-actionable
