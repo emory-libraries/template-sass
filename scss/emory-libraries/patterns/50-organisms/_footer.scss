@@ -1,0 +1,56 @@
+////
+/// @group emory-libraries.patterns.organisms.footer
+////
+
+/// Load the footer component's structure and skin.
+@import 'footer/structure';
+@import 'footer/skin';
+
+/// Builds a constructor for the footer component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {placeholder} organisms-footer
+/// @requires {variable} organisms-footer
+/// @requires {mixin} organisms-footer--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our footer component
+///
+/// @status review
+@mixin organisms-footer ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($organisms-footer, $custom);
+
+  // Initialize the footer component.
+  & {
+
+    // Load structure.
+    @extend %organisms-footer;
+
+    // Load parts.
+    &-branding {
+      @extend %organisms-footer-branding;
+    }
+    &-list {
+      @extend %organisms-footer-list;
+    }
+    &-divider {
+      @extend %organisms-footer-divider;
+    }
+    &-socials {
+      @extend %organisms-footer-socials;
+    }
+    &-copyright {
+      @extend %organisms-footer-copyright;
+    }
+
+    // Load skins.
+    @include organisms-footer--theme( $skin );
+
+  }
+
+}

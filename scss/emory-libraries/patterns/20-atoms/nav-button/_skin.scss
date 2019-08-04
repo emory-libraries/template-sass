@@ -920,12 +920,17 @@ $atoms-nav-button: (
 
     }
 
+    @include atoms-nav-button--state('normal', $skin);
+    @include atoms-nav-button--state('hover', $skin);
+    @include atoms-nav-button--state('focus', $skin);
+    @include atoms-nav-button--state('active', $skin);
+
     // Assign icon styles.
     .icon {
       margin-right: $offset / 2;
       @include size( map-deep-get($skin, 'search.size') );
 
-      @include breakpoint-m-l {
+      @include breakpoint-l {
         margin-right: 0;
         @include size( auto );
       };
@@ -933,7 +938,7 @@ $atoms-nav-button: (
     }
 
     // Apply styles for larger screens.
-    @include breakpoint-m-l {
+    @include breakpoint-l {
 
       // Don't show label.
       .nav-button-label {

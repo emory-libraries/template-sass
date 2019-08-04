@@ -59,6 +59,16 @@
   @include organisms-flow-feed-preview;
 }
 
+// organisms-footer
+.footer {
+  @include organisms-footer;
+}
+
+// organisms-header
+.header {
+  @include organisms-header;
+}
+
 // organisms-section-popular
 .section-popular {
   @include organisms-section-popular;
