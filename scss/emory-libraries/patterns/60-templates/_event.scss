@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.templates.event
+////
+
+/// Load the event component's structure and skin.
+@import 'event/structure';
+@import 'event/skin';
+
+/// Builds a constructor for the event component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {placeholder} templates-event
+/// @requires {variable} templates-event
+/// @requires {mixin} templates-event--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our event component
+///
+/// @status construction
+@mixin templates-event ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($templates-event, $custom);
+  
+  // Initialize the event component.
+  & {
+    
+    // Load structure.
+    @extend %templates-event;
+    
+    // Load skins.
+    @include templates-event--theme( $skin );
+    
+  }
+  
+}

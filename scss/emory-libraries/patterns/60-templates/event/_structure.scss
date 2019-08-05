@@ -1,0 +1,56 @@
+////
+/// @group emory-libraries.patterns.templates.event
+////
+
+/// Defines the base structure of the event component.
+///
+/// @since 1.0.0-dev.3
+%templates-event {
+  
+    $selector: &;
+
+  // Builds the event structure.
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "header"
+                       "main"
+                       "footer";
+  grid-template-rows: 150px 1fr 420px;
+  grid-template-columns: 1fr;
+
+  // Build the event-main structure
+  &-main {
+    grid-area: main;
+
+    // Override some main section structure.
+    .section-main {
+      padding-top: 0 !important;
+
+      // Adjust the main body and sidebar section.
+      &-body,
+      &-sidebar {
+        margin-top: ($rhythm-y * 2);
+      }
+
+      // Adjust the main body section.
+      &-body {
+
+        > *:first-child {
+          margin-top: 0;
+        }
+
+      }
+
+      // Adjust the main sidebar section.
+      &-sidebar {
+
+        > * + * {
+          margin-top: $rhythm-y;
+        }
+
+      }
+
+    }
+
+  }  
+}
