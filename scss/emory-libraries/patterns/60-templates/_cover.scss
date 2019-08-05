@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.cover
+////
+
+/// Load the cover component's structure and skin.
+@import 'cover/structure';
+@import 'cover/skin';
+
+/// Builds a constructor for the cover component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {placeholder} templates-cover
+/// @requires {variable} templates-cover
+/// @requires {mixin} templates-cover--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our cover component
+///
+/// @status review
+@mixin templates-cover ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($templates-cover, $custom);
+
+  // Initialize the cover component.
+  & {
+
+    // Load structure.
+    @extend %templates-cover;
+
+    // Load parts.
+    &-header {
+      @extend %templates-cover-header;
+    }
+    &-main {
+      @extend %templates-cover-main;
+    }
+    &-footer {
+      @extend %templates-cover-footer;
+    }
+
+    // Load skins.
+    @include templates-cover--theme( $skin );
+
+  }
+
+}

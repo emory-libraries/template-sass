@@ -22,6 +22,7 @@
   grid-template-rows: 150px 1fr 420px;
   grid-template-columns: 1fr;
 
+  // Builds the landing header structure.
   &-header {
     grid-area: header;
     @include absolute-center-contents;
@@ -38,6 +39,14 @@
 
     // Apply overrides to main section.
     .section-main {
+      padding-top: $rhythm-y !important;
+      padding-bottom: ($rhythm-y * 2) !important;
+
+      .section-main-body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: $rhythm-y;
+      }
 
       &:not(.without-intro) {
         display: flex;
@@ -47,12 +56,6 @@
           padding-top: $rhythm-y;
         }
 
-      }
-
-      .section-main-body {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-gap: $rhythm-y;
       }
 
     }

@@ -74,3 +74,8 @@
 .event-page {
   @include templates-event;
 }
+
+// templates-cover
+.cover-page {
+  @include templates-cover;
+}
