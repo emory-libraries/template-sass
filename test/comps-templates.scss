@@ -74,3 +74,8 @@
 .cover-page {
   @include templates-cover;
 }
+
+// templates-home
+.home-page {
+  @include templates-home;
+}

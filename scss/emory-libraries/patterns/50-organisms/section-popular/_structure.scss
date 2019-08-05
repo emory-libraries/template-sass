@@ -1,0 +1,34 @@
+////
+/// @group emory-libraries.patterns.organisms.section-popular
+////
+
+/// Defines the base structure of the section-popular component.
+///
+/// @since 1.0.0-dev.3
+%organisms-section-popular {
+
+  // Builds the section-popular structure.
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 0 !important;
+
+  // Adjust section popular on medium screens.
+  @include breakpoint-m {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  };
+
+  // Adjust section popular on larger screens.
+  @include breakpoint-l {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  };
+
+  // Builds the section popular left and right structure.
+  &-left,
+  &-right { }
+
+}

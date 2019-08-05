@@ -21,9 +21,7 @@ $organisms-intro-home: (
     'color': (
       'normal': color('slate', 'light'),
       'active': color('gold')
-    ),
-    'option': color('slate','light'),
-    'active': color('gold')
+    )
   ),
 
   'hero': color('white'),
@@ -31,6 +29,16 @@ $organisms-intro-home: (
   'transition': (
     'duration': $transition-duration,
     'timing': $transition-timing
+  ),
+
+  'layout': (
+    'x': $layout-x,
+    'y': (
+      's': .5em,
+      'm': .5em,
+      'l': .5em,
+      'xl': .5em
+    )
   )
 
 );
@@ -54,9 +62,8 @@ $organisms-intro-home: (
   $gradient: map-deep-get($skin, 'gradient');
   $background: map-deep-get($skin, 'search.background');
   $opacity: map-deep-get($skin, 'search.opacity');
-
-  $search-options-color: map-deep-get($skin, 'search.option-color');
-  $active-color: map-deep-get($skin, 'search.active-color');
+  $layout-x: map-deep-get($skin, 'layout.x');
+  $layout-y: map-deep-get($skin, 'layout.y');
 
   // Get border-specific variables.
   $border-color: map-deep-get($skin, 'search.border.color');
@@ -78,12 +85,13 @@ $organisms-intro-home: (
     .heading {
       @include tokens-heading('h2', $hero, $important: true);
     }
-    
+
   }
 
   &-search {
     background-color: transparent;
     transition: background-color $transition-duration $transition-timing;
+    @include tokens-layout(('x': $layout-x, 'y': $layout-y));
 
     &:focus-within,
     &:focus,

@@ -1,0 +1,56 @@
+////
+/// @group emory-libraries.patterns.templates.home
+////
+
+/// Defines the base skin of the home component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @type map
+$templates-home: (
+
+  'layout': (
+    'x': $layout-x,
+    'y': $layout-y
+  ),
+
+  'gap': 2em,
+  'background-color': color('blue','dark')
+
+);
+
+/// Defines the home component theme.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The home component's themeable properties
+@mixin templates-home--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $gap: map-deep-get($skin, 'gap');
+  $layout: map-deep-get($skin, 'layout');
+  $background-color: map-deep-get($skin,'background-color');
+
+  // Defines the home component's base styles.
+  grid-gap: $gap;
+
+  // Defines home header and footer styles.
+  &-header,
+  &-footer {
+    border: $border-width-s solid color('slate'); // TEMPORARY
+  }
+
+  // Defines home header styles.
+  &-header { }
+
+  // Defines home main styles.
+  &-main { }
+
+  // Defines home footer styles.
+  &-footer { }
+
+}

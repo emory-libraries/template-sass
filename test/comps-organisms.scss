@@ -68,3 +68,8 @@
 .header {
   @include organisms-header;
 }
+
+// organisms-section-popular
+.section-popular {
+  @include organisms-section-popular;
+}
