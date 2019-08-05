@@ -30,7 +30,18 @@
     
     // Load structure.
     @extend %templates-event;
-    
+  
+    &-header {
+      @extend %templates-event-header;
+    }  
+
+    &-main {
+      @extend %templates-event-main;
+    }  
+
+    &-footer {
+      @extend %templates-event-footer;
+    }  
     // Load skins.
     @include templates-event--theme( $skin );
     

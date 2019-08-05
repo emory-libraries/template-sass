@@ -7,8 +7,9 @@
 /// @since 1.0.0-dev.3
 %templates-event {
   
-    $selector: &;
-
+  // Captures selector.
+  $selector: &;
+  
   // Builds the event structure.
   margin: 0 auto;
   display: grid;
@@ -19,11 +20,22 @@
   grid-template-columns: 1fr;
 
   // Build the event-main structure
+
+  &-header {
+    grid-area: header;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Header'; // TEMPORARY
+    }
+
+  }
+
   &-main {
     grid-area: main;
 
     // Override some main section structure.
-    .section-main {
+    /*.section-main {
       padding-top: 0 !important;
 
       // Adjust the main body and sidebar section.
@@ -50,7 +62,19 @@
 
       }
 
-    }
+    }*/
 
   }  
+
+  // Builds the event footer structure.
+  &-footer {
+    grid-area: footer;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Footer'; // TEMPORARY
+    }
+
+  }
+
 }
