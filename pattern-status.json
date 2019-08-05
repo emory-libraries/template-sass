@@ -98,11 +98,6 @@
   "templates-exhibition": "review",
   "templates-index": "review",
   "templates-periodicals": "review",
-<<<<<<< HEAD
-  "templates-event": "construction"
-}
-=======
+  "templates-event": "construction",
   "templates-cover": "review"
-  "templates-periodicals": "review"
 }
->>>>>>> dev

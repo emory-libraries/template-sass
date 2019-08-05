@@ -310,29 +310,31 @@
   )},
   &.-info-page {
 
-  #{$selector-info-page} {
-    @include grid-layout;
+    #{$selector-info-page} {
+      @include grid-layout;
 
-    // Adjust the main structure across large screens.
-    @include breakpoint-l {
+      // Adjust the main structure across large screens.
+      @include breakpoint-l {
 
-      // Adjust the breadcrumb placement within the grid.
-      #{$selector}-breadcrumb {
-        grid-column: main / sidebar;
-      }
+        // Adjust the breadcrumb placement within the grid.
+        #{$selector}-breadcrumb {
+          grid-column: main / sidebar;
+        }
 
-      // Adjust the title and subtitle placement within the grid.
-      #{$selector}-title,
-      #{$selector}-subtitle, {
-        grid-column: main / sidebar;
-      }
+        // Adjust the title and subtitle placement within the grid.
+        #{$selector}-title,
+        #{$selector}-subtitle, {
+          grid-column: main / sidebar;
+        }
 
-      // Adjust the sidebar placement within the grid.
-      #{$selector}-sidebar {
-        grid-row: body / main;
-      }
+        // Adjust the sidebar placement within the grid.
+        #{$selector}-sidebar {
+          grid-row: body / main;
+        }
 
-    };
+      };
+
+    }
 
   }
 
