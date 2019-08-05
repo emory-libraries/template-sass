@@ -247,7 +247,8 @@
     '.-research-help-directory-page',
     '.-index-page',
     '.-periodicals-page',
-    '.-cover-page'
+    '.-cover-page',
+    '.-event-page'
   )}, &.-info-page");
 
   // Remove top padding from the main section on most pages.
@@ -265,7 +266,8 @@
   &.-staff-directory-page,
   &.-exhibition-page,
   &.-index-page,
-  &.-cover-page {
+  &.-cover-page,
+  &.-event-page {
     padding-top: 0 !important;
   }
 
@@ -280,7 +282,6 @@
   &.-subject-librarian-directory-page,
   &.-staff-directory-page,
   &.-research-help-directory-page,
-  &.-event-page,
   &.-periodical-page {
 
     #{$selector}-title {
@@ -574,47 +575,37 @@
   // Builds the main structure when used for an event page.
   &.-event-page {
     @include grid-layout((
-      'spacer': false
-    ));
+        'subtitle': false,
+      ));
 
     // Hide grid areas that are not being used within this page type.
     
-    #{$selector}-spacer {
-      display: none;
-    }
-
-    // Reorder the content.
-    #{$selector}-content {
-      grid-row: sidebar-end;
-    }
-
-    // Adjust the spacing for sidebar and body within the grid.
+       // Adjust the spacing for sidebar and body within the grid.
    /* #{$selector}-body,
     #{$selector}-sidebar {
       @include margin-y($rhythm-y);
     }*/
+    .intro-interior-cover {
+      grid-column: 1 / -1;
+    }
+
 
     // Adjusts the main structure across large screens.
     @include breakpoint-l {
 
       // Adjust the header placement within the grid.
       .intro-interior-cover {
-        grid-column: main / sidebar-end;
+        grid-column: main / sidebar;
       }
 
       // Adjust the breadcrumb placement within the grid.
       #{$selector}-breadcrumb {
-        grid-column: main / sidebar-end;
+        grid-column: main / sidebar ;
       }
 
       // Adjust the sidebar placement within the grid.
       #{$selector}-sidebar {
-        grid-row: body;
-      }
-
-      // Adjust the spacer and content placement within the grid.
-      #{$selector}-content {
-        grid-column: main / sidebar;
+        grid-row: body / main;
       }
 
     };
