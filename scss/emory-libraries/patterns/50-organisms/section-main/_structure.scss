@@ -229,33 +229,9 @@
     grid-row: section;
   }
 
-  // Impose a maximum width on most pages.
-  &#{selector-excludes(
-    '.-landing-page'
-  )} {
-    max-width: 1236px;
-  }
-
-  // Remove spacing between title and subtitle on most pages.
-  &.-info-page,
-  &.-material-page,
-  &.-tool-page,
-  &.-bio-page,
-  &.-research-help-page,
-  &.-service-directory-page,
-  &.-form-page,
-  &.-subject-librarian-directory-page,
-  &.-staff-directory-page,
-  &.-research-help-directory-page {
-
-    #{$selector}-title {
-      margin-bottom: 0;
-    }
-
-  }
-
-  // Builds the main structure when used for an info page.
-  &#{selector-excludes(
+  // Set the info page selector.
+  // NOTE: This is needed because we're using info pages as our default page type, so if our page type class (`.-info-page`) is missing, we want to be able to default back to the info page layout anyway. The list of excludes is required in order to make sure we're not applying the info page structure where it's not wanted because, otherwise, we would need to apply overrides within other page types to undo certain things.
+  $selector-info-page: unquote("&#{selector-excludes(
     '.-info-page',
     '.-material-page',
     '.-tool-page',
@@ -270,9 +246,50 @@
     '.-exhibition-page',
     '.-research-help-directory-page',
     '.-index-page',
-    '.-periodicals-page'
-  )},
-  &.-info-page {
+    '.-periodicals-page',
+    '.-cover-page'
+  )}, &.-info-page");
+
+  // Remove top padding from the main section on most pages.
+  #{$selector-info-page},
+  &.-material-page,
+  &.-tool-page,
+  &.-form-page,
+  &.-periodicals-page,
+  &.-research-help-page,
+  &.-bio-page,
+  &.-gallery-page,
+  &.-research-help-directory-page,
+  &.-service-directory-page,
+  &.-subject-librarian-directory-page,
+  &.-staff-directory-page,
+  &.-exhibition-page,
+  &.-index-page,
+  &.-cover-page {
+    padding-top: 0 !important;
+  }
+
+  // Remove spacing between title and subtitle on most pages.
+  #{$selector-info-page},
+  &.-material-page,
+  &.-tool-page,
+  &.-bio-page,
+  &.-research-help-page,
+  &.-service-directory-page,
+  &.-form-page,
+  &.-subject-librarian-directory-page,
+  &.-staff-directory-page,
+  &.-research-help-directory-page,
+  &.-periodical-page {
+
+    #{$selector}-title {
+      margin-bottom: 0;
+    }
+
+  }
+
+  // Builds the main structure when used for an info page.
+  #{$selector-info-page} {
     @include grid-layout;
 
     // Adjust the main structure across large screens.
@@ -625,4 +642,43 @@
       display: none;
     }
   }
+
+  // Builds the main structure when used for a cover page.
+  &.-cover-page {
+    @include grid-layout((
+      'subtitle': false,
+      'spacer': false,
+      'content': false,
+      'section': false,
+      'sidebar': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-subtitle,
+    #{$selector}-spacer,
+    #{$selector}-content,
+    #{$selector}-section,
+    #{$selector}-sidebar {
+      display: none;
+    }
+
+    &.without-intro {
+      @include grid-layout((
+        'title': false,
+        'subtitle': false,
+        'spacer': false,
+        'content': false,
+        'section': false,
+        'sidebar': false
+      ));
+
+      // Hide grid areas that are not being used within this page type.
+      #{$selector}-title {
+        display: none;
+      }
+
+    }
+
+  }
+
 }

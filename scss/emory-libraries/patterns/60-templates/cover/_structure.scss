@@ -1,0 +1,79 @@
+////
+/// @group emory-libraries.patterns.templates.cover
+////
+
+/// Defines the base structure of the cover component.
+///
+/// @since 1.0.0-dev.3
+%templates-cover {
+
+  // Capture selector.
+  $selector: &;
+
+  // Builds the cover structure.
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "header"
+                       "main"
+                       "footer";
+  grid-template-rows: 150px 1fr 420px;
+  grid-template-columns: 1fr;
+
+  // Hide the hero introduction by default unless explicitly given.
+  .intro-hero {
+    display: none;
+  }
+
+  // Builds the cover structure when used with a hero introduction.
+  &.has-hero {
+
+    // Display the hero introduction.
+    .intro-hero {
+      display: grid;
+    }
+
+  }
+
+  // Builds the cover header structure.
+  &-header {
+    grid-area: header;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Header'; // TEMPORARY
+    }
+
+  }
+
+  // Builds the cover main structure.
+  &-main {
+    grid-area: main;
+
+    // Adjust the structure of the main section.
+    .section-main {
+      padding-bottom: 0 !important;
+
+      // Adjust the main body section.
+      &-body {
+        @include margin-y($rhythm-y);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: ($rhythm-y / 2);
+      }
+
+    }
+
+  }
+
+  // Builds the cover footer structure.
+  &-footer {
+    grid-area: footer;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Footer'; // TEMPORARY
+    }
+
+  }
+
+}

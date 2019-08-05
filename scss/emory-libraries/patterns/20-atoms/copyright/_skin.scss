@@ -8,7 +8,7 @@
 ///
 /// @type map
 $atoms-copyright: (
-  
+
   'spacing': 25px,
   'padding': 20px,
   'size': (
@@ -18,7 +18,7 @@ $atoms-copyright: (
   'color': (
     'normal': color('blue', 'light'),
     'hover': color('blue', 'bright'),
-    'active': color('blue', 'light')
+    'active': color('blue', 'bright')
   ),
   'font': (
     'font-family': font('body'),
@@ -27,7 +27,7 @@ $atoms-copyright: (
     'line-height': 1.7692
   ),
   'divider': "|"
-  
+
 );
 
 /// Defines the copyright component theme.
@@ -40,91 +40,93 @@ $atoms-copyright: (
 ///
 /// @output The copyright component's themeable properties
 @mixin atoms-copyright--theme ( $skin ) {
-  
+
   // Get selector.
   $selector: &;
-  
-  // Set breakpoints.
-  $breakpoint-m: 774px 601px;
-  $breakpoint-l: min-width 775px;
-  
+
   // Capture themeable variables from skin.
   $spacing: map-deep-get($skin, 'spacing');
   $padding: map-deep-get($skin, 'padding');
-  $normal: map-deep-get($skin, 'color.normal');
-  $hover: map-deep-get($skin, 'color.hover');
-  $active: map-deep-get($skin, 'color.active');
+  $color: map-deep-get($skin, 'color');
+  $normal: map-deep-get($color, 'normal');
+  $hover: map-deep-get($color, 'hover');
+  $active: map-deep-get($color, 'active');
   $font: map-deep-get($skin, 'font');
   $size: map-deep-get($skin, 'size');
   $divider: map-deep-get($skin, 'divider');
-  
+
   // Get the font size scale.
   $scale: numeric-scale(map-get($size, 'min'), map-get($size, 'max'), 3, true);
-  
+
   // Defines the copyright component's base styles.
+  @include tokens-text('body', $normal, ('body': $font));
   @include margin-y($spacing);
-  color: $normal;
-  @include expand-properties($font);
   font-size: nth($scale, 1);
-  
+
   // Set font size for larger screens.
-  @include breakpoint( $breakpoint-m ) {
+  @include breakpoint-l {
     font-size: nth($scale, 2);
   };
-  @include breakpoint( $breakpoint-l ) {
+  @include breakpoint-xl {
     font-size: nth($scale, 3);
   };
-  
+
+  // Add styles for links.
+  .link,
+  a {
+    @include atoms-link((color: $color));
+  }
+
   // Define styles for copyright containers.
   &-notice,
   &-address,
   &-phone {
     @include padding-x( $padding );
     text-align: center;
-    
+
     // Add a divider between copyright containers.
     + #{$selector}-notice,
     + #{$selector}-address,
     + #{$selector}-phone {
-      
-      // Only add a divider to the last child for medium screens.
-      @include breakpoint( $breakpoint-m ) {
+
+      // Only add a divider to the last child for large screens.
+      @include breakpoint-l {
         &:last-child::before {
           content: $divider;
         }
       };
-      
-      // Add a divider to all on large screens.
-      @include breakpoint( $breakpoint-l ) {
-         &::before {
+
+      // Add a divider to all but the first child  on larger screens.
+      @include breakpoint( min-width 1265px ) {
+         &:not(:first-child)::before {
           content: $divider;
         }
       };
-      
+
     }
 
-    // Adjust padding on medium screens.
-    @include breakpoint( $breakpoint-m ) {
-
-      // Remove padding from first child.
-      &:first-child {
-        @include padding-x( 0 );
-      }
-      
-      // Remove padding from second child.
-      &:nth-child(2) {
-        padding-left: 0;
-      }
-
-      // Remove padding from last child.
-      &:last-child {
-        padding-right: 0;
-      }
-      
-    };
-
     // Adjust padding on large screens.
-    @include breakpoint( $breakpoint-l ) {
+    @include breakpoint( screen('l') max-width 1265px ) {
+
+      // Remove padding from the first child.
+      &:first-child {
+        @include padding-x(0);
+      }
+
+      // Remove left padding from the middle child.
+      &:not(:first-child):not(:last-child) {
+        padding-left: 0;
+      }
+
+      // Remove right padding from the last child.
+      &:last-child {
+        padding-right: 0;
+      }
+
+    };
+
+    // Adjust padding on larger screens.
+    @include breakpoint( min-width 1265px ) {
 
       // Remove padding from first child.
       &:first-child {
@@ -135,14 +137,14 @@ $atoms-copyright: (
       &:last-child {
         padding-right: 0;
       }
-      
+
     };
-    
+
   }
-  
+
   // Define styles for copyright notice.
   &-notice {
-  
+
     // Define styles for copyright policies.
     #{$selector}-policies {
 
@@ -177,7 +179,7 @@ $atoms-copyright: (
       }
 
     }
-  
+
   }
 
   // Defines styles for copyright phone.

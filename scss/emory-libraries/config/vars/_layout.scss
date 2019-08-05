@@ -2,13 +2,36 @@
 /// @group emory-libraries.config
 ////
 
+/// Sets layout max-width accross all breakpoints.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} screens
+///
+/// @type map
+$layout-max-width: 1250px;
+
+
+/// Sets layout spacing accross breakpoint.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} screens
+///
+/// @type map
+$layout-y: (
+  's': 30px,
+  'm': 30px,
+  'l': 40px,
+  'xl': 40px
+) !default;
 
 /// Sets the minimum vertical layout spacing.
 ///
 /// @since 1.0.0
 ///
 /// @type number
-$layout-y-min: 40px !default;
+$layout-y-min: map-get($layout-y, 's') !default;
 
 
 /// Sets the maximum vertical layout spacing.
@@ -16,15 +39,29 @@ $layout-y-min: 40px !default;
 /// @since 1.0.0
 ///
 /// @type number
-$layout-y-max: 70px !default;
+$layout-y-max: map-get($layout-y, 'xl') !default;
 
+/// Sets layout spacing accross breakpoint.
+///
+/// @since 1.0.0
+///
+/// @requires {variable} screens
+///
+/// @type map
+$layout-x: (
+  's': 20px,
+  'm': 20px,
+  'l': 40px,
+  'xl': 40px,
+  '#{$layout-max-width + 40px}': calc((100vw - #{$layout-max-width}) / 2)
+) !default;
 
 /// Sets the minimum horizontal layout spacing.
 ///
 /// @since 1.0.0
 ///
 /// @type number
-$layout-x-min: 20px !default;
+$layout-x-min: map-get($layout-x, 's') !default;
 
 
 /// Sets the maximum horizontal layout spacing.
@@ -32,50 +69,4 @@ $layout-x-min: 20px !default;
 /// @since 1.0.0
 ///
 /// @type number
-$layout-x-max: 170px !default;
-
-
-/// Sets vertical layout scale for resizing layouts across breakpoints.
-///
-/// @since 1.0.0
-///
-/// @requires {variable} layout-y-min
-/// @requires {variable} layout-y-max
-/// @requires {variable} screens
-///
-/// @type list
-$layout-scale-y: layout-scale($layout-y-min, $layout-y-max) !default;
-
-
-/// Sets horizontal layout scale for resizing layouts across breakpoints.
-///
-/// @since 1.0.0
-///
-/// @requires {variable} layout-x-min
-/// @requires {variable} layout-x-max
-/// @requires {variable} screens
-///
-/// @type list
-$layout-scale-x: layout-scale($layout-x-min, $layout-x-max) !default;
-
-
-/// Sets layout spacing accross breakpoint.
-///
-/// @since 1.0.0
-///
-/// @requires {variable} layout-scale-y
-/// @requires {variable} screens
-///
-/// @type map
-$layout-y: layout-breakpoints($layout-scale-y) !default;
-
-
-/// Sets layout spacing accross breakpoint.
-///
-/// @since 1.0.0
-///
-/// @requires {variable} layout-scale-x
-/// @requires {variable} screens
-///
-/// @type map
-$layout-x: layout-breakpoints($layout-scale-x) !default;
+$layout-x-max: map-get($layout-x, 'xl') !default;

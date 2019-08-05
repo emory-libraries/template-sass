@@ -1,0 +1,47 @@
+////
+/// @group emory-libraries.patterns.organisms.section-popular
+////
+
+/// Load the section-popular component's structure and skin.
+@import 'section-popular/structure';
+@import 'section-popular/skin';
+
+/// Builds a constructor for the section-popular component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {placeholder} organisms-section-popular
+/// @requires {variable} organisms-section-popular
+/// @requires {mixin} organisms-section-popular--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our section-popular component
+///
+/// @status review
+@mixin organisms-section-popular ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($organisms-section-popular, $custom);
+
+  // Initialize the section-popular component.
+  & {
+
+    // Load structure.
+    @extend %organisms-section-popular;
+
+    // Load parts.
+    &-left {
+      @extend %organisms-section-popular-left;
+    }
+    &-right {
+      @extend %organisms-section-popular-right;
+    }
+
+    // Load skins.
+    @include organisms-section-popular--theme( $skin );
+
+  }
+
+}
