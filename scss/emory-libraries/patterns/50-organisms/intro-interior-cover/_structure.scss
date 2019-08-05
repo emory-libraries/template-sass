@@ -30,11 +30,11 @@
     overflow: hidden;
     @include absolute-center-contents;
     
+    object-fit: cover;
+    object-position: center;
+
     img {
-      min-width: 100%;
-      min-height: 100%;
-      max-width: none;
-      flex-shrink: 0;
+      width: 100%;
     }
     
   }
