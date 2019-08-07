@@ -1,0 +1,82 @@
+////
+/// @group emory-libraries.patterns.templates.home
+////
+
+/// Defines the base structure of the home component.
+///
+/// @since 1.0.0-dev.3
+%templates-home {
+
+  // Capture the selector.
+  $selector: &;
+
+  // Builds the home structure.
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "header"
+                       "main"
+                       "footer";
+  grid-template-rows: 150px 1fr 420px;
+  grid-template-columns: 100%;
+
+  // Builds the home header structure.
+  &-header {
+    grid-area: header;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Header'; // TEMPORARY
+    }
+
+  }
+
+  // Builds the home main structure.
+  &-main {
+    grid-area: main;
+
+    // Override the structure of the major section with cards.
+    &-cards {
+
+      // Override button group structure.
+      .button-group {
+        justify-content: center;
+      }
+
+    }
+
+    // Override the structure of the major section with flow content boxes and wayfinder.
+    &-boxes {
+
+      // Override the major body structure.
+      .section-major-body {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: $rhythm-y;
+        margin-top: $rhythm-y;
+      }
+
+    }
+
+    // Override the structure of the major section with feeds.
+    &-feeds {
+
+      // Override the major body structure.
+      .section-major-body {
+        margin-top: $rhythm-y;
+      }
+
+    }
+
+  }
+
+  // Builds the home footer structure.
+  &-footer {
+    grid-area: footer;
+    @include absolute-center-contents;
+
+    &::after {
+      content: 'Footer'; // TEMPORARY
+    }
+
+  }
+}

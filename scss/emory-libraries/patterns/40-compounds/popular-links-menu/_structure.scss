@@ -6,39 +6,67 @@
 ///
 /// @since 1.0.0-dev.0
 %compounds-popular-links-menu {
+
+  // Capture selector.
+  $selector: &;
+
   // Builds the popular-links-menu structure.
   display: grid;
-  grid-template-columns: 1fr minmax(min-content, 680px) 1fr;
+  grid-template-columns: 1fr;
 
-
+  // Builds the popular links menu title and list structure.
   &-title,
   &-list {
     margin: 0;
   }
 
+  // Builds the popular links menu title structure.
   &-title {
-    grid-column: 2;
+    grid-row: 1;
   }
 
+  // Builds the popular links menu list structure.
   &-list {
-    grid-column: 2;
-    display: flex;
-    justify-content: space-between;
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-flow: row;
     list-style: none;
     padding: 0;
 
-    @include breakpoint-s() {
-      flex-direction: column;
+    @include breakpoint-l {
+      grid-template-rows: min-content;
+      grid-template-columns: unset;
+      grid-auto-flow: column;
+    };
+
+    // Builds the popular links menu list item structure.
+    &-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 45px;
+
+      // Add a separator between list items on larger screens.
+      @include breakpoint-l {
+
+        // Only show selectors for non-hours.
+        @include when-descendant-of('#{$selector}:not(.-hours)') {
+
+          // Show the separator.
+          &:not(:last-child)::after {
+            content: '';
+            @include absolute(0 null 0 null);
+            height: 20px;
+            margin: auto;
+          }
+
+        };
+
+      };
+
     }
 
   }
-
-  &-list-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex: 1 1 auto;
-  }
-
 
 }

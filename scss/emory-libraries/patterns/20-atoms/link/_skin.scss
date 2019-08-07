@@ -8,7 +8,7 @@
 ///
 /// @type map
 $atoms-link: (
-  
+
   'color': (
     'normal': color('blue', 'bright'),
     'hover': color('blue', 'mid'),
@@ -24,22 +24,15 @@ $atoms-link: (
     'duration': $transition-duration,
     'timing': $transition-timing
   ),
-  
+
   'popular': (
-    'font': (
-      'font-family': font('accent'),
-      'font-size': 20px,
-      'font-weight': normal,
-      'font-style': normal,
-      'line-height': 2.05
-    ),
     'color': (
       'normal': $color-text-light,
       'hover': $color-actionable,
       'active': $color-actionable
     )
   )
-  
+
 );
 
 /// Defines the link component theme.
@@ -52,7 +45,7 @@ $atoms-link: (
 ///
 /// @output The link component's themeable properties
 @mixin atoms-link--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $normal: map-deep-get($skin, 'color.normal');
   $hover: map-deep-get($skin, 'color.hover');
@@ -62,11 +55,11 @@ $atoms-link: (
   $style: map-deep-get($skin, 'style');
   $duration: map-deep-get($skin, 'transition.duration');
   $timing: map-deep-get($skin, 'transition.timing');
-  
+
   // Get icon-specific variables.
   $icon-size: map-deep-get($skin, 'icon.size');
   $icon-spacing: map-deep-get($skin, 'icon.spacing');
-  
+
   // Defines the link component's base styles.
   font-weight: $weight;
   font-style: $style;
@@ -74,24 +67,24 @@ $atoms-link: (
   transition: all $duration $timing;
   background: none;
   border: none;
-  
+
   // Adds styles for icons.
   .icon {
     @include size( $icon-size );
     margin-right: $icon-spacing;
-    
+
     svg {
       fill: $normal;
     }
-    
+
   }
-  
+
   &:hover,
   &.is-hover,
   &:focus,
   &.is-focus {
     color: $hover;
-    
+
     // Adds styles for icons.
     .icon {
 
@@ -100,13 +93,13 @@ $atoms-link: (
       }
 
     }
-    
+
   }
-  
+
   &:active,
   &.is-active {
     color: $active;
-    
+
     // Adds styles for icons.
     .icon {
 
@@ -115,44 +108,46 @@ $atoms-link: (
       }
 
     }
-    
+
   }
-  
+
   &::after {
-    @include tokens-text('body', $custom: ( 'body': (
+    @include tokens-text('body', $custom: ('body': (
       'font-style': italic
     )));
     font-size: 12px !important;
     line-height: 1 !important;
   }
-  
+
   // Adds style variation for popular links.
   &.-popular {
-    $font: map-deep-get($skin, 'popular.font');
     $normal: map-deep-get($skin, 'popular.color.normal');
     $hover: map-deep-get($skin, 'popular.color.hover');
     $active: map-deep-get($skin, 'popular.color.active');
-    
-    @include expand-properties($font);
+
+    @include tokens-text('accent', $normal, ('accent': (
+      'line-height': 2.05
+    )));
+    font-size: 20px !important;
     color: $normal;
-    
+
     &:hover,
     &.is-hover,
     &:focus,
     &.is-focus {
       color: $hover;
     }
-    
+
     &:active,
     &.is-active {
       color: $active;
     }
-    
+
   }
-  
+
   // Adds style variation for underlining.
   &.-underline {
     text-decoration: underline;
   }
-  
+
 }

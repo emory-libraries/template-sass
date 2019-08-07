@@ -35,13 +35,11 @@
     &-title {
       @extend %compounds-popular-links-menu-title;
     }
-
     &-list {
       @extend %compounds-popular-links-menu-list;
-    }
-
-    &-list-item {
-      @extend %compounds-popular-links-menu-list-item;
+      &-item {
+        @extend %compounds-popular-links-menu-list-item;
+      }
     }
 
     // Load skins.

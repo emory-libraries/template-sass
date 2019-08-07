@@ -28,11 +28,6 @@
       padding-top: 0;
     }
 
-    @include breakpoint-l {
-      @include padding-x(6em);
-      padding-top: .5em;
-    };
-
   }
 
   &-badge{

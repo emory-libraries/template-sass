@@ -83,6 +83,7 @@
   "organisms-flow-feed-preview": "review",
   "organisms-footer": "review",
   "organisms-header": "review",
+  "organisms-section-popular": "review",
   "templates-info": "review",
   "templates-material": "review",
   "templates-tool": "review",
@@ -98,6 +99,7 @@
   "templates-exhibition": "review",
   "templates-index": "review",
   "templates-periodicals": "review",
-  "templates-event": "construction",
+  "templates-event": "review",
   "templates-cover": "review"
+  "templates-home": "review"
 }
