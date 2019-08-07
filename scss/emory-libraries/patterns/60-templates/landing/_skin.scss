@@ -9,11 +9,6 @@
 /// @type map
 $templates-landing: (
 
-  'layout': (
-    'x': $layout-x,
-    'y': $layout-y
-  ),
-
   'gap': 40px
 
 );
@@ -31,7 +26,6 @@ $templates-landing: (
 
   // Capture themeable variables from skin.
   $gap: map-deep-get($skin, 'gap');
-  $layout: map-deep-get($skin, 'layout');
 
   // Defines the landing component's base styles.
   // ...
@@ -46,19 +40,7 @@ $templates-landing: (
   &-header { }
 
   // Defines landing main styles.
-  &-main {
-
-    // Adjust the main section styles.
-    .section-main {
-      @include tokens-layout((
-      'x': map-get($layout, 'x'),
-      'y': layout(0, 0)
-      ));
-      padding-top: $rhythm-y !important;
-      padding-bottom: ($rhythm-y * 2) !important;
-    }
-
-  }
+  &-main { }
 
   // Defines landing footer styles.
   &-footer { }

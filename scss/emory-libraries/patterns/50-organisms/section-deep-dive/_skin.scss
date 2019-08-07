@@ -20,7 +20,10 @@ $organisms-section-deep-dive: (
   ),
   'layout': (
     'x': $layout-x,
-    'y': $layout-y
+    'y': map-extend($layout-y, (
+      'l': 60px,
+      'xl': 60px
+    ))
   )
 
 );
@@ -40,7 +43,8 @@ $organisms-section-deep-dive: (
   $selector: &;
 
   // Capture themeable variables from skin.
-  $layout: map-deep-get($skin, 'layout');
+  $layout-x: map-deep-get($skin, 'layout.x');
+  $layout-y: map-deep-get($skin, 'layout.y');
   $title: map-deep-get($skin, 'title');
   $headings: map-deep-get($skin, 'headings');
   $foreground: map-deep-get($skin, 'foreground');
@@ -48,7 +52,7 @@ $organisms-section-deep-dive: (
   $link: map-deep-get($skin, 'link');
 
   // Defines the section-deep-dive component's base styles.
-  @include tokens-layout(('layout': $layout));
+  @include tokens-layout(('x': $layout-x, 'y': $layout-y));
   background-color: $background;
 
   // Defines the deep dive title styles.

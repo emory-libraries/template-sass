@@ -1,0 +1,33 @@
+////
+/// @group emory-libraries.patterns.compounds.notification
+////
+
+/// Defines the base skin of the notification component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @type map
+$compounds-notification: (
+  
+  
+  
+);
+
+/// Defines the notification component theme.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The notification component's themeable properties
+@mixin compounds-notification--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  // ...
+  
+  // Defines the notification component's base styles.
+  // ...
+  
+}

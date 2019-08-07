@@ -33,6 +33,11 @@ $organisms-section-main: (
         'active': color('gold')
       )
     )
+  ),
+
+  'layout': (
+    'x': $layout-x,
+    'y': $layout-y
   )
 
 );
@@ -55,6 +60,8 @@ $organisms-section-main: (
   $gap: map-deep-get($skin, 'gap');
   $theme: map-deep-get($skin, 'theme');
   $themes: map-deep-get($skin, 'themes');
+  $layout-x: map-deep-get($skin, 'layout.x');
+  $layout-y: map-deep-get($skin, 'layout.y');
 
   // Get theme-specific variables.
   $theme-foreground: map-deep-get($themes, $theme + '.foreground');
@@ -63,6 +70,7 @@ $organisms-section-main: (
   $theme-link: map-deep-get($themes, $theme + '.link');
 
   // Defines the section-main component's base styles.
+  @include tokens-layout(('x': $layout-x, 'y': $layout-y));
   background-color: $theme-background;
   color: $theme-foreground;
   grid-column-gap: $gap;
@@ -100,19 +108,7 @@ $organisms-section-main: (
   &-subtitle { }
 
   // Defines the main body styles.
-  &-body {
-
-    // Modifies heading styles when inside main body.
-    // FIXME: If we adjust H2 styles here, we'll need to adjust subsequent headings (H3-H6) too.
-    .heading {
-
-      &.-h2 {
-        @include tokens-heading('h5-alt', $theme-heading);
-      }
-
-    }
-
-  }
+  &-body { }
 
   // Defines the main sidebar styles.
   &-sidebar { }

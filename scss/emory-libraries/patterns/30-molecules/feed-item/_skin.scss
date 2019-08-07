@@ -8,7 +8,7 @@
 ///
 /// @type map
 $molecules-feed-item: (
-  
+
   'title': (
     'normal': $color-text-dark,
     'hover': $color-actionable,
@@ -16,7 +16,7 @@ $molecules-feed-item: (
   ),
   'date': color('blue'),
   'gap': 5px
-  
+
 );
 
 /// Defines the feed-item component theme.
@@ -29,38 +29,46 @@ $molecules-feed-item: (
 ///
 /// @output The feed-item component's themeable properties
 @mixin molecules-feed-item--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $title: map-deep-get($skin, 'title');
   $date: map-deep-get($skin, 'date');
   $gap: map-deep-get($skin, 'gap');
-  
+
   // Defines the feed-item component's base styles.
   grid-gap: $gap;
-  
+
   // Defines the feed item styles without signup.
   &:not(.has-action) { }
-  
+
   // Defines the feed item styles with signup.
   &.has-action { }
-  
+
   // Defines feed item date styles.
-  &-date { 
+  &-date {
     @include tokens-heading('h6', $date);
   }
-  
+
   // Defines feed item title styles.
-  &-title { 
+  &-title {
     @include atoms-link((color: $title));
     @include tokens-text('listing', map-get($title, 'normal'));
   }
-  
+
   // Defines feed item action styles.
   &-action {
+    width: max-content;
     @include atoms-button((
-      size: 100%,
+      size: 40px,
       padding: 15px
     ));
+
+    // Adjust size on larger screens.
+    @include breakpoint-m-l {
+      height: 100%;
+      width: auto;
+    };
+
   }
-  
+
 }

@@ -1,0 +1,72 @@
+////
+/// @group emory-libraries.patterns.molecules.branding-footer
+////
+
+/// Defines the base structure of the branding-footer component.
+///
+/// @since 1.0.0-dev.3
+%molecules-branding-footer {
+
+  // Builds the branding-footer structure.
+  display: grid;
+  grid-template-areas: "logo"
+                       "dropdown";
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, min-content);
+  max-width: 130px;
+
+  // Adjust branding footer structure on larger screens.
+  @include breakpoint-l {
+    max-width: 155px;
+  };
+
+  // Builds the branding logo structure.
+  &-logo {
+    grid-area: logo;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    .logo {
+      width: 100%;
+      z-index: z('above');
+
+      svg {
+        width: 100%;
+      }
+
+    }
+
+  }
+
+  // Builds the branding dropdown structure.
+  &-dropdown {
+    grid-area: dropdown;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // Builds the branding dropdown menu structure.
+    &-menu {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      border: none;
+      background: none;
+      max-width: 135px;
+      background-repeat: no-repeat;
+      background-position: right 50%;
+
+      option {
+        margin: 0;
+        padding: 0;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+
+    }
+
+  }
+
+}

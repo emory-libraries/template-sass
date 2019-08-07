@@ -9,10 +9,17 @@
 /// @type map
 $compounds-popular-links-menu: (
 
-  'color': color('white'),
+  'color': $color-text-light,
   'heading': color('gold'),
-  'fill': color('blue', 'dark'),
-  'border': color('slate','light'),
+  'background': color('blue', 'dark'),
+  'spacing': 30px,
+
+  'separator': (
+    'thickness': $border-width-s,
+    'color': color('slate','light'),
+    'opacity': .2,
+    'size': 20px
+  )
 
 );
 
@@ -27,40 +34,92 @@ $compounds-popular-links-menu: (
 /// @output The popular-links-menu component's themeable properties
 @mixin compounds-popular-links-menu--theme ( $skin ) {
 
+  // Capture selector.
+  $selector: &;
+
   // Capture themeable variables from skin.
   $color: map-deep-get($skin, 'color');
-  $heading-color: map-deep-get($skin, 'heading');
-  $background: map-deep-get($skin, 'fill');
-  $border-color: map-deep-get($skin, 'border');
-  $border: $border-width-s solid $border-color;
+  $heading: map-deep-get($skin, 'heading');
+  $background: map-deep-get($skin, 'background');
+  $spacing: map-deep-get($skin, 'spacing');
+
+  // Get separator-specific variables.
+  $separator-color: map-deep-get($skin, 'separator.color');
+  $separator-opacity: map-deep-get($skin, 'separator.opacity');
+  $separator-size: map-deep-get($skin, 'separator.size');
+  $separator-thickness: map-deep-get($skin, 'separator.thickness');
 
   // Defines the popular-links-menu component's base styles.
   background-color: $background;
 
+  // Defines popular links menu title styles.
   &-title {
-    @include tokens-heading('h6');
-    color: $heading-color !important;
+    @include tokens-heading('h6', $heading);
   }
 
-  &-list-item {
+  // Defines popular links menu list styles.
+  &-list {
 
-    &:last-child {
-      flex: 0;
+    // Defines popular links menu list item styles.
+    &-item {
+
+      // Show separators between items on larger screens.
+      @include breakpoint-l {
+        margin-right: $spacing;
+
+        // Show separators.
+        &:not(:last-child)::after {
+          opacity: $separator-opacity;
+          height: $separator-size;
+          width: $separator-thickness;
+          background-color: $separator-color;
+          right: -($spacing / 2);
+        }
+
+      };
+
+      // Increase spacing between items on even larger screens.
+      @include breakpoint-xl {
+        margin-right: $spacing * 1.5;
+
+        // Move separators accordingly.
+        &:not(:last-child)::after {
+          right: -(($spacing * 1.5) / 2);
+        }
+
+      };
+
     }
 
   }
 
-  &-list-item:not(:last-child) {
+  // Add styles for popular links menu hours.
+  &.-hours {
 
-    &:after {
-      content: "";
-      border-left: $border;
-      opacity: .2;
-      height: 20px;
-      margin: auto;
+    // Adjusts popular links menu list.
+    #{$selector}-list {
 
-      @include breakpoint-s() {
-        border-left: none;
+      // Adjusts popular links menu list items.
+      &-item {
+        @include tokens-text('accent', $color, ('accent': (
+          'line-height': 2.05
+        )));
+        font-size: 20px !important;
+
+        // Force links to use default text styles.
+        .link,
+        a {
+          @include tokens-text('body', $custom: ('body': (
+            'text-transform': uppercase
+          )));
+          font-size: 11px !important;
+          text-decoration: underline !important;
+          @include atoms-link(('color': (
+            'hover': $color-actionable,
+            'active': $color-actionable
+          )));
+        }
+
       }
 
     }

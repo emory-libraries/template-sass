@@ -24,20 +24,21 @@
 ///
 /// @status review
 @mixin tokens-heading ( $level, $color: null, $custom: (), $important: false ) {
-  
+
   // Extend the default skin.
   $skin: map-extend($tokens-heading, $custom);
-  
+
   // Initialize the heading component.
   & {
-    
+
     // Load structure.
     @extend %tokens-heading;
-    
+
     // Load skins.
     @include tokens-heading--font( $level, $skin, $important );
     @include tokens-heading--color( $level, $skin, $color, $important );
-    
+    @include tokens-heading--theme( $skin );
+
   }
-  
+
 }

@@ -1,0 +1,92 @@
+////
+/// @group emory-libraries.patterns.organisms.header
+////
+
+/// Defines the base structure of the header component.
+///
+/// @since 1.0.0-dev.3
+%organisms-header {
+
+  // Capture selector.
+  $selector: &;
+
+  // Builds the header structure.
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-areas: "notifications"
+                       "main";
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, min-content);
+  z-index: z('docked');
+
+  // When the header is inside of a vue, then use position fixed instead of sticky.
+  #eul-vue & {
+    @include fixed(0 0 null 0);
+    width: 100%;
+  }
+
+  // Builds the header notifications structure.
+  &-notifications {
+    grid-area: notifications;
+  }
+
+  // Builds the header main structure.
+  &-main {
+
+    // Capture main selector.
+    $selector-main: &;
+
+    grid-area: main;
+    display: block;
+
+    // Adjust grid on larger screens.
+    @include breakpoint-l {
+      display: grid;
+      grid-template-columns: [full-start body-start] 1fr [body-end search-start] min-content [search-end full-end];
+      grid-template-rows: [full-start utility-start] 40px [utility-end main-start] min-content [main-end full-end];
+    };
+    @include breakpoint-xl {
+      grid-template-rows: [full-start utility-start] 40px [utility-end main-start] 90px [main-end full-end];
+    };
+
+    // Assign grid areas to navigation parts.
+    &-utility {
+      grid-row: utility;
+      grid-column: full;
+      @include padding-x(0 !important);
+    }
+    &-main {
+      grid-row: main;
+      grid-column: body;
+      @include padding-x(0 !important);
+    }
+    &-search {
+      grid-row: main;
+      grid-column: search;
+      display: none !important;
+
+      // Only show the header main search on larger screens.
+      @include breakpoint-l {
+        display: flex !important;
+      };
+
+    }
+    &-toggle {
+      display: none;
+    }
+    &-overlay {
+      grid-row: full;
+      grid-column: full;
+      display: none !important;
+
+      // Only show the header main overlay on larger screens.
+      @include breakpoint-l {
+        display: grid !important;
+      };
+
+    }
+
+  }
+
+}

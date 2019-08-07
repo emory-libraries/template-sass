@@ -1,0 +1,47 @@
+////
+/// @group emory-libraries.patterns.organisms.flow-feed-preview
+////
+
+/// Load the flow-feed-preview component's structure and skin.
+@import 'flow-feed-preview/structure';
+@import 'flow-feed-preview/skin';
+
+/// Builds a constructor for the flow-feed-preview component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {placeholder} organisms-flow-feed-preview
+/// @requires {variable} organisms-flow-feed-preview
+/// @requires {mixin} organisms-flow-feed-preview--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our flow-feed-preview component
+///
+/// @status review
+@mixin organisms-flow-feed-preview ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($organisms-flow-feed-preview, $custom);
+
+  // Initialize the flow-feed-preview component.
+  & {
+
+    // Load structure.
+    @extend %organisms-flow-feed-preview;
+
+    // Load parts.
+    &-feature {
+      @extend %organisms-flow-feed-preview-feature;
+    }
+    &-feeds {
+      @extend %organisms-flow-feed-preview-feeds;
+    }
+
+    // Load skins.
+    @include organisms-flow-feed-preview--theme( $skin );
+
+  }
+
+}

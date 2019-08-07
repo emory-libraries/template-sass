@@ -1,0 +1,63 @@
+////
+/// @group emory-libraries.patterns.organisms.section-popular
+////
+
+/// Defines the base skin of the section-popular component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @type map
+$organisms-section-popular: (
+
+  'background': color('blue', 'dark'),
+
+  'spacing': 20px,
+
+  'layout': (
+    'x': $layout-x,
+    'y': map-extend($layout-y, (
+      'l': 20px,
+      'xl': 20px
+    ))
+  )
+
+);
+
+/// Defines the section-popular component theme.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The section-popular component's themeable properties
+@mixin organisms-section-popular--theme ( $skin ) {
+
+  // Capture selector.
+  $selector: &;
+
+  // Capture themeable variables from skin.
+  $background: map-deep-get($skin, 'background');
+  $layout-x: map-deep-get($skin, 'layout.x');
+  $layout-y: map-deep-get($skin, 'layout.y');
+  $spacing: map-deep-get($skin, 'spacing');
+
+  // Defines the section-popular component's base styles.
+  background-color: $background;
+  @include tokens-layout(('x': $layout-x, 'y': $layout-y));
+
+  // Defines the section popular left and right styles.
+  &-left,
+  &-right {
+
+    // Add the vertical layout as a top margin to the left and right children.
+    @each $breakpoint, $padding in $layout-y {
+      @include breakpoint( screen($breakpoint) ) {
+        margin-top: $padding;
+      };
+    }
+
+  }
+
+}

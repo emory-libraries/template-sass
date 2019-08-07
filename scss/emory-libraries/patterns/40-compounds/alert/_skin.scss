@@ -1,0 +1,33 @@
+////
+/// @group emory-libraries.patterns.compounds.alert
+////
+
+/// Defines the base skin of the alert component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @type map
+$compounds-alert: (
+  
+  
+  
+);
+
+/// Defines the alert component theme.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The alert component's themeable properties
+@mixin compounds-alert--theme ( $skin ) {
+  
+  // Capture themeable variables from skin.
+  // ...
+  
+  // Defines the alert component's base styles.
+  // ...
+  
+}
