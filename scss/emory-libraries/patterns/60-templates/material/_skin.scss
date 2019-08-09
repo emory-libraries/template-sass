@@ -9,7 +9,7 @@
 /// @type map
 $templates-material: (
 
-  'gap': 20px
+  
 
 );
 
@@ -25,10 +25,10 @@ $templates-material: (
 @mixin templates-material--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
+  // ...
 
   // Defines the material component's base styles.
-  grid-gap: $gap;
+  // ...
 
   // Defines material header and footer styles.
   &-header,

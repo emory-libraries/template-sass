@@ -9,7 +9,7 @@
 /// @type map
 $templates-gallery: (
 
-  'gap': 20px
+  
 
 );
 
@@ -25,10 +25,10 @@ $templates-gallery: (
 @mixin templates-gallery--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
+  // ...
 
   // Defines the gallery component's base styles.
-  grid-gap: $gap;
+  // ...
 
   // Defines gallery header and footer styles.
   &-header,

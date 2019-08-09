@@ -9,7 +9,7 @@
 /// @type map
 $templates-form: (
 
-  'gap': 20px
+
 
 );
 
@@ -25,10 +25,10 @@ $templates-form: (
 @mixin templates-form--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
+  // ...
 
   // Defines the form component's base styles.
-  grid-gap: $gap;
+  // ...
 
   // Defines form header and footer styles.
   &-header,

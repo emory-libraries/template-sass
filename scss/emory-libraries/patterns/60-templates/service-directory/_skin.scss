@@ -9,7 +9,7 @@
 /// @type map
 $templates-service-directory: (
 
-  'gap': 20px
+
 
 );
 
@@ -25,10 +25,10 @@ $templates-service-directory: (
 @mixin templates-service-directory--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
+  // ...
 
   // Defines the service-directory component's base styles.
-  grid-gap: $gap;
+  // ...
 
   // Defines service directory header and footer styles.
   &-header,

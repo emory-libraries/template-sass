@@ -9,7 +9,7 @@
 /// @type map
 $templates-periodicals: (
 
-  'gap': 20px
+
 
 );
 
@@ -25,10 +25,10 @@ $templates-periodicals: (
 @mixin templates-periodicals--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
+  // ...
 
   // Defines the periodicals component's base styles.
-  grid-gap: $gap;
+  // ...
 
   // Defines periodicals header and footer styles.
   &-header,

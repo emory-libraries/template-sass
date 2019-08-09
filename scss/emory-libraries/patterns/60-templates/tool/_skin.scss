@@ -9,7 +9,7 @@
 /// @type map
 $templates-tool: (
 
-  'gap': 20px
+
 
 );
 
@@ -25,10 +25,10 @@ $templates-tool: (
 @mixin templates-tool--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
+  // ...
 
   // Defines the tool component's base styles.
-  grid-gap: $gap;
+  // ...
 
   // Defines tool footer and header styles.
   &-header,

@@ -9,7 +9,7 @@
 /// @type map
 $templates-subject-librarian-directory: (
 
-  'gap': 20px
+  
 
 );
 
@@ -25,10 +25,10 @@ $templates-subject-librarian-directory: (
 @mixin templates-subject-librarian-directory--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
+  // ...
 
   // Defines the subject-librarian-directory component's base styles.
-  grid-gap: $gap;
+  // ...
 
   // Defines subject librarian directory header and footer styles.
   &-header,

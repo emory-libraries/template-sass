@@ -9,7 +9,7 @@
 /// @type map
 $templates-staff-directory: (
 
-  'gap': 20px
+
 
 );
 
@@ -25,10 +25,10 @@ $templates-staff-directory: (
 @mixin templates-staff-directory--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
+  // ...
 
   // Defines the staff-directory component's base styles.
-  grid-gap: $gap;
+  // ...
 
   // Defines staff directory header and footer styles.
   &-header,

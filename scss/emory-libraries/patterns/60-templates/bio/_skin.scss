@@ -9,7 +9,7 @@
 /// @type map
 $templates-bio: (
 
-  'gap': 20px
+
 
 );
 
@@ -25,10 +25,10 @@ $templates-bio: (
 @mixin templates-bio--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
+  // ...
 
   // Defines the bio component's base styles.
-  grid-gap: $gap;
+  // ...
 
   // Defines bio header and footer styles.
   &-header,

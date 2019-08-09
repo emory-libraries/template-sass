@@ -9,7 +9,7 @@
 /// @type map
 $templates-research-help-directory: (
 
-  'gap': 20px
+
 
 );
 
@@ -25,10 +25,10 @@ $templates-research-help-directory: (
 @mixin templates-research-help-directory--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
+  // ...
 
   // Defines the research-help-directory component's base styles.
-  grid-gap: $gap;
+  // ...
 
   // Defines research help directory header and footer styles.
   &-header,

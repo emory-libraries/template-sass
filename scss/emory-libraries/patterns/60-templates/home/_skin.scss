@@ -9,8 +9,7 @@
 /// @type map
 $templates-home: (
 
-  'gap': 2em,
-  'background-color': color('blue','dark')
+
 
 );
 
@@ -26,11 +25,10 @@ $templates-home: (
 @mixin templates-home--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
-  $background-color: map-deep-get($skin,'background-color');
+  // ...
 
   // Defines the home component's base styles.
-  grid-gap: $gap;
+  // ...
 
   // Defines home header and footer styles.
   &-header,

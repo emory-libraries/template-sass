@@ -9,7 +9,7 @@
 /// @type map
 $templates-index: (
 
-  'gap': 20px
+
 
 );
 
@@ -25,10 +25,10 @@ $templates-index: (
 @mixin templates-index--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
+  // ...
 
   // Defines the index component's base styles.
-  grid-gap: $gap;
+  // ...
 
   // Defines index header and footer styles.
   &-header,

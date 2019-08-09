@@ -9,7 +9,7 @@
 /// @type map
 $templates-info: (
 
-  'gap': 20px
+
 
 );
 
@@ -25,10 +25,10 @@ $templates-info: (
 @mixin templates-info--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
+  // ...
 
   // Defines the info component's base styles.
-  grid-gap: $gap;
+  // ...
 
   // Defines info header and footer styles.
   &-header,
