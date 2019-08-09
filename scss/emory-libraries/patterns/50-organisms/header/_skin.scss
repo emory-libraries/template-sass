@@ -79,6 +79,11 @@ $organisms-header: (
       &-main {
         @include padding-x($pad);
 
+        // Adjust the border width.
+        &::after {
+          width: calc(100% - #{$pad * 2});
+        }
+
         // Adjust header main overlay styles.
         &-overlay {
           @include margin-x(-$pad);
@@ -106,10 +111,17 @@ $organisms-header: (
   &-main {
     background-color: $background;
 
-    // Add borders to main parts.
-    &-utility,
-    &-main,
-    &-search {
+    &::after {
+      height: $border-thickness;
+      background-color: $border-color;
+      bottom: -$border-thickness;
+    }
+
+    // Capture the main selector.
+    $selector-main: &;
+
+    // Add borders to utility navigation.
+    &-utility {
 
       // Only add borders on larger screens.
       @include breakpoint-l {
@@ -120,17 +132,6 @@ $organisms-header: (
       };
 
     }
-
-    // Add border to header main on smaller screens.
-    @include breakpoint-s-m {
-      &::after {
-        height: $border-thickness;
-        background-color: $border-color;
-      }
-    };
-
-    // Capture the main selector.
-    $selector-main: &;
 
     // Defines the header main search styles.
     &-search {
