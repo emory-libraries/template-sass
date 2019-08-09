@@ -26,6 +26,11 @@ $organisms-header: (
   'classes': (
     'subnav-menu-main': '.subnav-menu-main',
     'tab-menu': '.tab-menu'
+  ),
+
+  'border': (
+    'thickness': $border-width-s,
+    'color': rgba(color('blue', 'dark'), .1)
   )
 
 );
@@ -59,6 +64,10 @@ $organisms-header: (
   // Get search-specific variables.
   $search-min: map-deep-get($skin, 'search.min');
   $search-max: map-deep-get($skin, 'search.max');
+
+  // Get border-specific variables.
+  $border-thickness: map-deep-get($skin, 'border.thickness');
+  $border-color: map-deep-get($skin, 'border.color');
 
   // Apply padding to the header.
   @each $screen, $pad in $padding {
@@ -96,6 +105,29 @@ $organisms-header: (
   // Defines the header main styles.
   &-main {
     background-color: $background;
+
+    // Add borders to main parts.
+    &-utility,
+    &-main,
+    &-search {
+
+      // Only add borders on larger screens.
+      @include breakpoint-l {
+        &::after {
+          height: $border-thickness;
+          background-color: $border-color;
+        }
+      };
+
+    }
+
+    // Add border to header main on smaller screens.
+    @include breakpoint-s-m {
+      &::after {
+        height: $border-thickness;
+        background-color: $border-color;
+      }
+    };
 
     // Capture the main selector.
     $selector-main: &;

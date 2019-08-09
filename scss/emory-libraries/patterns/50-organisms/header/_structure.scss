@@ -87,6 +87,31 @@
 
     }
 
+    // Add borders to main parts.
+    &-utility,
+    &-main,
+    &-search {
+
+      // Only add borders on larger screens.
+      @include breakpoint-l {
+        &::after {
+          content: '';
+          @include absolute(null 0 0 0);
+          width: 100%;
+        }
+      };
+
+    }
+
+    // Add border to main on smaller screens.
+    @include breakpoint-s-m {
+      &::after {
+        content: '';
+        @include absolute(null 0 0 0);
+        width: 100%;
+      }
+    };
+
   }
 
 }
