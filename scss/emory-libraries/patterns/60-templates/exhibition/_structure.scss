@@ -6,7 +6,7 @@
 ///
 /// @since 1.0.0-dev.0
 %templates-exhibition {
-  
+
   // Captures selector.
   $selector: &;
 
@@ -16,24 +16,23 @@
   grid-template-areas: "header"
                        "main"
                        "footer";
-  grid-template-rows: 150px 1fr 420px;
-  grid-template-columns: 1fr;
+  grid-template-rows: 135px 1fr auto;
+  grid-template-columns: 100%;
+
+  // Adjust grid layout on larger screens.
+  @include breakpoint-l {
+    grid-template-rows: 150px 1fr auto;
+  };
 
   // Builds the exhibition header structure.
   &-header {
     grid-area: header;
-    @include absolute-center-contents;
-
-    &::after {
-      content: 'Header'; // TEMPORARY
-    }
-    
   }
 
   // Builds the exhibition main structure.
   &-main {
     grid-area: main;
-    
+
     // Builds the structure for main parts.
     &-context,
     &-quote,
@@ -41,53 +40,53 @@
     &-sidenote {
       display: block;
     }
-    
+
     // Builds the structure for main context.
     &-context {
       margin-top: ($rhythm-y * 2);
       margin-bottom: $rhythm-y;
     }
-    
+
     // Builds the structure for main quote.
     &-quote {
       margin-top: 0;
     }
-    
+
     // Builds the structure for main date.
     &-date { }
-    
+
     // Builds the structure for main sidenote.
     &-sidenote {
       display: block;
       @include margin-y($rhythm-y);
-      
+
       // Set heading, content, and link structure.
       &-heading,
       &-content,
       &-link {
         display: block;
       }
-      
+
       // Set heading structure.
       &-heading {
         margin-top: 0;
         margin-bottom: $rhythm-y / 2;
       }
-      
+
       // Set content structure.
       &-content {
         margin: 0;
       }
-      
+
       // Set link structure.
       &-link { }
-      
+
     }
-    
+
     // Builds the structure for main divider.
     &-divider {
       display: none;
-      
+
       @include breakpoint-l {
         @include absolute-center-contents;
         grid-column: divider;
@@ -98,39 +97,33 @@
           display: block;
           height: calc(100% - #{$rhythm-y * 2});
         }
-        
+
       };
-      
+
     }
-    
+
     // Override some main section structure.
     .section-main {
       padding-top: 0 !important;
-      
+
       // Adjust the main body and sidebar section.
       &-body,
       &-sidebar {
-        
+
         // Override the first paragraph's top spacing.
-        > *:first-child { 
+        > *:first-child {
           margin-top: 0;
         }
-        
+
       }
-      
+
     }
-    
+
   }
 
   // Builds the exhibition footer structure.
   &-footer {
     grid-area: footer;
-    @include absolute-center-contents;
-
-    &::after {
-      content: 'Footer'; // TEMPORARY
-    }
-    
   }
-  
+
 }

@@ -11,7 +11,6 @@ $templates-cover: (
 
   'gap': 40px
 
-
 );
 
 /// Defines the cover component theme.
@@ -33,9 +32,7 @@ $templates-cover: (
 
   // Defines cover header and footer styles.
   &-header,
-  &-footer {
-    border: $border-width-s solid color('slate'); // TEMPORARY
-  }
+  &-footer {}
 
   // Defines cover header styles.
   &-header { }

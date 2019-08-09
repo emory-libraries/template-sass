@@ -9,13 +9,8 @@
 /// @type map
 $templates-info: (
 
-  'layout': (
-    'x': $layout-x,
-    'y': $layout-y
-  ),
-  
   'gap': 20px
-  
+
 );
 
 /// Defines the info component theme.
@@ -31,23 +26,20 @@ $templates-info: (
 
   // Capture themeable variables from skin.
   $gap: map-deep-get($skin, 'gap');
-  $layout: map-deep-get($skin, 'layout');
 
   // Defines the info component's base styles.
   grid-gap: $gap;
-  
+
   // Defines info header and footer styles.
   &-header,
-  &-footer {
-    border: $border-width-s solid color('slate'); // TEMPORARY
-  }
-  
+  &-footer {}
+
   // Defines info header styles.
   &-header { }
-  
+
   // Defines info main styles.
   &-main { }
-  
+
   // Defines info footer styles.
   &-footer { }
 

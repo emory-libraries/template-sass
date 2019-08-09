@@ -9,11 +9,6 @@
 /// @type map
 $templates-form: (
 
-  'layout': (
-    'x': $layout-x,
-    'y': $layout-y
-  ),
-
   'gap': 20px
 
 );
@@ -31,16 +26,13 @@ $templates-form: (
 
   // Capture themeable variables from skin.
   $gap: map-deep-get($skin, 'gap');
-  $layout: map-deep-get($skin, 'layout');
 
   // Defines the form component's base styles.
   grid-gap: $gap;
 
   // Defines form header and footer styles.
   &-header,
-  &-footer {
-    border: $border-width-s solid color('slate'); // TEMPORARY
-  }
+  &-footer { }
 
   // Defines form header styles.
   &-header { }

@@ -8,11 +8,6 @@
 ///
 /// @type map
 $templates-periodicals: (
-    
-  'layout': (
-    'x': $layout-x,
-    'y': $layout-y
-  ),
 
   'gap': 20px
 
@@ -28,27 +23,24 @@ $templates-periodicals: (
 ///
 /// @output The periodicals component's themeable properties
 @mixin templates-periodicals--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $gap: map-deep-get($skin, 'gap');
-  $layout: map-deep-get($skin, 'layout');
-  
+
   // Defines the periodicals component's base styles.
   grid-gap: $gap;
 
   // Defines periodicals header and footer styles.
   &-header,
-  &-footer {
-    border: $border-width-s solid color('slate'); // TEMPORARY
-  }
-  
+  &-footer {}
+
   // Defines periodicals header styles.
   &-header { }
-  
+
   // Defines periodicals main styles.
   &-main { }
-  
+
   // Defines periodicals footer styles.
   &-footer { }
-  
+
 }

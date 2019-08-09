@@ -8,14 +8,9 @@
 ///
 /// @type map
 $templates-material: (
-  
-  'layout': (
-    'x': $layout-x,
-    'y': $layout-y
-  ),
 
   'gap': 20px
-  
+
 );
 
 /// Defines the material component theme.
@@ -31,23 +26,20 @@ $templates-material: (
 
   // Capture themeable variables from skin.
   $gap: map-deep-get($skin, 'gap');
-  $layout: map-deep-get($skin, 'layout');
 
   // Defines the material component's base styles.
   grid-gap: $gap;
 
   // Defines material header and footer styles.
   &-header,
-  &-footer {
-    border: $border-width-s solid color('slate'); // TEMPORARY
-  }
-  
+  &-footer {}
+
   // Defines material header styles.
   &-header { }
-  
+
   // Defines material main styles.
   &-main { }
-  
+
   // Defines material footer styles.
   &-footer { }
 

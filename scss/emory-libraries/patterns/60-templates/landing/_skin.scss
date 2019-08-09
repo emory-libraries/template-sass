@@ -32,9 +32,7 @@ $templates-landing: (
 
   // Defines landing header and footer styles.
   &-header,
-  &-footer {
-    border: $border-width-s solid color('slate'); // TEMPORARY
-  }
+  &-footer {}
 
   // Defines landing header styles.
   &-header { }

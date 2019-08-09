@@ -8,14 +8,9 @@
 ///
 /// @type map
 $templates-staff-directory: (
-  
-  'layout': (
-    'x': $layout-x,
-    'y': $layout-y
-  ),
-  
+
   'gap': 20px
-  
+
 );
 
 /// Defines the staff-directory component theme.
@@ -28,27 +23,24 @@ $templates-staff-directory: (
 ///
 /// @output The staff-directory component's themeable properties
 @mixin templates-staff-directory--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $gap: map-deep-get($skin, 'gap');
-  $layout: map-deep-get($skin, 'layout');
 
   // Defines the staff-directory component's base styles.
   grid-gap: $gap;
-  
+
   // Defines staff directory header and footer styles.
   &-header,
-  &-footer {
-    border: $border-width-s solid color('slate'); // TEMPORARY
-  }
-  
+  &-footer {}
+
   // Defines staff directory header styles.
   &-header { }
-  
+
   // Defines staff directory main styles.
   &-main { }
-  
+
   // Defines staff directory footer styles.
   &-footer { }
-  
+
 }

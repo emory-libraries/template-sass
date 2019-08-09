@@ -16,18 +16,17 @@
   grid-template-areas: "header"
                        "main"
                        "footer";
-  grid-template-rows: 150px 1fr 420px;
-  grid-template-columns: 1fr;
+  grid-template-rows: 135px 1fr auto;
+  grid-template-columns: 100%;
+
+  // Adjust grid layout on larger screens.
+  @include breakpoint-l {
+    grid-template-rows: 150px 1fr auto;
+  };
 
   // Builds the research header structure.
   &-header {
     grid-area: header;
-    @include absolute-center-contents;
-
-    &::after {
-      content: 'Header'; // TEMPORARY
-    }
-
   }
 
   // Builds the research main structure.
@@ -38,11 +37,6 @@
   // Builds the research footer structure.
   &-footer {
     grid-area: footer;
-    @include absolute-center-contents;
-
-    &::after {
-      content: 'Footer'; // TEMPORARY
-    }
-
   }
+
 }

@@ -16,8 +16,13 @@
   grid-template-areas: "header"
                        "main"
                        "footer";
-  grid-template-rows: 150px 1fr 420px;
-  grid-template-columns: 1fr;
+  grid-template-rows: 135px 1fr auto;
+  grid-template-columns: 100%;
+
+  // Adjust grid layout on larger screens.
+  @include breakpoint-l {
+    grid-template-rows: 150px 1fr auto;
+  };
 
   // Hide the hero introduction by default unless explicitly given.
   .intro-hero {
@@ -37,12 +42,6 @@
   // Builds the cover header structure.
   &-header {
     grid-area: header;
-    @include absolute-center-contents;
-
-    &::after {
-      content: 'Header'; // TEMPORARY
-    }
-
   }
 
   // Builds the cover main structure.
@@ -68,12 +67,6 @@
   // Builds the cover footer structure.
   &-footer {
     grid-area: footer;
-    @include absolute-center-contents;
-
-    &::after {
-      content: 'Footer'; // TEMPORARY
-    }
-
   }
 
 }
