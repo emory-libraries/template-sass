@@ -24,6 +24,11 @@
     grid-template-rows: 150px 1fr auto;
   };
 
+  // Adjust grid layout on even larger screens.
+  @include breakpoint-xl {
+    grid-template-rows: 130px 1fr auto;
+  };
+
   // Builds the home header structure.
   &-header {
     grid-area: header;
