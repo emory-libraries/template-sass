@@ -76,6 +76,11 @@ $compounds-popular-links-menu: (
           right: -($spacing / 2);
         }
 
+        // Remove spacing from the last child.
+        &:last-child {
+          margin-right: 0;
+        }
+
       };
 
       // Increase spacing between items on even larger screens.
