@@ -82,6 +82,21 @@
     > *:last-child {
       margin-bottom: 0;
     }
+    
+  }
+
+  // Modifies structure for non-grouped subnav menus with viewall.
+  &:not(.-grouped).has-viewall {
+
+    // If a viewall button is enabled, remove the bottom padding.
+    &.has-viewall {
+      padding-bottom: 0;
+
+      > *:nth-last-child(2) {
+        margin-bottom: 0;
+      }
+
+    }
 
   }
 
