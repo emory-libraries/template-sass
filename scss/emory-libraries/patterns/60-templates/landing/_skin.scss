@@ -9,7 +9,7 @@
 /// @type map
 $templates-landing: (
 
-  'gap': 40px
+
 
 );
 
@@ -25,16 +25,14 @@ $templates-landing: (
 @mixin templates-landing--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
+  // ...
 
   // Defines the landing component's base styles.
   // ...
 
   // Defines landing header and footer styles.
   &-header,
-  &-footer {
-    border: $border-width-s solid color('slate'); // TEMPORARY
-  }
+  &-footer {}
 
   // Defines landing header styles.
   &-header { }

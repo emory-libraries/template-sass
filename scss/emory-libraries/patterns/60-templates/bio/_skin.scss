@@ -8,14 +8,9 @@
 ///
 /// @type map
 $templates-bio: (
-  
-  'layout': (
-    'x': $layout-x,
-    'y': $layout-y
-  ),
-  
-  'gap': 20px
-  
+
+
+
 );
 
 /// Defines the bio component theme.
@@ -28,27 +23,24 @@ $templates-bio: (
 ///
 /// @output The bio component's themeable properties
 @mixin templates-bio--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
-  $layout: map-deep-get($skin, 'layout');
+  // ...
 
   // Defines the bio component's base styles.
-  grid-gap: $gap;
-  
+  // ...
+
   // Defines bio header and footer styles.
   &-header,
-  &-footer {
-    border: $border-width-s solid color('slate'); // TEMPORARY
-  }
-  
+  &-footer {}
+
   // Defines bio header styles.
   &-header { }
-  
+
   // Defines bio main styles.
   &-main { }
-  
+
   // Defines bio footer styles.
   &-footer { }
-  
+
 }

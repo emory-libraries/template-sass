@@ -26,6 +26,11 @@ $organisms-header: (
   'classes': (
     'subnav-menu-main': '.subnav-menu-main',
     'tab-menu': '.tab-menu'
+  ),
+
+  'border': (
+    'thickness': $border-width-s,
+    'color': rgba(color('blue', 'dark'), .1)
   )
 
 );
@@ -60,6 +65,10 @@ $organisms-header: (
   $search-min: map-deep-get($skin, 'search.min');
   $search-max: map-deep-get($skin, 'search.max');
 
+  // Get border-specific variables.
+  $border-thickness: map-deep-get($skin, 'border.thickness');
+  $border-color: map-deep-get($skin, 'border.color');
+
   // Apply padding to the header.
   @each $screen, $pad in $padding {
 
@@ -69,6 +78,11 @@ $organisms-header: (
       // Adjust header main styles.
       &-main {
         @include padding-x($pad);
+
+        // Adjust the border width.
+        &::after {
+          width: calc(100% - #{$pad * 2});
+        }
 
         // Adjust header main overlay styles.
         &-overlay {
@@ -97,8 +111,27 @@ $organisms-header: (
   &-main {
     background-color: $background;
 
+    &::after {
+      height: $border-thickness;
+      background-color: $border-color;
+      bottom: -$border-thickness;
+    }
+
     // Capture the main selector.
     $selector-main: &;
+
+    // Add borders to utility navigation.
+    &-utility {
+
+      // Only add borders on larger screens.
+      @include breakpoint-l {
+        &::after {
+          height: $border-thickness;
+          background-color: $border-color;
+        }
+      };
+
+    }
 
     // Defines the header main search styles.
     &-search {

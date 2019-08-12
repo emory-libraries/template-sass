@@ -55,6 +55,16 @@
       grid-row: utility;
       grid-column: full;
       @include padding-x(0 !important);
+
+      // Add border to navigation utility on larger screens.
+      @include breakpoint-l {
+        &::after {
+          content: '';
+          @include absolute(null 0 0 0);
+          width: 100%;
+        }
+      };
+
     }
     &-main {
       grid-row: main;
@@ -85,6 +95,15 @@
         display: grid !important;
       };
 
+    }
+
+    // Add border to main on smaller screens.
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      @include absolute(null 0 0 0);
+      @include absolute-center-within-container-x;
     }
 
   }
