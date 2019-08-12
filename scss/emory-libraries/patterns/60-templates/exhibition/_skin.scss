@@ -8,23 +8,18 @@
 ///
 /// @type map
 $templates-exhibition: (
-  
-  'layout': (
-    'x': $layout-x,
-    'y': $layout-y
-  ),
-  
+
   'divider': (
     'thickness': 1px,
     'color': color('slate', 'light')
   ),
-  
+
   'date': color('blue'),
-  
+
   'sidenote': (
     'heading': color('blue')
   )
-  
+
 );
 
 /// Defines the exhibition component theme.
@@ -37,34 +32,31 @@ $templates-exhibition: (
 ///
 /// @output The exhibition component's themeable properties
 @mixin templates-exhibition--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $gap: map-deep-get($skin, 'gap');
-  $layout: map-deep-get($skin, 'layout');
   $date: map-deep-get($skin, 'date');
-  
+
   // Get divider-specific variables.
   $divider-thickness: map-deep-get($skin, 'divider.thickness');
   $divider-color: map-deep-get($skin, 'divider.color');
-  
+
   // Get sidenote-specific variables.
   $sidenote-heading: map-deep-get($skin, 'sidenote.heading');
 
   // Defines the exhibition component's base styles.
   // ...
-  
+
   // Defines exhibition header and footer styles.
   &-header,
-  &-footer {
-    border: $border-width-s solid color('slate'); // TEMPORARY
-  }
-  
+  &-footer {}
+
   // Defines exhibition header styles.
   &-header { }
-  
+
   // Defines exhibition main styles.
   &-main {
-  
+
     // Defines styles for main context.
     &-context {
       @include tokens-heading('h6', $custom: ('h6': (
@@ -72,54 +64,48 @@ $templates-exhibition: (
       )));
       text-align: center;
     }
-    
+
     // Defines styles for main quote.
     &-quote {
       @include tokens-text('blockquote');
     }
-    
+
     // Defines styles for main date.
     &-date {
       @include tokens-heading('h4', $date);
     }
-    
+
     // Defines styles for main sidenote.
-    &-sidenote { 
-    
+    &-sidenote {
+
       // Add heading styles.
       &-heading {
         @include tokens-heading('h6', $sidenote-heading);
       }
-      
+
       // Add content styles.
       &-content { }
-      
+
       // Add link styles.
       &-link {
         @include atoms-link;
       }
-    
+
     }
-    
+
     // Defines styles for main divider.
     &-divider {
-    
+
       &::after {
         width: $divider-thickness;
         background-color: $divider-color;
       }
-      
+
     }
-    
-    // Apply the layout to the main and deep dive sections.
-    .section-main,
-    .section-deep-dive {
-      @include tokens-layout($layout);
-    }
-  
+
   }
-  
+
   // Defines exhibition footer styles.
   &-footer { }
-  
+
 }
