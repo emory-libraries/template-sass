@@ -1,0 +1,46 @@
+////
+/// @group emory-libraries.patterns.templates.event
+////
+
+/// Defines the base skin of the event component.
+///
+/// @since 1.0.0-dev.3
+///
+/// @type map
+$templates-event: (
+
+
+
+);
+
+/// Defines the event component theme.
+///
+/// @since 1.0.0-dev.3
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The event component's themeable properties
+@mixin templates-event--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  // ...
+
+  // Defines the event component's base styles.
+  // ...
+
+  // Defines event header and footer styles.
+  &-header,
+  &-footer { }
+
+  // Defines event header styles.
+  &-header { }
+
+  // Defines event main styles.
+  &-main { }
+
+  // Defines event footer styles.
+  &-footer { }
+
+}
