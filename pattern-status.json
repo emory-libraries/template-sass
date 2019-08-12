@@ -99,7 +99,7 @@
   "templates-exhibition": "review",
   "templates-index": "review",
   "templates-periodicals": "review",
-  "templates-event": "review",
-  "templates-cover": "review"
+  "templates-event": "construction",
+  "templates-cover": "review",
   "templates-home": "review"
 }

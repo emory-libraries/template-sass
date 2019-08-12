@@ -21,24 +21,27 @@
 ///
 /// @status review
 @mixin atoms-list ( $custom: () ) {
-  
+
   // Extend the default skin.
   $skin: map-extend($atoms-list, $custom);
-  
+
   // Initialize the list component.
   & {
-    
+
     // Load structure.
     @extend %atoms-list;
-    
+
     // Loads accessories.
     &-item {
       @extend %atoms-list-item;
     }
-    
+    &-title {
+      @extend %atoms-list-title;
+    }
+
     // Load skins.
     @include atoms-list--theme( $skin );
-    
+
   }
-  
+
 }
