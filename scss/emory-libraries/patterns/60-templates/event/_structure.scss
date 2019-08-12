@@ -6,75 +6,43 @@
 ///
 /// @since 1.0.0-dev.3
 %templates-event {
-  
+
   // Captures selector.
   $selector: &;
-  
+
   // Builds the event structure.
   margin: 0 auto;
   display: grid;
   grid-template-areas: "header"
                        "main"
                        "footer";
-  grid-template-rows: 150px 1fr 420px;
-  grid-template-columns: 1fr;
+  grid-template-rows: 135px 1fr auto;
+  grid-template-columns: 100%;
 
-  // Build the event-main structure
+  // Adjust grid layout on larger screens.
+  @include breakpoint-l {
+    grid-template-rows: 150px 1fr auto;
+  };
 
+  // Adjust grid layout on even larger screens.
+  @include breakpoint-xl {
+    grid-template-rows: 130px 1fr auto;
+  };
+
+
+  // Builds the event header structure.
   &-header {
     grid-area: header;
-    @include absolute-center-contents;
-
-    &::after {
-      content: 'Header'; // TEMPORARY
-    }
-
   }
 
+  // Builds the event main structure
   &-main {
     grid-area: main;
-
-    // Override some main section structure.
-    /*.section-main {
-      padding-top: 0 !important;
-
-      // Adjust the main body and sidebar section.
-      &-body,
-      &-sidebar {
-        margin-top: ($rhythm-y * 2);
-      }
-
-      // Adjust the main body section.
-      &-body {
-
-        > *:first-child {
-          margin-top: 0;
-        }
-
-      }
-
-      // Adjust the main sidebar section.
-      &-sidebar {
-
-        > * + * {
-          margin-top: $rhythm-y;
-        }
-
-      }
-
-    }*/
-
-  }  
+  }
 
   // Builds the event footer structure.
   &-footer {
     grid-area: footer;
-    @include absolute-center-contents;
-
-    &::after {
-      content: 'Footer'; // TEMPORARY
-    }
-
   }
 
 }

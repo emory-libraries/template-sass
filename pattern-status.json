@@ -101,5 +101,6 @@
   "templates-periodicals": "review",
   "templates-event": "construction",
   "templates-cover": "review",
-  "templates-home": "review"
+  "templates-home": "review",
+  "organisms-intro-cover": "review"
 }

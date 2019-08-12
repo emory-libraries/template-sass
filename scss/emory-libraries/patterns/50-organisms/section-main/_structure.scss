@@ -324,7 +324,7 @@
 
         // Adjust the title and subtitle placement within the grid.
         #{$selector}-title,
-        #{$selector}-subtitle, {
+        #{$selector}-subtitle {
           grid-column: main / sidebar;
         }
 
@@ -575,32 +575,27 @@
   // Builds the main structure when used for an event page.
   &.-event-page {
     @include grid-layout((
-        'subtitle': false,
-      ));
+      'subtitle': false,
+      'section': false
+    ));
 
     // Hide grid areas that are not being used within this page type.
-    
-       // Adjust the spacing for sidebar and body within the grid.
-   /* #{$selector}-body,
-    #{$selector}-sidebar {
-      @include margin-y($rhythm-y);
-    }*/
-    .intro-interior-cover {
-      grid-column: 1 / -1;
+    #{$selector}-section,
+    #{$selector}-subtitle {
+      display: none;
     }
 
-
-    // Adjusts the main structure across large screens.
+    // Adjust the main structure across large screens.
     @include breakpoint-l {
-
-      // Adjust the header placement within the grid.
-      .intro-interior-cover {
-        grid-column: main / sidebar;
-      }
 
       // Adjust the breadcrumb placement within the grid.
       #{$selector}-breadcrumb {
-        grid-column: main / sidebar ;
+        grid-column: main / sidebar;
+      }
+
+      // Adjust the title and subtitle placement within the grid.
+      #{$selector}-title {
+        grid-column: main / sidebar;
       }
 
       // Adjust the sidebar placement within the grid.
@@ -609,6 +604,7 @@
       }
 
     };
+
   }
 
   // Builds the main structure when used for an exhibition page.

@@ -8,14 +8,9 @@
 ///
 /// @type map
 $templates-event: (
-  
-  'layout': (
-    'x': $layout-x,
-    'y': $layout-y
-  ),
-  
-  'gap': 20px
-  
+
+
+
 );
 
 /// Defines the event component theme.
@@ -28,39 +23,24 @@ $templates-event: (
 ///
 /// @output The event component's themeable properties
 @mixin templates-event--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
-  $layout: map-deep-get($skin, 'layout');
-  
+  // ...
+
   // Defines the event component's base styles.
-  grid-gap: $gap;
+  // ...
 
   // Defines event header and footer styles.
   &-header,
-  &-footer {
-    border: $border-width-s solid color('slate'); // TEMPORARY
-  }
-  
+  &-footer { }
+
   // Defines event header styles.
   &-header { }
-  
+
   // Defines event main styles.
-  &-main {
+  &-main { }
 
-    .intro-interior-cover-title {
-
-      font-size: 40px;
-
-      @include breakpoint-m-l-xl() {
-        font-size: 74px;
-      }
-
-    }
-
-  }
-  
   // Defines event footer styles.
   &-footer { }
-    
+
 }
