@@ -6,43 +6,43 @@
 ///
 /// @since 1.0.0-dev.0
 %compounds-sidebar-list {
-  
+
   // Capture the selector.
   $selector: &;
-  
+
   // Builds the sidebar-list structure.
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  
+
   // Builds the sidebar section structure.
   &-section {
-    
+
     // Builds the sidebar section title structure.
-    &-title { 
+    &-title {
       display: flex;
       align-items: center;
-      
+
       // Hide icons by default.
       .icon {
         display: none;
       }
-      
+
       // Modify styles when an icon is present.
       &.has-icon {
-        
+
         // Show icon.
         .icon {
           display: flex;
         }
-        
+
       }
-      
+
     }
-  
+
     // Builds the sidebar section content structure.
     &-content {
-    
+
       // Modifies list styles when inside of content.
       .list,
       ul,
@@ -55,15 +55,15 @@
         li {
           list-style-type: none !important;
           padding: 0 !important;
-        
+
           &::before {
             content: none !important;
           }
-          
+
         }
-        
+
       }
-      
+
       // Modifies button and link styles when inside of content.
       .link,
       a {
@@ -72,17 +72,18 @@
       .button,
       button {
         display: flex;
+        max-width: max-content;
       }
-    
+
     }
-    
+
   }
-  
+
   // Builds the sidebar button structure.
-  &-button { 
+  &-button {
     display: block;
     width: 100%;
     margin: 0 auto;
   }
-  
+
 }

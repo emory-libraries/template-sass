@@ -9,7 +9,6 @@
 /// @type map
 $templates-cover: (
 
-  'gap': 40px
 
 
 );
@@ -26,16 +25,14 @@ $templates-cover: (
 @mixin templates-cover--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
+  // ...
 
   // Defines the cover component's base styles.
   // ...
 
   // Defines cover header and footer styles.
   &-header,
-  &-footer {
-    border: $border-width-s solid color('slate'); // TEMPORARY
-  }
+  &-footer {}
 
   // Defines cover header styles.
   &-header { }
