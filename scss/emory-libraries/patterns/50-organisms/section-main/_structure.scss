@@ -247,7 +247,8 @@
     '.-research-help-directory-page',
     '.-index-page',
     '.-periodicals-page',
-    '.-cover-page'
+    '.-cover-page',
+    '.-event-page'
   )}, &.-info-page");
 
   // Remove top padding from the main section on most pages.
@@ -265,7 +266,8 @@
   &.-staff-directory-page,
   &.-exhibition-page,
   &.-index-page,
-  &.-cover-page {
+  &.-cover-page,
+  &.-event-page {
     padding-top: 0 !important;
   }
 
@@ -289,29 +291,51 @@
   }
 
   // Builds the main structure when used for an info page.
-  #{$selector-info-page} {
-    @include grid-layout;
+  &#{selector-excludes(
+    '.-info-page',
+    '.-material-page',
+    '.-tool-page',
+    '.-bio-page',
+    '.-research-help-page',
+    '.-service-directory-page',
+    '.-form-page',
+    '.-subject-librarian-directory-page',
+    '.-staff-directory-page',
+    '.-landing-page',
+    '.-gallery-page',
+    '.-exhibition-page',
+    '.-research-help-directory-page',
+    '.-index-page',
+    '.-periodicals-page',
+    '.-event-page'
+  )},
+  &.-info-page {
 
-    // Adjust the main structure across large screens.
-    @include breakpoint-l {
+    #{$selector-info-page} {
+      @include grid-layout;
 
-      // Adjust the breadcrumb placement within the grid.
-      #{$selector}-breadcrumb {
-        grid-column: main / sidebar;
-      }
+      // Adjust the main structure across large screens.
+      @include breakpoint-l {
 
-      // Adjust the title and subtitle placement within the grid.
-      #{$selector}-title,
-      #{$selector}-subtitle, {
-        grid-column: main / sidebar;
-      }
+        // Adjust the breadcrumb placement within the grid.
+        #{$selector}-breadcrumb {
+          grid-column: main / sidebar;
+        }
 
-      // Adjust the sidebar placement within the grid.
-      #{$selector}-sidebar {
-        grid-row: body / main;
-      }
+        // Adjust the title and subtitle placement within the grid.
+        #{$selector}-title,
+        #{$selector}-subtitle {
+          grid-column: main / sidebar;
+        }
 
-    };
+        // Adjust the sidebar placement within the grid.
+        #{$selector}-sidebar {
+          grid-row: body / main;
+        }
+
+      };
+
+    }
 
   }
 
@@ -546,6 +570,40 @@
     #{$selector}-sidebar {
       display: none;
     }
+
+  }
+  // Builds the main structure when used for an event page.
+  &.-event-page {
+    @include grid-layout((
+      'subtitle': false,
+      'section': false
+    ));
+
+    // Hide grid areas that are not being used within this page type.
+    #{$selector}-section,
+    #{$selector}-subtitle {
+      display: none;
+    }
+
+    // Adjust the main structure across large screens.
+    @include breakpoint-l {
+
+      // Adjust the breadcrumb placement within the grid.
+      #{$selector}-breadcrumb {
+        grid-column: main / sidebar;
+      }
+
+      // Adjust the title and subtitle placement within the grid.
+      #{$selector}-title {
+        grid-column: main / sidebar;
+      }
+
+      // Adjust the sidebar placement within the grid.
+      #{$selector}-sidebar {
+        grid-row: body / main;
+      }
+
+    };
 
   }
 
