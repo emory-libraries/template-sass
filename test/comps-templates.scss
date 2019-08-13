@@ -84,3 +84,8 @@
 .home-page {
   @include templates-home;
 }
+
+// templates-hours
+.hours-page {
+  @include templates-hours;
+}

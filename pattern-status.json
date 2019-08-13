@@ -102,5 +102,7 @@
   "templates-event": "construction",
   "templates-cover": "review",
   "templates-home": "review",
-  "organisms-intro-cover": "review"
+  "organisms-intro-cover": "review",
+  "templates-hours": "construction",
+  "organisms-hours": "construction"
 }

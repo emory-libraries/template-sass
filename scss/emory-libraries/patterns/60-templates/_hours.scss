@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.hours
+////
+
+/// Load the hours component's structure and skin.
+@import 'hours/structure';
+@import 'hours/skin';
+
+/// Builds a constructor for the hours component.
+///
+/// @since 1.0.0-dev.5
+///
+/// @requires {placeholder} templates-hours
+/// @requires {variable} templates-hours
+/// @requires {mixin} templates-hours--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our hours component
+///
+/// @status construction
+@mixin templates-hours ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($templates-hours, $custom);
+
+  // Initialize the hours component.
+  & {
+
+    // Load structure.
+    @extend %templates-hours;
+
+    // Load parts.
+    &-header {
+      @extend %templates-hours-header;
+    }
+    &-main {
+      @extend %templates-hours-main;
+    }
+    &-footer {
+      @extend %templates-hours-footer;
+    }
+
+    // Load skins.
+    @include templates-hours--theme( $skin );
+
+  }
+
+}

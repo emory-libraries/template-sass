@@ -1,0 +1,80 @@
+////
+/// @group emory-libraries.patterns.organisms.hours
+////
+
+/// Defines the base structure of the hours component.
+///
+/// @since 1.0.0-dev.5
+%organisms-hours {
+
+  // Capture the selector.
+  $selector: &;
+
+  // Builds the hours structure.
+  overflow-x: hidden;
+
+  // Builds the hours title structure.
+  &-title {
+    display: block;
+    margin-bottom: 0;
+  }
+
+  // Builds the hours subtitle structure.
+  &-subtitle {
+    display: block;
+
+  }
+
+  // Builds the hours toggle structure.
+  &-toggle {
+    display: none;
+  }
+
+  // Builds the hours content structure.
+  &-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  // Builds the hours group structure.
+  &-group {
+    display: grid;
+    grid-template-rows: 50px auto;
+  }
+
+  // Builds the hours day structure.
+  &-day {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    // Build current day styles.
+    &-current {
+      flex-grow: 4;
+      order: 1;
+      cursor: pointer;
+    }
+
+    // Build previous structure.
+    &-previous {
+      @include absolute-center-contents(true);
+      flex-grow: 1;
+      order: 2;
+      cursor: pointer;
+    }
+
+    // Build next day structure.
+    &-next {
+      @include absolute-center-contents(true);
+      flex-grow: 1;
+      order: 3;
+      cursor: pointer;
+    }
+
+  }
+
+  // Builds the hours table structure.
+  &-table { }
+
+}
