@@ -8,8 +8,6 @@
 ///
 /// @type map
 $organisms-hours: (
-
-  'days': 7,
   'size': 500px,
   'fade': .5,
   'spacing': $rhythm-x,
@@ -21,6 +19,11 @@ $organisms-hours: (
   'transition': (
     'duration': $transition-duration,
     'timing': $transition-timing
+  ),
+
+  'days': (
+    'default': 7,
+    'max': 366
   )
 
 );
@@ -41,7 +44,6 @@ $organisms-hours: (
 
   // Capture themeable variables from skin.
   $title: map-deep-get($skin, 'title');
-  $days: map-deep-get($skin, 'days');
   $size: map-deep-get($skin, 'size');
   $fade: map-deep-get($skin, 'fade');
   $spacing: map-deep-get($skin, 'spacing');
@@ -52,8 +54,12 @@ $organisms-hours: (
   $transition-duration: map-deep-get($skin, 'transition.duration');
   $transition-timing: map-deep-get($skin, 'transition.timing');
 
+  // Get days-specific variables.
+  $days-default: map-deep-get($skin, 'days.default');
+  $days-max: map-deep-get($skin, 'days.max');
+
   // Defines the hours component's base styles.
-  // ...
+  --days: #{$days-default};
 
   // Defines the hours title styles.
   &-title {
@@ -66,10 +72,10 @@ $organisms-hours: (
   // Defines the hours content styles.
   &-content {
     transition: all $transition-duration $transition-timing;
-    width: calc(100% * #{$days});
+    width: calc(100% * var(--days));
 
     // Adjust the content placement based on the active toggle.
-    @for $i from 1 through $days {
+    @for $i from 1 through $days-max {
 
       // Adjust the placement when toggles change.
       #{$selector}-toggle:nth-of-type(#{$i}):checked ~ & {
@@ -86,7 +92,7 @@ $organisms-hours: (
 
     // Adjust the size of the content area on larger screens.
     @include breakpoint-l {
-      width: calc((#{$size} * #{$days}) + (#{$spacing} * #{$days - 1}));
+      width: calc((#{$size} * var(--days)) + (#{$spacing} * (var(--days) - 1)));
     };
 
   }
@@ -105,7 +111,7 @@ $organisms-hours: (
     };
 
     // Adjust the group based on the active toggle.
-    @for $i from 1 through $days {
+    @for $i from 1 through $days-max {
 
       // Adjust the group visibility when active.
       #{$selector}-toggle:nth-of-type(#{$i}):checked ~ #{$selector}-content &:nth-of-type(#{$i}) {
@@ -122,7 +128,7 @@ $organisms-hours: (
       }
 
       // Adjust the group visibility if inactive and after the active item.
-      @for $after from $i + 1 through $days {
+      @for $after from $i + 1 through $days-max {
 
         #{$selector}-toggle:nth-of-type(#{$i}):checked ~ #{$selector}-content &:nth-of-type(#{$after}) {
           opacity: $fade;
@@ -140,7 +146,7 @@ $organisms-hours: (
     transition: all $transition-duration $transition-timing;
 
     // Adjust the day's styles when active or inactive.
-    @for $i from 1 through $days {
+    @for $i from 1 through $days-max {
 
       // Only show the previous and next toggles for the active day.
       #{$selector}-toggle:nth-of-type(#{$i}):checked ~ #{$selector}-content #{$selector}-group:nth-of-type(#{$i}) & {
