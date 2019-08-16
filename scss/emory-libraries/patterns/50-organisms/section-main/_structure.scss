@@ -86,7 +86,7 @@
     @include breakpoint-s-m-l {
 
       // Define a single-column layout as the default.
-      grid-template-columns: [main-start] 1fr [main-end];
+      grid-template-columns: [main-start] 100% [main-end];
 
       // Define the grid's default row templates.
       grid-template-rows: #{unstringify($rows)};
@@ -154,7 +154,7 @@
         $rows: append($rows, '[#{$name}]', space);
       }
 
-      // Override the gird layout for large screens.
+      // Override the grid layout for large screens.
       @include breakpoint-l {
 
         // Define a two-column grid layout for large screens.
@@ -248,7 +248,8 @@
     '.-index-page',
     '.-periodicals-page',
     '.-cover-page',
-    '.-event-page'
+    '.-event-page',
+    '.-hours-page'
   )}, &.-info-page");
 
   // Remove top padding from the main section on most pages.
@@ -266,6 +267,7 @@
   &.-staff-directory-page,
   &.-exhibition-page,
   &.-index-page,
+  &.-hours-page,
   &.-cover-page,
   &.-event-page {
     padding-top: 0 !important;
@@ -307,7 +309,8 @@
     '.-research-help-directory-page',
     '.-index-page',
     '.-periodicals-page',
-    '.-event-page'
+    '.-event-page',
+    '.-hours-page'
   )},
   &.-info-page {
 
@@ -572,6 +575,7 @@
     }
 
   }
+
   // Builds the main structure when used for an event page.
   &.-event-page {
     @include grid-layout((
@@ -664,8 +668,9 @@
 
   }
 
-  // Builds the main structure when used for an index page.
-  &.-index-page {
+  // Builds the main structure when used for an index and hours page.
+  &.-index-page,
+  &.-hours-page {
     @include grid-layout((
       'spacer': false,
       'auto': false,

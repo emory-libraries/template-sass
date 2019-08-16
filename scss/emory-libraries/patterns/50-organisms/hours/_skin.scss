@@ -1,0 +1,225 @@
+////
+/// @group emory-libraries.patterns.organisms.hours
+////
+
+/// Defines the base skin of the hours component.
+///
+/// @since 1.0.0-dev.5
+///
+/// @type map
+$organisms-hours: (
+
+  'size': 500px,
+  'fade': .5,
+  'spacing': $rhythm-x,
+
+  'title': color('blue', 'dark'),
+  'day': color('blue', 'mid'),
+  'arrow': $color-actionable,
+
+  'transition': (
+    'duration': $transition-duration,
+    'timing': $transition-timing
+  ),
+
+  'days': (
+    'default': 7,
+    'max': 366,
+    'size': (
+      'max': 100px,
+      'min': 50px
+    )
+  )
+
+);
+
+/// Defines the hours component theme.
+///
+/// @since 1.0.0-dev.5
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The hours component's themeable properties
+@mixin organisms-hours--theme ( $skin ) {
+
+  // Capture the selector.
+  $selector: &;
+
+  // Capture themeable variables from skin.
+  $title: map-deep-get($skin, 'title');
+  $size: map-deep-get($skin, 'size');
+  $fade: map-deep-get($skin, 'fade');
+  $spacing: map-deep-get($skin, 'spacing');
+  $day: map-deep-get($skin, 'day');
+  $arrow: map-deep-get($skin, 'arrow');
+
+  // Get transition-specific variables.
+  $transition-duration: map-deep-get($skin, 'transition.duration');
+  $transition-timing: map-deep-get($skin, 'transition.timing');
+
+  // Get days-specific variables.
+  $days-default: map-deep-get($skin, 'days.default');
+  $days-max: map-deep-get($skin, 'days.max');
+  $days-size-max: map-deep-get($skin, 'days.size.max');
+  $days-size-min: map-deep-get($skin, 'days.size.min');
+
+  // Defines the hours component's base styles.
+  --days: #{$days-default};
+
+  // Defines the hours title styles.
+  &-title {
+    @include tokens-heading('h5-alt', $title, $important: true);
+  }
+
+  // Defines the hours toggle styles.
+  &-toggle { }
+
+  // Defines the hours content styles.
+  &-content {
+    transition: all $transition-duration $transition-timing;
+    width: calc(100% * var(--days));
+
+    // Adjust the content placement based on the active toggle.
+    @for $i from 1 through $days-max {
+
+      // Adjust the placement when toggles change.
+      #{$selector}-toggle:nth-of-type(#{$i}):checked ~ & {
+        left: calc(100% * #{$i - 1} * -1);
+
+        // Also, adjust the placement when toggles change on larger screens.
+        @include breakpoint-l {
+          left: calc((#{$size} + #{$spacing}) * #{$i - 1} * -1);
+        };
+
+      }
+
+    }
+
+    // Adjust the size of the content area on larger screens.
+    @include breakpoint-l {
+      width: calc((#{$size} * var(--days)) + (#{$spacing} * (var(--days) - 1)));
+    };
+
+  }
+
+  // Defines the hours group styles.
+  &-group {
+    width: 100%;
+    grid-template-columns: 100%;
+    transition: all $transition-duration $transition-timing;
+
+    // Adjust the group size on larger screens.
+    @include breakpoint-l {
+      width: $size;
+      grid-template-columns: $size;
+      margin-right: $spacing;
+    };
+
+    // Adjust the group based on the active toggle.
+    @for $i from 1 through $days-max {
+
+      // Adjust the group visibility when active.
+      #{$selector}-toggle:nth-of-type(#{$i}):checked ~ #{$selector}-content &:nth-of-type(#{$i}) {
+        opacity: 1 !important;
+      }
+
+      // Adjust the group visibility if inactive and before the active item.
+      @for $before from 1 through $i - 1 {
+
+        #{$selector}-toggle:nth-of-type(#{$i}):checked ~ #{$selector}-content &:nth-of-type(#{$before}) {
+          opacity: $fade;
+        }
+
+      }
+
+      // Adjust the group visibility if inactive and after the active item.
+      @for $after from $i + 1 through $days-max {
+
+        #{$selector}-toggle:nth-of-type(#{$i}):checked ~ #{$selector}-content &:nth-of-type(#{$after}) {
+          opacity: $fade;
+        }
+
+      }
+
+    }
+
+  }
+
+  // Defines the days styles.
+  &-day {
+    @include tokens-heading('h6', $day);
+    transition: all $transition-duration $transition-timing;
+
+    // Adjust the day's styles when active or inactive.
+    @for $i from 1 through $days-max {
+
+      // Only show the previous and next toggles for the active day.
+      #{$selector}-toggle:nth-of-type(#{$i}):checked ~ #{$selector}-content #{$selector}-group:nth-of-type(#{$i}) & {
+
+        // Show previous toggle.
+        &-previous::before {
+          content: icon-url('material-chevron_left', $arrow, 24px);
+        }
+
+        // Show next toggle.
+        &-next::before {
+          content: icon-url('material-chevron_right', $arrow, 24px);
+        }
+
+      }
+
+
+    }
+
+    // Adjust previous and next toggles.
+    &-previous,
+    &-next {
+      transition: all $transition-duration $transition-timing;
+
+      // Fade out disabled buttons.
+      &.is-disabled,
+      &[disabled] {
+        opacity: .5;
+        cursor: not-allowed;
+      }
+
+      // Add styles for non-disabled buttons.
+      &:not(.is-disabled):not([disabled]) {
+
+        // Add a hover effect.
+        &.is-hover,
+        &.is-focus,
+        &:hover,
+        &:focus {
+          transform: scale(1.5);
+        }
+
+      }
+
+    }
+
+  }
+
+  // Defines the tables styles.
+  &-table {
+
+    // Adjust the hours cell width on various screens.
+    .table-cell:nth-last-child(-n + 2) {
+
+      // Set a maximum width on medium screens.
+      @include breakpoint-m {
+        max-width: $days-size-max;
+      };
+
+      // Set a minimum cell width on larger screens.
+      @include breakpoint-l {
+        min-width: $days-size-min;
+      };
+
+    }
+
+  }
+
+}

@@ -1,0 +1,46 @@
+////
+/// @group emory-libraries.patterns.templates.hours
+////
+
+/// Defines the base skin of the hours component.
+///
+/// @since 1.0.0-dev.5
+///
+/// @type map
+$templates-hours: (
+
+
+
+);
+
+/// Defines the hours component theme.
+///
+/// @since 1.0.0-dev.5
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The hours component's themeable properties
+@mixin templates-hours--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  // ...
+
+  // Defines the hours component's base styles.
+  // ...
+
+  // Defines hours header and footer styles.
+  &-header,
+  &-footer {}
+
+  // Defines hours header styles.
+  &-header { }
+
+  // Defines hours main styles.
+  &-main { }
+
+  // Defines hours footer styles.
+  &-footer { }
+
+}
