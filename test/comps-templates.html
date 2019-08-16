@@ -2023,6 +2023,422 @@
     </div>
   </div>
 
+  <!-- templates-hours -->
+  <strong style="margin: 25px 25px 0">Hours Page</strong>
+  <div style="margin: 0 25px 25px; border: 1px solid black; padding: 10px;">
+
+    <div class="hours-page">
+      <header class="hours-page-header"></header>
+      <main class="hours-page-main section-main -hours-page">
+
+        <div class="section-main-breadcrumb"></div>
+
+        <h1 class="section-main-title intro-title -heading">Hours</h1>
+
+        <p class="section-main-subtitle intro-subtitle">Browse the library hours for this semester and upcoming semesters.</p>
+
+        <div class="section-main-body">
+          <div class="hours">
+
+            <input type="radio" class="input -toggle hours-toggle" name="hours" id="hours--today" checked>
+            <input type="radio" class="input -toggle hours-toggle" name="hours" id="hours--today+1">
+            <input type="radio" class="input -toggle hours-toggle" name="hours" id="hours--today+2">
+            <input type="radio" class="input -toggle hours-toggle" name="hours" id="hours--today+3">
+            <input type="radio" class="input -toggle hours-toggle" name="hours" id="hours--today+4">
+            <input type="radio" class="input -toggle hours-toggle" name="hours" id="hours--today+5">
+            <input type="radio" class="input -toggle hours-toggle" name="hours" id="hours--today+6">
+
+            <h5 class="heading -h5-alt hours-title">Summer Hours</h5>
+
+            <span class="text hours-subtitle">
+              Displaying hours for
+              <input type="date" class="input -date -inline" value="2019-08-10">
+              to
+              <input type="date" class="input -date -inline" value="2019-08-16">.
+            </span>
+
+            <div class="hours-content">
+
+              <!-- today -->
+              <div class="hours-group">
+
+                <div class="hours-day">
+                  <label class="hours-day-current" for="hours--today">Saturday, August 10, 2019</label>
+                  <label class="hours-day-next" for="hours--today+1"></label>
+                </div>
+
+                <table class="table hours-table">
+                  <thead class="table-header">
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="col"></th>
+                      <th class="table-cell -heading" scope="col">Opens</th>
+                      <th class="table-cell -heading" scope="col">Closes</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Woodruff Library Building</th>
+                      <td class="table-cell">12:00am</td>
+                      <td class="table-cell">12:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Visitors</th>
+                      <td class="table-cell">7:30am</td>
+                      <td class="table-cell">9:00pm</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Music and Media Library</th>
+                      <td class="table-cell">8:00am</td>
+                      <td class="table-cell">12:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Interlibrary Loan</th>
+                      <td class="table-cell">9:00am</td>
+                      <td class="table-cell">5:00pm</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Peet's Coffee & Tea</th>
+                      <td class="table-cell">7:00am</td>
+                      <td class="table-cell">1:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Classroom Technologies and AV Support</th>
+                      <td class="table-cell">9:00am</td>
+                      <td class="table-cell">5:00pm</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+              <!-- today+1 -->
+              <div class="hours-group">
+
+                <div class="hours-day">
+                  <label class="hours-day-previous" for="hours--today"></label>
+                  <label class="hours-day-current" for="hours--today+1">Sunday, August 11, 2019</label>
+                  <label class="hours-day-next" for="hours--today+2"></label>
+                </div>
+
+                <table class="table hours-table">
+                  <thead class="table-header">
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="col"></th>
+                      <th class="table-cell -heading" scope="col">Opens</th>
+                      <th class="table-cell -heading" scope="col">Closes</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Woodruff Library Building</th>
+                      <td class="table-cell">12:00am</td>
+                      <td class="table-cell">12:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Visitors</th>
+                      <td class="table-cell">7:30am</td>
+                      <td class="table-cell">9:00pm</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Music and Media Library</th>
+                      <td class="table-cell">8:00am</td>
+                      <td class="table-cell">12:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Interlibrary Loan</th>
+                      <td class="table-cell">9:00am</td>
+                      <td class="table-cell">5:00pm</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Peet's Coffee & Tea</th>
+                      <td class="table-cell">7:00am</td>
+                      <td class="table-cell">1:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Classroom Technologies and AV Support</th>
+                      <td class="table-cell">9:00am</td>
+                      <td class="table-cell">5:00pm</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+              <!-- today+2 -->
+              <div class="hours-group">
+
+                <div class="hours-day">
+                  <label class="hours-day-previous" for="hours--today+1"></label>
+                  <label class="hours-day-current" for="hours--today+2">Monday, August 12, 2019</label>
+                  <label class="hours-day-next" for="hours--today+3"></label>
+                </div>
+
+                <table class="table hours-table">
+                  <thead class="table-header">
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="col"></th>
+                      <th class="table-cell -heading" scope="col">Opens</th>
+                      <th class="table-cell -heading" scope="col">Closes</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Woodruff Library Building</th>
+                      <td class="table-cell">12:00am</td>
+                      <td class="table-cell">12:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Visitors</th>
+                      <td class="table-cell">7:30am</td>
+                      <td class="table-cell">9:00pm</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Music and Media Library</th>
+                      <td class="table-cell">8:00am</td>
+                      <td class="table-cell">12:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Interlibrary Loan</th>
+                      <td class="table-cell">9:00am</td>
+                      <td class="table-cell">5:00pm</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Peet's Coffee & Tea</th>
+                      <td class="table-cell">7:00am</td>
+                      <td class="table-cell">1:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Classroom Technologies and AV Support</th>
+                      <td class="table-cell">9:00am</td>
+                      <td class="table-cell">5:00pm</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+              <!-- today+3 -->
+              <div class="hours-group">
+
+                <div class="hours-day">
+                  <label class="hours-day-previous" for="hours--today+2"></label>
+                  <label class="hours-day-current" for="hours--today+3">Tuesday, August 13, 2019</label>
+                  <label class="hours-day-next" for="hours--today+4"></label>
+                </div>
+
+                <table class="table hours-table">
+                  <thead class="table-header">
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="col"></th>
+                      <th class="table-cell -heading" scope="col">Opens</th>
+                      <th class="table-cell -heading" scope="col">Closes</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Woodruff Library Building</th>
+                      <td class="table-cell">12:00am</td>
+                      <td class="table-cell">12:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Visitors</th>
+                      <td class="table-cell">7:30am</td>
+                      <td class="table-cell">9:00pm</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Music and Media Library</th>
+                      <td class="table-cell">8:00am</td>
+                      <td class="table-cell">12:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Interlibrary Loan</th>
+                      <td class="table-cell">9:00am</td>
+                      <td class="table-cell">5:00pm</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Peet's Coffee & Tea</th>
+                      <td class="table-cell">7:00am</td>
+                      <td class="table-cell">1:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Classroom Technologies and AV Support</th>
+                      <td class="table-cell">9:00am</td>
+                      <td class="table-cell">5:00pm</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+              <!-- today+4 -->
+              <div class="hours-group">
+
+                <div class="hours-day">
+                  <label class="hours-day-previous" for="hours--today+3"></label>
+                  <label class="hours-day-current" for="hours--today+4">Wednesday, August 14, 2019</label>
+                  <label class="hours-day-next" for="hours--today+5"></label>
+                </div>
+
+                <table class="table hours-table">
+                  <thead class="table-header">
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="col"></th>
+                      <th class="table-cell -heading" scope="col">Opens</th>
+                      <th class="table-cell -heading" scope="col">Closes</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Woodruff Library Building</th>
+                      <td class="table-cell">12:00am</td>
+                      <td class="table-cell">12:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Visitors</th>
+                      <td class="table-cell">7:30am</td>
+                      <td class="table-cell">9:00pm</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Music and Media Library</th>
+                      <td class="table-cell">8:00am</td>
+                      <td class="table-cell">12:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Interlibrary Loan</th>
+                      <td class="table-cell">9:00am</td>
+                      <td class="table-cell">5:00pm</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Peet's Coffee & Tea</th>
+                      <td class="table-cell">7:00am</td>
+                      <td class="table-cell">1:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Classroom Technologies and AV Support</th>
+                      <td class="table-cell">9:00am</td>
+                      <td class="table-cell">5:00pm</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+              <!-- today+5 -->
+              <div class="hours-group">
+
+                <div class="hours-day">
+                  <label class="hours-day-previous" for="hours--today+4"></label>
+                  <label class="hours-day-current" for="hours--today+5">Thrusday, August 15, 2019</label>
+                  <label class="hours-day-next" for="hours--today+6"></label>
+                </div>
+
+                <table class="table hours-table">
+                  <thead class="table-header">
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="col"></th>
+                      <th class="table-cell -heading" scope="col">Opens</th>
+                      <th class="table-cell -heading" scope="col">Closes</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Woodruff Library Building</th>
+                      <td class="table-cell">12:00am</td>
+                      <td class="table-cell">12:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Visitors</th>
+                      <td class="table-cell">7:30am</td>
+                      <td class="table-cell">9:00pm</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Music and Media Library</th>
+                      <td class="table-cell">8:00am</td>
+                      <td class="table-cell">12:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Interlibrary Loan</th>
+                      <td class="table-cell">9:00am</td>
+                      <td class="table-cell">5:00pm</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Peet's Coffee & Tea</th>
+                      <td class="table-cell">7:00am</td>
+                      <td class="table-cell">1:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Classroom Technologies and AV Support</th>
+                      <td class="table-cell">9:00am</td>
+                      <td class="table-cell">5:00pm</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+              <!--today+6 -->
+              <div class="hours-group">
+
+                <div class="hours-day">
+                  <label class="hours-day-previous" for="hours--today+5"></label>
+                  <label class="hours-day-current" for="hours--today+6">Friday, August 16, 2019</label>
+                </div>
+
+                <table class="table hours-table">
+                  <thead class="table-header">
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="col"></th>
+                      <th class="table-cell -heading" scope="col">Opens</th>
+                      <th class="table-cell -heading" scope="col">Closes</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-body">
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Woodruff Library Building</th>
+                      <td class="table-cell">12:00am</td>
+                      <td class="table-cell">12:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Visitors</th>
+                      <td class="table-cell">7:30am</td>
+                      <td class="table-cell">9:00pm</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Music and Media Library</th>
+                      <td class="table-cell">8:00am</td>
+                      <td class="table-cell">12:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Interlibrary Loan</th>
+                      <td class="table-cell">9:00am</td>
+                      <td class="table-cell">5:00pm</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Peet's Coffee & Tea</th>
+                      <td class="table-cell">7:00am</td>
+                      <td class="table-cell">1:00am</td>
+                    </tr>
+                    <tr class="table-row">
+                      <th class="table-cell -heading" scope="row">Classroom Technologies and AV Support</th>
+                      <td class="table-cell">9:00am</td>
+                      <td class="table-cell">5:00pm</td>
+                    </tr>
+                  </tbody>
+                </table>
+
+              </div>
+
+            </div>
+
+          </div>
+        <div>
+
+      </main>
+      <footer class="hours-page-footer"></footer>
+    </div>
+
+  </div>
+
 </body>
 
 </html>

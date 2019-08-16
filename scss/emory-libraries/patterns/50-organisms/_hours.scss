@@ -1,0 +1,71 @@
+////
+/// @group emory-libraries.patterns.organisms.hours
+////
+
+/// Load the hours component's structure and skin.
+@import 'hours/structure';
+@import 'hours/skin';
+
+/// Builds a constructor for the hours component.
+///
+/// @since 1.0.0-dev.5
+///
+/// @requires {placeholder} organisms-hours
+/// @requires {variable} organisms-hours
+/// @requires {mixin} organisms-hours--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our hours component
+///
+/// @status review
+@mixin organisms-hours ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($organisms-hours, $custom);
+
+  // Initialize the hours component.
+  & {
+
+    // Load structure.
+    @extend %organisms-hours;
+
+    // Load parts.
+    &-title {
+      @extend %organisms-hours-title;
+    }
+    &-subtitle {
+      @extend %organisms-hours-subtitle;
+    }
+    &-toggle {
+      @extend %organisms-hours-toggle;
+    }
+    &-content {
+      @extend %organisms-hours-content;
+    }
+    &-group {
+      @extend %organisms-hours-group;
+    }
+    &-day {
+      @extend %organisms-hours-day;
+      &-current {
+        @extend %organisms-hours-day-current;
+      }
+      &-previous {
+        @extend %organisms-hours-day-previous;
+      }
+      &-next {
+        @extend %organisms-hours-day-next;
+      }
+    }
+    &-table {
+      @extend %organisms-hours-table;
+    }
+
+    // Load skins.
+    @include organisms-hours--theme( $skin );
+
+  }
+
+}
