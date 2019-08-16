@@ -8,14 +8,9 @@
 ///
 /// @type map
 $templates-gallery: (
+
   
-  'layout': (
-    'x': $layout-x,
-    'y': $layout-y
-  ),
-  
-  'gap': 20px
-  
+
 );
 
 /// Defines the gallery component theme.
@@ -28,27 +23,24 @@ $templates-gallery: (
 ///
 /// @output The gallery component's themeable properties
 @mixin templates-gallery--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
-  $layout: map-deep-get($skin, 'layout');
+  // ...
 
   // Defines the gallery component's base styles.
-  grid-gap: $gap;
-  
+  // ...
+
   // Defines gallery header and footer styles.
   &-header,
-  &-footer {
-    border: $border-width-s solid color('slate'); // TEMPORARY
-  }
-  
+  &-footer {}
+
   // Defines gallery header styles.
   &-header { }
-  
+
   // Defines gallery main styles.
   &-main { }
-  
+
   // Defines gallery footer styles.
   &-footer { }
-  
+
 }

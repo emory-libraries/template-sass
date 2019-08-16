@@ -1,0 +1,48 @@
+////
+/// @group emory-libraries.patterns.templates.event
+////
+
+/// Defines the base structure of the event component.
+///
+/// @since 1.0.0-dev.3
+%templates-event {
+
+  // Captures selector.
+  $selector: &;
+
+  // Builds the event structure.
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "header"
+                       "main"
+                       "footer";
+  grid-template-rows: 135px 1fr auto;
+  grid-template-columns: 100%;
+
+  // Adjust grid layout on larger screens.
+  @include breakpoint-l {
+    grid-template-rows: 150px 1fr auto;
+  };
+
+  // Adjust grid layout on even larger screens.
+  @include breakpoint-xl {
+    grid-template-rows: 130px 1fr auto;
+  };
+
+
+  // Builds the event header structure.
+  &-header {
+    grid-area: header;
+  }
+
+  // Builds the event main structure
+  &-main {
+    grid-area: main;
+  }
+
+  // Builds the event footer structure.
+  &-footer {
+    grid-area: footer;
+  }
+
+}

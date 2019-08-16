@@ -8,7 +8,7 @@
 ///
 /// @type map
 $compounds-sidebar-list: (
-  
+
   'title': (
     'color': color('blue'),
     'icon': (
@@ -16,16 +16,16 @@ $compounds-sidebar-list: (
       'spacing': 10px
     )
   ),
-  
+
   'spacing': (
     'title': 1rem,
     'button': 25px
   ),
-  
+
   'padding': 35px,
-  
+
   'divider': map-deep-get($atoms-rule, 'styles.dotted.border')
-  
+
 );
 
 /// Defines the sidebar-list component theme.
@@ -38,36 +38,36 @@ $compounds-sidebar-list: (
 ///
 /// @output The sidebar-list component's themeable properties
 @mixin compounds-sidebar-list--theme ( $skin ) {
-  
+
   // Capture the selector.
   $selector: &;
-  
+
   // Capture themeable variables from skin.
   $padding: map-deep-get($skin, 'padding');
   $divider: map-deep-get($skin, 'divider');
-  
+
   // Capture spacing-specific variables.
   $spacing-title: map-deep-get($skin, 'spacing.title');
   $spacing-button: map-deep-get($skin, 'spacing.button');
-  
+
   // Capture title-specific variables.
   $title-color: map-deep-get($skin, 'title.color');
   $title-icon-size: map-deep-get($skin, 'title.icon.size');
   $title-icon-spacing: map-deep-get($skin, 'title.icon.spacing');
-  
+
   // Defines the sidebar-list component's base styles.
   // ...
-  
+
   // Defines the sidebar list section styles.
   &-section {
     @include padding-y( $padding );
     @include border-y( $divider );
-    
+
     // Remove duplicate borders between subsequent sections.
     & + & {
       border-top: none;
     }
-    
+
     // Remove the first and last divider by default.
     &:first-of-type:first-child:not(.-divider-start) {
       border-top: none;
@@ -75,22 +75,22 @@ $compounds-sidebar-list: (
     &:last-of-type:last-child:not(.-divider-end) {
       border-bottom: none;
     }
-    
+
     // Always remove dividers between sections and buttons.
     &:last-of-type:not(:last-child) {
       border-bottom: none;
     }
-    
+
     // Builds the sidebar list section title structure.
     &-title {
       @include margin-y( $spacing-title );
       @include tokens-heading('h6', $title-color);
       font-size: 12px !important;
-        
+
       // Modify styles when an icon is present.
       &.has-icon {
-      
-        .icon { 
+
+        .icon {
           margin-right: $title-icon-spacing;
 
           svg {
@@ -99,43 +99,44 @@ $compounds-sidebar-list: (
           }
 
         }
-        
+
       }
-      
+
     }
-  
+
     // Builds the sidebar list section content structure.
     &-content {
-      
+
       // Adjust button styles when inside sidebar list section content.
       .button {
         @include margin-y( $spacing-button );
       }
-      
+
       // Modify styles when an icon is present.
       @include when-sibling-of('#{$selector}-section-title.has-icon') {
         padding-left: ($title-icon-size + $title-icon-spacing);
       };
-      
+
     }
-    
+
   }
-  
+
   // Defines the sidebar list button styles.
-  &-button { 
+  &-button {
     @include absolute-center-contents;
     @include margin-y( $padding );
-    
+    text-decoration: none !important;
+
     // Remove the top margin from the first button.
-    &:first-of-type { 
+    &:first-of-type {
       margin-top: 0;
     }
-    
+
     // Remove the bottom margin from the last button.
     &:last-of-type {
       margin-bottom: 0;
     }
-    
+
   }
-  
+
 }

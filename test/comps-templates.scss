@@ -70,6 +70,11 @@
   @include templates-periodicals;
 }
 
+// templates-event
+.event-page {
+  @include templates-event;
+}
+
 // templates-cover
 .cover-page {
   @include templates-cover;

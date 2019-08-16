@@ -9,12 +9,7 @@
 /// @type map
 $templates-research-help: (
 
-  'layout': (
-    'x': $layout-x,
-    'y': $layout-y
-  ),
 
-  'gap': 20px
 
 );
 
@@ -30,17 +25,14 @@ $templates-research-help: (
 @mixin templates-research-help--theme ( $skin ) {
 
   // Capture themeable variables from skin.
-  $gap: map-deep-get($skin, 'gap');
-  $layout: map-deep-get($skin, 'layout');
+  // ...
 
   // Defines the research-help component's base styles.
-  grid-gap: $gap;
+  // ...
 
   // Defines research help header and footer styles.
   &-header,
-  &-footer {
-    border: $border-width-s solid color('slate'); // TEMPORARY
-  }
+  &-footer {}
 
   // Defines research help header styles.
   &-header { }

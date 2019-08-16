@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.organisms.intro-cover
+////
+
+/// Load the intro-interior-cover component's structure and skin.
+@import 'intro-cover/structure';
+@import 'intro-cover/skin';
+
+/// Builds a constructor for the intro-cover component.
+///
+/// @since 1.0.0-dev.0
+///
+/// @requires {placeholder} organisms-intro-cover
+/// @requires {variable} organisms-intro-cover
+/// @requires {mixin} organisms-intro-cover--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our intro-cover component
+///
+/// @status review
+@mixin organisms-intro-cover ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($organisms-intro-cover, $custom);
+
+  // Initialize the intro-cover component.
+  & {
+
+    // Load structure.
+    @extend %organisms-intro-cover;
+
+    // Load parts.
+    &-title {
+      @extend %organisms-intro-cover-title;
+    }
+    &-subtitle {
+      @extend %organisms-intro-cover-subtitle;
+    }
+    &-image {
+      @extend %organisms-intro-cover-image;
+    }
+
+    // Load skins.
+    @include organisms-intro-cover--theme( $skin );
+
+  }
+
+}

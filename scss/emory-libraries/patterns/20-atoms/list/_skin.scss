@@ -34,7 +34,9 @@ $atoms-list: (
 
   'files': (
     'gap': 10px
-  )
+  ),
+
+  'title': color('blue', 'dark')
 
 );
 
@@ -53,7 +55,7 @@ $atoms-list: (
   $selector: &;
 
   // Capture themeable variables from skin.
-  // ...
+  $title: map-deep-get($skin, 'title');
 
   // Get marker-specific variables.
   $marker-offset: map-deep-get($skin, 'marker.offset');
@@ -128,6 +130,11 @@ $atoms-list: (
   // Defines file list styles.
   &.-files {
     grid-gap: map-deep-get($skin, 'files.gap');
+  }
+
+  // Define the list title styles.
+  &-title {
+    @include tokens-heading('h6', $title, $important: true);
   }
 
 }
