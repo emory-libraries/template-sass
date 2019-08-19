@@ -11,8 +11,8 @@
   $selector: &;
 
   // Builds the header structure.
-  position: sticky;
-  top: 0;
+  /*position: sticky;
+  top: 0;*/
   display: grid;
   grid-template-areas: "notifications"
                        "main";
