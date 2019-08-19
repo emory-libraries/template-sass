@@ -11,7 +11,7 @@
   $selector: &;
 
   // Builds the header structure.
-  position: sticky;
+  //position: sticky;
   top: 0;
   display: grid;
   grid-template-areas: "notifications"
@@ -22,7 +22,7 @@
 
   // When the header is inside of a vue, then use position fixed instead of sticky.
   #eul-vue & {
-    @include fixed(0 0 null 0);
+  //  @include fixed(0 0 null 0);
     width: 100%;
   }
 
