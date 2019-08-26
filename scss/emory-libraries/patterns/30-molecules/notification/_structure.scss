@@ -53,6 +53,19 @@
   &-message {
     grid-area: message;
     margin: 0;
+
+    > * {
+
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+    }
+
   }
 
   // Builds the notification dismiss structure.

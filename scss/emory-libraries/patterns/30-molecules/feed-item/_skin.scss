@@ -59,13 +59,12 @@ $molecules-feed-item: (
   &-action {
     width: max-content;
     @include atoms-button((
-      size: 40px,
+      size: 40px !important,
       padding: 15px
     ));
 
     // Adjust size on larger screens.
     @include breakpoint-m-l {
-      height: 100%;
       width: auto;
     };
 
