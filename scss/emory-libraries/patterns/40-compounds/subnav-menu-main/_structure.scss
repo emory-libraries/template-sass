@@ -82,20 +82,68 @@
     > *:last-child {
       margin-bottom: 0;
     }
-    
+
+  }
+
+  // Modifies structure for subnav menus with viewall.
+  &.has-viewall {
+
+    // Only modify structure on smaller screens.
+    @include breakpoint-s-m {
+
+      // If a subnav button is the last item before a viewall button, then adjust its structure.
+      > .subnav-button:nth-last-child(2),
+      &.has-resources > .subnav-button.-resource:last-of-type,
+      &.has-resources > noscript:last-of-type .subnav-button.-resource {
+
+        // Set the expected padding size.
+        $padding-x: 25px;
+        $padding-y: 10px;
+
+        // Override the subnav button structure to make sure its displayed.
+        box-sizing: content-box;
+        width: calc(100% - (#{$padding-x} * 2));
+        min-height: (55px - ($padding-y * 2));
+        padding-bottom: (55px + $padding-y);
+
+        // Also, override the subnav button options height for resource buttons.
+        .subnav-button-options {
+          height: 55px;
+        }
+
+      }
+
+      // For grouped subnav menus, adjust the structure to make sure all items display.
+      &.-grouped {
+
+        // Add padding to the last group before the viewall button.
+        > .subnav-button-group:last-of-type {
+          padding-bottom: 55px;
+        }
+
+      }
+
+      // For categorized subnav menus, adjust the structure to make sure all items display.
+      &.-categorized {
+
+        // Add padding to the last category before the viewall button.
+        > .subnav-button-category:last-of-type {
+          min-height: unset;
+          padding-bottom: 55px;
+        }
+
+      }
+
+    };
+
   }
 
   // Modifies structure for non-grouped subnav menus with viewall.
   &:not(.-grouped).has-viewall {
+    padding-bottom: 0;
 
-    // If a viewall button is enabled, remove the bottom padding.
-    &.has-viewall {
-      padding-bottom: 0;
-
-      > *:nth-last-child(2) {
-        margin-bottom: 0;
-      }
-
+    > *:nth-last-child(2) {
+      margin-bottom: 0;
     }
 
   }
