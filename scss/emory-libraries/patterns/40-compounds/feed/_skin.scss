@@ -16,7 +16,9 @@ $compounds-feed: (
     'color': color('slate', 'light')
   ),
 
-  'padding': $rhythm-y
+  'padding': $rhythm-y,
+
+  'icon': 24px
 
 );
 
@@ -34,6 +36,7 @@ $compounds-feed: (
   // Capture themeable variables from skin.
   $heading: map-deep-get($skin, 'heading');
   $padding: map-deep-get($skin, 'padding');
+  $icon: map-deep-get($skin, 'icon');
 
   // Get border-specific variables.
   $border-thickness: map-deep-get($skin, 'border.thickness');
@@ -50,6 +53,11 @@ $compounds-feed: (
     // Add a rule underneath the feed's heading.
     &::after {
       @include atoms-rule('feed');
+    }
+
+    // Set the icon size.
+    .icon {
+      @include size($icon);
     }
 
     // Recolor the icon.
