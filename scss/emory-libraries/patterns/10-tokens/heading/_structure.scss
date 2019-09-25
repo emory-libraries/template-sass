@@ -13,19 +13,23 @@
   // Builds the heading structure.
   // ...
 
-  // Builds the heading anchor structure.
+  // Hide the anchor unless explicitly declared.
   .anchor {
-    display: inline-flex;
-    align-items: center;
+    display: none;
+  }
 
-    .icon {
-      margin: 0 !important;
+  // Builds the heading anchor structure.
+  &.is-anchored {
+
+    .anchor {
+      display: inline-flex;
+      align-items: center;
+
+      .icon {
+        margin: 0 !important;
+      }
+
     }
-
-    // Hide the anchor unless explicitly declared.
-    @include when-descendant-of('#{$selector}:not(.is-anchored)') {
-      display: none;
-    };
 
   }
 

@@ -118,8 +118,8 @@
     // Modifies structure for search box.
     #{$selector}-box {
       display: block;
-      grid-area-start: box;
-      grid-area-end: button;
+      grid-column-start: box;
+      grid-column-end: button;
     }
 
     // Modifies structure for search button.

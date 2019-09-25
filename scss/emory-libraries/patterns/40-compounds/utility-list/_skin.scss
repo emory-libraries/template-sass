@@ -8,15 +8,15 @@
 ///
 /// @type map
 $compounds-utility-list: (
-  
+
   'icon': 25px,
-  
+
   'padding': 25px,
   'spacing': 5px,
-  
+
   //'context': color('blue'),
   'title': color('blue'),
-  
+
   'background': color('slate', 'light'),
 
   'border': (
@@ -24,7 +24,7 @@ $compounds-utility-list: (
     'thickness': $border-width-s,
     'color': tint(color('charcoal'), 80%)
   )
-  
+
 );
 
 /// Defines the utility-list component theme.
@@ -37,50 +37,51 @@ $compounds-utility-list: (
 ///
 /// @output The utility-list component's themeable properties
 @mixin compounds-utility-list--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $padding: map-deep-get($skin, 'padding');
   $spacing: map-deep-get($skin, 'spacing');
   $title: map-deep-get($skin, 'title');
   $icon: map-deep-get($skin, 'icon');
   $background: map-deep-get($skin, 'background');
-  
+
   // Get border-specific variables.
   $border-thickness: map-deep-get($skin, 'border.thickness');
   $border-color: map-deep-get($skin, 'border.color');
   $border-offset: map-deep-get($skin, 'border.offset');
-  
+
   // Defines the utility-list component's base styles.
   padding: $padding;
   margin: $border-offset;
   background-color: $background;
   @include layered-border($border-thickness solid $border-color, $border-offset solid $background);
-  
+
   // Defines utility list's title styles.
   &-title {
-    @include tokens-heading('h4', $title !important);
-    
+    @include tokens-heading--font('h4');
+    @include tokens-heading--color('h4', $color: $title, $important: true);
+
     .icon {
       height: $icon;
       margin-right: $spacing;
-      
+
       svg {
         fill: $title;
       }
-      
+
     }
-    
+
   }
-  
+
   // Defines utility list's list styles.
-  &-list { 
+  &-list {
     @include margin-y( $padding );
-  
+
     // Defines utility list's list item styles.
-    &-item { 
+    &-item {
       @include molecules-utility-list-item((padding: $padding));
     }
-    
+
   }
-  
+
 }

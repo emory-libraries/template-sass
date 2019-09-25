@@ -164,14 +164,19 @@ $tokens-heading: (
 /// @param {map} skin - The token's skin
 ///
 /// @output The heading component's font property
-@mixin tokens-heading--font ( $level, $skin, $important: false ) {
+@mixin tokens-heading--font ( $level, $skin: $tokens-heading, $custom: (), $important: false ) {
+
+  // Merge any customizations into the default skin.
+  $skin: map-extend($skin, $custom);
 
   // Defines the heading token's font styles.
-  font-family: important(font('heading.' + $level), $important);
-  font-size: important(($font-size * map-deep-get($fonts-scale, 'heading.' + $level)), $important);
-  font-weight: important(map-deep-get($skin, $level + '.font-weight'), $important);
-  font-style: important(map-deep-get($skin, $level + '.font-style'), $important);
-  line-height: important(map-deep-get($skin, $level + '.line-height'), $important);
+  $font-family: font('heading.' + $level);
+  $font-size: $font-size * map-deep-get($fonts-scale, 'heading.' + $level);
+  $font-weight: map-deep-get($skin, $level + '.font-weight');
+  $font-style: map-deep-get($skin, $level + '.font-style');
+  $line-height: default(map-deep-get($skin, $level + '.line-height'), $font-line-height);
+
+  font: important($font-style $font-weight #{$font-size}/#{$line-height} $font-family, $important);
   letter-spacing: important(map-deep-get($skin, $level + '.letter-spacing'), $important);
   text-transform: important(map-deep-get($skin, $level + '.text-transform'), $important);
 
@@ -190,7 +195,10 @@ $tokens-heading: (
 /// @param {color} color [null] - The desired heading color
 ///
 /// @output The heading component's font property
-@mixin tokens-heading--color ( $level, $skin, $color: null, $important: false ) {
+@mixin tokens-heading--color ( $level, $skin: $tokens-heading, $custom: (), $color: null, $important: false ) {
+
+  // Merge any customizations into the default skin.
+  $skin: map-extend($skin, $custom);
 
   // Defines the heading token's color styles.
   color: important(default($color, map-deep-get($skin, $level + '.color')), $important);

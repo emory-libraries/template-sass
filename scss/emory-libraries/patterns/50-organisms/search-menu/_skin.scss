@@ -44,7 +44,7 @@ $organisms-search-menu: (
   ),
 
   'toggles': (
-    'max': 10
+    'max': 6
   )
 
 );
@@ -89,7 +89,8 @@ $organisms-search-menu: (
 
   // Defines search menu context styles.
   &-context {
-    @include tokens-heading('h6', $theme-context);
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6', $color: $theme-context);
   }
 
   // Defines search menu search styles.

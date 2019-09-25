@@ -8,9 +8,9 @@
 ///
 /// @type map
 $compounds-subnav-menu-main: (
-  
+
   'background': color('blue', 'dark'),
-  
+
   'heading': (
     'color': color('gold'),
     'spacing': ($rhythm-y / 4),
@@ -23,7 +23,7 @@ $compounds-subnav-menu-main: (
       'y': ($rhythm-y / 2)
     )
   ),
-  
+
 );
 
 /// Defines the subnav-menu-main component theme.
@@ -36,32 +36,33 @@ $compounds-subnav-menu-main: (
 ///
 /// @output The subnav-menu-main component's themeable properties
 @mixin compounds-subnav-menu-main--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $background: map-deep-get($skin, 'background');
-  
+
   // Get heading-specific variables.
   $heading-color: map-deep-get($skin, 'heading.color');
   $heading-spacing: map-deep-get($skin, 'heading.spacing');
   $heading-padding-y: map-deep-get($skin, 'heading.padding.y');
   $heading-padding-x: map-deep-get($skin, 'heading.padding.x');
-  
+
   // Defines the subnav-menu-main component's base styles.
   background-color: $background;
-  
+
   // Defines the subnav menu main heading styles.
   &-heading { 
-    @include tokens-heading('h6', $heading-color);
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6', $color: $heading-color);
     @include padding-y( $heading-padding-y );
     @include margin-y( $heading-spacing );
     background-color: $background;
-    
+
     @each $breakpoint, $padding in $heading-padding-x {
       @include breakpoint( screen($breakpoint) ) {
         @include padding-x($padding);
       };
     }
-    
+
   }
-  
+
 }

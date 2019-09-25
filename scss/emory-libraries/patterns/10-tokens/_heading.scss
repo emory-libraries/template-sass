@@ -35,8 +35,8 @@
     @extend %tokens-heading;
 
     // Load skins.
-    @include tokens-heading--font( $level, $skin, $important );
-    @include tokens-heading--color( $level, $skin, $color, $important );
+    @include tokens-heading--font( $level, $skin, (), $important );
+    @include tokens-heading--color( $level, $skin, (), $color, $important );
     @include tokens-heading--theme( $skin );
 
   }

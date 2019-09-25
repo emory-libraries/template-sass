@@ -83,7 +83,8 @@ $organisms-footer: (
   $branding-spacing: map-deep-get($skin, 'branding.spacing');
 
   // Defines the footer component's base styles.
-  @include tokens-text('body', $normal, ('body': $font));
+  @include tokens-text--font('body', $custom: ('body': $font));
+  @include tokens-text--color('body', $color: $normal);
   @include tokens-layout(('x': $layout-x, 'y': $layout-y));
   background-color: $background;
   font-size: nth($scale, 1);

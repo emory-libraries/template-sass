@@ -112,9 +112,8 @@ $atoms-link: (
   }
 
   &::after {
-    @include tokens-text('body', $custom: ('body': (
-      'font-style': italic
-    )));
+    @include tokens-text--font('body', $custom: ('body': ('font-style': italic)));
+    @include tokens-text--color('body');
     font-size: 12px !important;
     line-height: 1 !important;
   }
@@ -125,9 +124,8 @@ $atoms-link: (
     $hover: map-deep-get($skin, 'popular.color.hover');
     $active: map-deep-get($skin, 'popular.color.active');
 
-    @include tokens-text('accent', $normal, ('accent': (
-      'line-height': 2.05
-    )));
+    @include tokens-text--font('accent', $custom: ('accent': ('line-height': 2.05)));
+    @include tokens-text--color('accent', $color: $normal);
     font-size: 20px !important;
     color: $normal;
 

@@ -8,7 +8,7 @@
 ///
 /// @type map
 $atoms-subnav-button: (
-  
+
   'main': (
     'background': (
       'normal': color('blue', 'dark'),
@@ -29,7 +29,7 @@ $atoms-subnav-button: (
       'text-align': left
     )
   ),
-  
+
   'utility': (
     'background': (
       'normal': color('white'),
@@ -50,7 +50,7 @@ $atoms-subnav-button: (
       'text-align': left
     )
   ),
-  
+
   'resource': (
     'background': (
       'normal': color('blue', 'dark'),
@@ -97,7 +97,7 @@ $atoms-subnav-button: (
       )
     )
   ),
-  
+
   'viewall': (
     'spacing': ($rhythm-y * 2),
     'foreground': (
@@ -127,7 +127,7 @@ $atoms-subnav-button: (
       )
     )
   ),
-  
+
   'back': (
     'foreground': (
       'normal': $color-text-light,
@@ -149,7 +149,7 @@ $atoms-subnav-button: (
       'color': color('slate')
     )
   ),
-  
+
   'alias': (
     'font': (
       'font-family': font('body'),
@@ -161,7 +161,7 @@ $atoms-subnav-button: (
     ),
     'spacing': 1ex
   ),
-  
+
   'group': (
     'background': color('blue', 'dark'),
     'heading': (
@@ -171,7 +171,7 @@ $atoms-subnav-button: (
     'padding': ($rhythm-y / 2),
     'spacing': $rhythm-y
   ),
-  
+
   'category': (
     'background': color('blue', 'dark'),
     'heading': (
@@ -181,7 +181,7 @@ $atoms-subnav-button: (
     'padding': ($rhythm-y / 2),
     'spacing': $rhythm-y
   ),
-  
+
   'transition': (
     'duration': $transition-duration,
     'timing': $transition-timing
@@ -198,7 +198,7 @@ $atoms-subnav-button: (
       'l': 10px
     )
   )
-  
+
 );
 
 /// Defines the subnav-button component theme.
@@ -211,22 +211,22 @@ $atoms-subnav-button: (
 ///
 /// @output The subnav-button component's themeable properties
 @mixin atoms-subnav-button--theme ( $skin ) {
-  
+
   // Captures the selector.
   $selector: &;
-  
+
   // Capture themeable variables from skin.
   $duration: map-deep-get($skin, 'transition.duration');
   $timing: map-deep-get($skin, 'transition.timing');
   $padding-x: map-deep-get($skin, 'padding.x');
   $padding-y: map-deep-get($skin, 'padding.y');
-  
+
   // Defines the subnav-button component's base styles.
   appearance: none;
   border: none;
   background: none;
   transition: all $duration $timing;
-  
+
   @each $breakpoint, $padding in $padding-x {
     @include breakpoint( screen($breakpoint) ) {
       @include padding-x( $padding );
@@ -237,18 +237,18 @@ $atoms-subnav-button: (
       @include padding-y( $padding );
     };
   }
-  
+
   // Defines main button styles.
   &:not(.-utility):not(.-resource):not(.-viewall):not(.-back),
   &.-main {
     $background: map-deep-get($skin, 'main.background');
     $foreground: map-deep-get($skin, 'main.foreground');
     $font: map-deep-get($skin, 'main.font');
-    
+
     color: map-get($foreground, 'normal');
     background-color: map-get($background, 'normal');
     @include expand-properties($font);
-    
+
     &:hover,
     &:focus,
     &.is-hover,
@@ -256,21 +256,21 @@ $atoms-subnav-button: (
       color: map-get($foreground, 'hover');
       background-color: map-get($background, 'hover');
     }
-    
+
     &:active,
     &.is-active {
       color: map-get($foreground, 'active');
       background-color: map-get($background, 'active');
     }
-    
+
   }
-  
+
   // Defines utility button styles.
   &.-utility {
     $background: map-deep-get($skin, 'utility.background');
     $foreground: map-deep-get($skin, 'utility.foreground');
     $font: map-deep-get($skin, 'utility.font');
-    
+
     @include expand-properties($font);
     color: map-get($foreground, 'normal');
     background-color: map-get($background, 'normal');
@@ -288,20 +288,21 @@ $atoms-subnav-button: (
       color: map-get($foreground, 'active');
       background-color: map-get($background, 'active');
     }
-    
+
   }
-  
+
   // Defines view all button styles.
   &.-viewall {
     $background: map-deep-get($skin, 'viewall.link.background');
     $foreground: map-deep-get($skin, 'viewall.link.foreground');
-    
+
     // Get border-specific variables.
     $border-thickness: map-deep-get($skin, 'viewall.link.border.thickness');
     $border-color: map-deep-get($skin, 'viewall.link.border.color');
     $border-size: map-deep-get($skin, 'viewall.link.border.size');
-    
-    @include tokens-text('button', $color: map-get($foreground, 'normal'));
+
+    @include tokens-text--font('button');
+    @include tokens-text--color('button', $color: map-get($foreground, 'normal'));
     background-color: map-get($background, 'normal');
 
     &:hover,
@@ -317,7 +318,7 @@ $atoms-subnav-button: (
       color: map-get($foreground, 'active');
       background-color: map-get($background, 'active');
     }
-    
+
     // Add border to button.
     &::before {
       content: '';
@@ -328,22 +329,22 @@ $atoms-subnav-button: (
       @include margin-x( auto );
       opacity: .15;
     }
-    
+
     @each $breakpoint, $padding in $padding-x {
       @include breakpoint( screen($breakpoint) ) {
-        
+
         &::before {
           width: calc(100% - #{$padding * 2});
         }
-        
+
       };
     }
-    
+
     @include breakpoint-l {
       $background: map-deep-get($skin, 'viewall.background');
       $foreground: map-deep-get($skin, 'viewall.foreground');
       $spacing: map-deep-get($skin, 'viewall.spacing');
-      
+
       color: map-get($foreground, 'normal');
       background-color: map-get($background, 'normal');
       margin-top: $spacing;
@@ -361,23 +362,24 @@ $atoms-subnav-button: (
         color: map-get($foreground, 'active');
         background-color: map-get($background, 'active');
       }
-      
+
       // Remove border from button.
-      &::before { 
+      &::before {
         content: none;
       }
-      
+
     };
-    
+
   }
-  
+
   // Defines resource button styles.
-  &.-resource { 
+  &.-resource {
     $background: map-deep-get($skin, 'resource.background');
     $foreground: map-deep-get($skin, 'resource.foreground');
     $font: map-deep-get($skin, 'resource.font');
-    
-    @include expand-properties($font);
+
+    @include tokens-text--font('body', $custom: ('body': $font));
+    @include tokens-text--color('body', $color: map-get($foreground, 'normal'));
     color: map-get($foreground, 'normal');
     background-color: map-get($background, 'normal');
 
@@ -394,34 +396,34 @@ $atoms-subnav-button: (
       color: map-get($foreground, 'active');
       background-color: map-get($background, 'active');
     }
-    
+
     // Get menu-specific variables.
     $menu-background: map-deep-get($skin, 'resource.options.background');
     $menu-foreground: map-deep-get($skin, 'resource.options.foreground');
     $menu-shadow: map-deep-get($skin, 'resource.options.shadow');
     $menu-width: map-deep-get($skin, 'resource.options.width');
-    
+
     // Get option-specific variables.
     $option-background: map-deep-get($skin, 'resource.options.option.background');
     $option-foreground: map-deep-get($skin, 'resource.options.option.foreground');
     $option-padding: map-deep-get($skin, 'resource.options.option.padding');
     $option-divider: map-deep-get($skin, 'resource.options.option.divider');
     $option-icon: map-deep-get($skin, 'resource.options.option.icon');
-    
+
     // Adds option menu styles.
     #{$selector}-options {
       --max: 300px;
-      
+
       transition: all $duration $timing;
       @if( is-null($menu-shadow) == false and $menu-shadow != false ) {
         box-shadow: $menu-shadow;
       }
       color: $menu-foreground;
       background-color: $menu-background;
-      
+
       // Adds toggle styles.
       &-toggle {
-        
+
         // Adjust option menu styles when showing the menu.
         &:not(:checked):not(.is-checked) {
 
@@ -448,20 +450,21 @@ $atoms-subnav-button: (
           }
 
         }
-  
+
       }
-      
+
     }
-    
+
     // Adds option styles.
     #{$selector}-option {
-      
+
       transition: all $duration $timing;
-      @include tokens-text('button', $color: map-get($option-foreground, 'normal'));
+      @include tokens-text--font('button');
+      @include tokens-text--color('button', $color: map-get($option-foreground, 'normal'));
       background-color: map-get($option-background, 'normal');
       @include padding-x( $option-padding );
       text-decoration: none;
-      
+
       @each $breakpoint, $padding in $padding-x {
         @include breakpoint( screen($breakpoint) ) {
           @include padding-x($padding);
@@ -481,9 +484,9 @@ $atoms-subnav-button: (
         color: map-get($option-foreground, 'active');
         background-color: map-get($option-background, 'active');
       }
-      
+
       &:last-child {
-        
+
         &::before {
           content: '';
           display: block;
@@ -492,16 +495,16 @@ $atoms-subnav-button: (
           height: 1em;
           border-left: map-get($option-divider, 'thickness') solid map-get($option-divider, 'color');
         }
-        
+
       }
-      
+
       // Modifies icon styles.
       .icon {
         margin-left: map-get($option-icon, 'spacing');
         line-height: 1;
         @include size( map-get($option-icon, 'size') );
       }
-      
+
     }
 
     // Disallow toggling of the option menu when disabled.
@@ -509,41 +512,42 @@ $atoms-subnav-button: (
     &.is-disabled {
 
       #{$selector}-options-toggle {
-        
+
         &:not(:checked),
-        :not(.is-checked),
+        &:not(.is-checked),
         &:checked,
         &.is-checked {
-          
+
           + #{$selector}-options {
             display: none;
           }
-          
+
         }
-        
+
       }
-      
+
     }
-    
+
   }
-  
+
   // Defines the back button styles.
   &.-back {
     $background: map-deep-get($skin, 'back.background');
     $foreground: map-deep-get($skin, 'back.foreground');
-    
+
     // Get icon-specific variables.
     $icon-id: 'material-chevron_left';
     $icon-size: map-deep-get($skin, 'back.icon.size');
     $icon-color: map-deep-get($skin, 'back.icon.color');
     $icon-spacing: map-deep-get($skin, 'back.icon.spacing');
-    
+
     // Get border-specific variables.
     $border-thickness: map-deep-get($skin, 'back.border.thickness');
     $border-color: map-deep-get($skin, 'back.border.color');
     $border-size: map-deep-get($skin, 'back.border.size');
-    
-    @include tokens-text('button', $color: map-get($foreground, 'normal'));
+
+    @include tokens-text--font('button');
+    @include tokens-text--color('button', $color: map-get($foreground, 'normal'));
     background-color: map-get($background, 'normal');
 
     &:hover,
@@ -559,14 +563,14 @@ $atoms-subnav-button: (
       color: map-get($foreground, 'active');
       background-color: map-get($background, 'active');
     }
-    
+
     // Adds icon to back button.
     &::before {
       content: icon-url($icon-id, $icon-color, $icon-size);
       margin-right: $icon-spacing;
       line-height: 1;
     }
-    
+
     // Add border to button.
     &::after {
       content: '';
@@ -578,53 +582,54 @@ $atoms-subnav-button: (
       @include margin-x( auto );
       opacity: .15;
     }
-    
+
     @each $breakpoint, $padding in $padding-x {
       @include breakpoint( screen($breakpoint) ) {
-        
+
         &::after {
           width: calc(100% - #{$padding * 2});
         }
-        
+
       };
     }
-    
+
   }
 
   // Defines alias styles.
   &-alias {
     $font: map-deep-get($skin, 'alias.font');
     $spacing: map-deep-get($skin, 'alias.spacing');
-    
+
     @include expand-properties($font);
     @include margin-y( $spacing );
-    
+
     @include breakpoint-m-l {
       margin-left: $spacing;
       @include margin-y( 0 );
     };
-    
+
   }
-  
+
   // Defines button group styles.
   &-group {
     $padding: map-deep-get($skin, 'group.padding');
     $spacing: map-deep-get($skin, 'group.spacing');
     $background: map-deep-get($skin, 'group.background');
-    
+
     background-color: $background;
-    
+
     // Adds styles for group headings.
     &-heading {
       $background: map-deep-get($skin, 'group.heading.background');
       $foreground: map-deep-get($skin, 'group.heading.foreground');
-      
-      @include tokens-heading('h6', $color: $foreground);
+
+      @include tokens-heading--font('h6');
+      @include tokens-heading--color('h6', $color: $foreground);
       background-color: $background;
       @include padding-y( $padding );
       margin-top: $spacing;
       margin-bottom: $spacing / 4;
-      
+
       @each $breakpoint, $padding in $padding-x {
         @include breakpoint( screen($breakpoint) ) {
           @include padding-x( $padding );
@@ -635,17 +640,17 @@ $atoms-subnav-button: (
           @include padding-y( $padding );
         };
       }
-      
+
     }
 
   }
-  
+
   // Defines button category styles.
-  &-category { 
+  &-category {
     $padding: map-deep-get($skin, 'category.padding');
     $spacing: map-deep-get($skin, 'category.spacing');
     $background: map-deep-get($skin, 'group.background');
-    
+
     background-color: $background;
     margin-bottom: $spacing;
 
@@ -653,13 +658,14 @@ $atoms-subnav-button: (
     &-heading {
       $background: map-deep-get($skin, 'category.heading.background');
       $foreground: map-deep-get($skin, 'category.heading.foreground');
-      
-      @include tokens-heading('h6', $color: $foreground);
+
+      @include tokens-heading--font('h6');
+      @include tokens-heading--color('h6', $color: $foreground);
       background-color: $background;
       @include padding-y( $padding );
       margin-top: $spacing;
       margin-bottom: $spacing / 4;
-      
+
       @each $breakpoint, $padding in $padding-x {
         @include breakpoint( screen($breakpoint) ) {
           @include padding-x( $padding );
@@ -670,7 +676,7 @@ $atoms-subnav-button: (
           @include padding-y( $padding );
         };
       }
-      
+
     }
 
   }
@@ -678,14 +684,14 @@ $atoms-subnav-button: (
   // Defines overflow styles.
   &-overflow {
     --max: 1500px;
-    
+
     transition: all $duration $timing;
 
     &-toggle {
-      
+
       // Hide overflow when not checked.
       &:not(:checked):not(.is-checked) {
-        
+
         // Hide overflow.
         + #{$selector}-overflow {
           max-height: 0;
@@ -695,24 +701,24 @@ $atoms-subnav-button: (
           @include margin-y( 0 );
           overflow: hidden;
         }
-        
+
       }
-      
+
       // Show overflow when checked.
       &:checked,
       &.is-checked {
-        
+
         // Show overflow.
         + #{$selector}-overflow {
           max-height: var(--max);
           overflow: auto;
         }
-        
+
       }
-      
-      
+
+
     }
-    
+
   }
-  
+
 }

@@ -46,13 +46,15 @@ $molecules-feed-item: (
 
   // Defines feed item date styles.
   &-date {
-    @include tokens-heading('h6', $date);
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6', $color: $date);
   }
 
   // Defines feed item title styles.
   &-title {
     @include atoms-link((color: $title));
-    @include tokens-text('listing', map-get($title, 'normal'));
+    @include tokens-text--font('listing', $important: true);
+    @include tokens-text--color('listing', $color: map-get($title, 'normal'));
   }
 
   // Defines feed item action styles.

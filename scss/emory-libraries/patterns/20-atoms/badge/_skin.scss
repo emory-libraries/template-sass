@@ -8,7 +8,7 @@
 ///
 /// @type map
 $atoms-badge: (
-  
+
   'background': color('gold'),
   'foreground': color('blue'),
   'edge': (
@@ -16,7 +16,7 @@ $atoms-badge: (
     'angle': 3deg
   ),
   'radius': 4px
-  
+
 );
 
 
@@ -33,33 +33,34 @@ $atoms-badge: (
 ///
 /// @output The badge component's themeable properties
 @mixin atoms-badge--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $background: map-deep-get($skin, 'background');
   $foreground: map-deep-get($skin, 'foreground');
   $size: map-deep-get($skin, 'edge.size');
   $angle: map-deep-get($skin, 'edge.angle');
   $radius: map-deep-get($skin, 'radius');
-  
+
   // Defines the badge component's base styles.
   background-color: $background;
-  @include tokens-text('badge', default-if('is-color', $foreground, color-contrast($background)));
-  
+  @include tokens-text--font('badge');
+  @include tokens-text--color('badge', $color: $foreground);
+
   // Adds an angeled edge to badges by default.
   &:not(.-square) {
-    
+
     &::after {
       bottom: -(px(strip-unit($angle)));
       height: ($size * 2);
       background-color: $background;
       transform: skewx(-$angle) rotate(-$angle);
     }
-    
+
   }
-  
+
   // Adds a radius to rounded badges.
   &.-round {
     border-radius: $radius;
   }
-  
+
 }

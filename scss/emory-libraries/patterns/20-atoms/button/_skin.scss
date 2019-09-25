@@ -51,7 +51,7 @@ $atoms-button: (
       'y': 15px
     )
   )
-  
+
 );
 
 
@@ -67,7 +67,7 @@ $atoms-button: (
 ///
 /// @output The button component's themeable properties
 @mixin atoms-button--theme ( $skin ) {
-  
+
   // Capture any variables that will be used.
   $border: map-deep-get($skin, 'border');
   $duration: map-deep-get($skin, 'transition.duration');
@@ -76,48 +76,50 @@ $atoms-button: (
   $fade: map-deep-get($skin, 'fade');
   $size: map-deep-get($skin, 'size');
   $padding: map-deep-get($skin, 'padding');
-  
+
   // Get foreground-specific variables.
   $foreground-normal: map-deep-get($skin, 'foreground.normal');
   $foreground-hover: map-deep-get($skin, 'foreground.hover');
   $foreground-active: map-deep-get($skin, 'foreground.active');
   $foreground-hollow: map-deep-get($skin, 'foreground.hollow');
-  
+
   // Get background-specific variables.
   $background-normal: map-deep-get($skin, 'background.normal');
   $background-hover: map-deep-get($skin, 'background.hover');
   $background-active: map-deep-get($skin, 'background.active');
   $background-hollow: map-deep-get($skin, 'background.hollow');
-  
+
   // Assign base styles.
   border: $border solid $background-normal;
   background-color: $background-normal;
-  @include tokens-text('button', $foreground-normal);
+  @include tokens-text--font('button');
+  @include tokens-text--color('button', $color: $foreground-normal);
   transition: all $duration $timing;
   @include padding-x( $padding );
   height: $size;
-  
+
   // Assign icon styles.
   .icon {
-    
+
     &.-left {
       margin-right: $offset;
     }
-    
+
     &.-right {
       margin-left: $offset;
     }
-    
+
     svg {
       fill: $foreground-normal;
     }
-    
+
   }
-  
+
   // Assign hollow variation styles.
   &.-hollow {
     background-color: transparent;
-    @include tokens-text('button', $background-normal);
+    @include tokens-text--font('button');
+    @include tokens-text--color('button', $color: $background-normal);
 
     .icon {
 
@@ -126,19 +128,19 @@ $atoms-button: (
       }
 
     }
-    
+
   }
-  
+
   // Assign pill variation styles.
   &.-pill {
     border-radius: ($size / 2);
   }
-  
+
   // Assign style variation for transforming text.
   &.-uncapitalize {
     text-transform: none !important;
   }
-  
+
   // Assign hovered/focused styles.
   &:hover,
   &:focus,
@@ -146,8 +148,9 @@ $atoms-button: (
   &.is-focus {
     border-color: $background-hover;
     background-color: $background-hover;
-    @include tokens-text('button', $foreground-hover);
-    
+    @include tokens-text--font('badge');
+    @include tokens-text--color('badge', $color: $foreground-hover);
+
     .icon {
 
       svg {
@@ -155,12 +158,13 @@ $atoms-button: (
       }
 
     }
-    
-    &.-hollow { 
+
+    &.-hollow {
       border-color: $background-normal;
-      background-color: $background-hollow; 
-      @include tokens-text('button', $background-normal);
-      
+      background-color: $background-hollow;
+      @include tokens-text--font('button');
+      @include tokens-text--color('button', $color: $background-normal);
+
       .icon {
 
         svg {
@@ -168,44 +172,46 @@ $atoms-button: (
         }
 
       }
-      
+
     }
-    
+
   }
-  
+
   // Assigns pressed styles.
   &:active,
   &.is-active {
     border-color: $background-hover;
     background-color: $background-hover;
-    @include tokens-text('button', rgba($foreground-active, $fade));
-    
+    @include tokens-text--font('button');
+    @include tokens-text--color('button', $color: rgba($foreground-active, $fade));
+
     &.-hollow {
       border-color: $background-normal;
       background-color: $background-hollow;
-      @include tokens-text('button', rgba($background-normal, $fade));
+      @include tokens-text--font('button');
+      @include tokens-text--color('button', $color: rgba($background-normal, $fade));
     }
-    
+
   }
-  
+
   // Assigns disabled styles.
   &[disabled],
-  &.is-disabled { 
-    opacity: $fade; 
+  &.is-disabled {
+    opacity: $fade;
   }
-  
+
   // Assigns button group styles.
   &-group {
-    
+
     // Get group-specific variables.
     $gap-x: map-deep-get($skin, 'group.gap.x');
     $gap-y: map-deep-get($skin, 'group.gap.y');
-    
+
     > * {
       margin-right: $gap-x;
       @include margin-y( $gap-y / 2 );
     }
-    
+
   }
-  
+
 }

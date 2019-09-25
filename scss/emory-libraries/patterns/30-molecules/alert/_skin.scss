@@ -8,9 +8,9 @@
 ///
 /// @type map
 $molecules-alert: (
-  
+
   'themes': (
-    
+
     'default': (
       'foreground': color('charcoal'),
       'background': tint(color('charcoal'), 80%),
@@ -21,7 +21,7 @@ $molecules-alert: (
         'active': nth(color-stops(color('charcoal'), tint(color('charcoal'), 80%), 3), 2)
       )
     ),
-    
+
     'info': (
       'foreground': color('ui', 'info'),
       'background': color('ui', 'info', 'light'),
@@ -32,7 +32,7 @@ $molecules-alert: (
         'active': color('ui', 'info', 'mid')
       )
     ),
-    
+
     'success': (
       'foreground': color('ui', 'success'),
       'background': color('ui', 'success', 'light'),
@@ -43,7 +43,7 @@ $molecules-alert: (
         'active': color('ui', 'success', 'mid')
       )
     ),
-    
+
     'caution': (
       'foreground': color('ui', 'caution'),
       'background': color('ui', 'caution', 'light'),
@@ -54,7 +54,7 @@ $molecules-alert: (
         'active': color('ui', 'caution', 'mid')
       )
     ),
-    
+
     'error': (
       'foreground': color('ui', 'error'),
       'background': color('ui', 'error', 'light'),
@@ -65,7 +65,7 @@ $molecules-alert: (
         'active': color('ui', 'error', 'mid')
       )
     ),
-    
+
     'light': (
       'foreground': color('charcoal'),
       'background': color('white'),
@@ -76,7 +76,7 @@ $molecules-alert: (
         'active': mix(color('charcoal'), color('white'), 40%)
       )
     ),
-    
+
     'dark': (
       'foreground': color('white'),
       'background': color('charcoal'),
@@ -87,27 +87,27 @@ $molecules-alert: (
         'active': mix(color('white'), color('charcoal'), 40%)
       )
     )
-    
+
   ),
   'theme': 'default',
-  
+
   'border': (
     'thickness': $border-width-s,
     'offset': 25px
   ),
-  
+
   'gap': 10px,
   'padding': 25px,
   'dismiss': (
     'size': 25px,
     'padding': 5px
   ),
-  
+
   'transition': (
     'duration': $transition-duration,
     'timing': $transition-timing
   )
-  
+
 );
 
 /// Defines the alert component theme.
@@ -120,10 +120,10 @@ $molecules-alert: (
 ///
 /// @output The alert component's themeable properties
 @mixin molecules-alert--theme ( $skin ) {
-  
+
   // Capture selector.
   $selector: &;
-  
+
   // Capture themeable variables from skin.
   $theme: map-deep-get($skin, 'theme');
   $themes: map-deep-get($skin, 'themes');
@@ -131,144 +131,146 @@ $molecules-alert: (
   $duration: map-deep-get($skin, 'transition.duration');
   $timing: map-deep-get($skin, 'transition.timing');
   $gap: map-deep-get($skin, 'gap');
-  
+
   // Get theme-specific variables.
   $theme-foreground: map-deep-get($themes, $theme + '.foreground');
   $theme-background: map-deep-get($themes, $theme + '.background');
   $theme-border: map-deep-get($themes, $theme + '.border');
   $theme-dismiss: map-deep-get($themes, $theme + '.dismiss');
-  
+
   // Get border-specific variables.
   $border-thickness: map-deep-get($skin, 'border.thickness');
   $border-offset: map-deep-get($skin, 'border.offset');
-  
+
   // Get dismiss-specific variables.
   $dismiss-size: map-deep-get($skin, 'dismiss.size');
   $dismiss-padding: map-deep-get($skin, 'dismiss.padding');
-  
+
   // Defines the alert component's base styles.
   background-color: $theme-background;
   @include layered-border(
-    $border-thickness solid $theme-border, 
+    $border-thickness solid $theme-border,
     $border-offset solid $theme-background
   );
   margin: $border-offset;
   padding: $padding;
   grid-gap: $gap;
-  
+
   // Defines the alert title styles.
   &-title {
-    @include tokens-heading('h6', $theme-foreground);
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6', $color: $theme-foreground);
   }
-  
+
   // Defines the alert message styles.
   &-message {
-    @include tokens-text('body-alt', $theme-foreground);
+    @include tokens-text--font('body-alt');
+    @include tokens-text--color('body-alt', $color: $theme-foreground);
   }
-  
+
   // Defines the alert dismiss styles.
-  &-dismiss { 
-    
+  &-dismiss {
+
     $normal: map-get($theme-dismiss, 'normal');
     $hover: map-get($theme-dismiss, 'hover');
     $active: map-get($theme-dismiss, 'active');
-    
+
     @include size( $dismiss-size );
     padding: $dismiss-padding;
     color: $normal;
     transition: all $duration $timing;
-    
+
     svg {
       fill: $normal;
       transition: all $duration $timing;
     }
-    
+
     &:hover,
     &:focus,
     &.is-hover,
     &.is-focus {
       color: $hover;
-      
+
       svg {
         fill: $hover;
       }
-      
+
     }
-    
+
     &:active,
     &.is-active {
       color: $active;
-      
+
       svg {
         fill: $active;
       }
-      
+
     }
-    
+
   }
-  
+
   // Defines theme-based styles.
   @each $theme, $colors in $themes {
-    
+
     // Get theme-specific variables.
     $theme-foreground: map-deep-get($colors, 'foreground');
     $theme-background: map-deep-get($colors, 'background');
     $theme-border: map-deep-get($colors, 'border');
     $theme-dismiss: map-deep-get($colors, 'dismiss');
-    
+
     &.-#{$theme} {
       background-color: $theme-background;
       @include layered-border(
-        $border-thickness solid $theme-border, 
+        $border-thickness solid $theme-border,
         $border-offset solid $theme-background
       );
-      
+
       #{$selector}-title {
         color: $theme-foreground;
       }
-    
+
       #{$selector}-message {
         color: $theme-foreground;
       }
-  
+
       #{$selector}-dismiss {
-        
+
         $normal: map-get($theme-dismiss, 'normal');
         $hover: map-get($theme-dismiss, 'hover');
         $active: map-get($theme-dismiss, 'active');
-        
+
         color: $normal;
-        
+
         svg {
           fill: $normal;
         }
-        
+
         &:hover,
         &:focus,
         &.is-hover,
         &.is-focus {
           color: $hover;
-          
+
           svg {
             fill: $hover;
           }
-          
+
         }
-        
+
         &:active,
         &.is-active {
           color: $active;
-          
+
           svg {
             fill: $active;
           }
-          
+
         }
-        
+
       }
-      
+
     }
-    
+
   }
-  
+
 }

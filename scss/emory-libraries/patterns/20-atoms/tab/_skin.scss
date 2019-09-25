@@ -82,7 +82,8 @@ $atoms-tab: (
   $theme-border-thickness: map-deep-get($themes, $theme + '.border.thickness');
 
   // Build tab component styles.
-  @include tokens-heading('h6', $theme-foreground);
+  @include tokens-heading--font('h6');
+  @include tokens-heading--color('h6', $color: $theme-foreground);
   transition: all $transition-duration $transition-timing;
 
   // Builds styles for smaller screens.

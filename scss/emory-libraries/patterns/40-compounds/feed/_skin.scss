@@ -48,7 +48,8 @@ $compounds-feed: (
 
   // Defines feed heading styles.
   &-heading {
-    @include tokens-heading('h3', $heading, $important: true);
+    @include tokens-heading--font('h3');
+    @include tokens-heading--color('h3', $color: $heading, $important: true);
 
     // Add a rule underneath the feed's heading.
     &::after {

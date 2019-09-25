@@ -84,7 +84,8 @@ $molecules-tile-utility: (
 
   // Defines the tile utility title styles.
   &-title {
-    @include tokens-heading('h5');
+    @include tokens-heading--font('h5');
+    @include tokens-heading--color('h5');
     @include atoms-link((
       color: $title,
       weight: normal
@@ -93,7 +94,8 @@ $molecules-tile-utility: (
 
   // Defines the tile utility description styles.
   &-description {
-    @include tokens-text('body-alt', $description);
+    @include tokens-text--font('body-alt');
+    @include tokens-text--color('body-alt', $color: $description);
   }
 
 }

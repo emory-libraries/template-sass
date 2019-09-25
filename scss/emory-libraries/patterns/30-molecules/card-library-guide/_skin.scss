@@ -8,7 +8,7 @@
 ///
 /// @type map
 $molecules-card-library-guide: (
-  
+
   'bar': (
     'thickness': $border-width-l,
     'color': color('blue', 'bright')
@@ -19,15 +19,15 @@ $molecules-card-library-guide: (
   ),
   'background': color('white'),
   'shadow': 0px 3px 3px rgba(color('black'), .08),
-  
+
   'padding': 50px 25px,
-  
+
   'title': (
     'normal': color('blue'),
     'hover': $color-actionable,
     'active': $color-actionable
   )
-  
+
 );
 
 /// Defines the card-library-guide component theme.
@@ -40,35 +40,36 @@ $molecules-card-library-guide: (
 ///
 /// @output The card-library-guide component's themeable properties
 @mixin molecules-card-library-guide--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $background: map-deep-get($skin, 'background');
   $shadow: map-deep-get($skin, 'shadow');
   $padding: map-deep-get($skin, 'padding');
   $title: map-deep-get($skin, 'title');
-  
+
   // Get border-specific variables.
   $border-thickness: map-deep-get($skin, 'border.thickness');
   $border-color: map-deep-get($skin, 'border.color');
-  
+
   // Get bar-specific variables.
   $bar-thickness: map-deep-get($skin, 'bar.thickness');
   $bar-color: map-deep-get($skin, 'bar.color');
-  
+
   // Defines the card-library-guide component's base styles.
   background-color: $background;
   padding: $padding;
   box-shadow: $shadow;
   border: $border-thickness solid $border-color;
   border-top: $bar-thickness solid $bar-color;
-  
+
   // Defines card library guide title styles.
   &-title { 
-    @include tokens-heading('h5');
+    @include tokens-heading--font('h5');
+    @include tokens-heading--color('h5');
     @include atoms-link((
       color: $title,
       weight: normal
     ));
   }
-  
+
 }

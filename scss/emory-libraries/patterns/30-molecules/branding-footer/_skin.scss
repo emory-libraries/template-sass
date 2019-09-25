@@ -91,11 +91,12 @@ $molecules-branding-footer: (
 
     // Defines the branding dropdown menu styles.
     &-menu {
-      @include tokens-text('button', $dropdown-color);
+      font: inherit;
+      @include tokens-text--font('button', $important: true);
+      @include tokens-text--color('button', $color: $dropdown-color);
       background-image: icon-url('material-chevron_down', $dropdown-color, $dropdown-icon);
       background-size: $dropdown-icon;
       padding-right: $dropdown-icon;
-      font: inherit;
 
       option {
         margin: 0;

@@ -24,7 +24,7 @@ $organisms-hours: (
 
   'days': (
     'default': 7,
-    'max': 366,
+    'max': 7,
     'size': (
       'max': 100px,
       'min': 50px
@@ -70,7 +70,8 @@ $organisms-hours: (
 
   // Defines the hours title styles.
   &-title {
-    @include tokens-heading('h5-alt', $title, $important: true);
+    @include tokens-heading--font('h5-alt', $important: true);
+    @include tokens-heading--color('h5-alt', $color: $title, $important: true);
   }
 
   // Defines the hours toggle styles.
@@ -149,7 +150,8 @@ $organisms-hours: (
 
   // Defines the days styles.
   &-day {
-    @include tokens-heading('h6', $day);
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6', $color: $day);
     transition: all $transition-duration $transition-timing;
 
     // Adjust the day's styles when active or inactive.

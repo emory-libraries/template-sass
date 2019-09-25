@@ -134,7 +134,8 @@ $atoms-list: (
 
   // Define the list title styles.
   &-title {
-    @include tokens-heading('h6', $title, $important: true);
+    @include tokens-heading--font('h6', $important: true);
+    @include tokens-heading--color('h6', $color: $title, $important: true);
   }
 
 }

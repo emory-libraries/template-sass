@@ -12,7 +12,7 @@
 ///
 /// @type map
 $tokens-text: (
-  
+
   'body':     (
     'font-weight': normal,
     'font-style': normal,
@@ -22,7 +22,7 @@ $tokens-text: (
     'color': $color-text-dark,
     'text-align': left
   ),
-  
+
   'body-alt':     (
     'font-weight': normal,
     'font-style': normal,
@@ -32,7 +32,7 @@ $tokens-text: (
     'color': $color-text-dark,
     'text-align': left
   ),
-  
+
   'lead': (
     'font-weight': normal,
     'font-style': normal,
@@ -42,7 +42,7 @@ $tokens-text: (
     'color': color('blue', 'mid'),
     'text-align': left
   ),
-  
+
   'blockquote': (
     'font-weight': bold,
     'font-style': normal,
@@ -52,7 +52,7 @@ $tokens-text: (
     'color': color('blue', 'mid'),
     'text-align': center
   ),
-  
+
   'listing': (
     'font-weight': normal,
     'font-style': normal,
@@ -62,7 +62,7 @@ $tokens-text: (
     'color': $color-text-dark,
     'text-align': left
   ),
-  
+
   'accent': (
     'font-weight': normal,
     'font-style': normal,
@@ -72,7 +72,7 @@ $tokens-text: (
     'color': $color-text-dark,
     'text-align': left
   ),
-  
+
   'button': (
     'font-weight': bold,
     'font-style': normal,
@@ -82,7 +82,7 @@ $tokens-text: (
     'color': $color-text-dark,
     'text-align': left
   ),
-  
+
   'badge': (
     'font-weight': bold,
     'font-style': normal,
@@ -92,7 +92,7 @@ $tokens-text: (
     'color': $color-text-dark,
     'text-align': left
   ),
-  
+
   'label': (
     'font-weight': bold,
     'font-style': normal,
@@ -102,7 +102,7 @@ $tokens-text: (
     'color': color('blue', 'dark'),
     'text-align': left
   ),
-  
+
   'data': (
     'font-weight': normal,
     'font-style': normal,
@@ -112,7 +112,7 @@ $tokens-text: (
     'color': $color-text-dark,
     'text-align': left
   ),
-  
+
   'caption': (
     'font-weight': normal,
     'font-style': italic,
@@ -121,7 +121,7 @@ $tokens-text: (
     'color': $color-text-dark,
     'text-align': left
   )
-  
+
 );
 
 /// Defines the text token's font properties.
@@ -138,18 +138,23 @@ $tokens-text: (
 /// @param {map} skin - The token's skin
 ///
 /// @output The heading component's font property
-@mixin tokens-text--font ( $type, $skin, $important: false ) {
-  
+@mixin tokens-text--font ( $type, $skin: $tokens-text, $custom: (), $important: false ) {
+
+  // Merge any customizations into the default skin.
+  $skin: map-extend($skin, $custom);
+
   // Defines the heading token's font styles.
-  font-family: important(font( $type ), $important);
-  font-size: important(($font-size * map-deep-get($fonts-scale, $type)), $important);
-  font-weight: important(map-deep-get($skin, $type + '.font-weight'), $important);
-  font-style: important(map-deep-get($skin, $type + '.font-style'), $important);
-  line-height: important(map-deep-get($skin, $type + '.line-height'), $important);
+  $font-family: font( $type );
+  $font-size: $font-size * map-deep-get($fonts-scale, $type);
+  $font-weight: map-deep-get($skin, $type + '.font-weight');
+  $font-style: map-deep-get($skin, $type + '.font-style');
+  $line-height: default(map-deep-get($skin, $type + '.line-height'), $font-line-height);
+
+  font: important($font-style $font-weight #{$font-size}/#{$line-height} $font-family, $important);
   letter-spacing: important(map-deep-get($skin, $type + '.letter-spacing'), $important);
   text-transform: important(map-deep-get($skin, $type + '.text-transform'), $important);
   text-align: important(map-deep-get($skin, $type + '.text-align'), $important);
-  
+
 }
 
 /// Defines the text token's color properties.
@@ -165,9 +170,12 @@ $tokens-text: (
 /// @param {color} color [null] - The desired text color
 ///
 /// @output The text component's font property
-@mixin tokens-text--color ( $type, $skin, $color: null, $important: false ) {
-  
+@mixin tokens-text--color ( $type, $skin: $tokens-text, $custom: (), $color: null, $important: false ) {
+
+  // Merge any customizations into the default skin.
+  $skin: map-extend($skin, $custom);
+
   // Defines the text token's color styles.
   color: important(default($color, map-deep-get($skin, $type + '.color')), $important);
-  
+
 }
