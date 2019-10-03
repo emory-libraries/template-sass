@@ -555,6 +555,7 @@
 
   // Builds the main structure when used for a gallery page.
   &.-gallery-page {
+    padding-bottom: 0 !important;
     @include grid-layout((
       'subtitle': false,
       'body': false,

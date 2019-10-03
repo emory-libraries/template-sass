@@ -35,6 +35,9 @@
     &-title {
       @extend %organisms-hours-title;
     }
+    &-caption {
+      @extend %organisms-hours-caption;
+    }
     &-subtitle {
       @extend %organisms-hours-subtitle;
     }
@@ -44,19 +47,46 @@
     &-content {
       @extend %organisms-hours-content;
     }
-    &-group {
-      @extend %organisms-hours-group;
+    &-slider {
+      @extend %organisms-hours-slider;
+      &-group {
+        @extend %organisms-hours-slider-group;
+      }
+      &-day {
+        @extend %organisms-hours-slider-day;
+        &-current {
+          @extend %organisms-hours-slider-day-current;
+        }
+        &-previous {
+          @extend %organisms-hours-slider-day-previous;
+        }
+        &-next {
+          @extend %organisms-hours-slider-day-next;
+        }
+      }
     }
-    &-day {
-      @extend %organisms-hours-day;
-      &-current {
-        @extend %organisms-hours-day-current;
+    &-preview {
+      @extend %organisms-hours-preview;
+      &-services {
+        @extend %organisms-hours-preview-services;
       }
-      &-previous {
-        @extend %organisms-hours-day-previous;
+      &-hours {
+        @extend %organisms-hours-preview-hours;
       }
-      &-next {
-        @extend %organisms-hours-day-next;
+      &-title {
+        @extend %organisms-hours-preview-title;
+      }
+      &-link {
+        @extend %organisms-hours-preview-link;
+      }
+      &-toggles {
+        @extend %organisms-hours-preview-toggles;
+        &-previous {
+          @extend %organisms-hours-preview-toggles-previous;
+        }
+        &-next {
+          @extend %organisms-hours-preview-toggles-next;
+        }
       }
     }
     &-table {

@@ -148,8 +148,8 @@ $atoms-button: (
   &.is-focus {
     border-color: $background-hover;
     background-color: $background-hover;
-    @include tokens-text--font('badge');
-    @include tokens-text--color('badge', $color: $foreground-hover);
+    @include tokens-text--font('button');
+    @include tokens-text--color('button', $color: $foreground-hover);
 
     .icon {
 
