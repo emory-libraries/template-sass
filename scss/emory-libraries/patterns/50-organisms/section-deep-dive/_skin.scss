@@ -22,8 +22,10 @@ $organisms-section-deep-dive: (
     'x': $layout-x,
     'y': map-extend($layout-y, (
       'l': 60px,
-      'xl': 60px
-    ))
+      'xl': 60px,
+      '#{$layout-max-width} + 40px': 60px
+    )),
+    'z': 40px
   )
 
 );
@@ -52,7 +54,7 @@ $organisms-section-deep-dive: (
   $link: map-deep-get($skin, 'link');
 
   // Defines the section-deep-dive component's base styles.
-  @include tokens-layout(('x': $layout-x, 'y': $layout-y));
+  @include tokens-layout(('x': $layout-x, 'y': $layout-y), 0 0 40px 0);
   background-color: $background;
 
   // Defines the deep dive title styles.

@@ -234,7 +234,7 @@ $molecules-block: (
         bottom: 0;
 
         @each $breakpoint, $padding in map-get($layout, 'y') {
-          @include breakpoint( screen($breakpoint) ) {
+          @include breakpoint( if(map-has-key($screens, $breakpoint), screen($breakpoint), $breakpoint) ) {
             top: calc(-#{$padding} - #{$overhang});
           };
         }
@@ -250,7 +250,7 @@ $molecules-block: (
         top: 0;
 
         @each $breakpoint, $padding in map-get($layout, 'y') {
-          @include breakpoint( screen($breakpoint) ) {
+          @include breakpoint( if(map-has-key($screens, $breakpoint), screen($breakpoint), $breakpoint) ) {
             bottom: calc(-#{$padding} - #{$overhang});
           };
         }
@@ -265,7 +265,7 @@ $molecules-block: (
       @include breakpoint-m-l {
 
         @each $breakpoint, $padding in map-get($layout, 'y') {
-          @include breakpoint( screen($breakpoint) ) {
+          @include breakpoint( if(map-has-key($screens, $breakpoint), screen($breakpoint), $breakpoint) ) {
             top: calc(-#{$padding} - #{$overhang});
             bottom: calc(-#{$padding} - #{$overhang});
           };
@@ -281,7 +281,7 @@ $molecules-block: (
       @include breakpoint-m-l {
 
         @each $breakpoint, $padding in map-get($layout, 'y') {
-          @include breakpoint( screen($breakpoint) ) {
+          @include breakpoint( if(map-has-key($screens, $breakpoint), screen($breakpoint), $breakpoint) ) {
             top: -$padding;
           };
         }
@@ -296,7 +296,7 @@ $molecules-block: (
       @include breakpoint-m-l {
 
         @each $breakpoint, $padding in map-get($layout, 'y') {
-          @include breakpoint( screen($breakpoint) ) {
+          @include breakpoint( if(map-has-key($screens, $breakpoint), screen($breakpoint), $breakpoint) ) {
             bottom: -$padding;
           };
         }
@@ -311,7 +311,7 @@ $molecules-block: (
       @include breakpoint-m-l {
 
         @each $breakpoint, $padding in map-get($layout, 'y') {
-          @include breakpoint( screen($breakpoint) ) {
+          @include breakpoint( if(map-has-key($screens, $breakpoint), screen($breakpoint), $breakpoint) ) {
             top: -$padding;
             bottom: -$padding;
           };
