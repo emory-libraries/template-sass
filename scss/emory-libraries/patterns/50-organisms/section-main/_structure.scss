@@ -249,7 +249,8 @@
     '.-periodicals-page',
     '.-cover-page',
     '.-event-page',
-    '.-hours-page'
+    '.-hours-page',
+    '.-calendar-page'
   )}, &.-info-page");
 
   // Remove top padding from the main section on most pages.
@@ -269,7 +270,8 @@
   &.-index-page,
   &.-hours-page,
   &.-cover-page,
-  &.-event-page {
+  &.-event-page,
+  &.-calendar-page {
     padding-top: 0 !important;
   }
 
@@ -310,7 +312,8 @@
     '.-index-page',
     '.-periodicals-page',
     '.-event-page',
-    '.-hours-page'
+    '.-hours-page',
+    '.-calendar-page'
   )},
   &.-info-page {
 
@@ -553,8 +556,9 @@
 
   }
 
-  // Builds the main structure when used for a gallery page.
-  &.-gallery-page {
+  // Builds the main structure when used for a gallery and calendar page.
+  &.-gallery-page,
+  &.-calendar-page {
     padding-bottom: 0 !important;
     @include grid-layout((
       'subtitle': false,

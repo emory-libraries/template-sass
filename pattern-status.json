@@ -99,9 +99,10 @@
   "templates-exhibition": "review",
   "templates-index": "review",
   "templates-periodicals": "review",
-  "templates-event": "construction",
+  "templates-event": "review",
   "templates-cover": "review",
   "templates-home": "review",
   "organisms-intro-cover": "review",
-  "templates-hours": "review"
+  "templates-hours": "review",
+  "templates-calendar": "review"
 }

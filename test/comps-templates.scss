@@ -91,3 +91,8 @@
 .hours-page {
   @include templates-hours;
 }
+
+// templates-calendar
+.calendar-page {
+  @include templates-calendar;
+}
