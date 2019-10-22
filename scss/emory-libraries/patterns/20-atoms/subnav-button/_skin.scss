@@ -40,14 +40,6 @@ $atoms-subnav-button: (
       'normal': $color-text-dark,
       'hover': $color-text-light,
       'active': $color-text-light
-    ),
-    'font': (
-      'font-family': font('body'),
-      'font-style': normal,
-      'font-weight': bold,
-      'font-size': 14px,
-      'line-height': normal,
-      'text-align': left
     )
   ),
 
@@ -61,14 +53,6 @@ $atoms-subnav-button: (
       'normal': $color-text-light,
       'hover': $color-text-light,
       'active': $color-text-light
-    ),
-    'font': (
-      'font-family': font('body'),
-      'font-style': normal,
-      'font-weight': bold,
-      'font-size': 14px,
-      'line-height': normal,
-      'text-align': left
     ),
     'options': (
       'foreground': inherit,
@@ -269,10 +253,12 @@ $atoms-subnav-button: (
   &.-utility {
     $background: map-deep-get($skin, 'utility.background');
     $foreground: map-deep-get($skin, 'utility.foreground');
-    $font: map-deep-get($skin, 'utility.font');
 
-    @include expand-properties($font);
-    color: map-get($foreground, 'normal');
+    @include tokens-text--font('body', $custom: ('body': (
+      'font-weight': $bold,
+      'font-size': 14px
+    )));
+    @include tokens-text--color(map-get($foreground, 'normal'));
     background-color: map-get($background, 'normal');
 
     &:hover,
@@ -380,7 +366,10 @@ $atoms-subnav-button: (
 
     @include tokens-text--font('body', $custom: ('body': $font));
     @include tokens-text--color('body', $color: map-get($foreground, 'normal'));
-    color: map-get($foreground, 'normal');
+    @include tokens-text--font('body', $custom: ('body': (
+      'font-weight': $bold,
+      'font-size': 14px
+    )));
     background-color: map-get($background, 'normal');
 
     &:hover,
@@ -600,7 +589,9 @@ $atoms-subnav-button: (
     $font: map-deep-get($skin, 'alias.font');
     $spacing: map-deep-get($skin, 'alias.spacing');
 
-    @include expand-properties($font);
+    @include tokens-text--font('body', $custom: ('body': (
+      'font-size': 13px
+    )));
     @include margin-y( $spacing );
 
     @include breakpoint-m-l {
