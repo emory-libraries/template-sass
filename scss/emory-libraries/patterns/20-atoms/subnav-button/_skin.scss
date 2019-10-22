@@ -255,10 +255,10 @@ $atoms-subnav-button: (
     $foreground: map-deep-get($skin, 'utility.foreground');
 
     @include tokens-text--font('body', $custom: ('body': (
-      'font-weight': $bold,
+      'font-weight': bold,
       'font-size': 14px
     )));
-    @include tokens-text--color(map-get($foreground, 'normal'));
+    @include tokens-text--color('body', $color: map-get($foreground, 'normal'));
     background-color: map-get($background, 'normal');
 
     &:hover,
@@ -362,14 +362,12 @@ $atoms-subnav-button: (
   &.-resource {
     $background: map-deep-get($skin, 'resource.background');
     $foreground: map-deep-get($skin, 'resource.foreground');
-    $font: map-deep-get($skin, 'resource.font');
 
-    @include tokens-text--font('body', $custom: ('body': $font));
-    @include tokens-text--color('body', $color: map-get($foreground, 'normal'));
     @include tokens-text--font('body', $custom: ('body': (
-      'font-weight': $bold,
+      'font-weight': bold,
       'font-size': 14px
     )));
+    @include tokens-text--color('body', $color: map-get($foreground, 'normal'));
     background-color: map-get($background, 'normal');
 
     &:hover,
