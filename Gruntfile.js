@@ -36,6 +36,32 @@ module.exports = (grunt) => {
         ])
       }
     },
+    svg_sprite: {
+      options: {
+        shape: {
+          dimension: {
+            maxWidth: 24,
+            maxHeight: 24
+          }
+        },
+        mode: {
+          css: false,
+          view: false,
+          defs: false,
+          stack: false,
+          symbol: {
+            dest: '.',
+            sprite: 'sprite.svg'
+          },
+        }
+      },
+      icons: {
+        expand: true,
+        cwd: 'icons/svg/',
+        src: ['**/*.svg'],
+        dest: 'icons/sprite/'
+      }
+    },
     watch: {
       scss: {
         files: ['scss/**/*.scss', 'test/*.scss'],
@@ -86,6 +112,7 @@ module.exports = (grunt) => {
   grunt.registerTask('docs', ['sassdoc']);
   grunt.registerTask('build', [
     'clean',
+    'svg_sprite',
     'dart-sass',
     'status:export',
     'docs'
