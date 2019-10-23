@@ -70,8 +70,12 @@ $atoms-link: (
 
   // Adds styles for icons.
   .icon {
-    @include size( $icon-size );
     margin-right: $icon-spacing;
+
+    &,
+    svg {
+      @include size($icon-size);
+    }
 
     svg {
       fill: $normal;

@@ -10,7 +10,7 @@
 $molecules-card-action: (
 
   'padding': 25px,
-  'gap': 25px,
+  'gap': 15px,
   'size': 265px,
   'image': 190px,
   'color': color('blue'),
@@ -72,7 +72,7 @@ $molecules-card-action: (
   }
 
   // Defines card action text styles.
-  &-text { 
+  &-text {
     @include tokens-heading--font('h5-alt');
     @include tokens-heading--color('h5-alt', $color: $color);
   }

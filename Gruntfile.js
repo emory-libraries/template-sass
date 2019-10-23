@@ -67,6 +67,10 @@ module.exports = (grunt) => {
         files: ['scss/**/*.scss', 'test/*.scss'],
         tasks: ['build']
       },
+      icons: {
+        files: ['icons/svg/**/*.svg'],
+        tasks: ['svg_sprite']
+      },
       config: {
         options: {
           reload: true

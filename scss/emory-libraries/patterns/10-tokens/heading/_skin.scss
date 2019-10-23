@@ -146,6 +146,16 @@ $tokens-heading: (
     @include size($anchor-size);
     opacity: 0;
     visibility: hidden;
+
+    .icon {
+
+      &,
+      svg {
+        @include size($anchor-size);
+      }
+      
+    }
+
   }
 
 }

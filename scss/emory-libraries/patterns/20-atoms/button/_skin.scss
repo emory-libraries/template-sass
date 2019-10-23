@@ -43,7 +43,8 @@ $atoms-button: (
     'timing': $transition-timing
   ),
   'icon': (
-    'offset': $rhythm-x
+    'offset': $rhythm-x,
+    'size': 24px
   ),
   'group': (
     'gap': (
@@ -76,6 +77,7 @@ $atoms-button: (
   $fade: map-deep-get($skin, 'fade');
   $size: map-deep-get($skin, 'size');
   $padding: map-deep-get($skin, 'padding');
+  $icon: map-deep-get($skin, 'icon.size');
 
   // Get foreground-specific variables.
   $foreground-normal: map-deep-get($skin, 'foreground.normal');
@@ -100,6 +102,11 @@ $atoms-button: (
 
   // Assign icon styles.
   .icon {
+
+    &,
+    svg {
+      @include size($icon);
+    }
 
     &.-left {
       margin-right: $offset;
