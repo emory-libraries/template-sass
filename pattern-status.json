@@ -104,5 +104,6 @@
   "templates-home": "review",
   "organisms-intro-cover": "review",
   "templates-hours": "review",
-  "templates-calendar": "review"
+  "templates-calendar": "review",
+  "tokens-spinner": "construction"
 }

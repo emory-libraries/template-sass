@@ -29,7 +29,7 @@ $atoms-list: (
   ),
 
   'topics': (
-    'delimiter': ','
+    'delimiter': ', '
   ),
 
   'files': (
@@ -120,7 +120,7 @@ $atoms-list: (
 
       // Add delimiters to list items.
       &:not(:last-child)::after {
-        content: map-deep-get($skin, 'topics.delimiter') ' ';
+        content: map-deep-get($skin, 'topics.delimiter');
       }
 
     }
