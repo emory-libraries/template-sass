@@ -1,0 +1,50 @@
+////
+/// @group emory-libraries.patterns.templates.calendar
+////
+
+/// Load the calendar component's structure and skin.
+@import 'calendar/structure';
+@import 'calendar/skin';
+
+/// Builds a constructor for the calendar component.
+///
+/// @since 1.0.0-alpha.1
+///
+/// @requires {placeholder} templates-calendar
+/// @requires {variable} templates-calendar
+/// @requires {mixin} templates-calendar--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our calendar component
+///
+/// @status review
+@mixin templates-calendar ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($templates-calendar, $custom);
+
+  // Initialize the calendar component.
+  & {
+
+    // Load structure.
+    @extend %templates-calendar;
+
+    // Load parts.
+    &-header {
+      @extend %templates-calendar-header;
+    }
+    &-main {
+      @extend %templates-calendar-main;
+    }
+    &-footer {
+      @extend %templates-calendar-footer;
+    }
+
+    // Load skins.
+    @include templates-calendar--theme( $skin );
+
+  }
+
+}

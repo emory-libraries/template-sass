@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.templates.calendar
+////
+
+/// Defines the base structure of the calendar component.
+///
+/// @since 1.0.0-alpha.1
+%templates-calendar {
+
+  // Builds the calendar structure.
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas: "header"
+                       "main"
+                       "footer";
+  grid-template-rows: min-content 1fr auto;
+  grid-template-columns: 100%;
+
+  // Builds the calendar header structure.
+  &-header {
+    grid-area: header;}
+
+  // Builds the calendar main structure.
+  &-main {
+    grid-area: main;
+
+    .button-group {
+      margin-top: ($rhythm-y * 2);
+      justify-content: center;
+    }
+
+  }
+
+  // Builds the calendar footer structure.
+  &-footer {
+    grid-area: footer;
+  }
+
+}

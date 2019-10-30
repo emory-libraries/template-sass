@@ -80,14 +80,18 @@
 }
 
 // atoms-callout
+@include disable {
 .callout {
   @include atoms-callout;
 }
+};
 
 // atoms-note
+@include disable {
 .note {
   @include atoms-note;
 }
+};
 
 // atoms-copyright
 .copyright {

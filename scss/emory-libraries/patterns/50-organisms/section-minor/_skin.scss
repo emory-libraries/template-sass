@@ -71,7 +71,8 @@ $organisms-section-minor: (
 
   // Defines the minor title styles.
   &-title {
-    @include tokens-heading('h4', $theme-heading, $important: true);
+    @include tokens-heading--font('h4', $important: true);
+    @include tokens-heading--color('h4', $color: $theme-heading, $important: true);
     text-align: left;
 
     .icon {
@@ -92,7 +93,8 @@ $organisms-section-minor: (
 
   // Defines the minor body styles.
   &-body {
-    @include tokens-text('body', $theme-foreground);
+    @include tokens-text--font('body');
+    @include tokens-text--color('body', $color: $theme-foreground);
   }
 
   // Modifies styles based on the theme.

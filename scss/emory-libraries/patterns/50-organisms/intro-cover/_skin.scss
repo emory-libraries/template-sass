@@ -42,7 +42,8 @@ $organisms-intro-cover: (
 
   // Defines the intro cover title styles.
   &-title {
-    @include tokens-heading('h2', $heading);
+    @include tokens-heading--font('h2');
+    @include tokens-heading--color('h2', $color: $heading);
     font-size: 40px !important;
 
     // Adjust the title size on larger screens.
@@ -54,12 +55,12 @@ $organisms-intro-cover: (
 
   // Defines the intro cover subtitle styles.
   &-subtitle {
-    @include tokens-heading('h5-alt', $subheading, ('h5-alt': (
-      'font-weight': bold
-    )));
+    @include tokens-heading--font('h5-alt', $custom: ('h5-alt': ('font-weight': bold)));
+    @include tokens-heading--color('h5-alt', $color: $subheading);
 
      &.-date {
-      @include tokens-heading('h6', $heading);
+      @include tokens-heading--font('h6');
+      @include tokens-heading--color('h6', $color: $heading);
     }
 
   }

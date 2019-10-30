@@ -1,9 +1,10 @@
-module.exports = (grunt) => { 
+// Initialize grunt.
+module.exports = (grunt) => {
 
   // Configure tasks.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
-    secret: grunt.file.readJSON('secret.json'),
+    secret: grunt.file.readJSON(grunt.file.exists('secret.json') ? 'secret.json' : 'secret.example.json'),
     'dart-sass': {
       options: {
         sourceMap: false
@@ -35,10 +36,40 @@ module.exports = (grunt) => {
         ])
       }
     },
+    svg_sprite: {
+      options: {
+        shape: {
+          dimension: {
+            maxWidth: 24,
+            maxHeight: 24
+          }
+        },
+        mode: {
+          css: false,
+          view: false,
+          defs: false,
+          stack: false,
+          symbol: {
+            dest: '.',
+            sprite: 'sprite.svg'
+          },
+        }
+      },
+      icons: {
+        expand: true,
+        cwd: 'icons/svg/',
+        src: ['**/*.svg'],
+        dest: 'icons/sprite/'
+      }
+    },
     watch: {
       scss: {
         files: ['scss/**/*.scss', 'test/*.scss'],
         tasks: ['build']
+      },
+      icons: {
+        files: ['icons/svg/**/*.svg'],
+        tasks: ['svg_sprite']
       },
       config: {
         options: {
@@ -75,16 +106,17 @@ module.exports = (grunt) => {
       }
     }
   });
-  
+
   // Load tasks.
   require('load-grunt-tasks')(grunt);
-  
+
   // Register tasks.
   grunt.registerTask('default', ['dev']);
   grunt.registerTask('test', ['dart-sass:test']);
   grunt.registerTask('docs', ['sassdoc']);
   grunt.registerTask('build', [
     'clean',
+    'svg_sprite',
     'dart-sass',
     'status:export',
     'docs'
@@ -102,5 +134,5 @@ module.exports = (grunt) => {
     'ssh_deploy:production'
   ]);
   grunt.registerTask('status', 'Update the status of a pattern', require('./scripts/status.js'));
-  
+
 };

@@ -33,7 +33,7 @@ $organisms-intro-hero: (
   // Capture themeable variables from skin.
   $color: map-deep-get($skin, 'color');
   $gradient: map-deep-get($skin, 'gradient');
-  
+
   // Get subtitle-specific variables.
   $subtitle-size: map-deep-get($skin, 'subtitle.size');
 
@@ -43,16 +43,15 @@ $organisms-intro-hero: (
   // Defines the intro-hero-title styles.
   &-title {
     margin: 0;
-    @include tokens-heading('h1-hero', $color, $important: true);
+    @include tokens-heading--font('h1-hero', $important: true);
+    @include tokens-heading--color('h1-hero', $color: $color, $important: true);
     text-align: center;
   }
 
   // Modifies styles when used for a heading intro-hero.
   &-subtitle {
-    @include tokens-text('body', $color, ('body': (
-      'line-height': 1.5,
-      'text-align': center
-    )));
+    @include tokens-text--font('body', $custom: ('body': ('line-height': 1.5, 'text-align': center)));
+    @include tokens-text--color('body', $color: $color);
   }
-  
+
 }

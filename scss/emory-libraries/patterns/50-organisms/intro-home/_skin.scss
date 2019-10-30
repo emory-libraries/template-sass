@@ -83,7 +83,8 @@ $organisms-intro-home: (
 
     #{$all-headings},
     .heading {
-      @include tokens-heading('h2', $hero, $important: true);
+      @include tokens-heading--font('h2', $important: true);
+      @include tokens-heading--color('h2', $color: $hero, $important: true);
     }
 
   }

@@ -1,0 +1,17 @@
+////
+/// @group emory-libraries.patterns.tokens.spinner
+////
+
+/// Defines the base structure of the spinner component.
+///
+/// @since 1.0.0-alpha.1
+%tokens-spinner {
+
+  // Builds the spinner structure.
+  @include absolute-center-contents;
+  margin: $rhythm-y auto;
+
+  // Builds the spinner icon structure.
+  &::before { }
+
+}

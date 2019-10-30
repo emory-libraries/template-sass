@@ -54,7 +54,8 @@ $compounds-popular-links-menu: (
 
   // Defines popular links menu title styles.
   &-title {
-    @include tokens-heading('h6', $heading);
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6', $color: $heading);
   }
 
   // Defines popular links menu list styles.
@@ -106,17 +107,15 @@ $compounds-popular-links-menu: (
 
       // Adjusts popular links menu list items.
       &-item {
-        @include tokens-text('accent', $color, ('accent': (
-          'line-height': 2.05
-        )));
+        @include tokens-text--font('accent', $custom: ('accent': ('line-height': 2.05)));
+        @include tokens-text--color('accent', $color: $color);
         font-size: 20px !important;
 
         // Force links to use default text styles.
         .link,
         a {
-          @include tokens-text('body', $custom: ('body': (
-            'text-transform': uppercase
-          )));
+          @include tokens-text--font('body', $custom: ('body': ('text-transform': uppercase)));
+          @include tokens-text--color('body');
           font-size: 11px !important;
           text-decoration: underline !important;
           @include atoms-link(('color': (

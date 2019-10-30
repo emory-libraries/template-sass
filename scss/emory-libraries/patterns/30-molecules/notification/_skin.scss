@@ -8,9 +8,9 @@
 ///
 /// @type map
 $molecules-notification: (
-  
+
   'themes': (
-    
+
     'default': (
       'foreground': color('charcoal'),
       'background': color('slate', 'light'),
@@ -21,7 +21,7 @@ $molecules-notification: (
         'active': color('blue', 'dark')
       )
     ),
-    
+
     'info': (
       'foreground': color('white'),
       'background': color('ui', 'info'),
@@ -32,7 +32,7 @@ $molecules-notification: (
         'active': color('ui', 'caution', 'mid')
       )
     ),
-    
+
     'success': (
       'foreground': color('blue', 'dark'),
       'background': color('ui', 'success', 'mid'),
@@ -43,7 +43,7 @@ $molecules-notification: (
         'active': color('blue', 'dark')
       )
     ),
-    
+
     'caution': (
       'foreground': color('blue', 'dark'),
       'background': color('ui', 'caution', 'bright'),
@@ -54,7 +54,7 @@ $molecules-notification: (
         'active': color('blue', 'dark')
       )
     ),
-    
+
     'error': (
       'foreground': color('white'),
       'background': color('ui', 'error'),
@@ -65,7 +65,7 @@ $molecules-notification: (
         'active': color('slate')
       )
     ),
-    
+
     'light': (
       'foreground': color('charcoal'),
       'background': color('white'),
@@ -76,7 +76,7 @@ $molecules-notification: (
         'active': color('blue', 'mid')
       )
     ),
-    
+
     'dark': (
       'foreground': color('white'),
       'background': color('blue', 'dark'),
@@ -87,19 +87,19 @@ $molecules-notification: (
         'active': color('ui', 'caution', 'mid')
       )
     )
-    
+
   ),
   'theme': 'default',
-  
+
   'padding': 15px 25px,
   'gap': 25px,
   'dismiss': 25px,
-  
+
   'transition': (
     'duration': $transition-duration,
     'timing': $transition-timing
   )
-  
+
 );
 
 /// Defines the notification component theme.
@@ -112,10 +112,10 @@ $molecules-notification: (
 ///
 /// @output The notification component's themeable properties
 @mixin molecules-notification--theme ( $skin ) {
-  
+
   // Captures selector.
   $selector: &;
-  
+
   // Capture themeable variables from skin.
   $theme: map-deep-get($skin, 'theme');
   $themes: map-deep-get($skin, 'themes');
@@ -124,127 +124,129 @@ $molecules-notification: (
   $duration: map-deep-get($skin, 'transition.duration');
   $timing: map-deep-get($skin, 'transition.timing');
   $dismiss: map-deep-get($skin, 'dismiss');
-  
+
   // Get theme-specific variables.
   $theme-foreground: map-deep-get($themes, $theme + '.foreground');
   $theme-background: map-deep-get($themes, $theme + '.background');
   $theme-label: map-deep-get($themes, $theme + '.label');
   $theme-dismiss: map-deep-get($themes, $theme + '.dismiss');
-  
+
   // Defines the notification component's base styles.
-  @include tokens-text('body', $theme-foreground);
+  @include tokens-text--font('body');
+  @include tokens-text--color('body', $color: $theme-foreground);
   padding: $padding;
   grid-gap: $gap;
   background-color: $theme-background;
-  
+
   // Defines the notification label styles.
   &::before {
     content: attr(data-label) ':';
-    @include tokens-text('label', $theme-label);
+    @include tokens-text--font('label');
+    @include tokens-text--color('label', $color: $theme-label);
     line-height: rem($base-font-size * 1.9375) !important;
   }
-  
+
   // Defines the notification message styles.
   &-message {
-    
+
   }
-  
+
   // Defines the notification dismiss styles.
-  &-dismiss { 
-    
+  &-dismiss {
+
     $normal: map-get($theme-dismiss, 'normal');
     $hover: map-get($theme-dismiss, 'hover');
     $active: map-get($theme-dismiss, 'active');
-    
+
     @include size( $dismiss );
     color: $normal;
     transition: all $duration $timing;
-    
+
     svg {
       fill: $normal;
       transition: all $duration $timing;
     }
-    
+
     &:hover,
     &:focus,
     &.is-hover,
     &.is-focus {
       color: $hover;
-      
+
       svg {
         fill: $hover;
       }
-      
+
     }
-    
+
     &:active,
     &.is-active {
       color: $active;
-      
+
       svg {
         fill: $active;
       }
-      
+
     }
-    
+
   }
-  
+
   // Defines theme-based styles.
   @each $theme, $colors in $themes {
-    
+
     // Get theme-specific variables.
     $theme-foreground: map-deep-get($colors, 'foreground');
     $theme-background: map-deep-get($colors, 'background');
     $theme-label: map-deep-get($colors, 'label');
     $theme-dismiss: map-deep-get($colors, 'dismiss');
-    
+
     &.-#{$theme} {
       background-color: $theme-background;
       color: $theme-foreground;
 
-    
+
       &::before {
         color: $theme-label;
       }
-  
+
       #{$selector}-dismiss {
-        
+
         $normal: map-get($theme-dismiss, 'normal');
         $hover: map-get($theme-dismiss, 'hover');
         $active: map-get($theme-dismiss, 'active');
-        
+
         color: $normal;
-        
+
         svg {
           fill: $normal;
         }
-        
+
         &:hover,
         &:focus,
         &.is-hover,
         &.is-focus {
           color: $hover;
-          
+
           svg {
             fill: $hover;
           }
-          
+
         }
-        
+
         &:active,
         &.is-active {
           color: $active;
-          
+
           svg {
             fill: $active;
           }
-          
+
         }
-        
+
       }
-      
+
     }
-    
+
   }
-  
+
 }

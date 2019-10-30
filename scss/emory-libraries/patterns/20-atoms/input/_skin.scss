@@ -164,12 +164,14 @@ $atoms-input: (
     $valid: map-deep-get($skin, 'state.text.valid');
     $invalid: map-deep-get($skin, 'state.text.invalid');
 
-    @include tokens-text('body', $foreground);
+    @include tokens-text--font('body');
+    @include tokens-text--color('body', $color: $foreground);
     border-color: if( is-color($default), $default, $border );
 
     // Change the placeholder styles.
     @include placeholder {
-      @include tokens-text('accent', $foreground);
+      @include tokens-text--font('accent');
+      @include tokens-text--color('accent', $color: $foreground);
       opacity: .5;
     };
 
@@ -219,7 +221,8 @@ $atoms-input: (
 
     // Change the placeholder styles.
     &::-webkit-datetime-edit {
-      @include tokens-text('accent', $foreground);
+      @include tokens-text--font('accent');
+      @include tokens-text--color('accent', $color: $foreground);
       opacity: .5;
     }
 
@@ -476,7 +479,8 @@ $atoms-input: (
     $valid: map-deep-get($skin, 'state.text.valid');
     $invalid: map-deep-get($skin, 'state.text.invalid');
 
-    @include tokens-text('label', $label-color);
+    @include tokens-text--font('label');
+    @include tokens-text--color('label', $color: $label-color);
 
     // Defines the style when not inline.
     &:not(.-inline) {

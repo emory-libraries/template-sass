@@ -8,7 +8,7 @@
 ///
 /// @type map
 $molecules-block: (
-  
+
   'theme': 'dark',
   'themes': (
     'dark': (
@@ -24,21 +24,21 @@ $molecules-block: (
       'shadow': color('charcoal')
     )
   ),
-  
+
   'layout': (
     'x': $layout-x,
     'y': $layout-y
   ),
-  
+
   'gap': (
     'outer': 100px,
     'inner': 1em
   ),
-  
+
   'overhang': 25px,
-  
+
   'shadow': 50px
-  
+
 );
 
 /// Defines the block component theme.
@@ -51,308 +51,310 @@ $molecules-block: (
 ///
 /// @output The block component's themeable properties
 @mixin molecules-block--theme ( $skin ) {
-  
+
   // Capture selector.
   $selector: &;
-  
+
   // Capture themeable variables from skin.
   $layout: map-deep-get($skin, 'layout');
   $gap: map-deep-get($skin, 'gap');
   $theme: map-deep-get($skin, 'theme');
   $overhang: map-deep-get($skin, 'overhang');
-  
+
   // Get theme-specific variables.
   $theme-heading: map-deep-get($skin, 'themes.' + $theme + '.heading');
   $theme-foreground: map-deep-get($skin, 'themes.' + $theme + '.foreground');
   $theme-background: map-deep-get($skin, 'themes.' + $theme + '.background');
   $theme-shadow: map-deep-get($skin, 'themes.' + $theme + '.shadow');
-  
+
   // Defines the block component's base styles.
   @include tokens-layout( $layout );
   grid-gap: map-get($gap, 'outer');
   justify-content: center;
   background-color: $theme-background;
-  
+
   // Modifies styles on larger screens.
   @include breakpoint-m-l {
     justify-content: start;
   };
-  
+
   // Defines stretch styles for blocks.
   &.-stretch {
-    
+
     // Applies styles to top stretch.
     &-top { }
-    
+
     // Applies styles to bottom stretch.
     &-bottom { }
-    
+
     // Applies styles to both top and bottom stretch.
     &-both { }
-    
+
   }
-  
+
   // Defines overhang styles for blocks.
   &.-overhang {
 
     // Applies styles to top overhangs.
     &-top {
-      
+
       @include breakpoint-m-l {
         margin-top: $overhang;
       };
-      
+
     }
 
     // Applies styles to bottom overhangs.
     &-bottom {
-      
+
       @include breakpoint-m-l {
         margin-bottom: $overhang;
       };
-      
+
     }
-    
+
     // Applies styles to both top and bottom overhangs.
     &-both {
-      
+
       @include breakpoint-m-l {
         @include margin-y( $overhang );
       };
-      
+
     }
 
   }
-  
+
   // Defines shadow styles for blocks.
   &.-shadow {
-    
+
     // Get shadow-specific variables.
     $size: map-deep-get($skin, 'shadow');
-    
+
     &-bottom,
     &-top {
-      
+
       &::after {
         left: 0;
         right: 0;
         width: 100%;
         height: $size;
       }
-      
+
     }
-    
+
     &-left,
     &-right {
-      
+
       &::after {
         top: 0;
         bottom: 0;
         width: $size;
         height: 100%;
       }
-      
+
     }
-    
+
     &-bottom::after {
       bottom: 0;
       @include linear-gradient(to bottom, transparent, $theme-shadow);
     }
-      
+
     &-top::after {
       top: 0;
       @include linear-gradient(to top, transparent, $theme-shadow);
     }
-      
+
     &-left::after {
       left: 0;
       @include linear-gradient(to left, transparent, $theme-shadow);
     }
-      
+
     &-right::after {
       right: 0;
       @include linear-gradient(to right, transparent, $theme-shadow);
     }
-    
+
   }
-  
+
   // Defines styles for block content.
   &-content {
-    
+
     // Defines styles for block content parts.
     #{$selector}-heading,
     #{$selector}-text,
     #{$selector}-action {
-      
+
       + #{$selector}-heading,
       + #{$selector}-text,
       + #{$selector}-action {
         margin-top: map-get($gap, 'inner');
       }
-      
+
     }
-    
+
     // Defines styles for block heading content.
-    #{$selector}-heading { 
-      @include tokens-heading( 'h4', $theme-heading );
+    #{$selector}-heading {
+      @include tokens-heading--font('h4');
+      @include tokens-heading--color('h4', $color: $theme-heading);
       text-align: center;
-      
+
       // Modifies styles on larger screens.
       @include breakpoint-m-l {
         text-align: left;
       };
-      
+
     }
-  
+
     // Defines styles for block text content.
-    #{$selector}-text { 
-      @include tokens-text( 'body-alt', $theme-foreground );
+    #{$selector}-text {
+      @include tokens-text--font('body-alt');
+      @include tokens-text--color('body-alt', $color: $theme-foreground);
     }
 
     // Defines styles for block action content.
-    #{$selector}-action { 
+    #{$selector}-action {
       justify-content: center;
-      
+
       // Modifies styles on larger screens.
       @include breakpoint-m-l {
         justify-content: flex-start;
       };
-      
+
     }
-    
+
   }
-  
+
   // Defines styles for block images.
   &-image {
-    
+
     // Adjusts styles when top overhang.
     @include when-descendant-of( '#{$selector}.-overhang-top' ) {
-      
+
       @include breakpoint-m-l {
         bottom: 0;
 
         @each $breakpoint, $padding in map-get($layout, 'y') {
-          @include breakpoint( screen($breakpoint) ) {
+          @include breakpoint( if(map-has-key($screens, $breakpoint), screen($breakpoint), $breakpoint) ) {
             top: calc(-#{$padding} - #{$overhang});
           };
         }
 
       };
-    
+
     };
-    
+
     // Adjusts styles when bottom overhang.
     @include when-descendant-of( '#{$selector}.-overhang-bottom' ) {
-      
+
       @include breakpoint-m-l {
         top: 0;
 
         @each $breakpoint, $padding in map-get($layout, 'y') {
-          @include breakpoint( screen($breakpoint) ) {
+          @include breakpoint( if(map-has-key($screens, $breakpoint), screen($breakpoint), $breakpoint) ) {
             bottom: calc(-#{$padding} - #{$overhang});
           };
         }
-      
+
       };
-      
+
     };
-    
+
     // Adjusts styles when both top and bottom overhang.
     @include when-descendant-of( '#{$selector}.-overhang-both' ) {
-      
+
       @include breakpoint-m-l {
-      
+
         @each $breakpoint, $padding in map-get($layout, 'y') {
-          @include breakpoint( screen($breakpoint) ) {
+          @include breakpoint( if(map-has-key($screens, $breakpoint), screen($breakpoint), $breakpoint) ) {
             top: calc(-#{$padding} - #{$overhang});
             bottom: calc(-#{$padding} - #{$overhang});
           };
         }
 
       };
-      
+
     };
 
     // Adjust styles when top stretch.
     @include when-descendant-of( '#{$selector}.-stretch-top' ) {
-      
+
       @include breakpoint-m-l {
-      
+
         @each $breakpoint, $padding in map-get($layout, 'y') {
-          @include breakpoint( screen($breakpoint) ) {
+          @include breakpoint( if(map-has-key($screens, $breakpoint), screen($breakpoint), $breakpoint) ) {
             top: -$padding;
           };
         }
-        
+
       };
-      
+
     };
-    
+
     // Adjust styles when bottom stretch.
     @include when-descendant-of( '#{$selector}.-stretch-bottom' ) {
-      
+
       @include breakpoint-m-l {
-      
+
         @each $breakpoint, $padding in map-get($layout, 'y') {
-          @include breakpoint( screen($breakpoint) ) {
+          @include breakpoint( if(map-has-key($screens, $breakpoint), screen($breakpoint), $breakpoint) ) {
             bottom: -$padding;
           };
         }
-        
+
       };
-      
+
     };
-    
+
     // Adjust styles when both top and bottom stretch.
     @include when-descendant-of( '#{$selector}.-stretch-both' ) {
-      
+
       @include breakpoint-m-l {
-        
+
         @each $breakpoint, $padding in map-get($layout, 'y') {
-          @include breakpoint( screen($breakpoint) ) {
+          @include breakpoint( if(map-has-key($screens, $breakpoint), screen($breakpoint), $breakpoint) ) {
             top: -$padding;
             bottom: -$padding;
           };
         }
-        
+
       };
-      
+
     };
-    
+
   }
 
   // Defines theme styles for blocks.
   @each $name, $theme in map-deep-get($skin, 'themes') {
-    
+
      // Get theme-specific variables.
     $theme-heading: map-deep-get($theme, 'heading');
     $theme-foreground: map-deep-get($theme, 'foreground');
     $theme-background: map-deep-get($theme, 'background');
     $theme-shadow: map-deep-get($theme, 'shadow');
-    
+
     // Modifies block styles.
     &.-#{$name} {
       background-color: $theme-background;
 
       // Modifies block content styles.
       #{$selector}-content {
-        
+
         // Adjusts styles for block heading content.
         #{$selector}-heading {
           color: $theme-heading;
         }
-    
+
         // Adjusts styles for block text content.
         #{$selector}-text {
           color: $theme-foreground;
         }
-        
+
       }
 
       // Modifies shadow styles for blocks.
       &.-shadow {
 
-        
+
         &-bottom::after {
           @include linear-gradient(to bottom, transparent, $theme-shadow);
         }
@@ -368,11 +370,11 @@ $molecules-block: (
         &-right::after {
           @include linear-gradient(to right, transparent, $theme-shadow);
         }
-        
+
       }
-    
+
     }
-    
+
   }
-  
+
 }

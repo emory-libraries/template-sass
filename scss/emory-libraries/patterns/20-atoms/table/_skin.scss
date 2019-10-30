@@ -8,21 +8,21 @@
 ///
 /// @type map
 $atoms-table: (
-  
+
   'align': left,
-  
+
   'border': (
     'thickness': $border-width-s,
     'color': color('slate', 'light')
   ),
-  
+
   'header': (
     'background': color('blue', 'dark'),
     'foreground': color('gold')
   ),
-  
+
   'heading': color('blue')
-  
+
 );
 
 
@@ -41,83 +41,86 @@ $atoms-table: (
 ///
 /// @output The table component's themeable properties
 @mixin atoms-table--theme ( $skin ) {
-  
+
   // Capture the class name.
   $class: &;
-  
+
   // Captures themeable variables.
   $align: map-deep-get($skin, 'align');
   $heading: map-deep-get($skin, 'heading');
   $thickness: map-deep-get($skin, 'border.thickness');
   $border: map-deep-get($skin, 'border.color');
-  
+
   // Build table component styles.
   text-align: $align;
-  @include tokens-text('data');
-  
+  @include tokens-text--font('data');
+  @include tokens-text--color('data');
+
   // Build table heading styles.
   &-heading {
     text-align: $align;
-    @include tokens-heading('h5-alt', $heading);
+    @include tokens-heading--font('h5-alt');
+    @include tokens-heading--color('h5-alt', $color: $heading);
   }
-  
+
   // Build table caption styles
   &-caption {
     text-align: $align;
     @include tokens-text;
   }
-  
+
   // Build table header styles.
   &-header {
     $background: map-deep-get($skin, 'header.background');
     $foreground: map-deep-get($skin, 'header.foreground');
     $color: if( is-color($foreground), $foreground, color-contrast($background) );
     background-color: $background;
-    @include tokens-heading('h6', $color);
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6', $color: $color);
   }
-  
+
   // Build table header, body, and footer styles.
   &-header,
   &-body,
   &-footer {
     border: $thickness solid $border;
   }
-  
+
   // Build table row styles.
   &-row {
     border-bottom: $thickness solid $border;
-    
+
     // Always remove borders from the last row.
     @include last-child {
       border-bottom: 0;
     };
-    
+
   }
-  
+
   // Build table cell styles.
   &-cell {
-    
+
     // Styles heading cells.
     &.-heading {
       font-weight: bold;
-      
+
       // Styles heading cells within the table body.
       @include when-descendant-of( #{$class}-body ) {
-        
+
         // Apply a right border to all headings that are not in the last column.
-        &:not(:last-child) { 
+        &:not(:last-child) {
           border-right: $thickness solid $border;
         }
-        
+
         // Apply a left border to all headings that are not in the first column.
-        &:not(:first-child) { 
+        &:not(:first-child) {
           border-left: $thickness solid $border;
         }
-        
+
       };
 
     }
-    
+
   }
-  
+
 }

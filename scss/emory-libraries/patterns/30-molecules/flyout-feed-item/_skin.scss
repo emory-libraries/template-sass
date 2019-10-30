@@ -8,7 +8,7 @@
 ///
 /// @type map
 $molecules-flyout-feed-item: (
-  
+
   'gap': (
     'x': 25px,
     'y': 5px
@@ -48,7 +48,7 @@ $molecules-flyout-feed-item: (
     'duration': $transition-duration,
     'timing': $transition-timing
   )
-  
+
 );
 
 /// Defines the flyout-feed-item component theme.
@@ -61,7 +61,7 @@ $molecules-flyout-feed-item: (
 ///
 /// @output The flyout-feed-item component's themeable properties
 @mixin molecules-flyout-feed-item--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $thumbnail: map-deep-get($skin, 'thumbnail.width');
   $aspect: map-deep-get($skin, 'thumbnail.aspect');
@@ -74,13 +74,13 @@ $molecules-flyout-feed-item: (
   $background: map-deep-get($skin, 'background');
   $duration: map-deep-get($skin, 'transition.duration');
   $timing: map-deep-get($skin, 'transition.timing');
-  
+
   // Defines the flyout-feed-item component's base styles.
   grid-column-gap: $gap-x;
   grid-row-gap: $gap-y;
   padding: $padding;
   grid-template-columns: 1fr;
-  
+
   // Modifies column sizes for flyout feed items.
   @each $breakpoint, $size in $thumbnail {
     @include breakpoint( screen($breakpoint) ) {
@@ -89,73 +89,76 @@ $molecules-flyout-feed-item: (
       }
     };
   }
-  
+
   // Modifies background colors for flyout feed items.
   @each $breakpoint, $color in $background {
     @include breakpoint( screen($breakpoint) ) {
       background-color: $color;
     };
   }
-  
-  
+
+
   // Defines flyout feed item thumbnail styles.
-  &-thumbnail { 
+  &-thumbnail {
     transition: all $duration $timing;
-  
+
     @each $breakpoint, $size in $thumbnail {
       @include breakpoint( screen($breakpoint) ) {
         height: ($size * $aspect);
       };
     }
-    
+
   }
-  
+
   // Defines flyout feed item date styles.
-  &-date { 
-    @include tokens-heading('h6');
+  &-date {
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6');
     font-size: 12px !important;
-    
+
     @each $breakpoint, $color in $date {
       @include breakpoint( screen($breakpoint) ) {
         color: $color;
       };
     }
-    
+
   }
-  
+
   // Defines flyout feed item heading styles.
   &-heading {
-    @include tokens-text('body-alt');
-    
+    @include tokens-text--font('body-alt');
+    @include tokens-text--color('body-alt');
+
     @each $breakpoint, $color in $heading {
       @include breakpoint( screen($breakpoint) ) {
         color: $color;
       };
     }
-    
+
     @include breakpoint-m-l {
       font-weight: bold;
     };
-    
+
   }
-  
+
   // Defines flyout feed item description styles.
   &-description {
-    @include tokens-text('body-alt');
-    
+    @include tokens-text--font('body-alt');
+    @include tokens-text--color('body-alt');
+
     @each $breakpoint, $color in $description {
       @include breakpoint( screen($breakpoint) ) {
         color: $color;
       };
     }
-    
+
   }
-  
+
   // Defines flyout feed item link styles.
   &-link {
     @include atoms-link;
     text-decoration: underline;
     font-size: 14px !important;
   }
-  
+
 }

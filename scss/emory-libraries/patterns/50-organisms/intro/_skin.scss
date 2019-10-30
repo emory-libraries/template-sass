@@ -10,16 +10,16 @@
 $organisms-intro: (
 
   'context': color('blue'),
-  
+
   'title': color('blue', 'dark'),
-  
+
   'subtitle': color('blue', 'mid'),
-  
+
   'thumb': (
     'size': 150px,
     'spacing': 35px
   )
-  
+
 );
 
 /// Defines the intro component theme.
@@ -37,84 +37,91 @@ $organisms-intro: (
   $context: map-deep-get($skin, 'context');
   $title: map-deep-get($skin, 'title');
   $subtitle: map-deep-get($skin, 'subtitle');
-  
+
   // Get thumb-specific variables.
   $thumb-size: map-deep-get($skin, 'thumb.size');
   $thumb-spacing: map-deep-get($skin, 'thumb.spacing');
 
   // Defines the intro component's base styles.
   // ...
-  
+
   // Defines the intro thumb styles.
   &-thumb {
     @include size( $thumb-size );
     margin-right: $thumb-spacing;
   }
-  
+
   // Defines the intro context styles.
   &-context {
-    @include tokens-heading('h6', $context, $important: true);
+    @include tokens-heading--font('h6', $important: true);
+    @include tokens-heading--color('h6', $color: $context, $important: true);
   }
-  
+
   // Defines the intro title styles.
   &-title {
-    @include tokens-heading('h1-alt', $title, $important: true);
-    
+    @include tokens-heading--font('h1-alt', $important: true);
+    @include tokens-heading--color('h1-alt', $color: $title, $important: true);
+
     // Modifies styles when used for a heading intro and alternative heading intro.
-    &.-heading { 
-      @include tokens-heading('h1', $title, $important: true);
+    &.-heading {
+      @include tokens-heading--font('h1', $important: true);
+      @include tokens-heading--color('h1', $color: $title, $important: true);
       text-align: center;
-      
+
       // Adds color block to title.
       &::before {
         @include atoms-rule('heading');
       }
-      
+
       // Adds separator to title.
       &::after {
         @include atoms-rule;
       }
-      
+
     }
-    
+
     // Modifies styles for an alternative heading intro.
     &.-heading-alt {
-      @include tokens-heading('h1-alt', $title, $important: true);
+      @include tokens-heading--font('h1-alt', $important: true);
+      @include tokens-heading--color('h1-alt', $color: $title, $important: true);
       text-align: left;
-      
+
       // Adds color block to title.
       &::before {
         @include atoms-rule('heading');
       }
-      
+
       // Adds separator to title.
       &::after {
         @include atoms-rule;
       }
-      
+
     }
-    
+
     // Modifies styles for a bio intro.
     &.-bio {
-      @include tokens-heading('h1-alt', $title, $important: true);
+      @include tokens-heading--font('h1-alt', $important: true);
+      @include tokens-heading--color('h1-alt', $color: $title, $important: true);
     }
-    
+
   }
-  
+
   // Defines the intro subtitle styles.
   &-subtitle {
-    @include tokens-text('lead', $subtitle, $important: true);
-    
+    @include tokens-text--font('lead', $important: true);
+    @include tokens-text--color('lead', $color: $subtitle, $important: true);
+
     // Modifies styles when used for a bio intro.
     &.-bio {
-      @include tokens-heading('h5-alt', $title, $important: true);
+      @include tokens-heading--font('h5-alt', $important: true);
+      @include tokens-heading--color('h5-alt', $color: $title, $important: true);
     }
-    
+
   }
-  
+
   // Defines the intro link styles.
   &-link {
     @include atoms-link;
   }
-  
+
 }
