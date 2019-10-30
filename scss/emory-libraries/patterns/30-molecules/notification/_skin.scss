@@ -158,9 +158,13 @@ $molecules-notification: (
     $hover: map-get($theme-dismiss, 'hover');
     $active: map-get($theme-dismiss, 'active');
 
-    @include size( $dismiss );
     color: $normal;
     transition: all $duration $timing;
+
+    &,
+    svg {
+      @include size($dismiss);
+    }
 
     svg {
       fill: $normal;
