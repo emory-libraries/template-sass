@@ -74,8 +74,14 @@ $organisms-intro-home: (
   $transition-duration: map-deep-get($skin, 'transition.duration');
   $transition-timing: map-deep-get($skin, 'transition.timing');
 
-  // Defines the intro-home component's base styles.
-  @include linear-gradient-over-image(0deg, $gradient -14.42%, transparent 51.12%, var(--image));
+  // Defines the intro home component's base styles.
+  // NOTE: This expects that a `background-image` property will be set via inline styles.
+  // ...
+
+  // Defines the intro home gradient styles.
+  &::before {
+    @include linear-gradient(0deg, $gradient -14.42%, transparent 51.12%);
+  }
 
   &-title {
     text-align: center;

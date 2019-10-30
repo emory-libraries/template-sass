@@ -10,7 +10,7 @@
   // Captures the selector.
   $selector: &;
 
-  // Builds the intro-hero structure.
+  // Builds the intro hero structure.
   display: grid;
   grid-template-rows: 5fr repeat(3, min-content) 1fr;
   grid-template-columns: 1fr minmax(min-content, 800px) 1fr;
@@ -18,18 +18,29 @@
   background-position: center center;
   height: 437px;
 
+  // Builds the intro hero gradient structure.
+  &::before {
+    content: '';
+    display: block;
+    @include absolute( 0 0 0 0 );
+    z-index: 0;
+  }
+
+  // Builds the intro hero badge structure.
   &-badge{
     grid-row: 2/span 1;
     grid-column: 2/span 1;
     align-self: center;
   }
 
+  // Builds the intro hero title structure.
   &-title {
     grid-row: 3/span 1;
     grid-column: 2/span 1;
     align-self: center;
   }
 
+  // Builds the intro hero subtitle structure.
   &-subtitle {
     grid-row: 4/span 1;
     grid-column: 2/span 1;
