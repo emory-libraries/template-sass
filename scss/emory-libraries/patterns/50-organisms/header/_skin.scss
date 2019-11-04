@@ -138,6 +138,10 @@ $organisms-header: (
       width: $search-min !important;
       height: 100% !important;
 
+      svg {
+        max-height: $search-max;
+      }
+
       // Adjust search size on larger screens.
       @include breakpoint-xl {
         width: $search-max !important;
@@ -147,7 +151,7 @@ $organisms-header: (
 
     // Defines the header main overlay styles.
     &-overlay {
-      height: 150px;
+      height: 145px;
 
       // Show the search menu overlay when toggled.
       @include when-sibling-of('#{$selector-main}-toggle:checked') {

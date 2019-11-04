@@ -17,6 +17,7 @@
                        "branding";
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, min-content);
+  align-content: center;
 
   // Adjust navigation bar structure on larger screens.
   @include breakpoint-l-xl {
