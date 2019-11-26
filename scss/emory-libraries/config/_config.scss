@@ -9,7 +9,7 @@
 /// @since 1.0.0
 ///
 /// @prop {map} path - A set of paths
-/// @prop {string} path.icons [../icons] - The path to the icons directory
+/// @prop {string} path.icons [../assets/icons] - The path to the icons directory
 ///
 /// @link https://laurenhamel.github.io/brandy/docs/#brandy-getters-function-config Brandy::config
 ///
@@ -17,7 +17,7 @@
 $config: (
 
   'path': (
-    'icons': '../icons',
+    'icons': '../assets/icons',
     'fonts': '../fonts'
   )
 
