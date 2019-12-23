@@ -75,7 +75,8 @@ $molecules-branding-footer: (
       svg {
         fill: $logo-color;
 
-        .badge-bg {
+        .badge-bg,
+        #badge-bg {
           opacity: 1 !important;
           fill: $background;
         }
