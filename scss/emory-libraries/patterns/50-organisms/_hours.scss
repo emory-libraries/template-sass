@@ -1,0 +1,101 @@
+////
+/// @group emory-libraries.patterns.organisms.hours
+////
+
+/// Load the hours component's structure and skin.
+@import 'hours/structure';
+@import 'hours/skin';
+
+/// Builds a constructor for the hours component.
+///
+/// @since 1.0.0-dev.5
+///
+/// @requires {placeholder} organisms-hours
+/// @requires {variable} organisms-hours
+/// @requires {mixin} organisms-hours--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our hours component
+///
+/// @status review
+@mixin organisms-hours ( $custom: () ) {
+
+  // Extend the default skin.
+  $skin: map-extend($organisms-hours, $custom);
+
+  // Initialize the hours component.
+  & {
+
+    // Load structure.
+    @extend %organisms-hours;
+
+    // Load parts.
+    &-title {
+      @extend %organisms-hours-title;
+    }
+    &-caption {
+      @extend %organisms-hours-caption;
+    }
+    &-subtitle {
+      @extend %organisms-hours-subtitle;
+    }
+    &-toggle {
+      @extend %organisms-hours-toggle;
+    }
+    &-content {
+      @extend %organisms-hours-content;
+    }
+    &-slider {
+      @extend %organisms-hours-slider;
+      &-group {
+        @extend %organisms-hours-slider-group;
+      }
+      &-day {
+        @extend %organisms-hours-slider-day;
+        &-current {
+          @extend %organisms-hours-slider-day-current;
+        }
+        &-previous {
+          @extend %organisms-hours-slider-day-previous;
+        }
+        &-next {
+          @extend %organisms-hours-slider-day-next;
+        }
+      }
+    }
+    &-preview {
+      @extend %organisms-hours-preview;
+      &-services {
+        @extend %organisms-hours-preview-services;
+      }
+      &-hours {
+        @extend %organisms-hours-preview-hours;
+      }
+      &-title {
+        @extend %organisms-hours-preview-title;
+      }
+      &-link {
+        @extend %organisms-hours-preview-link;
+      }
+      &-toggles {
+        @extend %organisms-hours-preview-toggles;
+        &-previous {
+          @extend %organisms-hours-preview-toggles-previous;
+        }
+        &-next {
+          @extend %organisms-hours-preview-toggles-next;
+        }
+      }
+    }
+    &-table {
+      @extend %organisms-hours-table;
+    }
+
+    // Load skins.
+    @include organisms-hours--theme( $skin );
+
+  }
+
+}

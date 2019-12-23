@@ -24,20 +24,20 @@
 ///
 /// @status review
 @mixin tokens-text ( $type: 'body', $color: null, $custom: (), $important: false ) {
-  
+
   // Extend the default skin.
   $skin: map-extend($tokens-text, $custom);
-  
+
   // Initialize the text component.
   & {
-    
+
     // Load structure.
     @extend %tokens-text;
-    
+
     // Load skins.
-    @include tokens-text--font( $type, $skin, $important );
-    @include tokens-text--color( $type, $skin, $color, $important );
-    
+    @include tokens-text--font( $type, $skin, (), $important );
+    @include tokens-text--color( $type, $skin, (), $color, $important );
+
   }
-  
+
 }

@@ -46,3 +46,8 @@
 .big-reveal {
   @include tokens-reveal;
 }
+
+// tokens-spinner
+.spinner {
+  @include tokens-spinner;
+}

@@ -148,17 +148,20 @@ $molecules-card-listing: (
 
   // Defines card listing date styles.
   &-date {
-    @include tokens-heading('h6', $theme-date);
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6', $color: $theme-date);
   }
 
   // Defines card listing title styles.
   &-title {
-    @include tokens-heading('h4', $theme-title);
+    @include tokens-heading--font('h4');
+    @include tokens-heading--color('h4', $color: $theme-title);
   }
 
   // Defines card listing description styles.
   &-description {
-    @include tokens-text('body-alt', $theme-description);
+    @include tokens-text--font('body-alt');
+    @include tokens-text--color('body-alt', $color: $theme-description);
   }
 
   // Defines card listing action styles.
@@ -217,7 +220,7 @@ $molecules-card-listing: (
       };
       @include when-descendant-of( '#{$selector}:not(.-vertical)' ) {
 
-        @include breakpoint-m-l { 
+        @include breakpoint-m-l {
           @include padding-x( $button-padding );
           background-color: map-get($button-background, 'normal');
           color: map-get($button-foreground, 'normal');

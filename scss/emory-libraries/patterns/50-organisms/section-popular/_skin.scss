@@ -53,7 +53,7 @@ $organisms-section-popular: (
 
     // Add the vertical layout as a top margin to the left and right children.
     @each $breakpoint, $padding in $layout-y {
-      @include breakpoint( screen($breakpoint) ) {
+      @include breakpoint( if(map-has-key($screens, $breakpoint), screen($breakpoint), $breakpoint) ) {
         margin-top: $padding;
       };
     }

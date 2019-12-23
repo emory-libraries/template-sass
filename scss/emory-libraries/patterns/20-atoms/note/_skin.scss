@@ -8,7 +8,7 @@
 ///
 /// @type map
 $atoms-note: (
-  
+
   'background': color('gold'),
   'foreground': color('blue', 'dark'),
   'padding': (
@@ -24,12 +24,12 @@ $atoms-note: (
     'font-size': 18px,
     'line-height': 1.6111
   ),
-  
+
   'label': (
     'color': color('blue'),
     'spacing': $rhythm-x
   )
-  
+
 );
 
 /// Defines the note component theme.
@@ -42,7 +42,7 @@ $atoms-note: (
 ///
 /// @output The note component's themeable properties
 @mixin atoms-note--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $background: map-deep-get($skin, 'background');
   $foreground: map-deep-get($skin, 'foreground');
@@ -51,22 +51,23 @@ $atoms-note: (
   $font: map-deep-get($skin, 'font');
   $spacing: map-deep-get($skin, 'spacing');
   $radius: map-deep-get($skin, 'radius');
-  
+
   // Defines the note component's base styles.
   color: $foreground;
   background-color: $background;
-  @include expand-properties( $font );
-  @include padding-x( $padding-x );
-  @include padding-y( $padding-y );
+  @include tokens-text--font('accent', $custom: ('accent': $font));
+  @include tokens-text--color('accent');
+  padding: $padding-y $padding-x;
   @include margin-y( $spacing );
   border-radius: $radius;
-  
+
   // Defines note label styles.
   &::before {
     content: attr(data-label);
-    @include tokens-text('label', $color: map-deep-get($skin, 'label.color'));
+    @include tokens-text--font('label');
+    @include tokens-text--color('label', $color: map-deep-get($skin, 'label.color'));
     margin-right: map-deep-get($skin, 'label.spacing');
     vertical-align: middle;
   }
-  
+
 }

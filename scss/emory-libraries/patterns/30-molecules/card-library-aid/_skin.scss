@@ -8,7 +8,7 @@
 ///
 /// @type map
 $molecules-card-library-aid: (
-  
+
   'bar': (
     'thickness': $border-width-m,
     'color': $color-actionable
@@ -19,7 +19,7 @@ $molecules-card-library-aid: (
     'color': tint(color('slate'), 50%)
   ),
   'background': color('white'),
-  
+
   'radius': 5px,
   'padding': 40px 25px 25px,
   'gap': 5px,
@@ -29,14 +29,14 @@ $molecules-card-library-aid: (
     'background': color('blue', 'bright'),
     'border': 4px solid color('white')
   ),
-  
+
   'title': (
     'normal': color('blue'),
     'hover': $color-actionable,
     'active': $color-actionable
   ),
   'context': color('blue')
-  
+
 );
 
 /// Defines the card-library-aid component theme.
@@ -49,7 +49,7 @@ $molecules-card-library-aid: (
 ///
 /// @output The card-library-aid component's themeable properties
 @mixin molecules-card-library-aid--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   // Capture themeable variables from skin.
   $gap: map-deep-get($skin, 'gap');
@@ -58,26 +58,26 @@ $molecules-card-library-aid: (
   $background: map-deep-get($skin, 'background');
   $title: map-deep-get($skin, 'title');
   $context: map-deep-get($skin, 'context');
-  
+
   // Get icon-specific variables.
   $icon-size: map-deep-get($skin, 'icon.size');
   $icon-scale: map-deep-get($skin, 'icon.scale');
   $icon-border: map-deep-get($skin, 'icon.border');
   $icon-background: map-deep-get($skin, 'icon.background');
   $icon-foreground: color-contrast($icon-background);
-  
+
   // Get bar-specific variables.
   $bar-thickness: map-deep-get($skin, 'bar.thickness');
   $bar-color: map-deep-get($skin, 'bar.color');
-  
+
   // Get stripe-specific variables.
   $stripe-color: map-deep-get($skin, 'stripe');
   $stripe-thickness: nth($padding, 1) + ($icon-size / 2);
-  
+
   // Get border-specific variables.
   $border-thickness: map-deep-get($skin, 'border.thickness');
   $border-color: map-deep-get($skin, 'border.color');
-  
+
   // Defines the card-library-aid component's base styles.
   grid-gap: $gap;
   padding: $padding;
@@ -86,38 +86,40 @@ $molecules-card-library-aid: (
   @include border-bottom-radius( $radius );
   background-color: $background;
   @include linear-gradient(to bottom, $stripe-color $stripe-thickness, transparent $stripe-thickness);
-  
+
   // Defines the card multimedia icon styles.
-  &-icon { 
+  &-icon {
     box-sizing: content-box;
     text-align: center;
     @include size( $icon-size );
     border-radius: 100%;
     border: $icon-border;
     background-color: $icon-background;
-    
+
     svg {
       fill: $icon-foreground;
       height: $icon-scale;
     }
-    
+
   }
-  
+
   // Defines the card multimedia context styles.
-  &-context { 
-    @include tokens-heading('h6', $context);
+  &-context {
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6', $color: $context);
     font-size: 12px;
     text-align: center;
   }
-  
+
   // Defines the card multimedia title styles.
-  &-title { 
-    @include tokens-heading('h5');
+  &-title {
+    @include tokens-heading--font('h5');
+    @include tokens-heading--color('h5');
     @include atoms-link((
       color: $title,
       weight: normal
     ));
     text-align: center;
   }
-  
+
 }

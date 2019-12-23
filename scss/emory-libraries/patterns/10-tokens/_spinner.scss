@@ -1,0 +1,39 @@
+////
+/// @group emory-libraries.patterns.tokens.spinner
+////
+
+/// Load the spinner component's structure and skin.
+@import 'spinner/structure';
+@import 'spinner/skin';
+
+/// Builds a constructor for the spinner component.
+///
+/// @since 1.0.0-alpha.1
+///
+/// @requires {placeholder} tokens-spinner
+/// @requires {variable} tokens-spinner
+/// @requires {mixin} tokens-spinner--theme
+/// @requires {function} Brandy::map-extend <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-extend>
+///
+/// @param {map} $custom - A custom skin for the component
+///
+/// @output The native structure and skin of our spinner component
+///
+/// @status construction
+@mixin tokens-spinner ( $custom: () ) {
+  
+  // Extend the default skin.
+  $skin: map-extend($tokens-spinner, $custom);
+  
+  // Initialize the spinner component.
+  & {
+    
+    // Load structure.
+    @extend %tokens-spinner;
+    
+    // Load skins.
+    @include tokens-spinner--theme( $skin );
+    
+  }
+  
+}

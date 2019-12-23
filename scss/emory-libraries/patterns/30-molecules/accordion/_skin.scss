@@ -8,7 +8,7 @@
 ///
 /// @type map
 $molecules-accordion: (
-  
+
   'background': rgba(color('slate', 'light'), .5),
   'transition': (
     'duration': $transition-duration,
@@ -25,7 +25,7 @@ $molecules-accordion: (
     'thickness': $border-width-s,
     'color': color('slate')
   )
-  
+
 );
 
 /// Defines the accordion component theme.
@@ -38,10 +38,10 @@ $molecules-accordion: (
 ///
 /// @output The accordion component's themeable properties
 @mixin molecules-accordion--theme ( $skin ) {
-  
+
   // Capture selector.
   $selector: &;
-  
+
   // Capture themeable variables from skin.
   $duration: map-deep-get($skin, 'transition.duration');
   $timing: map-deep-get($skin, 'transition.timing');
@@ -49,30 +49,30 @@ $molecules-accordion: (
   $padding: map-deep-get($skin, 'padding');
   $title: map-deep-get($skin, 'title');
   $background: map-deep-get($skin, 'background');
-  
+
   // Get indicator-specific variables.
   $indicator-size: map-deep-get($skin, 'indicator.size');
   $indicator-color: map-deep-get($skin, 'indicator.color');
-  
+
   // Get border-specific variables.
   $border-thickness: map-deep-get($skin, 'border.thickness');
   $border-color: map-deep-get($skin, 'border.color');
-  
+
   // Defines the accordion component's base styles.
   grid-template-rows: $size 1fr;
   @include border-y( $border-thickness solid $border-color );
   transition: all $duration $timing;
-  
+
   // Defines the accordion switch styles.
-  &-switch { 
-    
+  &-switch {
+
     // Shows content when open (checked).
     &:checked ~ #{$selector}-content {
       @include visually-hidden( false );
       @include padding-y( $padding );
       opacity: 1;
     }
-  
+
     // Hides content when closed (not checked).
     &:not(:checked) ~ #{$selector}-content {
       @include visually-hidden( true );
@@ -101,7 +101,7 @@ $molecules-accordion: (
     &:not(:checked) ~ #{$selector}-content {
       background-color: transparent;
     }
-    
+
   }
 
   // Defines the accordion toggle styles.
@@ -113,11 +113,12 @@ $molecules-accordion: (
     // Defines the accordion title styles.
     #{$selector}-title {
       padding: $padding;
-      @include tokens-heading('h4', $title);
+      @include tokens-heading--font('h4');
+      @include tokens-heading--color('h4', $color: $title);
     }
 
     // Defines the accordion indicator styles.
-    #{$selector}-indicator { 
+    #{$selector}-indicator {
       padding: $padding;
 
       .icon {
@@ -131,9 +132,9 @@ $molecules-accordion: (
       }
 
     }
-    
+
   }
-  
+
   // Defines the accordion content styles.
   &-content {
     @include tokens-text;
@@ -144,5 +145,5 @@ $molecules-accordion: (
     width: 100% !important;
     transition: all $duration $timing;
   }
-  
+
 }

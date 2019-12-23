@@ -69,7 +69,6 @@
   "compounds-alert": "review",
   "compounds-notification": "review",
   "compounds-feed": "review",
-  "organisms-intro-interior-cover": "review",
   "organisms-intro": "review",
   "organisms-section-main": "review",
   "organisms-section-major": "review",
@@ -84,6 +83,7 @@
   "organisms-footer": "review",
   "organisms-header": "review",
   "organisms-section-popular": "review",
+  "organisms-hours": "review",
   "templates-info": "review",
   "templates-material": "review",
   "templates-tool": "review",
@@ -99,8 +99,11 @@
   "templates-exhibition": "review",
   "templates-index": "review",
   "templates-periodicals": "review",
-  "templates-event": "construction",
+  "templates-event": "review",
   "templates-cover": "review",
   "templates-home": "review",
-  "organisms-intro-cover": "review"
+  "organisms-intro-cover": "review",
+  "templates-hours": "review",
+  "templates-calendar": "review",
+  "tokens-spinner": "construction"
 }

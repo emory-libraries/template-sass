@@ -17,6 +17,7 @@
 @import '10-tokens/layout';
 @import '10-tokens/grid';
 @import '10-tokens/reveal';
+@import '10-tokens/spinner';
 /*** INSERT NEW TOKENS HERE ***/
 
 /// Load atoms.
@@ -119,6 +120,7 @@
 @import '50-organisms/footer';
 @import '50-organisms/header';
 @import '50-organisms/section-popular';
+@import '50-organisms/hours';
 /*** INSERT NEW ORGANISMS HERE ***/
 
 
@@ -143,4 +145,6 @@
 @import '60-templates/event';
 @import '60-templates/cover';
 @import '60-templates/home';
+@import '60-templates/hours';
+@import '60-templates/calendar';
 /*** INSERT NEW TEMPLATES HERE ***/

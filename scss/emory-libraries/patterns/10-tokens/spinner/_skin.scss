@@ -1,0 +1,52 @@
+////
+/// @group emory-libraries.patterns.tokens.spinner
+////
+
+/// Defines the base skin of the spinner component.
+///
+/// @since 1.0.0-alpha.1
+///
+/// @type map
+$tokens-spinner: (
+
+  'size': 50px,
+  'color': $color-text-dark,
+  'icon': 'material-loading',
+  'duration': 1s
+
+);
+
+/// Defines the spinner component theme.
+///
+/// @since 1.0.0-alpha.1
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The spinner component's themeable properties
+@mixin tokens-spinner--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  $size: map-deep-get($skin, 'size');
+  $color: map-deep-get($skin, 'color');
+  $icon: map-deep-get($skin, 'icon');
+  $duration: map-deep-get($skin, 'duration');
+
+  // Defines the spinner component's base styles.
+  // ...
+
+  // Defines the spinner animation.
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(365deg); }
+  }
+
+  // Defines the spinner icon styles.
+  &::before {
+    content: icon-url($icon, $color, $size);
+    @include size($size);
+    animation: spin $duration linear 0s infinite;
+  }
+
+}

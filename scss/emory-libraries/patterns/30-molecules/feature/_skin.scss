@@ -138,17 +138,20 @@ $molecules-feature: (
 
   // Defines feature context styles.
   &-context {
-    @include tokens-heading('h6', $theme-context);
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6', $color: $theme-context);
   }
 
   // Defines feature heading styles.
   &-heading {
-    @include tokens-heading('h5', $theme-heading);
+    @include tokens-heading--font('h5');
+    @include tokens-heading--color('h5', $color: $theme-heading);
   }
 
   // Defines feature description styles.
   &-description {
-    @include tokens-text('body-alt', $theme-description);
+    @include tokens-text--font('body-alt');
+    @include tokens-text--color('body-alt', $color: $theme-description);
     @include margin-y( $spacing-description );
   }
 

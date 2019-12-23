@@ -46,9 +46,11 @@
 }
 
 // templates-landing
+@include disable {
 .landing-page {
   @include templates-landing;
 }
+};
 
 // templates-gallary
 .gallery-page {
@@ -83,4 +85,14 @@
 // templates-home
 .home-page {
   @include templates-home;
+}
+
+// templates-hours
+.hours-page {
+  @include templates-hours;
+}
+
+// templates-calendar
+.calendar-page {
+  @include templates-calendar;
 }

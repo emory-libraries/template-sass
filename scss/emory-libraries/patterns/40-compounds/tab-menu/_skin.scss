@@ -61,10 +61,8 @@ $compounds-tab-menu: (
   // Defines tab menu dropdown styles.
   &.-dropdown {
     @include padding-y($dropdown-spacing);
-    @include tokens-text('body', $theme-dropdown, ('body': (
-      'font-weight': bold,
-      'text-transform': uppercase
-    )));
+    @include tokens-text--font('body', $custom: ('body': ('font-weight': bold, 'text-transform': uppercase)));
+    @include tokens-text--color('body', $color: $theme-dropdown);
     font-size: 18px !important;
 
     &::after {

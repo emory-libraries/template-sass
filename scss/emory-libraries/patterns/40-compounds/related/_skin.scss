@@ -8,16 +8,16 @@
 ///
 /// @type map
 $compounds-related: (
-  
+
   'title': color('blue'),
-  
+
   'spacing': ($rhythm-y * 2),
-  
+
   'divider': (
     'thickness': $border-width-s,
     'color': rgba(color('slate', 'light'), .5)
   )
-  
+
 );
 
 /// Defines the related component theme.
@@ -30,15 +30,15 @@ $compounds-related: (
 ///
 /// @output The related-cards component's themeable properties
 @mixin compounds-related--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $title: map-deep-get($skin, 'title');
   $spacing: map-deep-get($skin, 'spacing');
-  
+
   // Get divider specific variables.
   $divider-thickness: map-deep-get($skin, 'divider.thickness');
   $divider-color: map-deep-get($skin, 'divider.color');
-  
+
   // Defines the related component's base styles.
   @include margin-y($spacing / 2);
   @include padding-y($spacing / 2);
@@ -46,10 +46,11 @@ $compounds-related: (
 
   // Defines the related title styles.
   &-title { 
-    @include tokens-heading('h6', $title);
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6', $color: $title);
   }
-  
+
   // Defines the related content styles.
   &-content { }
-  
+
 }

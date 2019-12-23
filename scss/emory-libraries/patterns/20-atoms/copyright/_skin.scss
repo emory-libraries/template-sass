@@ -59,7 +59,8 @@ $atoms-copyright: (
   $scale: numeric-scale(map-get($size, 'min'), map-get($size, 'max'), 3, true);
 
   // Defines the copyright component's base styles.
-  @include tokens-text('body', $normal, ('body': $font));
+  @include tokens-text--font('body', $custom: ('body': $font));
+  @include tokens-text--color('body', $color: $normal);
   @include margin-y($spacing);
   font-size: nth($scale, 1);
 
