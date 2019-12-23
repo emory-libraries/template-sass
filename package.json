@@ -40,7 +40,7 @@
     "grunt-sassdoc": "^2.0.3",
     "grunt-ssh-deploy": "^0.4.1",
     "load-grunt-tasks": "^4.0.0",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.13",
     "path": "^0.12.7",
     "plop": "^2.3.0",
     "request": "^2.88.0",
