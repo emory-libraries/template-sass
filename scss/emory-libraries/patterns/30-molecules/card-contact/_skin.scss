@@ -8,7 +8,7 @@
 ///
 /// @type map
 $molecules-card-contact: (
-  
+
   'bar': (
     'thickness': $border-width-m,
     'color': $color-actionable
@@ -20,7 +20,7 @@ $molecules-card-contact: (
   ),
   'foreground': color('blue'),
   'background': color('white'),
-  
+
   'radius': 5px,
   'padding': 40px 25px 25px,
   'gap': 5px,
@@ -35,7 +35,7 @@ $molecules-card-contact: (
     'hover': color('blue', 'mid'),
     'active': color('blue', 'mid')
   )
-  
+
 );
 
 /// Defines the card-contact component theme.
@@ -48,7 +48,7 @@ $molecules-card-contact: (
 ///
 /// @output The card-contact component's themeable properties
 @mixin molecules-card-contact--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $padding: map-deep-get($skin, 'padding');
   $gap: map-deep-get($skin, 'gap');
@@ -58,48 +58,49 @@ $molecules-card-contact: (
   $email: map-deep-get($skin, 'email');
   $background: map-deep-get($skin, 'background');
   $foreground: map-deep-get($skin, 'foreground');
-  
+
   // Get border-specific variables.
   $border-thickness: map-deep-get($skin, 'border.thickness');
   $border-color: map-deep-get($skin, 'border.color');
-  
+
   // Get bar-specific variables.
   $bar-thickness: map-deep-get($skin, 'bar.thickness');
   $bar-color: map-deep-get($skin, 'bar.color');
-  
+
   // Get stripe-specific variables.
   $stripe-color: map-deep-get($skin, 'stripe');
   $stripe-thickness: (nth($padding, 1) + ($image / 2));
-  
+
   // Defines the card-contact component's base styles.
   grid-gap: $gap;
   padding: $padding;
   border: $border-thickness solid $border-color;
   border-top: $bar-thickness solid $bar-color;
   @include border-bottom-radius( $radius );
-  @include tokens-text('body-alt', $foreground);
+  @include tokens-text--font('body-alt');
+  @include tokens-text--color('body-alt', $color: $foreground);
   background-color: $background;
   @include linear-gradient(to bottom, $stripe-color $stripe-thickness, transparent $stripe-thickness);
-  
+
   // Defines the card contact image stylez.
-  &-image { 
+  &-image {
     text-align: center;
     @include size( $image );
     border-radius: 100%;
   }
-  
+
   // Defines the card contact name stylez.
   &-name {
     @include atoms-link((color: $name));
     text-align: center;
     font-size: 18px;
   }
-  
+
   // Defines the card contact title stylez.
   &-title {
     text-align: center;
   }
-  
+
   // Defines the card contact email stylez.
   &-email {
     text-transform: uppercase;
@@ -107,5 +108,5 @@ $molecules-card-contact: (
     @include atoms-link((color: $email));
     font-size: 12px;
   }
-  
+
 }

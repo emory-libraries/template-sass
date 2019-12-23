@@ -1,0 +1,46 @@
+////
+/// @group emory-libraries.patterns.templates.calendar
+////
+
+/// Defines the base skin of the calendar component.
+///
+/// @since 1.0.0-alpha.1
+///
+/// @type map
+$templates-calendar: (
+
+
+
+);
+
+/// Defines the calendar component theme.
+///
+/// @since 1.0.0-alpha.1
+///
+/// @requires {function} Brandy::map-deep-get <https://laurenhamel.github.io/brandy/docs/#brandy-maps-function-map-deep-get>
+///
+/// @param {map} skin - The component's skin
+///
+/// @output The calendar component's themeable properties
+@mixin templates-calendar--theme ( $skin ) {
+
+  // Capture themeable variables from skin.
+  // ...
+
+  // Defines the calendar component's base styles.
+  // ...
+
+  // Defines calendar header and footer styles.
+  &-header,
+  &-footer {}
+
+  // Defines calendar header styles.
+  &-header { }
+
+  // Defines calendar main styles.
+  &-main { }
+
+  // Defines calendar footer styles.
+  &-footer { }
+
+}

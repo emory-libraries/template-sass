@@ -64,7 +64,8 @@ $organisms-section-major: (
 
   // Defines the major title styles.
   &-title {
-    @include tokens-heading('h5', $theme-heading, $important: true);
+    @include tokens-heading--font('h5', $important: true);
+    @include tokens-heading--color('h5', $color: $theme-heading, $important: true);
     text-align: center;
 
     &::after {
@@ -72,14 +73,15 @@ $organisms-section-major: (
     }
 
     @include breakpoint-m-l {
-      @include tokens-heading--font('h2', $tokens-heading, true);
+      @include tokens-heading--font('h2', $important: true);
     };
 
   }
 
   // Defines the major body styles.
   &-body {
-    @include tokens-text('body', $theme-foreground);
+    @include tokens-text--font('body');
+    @include tokens-text--color('body', $color: $theme-foreground);
   }
 
   // Modifies styles based on the theme.

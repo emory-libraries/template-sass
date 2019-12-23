@@ -23,7 +23,8 @@ $layout-y: (
   's': 30px,
   'm': 30px,
   'l': 40px,
-  'xl': 40px
+  'xl': 40px,
+  '#{$layout-max-width + 40px}': 40px
 ) !default;
 
 /// Sets the minimum vertical layout spacing.

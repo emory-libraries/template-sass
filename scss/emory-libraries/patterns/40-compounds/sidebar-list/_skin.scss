@@ -84,7 +84,8 @@ $compounds-sidebar-list: (
     // Builds the sidebar list section title structure.
     &-title {
       @include margin-y( $spacing-title );
-      @include tokens-heading('h6', $title-color);
+      @include tokens-heading--font('h6');
+      @include tokens-heading--color('h6', $color: $title-color);
       font-size: 12px !important;
 
       // Modify styles when an icon is present.

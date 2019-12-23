@@ -8,7 +8,7 @@
 ///
 /// @type map
 $molecules-slide: (
-  
+
   'background': color('blue', 'mid'),
   'foreground': $color-text-light,
   'context': color('gold'),
@@ -26,7 +26,7 @@ $molecules-slide: (
       'hollow': $color-text-light
     ),
   ),
-  
+
   'image': (
     'max': 200px,
     'min': 125px
@@ -41,7 +41,7 @@ $molecules-slide: (
     'm': 90%,
     'l': 80%
   )
-  
+
 );
 
 /// Defines the slide component theme.
@@ -54,7 +54,7 @@ $molecules-slide: (
 ///
 /// @output The slide component's themeable properties
 @mixin molecules-slide--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $background: map-deep-get($skin, 'background');
   $foreground: map-deep-get($skin, 'foreground');
@@ -64,13 +64,13 @@ $molecules-slide: (
   $gap-y: map-deep-get($skin, 'gap.y');
   $padding: map-deep-get($skin, 'padding');
   $width: map-deep-get($skin, 'width');
-  
+
   // Get image-specific variables.
   $image-min: map-deep-get($skin, 'image.min');
   $image-max: map-deep-get($skin, 'image.max');
   $image-scale: numeric-scale( $image-min, $image-max, length(map-keys($screens)), true );
   $image-size: map-combine(map-keys($screens), $image-scale);
-  
+
   // Defines the slide component's base styles.
   @include padding-y($padding);
   grid-template-columns: min-content 1fr;
@@ -79,57 +79,59 @@ $molecules-slide: (
   grid-row-gap: $gap-y;
   background-color: $background;
   color: $foreground;
-  
+
   // Modifies styles for larger screens.
   @include breakpoint-m-l {
     grid-template-columns: min-content 1fr;
     grid-template-rows: repeat(2, min-content) 1fr;
   };
-  
+
   // Apply width to the slide using padding.
   @each $screen, $size in $width {
     @include breakpoint( screen($screen) ) {
       @include padding-x(calc(100% - #{$size}));
     };
   }
-  
+
   // Defines the slide context styles.
   &-context {
-    @include tokens-heading('h6', $context);
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6', $color: $context);
   }
-  
+
   // Defines the slide image styles.
-  &-image { 
-    
+  &-image {
+
     // Resize image across screens.
     @each $breakpoint, $size in $image-size {
-      
+
       @include breakpoint( screen($breakpoint) ) {
         @include size( $size );
       };
-      
+
     }
-    
+
   }
-  
+
   // Defines the slide title styles.
-  &-title { 
-    @include tokens-heading('h5-alt', $foreground);
+  &-title {
+    @include tokens-heading--font('h5-alt');
+    @include tokens-heading--color('h5-alt', $color: $foreground);
     font-size: 15px !important;
-    
+
     @include breakpoint-m-l {
       font-size: 20px !important;
     };
-    
+
   }
-  
+
   // Defines the slide action styles.
   &-action {
-  
+
     .button {
       @include atoms-button( $button );
     }
-    
+
   }
-  
+
 }

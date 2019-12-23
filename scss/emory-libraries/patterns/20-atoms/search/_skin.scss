@@ -195,7 +195,8 @@ $atoms-search: (
     $foreground-hover: map-deep-get($skin, 'button.default.foreground.hover');
     $foreground-active: map-deep-get($skin, 'button.default.foreground.active');
 
-    @include tokens-text('button', $foreground-normal);
+    @include tokens-text--font('button');
+    @include tokens-text--color('button', $color: $foreground-normal);
     transition: all $duration $timing;
 
     &:hover,

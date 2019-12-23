@@ -19,10 +19,34 @@
     margin-bottom: 0;
   }
 
+  // Builds the hours caption structure.
+  &-caption {
+    display: block;
+
+    // Override the structure of any inputs.
+    .input {
+      margin: 0 !important;
+
+      // Override the structure of any dropdowns.
+      &.-select {
+        padding-right: 30px !important;
+      }
+
+    }
+
+    .icon {
+      vertical-align: middle;
+    }
+
+    .link {
+      vertical-align: -5px;
+    }
+
+  }
+
   // Builds the hours subtitle structure.
   &-subtitle {
     display: block;
-
   }
 
   // Builds the hours toggle structure.
@@ -32,49 +56,219 @@
 
   // Builds the hours content structure.
   &-content {
+    display: block;
+    margin: $rhythm-y 0;
+  }
+
+  // Builds the hours slider structure.
+  &-slider {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+
+    // Builds the hours group structure.
+    &-group {
+      display: grid;
+      grid-template-rows: 50px auto;
+    }
+
+    // Builds the hours day structure.
+    &-day {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      // Build current day styles.
+      &-current {
+        flex-grow: 4;
+        order: 1;
+        cursor: pointer;
+      }
+
+      // Build previous structure.
+      &-previous {
+        @include absolute-center-contents(true);
+        flex-grow: 1;
+        order: 2;
+        cursor: pointer;
+      }
+
+      // Build next day structure.
+      &-next {
+        @include absolute-center-contents(true);
+        flex-grow: 1;
+        order: 3;
+        cursor: pointer;
+      }
+
+    }
+
   }
 
-  // Builds the hours group structure.
-  &-group {
+  // Builds the hours preview structure.
+  &-preview {
     display: grid;
-    grid-template-rows: 50px auto;
-  }
+    grid-template-areas:  "title toggles"
+                          "services hours";
+    grid-template-columns: 1fr 120px;
+    grid-template-rows: repeat(3, auto);
 
-  // Builds the hours day structure.
-  &-day {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    // Adjust grid layout on medium screens.
+    @include breakpoint-m {
+      grid-template-areas: "title title"
+                           "services hours";
+      grid-template-columns: max-content 1fr;
+    };
 
-    // Build current day styles.
-    &-current {
-      flex-grow: 4;
-      order: 1;
-      cursor: pointer;
+    // Adjust grid layout on large screens.
+    @include breakpoint-l {
+      grid-template-areas: "title title"
+                           "services hours";
+      grid-template-columns: minmax(max-content, 1fr) 2fr;
+    };
+
+    // Builds the hours preview title structure.
+    &-title {
+      grid-area: title;
+      display: flex;
+      flex-direction: column;
+
+      #{$all-headings},
+      .table-heading {
+        margin: 0;
+      }
+
+      // Adjust flex layout on larger screens.
+      @include breakpoint-m-l {
+        flex-direction: row;
+        flex-wrap: nowrap;
+      };
+
     }
 
-    // Build previous structure.
-    &-previous {
-      @include absolute-center-contents(true);
-      flex-grow: 1;
-      order: 2;
-      cursor: pointer;
+    // Builds the hours preview link structure.
+    &-link {
+      display: block !important;
+
+      // Adjust the alignment on larger screens.
+      @include breakpoint-m-l {
+        justify-self: end;
+        text-align: right;
+        margin-left: auto;
+      };
+
+      .icon {
+        vertical-align: middle;
+      }
+
     }
 
-    // Build next day structure.
-    &-next {
-      @include absolute-center-contents(true);
-      flex-grow: 1;
-      order: 3;
-      cursor: pointer;
+    // Builds the hours preview toggles structure.
+    &-toggles {
+      grid-area: toggles;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-self: end;
+      align-items: center;
+
+      // Hide toggles on larger screens.
+      @include breakpoint-m-l {
+        display: none;
+      };
+
+      // Builds hours preview toggles previous and next structure.
+      &-previous,
+      &-next {
+        cursor: pointer;
+        appearance: none;
+        background: none;
+        border: none;
+        @include absolute-center-contents;
+        flex-grow: 1;
+
+        &[disabled],
+        &.is-disabled {
+          opacity: .5;
+          cursor: not-allowed;
+        }
+
+      }
+
+    }
+
+    // Builds the hours preview services structure.
+    &-services {
+      grid-area: services;
+    }
+
+    // Builds the hours preview hours structure.
+    &-hours {
+      grid-area: hours;
+      overflow-x: scroll;
+
+      // Remove the scroll setting on larger screens.
+      @include breakpoint-l {
+        overflow-x: auto;
+      };
+
     }
 
   }
 
   // Builds the hours table structure.
-  &-table { }
+  &-table {
+
+    // Builds the table structure for slider use.
+    &.-slider {}
+
+    // Builds the table structure for services and hours use.
+    &.-services,
+    &.-hours {
+
+      .table-body {
+
+        .table-row {
+          height: 100px;
+
+          @include breakpoint-m-l {
+            height: auto;
+          };
+
+        }
+
+      }
+
+    }
+
+    // Builds the table structure for services use.
+    &.-services {
+      width: 100%;
+    }
+
+    // Builds the table structure for hours use.
+    &.-hours {
+      width: max-content;
+      min-width: 200%;
+
+      .table-cell {
+        width: 120px;
+
+        // Adjust the cell size on larger screens.
+        @include breakpoint-m-l {
+          width: auto;
+        };
+
+      }
+
+      // Adjust the table size on larger screens.
+      @include breakpoint-l {
+        min-width: max-content;
+        width: 100%;
+      }
+
+    }
+
+  }
 
 }

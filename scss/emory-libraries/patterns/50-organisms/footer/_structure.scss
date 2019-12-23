@@ -12,6 +12,7 @@
   grid-template-columns: repeat(2, 1fr);
   justify-items: center;
   margin-top: 80px;
+  padding-top: 0 !important;
 
   // Adjusts the footer grid on larger screens.
   @include breakpoint-l {

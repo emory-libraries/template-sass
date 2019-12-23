@@ -59,20 +59,20 @@ $templates-exhibition: (
 
     // Defines styles for main context.
     &-context {
-      @include tokens-heading('h6', $custom: ('h6': (
-        'font-size': 12px
-      )));
+      @include tokens-heading--font('h6', $custom: ('h6': ('font-size': 12px)));
       text-align: center;
     }
 
     // Defines styles for main quote.
     &-quote {
-      @include tokens-text('blockquote');
+      @include tokens-text--font('blockquote');
+      @include tokens-text--color('blockquote');
     }
 
     // Defines styles for main date.
     &-date {
-      @include tokens-heading('h4', $date);
+      @include tokens-heading--font('h4');
+      @include tokens-heading--color('h4', $color: $date);
     }
 
     // Defines styles for main sidenote.
@@ -80,7 +80,8 @@ $templates-exhibition: (
 
       // Add heading styles.
       &-heading {
-        @include tokens-heading('h6', $sidenote-heading);
+        @include tokens-heading--font('h6');
+        @include tokens-heading--color('h6', $color: $sidenote-heading);
       }
 
       // Add content styles.

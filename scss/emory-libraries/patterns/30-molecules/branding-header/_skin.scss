@@ -126,9 +126,8 @@ $molecules-branding-header: (
 
   // Defines the branding organization styles.
   &-organization {
-    @include tokens-text('accent', $organization, ('accent': (
-      'text-transform': uppercase
-    )));
+    @include tokens-text--font('accent', $custom: ('accent': ('text-transform': uppercase)));
+    @include tokens-text--color('accent', $color: $organization);
     font-size: 10px !important;
     transition: all $transition-duration $transition-timing;
 
@@ -140,9 +139,8 @@ $molecules-branding-header: (
 
   // Defines the branding division styles.
   &-division {
-    @include tokens-heading('h3', $division, ('h3': (
-      'line-height': 1
-    )));
+    @include tokens-heading--font('h3', $custom: ('h3': ('line-height': 1, 'font-weight': bold)));
+    @include tokens-heading--color('h3', $color: $division);
     font-size: 18px !important;
     transition: all $transition-duration $transition-timing;
 
@@ -157,7 +155,8 @@ $molecules-branding-header: (
 
     // Defines the branding dropdown menu styles.
     &-menu {
-      @include tokens-text('button', $dropdown-color);
+      @include tokens-text--font('button');
+      @include tokens-text--color('button', $color: $dropdown-color);
       background-image: icon-url('material-chevron_down', $dropdown-color, $dropdown-icon);
       background-size: $dropdown-icon;
       padding-right: $dropdown-icon;

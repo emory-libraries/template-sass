@@ -8,19 +8,19 @@
 ///
 /// @type map
 $molecules-utility-list-item: (
-  
+
   'padding': 25px,
   'gap': 10px,
-  
+
   'image': 40%,
-  
+
   'divider': (
     'thickness': $border-width-s,
     'color': rgba(color('slate'), .5)
   ),
-  
+
   'context': color('blue')
-  
+
 );
 
 /// Defines the utility-list-item component theme.
@@ -33,17 +33,17 @@ $molecules-utility-list-item: (
 ///
 /// @output The utility-list-item component's themeable properties
 @mixin molecules-utility-list-item--theme ( $skin ) {
-  
+
   // Capture themeable variables from skin.
   $image: map-deep-get($skin, 'image');
   $gap: map-deep-get($skin, 'gap');
   $padding: map-deep-get($skin, 'padding');
   $context: map-deep-get($skin, 'context');
-  
+
   // Get divider-specific variables.
   $divider-thickness: map-deep-get($skin, 'divider.thickness');
   $divider-color: map-deep-get($skin, 'divider.color');
-  
+
   // Defines the utility-list-item component's base styles.
   @include padding-y( $padding );
   border-bottom: $divider-thickness solid $divider-color;
@@ -75,12 +75,13 @@ $molecules-utility-list-item: (
 
   // Defines utility list's list item context styles.
   &-context {
-    @include tokens-heading('h6', $context);
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6', $color: $context);
   }
 
   // Defines utility list's list item title styles.
-  &-title { 
+  &-title {
     font-size: 13px;
   }
-  
+
 }

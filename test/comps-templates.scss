@@ -46,9 +46,11 @@
 }
 
 // templates-landing
+@include disable {
 .landing-page {
   @include templates-landing;
 }
+};
 
 // templates-gallary
 .gallery-page {
@@ -88,4 +90,9 @@
 // templates-hours
 .hours-page {
   @include templates-hours;
+}
+
+// templates-calendar
+.calendar-page {
+  @include templates-calendar;
 }

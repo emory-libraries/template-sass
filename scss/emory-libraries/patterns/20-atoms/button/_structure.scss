@@ -9,25 +9,34 @@
 /// @requires {mixin} Brandy::absolute-center-contents <https://laurenhamel.github.io/brandy/docs/#brandy-layout-mixin-absolute-center-contents>
 /// @requires {mixin} Brandy::padding-x <https://laurenhamel.github.io/brandy/docs/#brandy-layout-mixin-padding-x>
 %atoms-button {
-  
+
   // Defines base structure.
   @include absolute-center-contents(true);
   cursor: pointer;
-  
+
   // Defines structure for button group.
   &-group {
     display: flex;
     flex-wrap: wrap;
-    
+
     &.-inline {
       display: inline-flex;
     }
-    
+    &.-align-left {
+      justify-content: flex-start;
+    }
+    &.-align-center {
+      justify-content: center;
+    }
+    &.-align-right {
+      justify-content: flex-end;
+    }
+
   }
-  
+
   &[disabled],
-  &.is-disabled { 
-    cursor: not-allowed; 
+  &.is-disabled {
+    cursor: not-allowed;
   }
-  
+
 }

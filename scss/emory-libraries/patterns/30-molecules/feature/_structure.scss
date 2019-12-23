@@ -85,10 +85,10 @@
       justify-content: flex-end;
     }
     &.-align-y-top {
-      align-items: top;
+      align-items: flex-start;
     }
     &.-align-y-bottom {
-      align-items: bottom;
+      align-items: flex-end;
     }
     &.-align-y-center {
       align-items: center;

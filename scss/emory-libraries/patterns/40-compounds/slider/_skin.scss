@@ -8,8 +8,8 @@
 ///
 /// @type map
 $compounds-slider: (
-  
-  'max': 25,
+
+  'max': 8,
   'transition': (
     'duration': $transition-duration,
     'timing': $transition-timing
@@ -32,7 +32,7 @@ $compounds-slider: (
       'l': 80%
     )
   )
-  
+
 );
 
 /// Defines the slider component theme.
@@ -45,32 +45,32 @@ $compounds-slider: (
 ///
 /// @output The slider component's themeable properties
 @mixin compounds-slider--theme ( $skin ) {
-  
+
   // Capture the selector.
   $selector: &;
-  
+
   // Capture themeable variables from skin.
   $max: map-deep-get($skin, 'max');
-  
+
   // Get transition-specific variables.
   $transition-duration: map-deep-get($skin, 'transition.duration');
   $transition-timing: map-deep-get($skin, 'transition.timing');
-  
+
   // Get indicator-specific variables.
   $indicator-size: map-deep-get($skin, 'indicator.size');
   $indicator-fill: map-deep-get($skin, 'indicator.fill');
   $indicator-spacing: map-deep-get($skin, 'indicator.spacing');
   $indicator-border-thickness: map-deep-get($skin, 'indicator.border.thickness');
   $indicator-border-color: map-deep-get($skin, 'indicator.border.color');
-  
+
   // Get buttons-specific variables.
   $button-offset: map-deep-get($skin, 'button.offset');
   $button-color: map-deep-get($skin, 'button.color');
   $button-size: map-deep-get($skin, 'button.size');
-  
+
   // Defines the slider component's base styles.
   // ...
-  
+
   // Defines the slider indicator styles.
   &-indicator {
     @include size($indicator-size);
@@ -80,53 +80,53 @@ $compounds-slider: (
     border: $indicator-border-thickness solid $indicator-border-color;
     transition: background-color $transition-duration $transition-timing;
     background-color: transparent;
-    
+
     &:checked {
       background-color: $indicator-fill;
     }
-    
+
     // Applies offsets and animations to slides when a toggle is checked.
     @for $i from 0 through ($max - 1) {
-      
+
       &:nth-of-type(#{$i + 1}):checked {
-        
+
         & ~ #{$selector}-slides {
           left: -($i * 100%);
         }
-        
+
       }
-    
+
     }
-    
+
   }
-  
+
   // Defines the slider toggle styles.
   &-toggle {
     @include size($button-size);
-    
+
     &.-previous::after {
       content: icon-url('material-chevron_left', $button-color, $button-size);
     }
-    
+
     &.-next::after {
       content: icon-url('material-chevron_right', $button-color, $button-size);
     }
-    
+
     // Offset the buttons accordingly.
     @each $screen, $offset in $button-offset {
       @include breakpoint( screen($screen) ) {
-        
+
         &.-previous {
           left: (100% - $offset) / 2;
         }
-        
+
         &.-next {
           right: (100% - $offset) / 2;
         }
-        
+
       }
     }
-    
+
   }
 
   // Improves focus styles for slider indicators and toggles.
@@ -137,10 +137,10 @@ $compounds-slider: (
 
   // Defines the slider indicators styles.
   &-indicators {}
-  
+
   // Defines the slider slides styles.
   &-slides {
     transition: left $transition-duration $transition-timing;
   }
-  
+
 }

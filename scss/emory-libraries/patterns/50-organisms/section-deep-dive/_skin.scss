@@ -22,8 +22,10 @@ $organisms-section-deep-dive: (
     'x': $layout-x,
     'y': map-extend($layout-y, (
       'l': 60px,
-      'xl': 60px
-    ))
+      'xl': 60px,
+      '#{$layout-max-width} + 40px': 60px
+    )),
+    'z': 40px
   )
 
 );
@@ -52,12 +54,13 @@ $organisms-section-deep-dive: (
   $link: map-deep-get($skin, 'link');
 
   // Defines the section-deep-dive component's base styles.
-  @include tokens-layout(('x': $layout-x, 'y': $layout-y));
+  @include tokens-layout(('x': $layout-x, 'y': $layout-y), 0 0 40px 0);
   background-color: $background;
 
   // Defines the deep dive title styles.
   &-title {
-    @include tokens-heading('h5', $title, $important: true);
+    @include tokens-heading--font('h5', $important: true);
+    @include tokens-heading--color('h5', $color: $title, $important: true);
     text-align: center;
 
     &::after {
@@ -65,14 +68,15 @@ $organisms-section-deep-dive: (
     }
 
     @include breakpoint-m-l {
-      @include tokens-heading--font('h2', $tokens-heading, true);
+      @include tokens-heading--font('h2', $important: true);
     };
 
   }
 
   // Defines the deep dive body styles.
   &-body {
-    @include tokens-text('body', $foreground);
+    @include tokens-text--font('body');
+    @include tokens-text--color('body', $color: $foreground);
 
     a,
     .link {
@@ -89,12 +93,12 @@ $organisms-section-deep-dive: (
 
   }
 
+  // Defines the deep dive column styles.
   &-column {
 
     &-heading {
-      @include tokens-heading('h6', $headings, ('h6': (
-        'font-weight': normal
-      )), true);
+      @include tokens-heading--font('h6', $custom: ('h6': ('font-weight': normal)), $important: true);
+      @include tokens-heading--color('h6', $color: $headings, $important: true);
     }
 
   }

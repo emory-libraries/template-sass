@@ -23,23 +23,103 @@ $tokens-layout: (
 /// @param {map} skin - The component's skin
 ///
 /// @output The layout component's themeable properties
-@mixin tokens-layout--theme ( $skin ) {
+@mixin tokens-layout--theme ( $skin, $extra: null ) {
 
   // Capture themeable variables from skin.
   $x: map-deep-get($skin, 'x');
   $y: map-deep-get($skin, 'y');
 
+  // Initialize a map for all layout variations.
+  $source: ();
+
+  // Initialize all breakpoints in the padding source map.
+  @each $breakpoint in unique(join(map-keys($y), map-keys($x))) {
+
+    // Initialize an entry for the breakpoint in the padding source map.
+    $source: map-set($source, $breakpoint, 0 0 0 0);
+
+  }
+
+  // Compile y padding into the padding source map.
+  @each $breakpoint, $padding in $y {
+
+    // Get the new value for the padding map entry.
+    $value: replace-nth(map-get($source, $breakpoint), 1, $padding);
+    $value: replace-nth($value, 3, $padding);
+
+    // Save the x padding value into the padding map.
+    $source: map-set($source, $breakpoint, $value);
+
+  }
+
+  // Compile x padding into the padding source map.
+  @each $breakpoint, $padding in $x {
+
+    // Get the new value for the padding map entry.
+    $value: replace-nth(map-get($source, $breakpoint), 2, $padding);
+    $value: replace-nth($value, 4, $padding);
+
+    // Save the x padding value into the padding map.
+    $source: map-set($source, $breakpoint, $value);
+
+  }
+
+  // Use extra to optionally add additional padding to any direction.
+  @if( not is-null($extra) ) {
+
+    // Make sure the extra value is in list form.
+    @if( not is-list($extra) ) { $extra: ($extra); }
+
+    // Use z to add additional padding directionally.
+    @for $i from 1 through length($extra) {
+
+      // Get the z value.
+      $value: nth($extra, $i);
+
+      // Add padding directionallyonto the existing padding.
+      @each $breakpoint, $padding in $source {
+
+        // Add additional padding in all directions, if applicable.
+        @if( length($extra) == 1 ) {
+          $padding: replace-nth($padding, 1, nth($padding, 1) + $value);
+          $padding: replace-nth($padding, 2, nth($padding, 2) + $value);
+          $padding: replace-nth($padding, 3, nth($padding, 3) + $value);
+          $padding: replace-nth($padding, 4, nth($padding, 4) + $value);
+        }
+
+        // Add additional padding in both directions, if applicable.
+        @if( length($extra) == 2 ) {
+          @if( $i == 1 ) {
+            $padding: replace-nth($padding, 1, nth($padding, 1) + $value);
+            $padding: replace-nth($padding, 3, nth($padding, 3) + $value);
+          }
+          @if( $i == 2 ) {
+            $padding: replace-nth($padding, 2, nth($padding, 2) + $value);
+            $padding: replace-nth($padding, 4, nth($padding, 4) + $value);
+          }
+        }
+
+        // Otherwise, add additional padding in only one direction, if applicable.
+        @else if( length($extra) == 4 ) {
+          $padding: replace-nth($padding, $i, nth($padding, $i) + $value);
+        }
+
+        // Save the new padding value.
+        $source: map-set($source, $breakpoint, $padding);
+
+      }
+
+    }
+
+  }
+
   // Defines the layout component's base styles.
   transition: padding $transition-duration $transition-timing;
 
-  @each $breakpoint, $padding in $x {
+  // Applies layouts across breakpoints.
+  @each $breakpoint, $padding in $source {
     @include breakpoint( if(map-has-key($screens, $breakpoint), screen($breakpoint), unquote($breakpoint)) ) {
-      @include padding-x( $padding );
-    };
-  }
-  @each $breakpoint, $padding in $y {
-    @include breakpoint( if(map-has-key($screens, $breakpoint), screen($breakpoint), unquote($breakpoint)) ) {
-      @include padding-y( $padding );
+      padding: $padding;
     };
   }
 

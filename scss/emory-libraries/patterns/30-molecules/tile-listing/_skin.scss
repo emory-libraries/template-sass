@@ -8,11 +8,11 @@
 ///
 /// @type map
 $molecules-tile-listing: (
-  
+
   'padding': 40px 25px,
   'gap': 10px,
   'image': 55%,
-  
+
   'date': color('blue'),
   'description': $color-text-dark,
   'title': (
@@ -20,13 +20,13 @@ $molecules-tile-listing: (
     'hover': $color-actionable,
     'active': $color-actionable
   ),
-  
+
   'border': (
     'thickness': $border-width-s,
     'color': tint(color('slate'), 50%)
   ),
   'radius': 5px
-  
+
 );
 
 /// Defines the tile-listing component theme.
@@ -39,10 +39,10 @@ $molecules-tile-listing: (
 ///
 /// @output The tile-listing component's themeable properties
 @mixin molecules-tile-listing--theme ( $skin ) {
-  
+
   // Capture selector.
   $selector: &;
-  
+
   // Capture themeable variables from skin.
   $padding: map-deep-get($skin, 'padding');
   $gap: map-deep-get($skin, 'gap');
@@ -51,98 +51,103 @@ $molecules-tile-listing: (
   $title: map-deep-get($skin, 'title');
   $description: map-deep-get($skin, 'description');
   $radius: map-deep-get($skin, 'radius');
-  
+
   // Get positional padding values.
   $padding-top: positional-value($padding, 'top');
   $padding-right: positional-value($padding, 'right');
   $padding-bottom: positional-value($padding, 'bottom');
   $padding-left: positional-value($padding, 'left');
-  
+
   // Get border-specific variables.
   $border-thickness: map-deep-get($skin, 'border.thickness');
   $border-color: map-deep-get($skin, 'border.color');
-  
+
   // Defines the tile-listing component's base styles.
   padding: $padding;
   padding-top: calc(#{$image} + #{$padding-top});
   grid-gap: $gap;
   border-radius: $radius;
   border: $border-thickness solid $border-color;
-  
+
   // Defines tile listing styles without descriptions and actions.
   &:not(.has-description):not(.has-action) {
     grid-template-rows: repeat(2, min-content);
   }
-  
+
   // Defines tile listing styles with descriptions and actions.
   &.has-description.has-action {
     grid-template-rows: repeat(3, min-content) 1fr;
   }
-  
+
   // Defines tile listing styles without descriptions but with actions.
   &:not(.has-description).has-action {
     grid-template-rows: repeat(2, min-content) 1fr;
   }
-  
+
   // Defines tile listing styles without actions but with descriptions.
   &:not(.has-action).has-description {
     grid-template-rows: repeat(2, min-content) 1fr;
   }
-  
+
   // Defines tile listing styles without badge.
   &:not(.has-badge) { }
-  
+
   // Defines tile listing styles with badge.
   &.has-badge {
     border-top-left-radius: 0;
   }
-  
+
   // Defines tile listing styles without actions.
   &:not(.has-action) { }
-  
+
   // Defines tile listing styles with actions.
   &.has-action { }
-  
+
   // Defines tile listing image styles.
   &-image {
     padding-bottom: $image;
   }
-  
+
   // Defines tile listing date styles.
   &-date {
-    @include tokens-heading('h6', $date);
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6', $color: $date);
   }
-  
+
   // Defines tile listing title styles.
   &-title {
-    
+
     // Modifies styles based on presence of a description.
     @include when-descendant-of( '#{$selector}:not(.has-description)' ) {
-      @include tokens-heading('h5');
+      @include tokens-heading--font('h5');
+      @include tokens-heading--color('h5');
       @include atoms-link((
         color: $title,
         weight: normal
       ));
     };
     @include when-descendant-of( '#{$selector}.has-description' ) {
-      @include tokens-text('listing');
+      @include tokens-text--font('listing');
+      @include tokens-text--color('listing');
       @include atoms-link((
         color: $title,
         weight: normal
       ));
     };
-    
+
   }
-  
+
   // Defines tile listing description styles.
   &-description {
-    @include tokens-text('body-alt', $description);
+    @include tokens-text--font('body-alt');
+    @include tokens-text--color('body-alt', $color: $description);
   }
-  
+
   // Defines tile listing action styles.
   &-action {
-    @include tokens-heading('h6');
+    @include tokens-heading--font('h6');
+    @include tokens-heading--color('h6');
     @include atoms-link;
   }
-  
+
 }

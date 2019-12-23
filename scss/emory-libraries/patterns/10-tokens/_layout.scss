@@ -20,20 +20,20 @@
 /// @output The native structure and skin of our layout component
 ///
 /// @status review
-@mixin tokens-layout ( $custom: () ) {
-  
+@mixin tokens-layout ( $custom: (), $extra: null ) {
+
   // Extend the default skin.
   $skin: map-extend($tokens-layout, $custom);
-  
+
   // Initialize the layout component.
   & {
-    
+
     // Load structure.
     @extend %tokens-layout;
-    
+
     // Load skins.
-    @include tokens-layout--theme( $skin );
-    
+    @include tokens-layout--theme( $skin, $extra );
+
   }
-  
+
 }

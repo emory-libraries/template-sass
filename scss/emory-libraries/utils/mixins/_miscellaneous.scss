@@ -1,0 +1,10 @@
+////
+/// @group emory-libraries.utils.mixins
+////
+
+/// Disable a group of styles.
+///
+/// @since 1.0.0
+///
+/// @content
+@mixin disable( $disabled: true ) { @if( $disabled == false ) { @content; } }

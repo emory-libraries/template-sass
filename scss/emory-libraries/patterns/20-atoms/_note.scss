@@ -21,19 +21,19 @@
 ///
 /// @status review
 @mixin atoms-note ( $custom: () ) {
-  
+
   // Extend the default skin.
   $skin: map-extend($atoms-note, $custom);
-  
+
   // Initialize the note component.
   & {
-    
+
     // Load structure.
     @extend %atoms-note;
-    
+
     // Load skins.
     @include atoms-note--theme( $skin );
-    
+
   }
-  
+
 }
