@@ -1,0 +1,21 @@
+# Folder Structure and Contents
+- `assets`: Contains the `icons` subfolder.
+  - `assets/icons`: Stores and processes SVG icons.
+    - `assets/icons/js`: contains `download.js` which is used to automatically download material design icons into individual SVG files.
+    - `assets/icons/php`: Contains PHP scripts for serving SVG icons to pages that reference them through `icon.php`.  This folder also includes classes associated with the PHP script.
+    - `assets/icons/sprite`: Contains the consolidated SVG sprite.
+    - `assets/icons/svg`: Contains individual SVG icons.
+    - `assets/icons/icons.json`: an index of every icon available.
+- `docs`: The generated [SassDoc](http://sassdoc.com/)
+- `scripts`: Contains scripts used by [Grunt](https://gruntjs.com/).
+  - `scripts/status.js`: Manages pattern statuses such as "construction", "review", "complete", "deprecated", etc.
+- `scss`: Contains the Sass.
+  - `scss/emory-libraries`: Contains the Sass framework developed by Emory Libraries. 
+    - `scss/emory-libraries/config`: Contains the default values for elements such as borders, fonts, breakpoints, colors, layout, etc.
+    - `scss/emory-libraries/core`: Establishes the base styles, include CSS resets.
+    - `scss/emory-libraries/patterns`: The core directory where styles for individual patterns are defined. Each pattern directory contains `_skin.scss`, which contains the presentation styles, and `_structure.scss`, which contains the styles for layout and structure.
+    - `scss/emory-libraries/state/`: Contains files for transitions, animations, and the `v-cloak` styles for VueJS.
+    - `scss/emory-libraries/utils/`: Contains a small collection of mixins and functions utilized throughout the framework.
+    - `scss/emory-libraries/vends`: Contains the `vends` subfolder that contains dependencies such as [Breakpoint](http://breakpoint-sass.com/) and Lauren Hamel's [Brandy](https://github.com/laurenhamel/brandy).
+- `templates`: Contains the directory structure and file template for the `grunt plop` command to use to generate new patterns.
+- `test`: Scratch files for testing style development.
