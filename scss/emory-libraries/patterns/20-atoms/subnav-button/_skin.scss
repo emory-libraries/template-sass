@@ -401,7 +401,7 @@ $atoms-subnav-button: (
     #{$selector}-options {
       --max: 300px;
 
-      transition: all $duration $timing;
+      //transition: all $duration $timing;
       @if( is-null($menu-shadow) == false and $menu-shadow != false ) {
         box-shadow: $menu-shadow;
       }
